@@ -4,7 +4,7 @@
 
 The agent builds the handoff brief from mail, notes and the system of record. It marks each fact as stated, observed or inferred, and tracks transfer through Prepared, Offered, Accepted and Completed. A brief is not a transfer: the account has moved only when the receiver has accepted in writing.
 
-It serves the Hand over step. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
+It serves the Own stage. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 ## The problem it solves
 

@@ -5,7 +5,7 @@ description: Judges whether a post suits a community group's rules, then drafts 
 
 # Decide and draft group shares
 
-Step: Build. Rules served: 1 Stop at the boundaries, 4 Claim only what you can show.
+Stage: Operate. Rules served: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 ## When not to use this
 

@@ -4,7 +4,7 @@
 
 The agent reads a numbered copy of the draft and checks seven known patterns. It reports each finding with the line and a proposed fix, applies the fixes to a separate copy and verifies that every fact is unchanged.
 
-It supports the Check step. It serves rule 3 (read back the real result) and rule 4 (claim only what you can show).
+It supports the Track stage. It serves rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## The problem it solves
 

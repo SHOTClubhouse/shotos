@@ -7,7 +7,7 @@ description: "Writes an explainer end to end: classify, draft with worked exampl
 
 Turn a topic into a document that a named reader understands, with examples that work, checked before it is filed or shared.
 
-**Step:** Build. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 1 (stop at the boundaries).
+**Stage:** Operate. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 1 (stop at the boundaries).
 
 ## When not to use this
 

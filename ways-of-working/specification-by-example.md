@@ -85,11 +85,11 @@ The last row is the case that should fail the drafter if it guesses. If the draf
 - **One person writing everything.** The viewpoints that disagree are the ones that find the gaps.
 - **An eval set made only by the model that is being evaluated.** It will favour itself.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Brief:** this is the core method. Examples and success criteria are agreed before building starts.
-- **Build:** the examples are the tests the work must pass.
-- **Check:** the same examples, run again on the live result, are evidence.
+- **Stage H, Hypothesise:** this is the core method. Examples and success criteria are agreed before building starts.
+- **Stage O, Operate:** the examples are the tests the work must pass.
+- **Stage T, Track:** the same examples, run again on the live result, are evidence.
 - **Rule 2, Agree acceptance first:** the examples are the acceptance. See the [agree-acceptance skill](../skills/agree-acceptance/README.md) and the [acceptance card](../templates/acceptance.md).
 - **Rule 3, Read back the real result:** run the examples against the real thing, not a description of it.
 

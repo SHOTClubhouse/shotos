@@ -7,7 +7,7 @@ description: "Writes a runbook from what was actually done: owner, steps, checks
 
 Turn a process that works into instructions a different person can follow without the builder in the room. Base it on what was done and observed, not on what the design said should happen.
 
-Step: Hand over. Rules: 3 Read back the real result, 4 Claim only what you can show, 1 Stop at the boundaries.
+Stage: Own. Rules: 3 Read back the real result, 4 Claim only what you can show, 1 Stop at the boundaries.
 
 ## When not to use this
 

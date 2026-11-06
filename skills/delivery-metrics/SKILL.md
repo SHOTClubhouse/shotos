@@ -7,7 +7,7 @@ description: Measures the four DORA delivery keys from existing git history, dep
 
 Get honest numbers for how work reaches users and how well AI features behave, using records that already exist. Report trends and context, never league tables or targets for individuals.
 
-Step: Check. Rules: 3 Read back the real result, 4 Claim only what you can show. The four keys come from the DORA research programme; credit it.
+Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show. The four keys come from the DORA research programme; credit it.
 
 ## When not to use this
 

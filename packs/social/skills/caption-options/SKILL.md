@@ -5,7 +5,7 @@ description: Writes five caption options (A to E) with platform variants and alt
 
 # Write caption options with facts checked
 
-Step: Build. Rules served: 4 Claim only what you can show, 1 Stop at the boundaries.
+Stage: Operate. Rules served: 4 Claim only what you can show, 1 Stop at the boundaries.
 
 ## When not to use this
 

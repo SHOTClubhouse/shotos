@@ -4,7 +4,7 @@
 
 The agent asks who the reader is, finds the answer and puts it first, shortens sentences, turns passive phrasing into active verbs and explains or replaces jargon. It sets a length for that reader and reports every change so the owner can reverse any of them.
 
-It supports the Check step. It serves rule 3 (read back the real result) and rule 4 (claim only what you can show).
+It supports the Track stage. It serves rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## The problem it solves
 

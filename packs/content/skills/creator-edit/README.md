@@ -4,7 +4,7 @@
 
 The agent studies the creator's voice, edits lightly towards a keep target of 85 to 95 per cent of their wording, logs every change, checks facts, consistency and risk, and prepares a version for each channel. The creator approves the final.
 
-It supports the Build step. It serves rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+It supports the Operate stage. It serves rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## The problem it solves
 

@@ -2,7 +2,7 @@
 
 **The rule:** Add a risk tag to a task only when evidence in the task triggers it, and name the evidence.
 
-Serves rule 2, [Agree acceptance first](../docs/controls.md). Matters most in **Brief**, when the route is chosen, and again in **Build**, when new facts appear.
+Serves rule 2, [Agree acceptance first](../docs/controls.md). Matters most in **Scope**, when the route is chosen, and again in **Operate**, when new facts appear.
 
 ## Why it exists
 

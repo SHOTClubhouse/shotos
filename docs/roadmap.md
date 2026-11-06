@@ -4,18 +4,18 @@ Each item ships when it has evidence behind it, not before.
 
 ## Done in 1.0
 
-- The five-step work loop, four rules, twelve agent controls and six guardrails.
-- 28 core skills covering every step, and 12 packs with 54 more.
+- The six stages, four rules, twelve agent controls and six guardrails.
+- 28 core skills covering every stage, and 12 packs with 54 more.
 - Ways of working, role agents, review lenses and a cast file.
 - Installer support for packs and role agents, and a Claude Code plugin per pack.
-- Outcome evals: ten realistic synthetic tasks, graded on what the agent produced, run with and without SHOTos on three Claude models.
+- Outcome evals: ten real tasks, graded on what the agent produced, run with and without SHOTos on three Claude models.
 
 ## Next
 
-- **Live adoption:** start with proposals and handovers. Record what the reviewer changed, how long review took and whether the next person could act. [Measurement sheet](../templates/accepted-work-ledger.csv).
-- **Other runtimes:** verify installation and skill loading in representative Codex, Gemini CLI and Antigravity environments.
-- **More platforms:** live agent runs of claim-check, the hook and the installer on macOS and Linux. The automated tests already run in CI on all three.
-- **Live automation runs:** the two Apps Script automations run end to end in a test Google account, with the read-back recorded.
+- **Run one real programme:** agree a baseline and thresholds at Scope and Hypothesise, record the Track decision and observe an independent cycle before rollout.
+- **Verify runtime setup:** open an installed stage skill in a fresh session, check access and approval paths, and record which platforms and runtimes were verified.
+- **Check live automations:** run each Apps Script automation end to end in a test Google account and record what the account shows.
+- **Measure work through acceptance:** capture review, rework and handoff time alongside agent runtime in the accepted-work ledger.
 
 ## Later
 

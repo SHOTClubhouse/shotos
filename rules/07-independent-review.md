@@ -2,7 +2,7 @@
 
 **The rule:** Size review to the risk, give the reviewer the acceptance and the evidence but not the author's conclusion, and treat agreement as information, not authority.
 
-Serves rule 3, [Read back the real result](../docs/controls.md). Matters most in **Build** and **Check** for work that matters.
+Serves rule 3, [Read back the real result](../docs/controls.md). Matters most in **Operate** and **Track** for work that matters.
 
 ## Why it exists
 

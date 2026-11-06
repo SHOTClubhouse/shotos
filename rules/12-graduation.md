@@ -2,7 +2,7 @@
 
 **The rule:** A class of task earns more autonomy only through logged acceptance, drops a rung when the record slips, and stays at rung 1 if high-risk unless a named person promotes it.
 
-Serves rule 4, [Claim only what you can show](../docs/controls.md): trust is a claim, and the log is its evidence. Matters most in **Improve**.
+Serves rule 4, [Claim only what you can show](../docs/controls.md): trust is a claim, and the log is its evidence. Matters most in **Sustain and Scale**.
 
 ## Why it exists
 

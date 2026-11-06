@@ -5,7 +5,7 @@ description: Audits a public or customer-facing document, listing each factual c
 
 # Audit the claims before the document goes out
 
-Step: Check. Rules: 4 (claim only what you can show) and control 10 (claim discipline).
+Stage: Track. Rules: 4 (claim only what you can show) and control 10 (claim discipline).
 
 A reader trusts a document until one claim fails. Find the weak claims first, and let the owner decide.
 

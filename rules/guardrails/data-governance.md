@@ -67,7 +67,7 @@ Before publishing, sharing or committing anything external:
 | [11: context control](../11-context-control.md) | Keeps data out of records and out of long contexts |
 | [8: two-session execution](../08-two-session-execution.md) | Freezes exactly which records go where |
 
-Skills: `capture-the-problem` records the data involved in the brief; `evidence-handoff` passes references instead of data.
+Skills: `capture-the-problem` records the data involved at Scope; `evidence-handoff` passes references instead of data.
 
 ## Common failure
 

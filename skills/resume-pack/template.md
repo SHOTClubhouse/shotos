@@ -2,7 +2,7 @@
 
 **Written (date, time):**
 **Owning record (path or link):**
-**Step:**
+**Stage:**
 **Branch / commit / version:**
 
 ## State

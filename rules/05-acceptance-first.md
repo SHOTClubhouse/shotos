@@ -2,7 +2,7 @@
 
 **The rule:** Before the work starts, write down observable examples of done, and for output that varies, a small eval set that includes a case that should fail. Get the owner's yes first for large, risky or unclear work; when the request already says what done looks like, write the card from it, name your assumptions and carry on.
 
-Serves rule 2, [Agree acceptance first](../docs/controls.md). Matters most in **Brief**, and it sets the target for **Build** and **Check**.
+Serves rule 2, [Agree acceptance first](../docs/controls.md). Matters most in **Hypothesise**, and it sets the target for **Operate** and **Track**.
 
 ## Why it exists
 

@@ -33,8 +33,12 @@
 -
 
 # Acceptance record
+**Authorised offer date, channel and dispatch evidence:**
 **Receiver:**
 **I have read the brief and I accept the account:** yes | no | yes, with changes
 **Changes or conditions:**
+**Scope, capacity and permitted access confirmed by:**
+**First action and date:**
 **Date and how confirmed (written reply, signature):**
+**Independent cycle evidence and receiving lead sign-off (if this is an Own exit):**
 **Completed when:** customer told (date), system of record updated (date), first action done (date).

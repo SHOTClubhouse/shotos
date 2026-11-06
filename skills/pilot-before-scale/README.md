@@ -4,7 +4,7 @@
 
 The agent pilots any bulk job on up to three varied items, inspects each result in its real home, fixes the problems, and completes a preflight checklist covering inputs, targets, rollback, budget and stop condition before the full run. It also says whether the job should stay a one-off or become a repeatable process.
 
-It belongs to the Build step. It serves rule 1, Stop at the boundaries, and rule 3, Read back the real result. The detail is in [rules/09-pilot-before-scale.md](../../rules/09-pilot-before-scale.md).
+It belongs to the Operate stage. It serves rule 1, Stop at the boundaries, and rule 3, Read back the real result. The detail is in [rules/09-pilot-before-scale.md](../../rules/09-pilot-before-scale.md).
 
 ## The problem it solves
 

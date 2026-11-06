@@ -12,13 +12,13 @@ This pack covers the admin that small organisations put off until it is urgent. 
 
 ## The skills
 
-| Skill | Step | What it does |
+| Skill | SHOTos stage | What it does |
 |---|---|---|
-| [grants-finder](skills/grants-finder/README.md) | Brief | Finds and screens grants: eligibility first, then evidence, then budget. Shortlist with deadlines and fit. Drafts applications; submits only after a yes on exactly what goes. |
-| [awards-finder](skills/awards-finder/README.md) | Brief | Finds free-to-enter awards, screens eligibility and prepares evidence-backed entries. Pays or submits only after a yes on exactly what goes. |
-| [investor-update](skills/investor-update/README.md) | Check | Drafts a monthly or quarterly investor update from approved material only, with every figure traceable. Drafts by default; sends only after a yes. |
-| [data-room](skills/data-room/README.md) | Hand over | Builds and audits a due-diligence data room: standard categories, an index, what is missing, who may see what, and a check that nothing is shared more widely than intended. |
-| [advisory-board-kit](skills/advisory-board-kit/README.md) | Brief | Sets up an advisory board: roles, expectations, a terms summary for a lawyer to review, meeting rhythm, contribution map and what advisers may say publicly. |
+| [grants-finder](skills/grants-finder/README.md) | Scope | Finds and screens grants: eligibility first, then evidence, then budget. Shortlist with deadlines and fit. Drafts applications; submits only after a yes on exactly what goes. |
+| [awards-finder](skills/awards-finder/README.md) | Scope | Finds free-to-enter awards, screens eligibility and prepares evidence-backed entries. Pays or submits only after a yes on exactly what goes. |
+| [investor-update](skills/investor-update/README.md) | Track | Drafts a monthly or quarterly investor update from approved material only, with every figure traceable. Drafts by default; sends only after a yes. |
+| [data-room](skills/data-room/README.md) | Own | Builds and audits a due-diligence data room: standard categories, an index, what is missing, who may see what, and a check that nothing is shared more widely than intended. |
+| [advisory-board-kit](skills/advisory-board-kit/README.md) | Hypothesise | Sets up an advisory board: roles, expectations, a terms summary for a lawyer to review, meeting rhythm, contribution map and what advisers may say publicly. |
 
 ## What this pack does not do on its own
 
@@ -38,13 +38,6 @@ python ../shotos/install.py --runtime claude --scope project --pack founder-admi
 ```
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
-
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-founder-admin@shotos
-```
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 

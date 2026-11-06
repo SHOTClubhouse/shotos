@@ -4,7 +4,7 @@
 
 This skill makes the agent record the current value of each measure that matters, where the value came from and what period it covers. Where there is no data, it writes "not measured" and says how to find out. It never fills a gap with a quiet guess.
 
-It belongs to the Brief step. It serves rule 4, Claim only what you can show, and rule 3, Read back the real result, because a later result can only be read against a real before.
+It belongs to the Scope stage. It serves rule 4, Claim only what you can show, and rule 3, Read back the real result, because a later result can only be read against a real before.
 
 ## The problem it solves
 

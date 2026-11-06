@@ -1,13 +1,13 @@
 ---
 name: cross-agent-review
-description: Pairs lead and independent reviewer from different models with the same acceptance card and evidence. Use for risky or external work. Their agreement is not approval; name the actual owner who can authorise a send.
+description: Pairs a lead agent with an independent reviewer from a different model, both given the same acceptance card and evidence. Use when work is medium or high risk or leaves the team. The owner decides.
 ---
 
 # Cross-agent review
 
 One agent reviewing its own work is a second look by the same eyes. A reviewer from a different model or runtime has different habits and blind spots, so it catches different things. Use one when the risk justifies the cost.
 
-**Step:** Build. **Rules:** 3 Read back the real result; 4 Claim only what you can show. Detail: `rules/07-independent-review.md` (in the SHOTos repository, or `.shotos/rules/07-independent-review.md` where SHOTos is installed).
+**Stage:** Operate. **Rules:** 3 Read back the real result; 4 Claim only what you can show. Detail: `rules/07-independent-review.md` (in the SHOTos repository, or `.shotos/rules/07-independent-review.md` where SHOTos is installed).
 
 ## When not to use this
 
@@ -25,7 +25,7 @@ Skip it for low-risk, easily reversed work. A second agent costs time and money,
 5. **Ask the reviewer for findings with evidence.** Each finding has: what is wrong, where (file, line, record, quote), the check it fails, and how to verify it. A feeling that something looks off is a question, not a finding. The reviewer also lists what it checked and found fine, and what it could not check.
 6. **The lead responds to each finding:** accept and fix, dispute with evidence, or pass to the owner. The lead does not delete findings. Disputes go to the owner with both sides.
 7. **Read back after fixes.** Re-check the fixed items in their real home. The reviewer looks again at what changed.
-8. **The owner decides.** Both agents agreeing is not authority, and neither is a clean review. Name the actual decision owner; if unknown, say "owner not identified" and do not send. Report to the owner: what was reviewed, by whom, findings and outcomes, disagreements, what was not checked, and a recommendation. The owner's yes or no is recorded. Say in the report that both agents got the same acceptance card and the same evidence, and name them.
+8. **The owner decides.** Both agents agreeing is not authority, and neither is a clean review. Report to the owner: what was reviewed, by whom, findings and outcomes, disagreements, what was not checked, and a recommendation. The owner's yes or no is recorded. Say in the report that both agents got the same acceptance card and the same evidence, and name them.
 9. **Record it.** Use [template.md](template.md) with the work, for example `.work/<task>/review.md`.
 
 ## Output

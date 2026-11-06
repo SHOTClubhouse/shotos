@@ -4,7 +4,7 @@
 
 The agent reads only recordings newer than the ledger's watermark, skips very short ones, reads the transcript before the calendar, confirms who is who before naming anyone, and updates a rolling file with a standing position and a dated entry per meeting. It marks a recording processed only after checking the output and reading the ledger back. It works with any transcript source, including pasted text.
 
-It serves the Check step. Rules: 3 Read back the real result, 4 Claim only what you can show.
+It serves the Track stage. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
 ## The problem it solves
 

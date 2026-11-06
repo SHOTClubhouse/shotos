@@ -7,7 +7,7 @@ description: "Writes a resume pack when a session ends or context fills: handoff
 
 Leave enough for a fresh session to carry on correctly, and nothing that should not be stored. The pack points to files; it does not copy conversations.
 
-Step: any. Rules: 4 Claim only what you can show, 1 Stop at the boundaries. Supports control 11, context-control.
+Stage: any. Rules: 4 Claim only what you can show, 1 Stop at the boundaries. Supports control 11, context-control.
 
 ## When not to use this
 
@@ -16,7 +16,7 @@ Skip it when the work is finished and handed over with an [evidence-handoff](../
 ## Steps
 
 1. **Find the owning record.** Work has one place where its state lives (a task file, an issue, a folder). Update that record first. The pack summarises and points to it; it does not replace it.
-2. **Write the state in a few lines.** What the task is, the step, what is done and checked, what is in progress, what is blocked and by whom. Label each item done and checked, done but unchecked, or planned.
+2. **Write the state in a few lines.** What the task is, the stage, what is done and checked, what is in progress, what is blocked and by whom. Label each item done and checked, done but unchecked, or planned.
 3. **List files and where they are.** Give relative paths, branch names and commit identifiers for the work touched. Say which are uncommitted. Do not paste the contents of files.
 4. **List decisions made and open questions.** One line each with the date and who decided. Mark anything the agent assumed.
 5. **List pending manual steps.** Things that have not been done and need a person: database changes still to apply, environment settings to change, approvals to obtain, messages to send, releases to trigger. For each one: what, where, who can do it, the order, and what proves it was done. Mark any irreversible step.

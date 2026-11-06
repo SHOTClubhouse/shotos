@@ -4,7 +4,7 @@
 
 The agent updates the owning record, then writes a one-page pack: the state, the files, decisions, pending manual steps, the exact next prompt and the learnings. It holds metadata only. It strips secrets, personal data and raw conversation.
 
-It works at any step. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries. It is the practical form of control 11, context-control.
+It works at any stage. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries. It is the practical form of control 11, context-control.
 
 ## The problem it solves
 

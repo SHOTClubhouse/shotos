@@ -5,7 +5,7 @@ description: Runs a monthly social insights review from the platform export and 
 
 # Review the month and adjust the mix
 
-Step: Check, feeding Improve. Rules served: 3 Read back the real result, 4 Claim only what you can show.
+Stage: Track, feeding Sustain and Scale. Rules served: 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

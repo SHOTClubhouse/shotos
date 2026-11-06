@@ -2,7 +2,7 @@
 
 ## What it is
 
-DORA is the DevOps Research and Assessment programme, a long-running research effort now run within Google Cloud, which studies what separates teams that deliver software well from those that do not. Its annual reports and the book *Accelerate* by Nicole Forsgren, Jez Humble and Gene Kim describe a small set of measures, often called the four keys, that predict both delivery results and organisational outcomes. SHOTos uses them in the Check step for any work that ships software.
+DORA is the DevOps Research and Assessment programme, a long-running research effort now run within Google Cloud, which studies what separates teams that deliver software well from those that do not. Its annual reports and the book *Accelerate* by Nicole Forsgren, Jez Humble and Gene Kim describe a small set of measures, often called the four keys, that predict both delivery results and organisational outcomes. SHOTos uses them in the Track stage for any work that ships software.
 
 ## The four keys
 
@@ -80,17 +80,17 @@ The DORA researchers say plainly that the measures are for a team to understand 
 - **Counting agent activity** (lines written, tasks started) instead of outcomes.
 - **Reporting only the good measures.**
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Brief:** record the baseline, or record "not measured".
-- **Check:** report the measures against the baseline and decide to scale, pivot or stop.
-- **Hand over and Improve:** the receiving team keeps measuring, so improvement continues without the builders.
+- **Scope:** record the baseline, or record "not measured".
+- **Track:** report the measures against the baseline and decide whether to move to Own, pivot, stop or hold for evidence.
+- **Own and Sustain:** the receiving team keeps measuring, so improvement continues without the builders.
 - **Rule 4, claim only what you can show:** every figure has a source; estimates are labelled.
 - **Control 12, graduation:** human edit rate and acceptance counts are the evidence.
 
 ## A short example
 
-Millbrook Rovers' volunteers maintain a booking site. In the brief they have no pipeline history, so they log changes by hand for a month: three deployments, a median of nine days from commit to live, one rollback. Three months after adding automated tests and an agent that drafts changes, the invented numbers are twelve deployments, a median of two days and one rollback. The coordinator reads this as better throughput with stable failures, but notes the sample is small and says so in the report. The AI-drafted reminder emails have an eval set of twenty cases. The pass rate rises from 14 to 18 passing, the human edit rate on a sample of forty sent reminders is about a third, and the cost per accepted reminder is a few pence. The coordinator keeps the task at draft-only until the edit rate has stayed low for much longer.
+Millbrook Rovers' volunteers maintain a booking site. At Scope they have no pipeline history, so they log changes by hand for a month: three deployments, a median of nine days from commit to live, one rollback. Three months after adding automated tests and an agent that drafts changes, the invented numbers are twelve deployments, a median of two days and one rollback. The coordinator reads this as better throughput with stable failures, but notes the sample is small and says so in the report. The AI-drafted reminder emails have an eval set of twenty cases. The pass rate rises from 14 to 18 passing, the human edit rate on a sample of forty sent reminders is about a third, and the cost per accepted reminder is a few pence. The coordinator keeps the task at draft-only until the edit rate has stayed low for much longer.
 
 ## Further reading
 

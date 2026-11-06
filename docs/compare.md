@@ -4,7 +4,7 @@ Choose based on the work you want to improve and the artefacts your team needs t
 
 | Toolkit | Start here when you need… | What you work with |
 |---|---|---|
-| [SHOTos](../README.md) | A shared brief, review and handover process across commercial, operations, product and engineering work | Acceptance examples, skills and templates, completion reports and a local claim checker |
+| [SHOTos](../README.md) | A six-stage programme across commercial, operations, product and engineering work | A baseline, bounded pilot, evidence gates, independent ownership and staged rollout |
 | [Superpowers](https://github.com/obra/superpowers) | A workflow for taking a software change from a design conversation to a reviewed branch | Skills for design, planning, isolated worktrees, implementation, test-driven development and code review |
 | [GitHub Spec Kit](https://github.com/github/spec-kit) | A specification-led process for building software across coding agents | A project constitution, feature specifications, plans, task lists and implementation checks |
 | [BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD) | A software delivery process organised around specialist agent roles | Role-specific workflows and artefacts for analysis, planning, design and implementation |

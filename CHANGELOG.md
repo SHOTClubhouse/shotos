@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 (6 November 2026)
+
+- Organise SHOTos around Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale, with a programme record that travels with project installs.
+- Start with an acceptance card in your usual assistant or a local demo that checks two reports about the same work.
+- Use an explicit offer, acknowledgement and independent-cycle check for handoffs. Verify proposals in the format you asked for and review commitments before sharing.
+- Keep the LEAP and NUDGE references, CRM templates and historical evidence available.
+
 ## 1.0.0 (6 November 2026)
 
 The full method, not only the rules.

@@ -4,7 +4,7 @@
 
 The agent builds the runbook from logs, history and the builder's account, marks each step as seen, told or from design, and adds checks, failure handling, rollback and who to call. A person who did not build the process then follows it, and the gaps they hit get fixed.
 
-It supports the Hand over step. It serves rule 3, Read back the real result, rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, for irreversible steps.
+It supports the Own stage. It serves rule 3, Read back the real result, rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, for irreversible steps.
 
 ## The problem it solves
 

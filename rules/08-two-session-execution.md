@@ -2,7 +2,7 @@
 
 **The rule:** For high-risk actions, review and approve in one session, freeze the approved items into a manifest, and execute from that manifest in a fresh session only after a yes.
 
-Serves rule 1, [Stop at the boundaries](../docs/controls.md). Matters most in **Build** and **Hand over** when something external is about to happen.
+Serves rule 1, [Stop at the boundaries](../docs/controls.md). Matters most in **Operate** and **Own** when something external is about to happen.
 
 ## Why it exists
 

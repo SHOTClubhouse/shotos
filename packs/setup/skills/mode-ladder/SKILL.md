@@ -1,11 +1,11 @@
 ---
 name: mode-ladder
-description: Picks Quick, Standard, Thorough or Team of agents from size, risk and uncertainty. Use when starting work or writing team policy. Team needs worker, time and cost limits plus a three-item pilot; no level grants authority to send.
+description: Picks an effort level (Quick, Standard, Thorough, Team of agents) from the work's size, risk and uncertainty. Use when starting work, when risk changes, or when writing a team policy. A bigger level never grants more authority.
 ---
 
 # Right-size the effort
 
-Step: Brief. Rules: 1 (stop at the boundaries) and controls 3 (mode contract) and 11 (context control).
+Stage: Scope. Rules: 1 (stop at the boundaries) and controls 3 (mode contract) and 11 (context control).
 
 Effort should follow the work. A larger setting buys more thinking, more context and more checking; it never buys more permission.
 
@@ -39,7 +39,7 @@ Score the task on three questions before choosing a level:
 
 ## What never changes with the level
 
-The five-step work loop, the four rules, acceptance first, read-back and the stop boundaries. The owner keeps authority over sending, spending, deleting, deploying and publishing at every level. A bigger setting never grants more authority.
+The six stages, the four rules, acceptance first, read-back and the stop boundaries. The owner keeps authority over sending, spending, deleting, deploying and publishing at every level. A bigger setting never grants more authority.
 
 ## Using it as team policy
 

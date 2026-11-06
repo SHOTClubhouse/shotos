@@ -7,7 +7,7 @@ description: "Turns a leader's pasted rough notes, links, dictation and ideas in
 
 Take unstructured input and give back a short list of recommendations, each routed to one place. The leader thinks quickly and loosely; the skill's job is to keep the meaning and drop the noise, and to refuse to invent a task from a half-thought.
 
-Step: Brief. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
+Stage: Scope. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
 
 ## When not to use this
 

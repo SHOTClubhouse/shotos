@@ -4,7 +4,7 @@
 
 The agent inventories a folder, files each document under a standard category, writes an index, lists what is missing, compares who is meant to see each category with who can, and flags anything confidential that is shared too widely. It reports; it changes nothing.
 
-It belongs to **Hand over**. It serves rule 1, Stop at the boundaries, rule 4, Claim only what you can show, and rule 3, Read back the real result.
+It belongs to **Own**. It serves rule 1, Stop at the boundaries, rule 4, Claim only what you can show, and rule 3, Read back the real result.
 
 ## The problem it solves
 

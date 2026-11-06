@@ -7,7 +7,7 @@ description: "Builds a small eval set for AI output: 5 to 20 real examples, what
 
 For output that varies, "it looked fine when I tried it" is not a test. An eval set is a short list of real inputs with written expectations, so every change to the prompt or the model can be checked against the same cases.
 
-**Step:** Brief (reused in Build and Check). **Rules:** 2 Agree acceptance first; 3 Read back the real result.
+**Stage:** Hypothesise (reused in Operate and Track). **Rules:** 2 Agree acceptance first; 3 Read back the real result.
 
 ## When not to use this
 

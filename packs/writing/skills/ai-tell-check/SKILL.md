@@ -7,7 +7,7 @@ description: Finds and fixes machine-sounding patterns in a draft, such as em da
 
 Make a draft sound like a person wrote it, by finding the known patterns, fixing them and showing every change.
 
-**Step:** Check. **Rules served:** rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** Track. **Rules served:** rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 

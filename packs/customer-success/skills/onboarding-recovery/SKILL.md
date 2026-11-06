@@ -7,7 +7,7 @@ description: Diagnoses a stalled customer onboarding from mail, calendar and usa
 
 Work out where an onboarding stopped, pick the smallest next step that gets the customer to first value, and prepare the message for a person to send.
 
-Step: Build. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
+Stage: Operate. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

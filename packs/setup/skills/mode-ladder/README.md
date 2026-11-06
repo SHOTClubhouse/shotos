@@ -4,7 +4,7 @@
 
 This skill picks one of four effort levels for a session or task and says why. Quick is the lean default for small, safe work. Standard adds project context and acceptance examples. Thorough uses the strongest model, research and one bounded independent review. Team of agents runs several independent workers under a deterministic supervisor with set worker, time and cost limits. The choice is stated in one line and can be changed.
 
-It supports the Brief step. It serves rule 1, Stop at the boundaries, and controls [03, mode-contract](../../../../rules/03-mode-contract.md) and [11, context-control](../../../../rules/11-context-control.md).
+It supports the Scope stage. It serves rule 1, Stop at the boundaries, and controls [03, mode-contract](../../../../rules/03-mode-contract.md) and [11, context-control](../../../../rules/11-context-control.md).
 
 ## The problem it solves
 

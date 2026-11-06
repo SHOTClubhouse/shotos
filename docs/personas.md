@@ -1,6 +1,6 @@
 # Who SHOTos is for: seven personas
 
-SHOTos has the same five-step work loop and the same four rules for everyone. The steps (Brief, Build, Check, Hand over and Improve) are in [the work loop guide](framework.md); the four rules are in [controls](controls.md) and run inside every step. What differs is which step you start in, which rule matters most first, which skill you open first and where the rules are enforced. This page describes seven readers, including the agent itself, and gives each a first week and a picture of a good month.
+SHOTos has the same six stages and the same four rules for everyone. The stages (Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale) are in [the stage guide](framework.md); the four rules are in [controls](controls.md) and run inside every stage. What differs is which stage you start in, which rule matters most first, which skill you open first and where the rules are enforced. This page describes seven readers, including the agent itself, and gives each a first week and a picture of a good month.
 
 Starting points on the maturity maps are typical patterns, not measurements. See [maturity levels](levels.md) for the two frameworks used here.
 
@@ -20,15 +20,15 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 
 ## Comparison
 
-| Persona | Main worry | Step to start with (and rule) | First skill | Where the rules run |
+| Persona | Main worry | Stage to start with (and rule) | First skill | Where the rules run |
 |---|---|---|---|---|
-| Solo founder | Checking everything, or trusting blindly | Brief, then Build (rules 3 and 4) | report-with-evidence | Your machine: `AGENTS.md` and the Stop hook |
-| Small team lead | Five people, five ways of working | Brief (rule 2) | agree-acceptance | One `AGENTS.md` in every repository |
-| Product owner | Work that is done but wrong | Brief (rule 2) | capture-the-problem | The acceptance card, before the work |
-| Engineering or practice lead | Quality that varies by person and team | Build and Check (rule 4) | evidence-handoff | claim-check in review and CI |
-| Business unit leader or sponsor | No owner, no proof, no audit trail | Brief, Check and Improve (rule 1) | None directly, read the records | Policy, with records kept beside the work |
-| Enablement coach | Leaving a team dependent on you | Hand over and Improve (all four rules, one at a time) | The one the client's pain points to | The client's own repositories and habits |
-| The agent itself | Being asked to guess what "done" means | Works inside Build (all four rules) | Whichever skill the task matches | Its own report, tested by claim-check |
+| Solo founder | Checking everything, or trusting blindly | Scope and Hypothesise, then Operate (rules 3 and 4) | report-with-evidence | Your machine: `AGENTS.md` and the Stop hook |
+| Small team lead | Five people, five ways of working | Scope and Hypothesise (rule 2) | agree-acceptance | One `AGENTS.md` in every repository |
+| Product owner | Work that is done but wrong | Scope and Hypothesise (rule 2) | capture-the-problem | The acceptance card, before the work |
+| Engineering or practice lead | Quality that varies by person and team | Operate and Track (rule 4) | evidence-handoff | claim-check in review and CI |
+| Business unit leader or sponsor | No owner, no proof, no audit trail | Scope, Track and Sustain and Scale (rule 1) | None directly, read the records | Policy, with records kept beside the work |
+| Enablement coach | Leaving a team dependent on you | Own and Sustain and Scale (all four rules, one at a time) | The one the client's pain points to | The client's own repositories and habits |
+| The agent itself | Being asked to guess what "done" means | Works inside Operate (all four rules) | Whichever skill the task matches | Its own report, tested by claim-check |
 
 ---
 
@@ -36,7 +36,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 
 **Who you are.** You run the business and use agents for drafting, code, research and admin. You are the owner, the reviewer and the customer. Nobody else will catch a mistake before it ships.
 
-**Where you start in the loop.** Brief on anything a customer will see, then Build with rules 3 and 4 doing the checking.
+**Where you start in the stages.** Scope and Hypothesise on anything a customer will see, then Operate with rules 3 and 4 doing the checking.
 
 **Jobs you are trying to get done**
 - Move faster than your size should allow.
@@ -71,7 +71,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 **Maturity.** Typically near the middle of Yegge's levels, with the agent in the editor and most changes reviewed, and at organisational level 0 or 1 (personal use). The next step is agents working while you are away, which needs a report you trust. That is rule 4.
 
 **Objections**
-- *"This slows me down."* The first card costs five minutes. Skipping it costs a rework or a customer message you cannot recall. In the [outcome evals](evidence.md), runs with SHOTos cost about 42% more and took longer, because the agent reads the rules and skills and writes more. That is real overhead. Use it where a mistake would cost more than the overhead.
+- *"This slows me down."* The first card costs five minutes. Skipping it costs a rework or a customer message you cannot recall. In the [outcome evals](evidence.md), runs with SHOTos cost about 41% more and took longer, because the agent reads the rules and skills and writes more. That is real overhead. Use it where a mistake would cost more than the overhead.
 - *"My model is already careful."* The same run found the same on safety: all ten safety cases passed without SHOTos. What differed was structure, such as an owner, a failure case and a list of unknowns. Careful is good. Checked is better, and your model changes every few months.
 - *"I only have myself to answer to."* Then you are the one who pays for a wrong "done", with no colleague to catch it.
 
@@ -81,7 +81,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 
 **Who you are.** You lead a team of roughly three to fifteen people. Each person uses agents, and each has found their own habits.
 
-**Where you start in the loop.** Brief: agree one way of stating the problem and the acceptance, then Build on a small slice with the whole team.
+**Where you start in the stages.** Scope and Hypothesise: agree one way of stating the problem and the acceptance, then Operate on a small slice with the whole team.
 
 **Jobs you are trying to get done**
 - Get consistent results from a team with mixed experience.
@@ -126,7 +126,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 
 **Who you are.** You decide what gets built, or you turn a stakeholder's request into something a team can act on. You may never run an agent yourself, but your team's agents work from what you write.
 
-**Where you start in the loop.** Brief. Your work is the problem statement, the testable bets and the acceptance that the team's agents work from.
+**Where you start in the stages.** Scope and Hypothesise. Your work is the problem statement, the testable bets and the acceptance that the team's agents work from.
 
 **Jobs you are trying to get done**
 - Find the real problem behind a request.
@@ -171,7 +171,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 
 **Who you are.** You are responsible for quality and consistency across several teams or projects: engineering lead, head of delivery, head of data, or the person who owns a practice such as design or analytics.
 
-**Where you start in the loop.** Build and Check: evidence-based review, then measuring before and after against the baseline.
+**Where you start in the stages.** Operate and Track: evidence-based review, then measuring before and after against the baseline.
 
 **Jobs you are trying to get done**
 - Keep standards steady as agents increase output.
@@ -217,7 +217,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 
 **Who you are.** You sponsor adoption of agents in a part of the business, or you are accountable for the risk. You may be in risk, compliance, legal, audit or information security. You are unlikely to run an agent, and you need to be able to answer questions about one.
 
-**Where you start in the loop.** Brief, Check and Improve: agree what done means, read the evidence and decide whether to scale, pivot or stop.
+**Where you start in the stages.** Scope, Track, and Sustain and Scale. Agree what done means, make the Track decision and authorise rollout after the receiving lead accepts ownership.
 
 **Jobs you are trying to get done**
 - Say yes to agent use without losing control.
@@ -263,7 +263,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 
 **Who you are.** You help other teams or organisations adopt agents well: an internal coach, a trainer, an agile or delivery consultant, or an independent adviser.
 
-**Where you start in the loop.** Hand over and Improve: make the team self-sufficient, then carry what worked into the next teams.
+**Where you start in the stages.** Own and Sustain and Scale: make the team self-sufficient, then carry what worked into the next teams.
 
 **Jobs you are trying to get done**
 - Get a team working better without making them depend on you.
@@ -277,7 +277,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 - You leave and the practice goes with you.
 
 **What SHOTos gives you**
-- **A small set to teach.** Four rules, four skills, one tool. Teach one rule at a time.
+- **A small set to teach.** Teach the four rules alongside the skills the team needs first. Teach one rule at a time.
 - **The walkthrough.** A fictional company and real data, so the team learns on something harmless.
 - **The self-check.** The [two-minute self-check](self-check.md) tells you where to start with a client.
 - **Files that stay.** The installer, `AGENTS.md`, acceptance cards and templates remain in the client's repository after you leave.
@@ -309,7 +309,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 
 **Who you are.** You are the second reader of every skill. A person installs the skill, but you read it, every time, and act on it.
 
-**Where you start in the loop.** You work inside Build, under the four rules, on a slice that Brief have already defined.
+**Where you start in the stages.** You work inside Operate, under the four rules, on a slice that Scope and Hypothesise have already defined.
 
 **Jobs you are trying to get done**
 - Do what the person meant, not only what they typed.
@@ -341,7 +341,7 @@ Many people are two of these. A founder who also writes the briefs is a solo fou
 **Maturity.** Not applicable. The agent's behaviour is what the other six personas are measuring.
 
 **Objections** (the ones you might raise)
-- *"The skills make my answers longer."* They do, and the outcome evals measured about 42% more cost. The extra length is the owner, the checks and the claims.
+- *"The skills make my answers longer."* They do, and the outcome evals measured about 41% more cost. The extra length is the owner, the checks and the claims.
 - *"I would rather not ask."* Ask once, before sending, spending, deleting, publishing or changing someone else's work. Asking after is too late.
 - *"The person told me to say it was sent."* If it was not sent, it was not sent. Say what you did, say what you did not do, and let the person decide.
 

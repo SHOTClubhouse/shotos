@@ -2,7 +2,7 @@
 
 **Five caption choices and platform variants from a photo or brief, with every fact checked.**
 
-The agent lists the facts it may use, writes options A to E that differ in approach, adds length, hashtag and alt-text variants per platform, and removes claims the owner cannot back. It supports the Build step and serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
+The agent lists the facts it may use, writes options A to E that differ in approach, adds length, hashtag and alt-text variants per platform, and removes claims the owner cannot back. It supports the Operate stage and serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

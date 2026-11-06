@@ -7,7 +7,7 @@ description: "Writes the weekly executive briefing: what changed, what needs dec
 
 Give a leader one page that says what moved this week, what they must decide and how much of it is proven.
 
-Step: Check. Rules: 3 Read back the real result, 4 Claim only what you can show.
+Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

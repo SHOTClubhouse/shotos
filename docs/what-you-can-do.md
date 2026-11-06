@@ -38,7 +38,7 @@ Pick the job, install the pack, and ask in plain words. Every skill below drafts
 | Make a decision | [decision-brief](../packs/exec-ops/skills/decision-brief/README.md) | "Write a decision brief on whether to open on Sundays." |
 | Update investors | [investor-update](../packs/founder-admin/skills/investor-update/README.md) | "Draft this month's investor update from the approved numbers in this sheet." |
 
-## Get a project right
+## Run a project through the six stages
 
 | I want to | Skill | Try asking |
 |---|---|---|
@@ -46,7 +46,10 @@ Pick the job, install the pack, and ask in plain words. Every skill below drafts
 | Agree what done looks like | [agree-acceptance](../skills/agree-acceptance/README.md) | "Before you start: set up acceptance for the new booking form." |
 | Measure where we are today | [baseline](../skills/baseline/README.md) | "Record our baseline for supplier invoice queries from this export." |
 | Prove whether it worked | [evidence-pack](../skills/evidence-pack/README.md) | "Compare this quarter with the baseline and draft the evidence pack." |
+| Test a bet in a bounded pilot | [hypothesis card](../skills/hypothesis-card/README.md), [pilot before scale](../skills/pilot-before-scale/README.md) | "Set our success threshold, guard checks and stop conditions before the pilot." |
 | Hand work over | [evidence-handoff](../skills/evidence-handoff/README.md), [runbook](../skills/runbook/README.md) | "Write the handoff and a runbook so the team can run this without me." |
+| Prove the team can run it | [enablement plan](../skills/enablement-plan/README.md) | "Plan an independent cycle and record who will accept it." |
+| Take the method to a second team | [rollout plan](../skills/rollout-plan/README.md) | "Check the handoff and sponsor approval, then plan one wave with its own baseline." |
 | Check an agent's work | [cross-agent-review](../skills/cross-agent-review/README.md) | "Have a second model review this proposal against the acceptance card." |
 
 ## Keep things safe and tidy

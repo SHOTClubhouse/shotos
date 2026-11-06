@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 478" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
+  <title id="title">Can a clear answer save repeat calls?</title>
+  <desc id="desc">WEEK 1. Count allergy questions. Keep the count for comparison.. WEEK 2. Draft the answer page. Check every allergen against recipe cards.. WEEK 3. Draft a week of posts. Use what is happening in the shop.. WEEK 4. Count again. Keep, change or drop the answer page.. Compare like weeks before deciding whether the page helped.</desc>
+  <rect width="960" height="478" rx="20" fill="#102132"/>
+  <text x="36" y="38" fill="#9ee8d9" font-size="17" font-weight="700" letter-spacing="2">SMALL BUSINESS / FIRST MONTH</text>
+  <text x="36" y="83" fill="#ffffff" font-size="36" font-weight="700">Can a clear answer save repeat calls?</text>
+  <path d="M36 107H924" stroke="#3b5366"/>
+  <g transform="translate(36 128)">
+    <rect width="434" height="127" rx="13" fill="#20364b" stroke="#436079"/>
+    <rect x="18" y="17" width="34" height="29" rx="6" fill="#9ee8d9"/>
+    <text x="35" y="37" text-anchor="middle" fill="#102132" font-size="16" font-weight="700">01</text>
+    <text x="64" y="37" fill="#9ee8d9" font-size="16" font-weight="700">WEEK 1</text>
+    <text x="18" y="75" fill="#ffffff" font-size="27" font-weight="700">Count allergy questions</text>
+    <text x="18" y="105" fill="#e3edf5" font-size="18">Keep the count for comparison.</text>
+  </g>
+  <g transform="translate(490 128)">
+    <rect width="434" height="127" rx="13" fill="#20364b" stroke="#436079"/>
+    <rect x="18" y="17" width="34" height="29" rx="6" fill="#d7cafb"/>
+    <text x="35" y="37" text-anchor="middle" fill="#102132" font-size="16" font-weight="700">02</text>
+    <text x="64" y="37" fill="#d7cafb" font-size="16" font-weight="700">WEEK 2</text>
+    <text x="18" y="75" fill="#ffffff" font-size="27" font-weight="700">Draft the answer page</text>
+    <text x="18" y="105" fill="#e3edf5" font-size="18">Check every allergen against recipe cards.</text>
+  </g>
+  <g transform="translate(36 273)">
+    <rect width="434" height="127" rx="13" fill="#20364b" stroke="#436079"/>
+    <rect x="18" y="17" width="34" height="29" rx="6" fill="#f6d791"/>
+    <text x="35" y="37" text-anchor="middle" fill="#102132" font-size="16" font-weight="700">03</text>
+    <text x="64" y="37" fill="#f6d791" font-size="16" font-weight="700">WEEK 3</text>
+    <text x="18" y="75" fill="#ffffff" font-size="27" font-weight="700">Draft a week of posts</text>
+    <text x="18" y="105" fill="#e3edf5" font-size="18">Use what is happening in the shop.</text>
+  </g>
+  <g transform="translate(490 273)">
+    <rect width="434" height="127" rx="13" fill="#20364b" stroke="#436079"/>
+    <rect x="18" y="17" width="34" height="29" rx="6" fill="#9ee8d9"/>
+    <text x="35" y="37" text-anchor="middle" fill="#102132" font-size="16" font-weight="700">04</text>
+    <text x="64" y="37" fill="#9ee8d9" font-size="16" font-weight="700">WEEK 4</text>
+    <text x="18" y="75" fill="#ffffff" font-size="27" font-weight="700">Count again</text>
+    <text x="18" y="105" fill="#e3edf5" font-size="18">Keep, change or drop the answer page.</text>
+  </g>
+  <text x="36" y="446" fill="#e3edf5" font-size="20">Compare like weeks before deciding whether the page helped.</text>
+</svg>

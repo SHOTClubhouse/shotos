@@ -7,11 +7,11 @@ description: Writes the brief for moving a customer account to whoever will deli
 
 Make a handoff that the receiver can act on and that cannot be mistaken for done until they have accepted it.
 
-Step: Hand over. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
+Stage: Own. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 ## When not to use this
 
-Skip it for a quick note about one conversation, or for an account that is staying with the same person. Do not use it to hand over an account that has not been agreed with the receiver or the owner.
+Skip it for a quick note about one conversation, or for an account that is staying with the same person. Draft a brief while a receiver is being confirmed. A live transfer needs the current owner's authority and the receiver's acceptance.
 
 ## Steps
 
@@ -25,10 +25,10 @@ Skip it for a quick note about one conversation, or for an account that is stayi
 5. **Write the brief** using [template.md](template.md): the account, what was promised, contacts, history, lifecycle stage, health with evidence, open issues, risks, the first three actions for the receiver and what is not known.
 6. **Set the transfer status honestly.**
    - **Prepared:** the brief exists.
-   - **Offered:** the giver has asked the receiver to take the account.
-   - **Accepted:** the receiver has said yes, in writing, using the acceptance record.
+   - **Offered:** an authorised offer reached the named receiver. Record the dispatch evidence. The status stays Offered while acknowledgement is pending.
+   - **Accepted:** the named receiver agreed in writing, confirmed scope, capacity and permitted access, and gave a date for the first action.
    - **Completed:** the customer has been told, ownership is changed in the system of record and the first action has been taken.
-   A brief is not a transfer. Only the receiver can accept, and the agent cannot mark Accepted or Completed.
+   Only the receiver can accept. The agent records the evidence and leaves the status decision to the authorised people. Confirm who can authorise dispatch, grant access and approve any rollout separately. When the handoff is part of Own in a programme, acceptance of the brief and completion of an independent cycle have separate evidence.
 7. **Draft the customer's introduction message** if one is needed. Never send it; the giver or receiver sends.
 8. **Read back.** Check every fact against its source, and check that no field is merged or marked beyond what the evidence shows.
 

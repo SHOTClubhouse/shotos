@@ -4,7 +4,7 @@
 
 This skill reads the thing about to be shared and looks for credentials and keys, personal data, internal paths and private names, files that should not be included, and sharing settings wider than intended. It reports each finding with its location and says urgently what should be rotated. It never rotates, deletes or unshares anything without the owner's yes.
 
-It supports the Check step. It serves rule 1, Stop at the boundaries, and rule 3, Read back the real result.
+It supports the Track stage. It serves rule 1, Stop at the boundaries, and rule 3, Read back the real result.
 
 ## The problem it solves
 

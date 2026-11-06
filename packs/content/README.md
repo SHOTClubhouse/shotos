@@ -12,14 +12,14 @@ The six skills cover the content a team puts in front of outsiders. Each one dra
 
 ## Skills
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [written-content](skills/written-content/README.md) | Build | Papers, reports, one-pagers and blog posts on a six-part arc, every fact sourced, a fixed QA gate, and a separate publish step. |
-| [explainer](skills/explainer/README.md) | Build | Classifies the explainer (technical, business, external), drafts with worked examples, illustrates only where a picture shows the mechanism, runs a fixed QA gate, files it, publishes on a yes. |
-| [press-release](skills/press-release/README.md) | Build | Classifies the relationship before the headline, treats every quote as unsaid until approved, keeps evidence and approvals apart, adds a consent path for anything involving children. |
-| [product-demo-video](skills/product-demo-video/README.md) | Build | Scripts a walkthrough, captures real interactions on test data in the browser, adds chapters and subtitles, inspects the final render and checks that no real personal data appears. |
-| [creator-edit](skills/creator-edit/README.md) | Build | Edits a creator's draft while keeping 85 to 95 per cent of their own wording, checks facts, consistency and risk, packages per channel, and leaves final approval to the creator. |
-| [slide-deck](skills/slide-deck/README.md) | Build | Agrees the reader and the ask, writes one message per slide before designing, builds an editable deck, sources every number, and renders and looks at every slide before calling it ready. |
+| [written-content](skills/written-content/README.md) | Operate | Papers, reports, one-pagers and blog posts on a six-part arc, every fact sourced, a fixed QA gate, and a separate publish step. |
+| [explainer](skills/explainer/README.md) | Operate | Classifies the explainer (technical, business, external), drafts with worked examples, illustrates only where a picture shows the mechanism, runs a fixed QA gate, files it, publishes on a yes. |
+| [press-release](skills/press-release/README.md) | Operate | Classifies the relationship before the headline, treats every quote as unsaid until approved, keeps evidence and approvals apart, adds a consent path for anything involving children. |
+| [product-demo-video](skills/product-demo-video/README.md) | Operate | Scripts a walkthrough, captures real interactions on test data in the browser, adds chapters and subtitles, inspects the final render and checks that no real personal data appears. |
+| [creator-edit](skills/creator-edit/README.md) | Operate | Edits a creator's draft while keeping 85 to 95 per cent of their own wording, checks facts, consistency and risk, packages per channel, and leaves final approval to the creator. |
+| [slide-deck](skills/slide-deck/README.md) | Operate | Agrees the reader and the ask, writes one message per slide before designing, builds an editable deck, sources every number, and renders and looks at every slide before calling it ready. |
 
 ## Needs
 
@@ -40,17 +40,10 @@ python ../shotos/install.py --runtime claude --scope project --pack content
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
 
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-content@shotos
-```
-
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
 ## How it connects
 
-The skills follow the four rules in [docs/controls.md](../../docs/controls.md). Anything that publishes, sends or posts stops for the owner's yes under [rules/04-stop-boundaries.md](../../rules/04-stop-boundaries.md). The steps are described in [docs/framework.md](../../docs/framework.md).
+The skills follow the four rules in [docs/controls.md](../../docs/controls.md). Anything that publishes, sends or posts stops for the owner's yes under [rules/04-stop-boundaries.md](../../rules/04-stop-boundaries.md). The stages are described in [docs/framework.md](../../docs/framework.md).
 
 **Evidence:** Cases written, not yet run. Eval cases are in [evals/packs/content.json](../../evals/packs/content.json).

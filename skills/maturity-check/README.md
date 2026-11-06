@@ -2,9 +2,9 @@
 
 **A short self-assessment that says where you are on two public maps of AI use, and where in SHOTos to begin.**
 
-The agent asks six questions, places you on Yegge's eight levels of AI-assisted development and the organisation on n8n's five-level AI maturity model, and names the step and first skills that fit. The level wording is in [docs/levels.md](../../docs/levels.md).
+The agent asks six questions, places you on Yegge's eight levels of AI-assisted development and the organisation on n8n's five-level AI maturity model, and names the stage and first skills that fit. The level wording is in [docs/levels.md](../../docs/levels.md).
 
-It belongs to the Brief step. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, because it asks what an agent can do without asking you.
+It belongs to the Scope stage. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, because it asks what an agent can do without asking you.
 
 ## The problem it solves
 
@@ -12,7 +12,7 @@ Millbrook Rovers youth club has one volunteer who runs several agents from the t
 
 ## What the agent does differently
 
-It places the volunteer high on the first map and the club low on the second, says that the gap is where trouble will come from, and recommends starting at Build with a pilot, an independent review and labelled proof. See [examples/maturity-check/output.md](../../examples/maturity-check/output.md).
+It places the volunteer high on the first map and the club low on the second, says that the gap is where trouble will come from, and recommends starting at Operate with a pilot, an independent review and labelled proof. See [examples/maturity-check/output.md](../../examples/maturity-check/output.md).
 
 ## When to use it, and when not to
 

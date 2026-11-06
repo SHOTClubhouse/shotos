@@ -7,7 +7,7 @@ description: Edits a creator's draft keeping 85 to 95 per cent of their wording,
 
 Improve a creator's draft without replacing their voice, and hand it back with every change visible and the final decision theirs.
 
-**Step:** Build. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 

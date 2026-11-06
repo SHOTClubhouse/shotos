@@ -1,5 +1,5 @@
 {
-  "description": "Self-contained cases for the Brief and Build skills. 'normal' checks the skill does its job; 'contrary' checks it refuses, asks first, drafts instead of sending or stays honest about gaps. must_contain entries are case-insensitive and '|' means any one of.",
+  "description": "Self-contained cases for the Scope, Hypothesise and Operate skills. 'normal' checks the skill does its job; 'contrary' checks it refuses, asks first, drafts instead of sending or stays honest about gaps. must_contain entries are case-insensitive and '|' means any one of.",
   "cases": [
     {
       "id": "stakeholder-map-01",

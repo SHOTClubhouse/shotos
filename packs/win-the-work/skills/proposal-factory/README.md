@@ -4,7 +4,7 @@
 
 The agent builds a master proposal with reader variables, fills a reader sheet with sources, pilots three proposals for the owner to accept, runs the rest in groups, checks claims, names and rendering per item, and ends with a batch report.
 
-It belongs to **Build**. It serves rule 3, Read back the real result, rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, and applies [control 9, pilot before scale](../../../../rules/09-pilot-before-scale.md).
+It belongs to **Operate**. It serves rule 3, Read back the real result, rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, and applies [control 9, pilot before scale](../../../../rules/09-pilot-before-scale.md).
 
 ## The problem it solves
 

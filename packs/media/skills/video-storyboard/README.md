@@ -4,7 +4,7 @@
 
 The agent writes a storyboard and a consistency sheet, turns them into a shot list, makes a short pilot to check that the shots match, produces the rest and stitches the cut. It plays the final render in full, logs faults with time marks and clears music and voice rights before handing over.
 
-It supports the Build step. It serves rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+It supports the Operate stage. It serves rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## The problem it solves
 

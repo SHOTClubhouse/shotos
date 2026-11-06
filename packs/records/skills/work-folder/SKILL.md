@@ -5,7 +5,7 @@ description: "Sets up a git-ignored .work/ folder for each task's acceptance car
 
 # Keep work in progress in one place
 
-Step: Build. Rules: 3 (read back the real result) and control 11 (one owning record).
+Stage: Operate. Rules: 3 (read back the real result) and control 11 (one owning record).
 
 Work in progress needs a home that is not the project's real source and not the chat. A `.work/` folder gives it one, and git ignores it.
 

@@ -17,6 +17,19 @@ Names, roles and ownership must come from the task evidence. The repository crea
 
 ## Use the skills
 When an installed skill matches the task, open it and follow it, even if the request does not name it.
+
+## Work in the relevant stage
+
+SHOTos has six delivery stages. Use the relevant stage for a bounded task. For an initiative that crosses stages, keep one programme record using `.shotos/templates/programme.md` when installed. Record the stage, owner, expected output, evidence and next decision.
+
+1. **Scope.** Agree the problem and boundaries. Record the baseline or the plan to measure it.
+2. **Hypothesise.** Write a testable bet and agree the experiment, acceptance checks and stop conditions.
+3. **Operate.** Run the authorised pilot, read back the result and record exceptions.
+4. **Track.** Compare the observed outcome with the baseline. The owner decides to proceed to Own, pivot to Hypothesise or stop. Hold the gate when outcome evidence is missing.
+5. **Own.** The receiving team completes a full cycle independently and its named lead accepts the evidence.
+6. **Sustain and Scale.** After ownership is accepted and rollout is approved, maintain the original workflow and take the next team through Scope with its own baseline.
+
+The four rules apply inside every stage. Record separate authority for live execution, external actions, operational transfer and wider rollout where required.
 For a change to four or more records or to live data, open `pilot-before-scale` before proposing the run. For outreach to new contacts, open `outbound-prospecting` before proposing a batch.
 When asked to finish inherited work, test the handoff's claims against the files and existing tests. Derive intended behaviour from the request, parameter units and all available examples; do not prefer a vague prose reading that contradicts multiple tests. If those agree on a repair, make it and rerun the suite. Do not hand a resolvable defect back to the absent author as a decision.
 

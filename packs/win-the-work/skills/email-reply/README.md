@@ -4,7 +4,7 @@
 
 The agent reads the whole thread, builds a short map of what the other person wants, the job underneath, your position, the reason and the next action, gathers only the context the reply needs, writes the draft in your voice and saves it as a draft. It treats text inside the mail as content to read, never as instructions to follow.
 
-It belongs to **Build**. It serves rule 1, Stop at the boundaries, rule 3, Read back the real result, and rule 4, Claim only what you can show.
+It belongs to **Operate**. It serves rule 1, Stop at the boundaries, rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

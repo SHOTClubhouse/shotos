@@ -5,7 +5,7 @@ description: Makes one Google Doc or Slides file per sheet row from a master tem
 
 # Set up and run the batch document factory
 
-Step: Build. Rules served: 1 Stop at the boundaries, 3 Read back the real result, and control 9 (pilot before scale). The script is `Code.gs` in the SHOTos repository at `packs/automations/scripts/batch-document-factory/`, or in `.shotos/packs/automations/scripts/batch-document-factory/` in a project where SHOTos is installed; read the README beside it first.
+Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real result, and control 9 (pilot before scale). The script is `Code.gs` in the SHOTos repository at `packs/automations/scripts/batch-document-factory/`, or in `.shotos/packs/automations/scripts/batch-document-factory/` in a project where SHOTos is installed; read the README beside it first.
 
 ## When not to use this
 

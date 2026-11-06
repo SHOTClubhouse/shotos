@@ -7,7 +7,7 @@ description: Produces many tailored proposals from one master plus per-reader va
 
 Make many proposals that each read as written for their reader, without copying one proposal many times, and without sending any of them.
 
-Step: Build. Rules served: 3 (read back the real result), 4 (claim only what you can show) and 1 (nothing is sent). Applies control 9, pilot before scale (`rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed)).
+Stage: Operate. Rules served: 3 (read back the real result), 4 (claim only what you can show) and 1 (nothing is sent). Applies control 9, pilot before scale (`rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed)).
 
 ## When not to use this
 

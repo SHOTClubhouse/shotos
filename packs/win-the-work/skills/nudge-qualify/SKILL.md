@@ -7,7 +7,7 @@ description: Qualifies a sales, partnership or funding opportunity on the five N
 
 Decide whether an opportunity deserves a proposal, more discovery or a polite exit, using five questions answered from evidence rather than hope.
 
-Step: Brief (and used again before committing to a proposal). Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
+Stage: Scope (and used again before committing to a proposal). Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
 
 ## When not to use this
 

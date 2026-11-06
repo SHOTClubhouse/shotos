@@ -7,7 +7,7 @@ description: Makes a product demo video from real browser capture on test data, 
 
 Produce a demo video that shows the product as it really is, using test data, checked before anyone sees it.
 
-**Step:** Build. **Rules served:** rule 3 (read back the real result), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
+**Stage:** Operate. **Rules served:** rule 3 (read back the real result), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
 
 ## When not to use this
 

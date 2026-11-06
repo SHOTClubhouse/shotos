@@ -4,7 +4,7 @@
 
 This skill reads a document meant for customers, investors or the public and lists every factual claim in it. For each claim it records the source, a status (supported, outdated, unsupported or illustrative) and a proposed fix. Numbers such as users, customers or revenue need a dated source. Nothing in the document changes until its owner says yes.
 
-It supports the Check step. It serves rule 4, Claim only what you can show, and control [10, claim-discipline](../../../../rules/10-claim-discipline.md).
+It supports the Track stage. It serves rule 4, Claim only what you can show, and control [10, claim-discipline](../../../../rules/10-claim-discipline.md).
 
 ## The problem it solves
 

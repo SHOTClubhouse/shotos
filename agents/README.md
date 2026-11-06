@@ -10,17 +10,17 @@ Use a separate agent when you need a separate view. The business analyst should 
 
 ## The agents
 
-| Agent | Step | When to use | Tools | Authority |
+| Agent | Stage | When to use | Tools | Authority |
 |---|---|---|---|---|
-| [business-analyst](business-analyst.md) | Brief | A request is vague or "done" is undefined | Read, Grep, Glob, Write | Writes the acceptance card; never builds |
-| [ux-designer](ux-designer.md) | Brief | Before building anything a person reads, clicks or fills in | Read, Grep, Glob, Write | Writes the design note; never builds the final thing |
-| [engineer](engineer.md) | Build | Brief and acceptance are agreed | Read, Grep, Glob, Bash, Write, Edit | Changes the project within the card; prepares, never sends |
-| [qa-lead](qa-lead.md) | Check | Work is claimed done, before the owner is asked to accept | Read, Grep, Glob, Bash | Read-only plus running checks; gives a verdict, not acceptance |
-| [security-reviewer](security-reviewer.md) | Check | Secrets, access, external connections or personal data are involved | Read, Grep, Glob | Read-only; reports findings |
-| [sceptic-reviewer](sceptic-reviewer.md) | Brief, Check | Before committing to a plan, or before a claim goes outside | Read, Grep, Glob | Read-only; recommends, does not decide |
-| [data-steward](data-steward.md) | Brief, Check | Any task touching personal data, children's data or special-category data | Read, Grep, Glob | Read-only; flags, does not approve a use |
-| [release-manager](release-manager.md) | Hand over | Reviewed work is ready to leave the project | Read, Grep, Glob, Write | Writes the frozen manifest; never executes without a yes |
-| [enablement-coach](enablement-coach.md) | Improve | A process works but only one person can run it | Read, Grep, Glob, Write, Edit | Writes runbooks and matrices; never declares a team ready |
+| [business-analyst](business-analyst.md) | Scope | A request is vague or "done" is undefined | Read, Grep, Glob, Write | Writes the acceptance card; never builds |
+| [ux-designer](ux-designer.md) | Scope, Hypothesise | Before building anything a person reads, clicks or fills in | Read, Grep, Glob, Write | Writes the design note; never builds the final thing |
+| [engineer](engineer.md) | Operate | Scope and acceptance are agreed | Read, Grep, Glob, Bash, Write, Edit | Changes the project within the card; prepares, never sends |
+| [qa-lead](qa-lead.md) | Track | Work is claimed done, before the owner is asked to accept | Read, Grep, Glob, Bash | Read-only plus running checks; gives a verdict, not acceptance |
+| [security-reviewer](security-reviewer.md) | Track | Secrets, access, external connections or personal data are involved | Read, Grep, Glob | Read-only; reports findings |
+| [sceptic-reviewer](sceptic-reviewer.md) | Hypothesise, Track | Before committing to a plan, or before a claim goes outside | Read, Grep, Glob | Read-only; recommends, does not decide |
+| [data-steward](data-steward.md) | Scope, Track | Any task touching personal data, children's data or special-category data | Read, Grep, Glob | Read-only; flags, does not approve a use |
+| [release-manager](release-manager.md) | Own | Reviewed work is ready to leave the project | Read, Grep, Glob, Write | Writes the frozen manifest; never executes without a yes |
+| [enablement-coach](enablement-coach.md) | Sustain and Scale | A process works but only one person can run it | Read, Grep, Glob, Write, Edit | Writes runbooks and matrices; never declares a team ready |
 
 Every agent ends its report with a Claims block in the format of [the claims guide](../docs/claims.md) and works inside the [four rules](../docs/controls.md). No agent can accept work. Only a named person accepts.
 

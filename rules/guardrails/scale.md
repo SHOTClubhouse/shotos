@@ -9,7 +9,7 @@ The organisation's ability to do more of something without doing more harm. A ta
 ### 1. Pilot, then scale
 
 - Run three units or fewer first, read them back, and run the preflight before the rest ([control 9](../09-pilot-before-scale.md)).
-- Scale in stages: pilot, then ten times the pilot, then the batch, with a check between each step.
+- Scale in stages: pilot, then ten times the pilot, then the batch, with a check between each stage.
 - Record the pilot, the preflight and the go in the task record.
 
 ### 2. Be able to stop
@@ -24,7 +24,7 @@ The organisation's ability to do more of something without doing more harm. A ta
 - Label estimates as inferred and actual figures as literal ([control 10](../10-claim-discipline.md)).
 - Set a ceiling on spend and on number of external actions per run.
 
-### 4. Check the receiving team can run it before copying it
+### 4. Own it before copying it
 
 - A result that only works while its builders are present is not ready to copy. The team that will run it must be able to run it, with a guide, a record and a person who has done it once without help.
 - Hand over using the `evidence-handoff` skill, and keep the record under [control 11](../11-context-control.md).

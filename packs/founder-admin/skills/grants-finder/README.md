@@ -4,7 +4,7 @@
 
 The agent profiles your organisation, finds candidate grants from sources you approve, removes any you are ineligible for, checks what evidence each wants, weighs the budget and effort, and gives you a ranked shortlist with deadlines and fit. For any grant you pick, it drafts the application from approved material.
 
-It belongs to **Brief**. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
+It belongs to **Scope**. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

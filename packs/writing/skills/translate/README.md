@@ -4,7 +4,7 @@
 
 The agent agrees the reader and purpose, fixes the terms that must not change, translates, and then checks the result against the source: numbers, dates, prices, names and links. It back-translates the sentences a reader will act on and flags anything public, legal, medical or safety-related for a fluent human reviewer.
 
-It supports the Build step. It serves rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+It supports the Operate stage. It serves rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## The problem it solves
 

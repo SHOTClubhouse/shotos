@@ -1,79 +1,93 @@
 # SHOTos
 
-**Give your AI agent a clear brief, a way to check its work, and a handover someone can pick up.**
+**Give your AI agent a clear job, get work you can check, and hand it over with the evidence.**
 
-SHOTos is a free, open toolkit for teams that use AI to deliver work. Use the same workflow to draft a customer proposal, recover a stalled onboarding, prepare an executive brief or ship a software change. Start with one task in Claude Code or Codex, then add the skills you use as the work grows.
+SHOTos is an open-source delivery method for people and AI agents. Founders, operators, product teams and engineers can use it for one task or for a change another team needs to run. It gives you a way to agree what good looks like, check the work where it happened and make the next decision with evidence.
 
-[Try the demo](#install) · [Find a skill](docs/what-you-can-do.md) · [Adopt it in a team](docs/running-it.md#team-rollout) · [Get v1.0.0](https://github.com/SHOTClubhouse/shotos/releases/tag/v1.0.0)
+**Six-stage edition · 82 skills, 12 optional packs**
 
-Created by [Liam McDowell](https://github.com/liammcdow). Published by SHOT Clubhouse Limited.
+[Try it](#try-shotos) · [Follow a worked example](docs/walkthrough.md) · [Find a skill](docs/what-you-can-do.md) · [Choose your setup](docs/running-it.md)
 
-## What it looks like at work
+| Start with | What you get |
+| --- | --- |
+| [A proposal](packs/win-the-work/skills/contextual-proposal/README.md) | A draft grounded in what you can deliver, with a record of claims and commitments to check before sharing |
+| [A handoff](packs/customer-success/skills/success-handoff/README.md) | A brief the next person can act on, with the offer, acknowledgement and first action recorded separately |
+| [A change across teams](docs/walkthrough.md) | A worked example of testing one change, handing it over and deciding whether to scale |
 
-Your account team needs a proposal for a four-week pilot. Give the agent the discovery notes, approved terms and the decision the customer needs to make. SHOTos gives it a method for turning those inputs into a proposal and a separate record of the claims, open decisions and approvals. Your reviewer can see what the price includes, which promises have evidence and who needs to approve the next step.
+## Try SHOTos
 
-The same pattern works when a teammate takes over a project. The handover shows what is finished, where to find the result, which checks ran and who owns the next decision.
+**On work you already have.** Open the [acceptance card](templates/acceptance.md). Pick one task, name the person who can accept it and write down one check that should fail. Use this prompt in your usual assistant:
 
-| I need to… | Start here | You get |
+> Use this card for the task. Show me the saved result and what you checked. Leave anything you could not verify open for review.
+
+**See the evidence check in action.** From this checkout, with Git and Python 3.9 or later:
+
+```sh
+python examples/demo/run_demo.py
+```
+
+The demo checks two reports about the same work. The pricing summary exists, the test fails and there is no send receipt. Claim-check flags the unsupported claims and accepts the corrected report. The summary itself still needs review.
+
+![Six stages from Scope to Sustain and Scale. Track can continue to Own, return to Hypothesise, stop or hold for evidence. Scaling starts the next team at Scope.](docs/images/six-stages.svg)
+
+## The six stages
+
+| Stage | What you do | What you hand forward |
 |---|---|---|
-| Win a piece of work | [Win the work](packs/win-the-work/README.md) | LEAP for pipeline decisions, NUDGE for qualification, and a proposal shaped around the customer |
-| Get an account unstuck | [Customer success](packs/customer-success/README.md) | An onboarding recovery plan or a handover with ownership and acceptance checks |
-| Run the week | [Executive operations](packs/exec-ops/README.md) | Meeting actions, an inbox triage or a decision brief |
-| Turn an idea into deliverable work | [Agree acceptance](skills/agree-acceptance/README.md) | A brief, examples of a passing result and a case that should fail |
-| Check and hand over a result | [Evidence handoff](skills/evidence-handoff/README.md) | The artefacts, checks, open decisions and next action in one place |
+| **Scope** | Agree the problem, boundaries and how you will measure today | A problem brief and baseline |
+| **Hypothesise** | Choose a testable bet and agree what counts as success | A hypothesis, experiment plan and acceptance checks |
+| **Operate** | Run a bounded pilot with the people who will use it | The actual result, checks and exceptions |
+| **Track** | Compare the outcome with the baseline and make a decision | Evidence and a decision to proceed to Own, pivot, stop or hold |
+| **Own** | Give the receiving team the access, runbook and practice to run a full cycle | Evidence the team ran independently and a named lead accepted it |
+| **Sustain and Scale** | Maintain the original workflow and start the next team at Scope | A supported rollout, local baselines and a review cadence |
 
-## How it works
+Use the [framework](docs/framework.md) for the stage guides and the [programme record](templates/programme.md) to link the evidence and decisions. An everyday task uses the relevant stage and skill. A programme follows the gates across all six.
 
-![The five steps in the SHOTos work loop: Brief, Build, Check, Hand over and Improve](docs/images/work-loop.svg)
+## What it looks like
 
-**Brief** the outcome, owner and acceptance checks. **Build** the smallest useful result. **Check** the actual output against the brief. **Hand over** the result, evidence and next action. **Improve** the workflow from what you learn on real work.
+A property manager wants fewer tenants chasing repair updates. Scope counts repeat contacts. Hypothesise sets a target and agrees checks for accurate, private updates. Operate drafts a small batch and flags the case with a missing date. Track compares repeat contacts after an authorised live run. Own asks the operations team to complete a weekly cycle without its builders. Sustain and Scale gives the next office the runbook and asks it to establish its own baseline.
 
-Four rules apply throughout: **S**top at permission boundaries, **H**old to agreed acceptance, **O**bserve the result where it lives, and **T**ell people what you can show. The project instructions give the agent those rules. Skills provide steps and templates for particular jobs. The local **claim-check** tool tests specific claims against files, Git, trusted commands or supplied receipts. A person reviews quality and accepts the work. [Framework](docs/framework.md) · [Agent controls](rules/README.md) · [Claim format](docs/claims.md)
+The [Harbourside walkthrough](docs/walkthrough.md) includes data for the draft pilot and labelled scenarios for the later decisions.
+
+## The four rules inside every stage
+
+1. **Stop at the boundaries.** Get authority for actions that send, spend, publish, deploy or affect others.
+2. **Agree acceptance first.** Name the owner, expected result and checks.
+3. **Read back the real result.** Open the output, run the check or inspect the relevant system.
+4. **Claim only what you can show.** Link the evidence and label what still needs verification.
+
+The local [claim-check tool](docs/claims.md) tests supported completion claims against project evidence. A person accepts the work. Runtime and connector settings enforce permissions. [Rules and controls](docs/controls.md) · [Security](SECURITY.md)
 
 ## Install
 
-Try it in a fresh project. You need Git and Python 3.9 or later. Use `python3` if that is how Python is installed on your machine.
+Use Git and Python 3.9 or later. From a separate project directory, replace `PATH_TO_SHOTOS` with this checkout’s path:
 
 ```sh
-git clone --branch v1.0.0 --depth 1 https://github.com/SHOTClubhouse/shotos.git
-python shotos/examples/demo/run_demo.py
-
-mkdir shotos-sandbox
-cd shotos-sandbox
-python ../shotos/install.py --runtime codex --scope project --dry-run
-python ../shotos/install.py --runtime codex --scope project
+python "PATH_TO_SHOTOS/install.py" --runtime codex --scope project --dry-run
+python "PATH_TO_SHOTOS/install.py" --runtime codex --scope project
 ```
 
-The demo shows how claim-check responds when an agent reports passing tests and a committed change that the project cannot confirm. It uses a temporary project and requires no AI account.
+Open a fresh session in that project and ask:
 
-Open a new Codex session in `shotos-sandbox` and try:
+> Use the Scope stage to write a brief for reducing repeat repair enquiries. I have a rough estimate but no measured baseline. Name the owner and propose the first measurement.
 
-> Our volunteer rota may take eight hours a week to manage. Help me write a brief with an owner, a first measurement and acceptance checks. Treat eight hours as an estimate.
+For Claude Code, use `--runtime claude` and add `--with-hook` if you want the optional completion check. For Gemini CLI, Antigravity and shared local setups, use the [runtime guide](docs/running-it.md). In a workspace that accepts project instructions, copy the [working agreement](templates/AGENTS.md), the [programme record](templates/programme.md) and the skills you need. The same templates work in a shared document.
 
-Look for a clear problem, a way to measure today's baseline and a check a person can use to accept the result.
+## Pick the work you want to do
 
-For **Claude Code**, replace `codex` with `claude` in both installer commands. Add `--with-hook` to both if you want the optional Stop hook to check completion reports. Add `--pack win-the-work` in both commands to try the proposal workflow. [Runtime and installation guide](docs/running-it.md)
-
-## Choose your setup
-
-| Setup | Use it for |
+| Work | Start with |
 |---|---|
-| **Project install** | A shared working agreement, the core skills and any packs you choose. Use `--pack <name>` once per pack. The installer previews changes with `--dry-run` and records what it adds for `--uninstall`. |
-| **Claude Code plugins** | Install the skills via `/plugin marketplace add SHOTClubhouse/shotos` and `/plugin install shotos-core@shotos`. Use the project installer when you want the shared agreement or optional hook. |
-| **Individual skill ZIPs** | Download a skill from the release for use in a compatible Claude app setup. |
-| **Templates** | Copy the brief, decision or handover template into your existing workflow. |
+| Qualify an opportunity or write a proposal | [Win the work](packs/win-the-work/README.md) |
+| Run the week or prepare an executive decision | [Executive operations](packs/exec-ops/README.md) |
+| Recover onboarding or transfer an account | [Customer success](packs/customer-success/README.md) |
+| Define what good looks like before building | [Agree acceptance](skills/agree-acceptance/README.md) |
+| Give another team the work and its evidence | [Evidence handoff](skills/evidence-handoff/README.md) |
+| Prove a team can run the workflow and prepare the next wave | [Enablement plan](skills/enablement-plan/README.md) and [rollout plan](skills/rollout-plan/README.md) |
 
-Browse the [28 core skills and 54 pack skills](docs/what-you-can-do.md), [role guides](docs/personas.md), or [templates](templates/). For Gemini CLI, Antigravity and other setups, see the [runtime guide](docs/running-it.md).
+Browse the [28 core skills and 54 skills across optional packs](docs/what-you-can-do.md), [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md). See the [evidence](docs/evidence.md) for recorded checks and their scope.
 
-## Use it on a team
+## What you can use today
 
-Pin the release, start with one project and keep approval with the people who own the work. Your runtime and connectors enforce permissions. The optional Claude Code hook checks completion reports, and claim-check checks the evidence types described in its documentation. Run your own acceptance checks on the output before sending, deploying or transferring ownership.
+The six-stage guide, programme record and task templates work in a shared document or an assistant that can read them. On Windows, fresh Codex CLI and Claude Code projects opened the proposal and handoff skills, wrote the drafts and held the gates for unapproved action in a replay. Claude Code’s Stop hook also caught a deliberate false file claim. [Setup by runtime](docs/running-it.md) · [Validation scope](docs/evidence.md)
 
-The v1.0.0 source passed CI on Windows, macOS and Linux with Python 3.9 and 3.13. See the [team rollout guide](docs/running-it.md#team-rollout), [security model](SECURITY.md), [release CI](https://github.com/SHOTClubhouse/shotos/actions/runs/42170020345) and [validation evidence](docs/evidence.md).
-
-## Explore and contribute
-
-- Learn the method with the [worked walkthrough](docs/walkthrough.md) or see how it fits alongside [Superpowers, Spec Kit and other tools](docs/compare.md).
-- Read the [FAQ](docs/faq.md), [docs index](docs/README.md) and [roadmap](docs/roadmap.md).
-- Propose a skill or report a problem through [Contributing](CONTRIBUTING.md) and [Support](SUPPORT.md).
-- Code is [MIT](LICENSE). Skills, docs and templates are [CC BY 4.0](LICENSE-docs.md). See [provenance](PROVENANCE.md) and [citation](CITATION.cff).
+Created by Liam McDowell. Code is [MIT](LICENSE). Skills, docs and templates are [CC BY 4.0](LICENSE-docs.md). [Provenance and attribution](PROVENANCE.md)

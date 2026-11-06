@@ -1,13 +1,13 @@
 ---
 name: video-storyboard
-description: "Takes a short video from idea to cut: storyboard, shots, stitching and rights checks. Use for explainers, ads or social video. Before handover, play the final render end to end with sound and captions; a thumbnail is not a check."
+description: "Takes a short video from idea to cut: storyboard, shot list, generated or filmed shots, consistency, stitching and rights checks. Use when making an explainer, ad or social video. Screen recordings of real software go to product-demo-video."
 ---
 
 # Storyboard to a stitched, checked cut
 
 Make a short video where the shots match each other, the rights are clear and the finished render has been watched in full.
 
-**Step:** Build. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 
@@ -25,7 +25,6 @@ Do not use it for a screen recording of a real product (use product-demo-video),
 8. **Produce the remaining shots.** Look at each shot as it arrives. Reject any with drift in faces, clothing, colours, text artefacts or objects that change between frames. Log each retake.
 9. **Stitch the cut.** Assemble in order, add the audio and captions, and keep the project file.
 10. **Watch the final render at full length.** Play it from first frame to last at normal speed with sound. Check continuity between shots, audio levels and sync, captions against the speech, and the end card. Record what you watched, with time marks for any fault.
-    If the user asks whether a stitched cut is ready and the full playback has not happened, answer "not yet" and name that check before any send.
 11. **Hand over for approval.** Present the cut, the shot list, the consistency sheet, the rights log and the fault log. Do not publish, post or send without the owner's yes.
 
 ## Output

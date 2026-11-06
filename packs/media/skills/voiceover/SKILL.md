@@ -7,7 +7,7 @@ description: Creates spoken audio from a script, such as a voiceover, narration 
 
 Produce spoken audio that says exactly what the script says, in a voice you have the right to use, checked before anyone hears it.
 
-**Step:** Build. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 

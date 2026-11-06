@@ -4,7 +4,7 @@
 
 The agent asks what the board is for, then drafts roles and expectations on both sides, a plain-language terms summary for a lawyer to review, a meeting rhythm, a map of what each adviser is asked to contribute, and the rules for public statements. It offers no equity, sends no invitations and signs nothing.
 
-It belongs to **Brief**. It serves rule 1, Stop at the boundaries, rule 2, Agree acceptance first, and rule 4, Claim only what you can show.
+It belongs to **Hypothesise**. It serves rule 1, Stop at the boundaries, rule 2, Agree acceptance first, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

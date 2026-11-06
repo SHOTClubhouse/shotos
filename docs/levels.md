@@ -63,7 +63,7 @@ SHOTos is aimed at exactly these four pressures, and mostly at the three that pe
 | From personal use to organisational use | Named owners, human checkpoints, an audit trail | All four, as a baseline policy | [The four rules](controls.md), acceptance cards kept with the work |
 | From pilots to continuous governance | Quality checks that run without a person asking | Rules 3 and 4 | claim-check in CI today; wider controls are on the [roadmap](roadmap.md) |
 
-The rules are the controls inside every step. How a team or organisation climbs is the job of the loop: Check decides whether to hand over, change course or stop, and Hand over comes before any repeat, so the team that will run the work is self-sufficient before it is copied elsewhere. See [the work loop guide](framework.md).
+The rules are the controls inside every stage. How a team or organisation climbs is the job of the stages: Track records whether to move to Own, pivot, stop or hold for evidence. The receiving team demonstrates ownership before the sponsor authorises rollout. See [the stage guide](framework.md).
 
 If a row has no asset yet, the roadmap says so. SHOTos does not claim to cover levels it has not been tested at.
 
@@ -79,7 +79,7 @@ Each persona below shows a typical start, a sensible target, how SHOTos helps, t
 
 **How SHOTos gets you there.**
 - Agree a short acceptance card before any task that matters. You are the only reviewer, so the card is also your memory.
-- Install the four skills and the Stop hook. The hook runs `claim-check` when the agent tries to finish and sends it back if a claim fails.
+- Install the core skills. In Claude Code, you can add the Stop hook. The hook runs `claim-check` when the agent tries to finish and sends it back if a claim fails.
 - Put the boundaries in `AGENTS.md` so the agent asks before it sends, spends, deletes or publishes.
 
 **Signs you have arrived.**

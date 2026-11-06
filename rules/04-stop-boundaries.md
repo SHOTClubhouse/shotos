@@ -2,7 +2,7 @@
 
 **The rule:** No external send, spend, delete, overwrite, deploy or publish happens without the owner's yes, and the agent drafts everything up to that point. When the owner's request names an action inside the project, that request is the yes for it.
 
-Serves rule 1, [Stop at the boundaries](../docs/controls.md). Matters in every step and most in **Build** and **Hand over**.
+Serves rule 1, [Stop at the boundaries](../docs/controls.md). Matters in every stage and most in **Operate** and **Own**.
 
 ## Why it exists
 

@@ -4,7 +4,7 @@
 
 This skill names files in the spirit of ISO 15489 records management: a date, an owner, a subject and a version, in the pattern `YYYY-MM-DD_owner_subject_vNN.ext`. It says when to drop parts, how to handle versions, when a status word helps, and it shows a rename plan, with a collision check, before any file changes.
 
-It supports the Build step. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show (a name should not claim more than the file is).
+It supports the Operate stage. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show (a name should not claim more than the file is).
 
 ## The problem it solves
 

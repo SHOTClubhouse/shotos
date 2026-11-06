@@ -7,7 +7,7 @@ description: "Plans how a team becomes self-sufficient with a new process or age
 
 Make the team able to run, fix and improve the result without the people who built it. Success is a full cycle run by the team with the builders watching only.
 
-Step: Hand over. Rules: 3 Read back the real result, 4 Claim only what you can show, 2 Agree acceptance first (the exit criterion).
+Stage: Own. Rules: 3 Read back the real result, 4 Claim only what you can show, 2 Agree acceptance first (the exit criterion).
 
 ## When not to use this
 

@@ -10,7 +10,7 @@ Pick the route that suits you. You do not need both.
 
 **Route 1: the Claude app, no terminal.**
 1. Install the Claude desktop app, or use claude.ai in your browser, and sign in.
-2. From the SHOTos release page on GitHub, download the skill zips you want. Start with `agree-acceptance`, `capture-the-problem`, `report-with-evidence` and the [social](../../packs/social/README.md) and [writing](../../packs/writing/README.md) skills.
+2. Ask whoever shared this edition for the skills packaged as ZIPs. Start with `agree-acceptance`, `capture-the-problem`, `report-with-evidence` and the [social](../../packs/social/README.md) and [writing](../../packs/writing/README.md) skills.
 3. In the app, open Settings, then Capabilities, then Skills, and upload each zip.
 4. Create a Project for your business. Paste the four rules from the [working agreement](../../templates/AGENTS.md) into the Project's instructions, and add your price list and recipe cards as Project files.
 5. Connect Google Drive or Gmail from the app's connector settings only if you want the assistant to read them. Read-only is enough to start.
@@ -18,7 +18,7 @@ Pick the route that suits you. You do not need both.
 **Route 2: Claude Code, if someone can help you install it once.**
 1. Install Claude Code (the VS Code extension or the desktop app).
 2. Make a folder for your business admin and open it.
-3. Ask the assistant: "Install SHOTos from github.com/SHOTClubhouse/shotos into this folder with the social, writing, records and trust packs, and show me what it will change first."
+3. Ask the assistant: "Use the SHOTos installer in my local checkout. Preview a project install with the social, writing, records and trust packs, and show me what it will change first."
 4. Ask it to run [connect-tools](../../packs/setup/skills/connect-tools/README.md), which lists what works today and what to connect next.
 
 Either way, your first request can be as simple as: "Before you start, agree with me what good looks like for our Christmas order form."
@@ -30,6 +30,8 @@ Either way, your first request can be as simple as: "Before you start, agree wit
 3. **Ask it what it checked.** At the end, the assistant lists what it did and what it could not check. If it says "prices match the price list", you can look.
 
 ## A first month
+
+![First month: count allergy enquiries, check a draft answer page, draft the week’s posts, and count enquiries again.](../images/small-business-first-month.svg)
 
 | Week | What to try | Skill or template |
 |---|---|---|

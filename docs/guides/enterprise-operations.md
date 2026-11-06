@@ -4,22 +4,24 @@ You run operations for a large business: thousands of staff, many sites, a techn
 
 ## What SHOTos gives you
 
-- **One way of working that business and technical teams share.** The five-step work loop ([framework](../framework.md)) works for a process change in stores, a new system in head office, or both at once.
+- **One way of working that business and technical teams share.** The six stages ([framework](../framework.md)) work for a process change in stores, a new system in head office, or both at once.
 - **Controls a risk function can read.** The [twelve agent controls](../../rules/README.md) and six [guardrails](../../rules/guardrails/README.md) state who decides, what agents may do alone and what evidence each piece of work leaves behind.
-- **Evidence instead of anecdotes.** Every agent task ends with claims a tool can check. Track produces an evidence pack against a baseline, so a pilot ends with a decision to scale, pivot or stop rather than a slide saying it went well.
-- **A named owner at the end.** The Hand over step makes the team that runs a result able to run it before it is repeated to the next region or function.
+- **Evidence instead of anecdotes.** Every agent task ends with claims a tool can check. Track produces an evidence pack against a baseline, so a pilot ends with a decision to move to Own, pivot, stop or hold for evidence rather than a slide saying it went well.
+- **Ownership before scale.** The Own stage makes the team that runs a result self-sufficient before it is copied to the next region or function.
 
 ## A first 90 days
 
-| Weeks | Step | What happens | SHOTos assets |
-|---|---|---|---|
-| 1 to 2 | Brief | Pick one value stream with a visible pain, for example supplier invoice queries. Map the flow, record today's numbers, name the owner. | [capture-the-problem](../../skills/capture-the-problem/README.md), [stakeholder-map](../../skills/stakeholder-map/README.md), [baseline](../../skills/baseline/README.md) |
-| 3 | Brief | Write two or three bets with measures. Build an eval set from 30 real past queries with the answers people gave. | [hypothesis-card](../../skills/hypothesis-card/README.md), [eval-set](../../skills/eval-set/README.md) |
-| 4 to 9 | Build | A small team delivers one use case in real use, with agents drafting and people approving. Fortnightly show-and-tell to the sponsor. | [agree-acceptance](../../skills/agree-acceptance/README.md), [route-the-work](../../skills/route-the-work/README.md), [pilot-before-scale](../../skills/pilot-before-scale/README.md) |
-| 10 | Check | Before and after against the baseline. The sponsor records a decision. | [evidence-pack](../../skills/evidence-pack/README.md), [decision-record](../../skills/decision-record/README.md) |
-| 11 to 13 | Hand over | The operations team runs it without the builders for one full cycle. | [runbook](../../skills/runbook/README.md), [enablement-plan](../../skills/enablement-plan/README.md) |
+![An invoice-query pilot moves from a baseline and 30 past examples to one use case and an independently run cycle.](../images/enterprise-invoice-pilot.svg)
 
-Then [Improve](../../skills/rollout-plan/README.md): the next team starts at Brief with its own baseline.
+| Weeks | Stage | What happens | SHOTos assets |
+|---|---|---|---|
+| 1 to 2 | Scope | Pick one value stream with a visible pain, for example supplier invoice queries. Map the flow, record today's numbers, name the owner. | [capture-the-problem](../../skills/capture-the-problem/README.md), [stakeholder-map](../../skills/stakeholder-map/README.md), [baseline](../../skills/baseline/README.md) |
+| 3 | Hypothesise | Write two or three bets with measures. Build an eval set from 30 real past queries with the answers people gave. | [hypothesis-card](../../skills/hypothesis-card/README.md), [eval-set](../../skills/eval-set/README.md) |
+| 4 to 9 | Operate | A small team delivers one use case in real use, with agents drafting and people approving. Fortnightly show-and-tell to the sponsor. | [agree-acceptance](../../skills/agree-acceptance/README.md), [route-the-work](../../skills/route-the-work/README.md), [pilot-before-scale](../../skills/pilot-before-scale/README.md) |
+| 10 | Track | Before and after against the baseline. The sponsor records a decision. | [evidence-pack](../../skills/evidence-pack/README.md), [decision-record](../../skills/decision-record/README.md) |
+| 11 to 13 | Own | The operations team runs it without the builders for one full cycle. | [runbook](../../skills/runbook/README.md), [enablement-plan](../../skills/enablement-plan/README.md) |
+
+Then [Sustain and Scale](../../skills/rollout-plan/README.md): the next team starts at Scope with its own baseline.
 
 ## What to give each part of your organisation
 

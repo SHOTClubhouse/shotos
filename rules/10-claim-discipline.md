@@ -2,7 +2,7 @@
 
 **The rule:** Keep installed, executed and accepted apart, label content as literal, inferred or illustrative, and remember that an event proves only the event.
 
-Serves rule 4, [Claim only what you can show](../docs/controls.md). Matters in every step and most in **Check** and **Hand over**.
+Serves rule 4, [Claim only what you can show](../docs/controls.md). Matters in every stage and most in **Track** and **Own**.
 
 ## Why it exists
 

@@ -4,7 +4,7 @@
 
 The agent writes a route line with six parts: asset, job, risk, reader, route and proof. It picks direct work, a skill, a role agent or an independent reviewer to match the risk, and adds a risk tag only when it can point to evidence.
 
-It belongs to the Build step but is useful at any point. It serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show. The detail is in [rules/01-route-the-work.md](../../rules/01-route-the-work.md) and [rules/02-evidence-based-risk.md](../../rules/02-evidence-based-risk.md).
+It belongs to the Operate stage but is useful at any point. It serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show. The detail is in [rules/01-route-the-work.md](../../rules/01-route-the-work.md) and [rules/02-evidence-based-risk.md](../../rules/02-evidence-based-risk.md).
 
 ## The problem it solves
 

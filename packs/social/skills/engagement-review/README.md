@@ -2,7 +2,7 @@
 
 **Sort comments, mentions and messages, flag the risky ones for a person, and propose replies you can approve.**
 
-The agent classifies each item, escalates anything abusive, safeguarding-related, legal, press or involving children, and drafts short replies in your voice from facts you supplied. It never likes, follows, comments or messages: platform terms forbid automation of those, and people can tell. It supports the Build step and serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show.
+The agent classifies each item, escalates anything abusive, safeguarding-related, legal, press or involving children, and drafts short replies in your voice from facts you supplied. It never likes, follows, comments or messages: platform terms forbid automation of those, and people can tell. It supports the Operate stage and serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

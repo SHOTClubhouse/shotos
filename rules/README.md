@@ -8,18 +8,18 @@ You do not need all twelve on day one. Start with the four rules in your `AGENTS
 
 | Rule | Control | Card | Matters most in | Supported by |
 |---|---|---|---|---|
-| **1. Stop at the boundaries** | 3. Mode contract | [03](03-mode-contract.md) | Build | Task record mode line; connector permissions (see [security](guardrails/security.md)) |
-| | 4. Stop boundaries | [04](04-stop-boundaries.md) | Build, Hand over | `AGENTS.md` template; the receipt rule in claim-check; the Stop hook |
-| | 8. Two-session execution | [08](08-two-session-execution.md) | Build, Hand over | Frozen approval manifest with checksum; `evidence-handoff` skill |
-| **2. Agree acceptance first** | 1. Route the work | [01](01-route-the-work.md) | Brief | `capture-the-problem` skill; the route line in the task record |
-| | 2. Evidence-based risk | [02](02-evidence-based-risk.md) | Brief, Build | Risk tags with evidence; [data governance](guardrails/data-governance.md) |
-| | 5. Acceptance first | [05](05-acceptance-first.md) | Brief | `agree-acceptance` skill; [acceptance template](../templates/acceptance.md) |
-| | 9. Pilot before scale | [09](09-pilot-before-scale.md) | Build, Improve | Preflight checklist; [scale guardrail](guardrails/scale.md) |
-| **3. Read back the real result** | 6. Read-back | [06](06-read-back.md) | Check | `report-with-evidence` skill; claim-check |
-| | 7. Independent review | [07](07-independent-review.md) | Build, Check | Review packet; [quality guardrail](guardrails/quality.md) |
-| **4. Claim only what you can show** | 10. Claim discipline | [10](10-claim-discipline.md) | Check, Hand over | `tools/claim_check.py`; the Stop hook; [claims guide](../docs/claims.md) |
-| | 11. Context control | [11](11-context-control.md) | Build, Improve | One owning record; `evidence-handoff` skill; [productivity guardrail](guardrails/productivity.md) |
-| | 12. Graduation | [12](12-graduation.md) | Improve | `tools/graduation_log.py`; [pace guardrail](guardrails/pace.md) |
+| **1. Stop at the boundaries** | 3. Mode contract | [03](03-mode-contract.md) | Operate | Task record mode line; connector permissions (see [security](guardrails/security.md)) |
+| | 4. Stop boundaries | [04](04-stop-boundaries.md) | Operate, Own | `AGENTS.md` template; the receipt rule in claim-check; the Stop hook |
+| | 8. Two-session execution | [08](08-two-session-execution.md) | Operate, Own | Frozen approval manifest with checksum; `evidence-handoff` skill |
+| **2. Agree acceptance first** | 1. Route the work | [01](01-route-the-work.md) | Scope, Hypothesise | `capture-the-problem` skill; the route line in the task record |
+| | 2. Evidence-based risk | [02](02-evidence-based-risk.md) | Scope, Operate | Risk tags with evidence; [data governance](guardrails/data-governance.md) |
+| | 5. Acceptance first | [05](05-acceptance-first.md) | Hypothesise | `agree-acceptance` skill; [acceptance template](../templates/acceptance.md) |
+| | 9. Pilot before scale | [09](09-pilot-before-scale.md) | Operate, Sustain and Scale | Preflight checklist; [scale guardrail](guardrails/scale.md) |
+| **3. Read back the real result** | 6. Read-back | [06](06-read-back.md) | Track | `report-with-evidence` skill; claim-check |
+| | 7. Independent review | [07](07-independent-review.md) | Operate, Track | Review packet; [quality guardrail](guardrails/quality.md) |
+| **4. Claim only what you can show** | 10. Claim discipline | [10](10-claim-discipline.md) | Track, Own | `tools/claim_check.py`; the Stop hook; [claims guide](../docs/claims.md) |
+| | 11. Context control | [11](11-context-control.md) | Operate, Sustain and Scale | One owning record; `evidence-handoff` skill; [productivity guardrail](guardrails/productivity.md) |
+| | 12. Graduation | [12](12-graduation.md) | Sustain and Scale | `tools/graduation_log.py`; [pace guardrail](guardrails/pace.md) |
 
 Controls 1 and 2 sit under rule 2 because choosing the route and the risk is part of agreeing what the work is and what done looks like. Control 9 sits there because a pilot is a small acceptance test before the large one. Controls 11 and 12 sit under rule 4 because a claim about a task is only as good as the record behind it, and a claim that an agent can be trusted is only as good as its log.
 
@@ -50,7 +50,7 @@ Skills are named here without links because the list grows. See the skills folde
 
 ## Guardrails
 
-The [six guardrails](guardrails/README.md) (data governance, security, scale, productivity, pace and quality) apply across every step. Each lists the controls it relies on.
+The [six guardrails](guardrails/README.md) (data governance, security, scale, productivity, pace and quality) apply across every stage. Each lists the controls it relies on.
 
 ## How to adopt
 

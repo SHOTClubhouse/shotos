@@ -4,7 +4,7 @@
 
 The agent profiles you or your organisation, finds awards from sources you approve, removes any that charge to enter or that you are not eligible for, flags worrying terms, and gives a shortlist with deadlines. For an award you pick, it maps each judging criterion to evidence you have and drafts the entry.
 
-It belongs to **Brief**. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
+It belongs to **Scope**. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

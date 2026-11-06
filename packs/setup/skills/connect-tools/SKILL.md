@@ -7,7 +7,7 @@ description: Tests which tools the agent can reach (slides, mail, calendar, spee
 
 Find out, with evidence, which tools this agent can use, so skills fail early and honestly instead of halfway through.
 
-**Step:** any, first used in Brief. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** any, first used in Scope. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 

@@ -12,12 +12,12 @@ The pack covers the plain habits that stop a project folder turning into a mess:
 
 ## Skills
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [work-folder](skills/work-folder/README.md) | Build | Sets up a git-ignored `.work/` folder with one owning folder per task, and closes tasks out with a list of what moves. |
-| [file-naming](skills/file-naming/README.md) | Build | Names files `YYYY-MM-DD_owner_subject_vNN.ext`, handles versions and status words, and shows a rename plan first. |
-| [filing-and-dedupe](skills/filing-and-dedupe/README.md) | Build | Proposes a structure by owner and category, finds duplicates by size and checksum, and executes an approved plan with a change log. |
-| [quarantine](skills/quarantine/README.md) | Build | Moves doubtful files to a quarantine folder with a register and a review date, instead of deleting. |
+| [work-folder](skills/work-folder/README.md) | Operate | Sets up a git-ignored `.work/` folder with one owning folder per task, and closes tasks out with a list of what moves. |
+| [file-naming](skills/file-naming/README.md) | Operate | Names files `YYYY-MM-DD_owner_subject_vNN.ext`, handles versions and status words, and shows a rename plan first. |
+| [filing-and-dedupe](skills/filing-and-dedupe/README.md) | Operate | Proposes a structure by owner and category, finds duplicates by size and checksum, and executes an approved plan with a change log. |
+| [quarantine](skills/quarantine/README.md) | Operate | Moves doubtful files to a quarantine folder with a register and a review date, instead of deleting. |
 
 ## Needs
 
@@ -34,17 +34,10 @@ python ../shotos/install.py --runtime claude --scope project --pack records
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
 
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-records@shotos
-```
-
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
 ## How it connects
 
-Each skill follows the four rules in [docs/controls.md](../../docs/controls.md): changes stop at the owner's yes, and results are read back. Quarantined files that hold personal data lead to [sensitive-data-check](../trust/skills/sensitive-data-check/README.md) in the trust pack. The steps are described in [docs/framework.md](../../docs/framework.md).
+Each skill follows the four rules in [docs/controls.md](../../docs/controls.md): changes stop at the owner's yes, and results are read back. Quarantined files that hold personal data lead to [sensitive-data-check](../trust/skills/sensitive-data-check/README.md) in the trust pack. The stages are described in [docs/framework.md](../../docs/framework.md).
 
 **Evidence:** Cases written, not yet run. Eval cases are in [evals/packs/records.json](../../evals/packs/records.json).

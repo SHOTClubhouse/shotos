@@ -5,7 +5,7 @@ description: Checks a repo, site, folder or document for secrets, personal data,
 
 # Check before it goes public
 
-Step: Check. Rules: 1 (stop at the boundaries) and 3 (read back the real result).
+Stage: Track. Rules: 1 (stop at the boundaries) and 3 (read back the real result).
 
 Once a file or key is public, it cannot be taken back. Look first.
 

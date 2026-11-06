@@ -7,7 +7,7 @@ description: "Prepares a decision brief: question, sourced facts, assumptions, o
 
 Give the decision maker everything needed to choose in about two pages, and show how firm each part is.
 
-Step: Brief. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
+Stage: Hypothesise. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
 
 ## When not to use this
 

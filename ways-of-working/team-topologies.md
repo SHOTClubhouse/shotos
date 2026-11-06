@@ -2,7 +2,7 @@
 
 ## What it is
 
-*Team Topologies* by Matthew Skelton and Manuel Pais is a practical model for shaping teams so that work flows. It starts from a simple limit: a team can only hold so much in its head, so the design of the teams should keep the load on each one manageable. It names four team types and three ways teams can work with each other. SHOTos borrows the model to explain who does what in the Own and Improve steps and where agents fit.
+*Team Topologies* by Matthew Skelton and Manuel Pais is a practical model for shaping teams so that work flows. It starts from a simple limit: a team can only hold so much in its head, so the design of the teams should keep the load on each one manageable. It names four team types and three ways teams can work with each other. SHOTos borrows the model to explain who does what in the Own and Sustain stages and where agents fit.
 
 ## Why it matters with agents in the loop
 
@@ -14,7 +14,7 @@ Teams also need a clear answer to "who owns this agent's work?" The answer in th
 
 ### Stream-aligned team
 
-A team aligned to a flow of work from a business domain: a product, a service, a customer path or a user group. It owns delivery end to end and can ship without waiting for other teams. Most teams should be of this type. Stream-aligned teams are who SHOTos hands to in the Hand over step.
+A team aligned to a flow of work from a business domain: a product, a service, a customer path or a user group. It owns delivery end to end and can ship without waiting for other teams. Most teams should be of this type. Stream-aligned teams are who SHOTos hands to in the Own stage.
 
 ### Enabling team
 
@@ -52,13 +52,13 @@ Signs that a team is overloaded: slow onboarding, a growing backlog of things no
 - **Platform capabilities.** A shared way to run agents, with logging, cost control and standard permissions, is a good job for a platform team.
 - **Enabling-team knowledge.** How to brief, review and measure agents is a capability an enabling team can teach, then step back from.
 
-## How SHOTos Hand over and Improve map to enabling teams
+## How SHOTos Own and Sustain map to enabling teams
 
-The **Hand over** step is the enabling pattern applied to a delivery team. Specialists pair with the receiving stream-aligned team, hand over runbooks, templates and the standard way of doing common tasks, and withdraw when the receiving team has run a full cycle without them. The exit check in the [framework](../docs/framework.md) says exactly that: the team has run at least one full cycle, including a release or reporting period, without the people who built it.
+The **Own** stage is the enabling pattern applied to a delivery team. Specialists pair with the receiving stream-aligned team, hand over runbooks, templates and the standard way of doing common tasks, and withdraw when the receiving team has run a full cycle without them. The exit check in the [framework](../docs/framework.md) says exactly that: the team has run at least one full cycle, including a release or reporting period, without the people who built it.
 
-The **Improve** step then asks the enabling team to move on. People who have done the work move to the next team and begin at Brief with that team's own baseline. A community of practice keeps the shared learning. The platform parts, such as pipelines, templates and the agent setup, are offered as a service rather than rebuilt each time.
+The **Sustain and Scale** stage then asks the enabling team to move on. People who have done the work move to the next team and begin at Scope with that team's own baseline. A community of practice keeps the shared learning. The platform parts, such as pipelines, templates and the agent setup, are offered as a service rather than rebuilt each time.
 
-The mode changes through the steps: collaboration while building, facilitating during Own, then X-as-a-service for anything that stays shared.
+The mode changes through the stages: collaboration while building, facilitating during Own, then X-as-a-service for anything that stays shared.
 
 ## What good looks like
 
@@ -77,17 +77,17 @@ The mode changes through the steps: collaboration while building, facilitating d
 - **Agents as invisible team members** whose output nobody owns.
 - **Ignoring load.** Adding agent output to a team that cannot review it.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Hand over:** facilitating handover to a stream-aligned team.
-- **Improve:** enabling people move on; platform capabilities become service.
+- **Own:** facilitating handover to a stream-aligned team.
+- **Sustain and Scale:** enabling people move on; platform capabilities become service.
 - **Rule 1:** authority stays with named people on the owning team.
 - **Control 7:** independent review needs a reviewer from outside the author's session, which a team can arrange.
 - **Control 12:** graduation is a team's decision about its tool, logged with evidence.
 
 ## A short example
 
-Northgate Cycles has a small online shop team (stream-aligned). An external coach team (enabling) spends six weeks with them: pairing on the release process, writing a runbook, setting up an agent to draft product descriptions with a review step. The mode is facilitating. The coach team agrees the exit with the shop team's lead: the shop team must run one release and one month-end report without the coaches. They do, with two questions asked by message. The coaches leave. A small internal platform person then offers the pipeline and the agent setup as a service to a second team, who start at Brief with their own baseline.
+Northgate Cycles has a small online shop team (stream-aligned). An external coach team (enabling) spends six weeks with them: pairing on the release process, writing a runbook, setting up an agent to draft product descriptions with a review step. The mode is facilitating. The coach team agrees the exit with the shop team's lead: the shop team must run one release and one month-end report without the coaches. They do, with two questions asked by message. The coaches leave. A small internal platform person then offers the pipeline and the agent setup as a service to a second team, who start at Scope with their own baseline.
 
 ## Further reading
 

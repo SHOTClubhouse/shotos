@@ -4,7 +4,7 @@
 
 The skill walks an agent and a person through checking the template and the data, a dry run, a sample of three documents read back against the source, and only then the full batch with its self-scheduling continuation.
 
-It supports the Build step. It serves rule 1, Stop at the boundaries, rule 3, Read back the real result, and control 9, [pilot before scale](../../../../rules/09-pilot-before-scale.md).
+It supports the Operate stage. It serves rule 1, Stop at the boundaries, rule 3, Read back the real result, and control 9, [pilot before scale](../../../../rules/09-pilot-before-scale.md).
 
 ## The problem it solves
 

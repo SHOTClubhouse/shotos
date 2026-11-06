@@ -82,12 +82,12 @@ Record cost per accepted task: the total spend divided by the outputs a person a
 - **Treating a model's grade as truth** without checking it against a person.
 - **Reporting the average and hiding the failures.**
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Brief:** build the eval set from real examples with the owner.
-- **Build:** block releases on failing evals; run paired runs on changes.
-- **Check:** report pass rate, cost per accepted task and edit rate against the baseline.
-- **Improve:** carry the set and the habit to the next team.
+- **Hypothesise:** build the eval set from real examples with the owner.
+- **Operate:** block releases on failing evals; run paired runs on changes.
+- **Track:** report pass rate, cost per accepted task and edit rate against the baseline.
+- **Sustain:** carry the set and the habit to the next team.
 - **Rule 2:** the set is the agreed acceptance for varying output.
 - **Rule 3:** run the cases against the real system, not a description.
 - **Rule 4:** say what was run, how many times, and what failed.

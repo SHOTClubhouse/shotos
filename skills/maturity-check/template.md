@@ -22,7 +22,7 @@
 ## Which side is ahead, and the risk
 
 ## Where to start
-Step:
+Stage:
 Skills, in order, with the reason for each:
 
 ## What this check cannot tell you

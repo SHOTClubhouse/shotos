@@ -4,7 +4,7 @@
 
 This skill reviews work that handles special-category data (such as health, ethnicity, religion, biometrics) or children's data. It checks data minimisation, lawful basis and consent recorded, parental consent for children, retention, who can see the data, images of children and the safeguarding escalation path. When consent is missing, it stops and escalates to the named person instead of carrying on.
 
-It supports the Brief step. It serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show.
+It supports the Scope stage. It serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

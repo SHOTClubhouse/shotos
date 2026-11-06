@@ -7,7 +7,7 @@ description: Triages one named mail account by action state and drafts replies f
 
 Sort mail by what it needs from the owner, draft the replies, and surface what has gone quiet. The output is a short list the owner can act on, not a cleaned inbox for its own sake.
 
-Step: Build. Rules: 1 Stop at the boundaries, 3 Read back the real result.
+Stage: Operate. Rules: 1 Stop at the boundaries, 3 Read back the real result.
 
 ## When not to use this
 

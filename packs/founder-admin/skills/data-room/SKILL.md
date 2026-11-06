@@ -7,7 +7,7 @@ description: "Builds and audits a due-diligence data room: standard categories, 
 
 Make it easy for a reviewer to find what they need, and make sure nobody sees what they should not.
 
-Step: Hand over. Rules served: 1 (stop at the boundaries), 4 (claim only what you can show) and 3 (read back the real result).
+Stage: Own. Rules served: 1 (stop at the boundaries), 4 (claim only what you can show) and 3 (read back the real result).
 
 ## When not to use this
 

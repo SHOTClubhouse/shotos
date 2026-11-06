@@ -32,7 +32,7 @@ Give a standing team a budget and a set of outcomes to improve, and let it decid
 
 ### Hypotheses, not requirements
 
-Write ideas as testable bets: "We believe that X will result in Y, and we will know because Z changes." Decide in advance what result would make you stop. Cheap tests first: a conversation, a mock-up, a manual version of the service before automating it. This is the Brief step.
+Write ideas as testable bets: "We believe that X will result in Y, and we will know because Z changes." Decide in advance what result would make you stop. Cheap tests first: a conversation, a mock-up, a manual version of the service before automating it. This is the Hypothesise stage.
 
 ### The product owner's role
 
@@ -50,8 +50,8 @@ They are not a ticket writer or a messenger from the sponsor. In a small team th
 
 ## How SHOTos supports it
 
-- **Brief** makes every piece of work a testable bet with a measure, before building starts.
-- **Check** compares the result with the baseline and asks for a named person's decision to scale, pivot or stop. Stopping is a valid, recorded result.
+- **Hypothesise** makes every piece of work a testable bet with a measure, before building starts.
+- **Track** compares the result with the baseline and asks for a named person's decision to move to Own, pivot, stop or hold for evidence. Stopping is a valid, recorded result.
 - **Own and Sustain** build a long-lived team that can keep the product going and carry the method to the next team.
 - The [capture-the-problem skill](../skills/capture-the-problem/README.md) and [problem template](../templates/problem.md) keep the starting point a problem, not a solution.
 
@@ -74,13 +74,13 @@ They are not a ticket writer or a messenger from the sponsor. In a small team th
 - **Discovery as a phase** that finishes before building begins and never returns.
 - **No stop rule.** Work that nobody is allowed to end.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Brief:** problem statement and baseline.
-- **Brief:** bets with measures; discovery in small steps.
-- **Build:** deliver the smallest piece into real use.
-- **Check:** the outcome measured; the decision recorded.
-- **Hand over and Improve:** keep the team and carry the practice forward.
+- **Scope:** problem statement and baseline.
+- **Hypothesise:** bets with measures; discovery in small steps.
+- **Operate:** deliver the smallest piece into real use.
+- **Track:** the outcome measured; the decision recorded.
+- **Own and Sustain:** keep the team and carry the practice forward.
 - **Rule 2:** acceptance is written in terms of the outcome.
 - **Rule 4:** claim an outcome only with a measure, labelled estimate or actual.
 

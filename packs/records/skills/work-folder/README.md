@@ -4,7 +4,7 @@
 
 This skill sets up a local `.work/` folder that git ignores, and gives every task one owning folder inside it holding the acceptance card, notes, scratch files and outputs. When the task is finished, it lists what moves out, what is archived and what is deleted, and waits for the owner's yes before moving anything.
 
-It supports the Build step. It serves rule 3, Read back the real result, and control [11, context-control](../../../../rules/11-context-control.md): one owning record per task.
+It supports the Operate stage. It serves rule 3, Read back the real result, and control [11, context-control](../../../../rules/11-context-control.md): one owning record per task.
 
 ## The problem it solves
 

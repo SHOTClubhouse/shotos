@@ -1,10 +1,10 @@
 {
   "name": "shotos-content",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Six skills for papers, slide decks, explainers, press releases, demo videos and creator edits. Every fact is sourced and nothing is published without a yes.",
   "author": {
     "name": "Liam McDowell"
   },
   "homepage": "https://github.com/SHOTClubhouse/shotos",
-  "license": "MIT AND CC-BY-4.0"
+  "license": "MIT"
 }

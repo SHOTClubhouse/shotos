@@ -7,7 +7,7 @@ description: "Sets up an advisory board: roles, terms summary for a lawyer, meet
 
 Turn a loose group of helpful people into a board with clear roles, expectations and limits, without making promises the company cannot keep.
 
-Step: Brief. Rules served: 1 (stop at the boundaries), 2 (agree acceptance first) and 4 (claim only what you can show).
+Stage: Hypothesise. Rules served: 1 (stop at the boundaries), 2 (agree acceptance first) and 4 (claim only what you can show).
 
 ## When not to use this
 

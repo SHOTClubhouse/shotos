@@ -94,11 +94,11 @@ Put security checks where code already flows: secret scanning, dependency checks
 - **Manual production changes** "just this once".
 - **Secrets in prompts, instruction files or logs.**
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Build** is where these habits live: short cycles, automated build and test, releases blocked by failing checks.
-- **Check** reads their result through the delivery measures.
-- **Hand over** passes them to the team that will run the system.
+- **Operate** is where these habits live: short cycles, automated build and test, releases blocked by failing checks.
+- **Track** reads their result through the delivery measures.
+- **Own** passes them to the team that will run the system.
 - **Rule 2:** tests are the executable form of acceptance.
 - **Rule 3:** the pipeline and the deployed system are the "real home" to read back.
 - **Rule 4:** claim "tests pass" only with a run to show.

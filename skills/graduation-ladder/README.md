@@ -4,7 +4,7 @@
 
 The agent logs what a reviewer did with each output, reads the standing from `.shotos/tools/graduation_log.py`, and recommends a rung: draft only, run and notify, or run silently. The thresholds are 95 per cent accepted unedited over at least 50 samples for rung 2, and, for rung 3, at least 200 samples in total with at least 98 per cent accepted unedited over the most recent window (default 50). A class drops a rung when it falls below the bar. High-risk classes stay at rung 1 unless a named person promotes them.
 
-It supports the Improve step. It serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show. It is the practical form of control 12, graduation.
+It supports Sustain and Scale. It serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show. It is the practical form of control 12, graduation.
 
 ## The problem it solves
 

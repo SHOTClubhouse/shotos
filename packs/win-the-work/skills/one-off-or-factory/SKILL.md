@@ -7,7 +7,7 @@ description: Decides whether to write items directly or build a factory, weighin
 
 Avoid building machinery that costs more than writing the items by hand. Test the factory on three real items first, then decide with numbers.
 
-Step: Brief. Rules served: 2 (agree acceptance first) and 4 (claim only what you can show). Applies control 9, pilot-before-scale (`rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed)).
+Stage: Hypothesise. Rules served: 2 (agree acceptance first) and 4 (claim only what you can show). Applies control 9, pilot-before-scale (`rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed)).
 
 ## When not to use this
 

@@ -7,7 +7,7 @@ description: "Prepares an advisory or board-style session: mandate, member contr
 
 Make an advisory session worth the members' time: a clear mandate, a single main question, a true record of what was said and actions that each have one owner.
 
-Step: Hand over. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
+Stage: Own. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 ## When not to use this
 

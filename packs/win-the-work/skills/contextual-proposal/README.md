@@ -4,7 +4,7 @@
 
 The agent researches who will read the proposal and what they decide, writes the argument for that reader, keeps a claim ledger and an asset register, explains the money in the reader's terms, and renders and inspects every page or slide. It stops at "ready for review"; the owner sends.
 
-It belongs to **Build**. It serves rule 3, Read back the real result, rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
+It belongs to **Operate**. It serves rule 3, Read back the real result, rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

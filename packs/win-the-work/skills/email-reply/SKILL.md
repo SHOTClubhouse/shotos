@@ -7,7 +7,7 @@ description: Drafts a reply to a real email thread in the owner's voice using on
 
 Answer the real question in the owner's voice, from facts you can show, and leave the sending to the owner.
 
-Step: Build. Rules served: 1 (stop at the boundaries), 3 (read back the real result) and 4 (claim only what you can show).
+Stage: Operate. Rules served: 1 (stop at the boundaries), 3 (read back the real result) and 4 (claim only what you can show).
 
 ## When not to use this
 

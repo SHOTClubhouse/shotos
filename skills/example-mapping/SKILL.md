@@ -7,7 +7,7 @@ description: "Runs an example-mapping session: story, rules, concrete examples, 
 
 Rules are abstract and people read them differently. Examples are concrete and expose the difference. Work through a change by rules, then examples, then questions, then write the settled examples as checks.
 
-**Step:** Brief. **Rules:** 2 Agree acceptance first; 4 Claim only what you can show.
+**Stage:** Hypothesise. **Rules:** 2 Agree acceptance first; 4 Claim only what you can show.
 
 ## When not to use this
 

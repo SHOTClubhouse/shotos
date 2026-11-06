@@ -13,15 +13,15 @@ The pack turns the repeating parts of an operating week into short, checkable lo
 
 ## Skills
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [daily-brief](skills/daily-brief/README.md) | Build | Reconciles a ledger of dated obligations against fresh mail and calendar signal, drafts what needs drafting, and produces one digest of what needs a person. |
-| [leaders-inbox](skills/leaders-inbox/README.md) | Brief | Reduces rough notes, links and ideas to meaning and source, then routes each to exactly one outcome. |
-| [inbox-triage](skills/inbox-triage/README.md) | Build | Classifies mail threads by action state, drafts replies from the real thread and flags slipped threads. |
-| [meeting-notes](skills/meeting-notes/README.md) | Check | Turns new recordings or transcripts into structured notes, with a watermark ledger and one rolling file per person or organisation. |
-| [weekly-exec-brief](skills/weekly-exec-brief/README.md) | Check | Writes an evidence-led weekly briefing: what changed, what needs deciding, what is unverified. |
-| [decision-brief](skills/decision-brief/README.md) | Brief | Sets out question, sourced facts, assumptions, options, a recommendation and what would change it. |
-| [advisory-session](skills/advisory-session/README.md) | Hand over | Prepares and runs an advisory session and leaves one action record with one owner per action. |
+| [daily-brief](skills/daily-brief/README.md) | Operate | Reconciles a ledger of dated obligations against fresh mail and calendar signal, drafts what needs drafting, and produces one digest of what needs a person. |
+| [leaders-inbox](skills/leaders-inbox/README.md) | Scope | Reduces rough notes, links and ideas to meaning and source, then routes each to exactly one outcome. |
+| [inbox-triage](skills/inbox-triage/README.md) | Operate | Classifies mail threads by action state, drafts replies from the real thread and flags slipped threads. |
+| [meeting-notes](skills/meeting-notes/README.md) | Track | Turns new recordings or transcripts into structured notes, with a watermark ledger and one rolling file per person or organisation. |
+| [weekly-exec-brief](skills/weekly-exec-brief/README.md) | Track | Writes an evidence-led weekly briefing: what changed, what needs deciding, what is unverified. |
+| [decision-brief](skills/decision-brief/README.md) | Hypothesise | Sets out question, sourced facts, assumptions, options, a recommendation and what would change it. |
+| [advisory-session](skills/advisory-session/README.md) | Own | Prepares and runs an advisory session and leaves one action record with one owner per action. |
 
 ## Needs
 
@@ -44,17 +44,10 @@ python ../shotos/install.py --runtime claude --scope project --pack exec-ops
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
 
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-exec-ops@shotos
-```
-
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
 ## How it connects
 
-The loops follow the four rules in [docs/controls.md](../../docs/controls.md). Any task class that wants to run without a person in the loop earns that through [rules/12-graduation.md](../../rules/12-graduation.md). The steps are described in [docs/framework.md](../../docs/framework.md).
+The loops follow the four rules in [docs/controls.md](../../docs/controls.md). Any task class that wants to run without a person in the loop earns that through [rules/12-graduation.md](../../rules/12-graduation.md). The stages are described in [docs/framework.md](../../docs/framework.md).
 
 **Evidence:** Cases written, not yet run. Eval cases are in [evals/packs/exec-ops.json](../../evals/packs/exec-ops.json).

@@ -13,15 +13,15 @@ Nothing in it is tied to one brand. The skills ask for your brand guide, your ev
 
 ## The skills
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [account-setup](skills/account-setup/README.md) | Brief | Builds or audits a profile: name, bio, link, profile image, highlights or pinned posts, checked against your brand guide. |
-| [content-calendar](skills/content-calendar/README.md) | Brief | Plans one week of posts from real events and available assets, with a set content mix (default 40% education, 40% community, 20% promotion). Each slot has an owner, an asset, a caption status and an approval status. |
-| [caption-options](skills/caption-options/README.md) | Build | Writes five caption options (A to E) and platform variants from a photo or brief, with facts checked and no claims you cannot back. |
-| [publish-with-manifest](skills/publish-with-manifest/README.md) | Build | Publishes only through a frozen approval manifest: exact posts, platforms, times, assets and checksums. Execution happens in a fresh step, then every post is read back live. |
-| [engagement-review](skills/engagement-review/README.md) | Build | Reviews comments, mentions and messages and proposes replies or actions for a person to approve. Never automates likes, follows, comments or messages. |
-| [group-sharing](skills/group-sharing/README.md) | Build | Decides whether a post suits a community group, drafts the share text, and leaves the posting to a person. |
-| [insights-review](skills/insights-review/README.md) | Check | A monthly review of platform insights against the plan, which adjusts next month's content mix. |
+| [account-setup](skills/account-setup/README.md) | Scope | Builds or audits a profile: name, bio, link, profile image, highlights or pinned posts, checked against your brand guide. |
+| [content-calendar](skills/content-calendar/README.md) | Hypothesise | Plans one week of posts from real events and available assets, with a set content mix (default 40% education, 40% community, 20% promotion). Each slot has an owner, an asset, a caption status and an approval status. |
+| [caption-options](skills/caption-options/README.md) | Operate | Writes five caption options (A to E) and platform variants from a photo or brief, with facts checked and no claims you cannot back. |
+| [publish-with-manifest](skills/publish-with-manifest/README.md) | Operate | Publishes only through a frozen approval manifest: exact posts, platforms, times, assets and checksums. Execution happens in a fresh step, then every post is read back live. |
+| [engagement-review](skills/engagement-review/README.md) | Operate | Reviews comments, mentions and messages and proposes replies or actions for a person to approve. Never automates likes, follows, comments or messages. |
+| [group-sharing](skills/group-sharing/README.md) | Operate | Decides whether a post suits a community group, drafts the share text, and leaves the posting to a person. |
+| [insights-review](skills/insights-review/README.md) | Track | A monthly review of platform insights against the plan, which adjusts next month's content mix. |
 
 ## Children and consent
 
@@ -51,13 +51,6 @@ python ../shotos/install.py --runtime claude --scope project --pack social
 ```
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
-
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-social@shotos
-```
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 

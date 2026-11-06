@@ -4,7 +4,7 @@
 
 A **definition of ready** is the short list of things that must be true before work starts. A **definition of done** is the list of checks that must pass before work counts as finished. Both are agreed by the team and written down, so nobody argues about them halfway through. The idea comes from agile and Scrum practice; the Scrum Guide treats a definition of done as a shared commitment to quality.
 
-SHOTos uses both. The definition of ready sits at the start of Build. The definition of done is what the acceptance checks of [rule 2](../rules/05-acceptance-first.md) are measured against.
+SHOTos uses both. The definition of ready sits at the start of Operate. The definition of done is what the acceptance checks of [rule 2](../rules/05-acceptance-first.md) are measured against.
 
 ## Why it matters with agents in the loop
 
@@ -133,11 +133,11 @@ For every output that goes to a public or shared place: **read it back in its re
 - **Ready means the ticket exists.** A title is not a specification.
 - **Gold-plating.** Checks added until nothing ever finishes. Keep to the risk.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Brief** ends with an agreed definition of ready and done.
-- **Brief** turns done into examples.
-- **Build** works to them; **Check** reports against them.
+- **Scope** ends with an agreed definition of ready and done.
+- **Hypothesise** turns done into examples.
+- **Operate** works to them; **Track** reports against them.
 - **Rules 2, 3 and 4:** agreed first, checked on the real result, claimed only with evidence.
 
 ## A short example

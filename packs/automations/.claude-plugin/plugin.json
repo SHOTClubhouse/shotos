@@ -1,10 +1,10 @@
 {
   "name": "shotos-automations",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Two free Google Apps Script automations with skills that set them up and run them safely: a signal engine that scores mail into one daily digest, and a batch document factory that fills a template from a sheet. Dry run, three-item pilot and read-back before any schedule.",
   "author": {
     "name": "Liam McDowell"
   },
   "homepage": "https://github.com/SHOTClubhouse/shotos",
-  "license": "MIT AND CC-BY-4.0"
+  "license": "MIT"
 }

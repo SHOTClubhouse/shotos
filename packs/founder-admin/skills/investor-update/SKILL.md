@@ -7,7 +7,7 @@ description: Drafts a monthly or quarterly investor update from approved materia
 
 Tell investors what actually happened, including what went badly, in numbers they can trace, and ask them for something specific.
 
-Step: Check. Rules served: 4 (claim only what you can show), 3 (read back the real result) and 1 (stop at the boundaries).
+Stage: Track. Rules served: 4 (claim only what you can show), 3 (read back the real result) and 1 (stop at the boundaries).
 
 ## When not to use this
 

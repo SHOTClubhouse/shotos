@@ -4,7 +4,7 @@
 
 The agent labels each claim-bearing part of an artefact by how it is known. Literal means taken directly from a source or the real system. Inferred means reasoned from evidence. Illustrative means made up to show the idea. It then edits the canonical file in place so the labels stay true.
 
-It belongs to the Build step but applies anywhere. It serves rule 4, Claim only what you can show, and rule 3, Read back the real result. The detail is in [rules/10-claim-discipline.md](../../rules/10-claim-discipline.md).
+It belongs to the Operate stage but applies anywhere. It serves rule 4, Claim only what you can show, and rule 3, Read back the real result. The detail is in [rules/10-claim-discipline.md](../../rules/10-claim-discipline.md).
 
 ## The problem it solves
 

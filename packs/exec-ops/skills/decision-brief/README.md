@@ -4,7 +4,7 @@
 
 The agent writes the question as a choice, lists facts with sources, keeps assumptions apart, sets out options with trade-offs, recommends one and says what would change the recommendation. The decision maker decides. It works alone or as the paper for an advisory group.
 
-It serves the Brief step. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
+It serves the Hypothesise stage. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
 
 ## The problem it solves
 

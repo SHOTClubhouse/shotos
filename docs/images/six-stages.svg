@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 483" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
+  <title id="title">The six SHOTos stages</title>
+  <desc id="desc">Scope, Hypothesise, Operate, Track, Own, Sustain and Scale. Track can proceed to Own, return to Hypothesise, stop or hold for evidence. After independent ownership and rollout approval, the next team begins at Scope. Four agent rules apply throughout.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#8bdccd"/></marker></defs>
+  <rect width="960" height="483" rx="20" fill="#102132"/>
+  <text x="28" y="48" font-size="26" font-weight="700" fill="#fff">SHOTos · Six stages of delivery</text>
+  <g transform="translate(28,82)">
+    <rect width="244" height="112" rx="12" fill="#20364b" stroke="#39546d"/>
+    <text x="16" y="25" font-size="13" font-weight="700" fill="#a5e8da">01</text>
+    <text x="16" y="56" font-size="23" font-weight="700" fill="#fff">Scope</text>
+    <text x="16" y="84" font-size="13" fill="#e0edf5">Agree problem and baseline</text>
+  </g>
+  <g transform="translate(358,82)">
+    <rect width="244" height="112" rx="12" fill="#20364b" stroke="#39546d"/>
+    <text x="16" y="25" font-size="13" font-weight="700" fill="#a5e8da">02</text>
+    <text x="16" y="56" font-size="23" font-weight="700" fill="#fff">Hypothesise</text>
+    <text x="16" y="84" font-size="13" fill="#e0edf5">Agree the test and guardrails</text>
+  </g>
+  <g transform="translate(688,82)">
+    <rect width="244" height="112" rx="12" fill="#20364b" stroke="#39546d"/>
+    <text x="16" y="25" font-size="13" font-weight="700" fill="#a5e8da">03</text>
+    <text x="16" y="56" font-size="23" font-weight="700" fill="#fff">Operate</text>
+    <text x="16" y="84" font-size="13" fill="#e0edf5">Run and verify the pilot</text>
+  </g>
+  <g transform="translate(688,251)">
+    <rect width="244" height="112" rx="12" fill="#20364b" stroke="#39546d"/>
+    <text x="16" y="25" font-size="13" font-weight="700" fill="#a5e8da">04</text>
+    <text x="16" y="56" font-size="23" font-weight="700" fill="#fff">Track</text>
+    <text x="16" y="84" font-size="13" fill="#e0edf5">Compare and decide</text>
+  </g>
+  <g transform="translate(358,251)">
+    <rect width="244" height="112" rx="12" fill="#20473f" stroke="#8bdccd"/>
+    <text x="16" y="25" font-size="13" font-weight="700" fill="#a5e8da">05</text>
+    <text x="16" y="56" font-size="23" font-weight="700" fill="#fff">Own</text>
+    <text x="16" y="84" font-size="13" fill="#e0edf5">Prove an independent cycle</text>
+  </g>
+  <g transform="translate(28,251)">
+    <rect width="244" height="112" rx="12" fill="#20364b" stroke="#39546d"/>
+    <text x="16" y="25" font-size="13" font-weight="700" fill="#a5e8da">06</text>
+    <text x="16" y="56" font-size="23" font-weight="700" fill="#fff">Sustain and Scale</text>
+    <text x="16" y="84" font-size="13" fill="#e0edf5">Maintain it and plan the next wave</text>
+  </g>
+  <g fill="none" stroke="#8bdccd" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M280 138H348"/><path d="M610 138H678"/><path d="M810 200V241"/>
+    <path d="M680 309H612"/><path d="M350 309H282"/>
+  </g>
+  <g fill="#c6dbe9" font-size="13">
+    <text x="690" y="388">Track: pivot, stop or hold</text>
+    <text x="690" y="405">A pivot returns to Hypothesise</text>
+    <text x="29" y="390">Next wave: return to Scope with a local baseline</text>
+  </g>
+  <rect x="28" y="416" width="904" height="42" rx="8" fill="#172e43"/>
+  <text x="480" y="442" text-anchor="middle" font-size="14" fill="#eef6fb">Every stage: respect authority · agree acceptance · check the result · show the evidence</text>
+</svg>

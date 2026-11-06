@@ -4,7 +4,7 @@
 
 This skill makes the agent write an acceptance card first. The card holds one named owner, one sentence of outcome, three to seven checks anyone can verify, at least one case that should fail and a list of things the agent must ask about. The owner says yes before the work begins.
 
-It supports the Brief step, where examples and success criteria are agreed before building. It serves two rules: rule 2, Agree acceptance first, and rule 1, Stop at the boundaries.
+It supports the Hypothesise stage, where examples and success criteria are agreed before building. It serves two rules: rule 2, Agree acceptance first, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

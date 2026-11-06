@@ -4,7 +4,7 @@
 
 The agent takes the sources you approve, builds a numbers table with a source and date for each figure, and writes a short update: how the period went, what worked, what did not, what comes next and what you are asking investors for. It lists what it held back and why, and stops before sending.
 
-It belongs to **Check**. It serves rule 4, Claim only what you can show, rule 3, Read back the real result, and rule 1, Stop at the boundaries.
+It belongs to **Track**. It serves rule 4, Claim only what you can show, rule 3, Read back the real result, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

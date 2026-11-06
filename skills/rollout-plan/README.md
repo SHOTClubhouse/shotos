@@ -2,9 +2,9 @@
 
 **Take what worked to the next team by copying the method, and make each new team measure its own starting point.**
 
-The agent checks that an evidence pack and a scale decision exist, separates what travels into method, settings and assumptions, and proposes a sequence of three teams or fewer first. It names the people who move with the method, plans a re-baseline and preflight for each team, sets governance and an improvement cadence, and defines checkpoints and a stop. It drafts; the sponsor approves.
+The agent checks the Track evidence, the accepted independent cycle from Own and the sponsor's rollout decision. It identifies what each team can reuse, what each team must check locally and where to stop. The sponsor approves the proposed sequence and support.
 
-It supports the Improve step. It serves rule 1, Stop at the boundaries, rule 3, Read back the real result, and rule 4, Claim only what you can show. It is the practical form of control 9, pilot-before-scale.
+It supports Sustain and Scale. It serves rule 1, Stop at the boundaries, rule 3, Read back the real result, and rule 4, Claim only what you can show. It is the practical form of control 9, pilot-before-scale.
 
 ## The problem it solves
 

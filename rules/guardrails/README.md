@@ -1,6 +1,6 @@
 # The six guardrails
 
-The [twelve controls](../README.md) say how an agent and a person work on a task. The guardrails say what has to stay true across every task and every step, however well the controls are followed. Each guardrail protects one thing, sets a minimum practice and lists the checks that show it is holding.
+The [twelve controls](../README.md) say how an agent and a person work on a task. The guardrails say what has to stay true across every task and every stage, however well the controls are followed. Each guardrail protects one thing, sets a minimum practice and lists the checks that show it is holding.
 
 | Guardrail | Protects | Page | Main controls |
 |---|---|---|---|
@@ -11,10 +11,10 @@ The [twelve controls](../README.md) say how an agent and a person work on a task
 | Pace | Honest delivery against what was agreed | [pace.md](pace.md) | 1, 5, 12 |
 | Quality | The standard of finished work | [quality.md](quality.md) | 5, 6, 7, 10 |
 
-## How guardrails relate to controls and steps
+## How guardrails relate to controls and stages
 
 - A **control** is something an agent and a person do on a task. A **guardrail** is a standing condition the controls help to maintain.
-- Guardrails apply in all five steps. Brief sets which guardrails matter most for this work. Build and Check test them. Hand over and Improve keep them true after the team that built the work has gone.
+- Guardrails apply in all six stages. Scope sets which guardrails matter most for this work. Operate and Track test them. Own and Sustain and Scale keep them true after the team that built the work has gone.
 - If a guardrail and a task conflict, the guardrail wins and the owner is told.
 
 ## Using the pages
