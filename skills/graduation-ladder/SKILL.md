@@ -9,6 +9,12 @@ Autonomy is earned by a record, class by class. The agent logs outcomes, reads t
 
 Stage: Sustain and Scale. Rules: 1 Stop at the boundaries, 4 Claim only what you can show. This is control 12, graduation.
 
+## Context and handoff
+
+Read the task class, accepted run log and latest exception. Verify the sample covers realistic failures before proposing more autonomy.
+
+Use `mode-ladder` to define the new authority. Record promotion or demotion in the existing log.
+
 ## When not to use this
 
 Skip it for one-off tasks with no repeat. Do not use it to loosen a boundary: sending, spending, deleting or publishing outside the project keeps its owner's yes unless a named person explicitly grants a standing permission for that class and scope.

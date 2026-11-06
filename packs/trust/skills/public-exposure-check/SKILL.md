@@ -9,6 +9,12 @@ Stage: Track. Rules: 1 (stop at the boundaries) and 3 (read back the real result
 
 Once a file or key is public, it cannot be taken back. Look first.
 
+## Context and handoff
+
+Read the exact artefact or revision, intended audience, current permissions and any existing public disclosures. Inspect its metadata and linked material.
+
+Use `sensitive-data-check` for restricted content. Record findings and the publish decision privately without reproducing sensitive values.
+
 ## When not to use this
 
 Skip things that will stay private. This is not a penetration test and not a review of a live service.

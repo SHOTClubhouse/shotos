@@ -26,9 +26,14 @@ import argparse
 import base64
 import hashlib
 import json
+import os
 import shutil
 import sys
+import tempfile
+from contextlib import contextmanager
 from pathlib import Path
+
+from tools.skill_resources import example_files, portable_readme
 
 REPO = Path(__file__).resolve().parent
 MANIFEST = ".shotos-install.json"
@@ -53,6 +58,7 @@ IMPORT_FILES = {"claude": "CLAUDE.md", "gemini": "GEMINI.md", "antigravity": "GE
 HOOK_COMMAND = 'sh "$CLAUDE_PROJECT_DIR/.shotos/hooks/run_hook.sh"'
 WORK_LINE = ".work/"
 IMPORT_LINE = "@AGENTS.md"
+CANON_LINE = "For SHOTos work, read and apply the installed working agreement at .shotos/templates/AGENTS.md."
 
 
 class InstallError(Exception):
@@ -94,7 +100,7 @@ def available_packs() -> list:
     return sorted(p.name for p in (REPO / "packs").iterdir() if (p / "skills").is_dir()) if (REPO / "packs").is_dir() else []
 
 
-def plan(runtime: str, scope: str, root: Path, with_hook: bool, packs=(), with_agents=False):
+def plan(runtime: str, scope: str, root: Path, with_hook: bool, packs=(), with_agents=False, packs_only=False):
     runtimes = ALL if runtime == "all" else (runtime,)
     for r in runtimes:
         if (r, scope) not in SKILL_DIRS:
@@ -103,13 +109,16 @@ def plan(runtime: str, scope: str, root: Path, with_hook: bool, packs=(), with_a
     if unknown:
         raise InstallError(f"unknown pack(s): {', '.join(unknown)}. Run --list-packs to see them.")
     copies = []
-    sources = [REPO / "skills"] + [REPO / "packs" / name / "skills" for name in packs]
+    sources = [] if packs_only else [REPO / "skills"]
+    sources += [REPO / "packs" / name / "skills" for name in packs]
     for r in runtimes:
         skills_dir = root / SKILL_DIRS[(r, scope)]
         for source in sources:
             for skill in sorted(source.iterdir()):
                 if (skill / "SKILL.md").is_file():
-                    copies.append((skill, skills_dir / skill.name))
+                    destination = skills_dir / skill.name
+                    copies.append((skill, destination))
+                    copies.extend((source, destination / name) for source, name in example_files(skill))
     if with_agents:
         if "claude" not in runtimes:
             raise InstallError("--with-agents installs Claude Code subagents; for other runtimes paste agents/*.md as instructions")
@@ -117,28 +126,32 @@ def plan(runtime: str, scope: str, root: Path, with_hook: bool, packs=(), with_a
             if agent.name != "README.md":
                 copies.append((agent, root / ".claude" / "agents" / agent.name))
     project = scope == "project"
-    if project:
+    if project and not packs_only:
         copies += [
             (REPO / "tools" / "claim_check.py", root / ".shotos" / "tools" / "claim_check.py"),
             (REPO / "tools" / "graduation_log.py", root / ".shotos" / "tools" / "graduation_log.py"),
             (REPO / "rules", root / ".shotos" / "rules"),
+            (REPO / "agents", root / ".shotos" / "agents"),
+            (REPO / "lenses", root / ".shotos" / "lenses"),
             (REPO / "hooks" / "stop_claim_check.py", root / ".shotos" / "hooks" / "stop_claim_check.py"),
             (REPO / "hooks" / "run_hook.sh", root / ".shotos" / "hooks" / "run_hook.sh"),
             (REPO / "templates", root / ".shotos" / "templates"),
             (REPO / "docs" / "claims.md", root / ".shotos" / "claims.md"),
             (REPO / "docs" / "connect-your-tools.md", root / ".shotos" / "docs" / "connect-your-tools.md"),
+            (REPO / "docs" / "full-pack.md", root / ".shotos" / "docs" / "full-pack.md"),
             (REPO / "LICENSE", root / ".shotos" / "LICENSE"),
             (REPO / "LICENSE-docs.md", root / ".shotos" / "LICENSE-docs.md"),  # the credit line the CC BY files need travels with them
         ]
+        if not (root / "AGENTS.md").exists():
+            copies.append((REPO / "templates" / "AGENTS.md", root / "AGENTS.md"))
+    if project:
         for name in packs:
             scripts = REPO / "packs" / name / "scripts"
             if scripts.is_dir():
                 copies.append((scripts, root / ".shotos" / "packs" / name / "scripts"))
-        if not (root / "AGENTS.md").exists():
-            copies.append((REPO / "templates" / "AGENTS.md", root / "AGENTS.md"))
     hook = with_hook and "claude" in runtimes and project
     import_files = list(dict.fromkeys(IMPORT_FILES[r] for r in runtimes if r in IMPORT_FILES)) if project else []
-    if runtime == "agents":
+    if runtime == "agents" or packs_only:
         import_files = []  # plain .agents/skills install: the user chose no runtime-specific file
     return copies, hook, import_files
 
@@ -238,17 +251,58 @@ def restore_or_trim(root: Path, rel: str, edit: dict, line, dry_run: bool, creat
         remove_line(path, line, created_state == "created")
 
 
+def write_manifest(path: Path, manifest: dict) -> None:
+    temp = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=path.parent, delete=False) as stream:
+            temp = Path(stream.name)
+            json.dump(manifest, stream, indent=2)
+            stream.write("\n")
+        os.replace(temp, path)
+    finally:
+        if temp is not None:
+            temp.unlink(missing_ok=True)
+
+
+@contextmanager
+def install_lock(root: Path):
+    path = root / ".shotos-install.lock"
+    try:
+        handle = path.open("x", encoding="utf-8")
+    except FileExistsError as error:
+        raise InstallError("Another install or uninstall is active for this target. If it was interrupted, check the target before removing its lock.") from error
+    try:
+        with handle:
+            handle.write(f"{os.getpid()}\n")
+        yield
+    finally:
+        path.unlink(missing_ok=True)
+
+
 def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool, packs=(), with_agents=False) -> int:
     root = root.resolve()
     manifest_path = root / MANIFEST
+    previous = None
+    packs = sorted(set(packs))
     if manifest_path.exists():
-        print(f"Already installed here ({manifest_path}). Run --uninstall first, then install again with the packs you want.")
-        return 1
-    copies, hook, import_files = plan(runtime, scope, root, with_hook, packs, with_agents)
+        if manifest_path.is_symlink() or not contained(root, manifest_path):
+            raise InstallError("The existing manifest is a link. Nothing was changed.")
+        previous = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if (previous.get("version") != 2 or (previous.get("runtime"), previous.get("scope")) != (runtime, scope)
+                or (with_hook and not previous.get("hook")) or (with_agents and not previous.get("agents"))):
+            raise InstallError("Use the existing runtime and scope when adding packs. Reinstall to change setup options.")
+        packs = [name for name in packs if name not in previous.get("packs", [])]
+        if not packs:
+            print("The requested packs are already installed. Nothing was changed.")
+            return 0
+    copies, hook, import_files = plan(runtime, scope, root, with_hook and previous is None, packs,
+                                     with_agents and previous is None, packs_only=previous is not None)
+    existing_agreement = previous is None and scope == "project" and (root / "AGENTS.md").is_file()
     settings_path = root / ".claude" / "settings.json"
     if hook:
         read_settings(settings_path)
     outside = [dst for dst in [d for _, d in copies] + [root / ".gitignore"] + [root / n for n in import_files]
+               + ([root / "AGENTS.md"] if existing_agreement else [])
                + ([settings_path] if hook else []) if not contained(root, dst)]
     if outside:
         raise InstallError("these paths lead outside the target folder (through a symlink), so nothing was changed:\n  "
@@ -259,10 +313,12 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
         print(f"{verb} copy  {src.relative_to(REPO)}  ->  {dst.relative_to(root)}")
     if hook:
         print(f"{verb} add   the claim-check Stop hook to .claude/settings.json")
-    elif with_hook:
+    elif with_hook and previous is None:
         print("note  --with-hook only applies to Claude Code in project scope, so no hook was added")
-    if scope == "project":
+    if scope == "project" and previous is None:
         print(f"{verb} add   {WORK_LINE} to .gitignore (if missing)")
+    if existing_agreement:
+        print(f"{verb} link  the installed SHOTos agreement from the existing AGENTS.md")
     for name in import_files:
         print(f"{verb} add   {IMPORT_LINE} to {name} (if missing), so the four rules load")
     if clashes:
@@ -290,6 +346,7 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
                 folder.mkdir()
                 manifest["dirs"].append(folder.relative_to(root).as_posix())
             if src.is_dir():
+                readme = portable_readme(src, REPO) if (src / "SKILL.md").is_file() else None
                 shutil.copytree(src, dst)
                 manifest["dirs"].append(dst.relative_to(root).as_posix())
                 files = [p for p in dst.rglob("*") if p.is_file()]
@@ -299,6 +356,10 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
                 files = [dst]
             for f in files:
                 manifest["files"][f.relative_to(root).as_posix()] = sha(f)
+            if src.is_dir() and readme is not None:
+                installed_readme = dst / "README.md"
+                installed_readme.write_bytes(readme.encode("utf-8"))
+                manifest["files"][installed_readme.relative_to(root).as_posix()] = sha(installed_readme)
         if hook:
             before = settings_path.read_bytes() if settings_path.is_file() else None
             if not settings_path.parent.exists():
@@ -306,22 +367,36 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
             add_hook(settings_path)
             manifest["hook"] = True
             record(".claude/settings.json", before)
-        if scope == "project":
+        if scope == "project" and previous is None:
             before = (root / ".gitignore").read_bytes() if (root / ".gitignore").is_file() else None
             manifest["gitignore"] = add_line(root / ".gitignore", WORK_LINE)
             if manifest["gitignore"]:
                 record(".gitignore", before)
+        if existing_agreement:
+            before = (root / "AGENTS.md").read_bytes()
+            manifest["agreement_link"] = add_line(root / "AGENTS.md", CANON_LINE)
+            if manifest["agreement_link"]:
+                record("AGENTS.md", before)
         for name in import_files:
             before = (root / name).read_bytes() if (root / name).is_file() else None
             state = add_line(root / name, IMPORT_LINE)
             if state:
                 manifest["import_files"][name] = state
                 record(name, before)
+        if previous is None:
+            write_manifest(manifest_path, manifest)
+        else:
+            combined = {
+                **previous,
+                "packs": sorted(set(previous.get("packs", [])) | set(packs)),
+                "files": {**previous["files"], **manifest["files"]},
+                "dirs": list(dict.fromkeys(previous["dirs"] + manifest["dirs"])),
+            }
+            write_manifest(manifest_path, combined)
     except Exception:
         print("\nInstall failed part-way; rolling back.")
         _reverse(root, manifest)
         raise
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(f"\nInstalled. Manifest: {manifest_path.name}")
     return 0
 
@@ -347,6 +422,8 @@ def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
         restore_or_trim(root, ".claude/settings.json", edits.get(".claude/settings.json"), None, dry_run, None)
     if manifest.get("gitignore"):
         restore_or_trim(root, ".gitignore", edits.get(".gitignore"), WORK_LINE, dry_run, manifest["gitignore"])
+    if manifest.get("agreement_link"):
+        restore_or_trim(root, "AGENTS.md", edits.get("AGENTS.md"), CANON_LINE, dry_run, manifest["agreement_link"])
     imports = dict(manifest.get("import_files", {}))
     if manifest.get("claude_md"):  # manifests written before Gemini and Antigravity were added
         imports["CLAUDE.md"] = manifest["claude_md"]
@@ -405,10 +482,14 @@ def main(argv=None) -> int:
     default = Path.home() if args.scope == "user" else Path.cwd()
     root = Path(args.target) if args.target else default
     try:
-        if args.uninstall:
-            return uninstall(root, args.dry_run)
-        return install(args.runtime, args.scope, root, args.with_hook, args.dry_run, packs, args.with_agents)
-    except InstallError as error:
+        if args.dry_run or (args.uninstall and not root.exists()):
+            return uninstall(root, True) if args.uninstall else install(
+                args.runtime, args.scope, root, args.with_hook, True, packs, args.with_agents)
+        root.mkdir(parents=True, exist_ok=True)
+        with install_lock(root.resolve()):
+            return uninstall(root, False) if args.uninstall else install(
+                args.runtime, args.scope, root, args.with_hook, False, packs, args.with_agents)
+    except (InstallError, OSError, ValueError) as error:
         print(f"Error: {error}")
         return 1
 

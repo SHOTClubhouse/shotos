@@ -9,6 +9,12 @@ Avoid building machinery that costs more than writing the items by hand. Test th
 
 Stage: Hypothesise. Rules served: 2 (agree acceptance first) and 4 (claim only what you can show). Applies control 9, pilot-before-scale (`rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed)).
 
+## Context and handoff
+
+Read representative requests, expected volume, source variation and error cost. Compare a direct draft with the work of maintaining a master.
+
+Use `proposal-factory` or `batch-document-factory` when the shape repeats. Record the routing decision with the brief.
+
 ## When not to use this
 
 Skip it when only one item is needed, or when the process already exists and has been accepted (then use it). Do not use it to justify a tool someone already wants to build; use it to test the want.

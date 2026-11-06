@@ -9,6 +9,12 @@ A reader cannot tell a real figure from a made-up one unless the page says. Labe
 
 **Stage:** Operate (any stage may use it). **Rules:** 4 Claim only what you can show; 3 Read back the real result. Detail: `rules/10-claim-discipline.md` (in the SHOTos repository, or `.shotos/rules/10-claim-discipline.md` where SHOTos is installed).
 
+## Context and handoff
+
+Read the actual result and evidence sources. Label each claim according to whether it was observed, reported, inferred or remains unknown.
+
+Use `report-with-evidence` for the final Claims block. Keep labels beside the source links.
+
 ## When not to use this
 
 Skip it for short chat answers and for text with no figures or factual claims. Do not label every adjective; label claims, numbers, quotes, screenshots and examples.

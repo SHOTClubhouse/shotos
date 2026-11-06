@@ -9,9 +9,15 @@ Scale the method, not the result. Each new team gets what worked, then measures 
 
 Stage: Sustain and Scale. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show. Control 9, pilot-before-scale.
 
+## Context and handoff
+
+Read the accepted independent cycle, sponsor approval, receiving context and local baseline. Confirm capacity and stop conditions before planning a wave.
+
+Use `enablement-plan` when independence is missing. Keep the wave decision and local measures with the programme.
+
 ## When not to use this
 
-When approval or independent ownership is missing, identify the blocker and route back to the sponsor or [enablement plan](../enablement-plan/README.md). With both recorded, draft the sequence and staffing for review. Announcement needs separate authority.
+When approval or independent ownership is missing, identify the blocker and route back to the sponsor or `enablement-plan`. With both recorded, draft the sequence and staffing for review. Announcement needs separate authority.
 
 ## Steps
 
@@ -22,7 +28,7 @@ When approval or independent ownership is missing, identify the blocker and rout
 5. **Re-baseline in each new team.** Before starting, each team measures its own starting point with the same method as Scope: the problem statement, the baseline measures, the data checks and the acceptance. Do not carry the first team's figures forward as if they were this team's.
 6. **Run a preflight.** For each team, check access, data quality, owners, the boundary list and the stop conditions before any agent task runs. List what blocks starting.
 7. **Set the governance.** Who decides at each stage, what each team may change locally and what only the sponsor may change, how a team asks to deviate, and how stops are recorded. Keep the boundary list intact.
-8. **Set the improvement cadence.** A regular slot (for example every four weeks) where the teams share evidence, bring lessons to the [learning-loop](../learning-loop/README.md) and update shared skills through the gate. Say who owns the shared copy.
+8. **Set the improvement cadence.** A regular slot (for example every four weeks) where the teams share evidence, bring lessons to the `learning-loop` and update shared skills through the gate. Say who owns the shared copy.
 9. **Define the checkpoints and the stop.** After each team: an evidence pack, a decision to continue, adapt or pause. Say what would pause the whole rollout, such as a material failure or a team that cannot meet its baseline.
 10. **Present as a draft.** The sponsor approves the sequence and the people. The agent does not announce, schedule meetings, or contact teams.
 

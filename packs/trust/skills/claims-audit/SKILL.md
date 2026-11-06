@@ -9,6 +9,12 @@ Stage: Track. Rules: 4 (claim only what you can show) and control 10 (claim disc
 
 A reader trusts a document until one claim fails. Find the weak claims first, and let the owner decide.
 
+## Context and handoff
+
+Read the actual draft and its strongest sources. Trace every number, promise and attribution to its scope and date.
+
+Use `report-with-evidence` for execution claims. Leave corrections and source links with the draft review.
+
 ## When not to use this
 
 Skip internal notes and private drafts. This is not a legal or regulatory review and it does not judge style.

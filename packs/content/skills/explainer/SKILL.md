@@ -9,6 +9,12 @@ Turn a topic into a document that a named reader understands, with examples that
 
 **Stage:** Operate. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 1 (stop at the boundaries).
 
+## Context and handoff
+
+Start from the audience’s real question, source behaviour and the action they need to take. Verify the sequence against a real example or label it illustrative.
+
+Use `image-create` only when a visual clarifies the sequence. Keep the source and reviewed explainer together.
+
 ## When not to use this
 
 Do not use it for an argued opinion piece (use written-content), a press announcement (use press-release), or a quick chat answer. Do not use it when the subject is not understood yet; learn the facts first.

@@ -9,6 +9,12 @@ Tell investors what actually happened, including what went badly, in numbers the
 
 Stage: Track. Rules served: 4 (claim only what you can show), 3 (read back the real result) and 1 (stop at the boundaries).
 
+## Context and handoff
+
+Read the last update, approved metrics, current period and commitments. Reconcile denominators and dates before reporting movement.
+
+Use `decision-brief` for a board ask. Store the approved update and linked metric sources with investor records.
+
 ## When not to use this
 
 Skip it for a fundraising pitch (that is persuasion; this is reporting), for legal or regulatory notices, and for an announcement of material news that needs advice before disclosure. If an investor asks for non-public information that others have not received, stop and ask the owner.

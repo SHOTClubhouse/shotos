@@ -35,7 +35,7 @@ What stays private is SHOT's business: its products, customers and data. The way
 
 ## Design choices
 
-**Small.** Version 0.1 has four rules, four skills, one tool, one hook and a handful of templates. One person can use it on day one without a platform team. Every extra rule is another thing to forget.
+**Small.** Start with the four rules, one relevant skill and a template. One person can use it on day one without a platform team. Every extra rule is another thing to forget.
 
 **Tested.** Where something can be tested, it is. The tool and hook have automated tests, the skills have paired cases that include ones designed to fail, and the results are published with their limits. What has not been tested is listed as not tested.
 

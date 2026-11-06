@@ -1,50 +1,39 @@
-# Proposal working sheet
+# Four-slide proposal copy
 
-**Reader:** Maya Fenn, facilities manager, Wren Valley Schools Trust
-**Decision and date:** bike maintenance contract for 6 secondary schools, by the end of January
-**Proposal owner (sends it):** the founder of Northgate Cycles
+Fictional example for draft review.
 
-## Reader note
-| Fact | Source | Date | Status |
-|---|---|---|---|
-| The trust wants more pupils cycling | Trust public site, as quoted by the founder | not recorded | reported (page not yet opened) |
-| The trust has a safeguarding policy for all contractors | Trust public site, as quoted by the founder | not recorded | reported |
-| Six secondary schools | Founder's brief | 2 Nov | confirmed by owner |
+## Slide 1. Bike maintenance for Wren Valley Schools Trust
 
-Unknowns: the trust's current spend and supplier; Maya Fenn's budget line; whether the safeguarding policy asks for particular checks.
+Northgate Cycles | Prepared for Maya Fenn, Facilities Manager
 
-## Argument
-Because the trust wants more pupils cycling and requires safeguarded contractors, this proposal offers a safeguarding-checked maintenance service at a fixed price per bike, and Maya will see a costed contract she can compare with her current spend before the end of January.
+Compare a per-bike servicing price across the trust's six secondary schools.
 
-## Claim ledger
-| # | Claim | Where | Source | Status | Action |
-|---|---|---|---|---|---|
-| 1 | Three years servicing school bikes | Slide 2 | Founder's records | confirmed by owner | Keep |
-| 2 | 9 school clients | Slide 2 | Founder's records | confirmed by owner | Keep |
-| 3 | About 2,000 repairs a year | Slide 2 | Founder's estimate, not counted | unsupported | Removed. Replace with "9 school clients" until counted |
-| 4 | 38 pounds per bike per year, up to 120 bikes, parts at cost | Slide 3 | Founder's brief | confirmed by owner | Keep |
-| 5 | Safeguarding-checked staff | Slide 2 | Not stated in the brief | unsupported | Held. Ask the founder what checks exist before including |
+## Slide 2. Relevant experience
 
-## Asset register
-| Asset | Where | Origin | Owner | Rights | People shown and consent |
-|---|---|---|---|---|---|
-| Photo of two pupils on bikes | Slide 1 | Taken by founder at a client school | Founder | Owned | Parental consent unknown |
+Northgate Cycles has serviced school bikes for three years. Our records show nine school clients.
 
-Decision: the photo is not in the file. A placeholder is on Slide 1. Use it only if consent is confirmed in writing.
+## Slide 3. Price
 
-## Money in the reader's terms
-- Maya pays 38 pounds per bike per year for up to 120 bikes, which is 4,560 pounds at the full number; parts at cost.
-- She gets servicing for the trust's pool of bikes.
-- What it replaces or saves: unknown. Maya's current cost is not known; the slide says "compare with your current cost per bike" rather than claiming a saving.
-- Not included: parts, and bikes above 120.
+Annual servicing is £38 per bike for up to 120 bikes. At 120 bikes the annual servicing charge is £4,560. Parts are charged at cost.
 
-## Rendered check
-| Slide | Looked at | Problems | Fixed |
-|---|---|---|---|
-| 1 | Yes | Placeholder visible where the photo would go | Left deliberately; flagged to owner |
-| 2 | Yes | Claim 5 would have appeared | Removed |
-| 3 | Yes | Total printed as 4,560; checked against 38 x 120 | None |
-| 4 | Yes | Next step text fits; no overflow | None |
+## Slide 4. Decision before the end of January
 
-## Status
-Ready for review by the founder, with two open items: safeguarding checks (claim 5) and photo consent. **Not sent.** The founder sends it.
+Confirm the number of bikes and the contractor requirements for the six schools. We can then check the scope and price against those requirements before you decide.
+
+---
+
+# Internal working sheet
+
+**Reader:** Maya Fenn, facilities manager. **Decision:** maintenance supplier by end of January. **Proposal owner:** Northgate Cycles founder, as identified in the brief. Sender and contact details still need confirmation.
+
+| Claim or commitment | Where used | Source and approval | Status | Action |
+| --- | --- | --- | --- | --- |
+| Six schools and January decision | Slides 1 and 4 | Supplied brief | Reported | Check with Maya before dispatch |
+| Three years and nine school clients | Slide 2 | Founder and their client records | Confirmed by owner | Retain |
+| £38 per bike, 120 cap, parts at cost | Slide 3 | Founder supplied the offer | Confirmed by owner | £4,560 is 120 × £38. Verify exact revision before send |
+| About 2,000 repairs | Working sheet | Uncounted estimate | Unsupported | Omit |
+| Compliance with the trust's safeguarding policy | Working sheet | Policy quoted in brief. No service checks supplied | Proposed and unapproved | Confirm policy and delivery capability before making any commitment |
+
+**Asset register:** Pupil photograph excluded. Photographer ownership is recorded. Permission to show the pupils remains unknown. The draft uses no images.
+
+**Review:** This is slide copy. The arithmetic and text are checked against the supplied brief. No deck has been rendered. The founder still needs to approve the exact revision and confirm who can send it. Dispatch evidence is open.

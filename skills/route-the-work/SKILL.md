@@ -9,6 +9,12 @@ Decide how the work will be done before doing it. A one-line route stops small j
 
 **Stage:** Operate (any stage may use it). **Rules:** 1 Stop at the boundaries; 4 Claim only what you can show. Detail: `rules/01-route-the-work.md` (in the SHOTos repository, or `.shotos/rules/01-route-the-work.md` where SHOTos is installed) and `rules/02-evidence-based-risk.md` (in the SHOTos repository, or `.shotos/rules/02-evidence-based-risk.md` where SHOTos is installed).
 
+## Context and handoff
+
+Read the requested outcome, actual asset, risk, owner and what proof is needed. Choose the shortest route with sufficient evidence.
+
+Use `agree-acceptance` for material work. Record the route in the owning task so the next session can use it.
+
 ## When not to use this
 
 Skip it for a quick factual answer or a trivial edit the person will see at once. Write the line silently there and move on.
@@ -27,9 +33,9 @@ Skip it for a quick factual answer or a trivial edit the person will see at once
    - **Proof:** how the result will be checked in its real home.
 2. **Choose the route, sized to the risk.**
    - **Direct:** the agent does it and shows the result. For low-risk, easily reversed work with one reader who will see it.
-   - **A skill:** use the matching skill when one exists, for example [agree-acceptance](../agree-acceptance/README.md) before building or [eval-set](../eval-set/README.md) for varying output.
+   - **A skill:** use the matching skill when one exists, for example `agree-acceptance` before building or `eval-set` for varying output.
    - **A role agent:** a separate agent with a narrow job and limited access, for work that needs a distinct role, such as testing or security review.
-   - **An independent reviewer:** a second agent from a different model or runtime, for medium and high risk. See [cross-agent-review](../cross-agent-review/README.md).
+   - **An independent reviewer:** a second agent from a different model or runtime, for medium and high risk. See `cross-agent-review`.
    - When two routes fit, take the lighter one and say what would make you move to the heavier one.
 3. **Add a risk tag only when evidence triggers it.** Look at the asset, the data and the action. Add a tag when you can point to the evidence: `personal-data` (the files contain names, health or children's records), `money` (the action spends, refunds or invoices), `external` (it goes to people outside the team), `irreversible` (it deletes, overwrites or publishes), `legal` (a contract, a regulatory claim). Write the evidence beside the tag. Do not add a tag because the topic sounds serious.
 4. **Raise the route when a tag appears.** One tag usually needs a named human decision before the action; two or more, or `irreversible` with `external`, need an independent reviewer as well.

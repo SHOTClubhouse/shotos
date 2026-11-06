@@ -9,6 +9,12 @@ Produce spoken audio that says exactly what the script says, in a voice you have
 
 **Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the approved script, audience, pronunciation references, target length and consent for the voice. Time a sample before generating the whole take.
+
+Use `video-storyboard` when timing depends on scenes. Store the selected take, script version and review notes together.
+
 ## When not to use this
 
 Do not use it to imitate a real person's voice without their written consent, to make audio that pretends to be a real call or a real statement, or to voice anything for a child's likeness without parental consent. For a recording of a real person speaking, record them instead.

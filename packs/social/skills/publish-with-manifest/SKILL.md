@@ -7,6 +7,12 @@ description: Publishes social posts only through a frozen approval manifest appr
 
 Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real result. Control 8, two-session execution: review and execution happen apart, joined by a frozen manifest. See `rules/08-two-session-execution.md` (in the SHOTos repository, or `.shotos/rules/08-two-session-execution.md` where SHOTos is installed).
 
+## Context and handoff
+
+Read the approved copy and assets, destination, time, owner and rollback plan. Freeze a per-item record before any action.
+
+Use `public-exposure-check` for sensitive surfaces. Store the manifest and observed receipts together.
+
 ## When not to use this
 
 - The captions are still being chosen. Use `caption-options` first.

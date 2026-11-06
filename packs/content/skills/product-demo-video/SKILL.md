@@ -9,6 +9,12 @@ Produce a demo video that shows the product as it really is, using test data, ch
 
 **Stage:** Operate. **Rules served:** rule 3 (read back the real result), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
 
+## Context and handoff
+
+Read the approved product flow, build or environment, audience and test account constraints. Rehearse the exact steps before recording.
+
+Use `video-storyboard` if the sequence needs a shot plan. Store capture version, takes and final export with the demo.
+
 ## When not to use this
 
 Do not use it for features that do not exist yet, for a stylised animation (use video-storyboard), or to record a live production system with real customer data on screen. Never fake a screen to cover a feature that does not work.

@@ -9,6 +9,12 @@ Make a draft sound like a person wrote it, by finding the known patterns, fixing
 
 **Stage:** Track. **Rules served:** rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the intended audience, approved voice sample and source draft. Distinguish a specific phrasing problem from a mere stylistic preference.
+
+Use `plain-english-check` if clarity is the issue. Save edits in the owning draft without changing meaning.
+
 ## When not to use this
 
 Do not use it to disguise authorship or to get past a rule that requires disclosure of AI use. Do not use it on quotations, legal text or text the owner has said must stay as written. Do not run it as the only check: a text can be free of these patterns and still be wrong.

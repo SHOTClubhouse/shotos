@@ -166,6 +166,16 @@ class ExternalAndHonestyTests(RepoCase):
         self.assertEqual(self.states(result), ["NO EVIDENCE"])
 
 
+    def test_handoff_claims_require_a_receipt(self):
+        (self.repo / "receipt.json").write_text('{"id": "abc"}', encoding="utf-8")
+        for kind in ("authorised", "offered", "accepted", "completed", "independent"):
+            with self.subTest(kind=kind):
+                claim = f"## Claims\n- [{kind}] transfer: case 42"
+                self.assertEqual(self.states(self.check(claim + "\n")), ["NO EVIDENCE"])
+                result = self.check(claim + " | receipt: receipt.json\n")
+                self.assertEqual(self.states(result), ["SUPPORTED"])
+
+
 class RealWorldFormattingTests(RepoCase):
     """Agents decorate their claims. Decoration must not turn a true claim false."""
 

@@ -9,6 +9,12 @@ Produce an image that fits its job, has been looked at after generation, and is 
 
 **Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the actual subject, audience, destination crop, brand or style references and rights. Use references to settle composition before choosing a generation route.
+
+Use `explainer` if the image must teach a sequence. Review likeness, hierarchy and crop, and keep sources with the final asset.
+
 ## When not to use this
 
 Do not use it for photographs presented as real events, for images of real people, or for copying another creator's style or characters. Do not use it for a quick throwaway sketch where nobody will rely on the result.

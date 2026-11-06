@@ -9,6 +9,12 @@ Make many proposals that each read as written for their reader, without copying 
 
 Stage: Operate. Rules served: 3 (read back the real result), 4 (claim only what you can show) and 1 (nothing is sent). Applies control 9, pilot before scale (`rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed)).
 
+## Context and handoff
+
+Read the approved master, segment rules and buyer-specific sources. Include a varied pilot with a missing or contradictory field.
+
+Use `contextual-proposal` for exceptions that need judgement. Save every variant against its originating deal and record the pilot decision.
+
 ## When not to use this
 
 Skip it for fewer than five items, for proposals that differ in substance rather than in reader detail, or when `one-off-or-factory` has not recommended a factory. Then use `contextual-proposal` for each one.

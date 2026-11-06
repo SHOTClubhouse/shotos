@@ -9,13 +9,19 @@ The question is not "how do we build this" but "what is the cheapest thing we ca
 
 **Stage:** Hypothesise. **Rules:** 2 Agree acceptance first; 1 Stop at the boundaries.
 
+## Context and handoff
+
+Read the hypothesis, measured baseline, guardrails and authorised population. Choose the smallest test that could change the decision.
+
+Use `pilot-before-scale` for live actions. Save expected evidence, stop conditions and owner with the plan.
+
 ## When not to use this
 
 Skip it when the hypothesis can be answered by a lookup or a conversation that costs minutes, or when the decision is already made and the work is required. Do not turn a plan into a research project.
 
 ## Steps
 
-1. **Start from the hypothesis card.** Copy the belief, measure, baseline and stop result. If there is no card, write one first with [hypothesis-card](../hypothesis-card/README.md).
+1. **Start from the hypothesis card.** Copy the belief, measure, baseline and stop result. If there is no card, write one first with `hypothesis-card`.
 2. **Find the riskiest assumption.** Pick the one assumption that, if false, makes the whole idea fail. The test is aimed at that one.
 3. **Choose the smallest method that tests it.** Options, from cheapest: ask five people directly; look at existing data; a mock-up or manual version run by a person (the "concierge" test); a link or button that counts clicks before anything is built; a limited pilot with real users; a split between two groups. Choose the cheapest one that could actually show the belief is wrong.
 4. **Set the sample.** Say who is included, how many and how they are chosen. For small numbers, say what the number can and cannot show, and do not claim a statistical result from it.

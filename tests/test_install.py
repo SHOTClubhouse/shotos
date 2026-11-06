@@ -1,9 +1,12 @@
 import json
+import re
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from urllib.parse import unquote
+from zipfile import ZipFile
 
 INSTALL = Path(__file__).resolve().parents[1] / "install.py"
 
@@ -31,6 +34,36 @@ class InstallTests(unittest.TestCase):
     def test_dry_run_changes_nothing(self):
         self.install("--with-hook", "--dry-run")
         self.assertEqual(list(self.root.iterdir()), [])
+
+    def test_add_pack_preserves_edits_and_uninstalls_both_packs(self):
+        self.install("--pack", "win-the-work")
+        existing = self.root / ".claude/skills/contextual-proposal/SKILL.md"
+        existing.write_text("local edit", encoding="utf-8")
+        manifest = self.root / ".shotos-install.json"
+        before = manifest.read_bytes()
+        self.install("--pack", "customer-success", "--dry-run")
+        self.assertEqual(manifest.read_bytes(), before)
+        self.assertFalse((self.root / ".claude/skills/success-handoff").exists())
+        self.install("--pack", "win-the-work", "--pack", "customer-success")
+        added = self.root / ".claude/skills/success-handoff/SKILL.md"
+        self.assertTrue(added.is_file())
+        self.assertEqual(json.loads(manifest.read_text(encoding="utf-8"))["packs"], ["customer-success", "win-the-work"])
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertFalse(added.exists())
+        self.assertEqual(existing.read_text(encoding="utf-8"), "local edit")
+
+    def test_pack_clash_leaves_the_existing_install_intact(self):
+        self.install()
+        path = self.root / ".claude/skills/success-handoff/SKILL.md"
+        path.parent.mkdir()
+        path.write_text("mine", encoding="utf-8")
+        manifest = self.root / ".shotos-install.json"
+        before = manifest.read_bytes()
+        result = run("--runtime", "claude", "--target", str(self.root), "--pack", "customer-success")
+        self.assertEqual(result.returncode, 1)
+        self.assertEqual(path.read_text(encoding="utf-8"), "mine")
+        self.assertEqual(manifest.read_bytes(), before)
+        self.assertFalse((path.parent.parent / "onboarding-recovery").exists())
 
     def test_install_then_uninstall_restores_the_project(self):
         settings = self.root / ".claude" / "settings.json"
@@ -77,6 +110,52 @@ class InstallTests(unittest.TestCase):
         self.assertEqual((self.root / "CLAUDE.md").read_text(encoding="utf-8"), "# Mine\n")
         self.assertFalse((self.root / "GEMINI.md").exists())
         self.assertFalse((self.root / ".agents").exists())
+
+    def test_full_pack_ships_context_and_preserves_existing_project_agreement(self):
+        agreement = self.root / "AGENTS.md"
+        original = b"# Project instructions\r\nKeep the existing task owner."
+        agreement.write_bytes(original)
+        result = run("--runtime", "all", "--scope", "project", "--target", str(self.root), "--all-packs")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn(".shotos/templates/AGENTS.md", agreement.read_text(encoding="utf-8"))
+        for name in ("docs/full-pack.md", "templates/work-record.md", "agents/qa-lead.md", "lenses/customer.md"):
+            self.assertTrue((self.root / ".shotos" / name).is_file(), name)
+        for folder in (".claude/skills", ".agents/skills"):
+            installed = self.root / folder
+            self.assertEqual(len(list(installed.glob("*/SKILL.md"))), 82)
+            for skill in installed.iterdir():
+                self.assertTrue((skill / "example-input.md").is_file(), skill.name)
+                self.assertTrue((skill / "example-output.md").is_file(), skill.name)
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertEqual(agreement.read_bytes(), original)
+        self.assertEqual(list(self.root.iterdir()), [agreement])
+
+    def test_portable_readmes_resolve_in_install_and_zip(self):
+        self.install("--all-packs")
+        repo = INSTALL.parent
+        archives = self.root / "archives"
+        subprocess.run([sys.executable, str(repo / "tools/package_skills.py"),
+                        "--all-packs", "--out", str(archives)], check=True, capture_output=True)
+        installed = sorted((self.root / ".claude/skills").glob("*/README.md"))
+        self.assertEqual(len(installed), len(list(archives.glob("*.zip"))))
+        self.assertGreater(len(installed), 0)
+        base = "https://github.com/SHOTClubhouse/shotos/"
+
+        for path in installed:
+            with self.subTest(skill=path.parent.name), ZipFile(archives / f"{path.parent.name}.zip") as archive:
+                prefix = f"{path.parent.name}/"
+                self.assertEqual(archive.read(prefix + "README.md"), path.read_bytes())
+                contents = path.read_text(encoding="utf-8")
+                self.assertIn("(example-output.md)", contents)
+                for target in re.findall(r"\]\(([^)#\s]+)", contents):
+                    if target.startswith(base):
+                        kind, branch, source = target[len(base):].split("/", 2)
+                        self.assertEqual(branch, "main")
+                        local = repo / unquote(source)
+                        self.assertTrue(local.is_dir() if kind == "tree" else local.is_file(), target)
+                    elif "://" not in target:
+                        self.assertTrue((path.parent / target).is_file(), target)
+                        self.assertIn(prefix + target, archive.namelist())
 
     def test_codex_reads_agents_md_itself_so_no_import_file_is_made(self):
         result = run("--runtime", "codex", "--scope", "project", "--target", str(self.root))
@@ -186,9 +265,13 @@ class InstallTests(unittest.TestCase):
         self.assertFalse((self.root / ".shotos-install.json").exists())
 
     def test_existing_agents_file_is_never_overwritten(self):
-        (self.root / "AGENTS.md").write_text("mine", encoding="utf-8")
+        agreement = self.root / "AGENTS.md"
+        agreement.write_text("mine", encoding="utf-8")
         self.install()
-        self.assertEqual((self.root / "AGENTS.md").read_text(encoding="utf-8"), "mine")
+        self.assertEqual(agreement.read_text(encoding="utf-8").splitlines()[0], "mine")
+        self.assertIn(".shotos/templates/AGENTS.md", agreement.read_text(encoding="utf-8"))
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertEqual(agreement.read_text(encoding="utf-8"), "mine")
 
 
     def test_packs_and_agents_install_and_uninstall_cleanly(self):

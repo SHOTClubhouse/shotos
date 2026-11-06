@@ -9,6 +9,12 @@ Answer the real question in the owner's voice, from facts you can show, and leav
 
 Stage: Operate. Rules served: 1 (stop at the boundaries), 3 (read back the real result) and 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the full thread, last promise, recipient relationship and an approved tone sample. Check amounts, dates and authority against their source.
+
+Use `decision-brief` if an answer depends on an unresolved internal choice. Keep the draft linked to the thread.
+
 ## When not to use this
 
 Skip it for a first message to someone who does not know the sender (use `outbound-prospecting`), for a bulk reply to many people, and for any message that commits money, legal terms or a safeguarding matter without the owner's explicit view; for those, draft options and ask.

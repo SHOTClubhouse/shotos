@@ -9,6 +9,12 @@ Decide whether an opportunity deserves a proposal, more discovery or a polite ex
 
 Stage: Scope (and used again before committing to a proposal). Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
 
+## Context and handoff
+
+Read the buyer’s stated need, commercial evidence, timing and approval path. Separate a plausible budget route from money already authorised.
+
+Use `contextual-proposal` only for a bounded next offer. Keep scores and uncertainties with the deal.
+
 ## When not to use this
 
 Skip it for opportunities that are already signed and in delivery, and for tiny requests that cost less to do than to score. Do not use it to rank people; it scores an opportunity.

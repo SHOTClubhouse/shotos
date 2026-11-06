@@ -9,9 +9,15 @@ Report the week by what can be shown, not by what was said. Every claimed win go
 
 Stage: Operate and Track. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the previous wrap, active commitments and current output evidence. Report change since last review and preserve unresolved owners.
+
+Use `decision-brief` for a decision that needs options. File the wrap with links to owning tasks.
+
 ## When not to use this
 
-Skip it for a one-off incident report or a final evidence pack ([evidence-pack](../evidence-pack/README.md)). Do not use it to make the week sound better than it was.
+Skip it for a one-off incident report or a final evidence pack (`evidence-pack`). Do not use it to make the week sound better than it was.
 
 ## Steps
 

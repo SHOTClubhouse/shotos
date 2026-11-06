@@ -9,6 +9,12 @@ Spend application time only on grants the organisation can win and can afford to
 
 Stage: Scope. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
 
+## Context and handoff
+
+Read the applicant’s entity type, geography, delivery capacity and budget. Verify eligibility, deadline, match funding and restrictions with the funder.
+
+Use `claims-audit` for the evidence narrative. Record each opportunity and the reason to pursue or decline.
+
 ## When not to use this
 
 Skip it for loans, investment or sponsorship (a different relationship and different checks), and when a funder has already invited a specific application (go straight to drafting). Do not use it to apply to many grants with the same text.

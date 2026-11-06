@@ -37,9 +37,9 @@ python ../shotos/install.py --runtime claude --scope project --pack founder-admi
 python ../shotos/install.py --runtime claude --scope project --pack founder-admin
 ```
 
-Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
+Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack, use the same runtime and scope and name the extra pack. Existing files are kept.
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
-Evidence: cases written, not yet run. See [evals/packs/founder-admin.json](../../evals/packs/founder-admin.json).
+Evidence: earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). See [evals/packs/founder-admin.json](../../evals/packs/founder-admin.json).
 

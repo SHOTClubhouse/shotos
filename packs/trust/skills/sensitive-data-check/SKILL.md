@@ -9,6 +9,12 @@ Stage: Scope. Rules: 1 (stop at the boundaries) and 4 (claim only what you can s
 
 Harm to people, especially children, cannot be undone by a later fix. Ask the questions first.
 
+## Context and handoff
+
+Read the proposed use, minimum data needed, approved access and relevant consent record. Stop on unresolved sensitive access.
+
+Use `public-exposure-check` when distribution is proposed. Store only evidence references in the restricted record.
+
 ## When not to use this
 
 Skip work that holds no personal data. This is not legal advice. A data protection officer or a designated safeguarding lead decides the hard cases.

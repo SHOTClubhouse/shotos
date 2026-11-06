@@ -12,7 +12,11 @@ Every task that changes something ends with a Claims block. Each line is one cla
 - [git] pushed: branch-name
 - [git] clean: working tree
 - [external] sent: what and to whom | receipt: path/to/receipt
+- [authorised] owner approved this action and revision | receipt: path/to/approval
+- [offered] authorised offer dispatched to the receiver | receipt: path/to/dispatch
 - [accepted] who accepted it | receipt: path/to/the record
+- [completed] handoff close-out and first action | receipt: path/to/close-out
+- [independent] receiving team ran a full cycle | receipt: path/to/cycle-record
 - [unverified] anything not checked
 ```
 
@@ -26,6 +30,17 @@ Every task that changes something ends with a Claims block. Each line is one cla
 | DECLARED | The agent said itself that it did not check this |
 
 A report passes when every claim is SUPPORTED or DECLARED. An honest `[unverified]` line passes. A confident claim with no evidence fails.
+
+Put each status claim in the Claims block. The checker reads those lines and checks that a referenced receipt exists and contains data. The reviewer must check the receipt's origin and contents against the claim. A passing block does not verify status assertions made only in the surrounding prose.
+
+| Work status | Required evidence |
+| --- | --- |
+| Draft or Prepared | Saved artefact and its current version |
+| Authorised | A named owner approved the exact action and revision |
+| Offered | Dispatch receipt or read-back for the authorised offer |
+| Accepted | Written acknowledgement by the named receiver with scope, capacity, access and a dated first action |
+| Completed | The customer notification, owner update and first action are recorded |
+| Independent cycle | The receiving team runs a full cycle on its own and its lead signs off |
 
 ## Installed, executed, accepted
 

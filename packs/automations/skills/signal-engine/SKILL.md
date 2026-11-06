@@ -7,6 +7,12 @@ description: Sets up and checks an Apps Script engine that scores mail under one
 
 Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real result. The script is `Code.gs` in the SHOTos repository at `packs/automations/scripts/signal-engine/`, or in `.shotos/packs/automations/scripts/signal-engine/` in a project where SHOTos is installed; read the README beside it first.
 
+## Context and handoff
+
+Confirm the source labels, allowlisted senders, destination and replay window. Check the same message ID twice before relying on a schedule.
+
+Use `mode-ladder` before enabling a scheduled run. Keep the cursor and failure log with the approved automation.
+
 ## When not to use this
 
 - The person wants replies, forwards, auto-labelling or deletion of mail. The script does none of that and this skill will not add it.

@@ -18,6 +18,8 @@ import sys
 import zipfile
 from pathlib import Path
 
+from skill_resources import example_files, portable_readme
+
 REPO = Path(__file__).resolve().parents[1]
 
 
@@ -35,8 +37,12 @@ def package(skill: Path, out: Path) -> Path:
     target = out / f"{skill.name}.zip"
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(skill.rglob("*")):
-            if path.is_file():
+            if path == skill / "README.md":
+                archive.writestr(f"{skill.name}/README.md", portable_readme(skill, REPO))
+            elif path.is_file():
                 archive.write(path, Path(skill.name) / path.relative_to(skill))
+        for path, name in example_files(skill):
+            archive.write(path, Path(skill.name) / name)
         for notice in ("LICENSE-docs.md", "LICENSE"):
             archive.write(REPO / notice, Path(skill.name) / notice)
     return target

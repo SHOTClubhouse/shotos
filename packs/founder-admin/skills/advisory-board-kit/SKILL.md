@@ -9,6 +9,12 @@ Turn a loose group of helpful people into a board with clear roles, expectations
 
 Stage: Hypothesise. Rules served: 1 (stop at the boundaries), 2 (agree acceptance first) and 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the purpose, proposed members, relevant expertise and existing governance. Separate advisory input from approval authority.
+
+Use `advisory-session` when the group is convened. Keep mandate, membership and terms with the board record.
+
 ## When not to use this
 
 Skip it for a formal board of directors (a legal body with duties; ask a lawyer), for a one-off favour from a friend, and for deciding any equity or payment terms. The kit prepares material; the company and its lawyer decide terms.

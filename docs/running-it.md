@@ -2,6 +2,10 @@
 
 Start with the runtime your team already uses. [Try the method](../README.md#try-shotos) with an acceptance card or run the local demo. The [install guide](../README.md#install) shows how to preview what changes in your project.
 
+Use the [full-pack guide](full-pack.md) to install all 82 skills and follow one task across personas, execution roles and review lenses. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
+
+Download the individual skills from [GitHub Releases](https://github.com/SHOTClubhouse/shotos/releases/latest) if you use the Claude app. For a local project, add a pack by rerunning the installer with the same runtime and scope and the additional pack name. The installer keeps existing files and adds only the requested packs.
+
 ![Try the acceptance card in chat, preview a project install, or run the local demo.](images/setup-first-run.svg)
 
 | Runtime | Setup | What it gives you |
@@ -28,7 +32,7 @@ A document, spreadsheet, issue or CRM record can hold the programme. Use links t
 
 ## Team rollout
 
-1. Preview a project install in an isolated checkout. If the project already has an `AGENTS.md`, integrate the working agreement into your existing instructions.
+1. Preview a project install in an isolated checkout. If the project already has an `AGENTS.md`, the installer adds a line pointing to the installed agreement. Review that line alongside your local instructions.
 2. Pick one workflow and start at Scope. Name the sponsor and use the [programme record](../templates/programme.md) to capture the baseline and the next gate. In a fresh session, confirm the agent opens the expected stage skill.
 3. Progress through Hypothesise, Operate and Track. Review the work where it lives and use claim-check for supported completion claims. Your runtime and connectors enforce access and action permissions.
 4. Use Own to verify one independent cycle with the receiving team. In Sustain and Scale, agree a first wave, local baseline and stop conditions. [Stage guide](framework.md) · [Walkthrough](walkthrough.md)

@@ -9,9 +9,15 @@ Put the before and after side by side, show where each number came from, say wha
 
 Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the baseline, observed outcomes and original success criteria. Check matching periods, denominators and exceptions before recommending a decision.
+
+Use `decision-record` for the owner’s decision. Leave missing outcomes open in the programme record.
+
 ## When not to use this
 
-Skip it for a result that is still being built (use [report-with-evidence](../report-with-evidence/README.md)) or a weekly status note (use [progress-wrap-up](../progress-wrap-up/README.md)). If no baseline was written in Scope, still build the pack, but say so on the first page and treat every "before" figure as reconstructed.
+Skip it for a result that is still being built (use `report-with-evidence`) or a weekly status note (use `progress-wrap-up`). If no baseline was written in Scope, still build the pack, but say so on the first page and treat every "before" figure as reconstructed.
 
 ## Steps
 

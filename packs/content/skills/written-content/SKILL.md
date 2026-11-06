@@ -9,9 +9,15 @@ Produce a written piece that a named reader can follow, that is true line by lin
 
 **Stage:** Operate. **Rules served:** rule 2 (agree acceptance first), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
 
+## Context and handoff
+
+Read the publication brief, reader question, approved voice sample and strongest primary sources. Choose the format from the job the piece must do.
+
+Use `plain-english-check` for a review pass if needed. Keep the draft and evidence with the publication record.
+
 ## When not to use this
 
-Do not use it for emails, replies or short messages, for legal or regulated text, or for a piece whose argument the owner has not decided. Use [explainer](../explainer/README.md) when the task is to explain how something works to a named audience.
+Do not use it for emails, replies or short messages, for legal or regulated text, or for a piece whose argument the owner has not decided. Use `explainer` when the task is to explain how something works to a named audience.
 
 ## Steps
 

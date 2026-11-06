@@ -9,6 +9,12 @@ Stage: Operate. Rules: 1 (stop at the boundaries) and 4 (claim only what you can
 
 When you cannot tell whether a file is wanted, safe or yours to remove, move it somewhere visible and ask. Deleting loses information; leaving it in place spreads risk.
 
+## Context and handoff
+
+Read the duplicate proof, current paths and approved quarantine location. Verify the retained copy before moving anything.
+
+Use `filing-and-dedupe` if identity is unresolved. Keep a reversible move log with original paths and checksums.
+
 ## When not to use this
 
 Skip files that are clearly owned, wanted and safe. Do not quarantine something outside the scope you were given, and never use quarantine to take a file away from its owner.

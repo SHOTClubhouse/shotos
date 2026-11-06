@@ -9,6 +9,12 @@ Rules are abstract and people read them differently. Examples are concrete and e
 
 **Stage:** Hypothesise. **Rules:** 2 Agree acceptance first; 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the requirement and conflicting examples. Ask which rule produces the right result for a concrete normal, boundary and failure case.
+
+Use `agree-acceptance` to turn agreed examples into checks. Keep unresolved questions beside the examples.
+
 ## When not to use this
 
 Skip it for a change with no rules to speak of, such as correcting a typo, or when the owner has already supplied settled examples. Do not invent business rules to fill the map; an unknown rule becomes an open question.
@@ -23,7 +29,7 @@ Skip it for a change with no rules to speak of, such as correcting a typo, or wh
 6. **Convert settled examples to Given/When/Then.** Only examples the owner has confirmed (or that come straight from a source) become checks. Mark the rest `draft`.
    - Given a starting situation, when something happens, then this observable result.
 7. **Add one case that must fail or refuse,** drawn from the edge examples.
-8. **Hand over.** The settled checks go to [agree-acceptance](../agree-acceptance/README.md) for the owner's yes. The questions go to the people who can answer them. Do not start building until the blocking questions are answered.
+8. **Hand over.** The settled checks go to `agree-acceptance` for the owner's yes. The questions go to the people who can answer them. Do not start building until the blocking questions are answered.
 
 ## Output
 

@@ -9,6 +9,12 @@ Stage: Operate. Rules: 3 (read back the real result) and 4 (claim only what you 
 
 A good name tells a stranger the date, whose file it is, what it is about and which version it is, without opening it.
 
+## Context and handoff
+
+Read the team’s naming convention and inspect adjacent files. Check owner, date and version before choosing a name.
+
+Use `filing-and-dedupe` if existing versions conflict. Keep any required rename mapping with the owning record.
+
 ## When not to use this
 
 Skip files that a tool expects under a fixed name (`README.md`, `package.json`, build output). Do not rename a file that other files link to until the links are listed.

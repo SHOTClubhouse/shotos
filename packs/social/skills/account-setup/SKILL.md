@@ -7,6 +7,12 @@ description: "Audits or builds a social profile against the brand guide, naming 
 
 Stage: Scope. Rules served: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the organisation’s approved identity, channel owner and existing profile. Check current settings and permissions first.
+
+Use `publish-with-manifest` for outward changes. Record approved assets and readback in the channel record.
+
 ## When not to use this
 
 - The task is writing posts. Use `caption-options` or `content-calendar`.

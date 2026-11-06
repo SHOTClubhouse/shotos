@@ -9,6 +9,12 @@ Produce a translation that says what the original says, in the voice the reader 
 
 **Stage:** Operate. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the source, locale, glossary and any names or numbers that must survive unchanged. Flag ambiguity before translating commitments.
+
+Use `plain-english-check` for a separate readability review. Keep source and translated version linked with reviewer notes.
+
 ## When not to use this
 
 Do not use it as the only check for contracts, medical or safety instructions, safeguarding material or anything with legal effect: a qualified human translator signs those off. Do not translate private messages or personal data without a reason the owner can state.

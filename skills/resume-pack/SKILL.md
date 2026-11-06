@@ -9,9 +9,15 @@ Leave enough for a fresh session to carry on correctly, and nothing that should 
 
 Stage: any. Rules: 4 Claim only what you can show, 1 Stop at the boundaries. Supports control 11, context-control.
 
+## Context and handoff
+
+Read the previous decision, existing files, actual open tasks and unresolved checks. Verify state before picking up the next action.
+
+Use `evidence-handoff` if responsibility changes. Update the existing task record with recovery instructions.
+
 ## When not to use this
 
-Skip it when the work is finished and handed over with an [evidence-handoff](../evidence-handoff/README.md). Skip it for a short chat with nothing to continue. Do not use it to store a conversation.
+Skip it when the work is finished and handed over with an `evidence-handoff`. Skip it for a short chat with nothing to continue. Do not use it to store a conversation.
 
 ## Steps
 
@@ -21,7 +27,7 @@ Skip it when the work is finished and handed over with an [evidence-handoff](../
 4. **List decisions made and open questions.** One line each with the date and who decided. Mark anything the agent assumed.
 5. **List pending manual steps.** Things that have not been done and need a person: database changes still to apply, environment settings to change, approvals to obtain, messages to send, releases to trigger. For each one: what, where, who can do it, the order, and what proves it was done. Mark any irreversible step.
 6. **Write the exact next prompt.** A paragraph the next session can paste: the goal, the first file to read, the first command or check to run, the acceptance in one line, and the boundary. It should work with no memory of this session.
-7. **Record learnings.** What worked, what failed and why, and any suggested rule or skill change, labelled as a suggestion for the [learning-loop](../learning-loop/README.md). Keep these as short, factual sentences.
+7. **Record learnings.** What worked, what failed and why, and any suggested rule or skill change, labelled as a suggestion for the `learning-loop`. Keep these as short, factual sentences.
 8. **Strip it.** Remove anything that looks like a secret (keys, tokens, passwords, connection strings), personal data about private individuals, private message text and raw conversation. Replace with where the item is held and who can grant access.
 9. **Say what you have not verified.** List claims in the pack that rest on memory of the session instead of a file you read back.
 10. **Save it where the next session will look,** for example `.work/<task>/resume.md`, overwriting the previous pack for this task so only the latest remains. Keep it under one page where possible.

@@ -9,6 +9,12 @@ Pull the signal when the owner asks or on a set schedule, update one ledger, and
 
 Stage: Operate. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Start with today’s calendar, actual deadlines, inbox changes and yesterday’s unresolved priorities. Mark gaps in source access.
+
+Use `leaders-inbox` for decisions that need routing. Keep one dated brief with links to owning tasks.
+
 ## When not to use this
 
 Skip it for a one-off question about a single thread or date, or when there is no ledger and the owner does not want one. In that case offer to start the ledger from [ledger-template.md](ledger-template.md) and stop.

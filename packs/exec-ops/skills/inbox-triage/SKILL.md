@@ -9,6 +9,12 @@ Sort mail by what it needs from the owner, draft the replies, and surface what h
 
 Stage: Operate. Rules: 1 Stop at the boundaries, 3 Read back the real result.
 
+## Context and handoff
+
+Confirm mailbox, time window, existing folders and what the user considers urgent. Use whole threads when the latest message lacks context.
+
+Use `email-reply` for a draft if installed. Link to the original thread and record any still-unassigned action.
+
 ## When not to use this
 
 Skip it for a single known thread (just draft the reply), for a request to send mail, or for an account the owner has not named. Never triage someone else's mailbox on a guess.

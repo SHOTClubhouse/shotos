@@ -11,6 +11,12 @@ Place the person and the organisation on two public maps, say honestly where the
 
 Use the wording in `docs/levels.md` in the SHOTos repository. The levels belong to their authors: Yegge's eight levels of AI-assisted development and n8n's five-level AI maturity framework. This skill summarises them and does not replace them.
 
+## Context and handoff
+
+Read the team’s current operating evidence and sample a normal run. Base maturity on demonstrated practice and identify the next observable step.
+
+Use `enablement-plan` when the gap is adoption. Keep the assessment and dated evidence in the programme record.
+
 ## When not to use this
 
 Skip it when the person has already said what they want to do and the route is clear. Do not use it to rank people or to judge a team in public. It is a conversation starter.
@@ -32,10 +38,10 @@ Skip it when the person has already said what they want to do and the route is c
 
 | Placement | Start at | First skills |
 |---|---|---|
-| Person at 1 to 3, organisation at 0 | Scope | [capture-the-problem](../capture-the-problem/README.md), [baseline](../baseline/README.md) |
-| Person at 4 to 5, organisation at 0 or 1 | Scope, then Hypothesise | [agree-acceptance](../agree-acceptance/README.md), [route-the-work](../route-the-work/README.md) |
-| Person at 6 to 8, organisation at 0 to 2 | Operate | [pilot-before-scale](../pilot-before-scale/README.md), [cross-agent-review](../cross-agent-review/README.md), [label-the-proof](../label-the-proof/README.md) |
-| Organisation at 2 or above | Track and Own | [report-with-evidence](../report-with-evidence/README.md), [evidence-handoff](../evidence-handoff/README.md) |
+| Person at 1 to 3, organisation at 0 | Scope | `capture-the-problem`, `baseline` |
+| Person at 4 to 5, organisation at 0 or 1 | Scope, then Hypothesise | `agree-acceptance`, `route-the-work` |
+| Person at 6 to 8, organisation at 0 to 2 | Operate | `pilot-before-scale`, `cross-agent-review`, `label-the-proof` |
+| Organisation at 2 or above | Track and Own | `report-with-evidence`, `evidence-handoff` |
 
 ## Output
 

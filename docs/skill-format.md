@@ -8,13 +8,14 @@ packs/<pack>/skills/<skill-name>/  (pack skills)
   SKILL.md      for the agent: frontmatter (name, description), when not to use it, steps, output, checks
   README.md     for people: what, why, when, who, how, stage, rules it serves, evidence status, limits
   template.md   optional: the fill-in document the skill produces
-  example.md    a worked example: an input and an output that meets the checks (fictional)
+  example-input.md and example-output.md  copied from the source examples by the installer and ZIP builder
 ```
 
 ## Rules for every skill
 
 - `name` in the frontmatter matches the folder name. `description` says what it does and when to use it, in under 1,024 characters.
 - `SKILL.md` stays near one page. Put long detail in `template.md` or a linked file.
+- Each skill names the context that changes its decision, the evidence to retain and a specific condition for handing off to a related skill. Use the related skill's installed name and leave optional dependencies explicit.
 - Every skill names its **stage** (Scope, Hypothesise, Operate, Track, Own, Sustain and Scale, or "any") and the **rules** it serves.
 - Every skill that can act outside the project (send, post, publish, buy, delete) drafts by default and stops for a person's yes.
 - Every skill has at least one normal and one contrary eval case, in `evals/cases.json` for core skills or `evals/packs/<pack>.json` for packs.

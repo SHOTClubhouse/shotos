@@ -9,6 +9,12 @@ Test whether one kind of buyer responds, using five carefully written messages, 
 
 Stage: Operate. Rules served: 1 (stop at the boundaries), 4 (claim only what you can show) and 3 (read back the real result). Applies control 9, pilot before scale (`rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed)).
 
+## Context and handoff
+
+Read the audience hypothesis, approved contact source, relationship history and actual offer. Exclude duplicates and anyone already in a live conversation.
+
+Use `contextual-proposal` after an evidenced buying signal. Record inclusion, exclusions and drafts in the campaign record.
+
 ## When not to use this
 
 Skip it for people who already know you (use `email-reply`), for bulk mailings or newsletters, and for anything that would be sent automatically. Do not use it where the rules of the country or the platform for unsolicited contact have not been checked by the sender.

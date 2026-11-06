@@ -7,6 +7,12 @@ description: Plans one week of social posts from real events and assets using a 
 
 Stage: Hypothesise. The mix is a hypothesis that `insights-review` later tests. Rules served: 2 Agree acceptance first, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read upcoming dates, audience needs, available assets and approval owners. Plan against what actually exists and mark dependencies.
+
+Use `caption-options` for copy and `publish-with-manifest` for release. Keep one schedule in the existing calendar.
+
 ## When not to use this
 
 - The person wants captions written now. Plan first, then use `caption-options` per slot.

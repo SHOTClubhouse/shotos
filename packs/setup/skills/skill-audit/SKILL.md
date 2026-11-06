@@ -9,6 +9,12 @@ Stage: Track. Rules: 3 (read back the real result) and 4 (claim only what you ca
 
 This audit asks whether the skills are connected correctly. It does not ask whether they are good. Say that in the report.
 
+## Context and handoff
+
+Read the installed skill list, source versions and real task history. Compare declared behaviour with actual opened files and outcomes.
+
+Use `skill-quality-gate` before promoting a change. File findings against the owning skill and its version.
+
 ## When not to use this
 
 Skip a single skill still being drafted. Do not use this audit as proof that a skill works or is useful.

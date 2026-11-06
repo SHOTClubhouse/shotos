@@ -9,6 +9,12 @@ Improve a creator's draft without replacing their voice, and hand it back with e
 
 **Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the author’s draft, their own published sample and any locked wording. Ask which factual or voice changes they want when the brief is ambiguous.
+
+Use `claims-audit` for new factual assertions. Keep the edited draft and any material change notes with the author’s piece.
+
 ## When not to use this
 
 Do not use it to ghost-write from nothing (use written-content), to rewrite in a different voice, or when the creator wants a full rewrite. Do not use it to post on the creator's behalf.

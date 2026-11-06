@@ -7,6 +7,12 @@ description: Makes one Google Doc or Slides file per sheet row from a master tem
 
 Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real result, and control 9 (pilot before scale). The script is `Code.gs` in the SHOTos repository at `packs/automations/scripts/batch-document-factory/`, or in `.shotos/packs/automations/scripts/batch-document-factory/` in a project where SHOTos is installed; read the README beside it first.
 
+## Context and handoff
+
+Read the approved master, row schema and recipient permissions. Pick a normal row, a boundary row and a missing-field row before producing the batch.
+
+Use `one-off-or-factory` if variation changes the structure. Record every generated or skipped row by source ID.
+
 ## When not to use this
 
 - The documents must be emailed or shared as they are made. The script does neither; sending is a separate step for a person.

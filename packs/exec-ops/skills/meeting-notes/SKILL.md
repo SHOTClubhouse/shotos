@@ -9,6 +9,12 @@ Convert new recordings into notes that stay useful, and never process the same r
 
 Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the agenda and source transcript or notes. Verify names, commitments and dates against the source, and mark disputed or missing details.
+
+Use `decision-record` for a material decision and link to the original meeting record.
+
 ## When not to use this
 
 Skip it for a live meeting that has no recording yet, for a request to publish or send notes to attendees (draft only; the owner sends), and for recordings the owner has marked private.

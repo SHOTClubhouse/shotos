@@ -1,42 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 414" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
-  <title id="title">What context follows the work?</title>
-  <desc id="desc">Three inputs feed the programme record: source evidence, acceptance checks and who can act. The next person gets the checked result, open gaps, the decision owner and the next action.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">What travels with the work?</title>
+  <desc id="desc">Source facts, acceptance and authority converge on one programme record. The next owner gets a checked result, open gaps and the next decision.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0L10 5L0 10Z" fill="#9ee8d9"/>
-    </marker>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#131023"/></marker>
+    <marker id="violet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0l10 5-10 5z" fill="#6B00DB"/></marker>
   </defs>
-  <rect width="960" height="414" rx="20" fill="#102132"/>
-  <text x="36" y="40" fill="#9ee8d9" font-size="17" font-weight="700" letter-spacing="2">SHOTos / CONTEXT</text>
-  <text x="36" y="83" fill="#ffffff" font-size="36" font-weight="700">What context follows the work?</text>
-  <path d="M36 107H924" stroke="#3b5366"/>
-  <g fill="#20364b" stroke="#436079">
-    <rect x="36" y="130" width="252" height="70" rx="10"/>
-    <rect x="36" y="214" width="252" height="70" rx="10"/>
-    <rect x="36" y="298" width="252" height="70" rx="10"/>
-    <rect x="342" y="169" width="268" height="159" rx="13" fill="#214644" stroke="#80c9b8"/>
-    <rect x="665" y="169" width="259" height="159" rx="13"/>
-  </g>
-  <g fill="none" stroke="#9ee8d9" stroke-width="2" marker-end="url(#arrow)">
-    <path d="M288 165H311V206H334"/>
-    <path d="M288 249H334"/>
-    <path d="M288 333H311V291H334"/>
-    <path d="M610 249H657"/>
-  </g>
-  <g fill="#ffffff" font-size="22" font-weight="700">
-    <text x="52" y="158">Source evidence</text>
-    <text x="52" y="242">Acceptance checks</text>
-    <text x="52" y="326">Who can act</text>
-    <text x="358" y="214">Programme record</text>
-    <text x="681" y="214">Next decision</text>
-  </g>
-  <g fill="#e3edf5" font-size="18">
-    <text x="52" y="183">Facts, dates and baseline</text>
-    <text x="52" y="267">What good looks like</text>
-    <text x="52" y="351">Owner and permission</text>
-    <text x="358" y="246">Link the checked result.</text>
-    <text x="358" y="274">Record what remains open.</text>
-    <text x="681" y="246">Who decides and when.</text>
-    <text x="681" y="274">Next action and owner.</text>
-  </g>
+<rect x="0" y="0" width="960" height="540" fill="white" stroke="#d8d1e4" rx="20"/><rect x="36" y="33" width="8" height="21" fill="#6B00DB" stroke="none" rx="4"/><text x="55" y="50" font-family="Poppins,Arial,sans-serif" font-size="16" fill="#131023" text-anchor="start" font-weight="700">SHOTos / CONTEXT</text><text x="36" y="106" font-family="Poppins,Arial,sans-serif" font-size="42" fill="#131023" text-anchor="start" font-weight="700">What travels with the work?</text><text x="38" y="142" font-family="Montserrat,Arial,sans-serif" font-size="20" fill="#494456" text-anchor="start" font-weight="400">Build the decision from the facts, the agreed checks and the authority to act.</text><path d="M36 164H924" fill="none" stroke="#d8d1e4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" /><circle cx="89" cy="218" r="35" fill="#e4f8f2" stroke="none"/><g transform="translate(63 192) scale(0.52)"><rect x="20" y="11" width="55" height="76" fill="white" stroke="#131023" rx="5"/><path d="M33 33H62M33 45H62M33 57H54" fill="none" stroke="#131023" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><path d="M42 66l8 8 15-17" fill="none" stroke="#6B00DB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></g><text x="141" y="216" font-family="Poppins,Arial,sans-serif" font-size="22" fill="#131023" text-anchor="start" font-weight="700">Source facts</text><text x="141" y="240" font-family="Montserrat,Arial,sans-serif" font-size="17" fill="#494456" text-anchor="start" font-weight="400">What is known</text><path d="M298 218 Q340 218 374 309" fill="none" stroke="#6B00DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#violet)"/><circle cx="89" cy="310" r="35" fill="#fff4d7" stroke="none"/><g transform="translate(63 284) scale(0.52)"><circle cx="50" cy="49" r="34" fill="white" stroke="#131023"/><circle cx="50" cy="49" r="23" fill="none" stroke="#131023"/><circle cx="50" cy="49" r="12" fill="none" stroke="#6B00DB"/><path d="M50 49l35-33m-12 3 12-3-1 12" fill="none" stroke="#6B00DB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></g><text x="141" y="308" font-family="Poppins,Arial,sans-serif" font-size="22" fill="#131023" text-anchor="start" font-weight="700">Acceptance</text><text x="141" y="332" font-family="Montserrat,Arial,sans-serif" font-size="17" fill="#494456" text-anchor="start" font-weight="400">What passes</text><path d="M298 310 Q340 310 374 309" fill="none" stroke="#6B00DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#violet)"/><circle cx="89" cy="402" r="35" fill="#f1e8fc" stroke="none"/><g transform="translate(63 376) scale(0.52)"><circle cx="36" cy="37" r="18" fill="white" stroke="#131023"/><path d="M50 50l30 30m-9-9 10-10m-20 0 9-9" fill="none" stroke="#131023" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="34" cy="35" r="6" fill="#6B00DB" stroke="none"/></g><text x="141" y="400" font-family="Poppins,Arial,sans-serif" font-size="22" fill="#131023" text-anchor="start" font-weight="700">Authority</text><text x="141" y="424" font-family="Montserrat,Arial,sans-serif" font-size="17" fill="#494456" text-anchor="start" font-weight="400">Who can act</text><path d="M298 402 Q340 402 374 309" fill="none" stroke="#6B00DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#violet)"/><circle cx="465" cy="304" r="76" fill="#f1e8fc" stroke="none"/><g transform="translate(410 249) scale(1.1)"><rect x="20" y="11" width="55" height="76" fill="white" stroke="#131023" rx="5"/><path d="M33 33H62M33 45H62M33 57H54" fill="none" stroke="#131023" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><path d="M42 66l8 8 15-17" fill="none" stroke="#6B00DB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></g><text x="465" y="412" font-family="Poppins,Arial,sans-serif" font-size="23" fill="#131023" text-anchor="middle" font-weight="700">One programme record</text><path d="M554 305H631" fill="none" stroke="#6B00DB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#violet)"/><g transform="translate(648 225) scale(1.25)"><circle cx="49" cy="29" r="15" fill="white" stroke="#131023"/><path d="M21 78q0-26 28-26t28 26z" fill="white" stroke="#131023" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /><path d="M35 67h28" fill="none" stroke="#6B00DB" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /></g><text x="786" y="279" font-family="Poppins,Arial,sans-serif" font-size="25" fill="#131023" text-anchor="start" font-weight="700">Next owner</text><text x="786" y="311" font-family="Montserrat,Arial,sans-serif" font-size="19" fill="#494456" text-anchor="start" font-weight="400">Checked result</text><text x="786" y="336" font-family="Montserrat,Arial,sans-serif" font-size="19" fill="#494456" text-anchor="start" font-weight="400">Open gaps</text><text x="786" y="361" font-family="Montserrat,Arial,sans-serif" font-size="19" fill="#494456" text-anchor="start" font-weight="400">Next decision</text><rect x="36" y="456" width="888" height="59" fill="#f1e8fc" stroke="none" rx="13"/><text x="56" y="493" font-family="Poppins,Arial,sans-serif" font-size="19" fill="#131023" text-anchor="start" font-weight="700">Keep the trail</text><text x="266" y="493" font-family="Montserrat,Arial,sans-serif" font-size="18" fill="#131023" text-anchor="start" font-weight="400">Link the evidence in the record where the work already lives.</text>
 </svg>

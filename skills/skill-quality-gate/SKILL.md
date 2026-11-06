@@ -9,6 +9,12 @@ Test one change against what is already there, on three kinds of situation, and 
 
 Stage: Sustain and Scale. Rules: 2 Agree acceptance first, 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the declared behaviour, real use cases and prior version. Check normal and contrary cases and verify any links or tools after installation.
+
+Use `eval-set` for a missing failure case. Record readiness, evidence and exceptions with the skill revision.
+
 ## When not to use this
 
 Skip it for a typo or link fix that changes no behaviour. Do not use it to approve your own work: the person who accepts promotion is named and is not the agent that wrote the change.
@@ -29,7 +35,7 @@ Skip it for a typo or link fix that changes no behaviour. Do not use it to appro
    - Defined: written, with a purpose and steps.
    - Checked: has eval cases and a passed gate.
    - Used: accepted in real work at least a few times, with logged outcomes.
-   - Reliable: accepted without material failure over a meaningful sample (see [graduation-ladder](../graduation-ladder/README.md)).
+   - Reliable: accepted without material failure over a meaningful sample (see `graduation-ladder`).
    - Optimised: cost and quality tuned against measured outcomes.
    - Portable: works for another team or agent without the builders.
    - Public-ready: passed the disclosure checklist below and is cleared for publication by a named person.

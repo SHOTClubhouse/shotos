@@ -7,6 +7,12 @@ description: Writes five caption options (A to E) with platform variants and alt
 
 Stage: Operate. Rules served: 4 Claim only what you can show, 1 Stop at the boundaries.
 
+## Context and handoff
+
+Read the source asset, audience, platform, approved claims and voice example. Draft options with different audience angles and the same facts.
+
+Use `claims-audit` for a disputed claim. Keep selected copy and asset reference with the content item.
+
 ## When not to use this
 
 - The task is publishing. Use `publish-with-manifest` after a caption is approved.

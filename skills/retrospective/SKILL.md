@@ -9,6 +9,12 @@ Look at the work honestly, find causes in the system and not in people, and leav
 
 Stage: Track and Sustain. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the agreed goal, actual outcome and observed friction. Separate anecdotes from repeated signals and agree one change to try.
+
+Use `learning-loop` to track the change. Record owner and next review with the retrospective.
+
 ## When not to use this
 
 Skip it for tiny tasks with nothing to learn. Do not use it to assign fault, to appraise a person, or to settle a dispute. If a person's conduct is the question, that is a different process with different people.
@@ -22,7 +28,7 @@ Skip it for tiny tasks with nothing to learn. Do not use it to assign fault, to 
 5. **Ask why, in the system.** For the three to five biggest gaps ask "what in our setup made this likely?" at least three times. Look at information, tools, timing, handoffs, unclear acceptance, missing review, pressure and unclear owners. Rule out "someone should have been more careful": it is not a cause. If a cause is a guess, mark it.
 6. **Choose a few changes.** Pick at most five. For each: the change, which cause it answers, how we will know it worked, one named owner and a date. Do not add changes without an owner. Some gaps get "accept and watch" instead of a change, and that is recorded.
 7. **Check authority.** If a change touches a boundary, a shared standard or budget, name who must approve it. The agent does not make those changes.
-8. **Feed the other loops.** Pass any candidate rule to the [learning-loop](../learning-loop/README.md), any evidence to the next [evidence-pack](../evidence-pack/README.md) and any shared decision to a [decision-record](../decision-record/README.md).
+8. **Feed the other loops.** Pass any candidate rule to the `learning-loop`, any evidence to the next `evidence-pack` and any shared decision to a `decision-record`.
 9. **Share it in the right circle.** The write-up goes to the people involved and the sponsor. Anything about named individuals' performance stays out. Drafting only; a person circulates it.
 10. **Follow up.** On each date, check whether the change was made and whether it did what was expected. Record the answer on the same page.
 

@@ -9,6 +9,12 @@ You cannot show an improvement without a "before". Write the before down first, 
 
 **Stage:** Scope. **Rules:** 4 Claim only what you can show; 3 Read back the real result.
 
+## Context and handoff
+
+Read the current source, measurement window and denominator. Check exclusions and mark measures that were never observed.
+
+Use `evidence-pack` for the later comparison. Save definitions and source dates beside the programme record.
+
 ## When not to use this
 
 Skip it for a one-off task with no later comparison, such as drafting a single letter. Do not build a measurement project when the change is small; two or three measures are enough.

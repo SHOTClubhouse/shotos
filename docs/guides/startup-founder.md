@@ -19,12 +19,12 @@ You are starting something: a coaching business, an agency, a software product, 
 
 A founder is launching a coaching business for first-time managers.
 
-1. **Scope.** Ten conversations with first-time managers and ten with HR leads, captured as problem cards. Baseline: none yet, written as "not measured".
+1. **Scope.** Ten conversations with first-time managers and ten with HR leads, captured as problem cards. The founder records the current paid-pilot conversion rate before recruiting the first cohort. If there are no comparable offers, the founder records that gap and uses the agreed three-of-ten threshold for the first decision.
 2. **Hypothesise.** "First-time managers in companies of 50 to 500 staff will pay for a six-week group programme if their employer funds it, and we will know because three of the ten HR leads agree to a paid pilot." If two agree, run one more round of five conversations before deciding. If fewer than two agree, stop and go back to Scope.
 3. **Win the work.** Each HR lead goes on the LEAP pipeline. NUDGE shows two of them have no budget owner: they are paused, not chased.
 4. **Operate.** One pilot cohort. The agent drafts session notes and follow-ups; the founder sends.
 5. **Track.** Attendance, a before and after self-assessment, and whether the employer renews. Decision recorded.
-6. **Own.** The founder writes the runbook so a second coach can run cohort two.
+6. **Own.** The founder and second coach agree the runbook and access. The second coach independently runs a full cohort cycle and confirms the evidence as receiving lead. If there is no second coach yet, Own stays open.
 
 ## Agent habits worth adopting on day one
 
