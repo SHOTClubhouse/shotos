@@ -7,7 +7,7 @@
 |---|---|---|---|
 
 ## What changed
-- <change>, <date>, source: <source>.
+- <change>, <date>, source: <source>. <What it changes for the reader or the next decision.>
 
 ## External signals worth acting on
 - <signal>. Label: fact | hypothesis | target. Why it matters: <one line>. Source: <source>.

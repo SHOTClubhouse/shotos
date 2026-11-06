@@ -9,8 +9,8 @@
 | Accept or decline the Elm Court roofing quote | Priya | Fri 7 Nov | The quote expires |
 
 ## What changed
-- Broker moved the renewal signing date from 14 Nov to 12 Nov, Tue 4 Nov, source: ledger row 1 and broker thread.
-- Board call held Thursday, source: meeting notes.
+- The broker moved the renewal signing date from 14 Nov to 12 Nov (Tue 4 Nov, ledger row 1 and broker thread). Priya needs to decide two days earlier to protect the quoted rate.
+- The board call produced one dated commitment. It is recorded below rather than counting the meeting as a separate outcome.
 
 ## External signals worth acting on
 - None found. The local lettings news feed was empty, so this is not evidence that nothing happened.

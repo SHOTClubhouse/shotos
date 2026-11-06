@@ -4,6 +4,7 @@
 **Decision they make and by when:** 
 **Proposal owner and assignment source:**
 **Approved offer and price source, approver and date:**
+**Relevant proposal reference and what was reused:**
 
 ## Reader note
 | Fact | Source | Date | Status |
@@ -40,5 +41,6 @@ Because the reader cares about ___ (evidence), this proposal does ___, and they 
 **Draft review or acceptance evidence:**
 **Authorised to send by, date and exact revision:**
 **Dispatch date and receipt:**
+**Buyer response and delivery handoff, each with evidence:**
 
 Keep proposed and unapproved commitments in this working sheet. Leave authorisation and dispatch open until their own evidence exists.

@@ -28,6 +28,21 @@ class PackageSkillsTests(unittest.TestCase):
                     self.assertIn(f"{z.stem}/LICENSE-docs.md", names)
                     self.assertIn(f"{z.stem}/LICENSE", names)
 
+    def test_executive_review_travels_with_decision_brief(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp)
+            repo = TOOL.parents[1]
+            subprocess.run([sys.executable, str(repo / "install.py"), "--runtime", "claude",
+                            "--scope", "project", "--target", tmp, "--pack", "exec-ops"],
+                           check=True, capture_output=True)
+            subprocess.run([sys.executable, str(TOOL), "--pack", "exec-ops", "--out", tmp],
+                           check=True, capture_output=True)
+            installed = target / ".claude" / "skills" / "decision-brief"
+            workflow = (installed / "review-cycle.md").read_bytes()
+            self.assertIn("(review-cycle.md)", (installed / "SKILL.md").read_text(encoding="utf-8"))
+            with zipfile.ZipFile(target / "decision-brief.zip") as archive:
+                self.assertEqual(archive.read("decision-brief/review-cycle.md"), workflow)
+
     def test_unknown_pack_is_refused(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = subprocess.run([sys.executable, str(TOOL), "--pack", "no-such-pack", "--out", tmp],
