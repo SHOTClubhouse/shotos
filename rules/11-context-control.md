@@ -2,7 +2,7 @@
 
 **The rule:** Keep one owning record per task, pass on metadata and decisions rather than raw conversation, and work within a stated context and token budget.
 
-Serves rule 3, [Read back the real result](../docs/controls.md), because a result built on a lost or inflated context cannot be read back reliably. Matters in every step and most in **Build** and **Improve**.
+Serves rule 3, [Read back the real result](../docs/controls.md), because a result built on a lost or inflated context cannot be read back reliably. Matters in every stage and most in **Operate** and **Sustain and Scale**.
 
 ## Why it exists
 

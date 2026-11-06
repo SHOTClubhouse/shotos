@@ -4,7 +4,7 @@
 
 Every task that changes something ends with a short plain summary and a Claims block. Each line says one thing that was done, in a form `claim-check` can test against files, git and receipts. Anything the agent did not check goes on an `[unverified]` line, and that line passes.
 
-It supports the Build and Check steps. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
+It supports the Operate and Track stages. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

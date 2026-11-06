@@ -25,7 +25,7 @@ Single points of failure (fewer than two people at level 2):
 | Date | Task (real work) | Builder | Learner | Mode (watch, do with builder watching, do alone then review) | Time box |
 |---|---|---|---|---|---|
 
-## Train the people who will train others
+## Train the trainer
 | Capability | Trainer | Material | Taught once on (date), builder observing |
 |---|---|---|---|
 

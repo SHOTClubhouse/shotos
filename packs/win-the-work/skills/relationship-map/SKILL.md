@@ -7,7 +7,7 @@ description: Maps a market or account as person, organisation, opportunity, evid
 
 Turn scattered notes about who knows whom into one honest map, so the next move rests on evidence about each link rather than on assumption.
 
-Step: Brief. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
+Stage: Scope. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
 
 ## When not to use this
 

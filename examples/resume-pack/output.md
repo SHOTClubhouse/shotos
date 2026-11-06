@@ -2,7 +2,7 @@
 
 **Written (date, time):** end of session (add the date when saved)
 **Owning record:** `.work/deposit-reminders/task.md` (updated first; this pack points to it)
-**Step:** Build
+**Stage:** Operate
 **Branch / commit / version:** `feature/reminders-table`; last commit does not include the two files marked uncommitted below
 
 ## State

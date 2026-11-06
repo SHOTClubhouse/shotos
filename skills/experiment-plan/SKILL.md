@@ -7,7 +7,7 @@ description: "Plans the smallest test of a hypothesis: method, sample, duration,
 
 The question is not "how do we build this" but "what is the cheapest thing we can do to find out whether it is worth building". Plan that test, and agree how it will be judged before it runs.
 
-**Step:** Brief. **Rules:** 2 Agree acceptance first; 1 Stop at the boundaries.
+**Stage:** Hypothesise. **Rules:** 2 Agree acceptance first; 1 Stop at the boundaries.
 
 ## When not to use this
 

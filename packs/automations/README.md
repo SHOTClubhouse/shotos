@@ -6,10 +6,10 @@ Apps Script runs inside your Google account, so there is nothing to host and no 
 
 ## What is in it
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [signal-engine](skills/signal-engine/README.md) | Build | Walks an agent and a person through setting up the signal engine: read mail under one label, score items against your priorities, queue them in a sheet and send one daily digest to you. |
-| [batch-document-factory](skills/batch-document-factory/README.md) | Build | Walks an agent and a person through setting up the document factory: one Google Doc or Slides file per sheet row, filled from a master template. |
+| [signal-engine](skills/signal-engine/README.md) | Operate | Walks an agent and a person through setting up the signal engine: read mail under one label, score items against your priorities, queue them in a sheet and send one daily digest to you. |
+| [batch-document-factory](skills/batch-document-factory/README.md) | Operate | Walks an agent and a person through setting up the document factory: one Google Doc or Slides file per sheet row, filled from a master template. |
 
 | Script | Folder | Never does |
 |---|---|---|
@@ -51,13 +51,6 @@ python ../shotos/install.py --runtime claude --scope project --pack automations
 ```
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
-
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-automations@shotos
-```
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 

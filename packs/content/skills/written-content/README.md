@@ -4,7 +4,7 @@
 
 The agent agrees the brief, picks the type, gathers sources before writing, builds the draft on situation, problem, evidence, idea, how it works and what to do next, and runs a fixed QA gate. Publishing is a separate step that waits for the owner.
 
-It supports the Build step. It serves rule 2 (agree acceptance first), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
+It supports the Operate stage. It serves rule 2 (agree acceptance first), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
 
 ## The problem it solves
 

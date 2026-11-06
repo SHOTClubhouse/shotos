@@ -7,7 +7,7 @@ description: Researches from sources, keeps each fact with its source, separates
 
 Research goes wrong when a fact loses its source on the way to the page. Keep the source attached to every fact until the end, and check the finished piece against the sources.
 
-**Step:** Build. **Rules:** 4 Claim only what you can show; 3 Read back the real result.
+**Stage:** Operate. **Rules:** 4 Claim only what you can show; 3 Read back the real result.
 
 ## When not to use this
 

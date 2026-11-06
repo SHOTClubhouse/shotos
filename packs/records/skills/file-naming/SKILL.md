@@ -5,7 +5,7 @@ description: Names files as YYYY-MM-DD_owner_subject_vNN.ext and shows a rename 
 
 # Name files so they can be found
 
-Step: Build. Rules: 3 (read back the real result) and 4 (claim only what you can show).
+Stage: Operate. Rules: 3 (read back the real result) and 4 (claim only what you can show).
 
 A good name tells a stranger the date, whose file it is, what it is about and which version it is, without opening it.
 

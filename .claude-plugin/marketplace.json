@@ -8,7 +8,7 @@
     {
       "name": "shotos-core",
       "source": "./",
-      "description": "The SHOTos core: a five-step work loop, four rules, twelve controls, 28 skills, nine role agents and a claim-check Stop hook that tests what agents say they did."
+      "description": "The SHOTos core: six stages, four rules, twelve controls, 28 skills, nine role agents and a claim-check Stop hook that tests what agents say they did."
     },
     {
       "name": "shotos-automations",

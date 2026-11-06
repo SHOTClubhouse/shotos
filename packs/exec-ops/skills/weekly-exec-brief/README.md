@@ -4,7 +4,7 @@
 
 The agent reads the week's ledger, notes and signals, lists changes with sources, puts decisions in front with a decision maker and date, and keeps recommendations apart from commitments. It lists what is unverified and which sources it could not read. A line repeated from the daily notes is not counted as a new commitment.
 
-It serves the Check step. Rules: 3 Read back the real result, 4 Claim only what you can show.
+It serves the Track stage. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
 ## The problem it solves
 

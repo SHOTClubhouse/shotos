@@ -5,7 +5,7 @@ description: Moves doubtful files (unknown owner, personal data, duplicates, unc
 
 # Quarantine instead of delete
 
-Step: Build. Rules: 1 (stop at the boundaries) and 4 (claim only what you can show).
+Stage: Operate. Rules: 1 (stop at the boundaries) and 4 (claim only what you can show).
 
 When you cannot tell whether a file is wanted, safe or yours to remove, move it somewhere visible and ask. Deleting loses information; leaving it in place spreads risk.
 

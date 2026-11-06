@@ -7,7 +7,7 @@ description: "Turns mistakes and wins into improvements: observe, diagnose, prop
 
 Improve the method from real events without piling up rules nobody can justify. A lesson is a suggestion until it has passed every test below.
 
-Step: Improve. Rules: 2 Agree acceptance first, 3 Read back the real result, 4 Claim only what you can show.
+Stage: Sustain and Scale. Rules: 2 Agree acceptance first, 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

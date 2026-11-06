@@ -21,7 +21,7 @@ Run the installer with `--dry-run` first. It lists every file it would copy and 
 - [ ] Add `--with-hook` if you want claim-check to run when the agent tries to finish.
 - [ ] Open `AGENTS.md`. If the installer created it, edit the boundaries to match your work. If you already had one, it was not touched.
 - [ ] Check that `.work/` is in `.gitignore` and that `.shotos-install.json` exists.
-- [ ] Start a task and ask for an acceptance card. Confirm the agent writes the owner, the outcome, the checks and a case that should fail, and asks for a yes before it starts when the work is large, risky or unclear.
+- [ ] Start a task and ask for an acceptance card. Confirm the agent asks for a yes before it starts.
 
 ### Claude Code, all projects (user)
 
@@ -139,7 +139,7 @@ Cost per generated draft is easy to count and not very useful. The number that m
 4. **Record who accepted it.** If nobody accepted it, it does not count.
 5. **Divide.** Total cost for the period, divided by the number of accepted tasks, gives your cost per accepted task.
 6. **Add your time.** Reviewing and fixing take person time. Put a rate on it if you can, or at least log the minutes.
-7. **Compare with and without.** Use the same tasks or closely matched tasks, the same input, model, tools and acceptance checks in both conditions. Give the reviewer the output without saying which condition made it. Record every attempt in the [accepted-work ledger](../templates/accepted-work-ledger.csv), then compare total model spend, elapsed time, reviewer minutes, rework rounds and defects per accepted task. SHOTos may raise the cost of each attempt, as the [paired run](evidence.md) found; fewer reruns or faster handoffs have to be observed, not assumed.
+7. **Compare with and without.** Run a few tasks both ways, with acceptance cards and without. SHOTos may raise the cost of each run, as the [paired run](evidence.md) found, so check whether fewer reruns pay for it in your work.
 8. **Review monthly.** Change one thing at a time, such as the model, the length of `AGENTS.md` or the acceptance checks, and see whether the number moves.
 
-Keep the record in the project, for example in a simple table beside the acceptance cards. A small honest record beats a large estimated one.
+Keep the [accepted-work ledger](../templates/accepted-work-ledger.csv) beside the acceptance cards in your project. A small honest record beats a large estimated one.

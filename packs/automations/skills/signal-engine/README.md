@@ -4,7 +4,7 @@
 
 The skill walks an agent and a person through installing the signal engine, proving it in dry-run mode, running a three-message pilot, reading the result back in the sheet and the inbox, and only then putting it on a schedule.
 
-It supports the Build step. It serves rule 1, Stop at the boundaries, and rule 3, Read back the real result.
+It supports the Operate stage. It serves rule 1, Stop at the boundaries, and rule 3, Read back the real result.
 
 ## The problem it solves
 
@@ -33,7 +33,7 @@ Install the pack (see the [pack README](../../README.md)). Then ask:
 
 > Set up the signal engine for my "Signals" label. My priorities are lease law changes, council planning notices and rental yield. Walk me through it and do not schedule anything until I have seen three real items.
 
-You get an acceptance record, exact steps for you to follow in your browser, and a check at each step.
+You get an acceptance record, exact steps for you to follow in your browser, and a check at each stage.
 
 ## How it connects
 

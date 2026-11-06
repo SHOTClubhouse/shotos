@@ -4,7 +4,7 @@
 
 The agent writes one card in the form "We believe that X will result in Y, and we will know because Z changes". It adds the measure, the baseline, the target, the time box and the result that would make you stop.
 
-It belongs to the Brief step. It serves rule 2, Agree acceptance first, and rule 4, Claim only what you can show.
+It belongs to the Hypothesise stage. It serves rule 2, Agree acceptance first, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

@@ -4,7 +4,7 @@
 
 The agent reads git history, deploy logs and incident notes, computes deployment frequency, lead time for changes, change failure rate and time to restore, and shows the count behind each number. For an AI feature it adds eval pass rate, cost per accepted task, latency and human edit rate. It then offers questions to ask, and states plainly that the numbers describe the system and not people.
 
-It supports the Check step and serves rule 3, Read back the real result, and rule 4, Claim only what you can show. The four keys come from the DORA research programme.
+It supports the Track stage and serves rule 3, Read back the real result, and rule 4, Claim only what you can show. The four keys come from the DORA research programme.
 
 ## The problem it solves
 
@@ -14,7 +14,7 @@ The skill takes ten weeks of history, shows 31 deploys, a median lead time, 4 fa
 
 ## When to use it, and when not to
 
-Use it at the Check step, at a regular review, or when a team wants a shared view of delivery. Do not use it for a team with no deploy history, to rank people, or to set targets on a single key.
+Use it at the Track stage, at a regular review, or when a team wants a shared view of delivery. Do not use it for a team with no deploy history, to rank people, or to set targets on a single key.
 
 ## Who it is for
 

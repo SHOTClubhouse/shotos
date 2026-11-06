@@ -2,7 +2,7 @@
 
 **The rule:** Run three units or fewer first, read them back, then run the preflight before the rest.
 
-Serves rule 2, [Agree acceptance first](../docs/controls.md). Matters most in **Build**, and again in **Improve**.
+Serves rule 2, [Agree acceptance first](../docs/controls.md). Matters most in **Operate**, and again in **Sustain and Scale**.
 
 ## Why it exists
 

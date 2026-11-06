@@ -4,7 +4,7 @@
 
 The agent reads your notes and builds four tracks (customers, partners, investors, advisers). Each row runs from person to organisation to opportunity to evidence to owner to next action. Every link is labelled confirmed, reported, proposed, historic or unresolved. It ends with a list of gaps and one cheap first test.
 
-It belongs to **Brief**. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
+It belongs to **Scope**. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

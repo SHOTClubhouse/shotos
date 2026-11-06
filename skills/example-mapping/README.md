@@ -4,7 +4,7 @@
 
 The agent runs a short example-mapping session: story, rules, examples per rule, open questions, then Given/When/Then for the examples that are settled. It follows specification by example and behaviour-driven development.
 
-It belongs to the Brief step. It serves rule 2, Agree acceptance first, and rule 4, Claim only what you can show.
+It belongs to the Hypothesise stage. It serves rule 2, Agree acceptance first, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

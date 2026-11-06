@@ -4,7 +4,7 @@
 
 This skill makes the agent produce a map of people and organisations. Each has a goal, an influence and a stance. Every link carries one of five labels: confirmed, reported, proposed, historic or unresolved. Two records are joined only on two independent identifiers.
 
-It belongs to the Brief step. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
+It belongs to the Scope stage. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

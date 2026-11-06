@@ -4,7 +4,7 @@
 
 The agent drafts a short record: context, options with their costs and risks, the decision, the named decider, evidence labelled measured, inferred or opinion, a trigger that would reopen it and a review date. It records decisions that a person has made. It does not make them.
 
-It works at any step, most often Track. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, because a record is not an approval.
+It works at any stage, most often Track. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, because a record is not an approval.
 
 ## The problem it solves
 

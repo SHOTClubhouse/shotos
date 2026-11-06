@@ -2,7 +2,7 @@
 
 **The rule:** What an agent can do is separate from what it may do. Agree an access level for each task, start read-only, and widen only when the owner says so.
 
-Serves rule 1, [Stop at the boundaries](../docs/controls.md). Matters in every step, and most in **Build**.
+Serves rule 1, [Stop at the boundaries](../docs/controls.md). Matters in every stage, and most in **Operate**.
 
 ## Why it exists
 

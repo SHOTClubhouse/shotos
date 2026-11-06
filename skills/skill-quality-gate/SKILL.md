@@ -7,7 +7,7 @@ description: "Runs a quality gate before promoting a skill or change: one change
 
 Test one change against what is already there, on three kinds of situation, and promote only if nothing material fails. Report what the gate showed and what it did not.
 
-Step: Improve. Rules: 2 Agree acceptance first, 3 Read back the real result, 4 Claim only what you can show.
+Stage: Sustain and Scale. Rules: 2 Agree acceptance first, 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

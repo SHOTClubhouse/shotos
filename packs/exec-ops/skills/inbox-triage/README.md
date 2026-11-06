@@ -4,7 +4,7 @@
 
 The agent confirms the account, lists the existing labels, reads each thread and gives it one action state: needs reply, to read, waiting on others, for information, notification or noise. It drafts replies from the real thread, flags threads where you sent last and nobody answered, and files only within the label or folder scheme you already use. It never sends, and it proposes a new label rather than creating one.
 
-It serves the Build step. Rules: 1 Stop at the boundaries, 3 Read back the real result.
+It serves the Operate stage. Rules: 1 Stop at the boundaries, 3 Read back the real result.
 
 ## The problem it solves
 

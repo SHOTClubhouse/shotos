@@ -32,7 +32,7 @@ Single points of failure today: capabilities 4 and 6 have nobody at level 2. Cap
 | Mon 24 Nov | Change a rule (add a Saturday shift) in a test copy | Hana | Ines | Learner does, Hana watches | 45 min |
 | Fri 28 Nov | Exit cycle | Hana observes | Whole team | Learners do alone | 90 min |
 
-## Train the people who will train others
+## Train the trainer
 | Capability | Trainer | Material | Taught once on |
 |---|---|---|---|
 | 3 Check the draft | Tariq | Checklist from Hana's notes | Bo, Fri 21 Nov, Hana observing |

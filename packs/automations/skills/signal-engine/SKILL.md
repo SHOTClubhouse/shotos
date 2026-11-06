@@ -5,7 +5,7 @@ description: Sets up and checks an Apps Script engine that scores mail under one
 
 # Set up and run the signal engine
 
-Step: Build. Rules served: 1 Stop at the boundaries, 3 Read back the real result. The script is `Code.gs` in the SHOTos repository at `packs/automations/scripts/signal-engine/`, or in `.shotos/packs/automations/scripts/signal-engine/` in a project where SHOTos is installed; read the README beside it first.
+Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real result. The script is `Code.gs` in the SHOTos repository at `packs/automations/scripts/signal-engine/`, or in `.shotos/packs/automations/scripts/signal-engine/` in a project where SHOTos is installed; read the README beside it first.
 
 ## When not to use this
 

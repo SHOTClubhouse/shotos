@@ -8,7 +8,7 @@ Request from the managing director of Harbourside Lettings:
 
 Material in the project folder:
 
-**From the problem statement in the brief (signed off 2 July by Priya Nair, head of lettings operations):**
+**From the Scope problem statement (signed off 2 July by Priya Nair, head of lettings operations):**
 - Baseline, first reply to a repair request, median: 26 hours (helpdesk export, 1 April to 30 June, 1,412 requests).
 - Baseline, requests answered within 4 hours: 18 per cent (same export).
 - Baseline, tenant complaints about slow replies: 11 in the quarter (complaints log).

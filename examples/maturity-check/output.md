@@ -23,7 +23,7 @@
 The person is well ahead of the organisation. The failure you have already seen is the one this gap produces: changes the agent makes to shared data that no one reads. Fourteen children were in the wrong age group for a while, and a parent noticed before you did. The "don't ask" setting on the spreadsheet removes the last chance to catch that as it happens. Children's registration data is also personal data, which raises the cost of a mistake.
 
 ## Where to start
-Step: Build, with a short return to Brief.
+Stage: Operate, with a short return to Scope.
 
 1. [pilot-before-scale](../../skills/pilot-before-scale/README.md): run any change to the registration sheet on three rows first, inspect, then run the rest. Reason: it is the direct fix for the age-group incident.
 2. [label-the-proof](../../skills/label-the-proof/README.md): every agent report says which figures came from the sheet and which were inferred. Reason: you currently read totals only.

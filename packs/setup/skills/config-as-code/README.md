@@ -4,7 +4,7 @@
 
 This skill treats shared agent instructions, skills and settings as code. One repository is the shared version. Each person installs from it into their own tools. A drift check reports differences between what is installed and the repository before any sync, and useful local improvements come back through a reviewed change. Nothing is overwritten without showing the difference first.
 
-It supports the Improve step. It serves rule 3, Read back the real result, and control [03, mode-contract](../../../../rules/03-mode-contract.md): capability is separate from authority.
+It supports the Sustain and Scale stage. It serves rule 3, Read back the real result, and control [03, mode-contract](../../../../rules/03-mode-contract.md): capability is separate from authority.
 
 ## The problem it solves
 

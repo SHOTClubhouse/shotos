@@ -7,7 +7,7 @@ description: Maps who is affected by a piece of work, who decides and who can bl
 
 Write down who is involved, what each one wants, and how you know. A map that mixes facts with hearsay is worse than no map, so every claim carries a label.
 
-**Step:** Brief. **Rules:** 4 Claim only what you can show; 1 Stop at the boundaries.
+**Stage:** Scope. **Rules:** 4 Claim only what you can show; 1 Stop at the boundaries.
 
 ## When not to use this
 

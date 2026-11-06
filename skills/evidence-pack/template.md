@@ -8,10 +8,10 @@
 ## Finding in one sentence
 
 ## Decision needed
-Scale, pivot or stop, by (date):
+Proceed to Own, pivot to Hypothesise or stop, by (date). Hold while outcome evidence is missing.
 
 ## Before and after
-| Measure | Baseline (from the brief, date, source) | After (value, date range) | Change | Agreed threshold | Met? |
+| Measure | Baseline (from Scope, date, source) | After (value, date range) | Change | Threshold from Hypothesise | Met? |
 |---|---|---|---|---|---|
 
 ## Evidence table
@@ -30,7 +30,7 @@ Scale, pivot or stop, by (date):
 Time, money, rework, defects, complaints, anything that got worse.
 
 ## Recommendation (draft)
-Scale / pivot / stop, with reasons tied to the numbered figures above.
+Proceed to Own / pivot / stop / hold, with reasons tied to the numbered figures above.
 
 ## Decision (filled in by the decision owner only)
 Decision:

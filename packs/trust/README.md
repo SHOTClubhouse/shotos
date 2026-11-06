@@ -13,11 +13,11 @@ The pack gives an agent and its owner three checks to run before a document, rep
 
 ## Skills
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [claims-audit](skills/claims-audit/README.md) | Check | Lists every factual claim in a public document with its source, status and proposed fix; numbers need a dated source. |
-| [public-exposure-check](skills/public-exposure-check/README.md) | Check | Looks for secrets, personal data, internal paths and over-wide sharing before publishing; says what to rotate; changes nothing. |
-| [sensitive-data-check](skills/sensitive-data-check/README.md) | Brief | Checks work on special-category or children's data for minimisation, consent, retention, access and safeguarding; stops when consent is missing. |
+| [claims-audit](skills/claims-audit/README.md) | Track | Lists every factual claim in a public document with its source, status and proposed fix; numbers need a dated source. |
+| [public-exposure-check](skills/public-exposure-check/README.md) | Track | Looks for secrets, personal data, internal paths and over-wide sharing before publishing; says what to rotate; changes nothing. |
+| [sensitive-data-check](skills/sensitive-data-check/README.md) | Scope | Checks work on special-category or children's data for minimisation, consent, retention, access and safeguarding; stops when consent is missing. |
 
 ## Needs
 
@@ -33,13 +33,6 @@ python ../shotos/install.py --runtime claude --scope project --pack trust
 ```
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
-
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-trust@shotos
-```
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 

@@ -1,6 +1,6 @@
 # The four rules
 
-The four rules spell SHOT: **S**top at the boundaries, **H**old to what you agreed, **O**bserve the real result and **T**ell only what you can show. The os is the operating system around them: a five-step work loop (Brief, Build, Check, Hand over and Improve, see [the work loop guide](framework.md)), the skills and the tools. Four rules run inside every step, on every agent task. They are short enough to keep in an `AGENTS.md` file (see [the template](../templates/AGENTS.md)) and specific enough to check.
+SHOTos stands for six delivery stages: Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale (see [the stage guide](framework.md)). Four rules run inside every stage, on every agent task. They are short enough to keep in an `AGENTS.md` file (see [the template](../templates/AGENTS.md)) and specific enough to check.
 
 | Rule | In one sentence | Mainly supported by |
 |---|---|---|

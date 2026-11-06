@@ -2,7 +2,13 @@
 
 This page records what has been tested, how, what it showed and what has not been tested. It is updated with every release, including when a result is disappointing. Raw outputs are in [evals/results/](../evals/results/).
 
-## What we've tested
+## Six-stage runtime check
+
+A six-stage build ran in fresh Windows projects in Codex CLI and Claude Code. Both opened the installed contextual proposal and customer handoff skills, wrote and read back two drafts and a programme record, and held transfer and rollout when given only a CRM stage label. A separate Claude Code Stop-hook probe rejected a false file claim.
+
+This verifies the draft workflow and stop gates on the build tested. Live operations require a real receiving lead to accept and complete an independent cycle. Use the [team rollout guide](running-it.md#team-rollout) and the [accepted-work ledger](../templates/accepted-work-ledger.csv) to record the outcomes in your own work.
+
+## Earlier release evidence
 
 - **Realistic work across three models.** We checked the files, test results and Git history left by Haiku, Sonnet and Opus on ten tasks, including proposals, operational reports and inherited work. On the November Sonnet check, SHOTos and the baseline each passed all ten.
 - **Every release skill.** We checked all 82 skills across 212 cases. Agents followed the intended method more often with SHOTos on each model tested. The cases also helped us refine the instructions for handling unclear decisions and checking claims.
@@ -10,7 +16,7 @@ This page records what has been tested, how, what it showed and what has not bee
 
 ## Outcome evals
 
-### Current-build check, 6 November 2026
+### Five-step release check, 6 November 2026
 
 After the five-step wording and release fixes, the ten tasks were run once per condition on Haiku. SHOTos passed 9 of 10 and the no-SHOTos baseline passed 10 of 10. SHOTos cost $0.17 across the ten tasks against $0.11 without it, and averaged 63 seconds against 43. One SHOTos lead-qualification answer paused a buyer who had budget, a deadline and had requested a priced proposal; the grader expected pursue with the separate sign-off risk made explicit. The `nudge-qualify` guidance was clarified after this run, so this result describes the build before that clarification. No improvement in task outcomes can be claimed from this check. The [runner](../evals/run_outcomes.py) and fixtures are here; raw current-build outputs remain in the local release workspace pending review for publication.
 
@@ -112,7 +118,7 @@ The same 212 cases per model were judged again, using path-scrubbed copies of th
 
 The broad method-following gap remains, but several individual verdicts change with another judge pass. The path scrubbing also changed some response bytes. Treat per-skill one-run figures as directional, not a reliable ranking. The [re-judge summary](../evals/results/2026-11-06-rejudge-summary.json) records every changed verdict without duplicating the raw responses. Skill pages retain the original published run and point here for this sensitivity check.
 
-The 3 November skill outputs predate the later wording change from six lettered stages to the five-step work loop. Re-judging those outputs does not test the current skill instructions. A fresh current-wording run is reported below.
+The 3 November skill outputs predate the later wording change from six lettered stages to the five-step work loop. Re-judging those outputs does not test the current skill instructions. A run on that later wording is reported below.
 
 ### Current-wording full-scope check, 6 November 2026
 

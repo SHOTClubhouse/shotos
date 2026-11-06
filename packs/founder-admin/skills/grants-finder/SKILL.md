@@ -7,7 +7,7 @@ description: Finds and screens grants for eligibility, funder evidence and budge
 
 Spend application time only on grants the organisation can win and can afford to apply for, and make every statement in a draft traceable.
 
-Step: Brief. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
+Stage: Scope. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
 
 ## When not to use this
 

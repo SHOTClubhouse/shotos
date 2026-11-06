@@ -6,6 +6,7 @@ task, then runs claim-check on the report the agent wrote. Nothing outside the
 temporary folder is touched.
 """
 
+import json
 import subprocess
 import sys
 import tempfile
@@ -13,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 
-REPORT = """All done. I've written the pricing summary, the tests pass, it's committed,
+OVERCLAIM = """All done. I've written the pricing summary, the tests pass, it's committed,
 and I've emailed it to the finance team.
 
 ## Claims
@@ -24,9 +25,36 @@ and I've emailed it to the finance team.
 - [unverified] I did not check how the summary renders in the finance team's email client
 """
 
+READBACK = """The pricing summary exists. The test failed, and the draft has not
+been committed or sent.
+
+## Claims
+- [file] created: pricing-summary.md
+- [unverified] The summary still needs a review for accuracy.
+"""
+
 
 def sh(cwd, *args):
     subprocess.run(args, cwd=cwd, check=True, capture_output=True)
+
+
+def check_report(repo, label, report, expected_exit, expected_states):
+    print(label)
+    print(report)
+    run = subprocess.run(
+        [sys.executable, str(ROOT / "tools" / "claim_check.py"), "-", "--cwd", str(repo),
+         "--allow-command", "python -m unittest", "--json"],
+        input=report, capture_output=True, text=True,
+    )
+    if run.returncode != expected_exit:
+        raise RuntimeError(f"Unexpected claim-check exit: {run.returncode}\n{run.stderr}\n{run.stdout}")
+    result = json.loads(run.stdout)
+    states = [claim["state"] for claim in result["claims"]]
+    if states != expected_states or result["ok"] != (expected_exit == 0):
+        raise RuntimeError(f"Unexpected claim-check result: {result}")
+    for claim in result["claims"]:
+        print(f"{claim['state']:<12} {claim['claim']} ({claim['evidence']})")
+    print()
 
 
 def main() -> int:
@@ -44,14 +72,11 @@ def main() -> int:
         (repo / "test_prices.py").write_text(
             (repo / "test_prices.py").read_text(encoding="utf-8") + "# edited\n", encoding="utf-8")
 
-        print("The agent says:\n")
-        print("    " + REPORT.replace("\n", "\n    "))
-        print("claim-check says:\n")
-        run = subprocess.run(
-            [sys.executable, str(ROOT / "tools" / "claim_check.py"), "-", "--cwd", str(repo),
-             "--allow-command", "python -m unittest"],
-            input=REPORT, capture_output=True, text=True)
-        print(run.stdout)
+        check_report(repo, "1. The overclaim", OVERCLAIM, 1,
+                     ["SUPPORTED", "UNSUPPORTED", "UNSUPPORTED", "NO EVIDENCE", "DECLARED"])
+        check_report(repo, "2. The same work, reported accurately", READBACK, 0,
+                     ["SUPPORTED", "DECLARED"])
+        print("Demo passed. The file exists and its quality still needs review.")
         return 0
 
 

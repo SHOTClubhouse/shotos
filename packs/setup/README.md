@@ -12,11 +12,11 @@ The pack looks after the working set-up rather than any one piece of work. It ke
 
 ## Skills
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [config-as-code](skills/config-as-code/README.md) | Improve | Keeps a team's instructions and skills in one reviewed repository, installs from it, reports drift before any sync and brings local improvements back through review. |
-| [mode-ladder](skills/mode-ladder/README.md) | Brief | Right-sizes effort (Quick, Standard, Thorough or Team of agents) from a task's size, risk and uncertainty; a bigger setting never grants more authority. |
-| [skill-audit](skills/skill-audit/README.md) | Check | Checks a skill collection for frontmatter, README, examples, eval cases, links, description collisions and evidence status. Wiring only. |
+| [config-as-code](skills/config-as-code/README.md) | Sustain and Scale | Keeps a team's instructions and skills in one reviewed repository, installs from it, reports drift before any sync and brings local improvements back through review. |
+| [mode-ladder](skills/mode-ladder/README.md) | Scope | Right-sizes effort (Quick, Standard, Thorough or Team of agents) from a task's size, risk and uncertainty; a bigger setting never grants more authority. |
+| [skill-audit](skills/skill-audit/README.md) | Track | Checks a skill collection for frontmatter, README, examples, eval cases, links, description collisions and evidence status. Wiring only. |
 | [connect-tools](skills/connect-tools/README.md) | Any (run first) | Checks which tools the agent can really reach, tests each with a harmless call, and writes `.work/capabilities.md` with gaps, affected skills and how to connect them. |
 
 ## Needs
@@ -33,13 +33,6 @@ python ../shotos/install.py --runtime claude --scope project --pack setup
 ```
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
-
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-setup@shotos
-```
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 

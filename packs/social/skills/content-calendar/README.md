@@ -2,7 +2,7 @@
 
 **Plan one week of posts from real events and the assets you actually have, with a set mix and a named owner for every slot.**
 
-The default mix is 40% education, 40% community and 20% promotion, and you can change it. Each slot shows an owner, an asset, a caption status and an approval status. The skill supports the Brief step, because the mix is a bet that the monthly review tests. It serves rule 2, Agree acceptance first, and rule 4, Claim only what you can show.
+The default mix is 40% education, 40% community and 20% promotion, and you can change it. Each slot shows an owner, an asset, a caption status and an approval status. The skill supports the Hypothesise stage, because the mix is a bet that the monthly review tests. It serves rule 2, Agree acceptance first, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

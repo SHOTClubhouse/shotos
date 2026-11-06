@@ -5,7 +5,7 @@ description: Organises a folder by owner and category and finds duplicates by si
 
 # File and de-duplicate with a plan
 
-Step: Build. Rules: 1 (stop at the boundaries) and 3 (read back the real result).
+Stage: Operate. Rules: 1 (stop at the boundaries) and 3 (read back the real result).
 
 ## When not to use this
 

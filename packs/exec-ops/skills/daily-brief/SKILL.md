@@ -1,13 +1,13 @@
 ---
 name: daily-brief
-description: "Runs the pull-based daily loop: reconciles a ledger with fresh mail and calendar and writes one digest. Use for a morning brief or evening close. Sends nothing; repeated accepted drafts may earn a higher automation rung only with the owner's approval."
+description: "Runs the pull-based daily loop: reconciles a ledger of dated obligations with fresh mail and calendar and writes one digest of what needs a person. Use for a morning brief, evening close or \"what needs me today\". Sends nothing."
 ---
 
 # Daily brief
 
 Pull the signal when the owner asks or on a set schedule, update one ledger, and report only what needs a person. Silence beats noise: a day with nothing to decide gets a short digest, not a long one.
 
-Step: Build. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
+Stage: Operate. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 
@@ -23,7 +23,6 @@ Skip it for a one-off question about a single thread or date, or when there is n
 6. **Build the digest.** Use [digest-template.md](digest-template.md). Include only four things: decisions needed, things slipping, today's fixed points, drafts ready to review. Leave a section out when it is empty. If all four are empty, say "Nothing needs you today" and list the sources read.
 7. **Read back.** Re-open the ledger and confirm the changes landed and the "last run" time moved. Report any source that failed.
 8. **Offer graduation, never assume it.** If a task class inside the loop (for example "draft routine meeting confirmations") has been accepted unedited many times, suggest a rung change under `rules/12-graduation.md` (in the SHOTos repository, or `.shotos/rules/12-graduation.md` where SHOTos is installed). Until the owner agrees, every class stays at rung 1: draft only.
-   A request to make the daily brief automatic or to send replies without review is a graduation question, not a shortcut. State the current rung, the acceptance evidence needed to earn the next rung and the owner's approval point.
 
 ## Output
 

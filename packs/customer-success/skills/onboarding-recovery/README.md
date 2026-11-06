@@ -4,7 +4,7 @@
 
 The agent builds a dated timeline from mail, calendar, notes and usage, finds the last confirmed step and the first missed one, and labels the likely cause as a hypothesis. It proposes one next step with an owner and date on each side, says what the customer must do and drafts the message. It never sends.
 
-It serves the Build step. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
+It serves the Operate stage. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
 ## The problem it solves
 

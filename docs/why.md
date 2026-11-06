@@ -20,7 +20,7 @@ Liam McDowell spent many years helping organisations build products, teams and d
 - **Teams that own their work.** Outside help is only good if it leaves the team able to carry on without it.
 - **Proof over opinion.** Agree what success looks like before starting, then measure against it.
 
-At SHOT those lessons became a five-step work loop, set out in [the work loop guide](framework.md), with four rules inside it. They then met a new problem, and each of the four rules that run inside the steps exists because its absence cost real time.
+At SHOT those lessons became six delivery stages, set out in [the stage guide](framework.md). They then met a new problem, and each of the four rules that run inside the stages exists because its absence cost real time.
 
 - **Rule 1, Stop at the boundaries,** because an agent that can send, delete or publish will eventually do so when nobody asked.
 - **Rule 2, Agree acceptance first,** because without it "done" is the agent's opinion.

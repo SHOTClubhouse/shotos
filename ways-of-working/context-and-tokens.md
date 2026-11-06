@@ -41,7 +41,7 @@ Keep the record about the work, not about people. Do not copy private or persona
 
 ### Hand off before the context fills
 
-Do not wait for the window to fill or for the system to compress it automatically. At natural breaks (the end of a step, before a long run, when the conversation has wandered), update the task record and write a short handoff:
+Do not wait for the window to fill or for the system to compress it automatically. At natural breaks (the end of a stage, before a long run, when the conversation has wandered), update the task record and write a short handoff:
 
 1. The goal and the acceptance.
 2. What is done, with evidence links.
@@ -87,12 +87,12 @@ Compare across routes and instruction versions (see [model-and-tool-routing.md](
 - **Counting cost per call** and ignoring rework.
 - **Relying on automatic compression** to keep what matters.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Brief:** one task record starts with the problem statement.
-- **Build:** short context, outputs in files, handoffs at breaks.
-- **Check:** cost per accepted task is a measure.
-- **Hand over:** the receiving team inherits records, not chat history.
+- **Scope:** one task record starts with the problem statement.
+- **Operate:** short context, outputs in files, handoffs at breaks.
+- **Track:** cost per accepted task is a measure.
+- **Own:** the receiving team inherits records, not chat history.
 - **Control 11:** context control is this page in policy form.
 - **Rule 3:** read the file, not a recollection of it.
 - **Rule 4:** claims cite the file or log where the evidence lives.

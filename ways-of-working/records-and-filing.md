@@ -107,11 +107,11 @@ If you do not know the required period, record that as an open question for the 
 - **Work in progress committed to the shared record** because it was in the way.
 - **Evidence in the chat only.** If it is not in the task record, it will be lost.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **All steps:** the task record is where the problem statement, acceptance, evidence and decision live.
-- **Check:** the evidence pack is built from filed records.
-- **Hand over:** the handoff includes where everything is and who owns it.
+- **All stages:** the task record is where the problem statement, acceptance, evidence and decision live.
+- **Track:** the evidence pack is built from filed records.
+- **Own:** the handoff includes where everything is and who owns it.
 - **Rule 1:** deleting, moving shared files and overwriting someone else's work wait for a yes.
 - **Rule 3:** read back the file in its real home, and confirm it is the one you meant.
 - **Rule 4:** claim "filed" only when the file is there; keep the receipt.

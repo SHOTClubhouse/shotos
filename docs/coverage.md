@@ -6,7 +6,7 @@ A plain map of where SHOTos is strong, where it is thin, and what it leaves out 
 
 | Area | What you get |
 |---|---|
-| Delivering change | The five-step work loop with exit checks, and 28 core skills from problem to rollout |
+| Delivering change | The six stages with exit checks, and 28 core skills from problem to rollout |
 | Keeping agents honest | Four rules, twelve controls, claim-check and the Stop hook |
 | Engineering practice | Specification by example, Definition of Done, engineering excellence, continuous delivery, DORA, role agents |
 | Winning work | LEAP and NUDGE, proposals, factories, outreach, replies |
@@ -51,7 +51,7 @@ These are common needs SHOTos does not have a skill for. The core skills and the
 - **Evidence for the packs.** Every pack skill has eval cases, but most have not yet been run. See [evidence](evidence.md).
 - **Other runtimes.** Codex, Gemini, Antigravity, ChatGPT and the Claude app upload need the same outcome runs as Claude Code.
 - **Live automation runs.** The two Apps Script automations need a recorded end-to-end run.
-- **macOS and Linux.** The automated tests pass in CI on both. Live agent runs have only been done on Windows.
+- **macOS and Linux.** The tools are tested on Windows only.
 - **Rule 1 in practice.** The first outcome runs showed an agent asking permission for something the owner had already asked for. Rule 1 now says a clear request is the yes for what it names. The next runs check that the fix holds without losing caution where it matters.
 
 Suggest a gap, or a skill to fill one, through [CONTRIBUTING.md](../CONTRIBUTING.md).

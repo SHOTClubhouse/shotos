@@ -7,7 +7,7 @@ description: "Decides how much autonomy a repeated task class has earned from lo
 
 Autonomy is earned by a record, class by class. The agent logs outcomes, reads the status, and recommends a rung. A person grants it.
 
-Step: Improve. Rules: 1 Stop at the boundaries, 4 Claim only what you can show. This is control 12, graduation.
+Stage: Sustain and Scale. Rules: 1 Stop at the boundaries, 4 Claim only what you can show. This is control 12, graduation.
 
 ## When not to use this
 

@@ -12,11 +12,11 @@ The pack holds two checks. One makes text easier to read. The other finds the pa
 
 ## Skills
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [plain-english-check](skills/plain-english-check/README.md) | Check | Checks and fixes a draft for plain English: answer first, short sentences, active verbs, explained jargon, length to suit the reader. |
-| [translate](skills/translate/README.md) | Build | Translates or localises text, transcripts and captions with a glossary, a numbers-and-names check, back-translation of key passages and flags for a fluent reviewer. |
-| [ai-tell-check](skills/ai-tell-check/README.md) | Check | Finds the patterns that make text read as machine-written, reports each with its line and a fix, and never changes a fact. |
+| [plain-english-check](skills/plain-english-check/README.md) | Track | Checks and fixes a draft for plain English: answer first, short sentences, active verbs, explained jargon, length to suit the reader. |
+| [translate](skills/translate/README.md) | Operate | Translates or localises text, transcripts and captions with a glossary, a numbers-and-names check, back-translation of key passages and flags for a fluent reviewer. |
+| [ai-tell-check](skills/ai-tell-check/README.md) | Track | Finds the patterns that make text read as machine-written, reports each with its line and a fix, and never changes a fact. |
 
 ## Needs
 
@@ -34,17 +34,10 @@ python ../shotos/install.py --runtime claude --scope project --pack writing
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
 
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-writing@shotos
-```
-
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
 ## How it connects
 
-The skills follow the four rules in [docs/controls.md](../../docs/controls.md). Anything that publishes, sends or posts stops for the owner's yes under [rules/04-stop-boundaries.md](../../rules/04-stop-boundaries.md). The steps are described in [docs/framework.md](../../docs/framework.md).
+The skills follow the four rules in [docs/controls.md](../../docs/controls.md). Anything that publishes, sends or posts stops for the owner's yes under [rules/04-stop-boundaries.md](../../rules/04-stop-boundaries.md). The stages are described in [docs/framework.md](../../docs/framework.md).
 
 **Evidence:** Cases written, not yet run. Eval cases are in [evals/packs/writing.json](../../evals/packs/writing.json).

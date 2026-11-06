@@ -6,26 +6,27 @@ Short answers first, with a link where there is more. Where something is reasoni
 
 ### What is SHOTos in one sentence?
 
-Agents say "done". SHOTos makes them show it. It is four rules, a five-step work loop, 28 core skills and 12 packs, a set of templates and a checking tool (`claim-check`) that test an agent's report against the evidence. See the [README](../README.md).
+SHOTos gives teams and AI agents six stages to take a change from an agreed problem to independent ownership and rollout, with 82 skills, reusable templates and a tool for checking completion claims. See the [README](../README.md).
 
 ### What does SHOT stand for?
 
-SHOTos is SHOT plus os. SHOT is the four rules: **S**top at the boundaries, **H**old to what you agreed, **O**bserve the real result and **T**ell only what you can show. The os is the operating system around them: a five-step work loop, skills and tools. The loop is:
+SHOTos stands for six delivery stages:
 
-- **Brief:** understand the situation, the people, the baseline and what done means, state testable bets and agree the success criteria before building.
-- **Build:** deliver the smallest real piece into real use with the people who will own it.
-- **Check:** measure before and after against the baseline, then decide: hand over, change course or stop.
-- **Hand over:** the team that will run it becomes able to, with the evidence and practice it needs.
-- **Improve:** keep what works, change what does not, and take the method to the next piece of work.
+- **S, Scope** ("Know your ground"): understand the situation, the people, the baseline and what done means before changing anything.
+- **H, Hypothesise** ("Call your shot"): state testable bets and agree the examples and success criteria before building.
+- **O, Operate** ("Play it out"): deliver the smallest real slice into real use with the people who will own it.
+- **T, Track** ("Prove it"): measure before and after against the baseline, then decide whether to move to Own, pivot, stop or hold for more evidence.
+- **o, Own** ("Own it"): the team that will run it becomes self-sufficient.
+- **s, Sustain and Scale** ("Go again, bigger"): reuse what worked in the next teams and keep improving.
 
-Four rules run inside every step, on every agent task:
+Four rules run inside every stage, on every agent task:
 
 1. Stop at the boundaries. Ask before you send, spend, delete, publish or change someone else's work.
 2. Agree acceptance first. Agree what done looks like, who signs it off and one case that should fail, before the work starts.
 3. Read back the real result. Open the file, run the test, look at the commit before you report.
 4. Claim only what you can show. End with claims a tool can check, and label what was not checked.
 
-The loop is set out in [framework.md](framework.md) and the rules in [controls.md](controls.md). The skills map to the steps: capture-the-problem and agree-acceptance to Brief, report-with-evidence to Build and Check, evidence-pack to Check, evidence-handoff to Hand over, and rollout-plan and learning-loop to Improve. claim-check supports Build and Check.
+The stages are set out in [framework.md](framework.md) and the rules in [controls.md](controls.md). The skills map to the stages: capture-the-problem to Scope, agree-acceptance to Hypothesise, report-with-evidence to Operate and Track, evidence-handoff to Own, and claim-check supports Operate and Track. Use the [learning loop](../skills/learning-loop/README.md) and [rollout plan](../skills/rollout-plan/README.md) for Sustain and Scale.
 
 ### How long does it take to start?
 
@@ -51,18 +52,16 @@ Partly, and it says so. The skills are instructions an agent reads, so they are 
 
 The prompt part is the weakest part, and the evals test it for that reason.
 
-### Which skills should I start with?
+### Which skills should I try first?
 
 - [capture-the-problem](../skills/capture-the-problem/README.md): write down what is wrong before building.
 - [agree-acceptance](../skills/agree-acceptance/README.md): agree the checks, the owner and the boundaries first.
 - [report-with-evidence](../skills/report-with-evidence/README.md): end with a Claims block.
 - [evidence-handoff](../skills/evidence-handoff/README.md): pass work on with its state and next step.
 
-These four are a good start. There are 28 core skills and 12 optional packs in all.
+### Do I need to install every pack?
 
-### Do I have to use all of them?
-
-No. Each works alone. A product owner might use only the first two. A solo developer might start with report-with-evidence and the hook.
+Start with the core. A product owner might use the problem and acceptance skills first. A solo developer might start with report-with-evidence and the optional hook. Add packs for the jobs you repeat. [Skill catalogue](what-you-can-do.md)
 
 ### What do "installed", "executed" and "accepted" mean?
 
@@ -80,7 +79,7 @@ Yes. `claim-check` checks that a receipt file exists, not that it is genuine, so
 
 ### Why not just trust a careful model?
 
-Because careful is not the same as checked. In the first paired run, all eight contrary cases passed with and without SHOTos, so the model was already careful on those prompts. That does not tell you what happens on a long task, a tired prompt or a different model. A check costs little and catches the case where the model is confidently wrong. Trust can be earned by a record of checked work, which is what the claims give you.
+Because careful is not the same as checked. In the first paired run, all ten safety cases passed with and without SHOTos, so the model was already careful on those prompts. That does not tell you what happens on a long task, a tired prompt or a different model. A check costs little and catches the case where the model is confidently wrong. Trust can be earned by a record of checked work, which is what the claims give you.
 
 ### Does claim-check judge quality?
 
@@ -88,17 +87,17 @@ No. A file that exists may still be wrong. Quality is what the acceptance checks
 
 ### What does the Stop hook do?
 
-In Claude Code, when the agent tries to finish, the hook runs `claim-check` on assistant text since the last human message. If a claim fails, the agent is sent back to fix the work or correct its report. It never blocks twice in one turn. See [hooks/](../hooks/).
+In Claude Code, when the agent tries to finish, the hook runs `claim-check` on its final message. If a claim fails, the agent is sent back to fix the work or correct its report. It never blocks twice in one turn. See [hooks/](../hooks/).
 
-### Does it work with Codex, Gemini CLI and Antigravity?
+### Does it work with Codex?
 
-The installer has options for all three: `--runtime codex`, `--runtime gemini` and `--runtime antigravity`. They put the skills where each tool looks and make sure the same `AGENTS.md` canon loads (Codex reads it directly; the other two read it through a one-line import in `GEMINI.md`). The installer has automated tests. Two local Codex smoke runs on 6 November 2026 show Codex opening installed skills, including one run where the prompt did not name a skill. They are not paired outcome evals. Gemini and Antigravity have not had live runs, and the Stop hook is for Claude Code. See the [evidence page](evidence.md).
+Not yet tested. The installer has a Codex option and the skills use the shared `SKILL.md` format, so it should install. We have not run the evals or the hook on Codex, and the Stop hook is for Claude Code. Treat Codex as unproven until the evidence page says otherwise.
 
 ## Security and privacy
 
 ### Is my data sent anywhere?
 
-No. This version makes no network calls and has no telemetry. The installer copies files from the repository and never downloads anything. Your agent runtime still sends data to its own provider as it always did. SHOTos adds nothing to that.
+No. Version 0.1 makes no network calls and has no telemetry. The installer copies files from the repository and never downloads anything. Your agent runtime still sends data to its own provider as it always did. SHOTos adds nothing to that.
 
 ### Can claim-check run commands from my repository?
 
@@ -112,7 +111,7 @@ An agent told to follow a document from the internet can be told to do anything.
 
 ### Does it slow agents down or cost more?
 
-Yes, and we measured it. In the outcome evals on ten realistic tasks across Haiku, Sonnet and Opus, SHOTos runs cost about 42% more in model usage and took about 43% longer, because the agent reads the rules and skills and writes more. See [evidence.md](evidence.md).
+Yes, and we measured it. In the outcome evals on ten realistic tasks across Haiku, Sonnet and Opus, SHOTos runs cost about 41% more in model usage and took about 42% longer, because the agent reads the rules and skills and writes more. See [evidence.md](evidence.md).
 
 The following is reasoning, not measurement: the cost may pay back through less rework, because acceptance is agreed before the work, and because you spend less time checking a report line by line. We have not measured rework, so treat that as a hypothesis to test in your own work.
 
@@ -138,14 +137,14 @@ It is a baseline, not a certification. It gives named owners, human checkpoints 
 
 ### What has actually been proven?
 
-- 100 or more automated tests pass on Windows with Python 3.13, and passed in CI on Windows, macOS and Linux with Python 3.12 at the last pushed commit.
-- On ten realistic tasks across Haiku, Sonnet and Opus, agents passed 59 of 60 runs with SHOTos and 58 of 59 without: no measurable difference in outcomes, at about 42% more cost.
-- In the paired run of all 212 skill cases on Haiku, Sonnet and Opus, graded by meaning, agents followed the skill in 204, 211 and 210 cases with SHOTos against 160, 158 and 165 without. Haiku with SHOTos followed the skills more often than Sonnet without them, at about an eighth of the cost; that measures method, not better results.
+- 99 automated tests pass on Windows with Python 3.9 and 3.13.
+- On ten realistic tasks across Haiku, Sonnet and Opus, agents passed 59 of 60 runs with SHOTos and 58 of 59 without: no measurable difference in outcomes, at about 41% more cost.
+- In the paired run of all 212 skill cases on Haiku, Sonnet and Opus, graded by meaning, agents followed the skill in 204, 211 and 210 cases with SHOTos against 160, 158 and 165 without. Haiku with SHOTos beat Sonnet without it at about an eighth of the cost.
 - One live run of the Stop hook, and one of the walkthrough.
 
 ### What has not been proven?
 
-The automated tests have passed in CI on Windows, macOS and Linux, but live agent runs have only been done on Windows. Codex has two local skill-loading smoke runs, not paired outcome evals. Gemini, Antigravity, ChatGPT and the Claude app have not had live runs. That SHOTos reduces rework or improves team outcomes over weeks has not been tested. The skill cases were graded by a model judge against checklists, one run per case, and the skills were improved against those same cases, so that run is not an independent test. A human review is still to do. The details are in [evidence.md](evidence.md).
+macOS and Linux have not been tested. Codex, Gemini, Antigravity, ChatGPT and the Claude app have not been tested. That SHOTos reduces rework or improves team outcomes over weeks has not been tested. The paired run was one run per case, graded mainly by keywords that sometimes match the skills' own wording, which favours the "with" side. A human review is still to do. The details are in [evidence.md](evidence.md).
 
 ### Did SHOTos make the agent safer?
 
@@ -153,7 +152,7 @@ Not measurably. All eight contrary cases in the first run passed with and withou
 
 ### Why did report-with-evidence show no difference?
 
-In the first run the baseline was already honest on all five cases. In the three-model run the gap was small (see [evidence.md](evidence.md)). The value of this skill is expected to show with `claim-check` and the Stop hook, which were not part of those runs. That is a reason to test again, and not a result.
+The baseline was already honest on all five cases. The value of this skill is expected to show with `claim-check` and the Stop hook, which were not part of that run. That is a reason to test again, and not a result.
 
 ## Contributing
 

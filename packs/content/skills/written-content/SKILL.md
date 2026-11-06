@@ -7,7 +7,7 @@ description: Writes a paper, report, one-pager or blog post on a six-part arc wi
 
 Produce a written piece that a named reader can follow, that is true line by line, and that does not go out until the owner says so.
 
-**Step:** Build. **Rules served:** rule 2 (agree acceptance first), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
+**Stage:** Operate. **Rules served:** rule 2 (agree acceptance first), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
 
 ## When not to use this
 

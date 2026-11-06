@@ -80,12 +80,12 @@ It does not end with "be more careful". That is not a change.
 - **Blame in the review,** or a review with no follow-up.
 - **An agent with deploy rights** and no named human owner.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Build:** pipelines, flags and small releases are how a small real piece reaches real use.
-- **Check:** the DORA measures describe how well this path works.
-- **Hand over:** the receiving team must run a release and a rollback without the builders.
-- **Improve:** shared pipelines and templates are reused by the next team.
+- **Operate:** pipelines, flags and small releases are how a small real piece reaches real use.
+- **Track:** the DORA measures describe how well this path works.
+- **Own:** the receiving team must run a release and a rollback without the builders.
+- **Sustain and Scale:** shared pipelines and templates are reused by the next team.
 - **Rule 1:** production deploys and publishing wait for the owner's yes.
 - **Rule 3:** read back the live result, not only the pipeline's green tick.
 - **Rule 4:** say "deployed" only with a record of the deployment, and "released" only when users can see it.

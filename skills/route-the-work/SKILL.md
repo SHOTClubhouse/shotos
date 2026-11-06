@@ -7,7 +7,7 @@ description: "Writes a one-line route (asset, job, risk, reader, route, proof) a
 
 Decide how the work will be done before doing it. A one-line route stops small jobs getting heavy process and stops risky jobs getting none.
 
-**Step:** Build (any step may use it). **Rules:** 1 Stop at the boundaries; 4 Claim only what you can show. Detail: `rules/01-route-the-work.md` (in the SHOTos repository, or `.shotos/rules/01-route-the-work.md` where SHOTos is installed) and `rules/02-evidence-based-risk.md` (in the SHOTos repository, or `.shotos/rules/02-evidence-based-risk.md` where SHOTos is installed).
+**Stage:** Operate (any stage may use it). **Rules:** 1 Stop at the boundaries; 4 Claim only what you can show. Detail: `rules/01-route-the-work.md` (in the SHOTos repository, or `.shotos/rules/01-route-the-work.md` where SHOTos is installed) and `rules/02-evidence-based-risk.md` (in the SHOTos repository, or `.shotos/rules/02-evidence-based-risk.md` where SHOTos is installed).
 
 ## When not to use this
 

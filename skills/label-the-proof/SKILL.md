@@ -7,7 +7,7 @@ description: Labels each part of a report as literal, inferred or illustrative, 
 
 A reader cannot tell a real figure from a made-up one unless the page says. Label every part by how you know it, and keep one canonical file so the labels stay true.
 
-**Step:** Build (any step may use it). **Rules:** 4 Claim only what you can show; 3 Read back the real result. Detail: `rules/10-claim-discipline.md` (in the SHOTos repository, or `.shotos/rules/10-claim-discipline.md` where SHOTos is installed).
+**Stage:** Operate (any stage may use it). **Rules:** 4 Claim only what you can show; 3 Read back the real result. Detail: `rules/10-claim-discipline.md` (in the SHOTos repository, or `.shotos/rules/10-claim-discipline.md` where SHOTos is installed).
 
 ## When not to use this
 

@@ -4,7 +4,7 @@
 
 The agent turns a hypothesis card into a plan: the riskiest assumption, the smallest method, the sample, the duration, the cost, the success and stop criteria, and the person who decides.
 
-It belongs to the Brief step. It serves rule 2, Agree acceptance first, and rule 1, Stop at the boundaries.
+It belongs to the Hypothesise stage. It serves rule 2, Agree acceptance first, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 

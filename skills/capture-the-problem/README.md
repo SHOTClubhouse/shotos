@@ -4,7 +4,7 @@
 
 This skill turns rough notes, a complaint or a request into a one-page problem statement. It names who has the problem, what it costs today, what nobody knows yet and the cheapest test. It then stops and hands the page to a named person to confirm.
 
-It supports the Brief step and rule 2, Agree acceptance first, because you cannot agree what done looks like for a problem nobody has written down.
+It supports the Scope stage and rule 2, Agree acceptance first, because you cannot agree what done looks like for a problem nobody has written down.
 
 ## The problem it solves
 

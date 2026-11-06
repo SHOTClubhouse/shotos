@@ -1,6 +1,6 @@
 # Run SHOTos in your project
 
-Start with the runtime your team already uses. The [quickstart](../README.md#install) takes you through the local demo, a preview of what the installer writes and a first task to try.
+Start with the runtime your team already uses. [Try the method](../README.md#try-shotos) with an acceptance card or run the local demo. The [install guide](../README.md#install) shows how to preview what changes in your project.
 
 | Runtime | Setup | What it gives you |
 |---|---|---|
@@ -10,17 +10,25 @@ Start with the runtime your team already uses. The [quickstart](../README.md#ins
 | **Antigravity** | `--runtime antigravity --scope project` | Skills in `.agents/skills` and an import of `AGENTS.md` in `GEMINI.md`. Verify skill loading in your runtime before adoption. |
 | **Several local runtimes** | `--runtime all --scope project` | Shared project rules and skills in the relevant runtime folders. Review the install plan for each tool your team uses. |
 | **Other compatible local agents** | `--runtime agents --scope project` | The shared `.agents/skills` directory and project rules. |
-| **Claude app** | Download individual skill ZIPs from the [release](https://github.com/SHOTClubhouse/shotos/releases/tag/v1.0.0) and upload them in a compatible setup. Add the [project rules](../templates/AGENTS.md) to your Project instructions. | Skills and written rules. |
+| **Claude app** | Package the skills from this checkout with `python tools/package_skills.py --pack <name>` and upload the ZIPs in a compatible setup. Add the [working agreement](../templates/AGENTS.md) to your Project instructions. | Skills and the six-stage working agreement. |
 | **ChatGPT or another assistant** | Add the [project rules](../templates/AGENTS.md) and the relevant skill files to a project or assistant that can read them. | The workflow as instructions and templates. |
 | **Manual** | Copy the [templates](../templates/) into the tools you already use. | Briefs, checklists, decision records and handovers. |
 
-Pass these flags to `python /path/to/shotos/install.py` from the project you want to configure. Add `--pack <name>` once per pack, `--list-packs` to see the options and `--dry-run` to preview the plan. Use `--scope user` for a skills-only install where supported. Claude Code's plugin marketplace is another way to install the skills. [Security and installer behaviour](../SECURITY.md)
+Pass these flags to `python /path/to/shotos/install.py` from the project you want to configure. Add `--pack <name>` once per pack, `--list-packs` to see the options and `--dry-run` to preview the plan. Use `--scope user` for a skills-only install where supported. Project installs include the programme record at `.shotos/templates/programme.md`. [Security and installer behaviour](../SECURITY.md)
+
+## Use it with a chat assistant or manually
+
+Keep the programme record where your team already works. Give the assistant the working agreement, the current record and the skill for the next decision. You can start with this instruction in any tool that can read the material you give it:
+
+> Read the working agreement and programme record. Identify the current stage and its exit check. Link the evidence you can verify, name who makes the decision and leave any missing approval or measurement open. Continue the authorised work for this stage.
+
+A document, spreadsheet, issue or CRM record can hold the programme. Use links to original evidence and keep access controls on the source.
 
 ## Team rollout
 
-1. Pin a release and preview a project install in an isolated checkout. If the project already has an `AGENTS.md`, review the SHOTos rules and merge the ones you want into your existing instructions.
-2. Choose one real workflow and a person who can accept the result. Start with read-only access to sources and a draft for review. Check that the agent opens the expected skill in a fresh session.
-3. Check the output in the tool where it lives. Use claim-check for supported completion claims and review the quality of the result against your acceptance examples. Your agent runtime and connector settings control access, external actions and approvals.
-4. Record the fixes the reviewer requested, their review time and whether the next owner could act. Expand to other workflows when the people doing the work find it useful. [Accepted work ledger](../templates/accepted-work-ledger.csv)
+1. Preview a project install in an isolated checkout. If the project already has an `AGENTS.md`, integrate the working agreement into your existing instructions.
+2. Pick one workflow and start at Scope. Name the sponsor and use the [programme record](../templates/programme.md) to capture the baseline and the next gate. In a fresh session, confirm the agent opens the expected stage skill.
+3. Progress through Hypothesise, Operate and Track. Review the work where it lives and use claim-check for supported completion claims. Your runtime and connectors enforce access and action permissions.
+4. Use Own to verify one independent cycle with the receiving team. In Sustain and Scale, agree a first wave, local baseline and stop conditions. [Stage guide](framework.md) · [Walkthrough](walkthrough.md)
 
-Claude Code has live workflow and Stop hook evidence. Codex has local skill-loading smoke evidence. The release test matrix covers Windows, macOS and Linux on Python 3.9 and 3.13. Validate the agent, connector access and approval path in your own environment before rolling it out. [Validation evidence](evidence.md) · [Connect your tools](connect-your-tools.md) · [Claim-check](claims.md)
+The local installers and optional Claude Code hook provide the tooling for this edition. Validate skill loading, connector access and approval paths in your environment before rolling out live work. [Validation evidence](evidence.md) · [Connect your tools](connect-your-tools.md) · [Claim-check](claims.md)

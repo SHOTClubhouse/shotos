@@ -4,7 +4,7 @@
 
 The agent writes the brief with the owner, checks rights and likeness before it generates, produces a few options, and then opens each one and checks it against the brief. It fixes defects, writes alt text, decides on the AI label and hands the image over for approval.
 
-It supports the Build step. It serves rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+It supports the Operate stage. It serves rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## The problem it solves
 

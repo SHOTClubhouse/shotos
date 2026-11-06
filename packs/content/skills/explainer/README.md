@@ -4,7 +4,7 @@
 
 The agent classifies the explainer, agrees the brief, sources the facts and drafts the mechanism with worked examples. It adds a picture only where it shows how the thing works, runs a five-part QA gate, files the result and waits for a yes before sharing.
 
-It supports the Build step. It serves rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 1 (stop at the boundaries).
+It supports the Operate stage. It serves rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 1 (stop at the boundaries).
 
 ## The problem it solves
 

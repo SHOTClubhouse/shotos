@@ -5,7 +5,7 @@ description: "Checks work touching special-category or children's data: minimisa
 
 # Check sensitive data before work continues
 
-Step: Brief. Rules: 1 (stop at the boundaries) and 4 (claim only what you can show).
+Stage: Scope. Rules: 1 (stop at the boundaries) and 4 (claim only what you can show).
 
 Harm to people, especially children, cannot be undone by a later fix. Ask the questions first.
 

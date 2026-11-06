@@ -4,7 +4,7 @@
 
 This skill proposes a folder structure by owner and category, finds duplicate files by exact size and checksum (never by name alone), proposes moves and removals as a plan, executes only after a yes, moves instead of deleting wherever it can, and logs every change so it can be undone.
 
-It supports the Build step. It serves rule 1, Stop at the boundaries (no deletion without a yes), and rule 3, Read back the real result.
+It supports the Operate stage. It serves rule 1, Stop at the boundaries (no deletion without a yes), and rule 3, Read back the real result.
 
 ## The problem it solves
 

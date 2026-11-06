@@ -1,7 +1,7 @@
 # Rollout plan: name
 
 **Sponsor (approves):**
-**Basis:** evidence pack (link), scale decision (by whom, date)
+**Basis:** Track evidence and decision (link), Own exit and receiving lead sign-off (link), sponsor rollout decision (by whom, date)
 **What worked, in what conditions, what is unknown (two sentences):**
 
 ## What travels
@@ -29,7 +29,7 @@ Train-the-trainer: who in each new team learns to teach.
 |---|---|---|---|---|---|---|
 
 ## Governance
-Who decides at each step. Local changes allowed. Changes only the sponsor can approve. How to ask to deviate. How stops are recorded.
+Who decides at each stage. Local changes allowed. Changes only the sponsor can approve. How to ask to deviate. How stops are recorded.
 
 ## Improvement cadence
 Slot, attendees, what is shared, who owns the shared copy, how changes reach shared skills.

@@ -5,7 +5,7 @@ description: Plans one week of social posts from real events and assets using a 
 
 # Plan one week of posts
 
-Step: Brief. The mix is a hypothesis that `insights-review` later tests. Rules served: 2 Agree acceptance first, 4 Claim only what you can show.
+Stage: Hypothesise. The mix is a hypothesis that `insights-review` later tests. Rules served: 2 Agree acceptance first, 4 Claim only what you can show.
 
 ## When not to use this
 

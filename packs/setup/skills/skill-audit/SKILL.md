@@ -5,7 +5,7 @@ description: "Audits a skill collection for wiring: frontmatter, README, example
 
 # Audit the wiring of a skill collection
 
-Step: Check. Rules: 3 (read back the real result) and 4 (claim only what you can show).
+Stage: Track. Rules: 3 (read back the real result) and 4 (claim only what you can show).
 
 This audit asks whether the skills are connected correctly. It does not ask whether they are good. Say that in the report.
 

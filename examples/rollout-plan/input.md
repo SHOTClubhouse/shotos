@@ -2,11 +2,13 @@
 
 All names and figures are invented for this example.
 
-Request from Priya Nair, head of lettings operations at Harbourside Lettings: "The managing director agreed on 12 November to scale the repair-reply drafting from the Eastgate branch to the other two branches, Quayside and Millfield. Draft the rollout plan. I approve it. Do not tell the branches anything yet."
+Request from Priya Nair, head of lettings operations at Harbourside Lettings: "The managing director confirmed on 12 February that we can roll out repair-reply drafting from Eastgate to the other two branches, Quayside and Millfield. Draft the rollout plan. I approve it. Do not tell the branches anything yet."
 
-**Basis:** evidence pack dated 3 November, with the decision recorded on 12 November by the managing director, Alan Whitcombe: "Extend one more quarter at Eastgate, then roll out." The extra quarter ended 10 February. Closing numbers from Eastgate: median first reply 5.4 hours (baseline 26), 49 per cent answered within 4 hours (baseline 18), edit rate about 40 per cent of drafts (counted from revision history). Not measured at Eastgate: staff time.
+**Basis:** evidence pack dated 3 November, with the decision recorded on 12 November by the managing director, Alan Whitcombe: "Extend one more quarter at Eastgate and review rollout." The extra quarter ended 10 February. Closing numbers from Eastgate: median first reply 5.4 hours (baseline 26), 49 per cent answered within 4 hours (baseline 18), edit rate about 40 per cent of drafts (counted from revision history). Not measured at Eastgate: staff time.
 
 **Eastgate team:** Mei Tan (branch lead), Jaswinder Gill (champion, ran the drafting daily), Tariq Okoye (reviewer). Mei and Jaswinder can give half a day a week for six weeks; Tariq two hours a week.
+
+**Own exit:** The Eastgate team completed a full weekly cycle on 10 February using its own access, handled a draft with missing data, and recorded the checks without builder help. Mei accepted the cycle log and runbook. Alan confirmed the first rollout wave on 12 February.
 
 **Quayside:** 11 staff, mostly short lets and holiday properties. Its helpdesk has a similar export format. Its repair requests include out-of-hours emergencies handled by phone. Branch lead: Fatima Rahman. Busy in July and August.
 

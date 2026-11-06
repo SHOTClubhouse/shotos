@@ -102,13 +102,13 @@ Automation is read-only by default: it looks, it does not click "buy", "send" or
 - **Describing a page instead of looking at it.**
 - **Giving a tool write access because it might be useful.**
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Brief:** note which jobs are judgement and which mechanical.
-- **Brief:** build the eval set that makes routing testable.
-- **Build:** use the routes; pilot mechanical runs on three items first.
-- **Check:** record cost per accepted task by route.
-- **Improve:** carry the route table to the next team and retest it.
+- **Scope:** note which jobs are judgement and which mechanical.
+- **Hypothesise:** build the eval set that makes routing testable.
+- **Operate:** use the routes; pilot mechanical runs on three items first.
+- **Track:** record cost per accepted task by route.
+- **Sustain:** carry the route table to the next team and retest it.
 - **Control 1:** the route line is written before the work.
 - **Rule 3:** use browser automation to read back the real visual result.
 - **Rule 4:** state which route produced which claim.

@@ -7,7 +7,7 @@ description: "Builds a presented or read deck, such as a pitch, board update or 
 
 Produce a deck whose story holds up as headlines alone, whose numbers are sourced, and whose every slide has been seen as rendered.
 
-**Step:** Build. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** Operate. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 

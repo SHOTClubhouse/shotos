@@ -47,4 +47,4 @@ Stages: Lead (warm, cold, target), Explore (meeting, discovery, define), Agree (
 |---|---|---|
 | | | |
 
-**Hands over to:** SHOTos Brief. Accepted by (name, date): 
+**Hands over to:** SHOTos Scope. Accepted by (name, date):

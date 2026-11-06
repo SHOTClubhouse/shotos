@@ -5,7 +5,7 @@ description: Keeps shared agent instructions, skills and settings in one reviewe
 
 # Treat agent configuration as code
 
-Step: Improve. Rules: 3 (read back the real result) and control 3 (capability is separate from authority).
+Stage: Sustain and Scale. Rules: 3 (read back the real result) and control 3 (capability is separate from authority).
 
 If shared instructions, skills and settings can change in two places, they will. Make one repository the shared version, and let each person's tools be copies of it.
 

@@ -2,7 +2,7 @@
 
 **Decide whether a post belongs in a community group, draft text that suits that group, and leave the posting to a person.**
 
-For each group the skill checks the written rules, the audience and when you last shared there. It gives a decision (share, ask the admin first, do not share) with the rule quoted, then writes a different short text for each group that is a yes. It supports the Build step and serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show.
+For each group the skill checks the written rules, the audience and when you last shared there. It gives a decision (share, ask the admin first, do not share) with the rule quoted, then writes a different short text for each group that is a yes. It supports the Operate stage and serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

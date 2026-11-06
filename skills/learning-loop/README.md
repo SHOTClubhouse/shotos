@@ -4,7 +4,7 @@
 
 The agent follows observe, diagnose, propose, test, promote, check. It records facts first, lists causes with the ones ruled out, proposes one small change, and tests it against a case that would have caught the original event and a contrary case where the new rule would be wrong. A rule needs evidence, a test, a contrary case, the authority that approved it, a review date and what it supersedes.
 
-It supports the Improve step. It serves rule 2, Agree acceptance first, rule 3, Read back the real result, and rule 4, Claim only what you can show.
+It supports Sustain and Scale. It serves rule 2, Agree acceptance first, rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

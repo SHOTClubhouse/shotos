@@ -4,7 +4,7 @@
 
 The agent builds an eval set of 5 to 20 cases from real examples. Each has must-contain and must-not-contain content, and at least one case should fail or refuse. It is stored in the project as JSON or markdown, with a grading method and a pass bar written before the first run.
 
-It belongs to the Brief step and is reused in later steps. It serves rule 2, Agree acceptance first, and rule 3, Read back the real result.
+It belongs to the Hypothesise stage and is reused in later stages. It serves rule 2, Agree acceptance first, and rule 3, Read back the real result.
 
 ## The problem it solves
 

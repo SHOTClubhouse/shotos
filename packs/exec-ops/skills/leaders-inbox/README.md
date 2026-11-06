@@ -4,7 +4,7 @@
 
 The agent reads a batch of raw input, writes one sentence of meaning for each item, labels statements as fact, hypothesis or target, checks for existing records, and recommends one route: a decision, a task in its owning project, shared context or, only if you ask, long-term memory. Recommendations come first.
 
-It serves the Brief step. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
+It serves the Scope stage. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
 
 ## The problem it solves
 

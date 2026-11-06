@@ -2,9 +2,9 @@
 
 **Compare the result with the baseline, show where every figure came from, say what you could not measure, and record the decision.**
 
-This skill produces a two-page pack for the Check step. It copies the baseline from the brief, collects the after figures from the source systems, compares them with the threshold agreed in the brief, lists other explanations and gaps, and drafts a recommendation. The decision itself is recorded by a named person.
+This skill produces a two-page pack for the Track stage. It copies the baseline from Scope, collects the after figures from the source systems, compares them with the threshold agreed in Hypothesise, lists other explanations and gaps, and drafts a recommendation. The decision itself is recorded by a named person.
 
-It supports the Check step. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
+It supports the Track stage. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 
@@ -37,7 +37,7 @@ Read the pack, check the could-not-measure list, and give the decision yourself 
 
 - **Before:** [agree-acceptance](../agree-acceptance/README.md) set the threshold. [capture-the-problem](../capture-the-problem/README.md) set the baseline.
 - **Alongside:** [delivery-metrics](../delivery-metrics/README.md) supplies engineering figures. [decision-record](../decision-record/README.md) keeps the decision.
-- **After:** [retrospective](../retrospective/README.md) looks at how the work went. [rollout-plan](../rollout-plan/README.md) follows a scale decision.
+- **After:** [retrospective](../retrospective/README.md) reviews the work. A decision to proceed starts the [enablement plan](../enablement-plan/README.md) in Own. Use the [rollout plan](../rollout-plan/README.md) after Own is accepted and the sponsor decides to roll out.
 
 ## Needs
 
@@ -55,7 +55,7 @@ Read access to the systems that hold the figures (exports, logs, repository). No
 
 ## Limits
 
-- A pack is only as good as the baseline. A weak brief gives a weak pack.
+- A pack is only as good as the baseline. A weak Scope stage gives a weak pack.
 - It cannot prove cause. It lists other explanations; a controlled comparison is stronger.
 - Sources the agent cannot open stay on the gap list.
 

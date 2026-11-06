@@ -2,7 +2,7 @@
 
 **The rule:** Before reporting, look at the actual result in the place where it lives, not at the agent's memory of making it.
 
-Serves rule 3, [Read back the real result](../docs/controls.md). Matters most in **Check**, and at the end of every **Build** step.
+Serves rule 3, [Read back the real result](../docs/controls.md). Matters most in **Track**, and at the end of every **Operate** step.
 
 ## Why it exists
 

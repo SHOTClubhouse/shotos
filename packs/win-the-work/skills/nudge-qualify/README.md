@@ -1,12 +1,10 @@
 # nudge-qualify
 
-[Quick reference](../../nudge-quick-reference.md) · [Qualification sheet and CRM templates](../../crm/README.md)
-
 **Score an opportunity on Numbers, Understand, Definition, Gatekeepers and Elevate, and get a go, pause or walk-away call with the next question to ask.**
 
 The agent reads your notes on an opportunity, scores five questions from 0 to 3 with the evidence beside each, marks what is unknown as unknown, and recommends go, pause or walk away. It ends with one question, to a named person, that would improve the weakest score.
 
-It is used at **Brief** and again before committing to a proposal, mainly during Explore and Agree in LEAP. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
+It is used at **Scope** and again before committing to a proposal, mainly during Explore and Agree in LEAP. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries.
 
 ## The problem it solves
 
@@ -33,7 +31,7 @@ You get the scorecard from [template.md](template.md). Challenge any score; the 
 ## How it connects
 
 - **Part of:** [leap-pipeline](../leap-pipeline/README.md) uses the scorecard as an Explore exit criterion.
-- **Next:** [contextual-proposal](../contextual-proposal/README.md) writes the proposal after a go when proposal blockers are cleared; [relationship-map](../relationship-map/README.md) helps with the Gatekeepers question.
+- **Next:** [contextual-proposal](../contextual-proposal/README.md) writes the proposal after a go; [relationship-map](../relationship-map/README.md) helps with the Gatekeepers question.
 - **Rules:** [docs/controls.md](../../../../docs/controls.md).
 
 ## Needs
@@ -50,7 +48,7 @@ Nothing beyond the agent.
 
 ## Limits
 
-- Scores are a structured judgement, not a measurement. A go can mean a procurement or discovery step; it does not mean the deal is ready to price or commit. The score lines are guides you can change.
+- Scores are a structured judgement, not a measurement. The thresholds are defaults you can change.
 - The skill cannot discover facts that are not in your notes.
 - A friendly buyer can still be a weak opportunity; the card exists to show that.
 

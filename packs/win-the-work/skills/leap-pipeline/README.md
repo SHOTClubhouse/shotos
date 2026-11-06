@@ -1,12 +1,10 @@
 # leap-pipeline
 
-[Quick reference](../../leap-quick-reference.md) · [CRM templates](../../crm/README.md)
-
-**Run a pipeline through Lead, Explore, Agree and Plan, flag stalled deals with evidence, and hand won work over to Brief.**
+**Run a pipeline through Lead, Explore, Agree and Plan, flag stalled deals with evidence, and hand won work over to Scope.**
 
 The agent reads your pipeline, places each deal by its evidence rather than its owner's optimism, produces a pipeline table, runs a weekly review that names stalled deals with dates and counts, and writes a handover packet when a deal reaches the end of Plan.
 
-It can be used at any SHOTos step and hands over into **Brief**. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
+It can be used at any SHOTos stage and hands over into **Scope**. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 
@@ -28,13 +26,13 @@ Do not use it for a one-day enquiry, or to forecast revenue. A pipeline table sh
 
 > Here is our pipeline export. Place each deal in the LEAP stages, flag anything stalled with the evidence, and tell me which deal I can honestly move to Agree this week.
 
-You get a table, a short review and, for any deal at the end of Plan, a handover packet using [template.md](template.md). Check the step claims against your own knowledge and make any changes to the pipeline yourself.
+You get a table, a short review and, for any deal at the end of Plan, a handover packet using [template.md](template.md). Check the stage claims against your own knowledge and make any changes to the pipeline yourself.
 
 ## How it connects
 
 - **Alongside:** [nudge-qualify](../nudge-qualify/README.md) scores a deal during Explore and Agree; [relationship-map](../relationship-map/README.md) shows who is connected to whom.
 - **Drafting:** [contextual-proposal](../contextual-proposal/README.md) and [email-reply](../email-reply/README.md) write the proposal and the replies.
-- **After:** the handover packet starts SHOTos Brief; see [capture-the-problem](../../../../skills/capture-the-problem/README.md) and [agree-acceptance](../../../../skills/agree-acceptance/README.md).
+- **After:** the handover packet starts SHOTos Scope; see [capture-the-problem](../../../../skills/capture-the-problem/README.md) and [agree-acceptance](../../../../skills/agree-acceptance/README.md).
 - **Rules:** [docs/controls.md](../../../../docs/controls.md).
 
 ## Needs

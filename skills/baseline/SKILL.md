@@ -7,7 +7,7 @@ description: "Records how things are today before a change: the measures that ma
 
 You cannot show an improvement without a "before". Write the before down first, with its source, so the result can be compared with something real.
 
-**Step:** Brief. **Rules:** 4 Claim only what you can show; 3 Read back the real result.
+**Stage:** Scope. **Rules:** 4 Claim only what you can show; 3 Read back the real result.
 
 ## When not to use this
 

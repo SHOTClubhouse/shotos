@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" font-family="Segoe UI, Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Win the work, then do the work</title>
-  <desc id="d">The LEAP pipeline: Lead, Explore, Agree, Plan. NUDGE qualifies each opportunity during Explore and Agree. Plan hands the agreed work over to SHOTos Brief.</desc>
+  <desc id="d">The LEAP pipeline: Lead, Explore, Agree, Plan. NUDGE qualifies each opportunity during Explore and Agree. Plan hands the agreed work over to SHOTos Scope.</desc>
   <rect width="960" height="330" rx="16" fill="#ffffff"/>
   <text x="480" y="44" text-anchor="middle" font-size="24" font-weight="700" fill="#111827">Win the work with LEAP, then do it with SHOTos</text>
   <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker></defs>
@@ -14,7 +14,7 @@
     <g transform="translate(540,80)"><rect width="150" height="110" rx="12" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
       <text x="75" y="34" font-size="20" font-weight="800" fill="#15803d">Plan</text><text x="75" y="62" fill="#374151">start date, handover,</text><text x="75" y="80" fill="#374151">delivery</text></g>
     <g transform="translate(756,80)"><rect width="180" height="110" rx="12" fill="#111827"/>
-      <text x="90" y="40" font-size="20" font-weight="800" fill="#ffffff">SHOTos</text><text x="90" y="66" fill="#d1d5db">starts at Brief:</text><text x="90" y="84" fill="#d1d5db">know your ground</text></g>
+      <text x="90" y="40" font-size="20" font-weight="800" fill="#ffffff">SHOTos</text><text x="90" y="66" fill="#d1d5db">starts at Scope</text><text x="90" y="84" fill="#d1d5db">problem and baseline</text></g>
   </g>
   <g stroke="#6b7280" stroke-width="2" marker-end="url(#a)">
     <line x1="174" y1="135" x2="194" y2="135"/><line x1="346" y1="135" x2="366" y2="135"/><line x1="518" y1="135" x2="538" y2="135"/><line x1="690" y1="135" x2="754" y2="135"/>

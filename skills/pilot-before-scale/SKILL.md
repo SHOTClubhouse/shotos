@@ -1,17 +1,13 @@
 ---
 name: pilot-before-scale
-description: Runs a varied pilot of three items or fewer, then requires a preflight with tested rollback, stop condition and owner authority before a full run. Use for bulk edits, mass drafts, clean-ups, migrations or any run touching many records.
+description: Runs a task on three items or fewer first, inspects and fixes, then completes a preflight checklist before the full run. Use for bulk edits, mass drafts, clean-ups, migrations or any run touching many records.
 ---
 
 # Pilot before scale
 
 Mistakes multiply with the size of the run. A pilot of three items finds most of them for the price of three.
 
-For a live or bulk change, answer with the pilot, backup or rollback, stop condition and owner approval before discussing the full run. If asked *how* to do a job without the source file, give this concrete plan first and mark execution pending. Do not search outside the stated project to compensate for a missing input. If any safety item is missing, the full run is not ready.
-
-**Planning answer, even when the source is missing:** (1) pilot three varied items; (2) save a backup and test restoring one pilot item; (3) list the preflight checks for input, target, cost and live dependencies; (4) state the condition that stops the full run; (5) identify who must approve the live run. Then name missing facts. A dry run without those five items is not the plan.
-
-**Step:** Build. **Rules:** 1 Stop at the boundaries; 3 Read back the real result. Detail: `rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed).
+**Stage:** Operate. **Rules:** 1 Stop at the boundaries; 3 Read back the real result. Detail: `rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed).
 
 ## When not to use this
 
@@ -19,7 +15,7 @@ Skip it when there are three items or fewer, or the run is read-only and can be 
 
 ## Steps
 
-1. **Count the items and state the action.** If asked how you will do the job, lead with the pilot of three varied items and the preflight checklist, including backup, tested rollback, a stop condition and owner sign-off before live scale. Say how many items, what will happen to each and whether it can be undone. A missing source blocks execution, not the plan. If the count is three or fewer, run it and inspect each one.
+1. **Count the items and state the action.** If you are asked how you will do the job, answer with the pilot of three and the preflight checklist by name, and say what each will hold for this job. Say how many items, what will happen to each, and whether it can be undone. If the count is three or fewer, run it and inspect each one.
 2. **Pick the pilot items.** Choose up to three that differ from each other: a typical one, an awkward one (missing data, odd format) and, if you can find it, one that should be skipped. Say why each was chosen. Do not pick the three easiest.
 3. **Run the pilot in the real home, within the boundaries.** If the action goes outside the team (a send, a post, a purchase, a delete), the pilot goes to the owner or to a test address first and needs the owner's yes. A pilot is not a licence to send three.
 4. **Inspect the results.** Open each result where it actually lives, not just the agent's log. Compare with the input and the acceptance checks. Write down what is wrong, what is surprising and what took longer or cost more than expected.

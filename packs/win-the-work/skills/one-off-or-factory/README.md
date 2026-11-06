@@ -4,7 +4,7 @@
 
 The agent counts the work, defines what an accepted item looks like, estimates both routes in the same units, runs or plans a pilot of three, compares accepted quality and total cost including rework, and writes a decision record. When the evidence is thin it authors directly.
 
-It belongs to **Brief**. It serves rule 2, Agree acceptance first, and rule 4, Claim only what you can show, and applies [control 9, pilot before scale](../../../../rules/09-pilot-before-scale.md).
+It belongs to **Hypothesise**. It serves rule 2, Agree acceptance first, and rule 4, Claim only what you can show, and applies [control 9, pilot before scale](../../../../rules/09-pilot-before-scale.md).
 
 ## The problem it solves
 

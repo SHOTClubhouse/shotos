@@ -7,7 +7,7 @@ description: Translates or localises text, captions and documents for a named re
 
 Produce a translation that says what the original says, in the voice the reader expects, with names, numbers and terms intact.
 
-**Step:** Build. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** Operate. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 

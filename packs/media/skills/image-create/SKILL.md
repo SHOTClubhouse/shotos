@@ -7,7 +7,7 @@ description: Creates an image from a brief, then inspects the result and fixes p
 
 Produce an image that fits its job, has been looked at after generation, and is cleared for use.
 
-**Step:** Build. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 

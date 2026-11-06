@@ -4,7 +4,7 @@
 
 The agent writes the group's mandate, maps what each member can contribute, plans the session around progress, one main question and actions, and captures what was actually said apart from any AI view. It produces one action record with one owner per action, and a handoff for the next session. It drafts everything and sends nothing.
 
-It serves the Hand over step. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
+It serves the Own stage. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 ## The problem it solves
 

@@ -7,7 +7,7 @@ description: Drafts a press release from what is true; the relationship (custome
 
 Write an announcement that claims no more than the relationship supports, with every quote approved and every approval on record.
 
-**Step:** Build. **Rules served:** rule 1 (stop at the boundaries), rule 4 (claim only what you can show) and rule 2 (agree acceptance first).
+**Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 4 (claim only what you can show) and rule 2 (agree acceptance first).
 
 ## When not to use this
 

@@ -1,8 +1,8 @@
 # Ways of working
 
-The [five-step work loop](../docs/framework.md) says what to do: Brief, Build, Check, Hand over and Improve. The [four rules](../docs/controls.md) say how to behave inside each step. These pages say how good teams actually do the work underneath. Most of the practice here is not new. It comes from public books, reports and years of teams learning what holds up, and each page credits its sources by name. What is new is the place of the agent: it writes more, faster and with more confidence than a person would, so the old checks matter more, not less.
+The [six stages](../docs/framework.md) say what to do: Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. The [four rules](../docs/controls.md) say how to behave inside each stage. These pages say how good teams actually do the work underneath. Most of the practice here is not new. It comes from public books, reports and years of teams learning what holds up, and each page credits its sources by name. What is new is the place of the agent: it writes more, faster and with more confidence than a person would, so the old checks matter more, not less.
 
-Each page follows the same shape: what the practice is, why it matters with agents in the loop, the steps, what good looks like, the common ways it goes wrong, how it maps to the steps and rules, a short invented example and further reading. Read the page for the job you are about to do. You do not need to read them in order.
+Each page follows the same shape: what the practice is, why it matters with agents in the loop, the steps, what good looks like, the common ways it goes wrong, how it maps to the stages and rules, a short invented example and further reading. Read the page for the job you are about to do. You do not need to read them in order.
 
 ## The pages
 

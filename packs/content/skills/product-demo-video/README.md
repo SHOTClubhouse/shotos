@@ -4,7 +4,7 @@
 
 The agent scripts the walkthrough, sets up a test environment, drives a real browser with a capture tool such as Playwright, adds chapters and subtitles, and assembles the cut. It then plays the render in full, inspects key frames, scans for personal data and reports the result.
 
-It supports the Build step. It serves rule 3 (read back the real result), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
+It supports the Operate stage. It serves rule 3 (read back the real result), rule 4 (claim only what you can show) and rule 1 (stop at the boundaries).
 
 ## The problem it solves
 

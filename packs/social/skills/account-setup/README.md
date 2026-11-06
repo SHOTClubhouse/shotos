@@ -2,7 +2,7 @@
 
 **Build or audit a social profile against your brand guide, then hand the owner exact edits to apply.**
 
-The agent looks at the live profile (not memory), checks name, bio, link, profile image, highlights or pinned posts, contact details and admin access, and returns a pass or fix for each with the evidence. It supports the Brief step and serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
+The agent looks at the live profile (not memory), checks name, bio, link, profile image, highlights or pinned posts, contact details and admin access, and returns a pass or fix for each with the evidence. It supports the Scope stage and serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

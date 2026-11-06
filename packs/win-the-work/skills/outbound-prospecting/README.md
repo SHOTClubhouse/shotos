@@ -4,7 +4,7 @@
 
 The agent defines one segment and a hypothesis, picks five contacts you approve, checks each against your suppression list and your sender identity, researches each person, and drafts one message per contact for you to send. It writes down what success means before anything goes out.
 
-It belongs to **Build**. It serves rule 1, Stop at the boundaries, rule 4, Claim only what you can show, and rule 3, Read back the real result, and applies [control 9, pilot before scale](../../../../rules/09-pilot-before-scale.md).
+It belongs to **Operate**. It serves rule 1, Stop at the boundaries, rule 4, Claim only what you can show, and rule 3, Read back the real result, and applies [control 9, pilot before scale](../../../../rules/09-pilot-before-scale.md).
 
 ## The problem it solves
 

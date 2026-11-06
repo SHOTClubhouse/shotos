@@ -12,10 +12,10 @@ Both skills work from evidence, keep facts separate from opinions and draft any 
 
 ## Skills
 
-| Skill | Step | What it does |
+| Skill | Stage | What it does |
 |---|---|---|
-| [success-handoff](skills/success-handoff/README.md) | Hand over | Hands an account to the person who will deliver. Lifecycle stage, health and transfer status are kept separate; transfer is only complete once accepted. |
-| [onboarding-recovery](skills/onboarding-recovery/README.md) | Build | Diagnoses where a stalled onboarding stopped, proposes the smallest next step to first value with an owner and date, and drafts the message. |
+| [success-handoff](skills/success-handoff/README.md) | Own | Hands an account to the person who will deliver. Lifecycle stage, health and transfer status are kept separate; transfer is only complete once accepted. |
+| [onboarding-recovery](skills/onboarding-recovery/README.md) | Operate | Diagnoses where a stalled onboarding stopped, proposes the smallest next step to first value with an owner and date, and drafts the message. |
 
 ## Needs
 
@@ -38,17 +38,10 @@ python ../shotos/install.py --runtime claude --scope project --pack customer-suc
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
 
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-customer-success@shotos
-```
-
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
 ## How it connects
 
-Both skills apply the four rules in [docs/controls.md](../../docs/controls.md). The handoff follows the same idea as [evidence-handoff](../../skills/evidence-handoff/README.md): say what is known, from where, and what is not. The steps are in [docs/framework.md](../../docs/framework.md). In the win-the-work pipeline, LEAP's Plan hands over into the brief, which is where a handoff starts.
+Both skills apply the four rules in [docs/controls.md](../../docs/controls.md). The handoff follows the same idea as [evidence-handoff](../../skills/evidence-handoff/README.md): say what is known, from where, and what is not. The stages are in [docs/framework.md](../../docs/framework.md). In the win-the-work pipeline, LEAP's Plan hands over into Scope, which is where a handoff starts.
 
 **Evidence:** Cases written, not yet run. Eval cases are in [evals/packs/customer-success.json](../../evals/packs/customer-success.json).

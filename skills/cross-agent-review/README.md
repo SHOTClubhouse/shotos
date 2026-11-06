@@ -4,7 +4,7 @@
 
 Both agents get the same acceptance card and evidence. The reviewer reports findings with evidence, the lead responds to each, and the owner decides. When the two agents agree, that is not permission.
 
-It belongs to the Build step. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show. The detail is in [rules/07-independent-review.md](../../rules/07-independent-review.md).
+It belongs to the Operate stage. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show. The detail is in [rules/07-independent-review.md](../../rules/07-independent-review.md).
 
 ## The problem it solves
 

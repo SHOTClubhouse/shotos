@@ -4,7 +4,7 @@
 
 The agent identifies the real relationship from signed documents, applies the headline ceiling for that class and drafts the release. Quotes sit in a separate block until the speaker approves the exact words. Evidence and approvals go in their own record, and anything involving children goes through an extra consent path.
 
-It supports the Build step. It serves rule 1 (stop at the boundaries), rule 4 (claim only what you can show) and rule 2 (agree acceptance first).
+It supports the Operate stage. It serves rule 1 (stop at the boundaries), rule 4 (claim only what you can show) and rule 2 (agree acceptance first).
 
 ## The problem it solves
 

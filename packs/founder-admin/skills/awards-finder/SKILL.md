@@ -7,7 +7,7 @@ description: Finds free-to-enter awards, screens eligibility and drafts entries 
 
 Enter the awards you can honestly win and that cost nothing but effort, and make every claim in an entry something you can show.
 
-Step: Brief. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
+Stage: Scope. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
 
 ## When not to use this
 

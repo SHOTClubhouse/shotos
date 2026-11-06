@@ -7,7 +7,7 @@ description: Writes the weekly progress wrap-up on an evidence ledger, classing 
 
 Report the week by what can be shown, not by what was said. Every claimed win goes into a ledger with a status, so a reader can tell what users can use today from what is only built.
 
-Step: Build and Check. Rules: 3 Read back the real result, 4 Claim only what you can show.
+Stage: Operate and Track. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

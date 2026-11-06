@@ -5,7 +5,7 @@ description: "Audits or builds a social profile against the brand guide, naming 
 
 # Set up or audit a social profile
 
-Step: Brief. Rules served: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
+Stage: Scope. Rules served: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

@@ -5,7 +5,7 @@ description: Reviews comments, mentions and messages on a social account and pro
 
 # Review engagement and propose responses
 
-Step: Build. Rules served: 1 Stop at the boundaries, 4 Claim only what you can show.
+Stage: Operate. Rules served: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 ## When not to use this
 

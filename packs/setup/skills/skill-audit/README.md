@@ -4,7 +4,7 @@
 
 This skill checks that every skill in a collection is wired up correctly. It checks the frontmatter, that a README, examples and eval cases exist, that links resolve, that no two descriptions would trigger for the same request (by comparing descriptions), and that each skill has an evidence status. It says clearly that it checks wiring, not whether the skill is good business practice.
 
-It supports the Check step. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
+It supports the Track stage. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

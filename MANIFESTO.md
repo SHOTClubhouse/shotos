@@ -2,7 +2,7 @@
 
 The way good teams build things has not really changed. They find the real problem, agree what good looks like, ship small pieces into real use, measure what happened and leave the work in capable hands. What has changed is who does most of the typing. Agents now draft, code, research and send. That makes the old disciplines matter more, because a team can now produce far more output with none of the proof.
 
-SHOTos names that way of working as a five-step work loop: Brief, Build, Check, Hand over and Improve. It is set out in [docs/framework.md](docs/framework.md). The principles below are what we hold to inside every step.
+SHOTos names that way of working as six stages: Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. They are set out in [docs/framework.md](docs/framework.md). The principles below are what we hold to inside every stage.
 
 ## What we hold to
 

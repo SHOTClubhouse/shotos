@@ -4,7 +4,7 @@
 
 SHOTos skills hold the method; the tools do the work. This skill checks which tools are connected (slides, documents, mail, calendar, speech, transcription, images, video, browser, local Python and git), tests each with a read-only call, and writes `.work/capabilities.md`. Skills read that file, so a voiceover or a slide deck tells you at the start that a tool is missing, rather than failing halfway through.
 
-It works in any step and is usually run first. It serves rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+It works in any stage and is usually run first. It serves rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## The problem it solves
 

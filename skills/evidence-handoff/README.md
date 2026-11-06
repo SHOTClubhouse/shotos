@@ -4,7 +4,7 @@
 
 This skill writes a one-page handoff. It states whether the work is prepared, executed or accepted, points to the evidence, lists open decisions and what was not checked, gives one concrete next step and adds a resume prompt to paste into the next session.
 
-It supports the Hand over step, where a team becomes able to carry the work on. It serves rule 4, Claim only what you can show, and rule 2, Agree acceptance first, because the handoff says which acceptance checks passed.
+It supports the Own stage, where a team becomes able to carry the work on. It serves rule 4, Claim only what you can show, and rule 2, Agree acceptance first, because the handoff says which acceptance checks passed.
 
 ## The problem it solves
 

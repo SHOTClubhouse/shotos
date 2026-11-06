@@ -7,7 +7,7 @@ description: "Runs a short blameless retrospective: what we expected, what happe
 
 Look at the work honestly, find causes in the system and not in people, and leave with a few changes that have an owner and a date. Keep it short.
 
-Step: Check and Improve. Rules: 3 Read back the real result, 4 Claim only what you can show.
+Stage: Track and Sustain. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

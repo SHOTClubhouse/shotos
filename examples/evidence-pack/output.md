@@ -13,7 +13,7 @@ First replies are much faster, but the pilot met the median target and missed th
 Roll out to the two other branches, extend the pilot at this branch, or stop. Needed by the next board date, to be confirmed by the managing director.
 
 ## Before and after
-| Measure | Baseline (brief, date, source) | After | Change | Threshold (agreed) | Met? |
+| Measure | Baseline (Scope, date, source) | After | Change | Threshold (Hypothesise) | Met? |
 |---|---|---|---|---|---|
 | Median first reply | 26 hours (Apr to Jun, helpdesk export, n=1,412) | 5.5 hours (Aug to Oct, helpdesk export, n=1,003) | 20.5 hours faster | under 8 hours | Yes |
 | Answered within 4 hours | 18 per cent (same export) | 47 per cent (same export) | 29 points higher | at least 60 per cent | No |

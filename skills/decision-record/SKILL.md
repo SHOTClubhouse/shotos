@@ -7,7 +7,7 @@ description: "Writes a short record of a decision: context, options, decision, w
 
 Capture a decision while the reasons are fresh, in one page, so that later readers can see what was chosen, why, and what would reopen it.
 
-Step: any, most often Check. Rules: 4 Claim only what you can show, 1 Stop at the boundaries.
+Stage: any, most often Track. Rules: 4 Claim only what you can show, 1 Stop at the boundaries.
 
 ## When not to use this
 

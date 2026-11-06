@@ -7,7 +7,7 @@ description: Turns new meeting recordings or transcripts into structured notes, 
 
 Convert new recordings into notes that stay useful, and never process the same recording twice or lose one silently.
 
-Step: Check. Rules: 3 Read back the real result, 4 Claim only what you can show.
+Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
 ## When not to use this
 

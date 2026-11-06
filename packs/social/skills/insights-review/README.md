@@ -2,7 +2,7 @@
 
 **A monthly look at what the platform data shows against what you planned, ending in a small, reasoned change to next month's content mix.**
 
-Every number comes from an export with a date range and an export date. The agent compares plan with actual by pillar, says what the data cannot show, and proposes a change you can test. It supports the Check step and serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
+Every number comes from an export with a date range and an export date. The agent compares plan with actual by pillar, says what the data cannot show, and proposes a change you can test. It supports the Track stage and serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

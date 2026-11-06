@@ -7,7 +7,7 @@ description: "Fixes a draft for plain English without changing its meaning: amou
 
 Make a draft readable on the first pass by the person it is for, without changing what it says.
 
-**Step:** Check. **Rules served:** rule 3 (read back the real result) and rule 4 (claim only what you can show).
+**Stage:** Track. **Rules served:** rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## When not to use this
 

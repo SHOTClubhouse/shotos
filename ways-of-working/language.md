@@ -40,13 +40,13 @@ Agents write reports fluently. Fluent language can claim more than was done. A c
 
 **Lens.** A particular viewpoint applied to a piece of work to see what a general reading misses, such as the customer's, the auditor's or the newcomer's. A lens changes what you notice, not what is true.
 
-**Step.** One of the five parts of the SHOTos work loop: Brief, Build, Check, Hand over and Improve. Each has an exit check.
+**Stage.** One of the six phases of the SHOTos method: Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. Each has an exit check.
 
-**Rule.** One of the four short statements that hold inside every step: stop at the boundaries, agree acceptance first, read back the real result, claim only what you can show.
+**Rule.** One of the four short statements that hold inside every stage: stop at the boundaries, agree acceptance first, read back the real result, claim only what you can show.
 
 **Control.** One of the twelve detailed agent controls that spell out the four rules, each in its own file under `rules/`.
 
-**Guardrail.** One of the six concerns that cut across every step: data governance and risk, security, scale, productivity, pace and quality. A guardrail is something to keep in view, not a step.
+**Guardrail.** One of the six concerns that cut across every stage: data governance and risk, security, scale, productivity, pace and quality. A guardrail is something to keep in view, not a step.
 
 **Pack.** A bundle of skills for one area of work, installed together.
 
@@ -100,11 +100,11 @@ The pattern behind the list: a good claim names what was checked, where, when an
 - **Borrowed authority:** "as the model confirmed".
 - **Words redefined quietly** halfway through a project.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **All steps:** the same words in every report.
-- **Check:** the report's claims use these terms and cite evidence.
-- **Hand over:** the handoff states which items are accepted and which are only executed.
+- **All stages:** the same words in every report.
+- **Track:** the report's claims use these terms and cite evidence.
+- **Own:** the handoff states which items are accepted and which are only executed.
 - **Rule 4:** claim only what you can show; this page is the vocabulary for that.
 
 ## A short example

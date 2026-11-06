@@ -4,7 +4,7 @@
 
 The agent agrees who the deck is for and what they should do afterwards, writes one message per slide before it designs anything, builds in Google Slides or PowerPoint, and then renders every slide and checks it as an image. Overflowing text, mismatched numbers and empty placeholders are found before the meeting, not during it.
 
-It supports the Build step. It serves rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+It supports the Operate stage. It serves rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
 ## The problem it solves
 

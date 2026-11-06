@@ -4,7 +4,7 @@
 
 The agent keeps a source log while it researches, marks each item as fact, inference or guess, notes conflicts and gaps, assembles the output with source references, and then goes back through every claim and checks it against the source.
 
-It belongs to the Build step. It serves rule 4, Claim only what you can show, and rule 3, Read back the real result.
+It belongs to the Operate stage. It serves rule 4, Claim only what you can show, and rule 3, Read back the real result.
 
 ## The problem it solves
 

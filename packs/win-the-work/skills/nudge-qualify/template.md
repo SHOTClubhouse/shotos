@@ -21,11 +21,10 @@
 ## Recommendation
 **Go, pause or walk away:** 
 **Because:** 
-**Ready for a priced proposal or commitment?** (yes/no; unresolved approval, scope or budget facts)
 
 ## Next question
 **Ask:** (named person) 
 **Question:** 
-**It would resolve:** (the decision risk or next-step uncertainty)
+**It would raise:** (which score)
 
 ## Cost of being wrong

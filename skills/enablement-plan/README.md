@@ -4,7 +4,7 @@
 
 The agent builds a capability matrix of person by skill with four levels, finds single points of failure, schedules pairing from watch to do to alone, sets up train-the-trainer, writes the exit criterion first and plans a fault drill. The exit is a full cycle run by the team with the builders only observing.
 
-It supports the Hand over step. It serves rule 2, Agree acceptance first, because the exit is agreed before training, and rule 3, Read back the real result, because levels come from observation.
+It supports the Own stage. It serves rule 2, Agree acceptance first, because the exit is agreed before training, and rule 3, Read back the real result, because levels come from observation.
 
 ## The problem it solves
 

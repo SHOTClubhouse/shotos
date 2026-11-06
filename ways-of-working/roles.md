@@ -100,12 +100,12 @@ A good brief for a role includes the responsibility, the inputs it may use, the 
 - **Design as decoration,** added after the build.
 - **Analysis as paperwork,** written once and never read.
 
-## How it maps to the steps and rules
+## How it maps to the stages and rules
 
-- **Brief:** mainly the analyst and designer responsibilities.
-- **Build:** engineer and QA, with the designer checking the live experience.
-- **Check:** analyst and QA, comparing with the baseline.
-- **Hand over:** all four are handed to the receiving team, who may combine them.
+- **Scope and Hypothesise:** mainly the analyst and designer responsibilities.
+- **Operate:** engineer and QA, with the designer checking the live experience.
+- **Track:** analyst and QA, comparing with the baseline.
+- **Own:** all four are handed to the receiving team, who may combine them.
 - **Rule 2:** the analyst's examples are the acceptance.
 - **Rule 3:** the engineer and QA read back the real result.
 - **Control 7:** QA is the independent view sized to the risk.

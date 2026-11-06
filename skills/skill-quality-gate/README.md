@@ -4,7 +4,7 @@
 
 The agent states a single change, compares it with the current version on a normal case, a conflicting-source case and an authority-boundary case, classes every failure as material or minor, and refuses to recommend promotion if a material factual, privacy or authority failure appears, however good the average. It also computes cost per accepted outcome including rework, assigns a maturity label and runs a disclosure checklist before anything is published.
 
-It supports the Improve step. It serves rule 2, Agree acceptance first, rule 3, Read back the real result, and rule 4, Claim only what you can show.
+It supports Sustain and Scale. It serves rule 2, Agree acceptance first, rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

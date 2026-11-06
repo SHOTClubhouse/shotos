@@ -4,7 +4,7 @@
 
 The agent defines the week, reads meetings, documents, code history and releases, and writes one ledger row per claimed win with its date, source, status, why it matters and the ask. It ends with specific asks that name a person and a date. There is one dated issue per week, edited in place.
 
-It supports Build and Check. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
+It supports Operate and Track. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

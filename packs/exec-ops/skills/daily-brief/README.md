@@ -4,7 +4,7 @@
 
 The agent loads your ledger, reads fresh mail and calendar (ignoring your own automated mail), updates the ledger in place, drafts what needs drafting and writes one digest. It lists decisions, slipping items, today's fixed points and drafts to review. It sends nothing.
 
-It serves the Build step. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
+It serves the Operate stage. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
 ## The problem it solves
 

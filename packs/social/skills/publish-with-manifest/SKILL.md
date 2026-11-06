@@ -5,7 +5,7 @@ description: Publishes social posts only through a frozen approval manifest appr
 
 # Publish only what was approved, exactly as approved
 
-Step: Build. Rules served: 1 Stop at the boundaries, 3 Read back the real result. Control 8, two-session execution: review and execution happen apart, joined by a frozen manifest. See `rules/08-two-session-execution.md` (in the SHOTos repository, or `.shotos/rules/08-two-session-execution.md` where SHOTos is installed).
+Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real result. Control 8, two-session execution: review and execution happen apart, joined by a frozen manifest. See `rules/08-two-session-execution.md` (in the SHOTos repository, or `.shotos/rules/08-two-session-execution.md` where SHOTos is installed).
 
 ## When not to use this
 

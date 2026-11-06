@@ -4,8 +4,6 @@
 
 This pack is for anyone who has to win customers, partners, funding or advisers and wants the evidence behind each deal to be visible. It gives an agent a repeatable way to run a pipeline, ask the right questions, research the reader, write the proposal and reply to the thread, without sending anything on your behalf.
 
-For a short handout, use the [LEAP quick reference](leap-quick-reference.md) or [NUDGE quick reference](nudge-quick-reference.md). The [qualification sheet and CRM header templates](crm/README.md) prepare reviewed data for HubSpot or Salesforce; they require account-specific mapping and have not been live-imported.
-
 ## Who it is for
 
 - Founders and sales leads who run a pipeline in a spreadsheet and lose track of what is real.
@@ -24,7 +22,7 @@ LEAP has four stages. Each has three sub-steps and an exit test, so a deal moves
 | **L**ead | warm, cold, target | A named person at a named organisation has agreed to a first conversation. |
 | **E**xplore | meeting, discovery, define | The problem, the cost of leaving it and a definition of the work are written down and the buyer has seen them. |
 | **A**gree | proposal, statement of work, gatekeepers | Scope, price and terms are accepted in writing by the person who can sign, and every gatekeeper is accounted for. |
-| **P**lan | start date, handover, delivery | A start date, an owner and a handover packet exist, and delivery has been accepted into SHOTos Brief. |
+| **P**lan | start date, handover, delivery | A start date, an owner and a handover packet exist, and delivery has been accepted into SHOTos Scope. |
 
 ### NUDGE: the five questions
 
@@ -43,8 +41,8 @@ NUDGE is how you qualify an opportunity, mainly during Explore and Agree. Score 
 ```
         LEAP: the pipeline
  ┌──────┐   ┌─────────┐   ┌───────┐   ┌──────┐
- │ Lead │ → │ Explore │ → │ Agree │ → │ Plan │ ──► handover packet ──► SHOTos: Brief
- └──────┘   └────┬────┘   └───┬───┘   └──────┘                          (then Build, Check, Hand over, Improve)
+ │ Lead │ → │ Explore │ → │ Agree │ → │ Plan │ ──► handover packet ──► SHOTos S: Scope
+ └──────┘   └────┬────┘   └───┬───┘   └──────┘                          (then H, O, T, o, s)
                  │            │
         NUDGE qualifies here and here
                  │            │
@@ -54,20 +52,22 @@ NUDGE is how you qualify an opportunity, mainly during Explore and Agree. Score 
            └────────────────────────┘
 ```
 
-NUDGE runs during **Explore** (is this worth a proposal?) and again during **Agree** (is it still safe to commit?). LEAP's **Plan** stage ends with a handover packet, and delivery then begins at SHOTos **Brief**, where the work is framed, owned and accepted like any other.
+NUDGE runs during **Explore** (is this worth a proposal?) and again during **Agree** (is it still safe to commit?). LEAP's **Plan** stage ends with a handover packet, and delivery then begins at SHOTos **Scope**, where the work is framed, owned and accepted like any other.
+
+For a short handout, use the [LEAP quick reference](leap-quick-reference.md) or [NUDGE quick reference](nudge-quick-reference.md). The [qualification sheet and CRM header templates](crm/README.md) prepare data for HubSpot or Salesforce. Map fields to your account before importing.
 
 ## The skills
 
-| Skill | Step | What it does |
+| Skill | SHOTos stage | What it does |
 |---|---|---|
-| [leap-pipeline](skills/leap-pipeline/README.md) | any (hands over to Brief) | Runs and reviews a pipeline through Lead, Explore, Agree and Plan; flags stalled deals with evidence; produces the handover packet. |
-| [nudge-qualify](skills/nudge-qualify/README.md) | Brief | Scores an opportunity on the five NUDGE questions and recommends go, pause or walk away. |
-| [relationship-map](skills/relationship-map/README.md) | Brief | Maps people, organisations, opportunities, evidence, owners and next actions for a market or account. |
-| [contextual-proposal](skills/contextual-proposal/README.md) | Build | Researches the reader, then writes a proposal argued for them, with a claim ledger and asset register. |
-| [one-off-or-factory](skills/one-off-or-factory/README.md) | Brief | Decides between writing one item directly and building a factory for many. |
-| [proposal-factory](skills/proposal-factory/README.md) | Build | Produces many tailored proposals from one master after a three-item pilot. Drafts by default; sends only after a yes. |
-| [outbound-prospecting](skills/outbound-prospecting/README.md) | Build | Plans one testable segment, a batch of five, and drafts one message per contact for a person to send. |
-| [email-reply](skills/email-reply/README.md) | Build | Drafts a reply to a real thread in the owner's voice from a response map and verified context. |
+| [leap-pipeline](skills/leap-pipeline/README.md) | any (hands over to Scope) | Runs and reviews a pipeline through Lead, Explore, Agree and Plan; flags stalled deals with evidence; produces the handover packet. |
+| [nudge-qualify](skills/nudge-qualify/README.md) | Scope | Scores an opportunity on the five NUDGE questions and recommends go, pause or walk away. |
+| [relationship-map](skills/relationship-map/README.md) | Scope | Maps people, organisations, opportunities, evidence, owners and next actions for a market or account. |
+| [contextual-proposal](skills/contextual-proposal/README.md) | Operate | Researches the reader, then writes a proposal argued for them, with a claim ledger and asset register. |
+| [one-off-or-factory](skills/one-off-or-factory/README.md) | Hypothesise | Decides between writing one item directly and building a factory for many. |
+| [proposal-factory](skills/proposal-factory/README.md) | Operate | Produces many tailored proposals from one master after a three-item pilot. Drafts by default; sends only after a yes. |
+| [outbound-prospecting](skills/outbound-prospecting/README.md) | Operate | Plans one testable segment, a batch of five, and drafts one message per contact for a person to send. |
+| [email-reply](skills/email-reply/README.md) | Operate | Drafts a reply to a real thread in the owner's voice from a response map and verified context. |
 
 ## What this pack does not do on its own
 
@@ -87,13 +87,6 @@ python ../shotos/install.py --runtime claude --scope project --pack win-the-work
 ```
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
-
-As a Claude Code plugin:
-
-```
-/plugin marketplace add SHOTClubhouse/shotos
-/plugin install shotos-win-the-work@shotos
-```
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 

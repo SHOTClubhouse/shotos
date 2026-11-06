@@ -4,7 +4,7 @@
 
 This skill moves files with an unknown owner, possible personal data, possible duplicates or unclear rights into a `_quarantine` folder and records each in a register: file, why, found by, date, decision needed and owner. It sets a review date. Nothing is deleted.
 
-It supports the Build step. It serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show.
+It supports the Operate stage. It serves rule 1, Stop at the boundaries, and rule 4, Claim only what you can show.
 
 ## The problem it solves
 

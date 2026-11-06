@@ -1,7 +1,7 @@
 # Rollout plan: repair-reply drafting to Quayside and Millfield
 
 **Sponsor (approves):** Priya Nair, head of lettings operations
-**Basis:** Evidence pack of 3 November. Scale decision recorded on 12 November by Alan Whitcombe, managing director: extend one more quarter at Eastgate, then roll out. The extension ended on 10 February.
+**Basis:** Evidence pack of 3 November and Alan Whitcombe's 12 November decision to extend the pilot. Mei Tan accepted Eastgate's independent cycle log and runbook on 10 February. Alan confirmed the first rollout wave on 12 February.
 **What worked, in what conditions, what is unknown:** At Eastgate, which has a clean helpdesk export, median first reply fell from 26 hours to 5.4 and replies within 4 hours rose from 18 per cent to 49 per cent, with about 40 per cent of drafts edited. Staff time saved was never measured, and the 4-hour target of 60 per cent was not reached. Whether this holds in a branch with a different mix of repairs, or with no log, is unknown.
 
 Status: draft for Priya Nair. Nothing has been sent to any branch.

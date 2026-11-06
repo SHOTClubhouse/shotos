@@ -2,7 +2,7 @@
 
 **The rule:** Before starting, write one line that names the asset, the job, the risk, the reader, the route and the proof.
 
-Serves rule 2, [Agree acceptance first](../docs/controls.md). Matters most in **Brief**, where a wrong route wastes the most effort.
+Serves rule 2, [Agree acceptance first](../docs/controls.md). Matters most in **Scope** and **Hypothesise**, where a wrong route wastes the most effort.
 
 ## Why it exists
 
