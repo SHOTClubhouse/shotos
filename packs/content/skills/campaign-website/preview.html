@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Maintenance morning | Fictional campaign preview</title>
+<style>
+:root{font:100%/1.55 system-ui,sans-serif;color:#192521;background:#f6f5ee}
+*{box-sizing:border-box}
+body{margin:0}
+main{max-width:72rem;margin:auto;padding:clamp(1.25rem,5vw,4rem)}
+.hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:2rem;align-items:center}
+.eyebrow{color:#235b45;font-weight:750;letter-spacing:.07em;text-transform:uppercase;font-size:.8rem}
+h1{font-size:clamp(2.65rem,6.5vw,5.4rem);line-height:.98;letter-spacing:-.055em;margin:.3em 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.15}
+p{max-width:42ch}
+a{display:inline-block;background:#154a36;color:#fff;border-radius:.4rem;padding:.75rem 1.1rem;font-weight:700;text-underline-offset:.2em}
+a:focus-visible,section:focus{outline:3px solid #9b3000;outline-offset:5px}
+figure{margin:0;background:#dff0df;border-radius:1.4rem;overflow:hidden}
+svg{width:100%;height:auto;display:block}
+section{margin-top:4rem;border-top:1px solid #a6b6ab;padding-top:1.5rem}
+li{padding-block:.3rem}
+.note{margin-top:2rem;color:#435c50;font-size:.9rem}
+@media(max-width:42rem){.hero{grid-template-columns:1fr}figure{max-width:25rem}section{margin-top:2rem}}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Fictional campaign preview</p>
+  <header class="hero">
+    <div>
+      <h1>Maintenance morning</h1>
+      <p>A practical introduction for neighbourhood shops. Learn the basic bike checks, spot common wear and work out what needs attention next.</p>
+      <a href="#session">See what the session covers</a>
+    </div>
+    <figure aria-hidden="true">
+      <svg viewBox="0 0 380 290" focusable="false">
+        <path fill="#dff0df" d="M0 0h380v290H0z"/>
+        <circle cx="202" cy="145" r="113" fill="#f6f5ee"/>
+        <g fill="none" stroke="#154a36" stroke-width="5" stroke-linecap="round">
+          <circle cx="188" cy="143" r="88"/>
+          <circle cx="188" cy="143" r="76"/>
+          <path d="M188 67v152M112 143h152M134 89l108 108M134 197L242 89"/>
+        </g>
+        <circle cx="188" cy="143" r="18" fill="#ef9c58" stroke="#154a36" stroke-width="5"/>
+        <path fill="none" stroke="#154a36" stroke-width="5" stroke-linecap="round" d="M257 77l32-32h35M101 190l-28 27H43"/>
+        <circle cx="324" cy="45" r="6" fill="#154a36"/>
+        <circle cx="43" cy="217" r="6" fill="#154a36"/>
+      </svg>
+    </figure>
+  </header>
+  <section id="session" tabindex="-1" aria-labelledby="session-heading">
+    <h2 id="session-heading">What the session covers</h2>
+    <ol>
+      <li>Basic bike checks.</li>
+      <li>Common signs of wear.</li>
+      <li>How to choose the next maintenance action.</li>
+    </ol>
+  </section>
+  <p class="note">This example uses a local page link. No booking or enquiry service is connected.</p>
+</main>
+</body>
+</html>

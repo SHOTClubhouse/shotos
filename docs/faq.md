@@ -6,7 +6,7 @@ Short answers first, with a link where there is more. Where something is reasoni
 
 ### What is SHOTos in one sentence?
 
-SHOTos gives teams and AI agents six stages to take a change from an agreed problem to independent ownership and rollout, with 82 skills, reusable templates and a tool for checking completion claims. See the [README](../README.md).
+SHOTos gives teams and AI agents six stages to take a change from an agreed problem to independent ownership and rollout, with 85 skills, reusable templates and a tool for checking completion claims. See the [README](../README.md).
 
 ### What does SHOT stand for?
 

@@ -4,6 +4,8 @@
 
 The six skills cover the content a team puts in front of outsiders. Each one drafts and checks. None publishes, posts or sends. Each has a fixed gate, a separate record of evidence or approvals, and a named person whose yes comes before anything leaves the project.
 
+Use [campaign website](skills/campaign-website/README.md) for a preview with one primary action.
+
 ## Who it is for
 
 - Founders, marketing leads and communications officers who publish papers, explainers, announcements, demos and creator content.

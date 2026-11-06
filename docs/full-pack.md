@@ -7,7 +7,7 @@ python "PATH_TO_SHOTOS/install.py" --runtime all --scope project --all-packs --d
 python "PATH_TO_SHOTOS/install.py" --runtime all --scope project --all-packs
 ```
 
-Project installs include all 82 skills when you select `--all-packs`, the working agreement, programme and work records, nine role definitions and seven review lenses. Each installed skill has its own fictional input and output. An existing `AGENTS.md` points to the installed agreement. Claude Code can also register the nine definitions as native subagents with `--with-agents`. For other setups, select the appropriate runtime in the installer or give the model the agreement and the relevant role or skill as project instructions.
+Project installs include all 85 skills when you select `--all-packs`, the working agreement, programme and work records, nine role definitions and seven review lenses. Each installed skill has its own fictional input and output. An existing `AGENTS.md` points to the installed agreement. Claude Code can also register the nine definitions as native subagents with `--with-agents`. For other setups, select the appropriate runtime in the installer or give the model the agreement and the relevant role or skill as project instructions.
 
 ## From the request to the saved result
 
@@ -61,7 +61,7 @@ The agent should open `success-handoff`, use `onboarding-recovery` only if there
 
 Keep a lesson beside the original task when someone has to correct a material claim, recover a handoff or repeat work. Use the `learning-loop` skill and its lesson template. Record what happened and how you know, then decide whether the gap belongs to this task, one skill, a shared instruction or the runtime. Fix the smallest shared source that owns the problem. Keep customer facts, transcripts and identifying details in the approved project record. Use a fictional case to carry the general lesson into SHOTos.
 
-Use `skill-quality-gate` when a change affects behaviour. Check the case that exposed the gap and a case where the proposed rule would be wrong. Check the installed copy when the change concerns setup or linked resources. Record the old and new revisions, the check result, remaining limits and the person who decides whether to promote the change. After promotion, use the same record to see whether the problem recurs.
+Turn a consequential miss into a fictional example someone else can run. Preserve the original failure, the expected decision and the check that would catch a regression. Use `skill-quality-gate` when a change affects behaviour. Check the case that exposed the gap and a case where the proposed rule would be wrong. Check the installed copy when the change concerns setup or linked resources. Record the old and new revisions, the check result, remaining limits and the person who decides whether to promote the change. After promotion, use the same record to see whether the problem recurs.
 
 Use the accepted-work ledger beside your task records. Start with first-pass acceptance, material defects, minutes spent reviewing or reworking, and the time it takes someone else to pick up the task. Track model spend if the runtime reports it. Count from the first request to a named person's acceptance and include reruns. Keep task types and acceptance criteria comparable before making a performance claim.
 

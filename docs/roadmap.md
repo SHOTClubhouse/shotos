@@ -5,7 +5,7 @@ Each item ships when it has evidence behind it, not before.
 ## Available in the six-stage edition
 
 - The six stages, four rules, twelve agent controls and six guardrails.
-- 28 core skills covering every stage, and 12 packs with 54 more.
+- 28 core skills covering every stage, and 12 packs with 57 more.
 - Ways of working, role agents, review lenses and a cast file.
 - Installer support for packs and role agents, and a Claude Code plugin per pack.
 - Outcome evals: ten real tasks, graded on what the agent produced, run with and without SHOTos on three Claude models.

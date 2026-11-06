@@ -7,6 +7,9 @@ Pick the job, install the pack, and ask in plain words. Every skill below drafts
 | I want to | Skill | Try asking |
 |---|---|---|
 | Write a proposal for a client | [contextual-proposal](../packs/win-the-work/skills/contextual-proposal/README.md) | "Write a proposal for Northgate Cycles from our approved facts and my meeting notes. Price their 64 bikes and check every claim." |
+| Research a decision from source material | [research-and-assemble](../skills/research-and-assemble/README.md) | Give me the three facts that could change this decision and show the source for each. |
+| Build a campaign website preview | [campaign-website](../packs/content/skills/campaign-website/README.md) | Build a preview with one primary action and show me what works on a phone. |
+| Design campaign graphics | [Campaign graphics](../packs/media/skills/image-create/campaign-graphics.md) | Make an editable hero and square tile from this approved copy, and check both crops. |
 | Make a slide deck | [slide-deck](../packs/content/skills/slide-deck/README.md) | "Make a ten-slide board update on the repairs backlog. Show me the storyline first, then render and check every slide." |
 | Create an image | [image-create](../packs/media/skills/image-create/README.md) | "Create a hero image for our blog on tenancy deposits. Flat illustration, no people, 16:9. Look at it properly and give me alt text." |
 | Make a short video | [video-storyboard](../packs/media/skills/video-storyboard/README.md) | "Storyboard a 45-second video on how our servicing plan works, then build the shot list." |
@@ -24,7 +27,9 @@ Pick the job, install the pack, and ask in plain words. Every skill below drafts
 |---|---|---|
 | Run my sales pipeline | [leap-pipeline](../packs/win-the-work/skills/leap-pipeline/README.md) | "Review my pipeline. Which deals have stalled, and what is the evidence?" |
 | Decide if a lead is worth chasing | [nudge-qualify](../packs/win-the-work/skills/nudge-qualify/README.md) | "Qualify these six leads from my call notes: pursue, pause or drop." |
-| Write outreach | [outbound-prospecting](../packs/win-the-work/skills/outbound-prospecting/README.md) | "Pick one segment and draft five messages for me to send, one per contact." |
+| Respond to a formal bid | [bid-response](../packs/win-the-work/skills/bid-response/README.md) | Build the compliance matrix and identify what stops the draft being ready. |
+| Issue a request for proposals | [rfp-authoring](../packs/win-the-work/skills/rfp-authoring/README.md) | Draft an RFP with mandatory gates and a scoring rubric. Leave issue pending. |
+| Draft prospecting emails | [outbound-prospecting](../packs/win-the-work/skills/outbound-prospecting/README.md) | "Pick one segment and draft five messages for me to send, one per contact." |
 | Reply to an email | [email-reply](../packs/win-the-work/skills/email-reply/README.md) | "Draft a reply to this thread. They want a discount; I want to hold the price." |
 | Find grants or awards | [grants-finder](../packs/founder-admin/skills/grants-finder/README.md), [awards-finder](../packs/founder-admin/skills/awards-finder/README.md) | "Find grants a small bakery in the North West could apply for this quarter." |
 
