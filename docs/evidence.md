@@ -2,6 +2,16 @@
 
 This page records what has been tested, how, what it showed and what has not been tested. It is updated with every release, including when a result is disappointing. Raw outputs are in [evals/results/](../evals/results/).
 
+## Which build the evidence covers
+
+| Build | Evidence |
+| --- | --- |
+| November skill evaluation builds | Paired skill and outcome evaluations reported below. Some later runs used the five-step wording. |
+| v1.1.0 | Returned to Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. The GitHub matrix passed on Windows, macOS and Linux. |
+| Six-stage Windows replay | The draft workflow and stop gate checks described below. |
+
+The historical paired runs apply to the builds named in their results. They do not provide a paired result for the current release wording.
+
 ## Six-stage runtime check
 
 A six-stage build ran in fresh Windows projects in Codex CLI and Claude Code. Both opened the installed contextual proposal and customer handoff skills, wrote and read back two drafts and a programme record, and held transfer and rollout when given only a CRM stage label. A separate Claude Code Stop-hook probe rejected a false file claim.

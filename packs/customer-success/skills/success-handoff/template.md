@@ -33,7 +33,9 @@
 -
 
 # Acceptance record
-**Authorised offer date, channel and dispatch evidence:**
+**Current owner until acceptance:**
+**Offer authorised by, date and revision:**
+**Offer dispatch date, channel and receipt:**
 **Receiver:**
 **I have read the brief and I accept the account:** yes | no | yes, with changes
 **Changes or conditions:**

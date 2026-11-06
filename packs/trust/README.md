@@ -32,7 +32,7 @@ python ../shotos/install.py --runtime claude --scope project --pack trust --dry-
 python ../shotos/install.py --runtime claude --scope project --pack trust
 ```
 
-Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
+Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack, use the same runtime and scope and name the extra pack. Existing files are kept.
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
@@ -40,4 +40,4 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 
 The checks apply the four rules in [docs/controls.md](../../docs/controls.md), especially rule 4, Claim only what you can show, and rule 1, Stop at the boundaries. The data governance guardrail is in [rules/guardrails/README.md](../../rules/guardrails/README.md). Quarantined files from the [records pack](../records/README.md) often lead here.
 
-**Evidence:** Cases written, not yet run. Eval cases are in [evals/packs/trust.json](../../evals/packs/trust.json).
+**Evidence:** Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). Eval cases are in [evals/packs/trust.json](../../evals/packs/trust.json).

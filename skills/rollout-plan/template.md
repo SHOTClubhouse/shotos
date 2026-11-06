@@ -1,4 +1,8 @@
-# Rollout plan: name
+# Rollout plan
+
+**Current workflow maintainer and review date:**
+
+**Decision:** sustain current workflow | approve a new wave: name
 
 **Sponsor (approves):**
 **Basis:** Track evidence and decision (link), Own exit and receiving lead sign-off (link), sponsor rollout decision (by whom, date)

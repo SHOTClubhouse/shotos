@@ -65,7 +65,7 @@ For a short handout, use the [LEAP quick reference](leap-quick-reference.md) or 
 | [relationship-map](skills/relationship-map/README.md) | Scope | Maps people, organisations, opportunities, evidence, owners and next actions for a market or account. |
 | [contextual-proposal](skills/contextual-proposal/README.md) | Operate | Researches the reader, then writes a proposal argued for them, with a claim ledger and asset register. |
 | [one-off-or-factory](skills/one-off-or-factory/README.md) | Hypothesise | Decides between writing one item directly and building a factory for many. |
-| [proposal-factory](skills/proposal-factory/README.md) | Operate | Produces many tailored proposals from one master after a three-item pilot. Drafts by default; sends only after a yes. |
+| [proposal-factory](skills/proposal-factory/README.md) | Operate | Produces many tailored proposals from one master after a three-item pilot. Produces drafts and a review queue for authorised senders. |
 | [outbound-prospecting](skills/outbound-prospecting/README.md) | Operate | Plans one testable segment, a batch of five, and drafts one message per contact for a person to send. |
 | [email-reply](skills/email-reply/README.md) | Operate | Drafts a reply to a real thread in the owner's voice from a response map and verified context. |
 
@@ -86,9 +86,9 @@ python ../shotos/install.py --runtime claude --scope project --pack win-the-work
 python ../shotos/install.py --runtime claude --scope project --pack win-the-work
 ```
 
-Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
+Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack, use the same runtime and scope and name the extra pack. Existing files are kept.
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
-Evidence: cases written, not yet run. See [evals/packs/win-the-work.json](../../evals/packs/win-the-work.json).
+Evidence: earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). See [evals/packs/win-the-work.json](../../evals/packs/win-the-work.json).
 

@@ -48,10 +48,10 @@ These are common needs SHOTos does not have a skill for. The core skills and the
 
 ## Needs more focus next
 
-- **Evidence for the packs.** Every pack skill has eval cases, but most have not yet been run. See [evidence](evidence.md).
+- **Evidence for the packs.** Earlier versions of all 82 skills ran in the paired evaluation. Changes after that run need their own evidence. See [evidence](evidence.md).
 - **Other runtimes.** Codex, Gemini, Antigravity, ChatGPT and the Claude app upload need the same outcome runs as Claude Code.
 - **Live automation runs.** The two Apps Script automations need a recorded end-to-end run.
-- **macOS and Linux.** The tools are tested on Windows only.
+- **macOS and Linux.** The v1.1.0 automated test matrix passed on Windows, macOS and Linux. Live runtime coverage is recorded separately.
 - **Rule 1 in practice.** The first outcome runs showed an agent asking permission for something the owner had already asked for. Rule 1 now says a clear request is the yes for what it names. The next runs check that the fix holds without losing caution where it matters.
 
 Suggest a gap, or a skill to fill one, through [CONTRIBUTING.md](../CONTRIBUTING.md).

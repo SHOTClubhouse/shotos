@@ -2,7 +2,8 @@
 
 **Reader (person and organisation):** 
 **Decision they make and by when:** 
-**Proposal owner (sends it):** 
+**Proposal owner and assignment source:**
+**Approved offer and price source, approver and date:**
 
 ## Reader note
 | Fact | Source | Date | Status |
@@ -15,7 +16,7 @@ Unknowns:
 Because the reader cares about ___ (evidence), this proposal does ___, and they will see ___ by ___.
 
 ## Claim and commitment ledger
-| # | Claim or commitment | Where it appears | Source and approval | Status (confirmed, reported, inferred, unsupported) | Action |
+| # | Claim or commitment | Where it appears | Source and approval | Status (confirmed, reported, inferred, unsupported, proposed and unapproved) | Action |
 |---|---|---|---|---|---|
 | 1 | | | | | |
 
@@ -36,4 +37,8 @@ Because the reader cares about ___ (evidence), this proposal does ___, and they 
 | 1 | | | |
 
 ## Status
-Draft / Ready for review / Accepted by owner. **Not sent.**
+**Draft review or acceptance evidence:**
+**Authorised to send by, date and exact revision:**
+**Dispatch date and receipt:**
+
+Keep proposed and unapproved commitments in this working sheet. Leave authorisation and dispatch open until their own evidence exists.

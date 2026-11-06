@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 478" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
   <title id="title">What changes the handoff status?</title>
-  <desc id="desc">PREPARED. Save the brief. Link commitments and open issues.. OFFERED. Record dispatch. An authorised offer reaches the receiver.. ACCEPTED. Get written agreement. Confirm scope and first-action date.. OWN EXIT · SEPARATE CHECK. Observe a full cycle. The receiving lead signs off the evidence.. Record customer activation separately from the transfer.</desc>
+  <desc id="desc">PREPARED. Save the brief. Link commitments and open issues. OFFERED. Record dispatch. An authorised offer reaches the receiver. ACCEPTED. Get written agreement. Confirm scope and first-action date. COMPLETED. Verify the first action. Check the notice and owner update. Own needs separate proof of an independent cycle.</desc>
   <rect width="960" height="478" rx="20" fill="#102132"/>
   <text x="36" y="38" fill="#9ee8d9" font-size="17" font-weight="700" letter-spacing="2">CUSTOMER SUCCESS / TRANSFER</text>
   <text x="36" y="83" fill="#ffffff" font-size="36" font-weight="700">What changes the handoff status?</text>
@@ -33,9 +33,9 @@
     <rect width="434" height="127" rx="13" fill="#20364b" stroke="#436079"/>
     <rect x="18" y="17" width="34" height="29" rx="6" fill="#9ee8d9"/>
     <text x="35" y="37" text-anchor="middle" fill="#102132" font-size="16" font-weight="700">04</text>
-    <text x="64" y="37" fill="#9ee8d9" font-size="16" font-weight="700">OWN EXIT · SEPARATE CHECK</text>
-    <text x="18" y="75" fill="#ffffff" font-size="27" font-weight="700">Observe a full cycle</text>
-    <text x="18" y="105" fill="#e3edf5" font-size="18">The receiving lead signs off the evidence.</text>
+    <text x="64" y="37" fill="#9ee8d9" font-size="16" font-weight="700">COMPLETED</text>
+    <text x="18" y="75" fill="#ffffff" font-size="27" font-weight="700">Verify the first action</text>
+    <text x="18" y="105" fill="#e3edf5" font-size="18">Check the notice and owner update.</text>
   </g>
-  <text x="36" y="446" fill="#e3edf5" font-size="20">Record customer activation separately from the transfer.</text>
+  <text x="36" y="446" fill="#e3edf5" font-size="20">Own needs separate proof of an independent cycle.</text>
 </svg>

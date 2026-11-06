@@ -39,7 +39,7 @@ Keep one [programme record](../templates/programme.md) in the existing project. 
 | Own | A decision to continue and a named receiving lead | A runbook, named owners and evidence from an independent cycle | Receiving lead |
 | Sustain and Scale | Accepted ownership and a sponsor's rollout decision | An operated first wave, local baselines and an improvement cadence | Rollout sponsor, with each local owner accepting their wave |
 
-An agreed scope or successful draft gives permission for the work described at that point. Record separate authority for a live run, external action, operational transfer or wider rollout when those become relevant. If a gate fails, record what happened and where the work returns. Use the [decision record](../skills/decision-record/template.md) to capture those choices.
+The current authority sets the boundary for each run. A draft run checks an artefact. A live run checks the effect of an authorised action. Record separate authority for a live run, external action, operational transfer or wider rollout when those become relevant. If a gate fails, record what happened and where the work returns. Use the [decision record](../skills/decision-record/template.md) to capture those choices.
 
 ## S: Scope. "Know your ground."
 
@@ -53,7 +53,7 @@ Understand the situation before changing it. Most wasted effort starts with a so
 
 **Output:** a problem statement with no solution in it, a map of who is affected and who decides, baseline measures of how things are today (or "not measured", honestly), and an agreed definition of ready and done.
 
-**Exit check:** the owner has confirmed the problem statement, and the baseline is written down.
+**Exit check:** the owner has confirmed the problem statement, and a baseline or a dated plan to collect it has a named owner.
 
 **SHOTos assets:** [capture-the-problem](../skills/capture-the-problem/README.md), [stakeholder-map](../skills/stakeholder-map/README.md), [baseline](../skills/baseline/README.md), [maturity-check](../skills/maturity-check/README.md) and the [problem template](../templates/problem.md).
 
@@ -71,7 +71,7 @@ Turn the problem into bets you can test, and agree how you will know before you 
 
 **Output:** a prioritised list of testable hypotheses, the eval set, and a plan for the first experiment.
 
-**Exit check:** each hypothesis has a measure and a baseline to compare against, and the owner has agreed the acceptance checks.
+**Exit check:** the owner agrees the measure and acceptance checks. If the baseline is open, record its owner and due date. Verify it before live operation.
 
 **SHOTos assets:** [agree-acceptance](../skills/agree-acceptance/README.md), [hypothesis-card](../skills/hypothesis-card/README.md), [example-mapping](../skills/example-mapping/README.md), [eval-set](../skills/eval-set/README.md), [experiment-plan](../skills/experiment-plan/README.md), the [acceptance card](../templates/acceptance.md) and [specification by example](../ways-of-working/specification-by-example.md).
 
@@ -105,9 +105,9 @@ Measure what changed against the baseline, then decide.
 | **Technical** | For software delivery, track the four DORA measures: deployment frequency, lead time for changes, change failure rate and time to restore. Add eval scores, cost and response times for AI features, defects found after release, and monitoring of the live system. |
 | **Agents help by** | Gathering the numbers, comparing them with the baseline and drafting the report, with every figure sourced. |
 
-**Output:** an evidence pack and a recorded decision to proceed to Own, pivot or stop.
+**Output:** an evidence pack and a decision by the sponsor or named delegate to proceed to Own, pivot, stop or hold for evidence.
 
-**Exit check:** the decision is made by a named person, on the evidence, and written down. Stopping is a valid result. A pivot goes back to Hypothesise.
+**Exit check:** the decision is made by a named person, on the evidence, and written down. Stopping is a valid result. A pivot goes back to Hypothesise. A hold records the missing evidence, its owner and the next review.
 
 **SHOTos assets:** [evidence-pack](../skills/evidence-pack/README.md), [delivery-metrics](../skills/delivery-metrics/README.md), [decision-record](../skills/decision-record/README.md), [progress-wrap-up](../skills/progress-wrap-up/README.md), [retrospective](../skills/retrospective/README.md), and claim-check for agent work.
 
@@ -143,7 +143,7 @@ Take what worked to the next team, and keep improving.
 
 **Output:** a rollout plan across teams, reusable assets, and a standing improvement cadence.
 
-**Exit check:** the next team has started at Scope, with its own baseline. Scaling copies the method, not the assumptions.
+**Exit check:** the current workflow has a maintainer and review date. When the sponsor approves expansion, the next team starts at Scope with its own baseline.
 
 **SHOTos assets:** [rollout-plan](../skills/rollout-plan/README.md), [learning-loop](../skills/learning-loop/README.md), [skill-quality-gate](../skills/skill-quality-gate/README.md), [graduation-ladder](../skills/graduation-ladder/README.md) and the [setup pack](../packs/setup/README.md).
 

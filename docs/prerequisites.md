@@ -32,7 +32,7 @@ Run the installer with `--dry-run` first. It lists every file it would copy and 
 ### Codex
 
 - [ ] Run `--runtime codex --scope user`.
-- [ ] Check that the four skill folders appear where your Codex install reads skills.
+- [ ] Check that the installed skill folders appear where your Codex install reads skills.
 - [ ] Copy the [AGENTS.md template](../templates/AGENTS.md) into each project by hand.
 - [ ] The Stop hook is for Claude Code only. In Codex, run `claim-check` yourself on the agent's report.
 - [ ] Codex has not yet been tested with the paired cases. Treat results as unproven until you have checked a few of your own.
@@ -40,7 +40,7 @@ Run the installer with `--dry-run` first. It lists every file it would copy and 
 ### Other agents
 
 - [ ] If your agent reads `.agents/skills`, run `--runtime agents --scope project`.
-- [ ] If it reads skills from somewhere else, copy the four folders in [skills/](../skills/) there by hand.
+- [ ] If it reads skills from somewhere else, copy the skills you need from [skills/](../skills/) there by hand.
 - [ ] If it reads neither, paste the rules from the [AGENTS.md template](../templates/AGENTS.md) into whatever instruction file it does read.
 - [ ] Run `claim-check` by hand on its reports.
 

@@ -60,16 +60,24 @@ The local [claim-check tool](docs/claims.md) tests supported completion claims a
 
 ## Install
 
-Use Git and Python 3.9 or later. From a separate project directory, replace `PATH_TO_SHOTOS` with this checkout’s path:
+Use Git and Python 3.9 or later. Clone SHOTos next to the project where you want to use it, then run the commands from your own project folder.
 
 ```sh
-python "PATH_TO_SHOTOS/install.py" --runtime codex --scope project --dry-run
-python "PATH_TO_SHOTOS/install.py" --runtime codex --scope project
+git clone https://github.com/SHOTClubhouse/shotos.git
+```
+
+From your project folder:
+
+```sh
+python ../shotos/install.py --runtime codex --scope project --pack win-the-work --pack customer-success --pack setup --dry-run
+python ../shotos/install.py --runtime codex --scope project --pack win-the-work --pack customer-success --pack setup
 ```
 
 Open a fresh session in that project and ask:
 
-> Use the Scope stage to write a brief for reducing repeat repair enquiries. I have a rough estimate but no measured baseline. Name the owner and propose the first measurement.
+> Use the Scope stage to write a brief for reducing repeat repair enquiries. I have a rough estimate. Propose the first measurement and say who should own it or what you need to confirm the owner.
+
+Add another pack with the same install command and the new `--pack` value. For a no-terminal start, download the individual ZIPs from [GitHub Releases](https://github.com/SHOTClubhouse/shotos/releases/latest).
 
 For Claude Code, use `--runtime claude` and add `--with-hook` if you want the optional completion check. For Gemini CLI, Antigravity and shared local setups, use the [runtime guide](docs/running-it.md). In a workspace that accepts project instructions, copy the [working agreement](templates/AGENTS.md), the [programme record](templates/programme.md) and the skills you need. The same templates work in a shared document.
 

@@ -40,6 +40,13 @@ from pathlib import Path
 
 PASS_STATES = {"SUPPORTED", "DECLARED"}
 EXTERNAL_KINDS = {"external"}
+STATUS_RECEIPTS = {
+    "authorised": "attach the named owner's approval for the exact action",
+    "offered": "attach the dispatch receipt for the authorised offer",
+    "accepted": "attach the named receiver's acceptance record",
+    "completed": "attach the completion record and its evidence",
+    "independent": "attach the cycle evidence and receiving lead's sign-off",
+}
 COMPLETION = re.compile(
     r"\b(done|completed?|finished|fixed|sent|emailed|deployed|published|pushed|merged|"
     r"tests? pass(?:es|ed)?|all green|works now)\b",
@@ -95,7 +102,7 @@ def parse_claims(report: str) -> list:
         if "| receipt:" in rest:
             rest, receipt = (part.strip() for part in rest.split("| receipt:", 1))
         verb, target = "", rest
-        if kind not in {"unverified", "accepted"} and ":" in rest:
+        if kind not in STATUS_RECEIPTS and kind != "unverified" and ":" in rest:
             verb, target = (part.strip() for part in rest.split(":", 1))
         claims.append(Claim(kind, verb.lower(), target, receipt, line.strip()))
     return claims
@@ -259,8 +266,8 @@ def check_claim(claim: Claim, cwd: Path, allow_commands, base, claimed_files=())
         return check_command(claim, cwd, allow_commands)
     if claim.kind in EXTERNAL_KINDS:
         return check_receipt(claim, cwd, "external action with no receipt")
-    if claim.kind == "accepted":
-        return check_receipt(claim, cwd, "acceptance is a person's decision; attach the record as a receipt")
+    if claim.kind in STATUS_RECEIPTS:
+        return check_receipt(claim, cwd, STATUS_RECEIPTS[claim.kind])
     if claim.kind == "unverified":
         return ClaimResult(claim, "DECLARED", "the agent said this was not checked")
     return ClaimResult(claim, "NO EVIDENCE", f"unknown claim kind '{claim.kind}'")

@@ -32,7 +32,7 @@ python ../shotos/install.py --runtime claude --scope project --pack setup --dry-
 python ../shotos/install.py --runtime claude --scope project --pack setup
 ```
 
-Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack to a project that already has SHOTos, run `python ../shotos/install.py --uninstall`, then install again with every pack you want. Files you changed are kept. If a changed file is in the way, the reinstall stops: move it aside (or keep your copy and skip that skill) before you reinstall.
+Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack, use the same runtime and scope and name the extra pack. Existing files are kept.
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
@@ -40,4 +40,4 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 
 The pack follows [docs/controls.md](../../docs/controls.md): the mode ladder applies control 3 (mode contract) and control 11 (context control), and the drift check applies rule 3, Read back the real result. The format the audit checks is in [docs/skill-format.md](../../docs/skill-format.md). Stages are described in [docs/framework.md](../../docs/framework.md).
 
-**Evidence:** Cases written, not yet run. Eval cases are in [evals/packs/setup.json](../../evals/packs/setup.json).
+**Evidence:** Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). Eval cases are in [evals/packs/setup.json](../../evals/packs/setup.json).

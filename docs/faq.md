@@ -97,7 +97,7 @@ Not yet tested. The installer has a Codex option and the skills use the shared `
 
 ### Is my data sent anywhere?
 
-No. Version 0.1 makes no network calls and has no telemetry. The installer copies files from the repository and never downloads anything. Your agent runtime still sends data to its own provider as it always did. SHOTos adds nothing to that.
+No. The installer makes no network calls and has no telemetry. The installer copies files from the repository and never downloads anything. Your agent runtime still sends data to its own provider as it always did. SHOTos adds nothing to that.
 
 ### Can claim-check run commands from my repository?
 
@@ -137,7 +137,7 @@ It is a baseline, not a certification. It gives named owners, human checkpoints 
 
 ### What has actually been proven?
 
-- 99 automated tests pass on Windows with Python 3.9 and 3.13.
+- The v1.1.0 CI matrix passed on Windows, macOS and Linux with Python 3.9 and 3.13.
 - On ten realistic tasks across Haiku, Sonnet and Opus, agents passed 59 of 60 runs with SHOTos and 58 of 59 without: no measurable difference in outcomes, at about 41% more cost.
 - In the paired run of all 212 skill cases on Haiku, Sonnet and Opus, graded by meaning, agents followed the skill in 204, 211 and 210 cases with SHOTos against 160, 158 and 165 without. Haiku with SHOTos beat Sonnet without it at about an eighth of the cost.
 - One live run of the Stop hook, and one of the walkthrough.

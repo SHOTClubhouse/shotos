@@ -32,6 +32,36 @@ class InstallTests(unittest.TestCase):
         self.install("--with-hook", "--dry-run")
         self.assertEqual(list(self.root.iterdir()), [])
 
+    def test_add_pack_preserves_edits_and_uninstalls_both_packs(self):
+        self.install("--pack", "win-the-work")
+        existing = self.root / ".claude/skills/contextual-proposal/SKILL.md"
+        existing.write_text("local edit", encoding="utf-8")
+        manifest = self.root / ".shotos-install.json"
+        before = manifest.read_bytes()
+        self.install("--pack", "customer-success", "--dry-run")
+        self.assertEqual(manifest.read_bytes(), before)
+        self.assertFalse((self.root / ".claude/skills/success-handoff").exists())
+        self.install("--pack", "win-the-work", "--pack", "customer-success")
+        added = self.root / ".claude/skills/success-handoff/SKILL.md"
+        self.assertTrue(added.is_file())
+        self.assertEqual(json.loads(manifest.read_text(encoding="utf-8"))["packs"], ["customer-success", "win-the-work"])
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertFalse(added.exists())
+        self.assertEqual(existing.read_text(encoding="utf-8"), "local edit")
+
+    def test_pack_clash_leaves_the_existing_install_intact(self):
+        self.install()
+        path = self.root / ".claude/skills/success-handoff/SKILL.md"
+        path.parent.mkdir()
+        path.write_text("mine", encoding="utf-8")
+        manifest = self.root / ".shotos-install.json"
+        before = manifest.read_bytes()
+        result = run("--runtime", "claude", "--target", str(self.root), "--pack", "customer-success")
+        self.assertEqual(result.returncode, 1)
+        self.assertEqual(path.read_text(encoding="utf-8"), "mine")
+        self.assertEqual(manifest.read_bytes(), before)
+        self.assertFalse((path.parent.parent / "onboarding-recovery").exists())
+
     def test_install_then_uninstall_restores_the_project(self):
         settings = self.root / ".claude" / "settings.json"
         settings.parent.mkdir()
