@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 414" role="img" aria-labelledby="title desc" font-family="Segoe UI, Arial, sans-serif">
+  <title id="title">What context follows the work?</title>
+  <desc id="desc">Three inputs feed the programme record: source evidence, acceptance checks and who can act. The next person gets the checked result, open gaps, the decision owner and the next action.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#9ee8d9"/>
+    </marker>
+  </defs>
+  <rect width="960" height="414" rx="20" fill="#102132"/>
+  <text x="36" y="40" fill="#9ee8d9" font-size="17" font-weight="700" letter-spacing="2">SHOTos / CONTEXT</text>
+  <text x="36" y="83" fill="#ffffff" font-size="36" font-weight="700">What context follows the work?</text>
+  <path d="M36 107H924" stroke="#3b5366"/>
+  <g fill="#20364b" stroke="#436079">
+    <rect x="36" y="130" width="252" height="70" rx="10"/>
+    <rect x="36" y="214" width="252" height="70" rx="10"/>
+    <rect x="36" y="298" width="252" height="70" rx="10"/>
+    <rect x="342" y="169" width="268" height="159" rx="13" fill="#214644" stroke="#80c9b8"/>
+    <rect x="665" y="169" width="259" height="159" rx="13"/>
+  </g>
+  <g fill="none" stroke="#9ee8d9" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M288 165H311V206H334"/>
+    <path d="M288 249H334"/>
+    <path d="M288 333H311V291H334"/>
+    <path d="M610 249H657"/>
+  </g>
+  <g fill="#ffffff" font-size="22" font-weight="700">
+    <text x="52" y="158">Source evidence</text>
+    <text x="52" y="242">Acceptance checks</text>
+    <text x="52" y="326">Who can act</text>
+    <text x="358" y="214">Programme record</text>
+    <text x="681" y="214">Next decision</text>
+  </g>
+  <g fill="#e3edf5" font-size="18">
+    <text x="52" y="183">Facts, dates and baseline</text>
+    <text x="52" y="267">What good looks like</text>
+    <text x="52" y="351">Owner and permission</text>
+    <text x="358" y="246">Link the checked result.</text>
+    <text x="358" y="274">Record what remains open.</text>
+    <text x="681" y="246">Who decides and when.</text>
+    <text x="681" y="274">Next action and owner.</text>
+  </g>
+</svg>

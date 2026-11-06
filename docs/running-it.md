@@ -2,6 +2,8 @@
 
 Start with the runtime your team already uses. [Try the method](../README.md#try-shotos) with an acceptance card or run the local demo. The [install guide](../README.md#install) shows how to preview what changes in your project.
 
+![Try the acceptance card in chat, preview a project install, or run the local demo.](images/setup-first-run.svg)
+
 | Runtime | Setup | What it gives you |
 |---|---|---|
 | **Claude Code** | `--runtime claude --scope project` | Skills and project rules. Add `--with-hook` for the Stop hook and `--with-agents` for role agents. |

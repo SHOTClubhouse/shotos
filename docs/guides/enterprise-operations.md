@@ -11,6 +11,8 @@ You run operations for a large business: thousands of staff, many sites, a techn
 
 ## A first 90 days
 
+![An invoice-query pilot moves from a baseline and 30 past examples to one use case and an independently run cycle.](../images/enterprise-invoice-pilot.svg)
+
 | Weeks | Stage | What happens | SHOTos assets |
 |---|---|---|---|
 | 1 to 2 | Scope | Pick one value stream with a visible pain, for example supplier invoice queries. Map the flow, record today's numbers, name the owner. | [capture-the-problem](../../skills/capture-the-problem/README.md), [stakeholder-map](../../skills/stakeholder-map/README.md), [baseline](../../skills/baseline/README.md) |

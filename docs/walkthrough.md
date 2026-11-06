@@ -40,6 +40,8 @@ The [reference report](../examples/walkthrough/reference/4-report.md) records fi
 
 ## 4. Track
 
+![Harbourside has a baseline of 7 repeat repair emails out of 12 and five drafts, one parked. Track holds for live evidence.](images/harbourside-track-decision.svg)
+
 > Build an evidence pack for the operations lead. Compare the repeat repair email rate against Scope and recommend whether to proceed to Own, pivot, stop or hold for evidence.
 
 For the supplied files, record the draft checks and leave the live result open. The next evidence needed is a comparable enquiry window after approved updates have actually gone out.

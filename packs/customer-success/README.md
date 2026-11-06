@@ -12,6 +12,8 @@ Both skills work from evidence, keep facts separate from opinions and draft any 
 
 ## Skills
 
+![Prepared, Offered and Accepted each require different evidence. An independent cycle is a separate Own check.](../../docs/images/handoff-status-evidence.svg)
+
 | Skill | Stage | What it does |
 |---|---|---|
 | [success-handoff](skills/success-handoff/README.md) | Own | Hands an account to the person who will deliver. Lifecycle stage, health and transfer status are kept separate; transfer is only complete once accepted. |

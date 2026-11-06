@@ -15,6 +15,8 @@ You are starting something: a coaching business, an agency, a software product, 
 
 ## Example: a new coaching business
 
+![A coaching founder talks to managers and HR leads, seeks paid pilot commitments, runs a cohort and prepares a second coach.](../images/founder-coaching-pilot.svg)
+
 A founder is launching a coaching business for first-time managers.
 
 1. **Scope.** Ten conversations with first-time managers and ten with HR leads, captured as problem cards. Baseline: none yet, written as "not measured".

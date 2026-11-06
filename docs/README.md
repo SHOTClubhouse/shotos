@@ -1,5 +1,7 @@
 # Documentation
 
+Start with the [Harbourside example](walkthrough.md) to see how context travels from source evidence to a decision. If you already have a task, pick the guide that fits your role below.
+
 | If you want to | Read |
 |---|---|
 | See what you can make and do |  [What you can do](what-you-can-do.md): every job with a prompt to try |

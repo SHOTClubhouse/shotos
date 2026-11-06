@@ -26,6 +26,8 @@ The stages work for business change, technical change, or both at once. Below, e
 
 ## Run a programme
 
+![Source evidence, acceptance checks and authority feed the programme record. The next person gets the checked result, the gaps and a named decision owner.](images/context-to-decision.svg)
+
 Keep one [programme record](../templates/programme.md) in the existing project. Name the sponsor who can change scope or authorise rollout, the delivery lead who runs the pilot, and the receiving lead who accepts operational ownership. For each stage, record the named decision owner, the artefact links, the gate decision and date, and the next action. Mark missing evidence and the person who can resolve it.
 
 | Stage | Start from | Pass forward | Decision owner |

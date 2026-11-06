@@ -31,6 +31,8 @@ Either way, your first request can be as simple as: "Before you start, agree wit
 
 ## A first month
 
+![First month: count allergy enquiries, check a draft answer page, draft the week’s posts, and count enquiries again.](../images/small-business-first-month.svg)
+
 | Week | What to try | Skill or template |
 |---|---|---|
 | 1 | Write down one thing that eats your time, for example answering the same allergy questions by phone and message. Count how many you get in a week. | [problem template](../../templates/problem.md), [baseline](../../skills/baseline/README.md) |
