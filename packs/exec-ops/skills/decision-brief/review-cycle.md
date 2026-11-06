@@ -28,6 +28,12 @@ Use one row per cycle in the owning record. Use the accepted-work ledger if the 
 
 Keep missing measures blank or mark them unmeasured. Track attempts and model spend when available. A faster draft is only one part of the cycle. Compare the time and corrections needed to get to a human-accepted brief, and check whether the next operator could run it. Record a sponsor decision to continue, revise or stop before expanding to another team.
 
-## Worked example
+## Try a worked scenario
 
-A fictional service team has one slot each week to help an account finish onboarding. Its weekly brief shows a customer has received the guide. The deal says Pilot, but the latest call only records agreement to try the workflow. The recommendation is to reserve planning time and hold the live session until a named staff tester, permitted access and receiving lead are confirmed. The sponsor's choice is pending. The prepared handoff links both sources, names the access decision owner and tells the proposed receiver how to check the next week's evidence. No offer, acceptance or independent cycle is recorded. The next operator can use those sources to refresh the recommendation without relying on the first author.
+Each scenario gives you fictional inputs, a worked brief, the decision and handoff evidence, and a prompt you can reuse. Read the inputs first and compare your result with the worked output.
+
+| Scenario | What it demonstrates |
+| --- | --- |
+| [Retail trial](scenarios/retail-trial.md) | Limit the next wave and recognise an independent cycle that ends in a decision to stop. |
+| [Bank remediation](scenarios/bank-remediation.md) | Hold a closure decision when a source is missing and keep an unsent handoff Prepared. |
+| [Startup proposal](scenarios/startup-proposal.md) | Keep unapproved terms private and record a failed independent cycle when the next operator needs the original author. |

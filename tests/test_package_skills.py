@@ -42,6 +42,13 @@ class PackageSkillsTests(unittest.TestCase):
             self.assertIn("(review-cycle.md)", (installed / "SKILL.md").read_text(encoding="utf-8"))
             with zipfile.ZipFile(target / "decision-brief.zip") as archive:
                 self.assertEqual(archive.read("decision-brief/review-cycle.md"), workflow)
+                for name in ("retail-trial", "bank-remediation", "startup-proposal"):
+                    with self.subTest(scenario=name):
+                        relative = f"scenarios/{name}.md"
+                        self.assertIn(f"({relative})", workflow.decode("utf-8"))
+                        content = (installed / relative).read_bytes()
+                        self.assertIn(b"Fictional scenario", content)
+                        self.assertEqual(archive.read(f"decision-brief/{relative}"), content)
 
     def test_unknown_pack_is_refused(self):
         with tempfile.TemporaryDirectory() as tmp:
