@@ -8,11 +8,23 @@ SHOTos is an open-source delivery method for people and AI agents. Founders, ope
 
 [Try it](#try-shotos) · [Follow a worked example](docs/walkthrough.md) · [Find a skill](docs/what-you-can-do.md) · [Run the full pack](docs/full-pack.md)
 
-| Start with | What you get |
-| --- | --- |
-| [A proposal](packs/win-the-work/skills/contextual-proposal/README.md) | A draft grounded in what you can deliver, with a record of claims and commitments to check before sharing |
-| [A handoff](packs/customer-success/skills/success-handoff/README.md) | A brief the next person can act on, with the offer, acknowledgement and first action recorded separately |
-| [A change across teams](docs/walkthrough.md) | A worked example of testing one change, handing it over and deciding whether to scale |
+## Pick your starting point
+
+Choose the role that fits the work in front of you. Try it on one real task and use the check to decide whether to keep it.
+
+| I’m a… | Try this first | What would show it helped? |
+| --- | --- | --- |
+| **Business leader** | Use the [decision brief](packs/exec-ops/skills/decision-brief/README.md) to turn a stalled decision into options, evidence and a named decider. | The decider can choose an option or name the evidence they still need. |
+| **Founder** | Use [contextual proposal](packs/win-the-work/skills/contextual-proposal/README.md) to turn prospect notes into a draft for a named buyer. | A reviewer can trace the claims and see what needs approval before sharing. |
+| **Marketer** | Use the [content calendar](packs/social/skills/content-calendar/README.md) to plan one week around real events and available assets. | Each draft has a reason to exist, an owner and the assets needed for review. |
+| **Analyst** | Use the [evidence pack](skills/evidence-pack/README.md) to compare a pilot with its baseline. | A sponsor can see the sample, the result and the gaps before deciding. |
+| **HR or people lead** | Use the [enablement plan](skills/enablement-plan/README.md) to turn an onboarding workflow into a practice run with a clear owner. | The person taking it on can complete the agreed steps independently and show the evidence. |
+| **Junior team member** | Use the [acceptance card](templates/acceptance.md) to turn an unclear assignment into examples of good work and one case that should fail. | Your lead can confirm what done looks like and you can check the result yourself. |
+| **Tech leader or product owner** | Use [example mapping](skills/example-mapping/README.md) to turn a feature request into testable examples and open questions. | The team can identify a first slice and the examples that decide whether it works. |
+
+**The hypothesis.** If you start with a task from your own role, give the assistant the source and agree a check, you can judge the first result against your work. If the result helps, save the accepted example and reuse it on the next task.
+
+See a [worked customer handoff](packs/customer-success/skills/success-handoff/README.md) or [follow a change across all six stages](docs/walkthrough.md).
 
 ## Make it your team
 
