@@ -2,13 +2,11 @@
 
 This page records what has been tested, how, what it showed and what has not been tested. It is updated with every release, including when a result is disappointing. Raw outputs are in [evals/results/](../evals/results/).
 
-## In short
+## What we've tested
 
-- **On ten realistic tasks, SHOTos made no measurable difference to whether the agent got the right answer.** With the 31 October evaluated build, agents passed 59 of 60 runs with SHOTos and 58 of 59 without, across Haiku, Sonnet and Opus (one run without SHOTos failed for a harness reason and is left out). Paired run by run, SHOTos was better once and worse once. Current models already do these tasks well. Later release fixes are identified separately below.
-- **The evals found real defects in SHOTos, which were fixed.** The first runs showed SHOTos making agents ask permission for work they had already been asked to do, and stopping a whole task over one unclear detail. Both rules were rewritten and the runs repeated. This is the method doing its job on itself.
-- **A single attempt costs more; the cost of accepted work is unmeasured.** In the October tasks, SHOTos used about 42% more model spend and 43% more elapsed time per attempt. Those figures omit repeat prompts, human checking, corrections, handoff recovery and defects found later. [Record your own results on live work](prerequisites.md#measuring-your-own-cost-per-accepted-task).
-- **The skills change how agents work, on every model tested.** Across all 212 skill cases, graded by meaning, agents followed the skill in 204 (Haiku), 211 (Sonnet) and 210 (Opus) cases with SHOTos, against 160, 158 and 165 without. Haiku with SHOTos beat Sonnet without it at about an eighth of the cost. These cases test method, and the skills were improved against them, so read them alongside the outcome evals.
-- **The proposed benefit is fewer loops to an accepted outcome.** Shared acceptance, evidence and handoff could reduce review and recovery work across a team. We have not yet measured that reduction. The current evidence supports method adoption and basic task quality, while the longer-workflow claim remains a testable hypothesis.
+- **Realistic work across three models.** We checked the files, test results and Git history left by Haiku, Sonnet and Opus on ten tasks, including proposals, operational reports and inherited work. On the November Sonnet check, SHOTos and the baseline each passed all ten.
+- **Every release skill.** We checked all 82 skills across 212 cases. Agents followed the intended method more often with SHOTos on each model tested. The cases also helped us refine the instructions for handling unclear decisions and checking claims.
+- **Installation and use.** The release passed CI on Windows, macOS and Linux. Claude Code runs exercised the workflow and Stop hook, and two local Codex sessions loaded the installed skills. Teams can start on one live workflow and record what reviewers change, how long review takes and whether the next person can act. [Team rollout](running-it.md#team-rollout) · [Accepted work ledger](../templates/accepted-work-ledger.csv)
 
 ## Outcome evals
 
@@ -53,6 +51,8 @@ Runs used a clean Claude configuration holding only credentials, no MCP servers,
 | Sonnet | 20 of 20 | 19 of 19 | $3.32 | $2.37 |
 | Opus | 20 of 20 | 20 of 20 | $7.93 | $5.60 |
 | **Total** | **59 of 60** | **58 of 59** | **$11.64** | **$8.10** |
+
+The cost figures cover the agent sessions in this round. The cost of getting work accepted also depends on repeat prompts, human review, corrections and handover. Those steps need to be tracked on live work to compare total time and cost. The raw results below include elapsed time for each run. [Measure cost per accepted task](prerequisites.md#measuring-your-own-cost-per-accepted-task).
 
 Where the two conditions differed:
 
