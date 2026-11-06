@@ -1,64 +1,26 @@
-# Where to run SHOTos
+# Run SHOTos in your project
 
-SHOTos is files: rules, skills, templates and small Python tools. It runs wherever an agent or assistant can read instructions. Some places give you more of it than others.
+Start with the runtime your team already uses. The [quickstart](../README.md#install) takes you through the local demo, a preview of what the installer writes and a first task to try.
 
-## Can I use it with...
+| Runtime | Setup | What it gives you |
+|---|---|---|
+| **Claude Code** | `--runtime claude --scope project` | Skills and project rules. Add `--with-hook` for the Stop hook and `--with-agents` for role agents. |
+| **Codex** | `--runtime codex --scope project` | Skills in `.codex/skills` and rules in `AGENTS.md`. Run claim-check from a terminal. |
+| **Gemini CLI** | `--runtime gemini --scope project` | Skills in `.gemini/skills` and an import of `AGENTS.md` in `GEMINI.md`. Verify skill loading in your runtime before adoption. |
+| **Antigravity** | `--runtime antigravity --scope project` | Skills in `.agents/skills` and an import of `AGENTS.md` in `GEMINI.md`. Verify skill loading in your runtime before adoption. |
+| **Several local runtimes** | `--runtime all --scope project` | Shared project rules and skills in the relevant runtime folders. Review the install plan for each tool your team uses. |
+| **Other compatible local agents** | `--runtime agents --scope project` | The shared `.agents/skills` directory and project rules. |
+| **Claude app** | Download individual skill ZIPs from the [release](https://github.com/SHOTClubhouse/shotos/releases/tag/v1.0.0) and upload them in a compatible setup. Add the [project rules](../templates/AGENTS.md) to your Project instructions. | Skills and written rules. |
+| **ChatGPT or another assistant** | Add the [project rules](../templates/AGENTS.md) and the relevant skill files to a project or assistant that can read them. | The workflow as instructions and templates. |
+| **Manual** | Copy the [templates](../templates/) into the tools you already use. | Briefs, checklists, decision records and handovers. |
 
-| Where | Can you use it? | How | What you get |
-|---|---|---|---|
-| **Claude app or claude.ai** (no terminal) | Yes | Make skill zips with `python tools/package_skills.py --pack <name>`, then upload each under Settings, Capabilities, Skills. Paste the [AGENTS.md template](../templates/AGENTS.md) into a Project's instructions | The skills and the four rules. Connectors from the app (Google Drive, Gmail, Calendar) give the exec and content skills real data. No claim-check hook |
-| **Claude Code** (terminal, VS Code or desktop) | Yes, fully | `python install.py --runtime claude --scope project --with-hook --with-agents --pack <name>` for everything, or the plugin marketplace for the skills only. The plugin route does not install `AGENTS.md` or the `@AGENTS.md` import, so the four rules need the installer or a pasted copy of [AGENTS.md](../templates/AGENTS.md) | With the installer: skills, packs, role agents, rules, claim-check and the Stop hook. With plugins: the skills |
-| **ChatGPT** | Partly | Put the [AGENTS.md template](../templates/AGENTS.md) in a Project's or custom GPT's instructions and add the `SKILL.md` files you need as project files. If your ChatGPT plan offers skills, the same zips may upload; check your plan | The method and the rules as instructions. No hook, no role agents |
-| **Codex** (CLI or app) | Yes | `python install.py --runtime codex --scope user --pack <name>`, and copy the AGENTS.md template into each project | Skills and rules. Run claim-check yourself on reports |
-| **Gemini CLI** | Yes | `python install.py --runtime gemini --scope project --pack <name>`. It puts the skills in `.gemini/skills`, copies `AGENTS.md` and adds `@AGENTS.md` to `GEMINI.md`, so the same four rules load | Skills and rules. Run claim-check yourself. Not live-tested: on 3 November 2026 the Gemini CLI refused to start for a free individual account and pointed to Antigravity |
-| **Antigravity** | Yes | `python install.py --runtime antigravity --scope project --pack <name>`. It puts the skills in `.agents/skills`, copies `AGENTS.md` and adds `@AGENTS.md` to `GEMINI.md`. User scope installs to `~/.gemini/config/skills`, the global folder the Antigravity docs give | Skills and rules. Not live-tested: the paths follow the Antigravity docs, and the Antigravity CLI was not installed on the test machine | Skills and rules. Run claim-check yourself |
-| **PowerShell** | Yes, as the terminal | PowerShell is where you run the installer and claim-check, and where you start Claude Code, Codex or Gemini CLI. It is not an agent itself | Same as the agent you run in it |
-| **macOS or Linux terminal** | Yes | Same commands in Terminal, iTerm or any shell: `python3 install.py ...` | Same as on Windows. The automated tests pass in CI on both; a live agent run has only been done on Windows |
-| **No agent at all** | Yes | Print or copy the [templates](../templates/) | The method on paper |
+Pass these flags to `python /path/to/shotos/install.py` from the project you want to configure. Add `--pack <name>` once per pack, `--list-packs` to see the options and `--dry-run` to preview the plan. Use `--scope user` for a skills-only install where supported. Claude Code's plugin marketplace is another way to install the skills. [Security and installer behaviour](../SECURITY.md)
 
-## Recommendation
+## Team rollout
 
-| If you are | Use |
-|---|---|
-| Not technical, or new to agents | The **Claude app** with uploaded skills and your Google connectors, or **Claude Code in VS Code** if you are happy to install it |
-| Comfortable in a terminal | **Claude Code**: it is the only place where everything SHOTos ships works, including the Stop hook |
-| A team that uses several tools, or Codex, Gemini or Antigravity | `--runtime all`, so every tool loads the same rules and skills, and add claim-check to your review |
-| Doing work that matters | **Two runtimes:** one leads, a different one reviews. See [multi-agent patterns](multi-agent-patterns.md) |
+1. Pin a release and preview a project install in an isolated checkout. If the project already has an `AGENTS.md`, review the SHOTos rules and merge the ones you want into your existing instructions.
+2. Choose one real workflow and a person who can accept the result. Start with read-only access to sources and a draft for review. Check that the agent opens the expected skill in a fresh session.
+3. Check the output in the tool where it lives. Use claim-check for supported completion claims and review the quality of the result against your acceptance examples. Your agent runtime and connector settings control access, external actions and approvals.
+4. Record the fixes the reviewer requested, their review time and whether the next owner could act. Expand to other workflows when the people doing the work find it useful. [Accepted work ledger](../templates/accepted-work-ledger.csv)
 
-## One canon for every runtime
-
-Use more than one tool and want them to behave the same? Run `python install.py --runtime all --scope project --pack <name>`. It writes one `AGENTS.md`, which is the single source of the four rules, and points every tool at it:
-
-- **Claude Code** reads `CLAUDE.md`, which gets one line, `@AGENTS.md`.
-- **Gemini CLI and Antigravity** read `GEMINI.md`, which gets the same line.
-- **Codex** reads `AGENTS.md` itself.
-
-The skills go in `.claude/skills` for Claude Code and in `.agents/skills` for Codex, Gemini CLI and Antigravity, which all read that shared folder. Edit `AGENTS.md` once and every tool follows it. Uninstall removes exactly what the install added. Live runs have only been done on Claude Code so far; the other tools' folders follow their own documentation, and Codex's `.agents/skills` support rests on strings in its binary, not on a session.
-
-## Terminals
-
-The tools need only Python 3.9 or later and git. The Stop hook also needs `sh`, which Git for Windows provides.
-
-- **Windows:** PowerShell or Windows Terminal works for `install.py`, `package_skills.py` and `claim-check`. Install Git for Windows too: the Stop hook runs through `sh`, which comes with it.
-- **macOS:** Terminal or iTerm with zsh. Use `python3` if `python` is not found.
-- **Linux:** any shell.
-
-## What works where
-
-| Feature | Claude Code | Claude app | Codex | Gemini CLI, Antigravity | ChatGPT |
-|---|---|---|---|---|---|
-| Skills | Yes | Yes, uploaded as zips | Yes | Yes, from the project folder | As project files or instructions |
-| Four rules (`AGENTS.md`) | Yes, loaded automatically | Paste into Project instructions | Yes, read natively | Yes, through `GEMINI.md` or natively | Paste into instructions |
-| claim-check by hand | Yes | Run it in a terminal on the report | Yes | Yes | Run it in a terminal on the report |
-| claim-check Stop hook | Yes | No | No | No | No |
-| Role agents | Yes, `--with-agents` | Paste an agent's body into a Project | Paste as instructions | Paste as instructions | Paste as instructions |
-| Review lenses | Yes | Yes | Yes | Yes | Yes |
-| Connectors (mail, drive, slides, speech) | Your MCP servers and connectors | The app's connectors | Your MCP servers | Your MCP servers or extensions | ChatGPT's connectors |
-
-To connect slides, speech, images, mail and the browser, see [connect your tools](connect-your-tools.md).
-
-## Permissions to start with
-
-Whatever you use, start with the agent asking before it runs commands or edits outside the project. Then allow specific safe commands, such as your test command, `git status` and `python .shotos/tools/claim_check.py`, as you build trust. Never allow sending, posting, spending, deleting or publishing in advance. See [prerequisites](prerequisites.md) for what each permission means, and the [graduation ladder](../rules/12-graduation.md) for earning more autonomy one task class at a time.
-
-Tested so far: live runs with Claude Code on Windows, and the automated tests in CI on Windows, macOS and Linux. The Claude app upload, Codex, Gemini, Antigravity and ChatGPT, and live runs on macOS and Linux, are on the [roadmap](roadmap.md) for testing.
+Claude Code has live workflow and Stop hook evidence. Codex has local skill-loading smoke evidence. The release test matrix covers Windows, macOS and Linux on Python 3.9 and 3.13. Validate the agent, connector access and approval path in your own environment before rolling it out. [Validation evidence](evidence.md) · [Connect your tools](connect-your-tools.md) · [Claim-check](claims.md)
