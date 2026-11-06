@@ -7,6 +7,12 @@ description: "Agrees what done looks like before work starts: concrete checks, w
 
 Write down how everyone will know the work is finished before starting it. It takes five minutes and saves the rework that comes from building the wrong thing well.
 
+## Context and handoff
+
+Read the actual request and last accepted comparable result. Identify the named person who can accept and what evidence would make them reject it.
+
+Use `example-mapping` when rules are ambiguous. Save the card with the task and link it from the handoff.
+
 ## When not to use this
 
 Skip it for a quick answer to a question, or a trivial change the person can check at a glance. One sentence of expected result is enough there.

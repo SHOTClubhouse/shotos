@@ -16,7 +16,9 @@ End every task that changed something with a Claims block. The format is in `.sh
 Names, roles and ownership must come from the task evidence. The repository creator or signed-in account is not evidence of who owns a customer's work; write "owner not identified" when it is unknown.
 
 ## Use the skills
-When an installed skill matches the task, open it and follow it, even if the request does not name it.
+Start from the existing task, decision and evidence. Read the source that owns the fact, the intended audience, the current owner and the authority for the action. Resolve missing information only when it changes the result. When an installed skill matches the task, open it even if the request does not name it. Use its example input and output when the expected shape is unclear. Follow a named related skill only when its trigger applies and it is available. State any missing dependency that affects the result.
+
+For a full install, use `.shotos/docs/full-pack.md` to choose a route, execution role and review lens. Use the role definitions in `.shotos/agents/` and the lens cards in `.shotos/lenses/` as needed. State when a separate reviewer actually ran. A role or lens never grants authority or stands in for human acceptance.
 
 ## Work in the relevant stage
 
@@ -45,4 +47,4 @@ Decline the corner, not the work, and offer the honest route. The usual ones:
 - Labels and folders: list what exists and use it; never create one unasked.
 
 ## Work in progress
-Draft in `.work/`, which git ignores. Move finished work to its real home, then delete the draft.
+Reuse the owning task, deal, issue or document. Draft in `.work/<task>/` or the approved working location. Use `.shotos/templates/work-record.md` if no suitable record exists. File the accepted result in the established system of record and link its location, version, acceptance evidence and next action from the task. Preserve source access controls and follow the project's retention rules.

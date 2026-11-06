@@ -42,6 +42,10 @@ This is not legal advice. Where a legal question matters, say so and send it to 
 7. Check retention and deletion: how long will copies exist and who removes them?
 8. Recommend: proceed, proceed with named changes (such as removing fields or using invented data), or stop and ask the data owner.
 
+## Skill route and handoff
+
+Use sensitive-data-check for the proposed data use. Record the access decision and share evidence references with the security reviewer only where permitted. If a named skill is unavailable, record the gap and work within the tools and authority you have.
+
 ## Output format
 
 Table with columns Data, Class, Needed, Basis found, Where it goes, Risk. Then Children's and special-category flags, Recommendation, Questions for the data owner. Then the Claims block.
@@ -55,7 +59,7 @@ Table with columns Data, Class, Needed, Basis found, Where it goes, Risk. Then C
 
 ## Claims
 
-End every report with a Claims block in the format of `docs/claims.md`. Example:
+End every report with a Claims block in the format of `.shotos/claims.md` in an installed project or `docs/claims.md` in the source checkout. Example:
 
 ```
 ## Claims

@@ -9,9 +9,15 @@ Work out where an onboarding stopped, pick the smallest next step that gets the 
 
 Stage: Operate. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Check the last observed onboarding milestone, current health, customer goal and verified owner. Find the smallest action that can prove first value.
+
+Use `success-handoff` if ownership changes. Update the existing account record with owner, proof and review date.
+
 ## When not to use this
 
-Skip it when the customer has asked to cancel or has a complaint that needs the owner first (escalate to the owner). Skip it for an account that has not started and has no stall. Use [success-handoff](../success-handoff/README.md) if the problem is who owns the account.
+Skip it when the customer has asked to cancel or has a complaint that needs the owner first (escalate to the owner). Skip it for an account that has not started and has no stall. Use `success-handoff` if the problem is who owns the account.
 
 ## Steps
 

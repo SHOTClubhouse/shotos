@@ -9,6 +9,12 @@ Make it easy for a reviewer to find what they need, and make sure nobody sees wh
 
 Stage: Own. Rules served: 1 (stop at the boundaries), 4 (claim only what you can show) and 3 (read back the real result).
 
+## Context and handoff
+
+Read the diligence request, approved source locations, intended recipients and document owners. Check date, version and sensitivity before listing each item.
+
+Use `public-exposure-check` before external access. Maintain one index with access and missing items.
+
 ## When not to use this
 
 Skip it for a single document request. Do not use it to decide what the company should disclose; that is for the owner and legal adviser. Do not move, copy, delete or re-share files without the owner's yes.

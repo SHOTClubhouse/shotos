@@ -7,6 +7,12 @@ description: "Turns rough notes, a complaint, an idea or a request into a proble
 
 Before building anything, write down what is actually wrong. Most wasted work starts with a solution nobody checked against a problem.
 
+## Context and handoff
+
+Read the requester’s description and a concrete occurrence. Separate who experiences it, its effect and the solution they initially asked for.
+
+Use `stakeholder-map` if ownership is unclear. Keep the brief and baseline question with the task.
+
 ## When not to use this
 
 Skip it for a small, clear change where the problem is obvious and the fix is cheap to undo, such as a typo, a broken link or a one-line config change.

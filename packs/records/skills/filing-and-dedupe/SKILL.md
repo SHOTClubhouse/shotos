@@ -7,6 +7,12 @@ description: Organises a folder by owner and category and finds duplicates by si
 
 Stage: Operate. Rules: 1 (stop at the boundaries) and 3 (read back the real result).
 
+## Context and handoff
+
+Inspect the actual folder and the canonical records. Match duplicates by content and verify which location the owner relies on.
+
+Use `quarantine` for authorised relocation. Save a source-to-destination map and read back the result.
+
 ## When not to use this
 
 Skip folders under a legal hold or audit. Do not tidy a folder that nobody has asked you to tidy, or that someone else owns.

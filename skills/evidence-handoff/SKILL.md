@@ -7,6 +7,12 @@ description: Hands work to a person, team, agent or later session with state, ev
 
 A good handoff lets the next person continue in minutes without asking you anything.
 
+## Context and handoff
+
+Read the task record, original acceptance, actual output and receipts. Verify the current state independently of the previous status report.
+
+Use `resume-pack` for a new session. Keep one handoff linked to the artefact, open checks and named next action.
+
 ## Steps
 
 1. **State where the work is.** Pick one: *prepared* (drafted, not run or checked), *executed* (done and checked against the acceptance checks) or *accepted* (the owner said yes, with the record). Say which checks passed and which did not.

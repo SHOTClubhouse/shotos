@@ -9,6 +9,12 @@ Make the team able to run, fix and improve the result without the people who bui
 
 Stage: Own. Rules: 3 Read back the real result, 4 Claim only what you can show, 2 Agree acceptance first (the exit criterion).
 
+## Context and handoff
+
+Read the receiving team’s real permissions, capacity and current runbook. Agree an independent cycle that includes an exception.
+
+Use `runbook` for gaps and `rollout-plan` after the lead accepts the cycle. Record observed intervention and sign-off.
+
 ## When not to use this
 
 Skip it when the result is a one-off with no repeat, or when a vendor will run it permanently by contract (then plan the handover of requirements instead). Do not use training attendance as proof of ability.
@@ -20,7 +26,7 @@ Skip it when the result is a one-off with no repeat, or when a vendor will run i
 3. **Build the capability matrix.** Rows are people, columns are capabilities. Use four levels: 0 not yet, 1 can do with help, 2 can do alone, 3 can teach others. Score from observation of someone doing the task, not from self-rating alone. Show both the current level and the target level, and mark cells nobody can reach target in the window.
 4. **Check the single points of failure.** For every capability, count people at level 2 or above. Flag any with fewer than two.
 5. **Set the pairing schedule.** Use a progression: builder does and the learner watches, learner does and the builder watches, learner does alone and the builder reviews afterwards. Give dates, pairs, the task and the time box. Keep sessions short and tied to real work.
-6. **Plan train-the-trainer.** Choose one or two people per capability who will teach others, give them the teaching material (the [runbook](../runbook/README.md) and worked examples), and have them teach once while the builder watches. Leave a written guide so new joiners do not depend on a person.
+6. **Plan train-the-trainer.** Choose one or two people per capability who will teach others, give them the teaching material (the `runbook` and worked examples), and have them teach once while the builder watches. Leave a written guide so new joiners do not depend on a person.
 7. **Write the exit criterion first.** Agree it before training starts: the team runs one full cycle of the process end to end, including a check and a handled fault, with the builders present only as observers and answering no questions unless asked to stop. Name the cycle, the date window, and what counts as a pass.
 8. **Plan the fault drill.** Introduce one safe, known fault (a bad input in a test copy, a missing value) and see whether the team finds and handles it using the runbook.
 9. **Set support after exit.** The builders' reduced role: a named contact for a set period, and the date it ends. Decide what is escalated to whom afterwards.

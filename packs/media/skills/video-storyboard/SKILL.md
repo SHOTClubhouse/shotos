@@ -9,6 +9,12 @@ Make a short video where the shots match each other, the rights are clear and th
 
 **Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the audience action, approved script, duration, platform and available assets. Resolve what must be captured versus illustrated.
+
+Use `voiceover` for timing or `product-demo-video` for live capture. Save the shot list and approved assets together.
+
 ## When not to use this
 
 Do not use it for a screen recording of a real product (use product-demo-video), for synthetic voices that imitate a real person, or for any video that presents generated footage as real events. Skip it for a one-shot clip with nothing to stitch.

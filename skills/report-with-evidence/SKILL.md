@@ -7,6 +7,12 @@ description: "Ends a task that changed something with a short report and Claims 
 
 An agent's report is evidence, not narration. Say what you checked, what you could not check and what you are assuming.
 
+## Context and handoff
+
+Read the saved output and run results before drafting a completion claim. Check receipts for external actions and mark unchecked claims.
+
+Use `evidence-handoff` if work passes to another owner. Keep the Claims block with the task outcome.
+
 ## Steps
 
 1. **Check the work in its real home before reporting.** Open the file you wrote. Run the tests you say pass. Look at the commit you say you made. Do not report from memory of what you intended.

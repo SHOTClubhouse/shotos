@@ -9,6 +9,12 @@ Turn a process that works into instructions a different person can follow withou
 
 Stage: Own. Rules: 3 Read back the real result, 4 Claim only what you can show, 1 Stop at the boundaries.
 
+## Context and handoff
+
+Observe the existing process and read current access and exception records. Have the intended operator attempt it using the instructions.
+
+Use `enablement-plan` if they need training or a supervised exit. Save the runbook in the team’s maintained location.
+
 ## When not to use this
 
 Skip it for a one-off task that will never repeat. Do not write a runbook for a process nobody has run successfully; run it first, or say the runbook is a draft from the design and mark every step "not yet run".

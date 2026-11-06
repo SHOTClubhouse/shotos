@@ -20,6 +20,8 @@ Seven lenses ship here:
 
 ## How they appear in the conversation
 
+Project installs place these cards in `.shotos/lenses/`. See the [full-pack guide](../docs/full-pack.md) for how lenses relate to audience personas and execution roles. On an installed project, open `.shotos/docs/full-pack.md`.
+
 Each lens drops into the agent's reply as a short quote block that starts with its marker and name, set apart from the work:
 
 | Lens | Default marker |

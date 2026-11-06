@@ -9,6 +9,12 @@ Write an announcement that claims no more than the relationship supports, with e
 
 **Stage:** Operate. **Rules served:** rule 1 (stop at the boundaries), rule 4 (claim only what you can show) and rule 2 (agree acceptance first).
 
+## Context and handoff
+
+Read the signed announcement facts, names, dates, quote permissions and embargo. Flag the difference between membership, integration and partnership.
+
+Use `claims-audit` before review. Keep the public copy and approval evidence separately in the announcement record.
+
 ## When not to use this
 
 Do not use it to announce something not yet agreed, to invent endorsement, or for a crisis statement that needs legal review. Do not use it to publicise a conversation: a conversation is not news.

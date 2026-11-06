@@ -9,6 +9,12 @@ Capture a decision while the reasons are fresh, in one page, so that later reade
 
 Stage: any, most often Track. Rules: 4 Claim only what you can show, 1 Stop at the boundaries.
 
+## Context and handoff
+
+Read the original decision, options, constraints and who had authority. Record the decision date and what would reopen it.
+
+Use `progress-wrap-up` when communicating impact. Keep the decision in the existing project log and link to the evidence.
+
 ## When not to use this
 
 Skip it for a trivial or easily reversed choice that no one will ask about. Do not use it to make the decision: the agent records a decision a named person has made or drafts options for them to choose between.

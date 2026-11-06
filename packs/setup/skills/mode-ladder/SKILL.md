@@ -9,6 +9,12 @@ Stage: Scope. Rules: 1 (stop at the boundaries) and controls 3 (mode contract) a
 
 Effort should follow the work. A larger setting buys more thinking, more context and more checking; it never buys more permission.
 
+## Context and handoff
+
+Read the actual action, risk, authority and observed evidence from earlier runs before selecting autonomy.
+
+Use `graduation-ladder` for any promotion. Record the current rung and stop condition with the task class.
+
 ## When not to use this
 
 Skip it for a one-line question. Do not use the level to decide what is allowed; authority comes from the owner and is set per task under control 3.

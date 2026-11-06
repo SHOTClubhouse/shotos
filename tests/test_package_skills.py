@@ -23,6 +23,8 @@ class PackageSkillsTests(unittest.TestCase):
                     top = {n.split("/")[0] for n in names}
                     self.assertEqual(top, {z.stem})
                     self.assertIn(f"{z.stem}/SKILL.md", names)
+                    self.assertIn(f"{z.stem}/example-input.md", names)
+                    self.assertIn(f"{z.stem}/example-output.md", names)
                     self.assertIn(f"{z.stem}/LICENSE-docs.md", names)
                     self.assertIn(f"{z.stem}/LICENSE", names)
 

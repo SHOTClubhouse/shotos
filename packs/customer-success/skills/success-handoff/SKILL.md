@@ -9,6 +9,12 @@ Make a handoff that the receiver can act on and that cannot be mistaken for done
 
 Stage: Own. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the account record, commitments, last interaction and access restrictions. Resolve conflicts between CRM labels and observed customer behaviour.
+
+Use `enablement-plan` if the receiving team must prove an independent cycle. Keep acknowledgement and first action with the account.
+
 ## When not to use this
 
 Skip it for a quick note about one conversation, or for an account that is staying with the same person. Draft a brief while a receiver is being confirmed. A live transfer needs the current owner's authority and the receiver's acceptance.

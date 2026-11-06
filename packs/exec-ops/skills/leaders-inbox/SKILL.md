@@ -9,6 +9,12 @@ Take unstructured input and give back a short list of recommendations, each rout
 
 Stage: Scope. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
 
+## Context and handoff
+
+Check the leader’s current priorities, deadlines, delegated owners and existing decisions before creating an action.
+
+Use `decision-brief` when a decision needs options. Update the existing task or decision log rather than duplicating it.
+
 ## When not to use this
 
 Skip it for a single, already-clear task (just do it or file it), for a finished decision that only needs recording, or when the leader wants a brainstorm rather than routing.
@@ -19,7 +25,7 @@ Skip it for a single, already-clear task (just do it or file it), for a finished
 2. **Reduce each item to meaning.** Write one sentence for what it means for the work, then label each statement: **fact** (checked or sourced), **hypothesis** (a belief to test) or **target** (something wanted). Never present a hypothesis or target as fact.
 3. **Match against existing records.** Search the leader's task list, decision log and project notes for the same thing. If a match exists, update that record or link to it; do not create a duplicate.
 4. **Route to exactly one outcome.**
-   - **Decision:** a choice only the leader can make. State the question and who decides. Hand to [decision-brief](../decision-brief/README.md) if it needs preparing.
+   - **Decision:** a choice only the leader can make. State the question and who decides. Hand to `decision-brief` if it needs preparing.
    - **Task:** work with a clear home. Put it in the owning project with owner, scope, evidence of done and dependencies. If any of those is unknown, mark it "needs detail" rather than guessing.
    - **Shared context:** background others need to see; add it to the project's notes.
    - **Long-term memory:** only when the leader explicitly says to remember it. Otherwise never write to memory.

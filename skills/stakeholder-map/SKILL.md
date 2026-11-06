@@ -9,6 +9,12 @@ Write down who is involved, what each one wants, and how you know. A map that mi
 
 **Stage:** Scope. **Rules:** 4 Claim only what you can show; 1 Stop at the boundaries.
 
+## Context and handoff
+
+Read the project mandate and existing contacts. Verify who decides, who does the work and whose consent or input is required.
+
+Use `decision-brief` when conflicting needs require a decision. Save the map with the owning programme.
+
 ## When not to use this
 
 Skip it for a task that touches only you and one reader. A single line naming the reader is enough there. Do not use it to profile private individuals beyond their role in this work.

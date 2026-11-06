@@ -9,6 +9,12 @@ Stage: Sustain and Scale. Rules: 3 (read back the real result) and control 3 (ca
 
 If shared instructions, skills and settings can change in two places, they will. Make one repository the shared version, and let each person's tools be copies of it.
 
+## Context and handoff
+
+Read current tracked instructions, local overrides and the versions actually in use. Diff before applying any sync.
+
+Use `skill-quality-gate` when a change affects behaviour. Record source revision and rollback in the configuration change.
+
 ## When not to use this
 
 Skip personal tweaks that nobody else needs and nobody wants to keep. Never put secrets, tokens or machine-specific paths in the shared repository.

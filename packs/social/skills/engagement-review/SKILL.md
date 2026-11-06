@@ -7,6 +7,12 @@ description: Reviews comments, mentions and messages on a social account and pro
 
 Stage: Operate. Rules served: 1 Stop at the boundaries, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the channel, time window, public thread context and existing response rules. Separate questions, complaints and routine engagement.
+
+Use `caption-options` only for content drafting. Record recommended replies and escalations beside the relevant threads.
+
 ## When not to use this
 
 - The person wants the agent to like, follow, comment or message on their behalf, or to run a bot. It will not. Platform terms forbid automation of these actions, and audiences notice.

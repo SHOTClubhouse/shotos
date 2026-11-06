@@ -9,16 +9,22 @@ One agent reviewing its own work is a second look by the same eyes. A reviewer f
 
 **Stage:** Operate. **Rules:** 3 Read back the real result; 4 Claim only what you can show. Detail: `rules/07-independent-review.md` (in the SHOTos repository, or `.shotos/rules/07-independent-review.md` where SHOTos is installed).
 
+## Context and handoff
+
+Give the reviewer the same acceptance, source snapshot and changed artefact. State whether another agent really ran and record disagreements.
+
+Use `decision-record` when findings need a decision. Save both assessments and the final disposition together.
+
 ## When not to use this
 
 Skip it for low-risk, easily reversed work. A second agent costs time and money, and a review of a trivial change teaches nothing. Do not use it as a substitute for the owner's decision.
 
 ## Steps
 
-1. **Check the risk calls for it.** Use the route from [route-the-work](../route-the-work/README.md). Medium risk or above, or any `external`, `money`, `personal-data`, `legal` or `irreversible` tag, means yes. If the route is low risk, say why a review is not needed.
+1. **Check the risk calls for it.** Use the route from `route-the-work`. Medium risk or above, or any `external`, `money`, `personal-data`, `legal` or `irreversible` tag, means yes. If the route is low risk, say why a review is not needed.
 2. **Choose the reviewer from a different model or runtime.** For example, if the lead is Claude Code, the reviewer is Codex, or the reverse; or a different model through the same tool. Same model with a fresh session is better than none, but say it is weaker. Say which is which in the record.
 3. **Prepare one packet for both agents.** It holds:
-   - the acceptance card ([agree-acceptance](../agree-acceptance/README.md)), unchanged;
+   - the acceptance card (`agree-acceptance`), unchanged;
    - the evidence: the real output, the inputs, test results, links or file paths;
    - the boundaries: what neither agent may do (no sending, spending, deleting, deploying or publishing).
 4. **Keep the reviewer independent.** Do not tell the reviewer the lead's conclusion, or which parts the lead is unsure about, until its first report is in. Give the reviewer read-only access unless the owner has agreed otherwise.

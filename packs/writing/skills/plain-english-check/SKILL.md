@@ -9,6 +9,12 @@ Make a draft readable on the first pass by the person it is for, without changin
 
 **Stage:** Track. **Rules served:** rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the reader’s task, decision and terms they already use. Preserve legally or technically meaningful language when simplifying.
+
+Use `claims-audit` if a proposed edit changes meaning. Record the edited text in the original document.
+
 ## When not to use this
 
 Do not use it on legal wording, quoted text, regulated notices or anything that must stay word for word. Flag the problems and leave the text alone there. Do not use it to shorten a draft whose length the owner has fixed.

@@ -9,6 +9,12 @@ Turn scattered notes about who knows whom into one honest map, so the next move 
 
 Stage: Scope. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
 
+## Context and handoff
+
+Read existing records, meeting notes and public role evidence. Distinguish observed links from hypotheses and date material relationships.
+
+Use `leap-pipeline` for an evidenced opportunity. Maintain the map beside the existing account or market record.
+
 ## When not to use this
 
 Skip it for a single known contact with nothing around them. Do not use it to compile files on private individuals: record professional roles and links the person has seen or been told, and leave out anything personal that does not bear on the work.

@@ -78,6 +78,25 @@ class InstallTests(unittest.TestCase):
         self.assertFalse((self.root / "GEMINI.md").exists())
         self.assertFalse((self.root / ".agents").exists())
 
+    def test_full_pack_ships_context_and_preserves_existing_project_agreement(self):
+        agreement = self.root / "AGENTS.md"
+        original = b"# Project instructions\r\nKeep the existing task owner."
+        agreement.write_bytes(original)
+        result = run("--runtime", "all", "--scope", "project", "--target", str(self.root), "--all-packs")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn(".shotos/templates/AGENTS.md", agreement.read_text(encoding="utf-8"))
+        for name in ("docs/full-pack.md", "templates/work-record.md", "agents/qa-lead.md", "lenses/customer.md"):
+            self.assertTrue((self.root / ".shotos" / name).is_file(), name)
+        for folder in (".claude/skills", ".agents/skills"):
+            installed = self.root / folder
+            self.assertEqual(len(list(installed.glob("*/SKILL.md"))), 82)
+            for skill in installed.iterdir():
+                self.assertTrue((skill / "example-input.md").is_file(), skill.name)
+                self.assertTrue((skill / "example-output.md").is_file(), skill.name)
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertEqual(agreement.read_bytes(), original)
+        self.assertEqual(list(self.root.iterdir()), [agreement])
+
     def test_codex_reads_agents_md_itself_so_no_import_file_is_made(self):
         result = run("--runtime", "codex", "--scope", "project", "--target", str(self.root))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
@@ -186,9 +205,13 @@ class InstallTests(unittest.TestCase):
         self.assertFalse((self.root / ".shotos-install.json").exists())
 
     def test_existing_agents_file_is_never_overwritten(self):
-        (self.root / "AGENTS.md").write_text("mine", encoding="utf-8")
+        agreement = self.root / "AGENTS.md"
+        agreement.write_text("mine", encoding="utf-8")
         self.install()
-        self.assertEqual((self.root / "AGENTS.md").read_text(encoding="utf-8"), "mine")
+        self.assertEqual(agreement.read_text(encoding="utf-8").splitlines()[0], "mine")
+        self.assertIn(".shotos/templates/AGENTS.md", agreement.read_text(encoding="utf-8"))
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertEqual(agreement.read_text(encoding="utf-8"), "mine")
 
 
     def test_packs_and_agents_install_and_uninstall_cleanly(self):

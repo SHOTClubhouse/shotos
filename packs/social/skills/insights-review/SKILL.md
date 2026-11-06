@@ -7,6 +7,12 @@ description: Runs a monthly social insights review from the platform export and 
 
 Stage: Track, feeding Sustain and Scale. Rules served: 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the reporting period, metric definitions and prior baseline. Reconcile differences in denominators before calling a change.
+
+Use `content-calendar` to turn the strongest finding into a test. File the evidence with the channel review.
+
 ## When not to use this
 
 - No export or screenshots are available. Ask for them; do not recall or estimate numbers.

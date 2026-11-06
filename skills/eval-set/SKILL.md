@@ -9,6 +9,12 @@ For output that varies, "it looked fine when I tried it" is not a test. An eval 
 
 **Stage:** Hypothesise (reused in Operate and Track). **Rules:** 2 Agree acceptance first; 3 Read back the real result.
 
+## Context and handoff
+
+Read the acceptance card and actual recurring failure patterns. Include a normal case, an incomplete case and a boundary case where relevant.
+
+Use `example-mapping` to resolve unclear rules. Store the cases and grading conditions beside the work they check.
+
 ## When not to use this
 
 Skip it when the output is deterministic and ordinary tests already cover it, or for a one-off task where nobody will repeat the run. Do not invent inputs when real ones exist.

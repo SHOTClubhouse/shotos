@@ -9,6 +9,12 @@ Find out, with evidence, which tools this agent can use, so skills fail early an
 
 **Stage:** any, first used in Scope. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the task’s exact data needs and current connector inventory. Check account, scope and proof with a safe read before proposing writes.
+
+Use `mode-ladder` to choose authority. Record verified capabilities and gaps in the project setup notes.
+
 ## When not to use this
 
 Do not use it to set up accounts or create credentials; that is the owner's job. Do not use it to test a tool by doing real work with it.

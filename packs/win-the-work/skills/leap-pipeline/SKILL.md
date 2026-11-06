@@ -9,6 +9,12 @@ Keep every deal in one of four stages, move it only when the exit criteria are m
 
 Stage: any. It hands over into SHOTos Scope. Rules served: 3 (read back the real result) and 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the current CRM snapshot, stage definitions, prior contacts and actual buying signals. Confirm the record owner before proposing a stage change.
+
+Use `nudge-qualify` at the next decision gate. Record the evidence and next action in the existing deal.
+
 ## When not to use this
 
 Skip it for a single one-off enquiry that will close in a day, or when the person only wants a message drafted (use `email-reply` or `outbound-prospecting`). Do not use it to forecast revenue; a pipeline table shows evidence, not probability.

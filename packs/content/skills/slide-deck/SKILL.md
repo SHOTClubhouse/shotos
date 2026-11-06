@@ -9,6 +9,12 @@ Produce a deck whose story holds up as headlines alone, whose numbers are source
 
 **Stage:** Operate. **Rules served:** rule 2 (agree acceptance first), rule 3 (read back the real result) and rule 4 (claim only what you can show).
 
+## Context and handoff
+
+Read the decision brief and one approved visual reference. Choose the narrative from the audience’s decision and verify every figure against source.
+
+Use `claims-audit` for unsupported promises. Keep the editable deck, source notes and render check together.
+
 ## When not to use this
 
 Do not use it for a long document that nobody will present; write a document instead. For many decks tailored from one master, use the `proposal-factory` skill. For a reader-specific sales proposal, start with the `contextual-proposal` skill.

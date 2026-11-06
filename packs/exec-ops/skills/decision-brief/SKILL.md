@@ -9,6 +9,12 @@ Give the decision maker everything needed to choose in about two pages, and show
 
 Stage: Hypothesise. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the decision owner’s mandate, earlier decisions, available options and evidence that could reverse the recommendation.
+
+Use `decision-record` after a decision is made. Keep the brief and decision in the same owning record.
+
 ## When not to use this
 
 Skip it for a choice that is cheap and easy to reverse, for a question that has no real alternatives, or when the decision has already been made and only needs recording.
@@ -24,7 +30,7 @@ Skip it for a choice that is cheap and easy to reverse, for a question that has 
 7. **State what would change the decision.** A specific fact or result that would flip the recommendation, and who would see it first.
 8. **Note who is affected and who should be consulted.** Flag anything that touches people's data, contracts or money for the right review.
 9. **Read back.** Check each fact against its source, and check that no assumption has slipped into the facts list.
-10. **For an advisory group.** Add the questions you want the group to answer and hand the brief to the [advisory-session](../advisory-session/README.md) preparation. Record the group's input separately from this brief.
+10. **For an advisory group.** Add the questions you want the group to answer and hand the brief to the `advisory-session` preparation. Record the group's input separately from this brief.
 
 ## Output
 

@@ -4,6 +4,8 @@ SHOTos has the same six stages and the same four rules for everyone. The stages 
 
 Starting points on the maturity maps are typical patterns, not measurements. See [maturity levels](levels.md) for the two frameworks used here.
 
+The [full-pack guide](full-pack.md) maps all seven personas to starting skills and the records they hand forward. It also explains how the nine execution roles and seven review lenses fit into one task.
+
 ## Which persona am I?
 
 Pick the line that sounds most like your Monday.

@@ -9,6 +9,12 @@ Write the proposal that this reader needs, in their terms, with every claim trac
 
 Stage: Operate. Rules served: 3 (read back the real result) and 4 (claim only what you can show), and rule 1 (nothing is sent).
 
+## Context and handoff
+
+Read the buyer’s own words, organisation type, current constraints, approved offer and relevant prior proposal. Verify buyer-specific claims against current sources.
+
+Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitments in the deal working sheet.
+
 ## When not to use this
 
 Skip it when the reader is unknown and a generic one-pager will do, or when many near-identical proposals are needed (use `one-off-or-factory` first, then `proposal-factory`). If the person only wants a reply to a message, use `email-reply`.

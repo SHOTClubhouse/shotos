@@ -9,6 +9,12 @@ Mistakes multiply with the size of the run. A pilot of three items finds most of
 
 **Stage:** Operate. **Rules:** 1 Stop at the boundaries; 3 Read back the real result. Detail: `rules/09-pilot-before-scale.md` (in the SHOTos repository, or `.shotos/rules/09-pilot-before-scale.md` where SHOTos is installed).
 
+## Context and handoff
+
+Read the exact target list, authority, recovery route and change limits. Select varied items that include a failure or edge case.
+
+Use `evidence-pack` to decide from the pilot results. Keep batch receipts and rollback proof together.
+
 ## When not to use this
 
 Skip it when there are three items or fewer, or the run is read-only and can be repeated at no cost. Do not pilot a task you would do by hand in a minute.

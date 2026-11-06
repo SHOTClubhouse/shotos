@@ -9,9 +9,15 @@ Give a leader one page that says what moved this week, what they must decide and
 
 Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read this week’s operating figures, meetings and last week’s commitments. Separate new evidence, unresolved actions and repeated context.
+
+Use `progress-wrap-up` for delivery claims. File one dated brief and link to the owners’ records.
+
 ## When not to use this
 
-Skip it when nothing changed (send a one-line "no change" note instead), for an investor or board report with its own format, or as a substitute for a decision brief. A decision that needs options goes to [decision-brief](../decision-brief/README.md).
+Skip it when nothing changed (send a one-line "no change" note instead), for an investor or board report with its own format, or as a substitute for a decision brief. A decision that needs options goes to `decision-brief`.
 
 ## Steps
 

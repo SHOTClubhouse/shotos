@@ -9,6 +9,12 @@ Research goes wrong when a fact loses its source on the way to the page. Keep th
 
 **Stage:** Operate. **Rules:** 4 Claim only what you can show; 3 Read back the real result.
 
+## Context and handoff
+
+Read the question and decision first. Prefer original sources, note freshness and reconcile conflicts before synthesising.
+
+Use `claims-audit` where assertions will be reused externally. Keep a source ledger with the output.
+
 ## When not to use this
 
 Skip it for a quick lookup the person will see and check at once, or for opinion pieces that make no factual claims. Do not use it to repeat what the person already supplied and verified.

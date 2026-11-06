@@ -9,6 +9,12 @@ Stage: Operate. Rules: 3 (read back the real result) and control 11 (one owning 
 
 Work in progress needs a home that is not the project's real source and not the chat. A `.work/` folder gives it one, and git ignores it.
 
+## Context and handoff
+
+Find the owning issue, deal or project and any existing working folder before creating a task workspace.
+
+Use `file-naming` if the convention is unclear. Keep scratch under the owning task and link the accepted outcome from its system of record.
+
 ## When not to use this
 
 Skip it for a quick answer or a single small edit with no working files. Finished sources do not live here.

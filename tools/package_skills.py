@@ -18,6 +18,8 @@ import sys
 import zipfile
 from pathlib import Path
 
+from skill_resources import example_files
+
 REPO = Path(__file__).resolve().parents[1]
 
 
@@ -37,6 +39,8 @@ def package(skill: Path, out: Path) -> Path:
         for path in sorted(skill.rglob("*")):
             if path.is_file():
                 archive.write(path, Path(skill.name) / path.relative_to(skill))
+        for path, name in example_files(skill):
+            archive.write(path, Path(skill.name) / name)
         for notice in ("LICENSE-docs.md", "LICENSE"):
             archive.write(REPO / notice, Path(skill.name) / notice)
     return target

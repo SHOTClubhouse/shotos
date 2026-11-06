@@ -43,6 +43,10 @@ If the request names no owner, ask who accepts it before writing anything else.
 9. List open questions in priority order. Mark which ones block a start.
 10. Save the card with the work, for example `.work/<task>/acceptance.md`, using `templates/acceptance.md` if the repo has it. Show it to the owner and wait for a yes or for changes.
 
+## Skill route and handoff
+
+Use capture-the-problem or example-mapping for unclear scope, then agree-acceptance. Give the designer and engineer the same saved acceptance card. If a named skill is unavailable, record the gap and work within the tools and authority you have.
+
 ## Output format
 
 An acceptance card with these headings: Owner, Outcome, In scope, Out of scope, Checks, Failing example, Examples for variable output (if needed), Boundaries, Open questions. Then the Claims block.
@@ -56,7 +60,7 @@ An acceptance card with these headings: Owner, Outcome, In scope, Out of scope, 
 
 ## Claims
 
-End every report with a Claims block in the format of `docs/claims.md`. Example:
+End every report with a Claims block in the format of `.shotos/claims.md` in an installed project or `docs/claims.md` in the source checkout. Example:
 
 ```
 ## Claims

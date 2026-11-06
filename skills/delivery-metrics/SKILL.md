@@ -9,6 +9,12 @@ Get honest numbers for how work reaches users and how well AI features behave, u
 
 Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show. The four keys come from the DORA research programme; credit it.
 
+## Context and handoff
+
+Read source events, periods, exclusions and metric definitions. Compare like periods and verify counts against representative events.
+
+Use `evidence-pack` when deciding from a change in trend. Keep the query and definition with the metric record.
+
 ## When not to use this
 
 Skip it for a team with no deploys and no repository history yet; say there is nothing to measure and name what to start recording. Do not use it to rank people or to set bonuses.

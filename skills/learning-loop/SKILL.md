@@ -9,6 +9,12 @@ Improve the method from real events without piling up rules nobody can justify. 
 
 Stage: Sustain and Scale. Rules: 2 Agree acceptance first, 3 Read back the real result, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the accepted outcome and recurring exceptions. Prefer a change tied to observed behaviour with a clear owner and review date.
+
+Use `skill-quality-gate` when changing a skill. Link the learning entry to the affected work.
+
 ## When not to use this
 
 Skip it for a one-off mistake with a clear local fix and no sign of repeating. Do not use it to change a rule that someone else owns without their yes, or to write a rule because one case felt bad.
@@ -22,7 +28,7 @@ Skip it for a one-off mistake with a clear local fix and no sign of repeating. D
    - Evidence: the events that support it, with sources and counts, and how strong they are.
    - A test that would have caught the original event: an eval case with an input, must-contain and must-not-contain.
    - A contrary case: a situation where the new rule would be wrong or unhelpful, and what the agent should do there. If you cannot find one, look harder; a rule with no contrary case is probably too broad.
-   - Run the old and new version on the cases and read the results. Use [skill-quality-gate](../skill-quality-gate/README.md) for skills.
+   - Run the old and new version on the cases and read the results. Use `skill-quality-gate` for skills.
 5. **Check authority.** Name the person who owns the instruction and can change it. If the change touches a boundary, a privacy rule or a shared standard, that owner must say yes. The agent proposes; the owner promotes. If the owner insists on adding a rule from one case with no testing, their request is the yes. Add exactly what they asked for, in the one place, labelled "untested, from one case". In the same message say that one case is thin evidence, name the contrary case where the rule would be wrong (for example, a real mistake that deserves an apology), set a review date, and say in the report that no test was run. Never call it tested.
 6. **Promote.** Record the rule with all six parts: evidence, test, contrary case, the authority (who approved and when), a review date and what it supersedes (the older rule or text it replaces, with a pointer). Add the eval cases to the project. Change the instruction in one place only.
 7. **Check later.** On the review date, look at the events since: did the problem fall, did the contrary case appear, did anything get worse. Keep, change or remove the rule, and record that decision. A rule nobody has reviewed is a candidate for removal.

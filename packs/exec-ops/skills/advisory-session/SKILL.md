@@ -9,15 +9,21 @@ Make an advisory session worth the members' time: a clear mandate, a single main
 
 Stage: Own. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
+## Context and handoff
+
+Read the group mandate, last decisions, open actions and member roles. Put the one decision the group can actually make at the centre.
+
+Use `decision-brief` for options or `meeting-notes` after the session. File the decision with the existing forum record.
+
 ## When not to use this
 
-Skip it for a one-to-one meeting (use [meeting-notes](../meeting-notes/README.md)), for a decision that needs no outside input, or for a session whose members have not agreed to take part.
+Skip it for a one-to-one meeting (use `meeting-notes`), for a decision that needs no outside input, or for a session whose members have not agreed to take part.
 
 ## Steps
 
 1. **Write the mandate.** One short paragraph: what the group advises on, what it does not decide, who decides, how long it runs and what it will not be asked. Source it from the group's terms, not from memory. If there are none, draft them for the chair to confirm.
 2. **Build a contribution map.** For each member: their expertise, what they have offered, what they have been asked, and a question suited to them. Use only what members have said or published; mark gaps. Do not infer private views or affiliations.
-3. **Plan the session** with [template.md](template.md): progress since last time (actions and their status), one main question (ideally from a [decision-brief](../decision-brief/README.md)), and the actions the chair wants out of it. Add time boxes. Keep one main question; park the rest.
+3. **Plan the session** with [template.md](template.md): progress since last time (actions and their status), one main question (ideally from a `decision-brief`), and the actions the chair wants out of it. Add time boxes. Keep one main question; park the rest.
 4. **Send nothing.** Draft the agenda and pre-read for the chair to send. Do not invite members, share documents or commit anyone to a date.
 5. **During or after: capture what was said.** From a transcript or the chair's notes, write what each member actually said, attributed only where the identity is confirmed. Keep this section separate from anything the AI recommends.
 6. **Record the AI view separately.** If the agent offers a recommendation or a synthesis, put it under its own heading, labelled "AI view, not the group's".

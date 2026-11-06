@@ -9,6 +9,12 @@ Enter the awards you can honestly win and that cost nothing but effort, and make
 
 Stage: Scope. Rules served: 4 (claim only what you can show) and 1 (stop at the boundaries).
 
+## Context and handoff
+
+Read the organisation’s eligibility facts, proof bank and fee limit. Verify deadline, category and total application cost on the organiser’s source.
+
+Use `claims-audit` before drafting entry claims. Keep shortlisted awards and rejection reasons with the opportunity record.
+
 ## When not to use this
 
 Skip it when the person wants an award for its own sake and has no evidence, when a paid listing is the aim, or when an entry is already written and only needs proofreading. Do not enter an organisation or person into an award without their agreement.

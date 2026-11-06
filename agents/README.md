@@ -43,6 +43,8 @@ Then ask for an agent by name, for example: "Use the qa-lead agent to check this
 
 ## Use with other runtimes
 
+Project installs include the role definitions in `.shotos/agents/`. The [full-pack guide](../docs/full-pack.md) shows what each role receives and hands forward. On an installed project, open `.shotos/docs/full-pack.md`.
+
 The body of each file is plain instructions. For another runtime, paste the body (everything below the frontmatter) into the system prompt, the custom instructions field or the project's agent file. The `tools` line is a Claude Code setting; in another runtime, apply the same limits by hand: read-only agents should be given no write or run access, and no agent should be able to send, spend, delete, deploy or publish on its own.
 
 ## Pairing
