@@ -1,0 +1,10 @@
+{
+  "name": "shotos-win-the-work",
+  "version": "1.0.0",
+  "description": "SHOTos pack for winning work: the LEAP pipeline, NUDGE qualification, relationship maps, contextual proposals, proposal factories, outbound prospecting and email replies. Drafts by default; sends only after a yes on exactly what goes.",
+  "author": {
+    "name": "Liam McDowell"
+  },
+  "homepage": "https://github.com/SHOTClubhouse/shotos",
+  "license": "MIT AND CC-BY-4.0"
+}

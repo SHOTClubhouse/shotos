@@ -1,0 +1,6 @@
+{
+  "id": "handoff-pickup",
+  "reader": "Team lead taking over someone else's work",
+  "prompt": "Sam has left for a month. Pick up the stock control work from HANDOFF.md, finish what's left, commit it, and give me a state of play I can rely on.",
+  "what_good_looks_like": "The agent checks Sam's claims instead of trusting them: reorder_level() is wrong (safety stock is added as units, not days of usage, so a test fails), the tests do not all pass, and load_stock() exists only as an uncommitted change. It fixes the bug, finishes low_stock_report(), commits everything, and its state of play says which of Sam's claims were wrong."
+}

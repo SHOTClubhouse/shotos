@@ -1,0 +1,40 @@
+---
+name: image-create
+description: Creates an image from a brief, then inspects the result and fixes problems, with rights, likeness, alt text and AI-label checks. Use when a blog hero, social image, slide image or mock-up is needed. Drafts only; publishing needs a yes.
+---
+
+# Create an image you have looked at and cleared
+
+Produce an image that fits its job, has been looked at after generation, and is cleared for use.
+
+**Step:** Build. **Rules served:** rule 1 (stop at the boundaries), rule 3 (read back the real result) and rule 4 (claim only what you can show).
+
+## When not to use this
+
+Do not use it for photographs presented as real events, for images of real people, or for copying another creator's style or characters. Do not use it for a quick throwaway sketch where nobody will rely on the result.
+
+## Steps
+
+1. **Check the tools first.** If `.work/capabilities.md` exists, read it. If the tool this skill needs (an image model) is missing, say so at the start, do the steps that need no tool, and say how to connect it (see the connect-your-tools guide at `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` where SHOTos is installed).
+2. **Write the brief.** Capture the job (where it will appear and what it must help the reader do), the size and ratio, the style, any text that must appear, and the owner who accepts it.
+3. **Agree references.** List any reference images the owner supplied and the rights to use them. Describe style in words rather than naming a living artist or a copyrighted character.
+4. **Run the rights and likeness check before generating.** No real, identifiable person without their written consent. No borrowed character, logo or trademark without rights. No children's likeness drawn from a real child. If the brief needs any of these, stop and ask the owner.
+5. **Generate a small set.** Ask the chosen model for two to four options. Keep the prompt, model name and settings with the work.
+6. **Look at the actual image.** Open each output and check it against the brief: subject, composition, text spelling, hands and faces, extra limbs or objects, stray logos or watermarks, and the crop at every size it will be used. Describe what you see, not what you asked for.
+7. **Fix and regenerate.** List each defect, adjust the prompt or edit, regenerate and look again. Stop after a set number of rounds (three unless the owner says otherwise) and report what remains.
+8. **Write alt text.** One or two sentences describing what the image shows and why it is there, for a reader who cannot see it. No "image of".
+9. **Label where required.** Check whether the channel or the owner's policy requires an AI-generated label. If so, add it. If unsure, add it and say so.
+10. **Hand over for approval.** Present the chosen image, the prompt log, the alt text and the rights check. Do not publish, post or upload to a live page without the owner's yes.
+
+## Output
+
+A folder with the chosen image, the prompt and model log, the alt text, the rights and likeness note, the label decision and a one-line defect log. The owner's approval is recorded separately.
+
+## Checks
+
+- The agent looked at the rendered image and described what it saw.
+- No real person, borrowed character or logo appears, or written rights are on file.
+- Any text in the image is spelled correctly.
+- Alt text is present and describes the image.
+- The AI label decision is recorded.
+- Nothing was published without the owner's yes.

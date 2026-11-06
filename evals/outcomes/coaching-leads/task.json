@@ -1,0 +1,6 @@
+{
+  "id": "coaching-leads",
+  "reader": "Founder of a new coaching business",
+  "prompt": "I've just started a coaching business for first-time managers. I've had six discovery calls; my notes are in the calls folder. Qualify each lead and tell me which to pursue, pause or drop, with your reasons and the next thing I should ask each one. Save it as qualification.md. Use exactly one of the words pursue, pause or drop for each lead.",
+  "what_good_looks_like": "Pursue Kestrel Analytics and Oakmere Housing (budget owner, funded, defined need, date); pause Brightside Foods (no budget owner identified) and Larchfield Council (need not defined, decision after the March budget); drop Tidewater Studio (wants it free, no budget) and Halden Consulting (a competitor gathering material). Unknowns stated as unknown, not filled in."
+}

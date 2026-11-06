@@ -1,0 +1,21 @@
+{
+  "name": "shotos-core",
+  "version": "1.0.0",
+  "description": "The SHOTos core: a five-step work loop, four rules, twelve controls, 28 skills, nine role agents and a claim-check Stop hook that tests what agents say they did.",
+  "author": {
+    "name": "Liam McDowell"
+  },
+  "homepage": "https://github.com/SHOTClubhouse/shotos",
+  "license": "MIT AND CC-BY-4.0",
+  "agents": [
+    "./agents/business-analyst.md",
+    "./agents/data-steward.md",
+    "./agents/enablement-coach.md",
+    "./agents/engineer.md",
+    "./agents/qa-lead.md",
+    "./agents/release-manager.md",
+    "./agents/sceptic-reviewer.md",
+    "./agents/security-reviewer.md",
+    "./agents/ux-designer.md"
+  ]
+}

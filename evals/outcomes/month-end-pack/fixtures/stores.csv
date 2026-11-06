@@ -1,0 +1,13 @@
+store_id,name,region,status
+S01,Ashford Park,North,open
+S02,Bramley,North,open
+S03,Castlegate,North,open
+S04,Denby Cross,Midlands,open
+S05,Elmstead,Midlands,open
+S06,Fairholme,Midlands,open
+S07,Greywell,South,open
+S08,Harlow Mill,South,open
+S09,Ivybridge Row,South,open
+S10,Juniper Quay,Scotland,open
+S11,Kelburn,Scotland,closed 2026-09-20
+S12,Lowther Square,South,closed 2026-09-12

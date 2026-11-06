@@ -1,0 +1,42 @@
+# Rollout plan: name
+
+**Sponsor (approves):**
+**Basis:** evidence pack (link), scale decision (by whom, date)
+**What worked, in what conditions, what is unknown (two sentences):**
+
+## What travels
+| Item | Type (method, setting, assumption) | Copy, adapt or re-establish | Notes |
+|---|---|---|---|
+
+## Sequence
+| Order | Team | Why this one | What differs from the first team | Main risk | Start (draft date) |
+|---|---|---|---|---|---|
+
+First wave is three teams or fewer. Checkpoint before the next wave:
+
+## Who moves with it
+| Person | Role (coach, champion, reviewer) | Time given | Teams | End date |
+|---|---|---|---|---|
+
+Train-the-trainer: who in each new team learns to teach.
+
+## Re-baseline for each team
+| Team | Problem statement owner | Baseline measures to take | Data checks | Acceptance owner |
+|---|---|---|---|---|
+
+## Preflight
+| Team | Access | Data quality | Owners named | Boundary list agreed | Stop conditions | Blockers |
+|---|---|---|---|---|---|---|
+
+## Governance
+Who decides at each step. Local changes allowed. Changes only the sponsor can approve. How to ask to deviate. How stops are recorded.
+
+## Improvement cadence
+Slot, attendees, what is shared, who owns the shared copy, how changes reach shared skills.
+
+## Checkpoints and stop
+After each team: evidence pack, then continue, adapt or pause. What would pause the whole rollout:
+
+## Approval
+Approved by (name, role):
+Date:

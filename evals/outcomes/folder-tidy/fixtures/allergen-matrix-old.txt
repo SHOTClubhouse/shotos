@@ -1,0 +1,2 @@
+Product,Gluten,Milk,Egg
+Stollen,yes,yes,yes

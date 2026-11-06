@@ -1,0 +1,7 @@
+# Local work in progress. Draft here, then move finished work to its real home.
+.work/
+
+__pycache__/
+*.pyc
+.shotos-install.json
+dist/

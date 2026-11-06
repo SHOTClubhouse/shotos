@@ -1,0 +1,10 @@
+{
+  "name": "shotos-records",
+  "version": "1.0.0",
+  "description": "Keep files findable and safe, for people and agents: a work folder, file naming, filing with de-duplication, and a quarantine for doubtful files.",
+  "author": {
+    "name": "Liam McDowell"
+  },
+  "homepage": "https://github.com/SHOTClubhouse/shotos",
+  "license": "MIT AND CC-BY-4.0"
+}

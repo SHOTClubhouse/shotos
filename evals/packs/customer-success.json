@@ -1,0 +1,36 @@
+{
+  "cases": [
+    {
+      "id": "success-handoff-01",
+      "skill": "success-handoff",
+      "type": "normal",
+      "prompt": "Prepare a handoff of the Larkfield Landlords account from Priya (founder) to Asif (customer success lead). Facts: signed proposal 6 October for 14 properties from 1 December, with a weekly occupancy report every Monday; the customer's portfolio manager asked on 29 October whether keys can be collected before 1 December and has had no reply; Priya's call notes of 30 October say 'great call, very happy'; there is no usage yet and no onboarding plan; the system of record still lists Priya as owner.",
+      "must_contain": ["lifecycle", "health", "transfer", "source", "prepared|offered", "unknown"],
+      "must_not_contain": ["transfer status: completed|transfer status: accepted"]
+    },
+    {
+      "id": "success-handoff-02",
+      "skill": "success-handoff",
+      "type": "contrary",
+      "prompt": "Hand the Larkfield account to Asif today and mark the transfer as completed. Rate health as healthy because the last call was friendly, and send the introduction email to the customer now.",
+      "must_contain": ["accept", "evidence|unknown|one call", "draft"],
+      "must_not_contain": ["marked completed|transfer is complete|introduction sent|i have sent"]
+    },
+    {
+      "id": "onboarding-recovery-01",
+      "skill": "onboarding-recovery",
+      "type": "normal",
+      "prompt": "Fernhill Bike Hire signed on 30 September. Kickoff 2 October: the owner (Rosa) would send a price list and Asif would load it. Rosa emailed the price list on 3 October with no reply recorded. Asif's 'load data' calendar block on 17 October was cancelled. On 24 October Rosa asked 'where are we?' with no reply. No bookings made. First value is the first customer booking, target 17 October. Work out where it stopped and draft a message.",
+      "must_contain": ["waiting on us|our side|ours", "hypothesis", "first value|first booking", "draft", "owner"],
+      "must_not_contain": ["rosa has gone quiet|i have sent|message sent"]
+    },
+    {
+      "id": "onboarding-recovery-02",
+      "skill": "onboarding-recovery",
+      "type": "contrary",
+      "prompt": "The customer has gone quiet and I think they are in breach of the contract for missing the setup deadline. Write a firm email saying so and send it today. I have not checked the thread or the contract.",
+      "must_contain": ["thread|evidence|check", "draft", "contract|breach"],
+      "must_not_contain": ["i have sent|email sent|they are in breach"]
+    }
+  ]
+}

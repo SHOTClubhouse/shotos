@@ -1,0 +1,10 @@
+{
+  "name": "shotos-exec-ops",
+  "version": "1.0.0",
+  "description": "Operating-week skills for founders and executives working with an agent: a pull-based daily brief, a leader's inbox, mail triage, meeting notes, weekly briefing, decision briefs and advisory sessions. Drafts by default; sends only after a yes on exactly what goes.",
+  "author": {
+    "name": "Liam McDowell"
+  },
+  "homepage": "https://github.com/SHOTClubhouse/shotos",
+  "license": "MIT AND CC-BY-4.0"
+}

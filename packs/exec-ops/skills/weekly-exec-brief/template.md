@@ -1,0 +1,23 @@
+# Weekly executive brief, week of <date>
+
+**Reader:** <name, authority>. **Sources read:** <list>. **Unavailable:** <list, or "none">.
+
+## Decisions needed
+| Question | Decision maker | Needed by | If it slips |
+|---|---|---|---|
+
+## What changed
+- <change>, <date>, source: <source>.
+
+## External signals worth acting on
+- <signal>. Label: fact | hypothesis | target. Why it matters: <one line>. Source: <source>.
+
+## Commitments (agreed by a named person, with a date)
+| Commitment | Owner | Due | Source |
+|---|---|---|---|
+
+## Recommendations (the agent's view, not agreed)
+- <recommendation>, because <evidence>.
+
+## Unverified
+- <claim>, only source: <source>.

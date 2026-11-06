@@ -1,0 +1,170 @@
+# Frequently asked questions
+
+Short answers first, with a link where there is more. Where something is reasoning and not a measurement, the answer says so. The measured results are all in [evidence.md](evidence.md).
+
+## Getting started
+
+### What is SHOTos in one sentence?
+
+Agents say "done". SHOTos makes them show it. It is four rules, a five-step work loop, 28 core skills and 12 packs, a set of templates and a checking tool (`claim-check`) that test an agent's report against the evidence. See the [README](../README.md).
+
+### What does SHOT stand for?
+
+SHOTos is SHOT plus os. SHOT is the four rules: **S**top at the boundaries, **H**old to what you agreed, **O**bserve the real result and **T**ell only what you can show. The os is the operating system around them: a five-step work loop, skills and tools. The loop is:
+
+- **Brief:** understand the situation, the people, the baseline and what done means, state testable bets and agree the success criteria before building.
+- **Build:** deliver the smallest real piece into real use with the people who will own it.
+- **Check:** measure before and after against the baseline, then decide: hand over, change course or stop.
+- **Hand over:** the team that will run it becomes able to, with the evidence and practice it needs.
+- **Improve:** keep what works, change what does not, and take the method to the next piece of work.
+
+Four rules run inside every step, on every agent task:
+
+1. Stop at the boundaries. Ask before you send, spend, delete, publish or change someone else's work.
+2. Agree acceptance first. Agree what done looks like, who signs it off and one case that should fail, before the work starts.
+3. Read back the real result. Open the file, run the test, look at the commit before you report.
+4. Claim only what you can show. End with claims a tool can check, and label what was not checked.
+
+The loop is set out in [framework.md](framework.md) and the rules in [controls.md](controls.md). The skills map to the steps: capture-the-problem and agree-acceptance to Brief, report-with-evidence to Build and Check, evidence-pack to Check, evidence-handoff to Hand over, and rollout-plan and learning-loop to Improve. claim-check supports Build and Check.
+
+### How long does it take to start?
+
+About five minutes to install, and nothing to learn on day one. The agent loads each skill when a job matches. Take the [self-check](self-check.md) to see where you are, then follow the [walkthrough](walkthrough.md), which takes about 20 minutes.
+
+### What do I need installed?
+
+Python 3.9 or later and git. Nothing else, and no accounts or keys. See [prerequisites.md](prerequisites.md).
+
+### Can I use it without an agent?
+
+Yes. The [templates](../templates/) work on paper or in any document. Fill in the problem statement, acceptance card and handoff by hand. You lose the automatic check, and keep the habit.
+
+## How it works
+
+### Is this just prompt engineering?
+
+Partly, and it says so. The skills are instructions an agent reads, so they are prompts. Three things go beyond that:
+
+- The templates and rules also work for people with no agent at all.
+- `claim-check` is a program. It tests claims against files, git and receipts, and does not ask the model for its opinion.
+- The Stop hook runs that check when the agent tries to finish, so the check does not depend on the agent remembering.
+
+The prompt part is the weakest part, and the evals test it for that reason.
+
+### Which skills should I start with?
+
+- [capture-the-problem](../skills/capture-the-problem/README.md): write down what is wrong before building.
+- [agree-acceptance](../skills/agree-acceptance/README.md): agree the checks, the owner and the boundaries first.
+- [report-with-evidence](../skills/report-with-evidence/README.md): end with a Claims block.
+- [evidence-handoff](../skills/evidence-handoff/README.md): pass work on with its state and next step.
+
+These four are a good start. There are 28 core skills and 12 optional packs in all.
+
+### Do I have to use all of them?
+
+No. Each works alone. A product owner might use only the first two. A solo developer might start with report-with-evidence and the hook.
+
+### What do "installed", "executed" and "accepted" mean?
+
+Installed means the thing is present. Executed means it ran and was checked against the acceptance checks. Accepted means a named person said yes. `claim-check` can show the first two. Only a person can accept. See [claims.md](claims.md).
+
+## claim-check and the hook
+
+### What does claim-check actually check?
+
+It reads the Claims block of a report and tests each line. Files must exist. Git claims are compared with the repository. Commands run only if you have put them on an allow list. External actions need a receipt. Each line comes back as SUPPORTED, UNSUPPORTED, NO EVIDENCE or DECLARED. The report passes when every line is SUPPORTED or DECLARED.
+
+### Can an agent fake a receipt?
+
+Yes. `claim-check` checks that a receipt file exists, not that it is genuine, so an agent that wants to cheat can write its own. The defence is to use receipts your own systems produce, such as a message ID or a deployment log, and to spot-check them. For anything that matters, a person looks. This limit is stated in [claims.md](claims.md).
+
+### Why not just trust a careful model?
+
+Because careful is not the same as checked. In the first paired run, all eight contrary cases passed with and without SHOTos, so the model was already careful on those prompts. That does not tell you what happens on a long task, a tired prompt or a different model. A check costs little and catches the case where the model is confidently wrong. Trust can be earned by a record of checked work, which is what the claims give you.
+
+### Does claim-check judge quality?
+
+No. A file that exists may still be wrong. Quality is what the acceptance checks are for, and a person decides whether to accept.
+
+### What does the Stop hook do?
+
+In Claude Code, when the agent tries to finish, the hook runs `claim-check` on assistant text since the last human message. If a claim fails, the agent is sent back to fix the work or correct its report. It never blocks twice in one turn. See [hooks/](../hooks/).
+
+### Does it work with Codex, Gemini CLI and Antigravity?
+
+The installer has options for all three: `--runtime codex`, `--runtime gemini` and `--runtime antigravity`. They put the skills where each tool looks and make sure the same `AGENTS.md` canon loads (Codex reads it directly; the other two read it through a one-line import in `GEMINI.md`). The installer has automated tests. Two local Codex smoke runs on 6 November 2026 show Codex opening installed skills, including one run where the prompt did not name a skill. They are not paired outcome evals. Gemini and Antigravity have not had live runs, and the Stop hook is for Claude Code. See the [evidence page](evidence.md).
+
+## Security and privacy
+
+### Is my data sent anywhere?
+
+No. This version makes no network calls and has no telemetry. The installer copies files from the repository and never downloads anything. Your agent runtime still sends data to its own provider as it always did. SHOTos adds nothing to that.
+
+### Can claim-check run commands from my repository?
+
+Only commands you have allowed. It reads the allow list from your own `~/.shotos/claim-check.json`, a file you name, or the project file if you pass `--trust-project-config`. The Stop hook never trusts the project file, so a cloned repository cannot make it run code. See [SECURITY.md](../SECURITY.md).
+
+### Why is the install a script and not instructions for the agent?
+
+An agent told to follow a document from the internet can be told to do anything. The script copies known files, shows its plan with `--dry-run`, records what it did and removes exactly that with `--uninstall`.
+
+## Cost and speed
+
+### Does it slow agents down or cost more?
+
+Yes, and we measured it. In the outcome evals on ten realistic tasks across Haiku, Sonnet and Opus, SHOTos runs cost about 42% more in model usage and took about 43% longer, because the agent reads the rules and skills and writes more. See [evidence.md](evidence.md).
+
+The following is reasoning, not measurement: the cost may pay back through less rework, because acceptance is agreed before the work, and because you spend less time checking a report line by line. We have not measured rework, so treat that as a hypothesis to test in your own work.
+
+### Which skill costs the most?
+
+The cost follows how much the agent reads and writes, so the skills that produce the most structure (handoffs, proposals, evidence packs) cost the most. Per-run costs for every task and model are in the raw results linked from [evidence.md](evidence.md).
+
+### How do I keep the cost down?
+
+Keep `AGENTS.md` short, since it loads on every task. Skip the skills for trivial changes, as each skill says. See [prerequisites.md](prerequisites.md).
+
+## Teams and enterprise
+
+### Will this work for a team?
+
+Put the same `AGENTS.md` in every repository, run `claim-check` on agent reports in review and agree which commands it may run. The controls stay the same as the team grows. Only the place they are enforced changes. See [levels.md](levels.md).
+
+### Is this enough for an enterprise governance policy?
+
+It is a baseline, not a certification. It gives named owners, human checkpoints and a trail of claims and acceptance cards. It does not replace a risk assessment. The [roadmap](roadmap.md) lists a planned bridge to NIST AI RMF, ISO/IEC 42001 and the EU AI Act, which does not exist yet.
+
+## Evidence and limits
+
+### What has actually been proven?
+
+- 100 or more automated tests pass on Windows with Python 3.13, and passed in CI on Windows, macOS and Linux with Python 3.12 at the last pushed commit.
+- On ten realistic tasks across Haiku, Sonnet and Opus, agents passed 59 of 60 runs with SHOTos and 58 of 59 without: no measurable difference in outcomes, at about 42% more cost.
+- In the paired run of all 212 skill cases on Haiku, Sonnet and Opus, graded by meaning, agents followed the skill in 204, 211 and 210 cases with SHOTos against 160, 158 and 165 without. Haiku with SHOTos followed the skills more often than Sonnet without them, at about an eighth of the cost; that measures method, not better results.
+- One live run of the Stop hook, and one of the walkthrough.
+
+### What has not been proven?
+
+The automated tests have passed in CI on Windows, macOS and Linux, but live agent runs have only been done on Windows. Codex has two local skill-loading smoke runs, not paired outcome evals. Gemini, Antigravity, ChatGPT and the Claude app have not had live runs. That SHOTos reduces rework or improves team outcomes over weeks has not been tested. The skill cases were graded by a model judge against checklists, one run per case, and the skills were improved against those same cases, so that run is not an independent test. A human review is still to do. The details are in [evidence.md](evidence.md).
+
+### Did SHOTos make the agent safer?
+
+Not measurably. All eight contrary cases in the first run passed with and without it, and in the outcome evals agents without SHOTos also refused to claim sends that never happened. Current models are already careful on these prompts. What SHOTos adds is a stated rule and a tool that checks the claim, rather than relying on the model's habits.
+
+### Why did report-with-evidence show no difference?
+
+In the first run the baseline was already honest on all five cases. In the three-model run the gap was small (see [evidence.md](evidence.md)). The value of this skill is expected to show with `claim-check` and the Stop hook, which were not part of those runs. That is a reason to test again, and not a result.
+
+## Contributing
+
+### How do I report a failure?
+
+Open an issue with the report, the Claims block and what actually happened. A failure report is as welcome as a feature, including a false claim that `claim-check` let through. Report security problems privately, as [SECURITY.md](../SECURITY.md) describes.
+
+### How do I propose a new skill?
+
+Open an issue first, describing the job, who it is for and how you will show it works. Read [CONTRIBUTING.md](../CONTRIBUTING.md). A skill needs a SKILL.md, a README, a worked example and at least one normal and one contrary eval case. See the [roadmap](roadmap.md).
+
+### What licence is it under?
+
+Code is MIT. Docs, skills and templates are CC BY 4.0. See [LICENSE](../LICENSE) and [LICENSE-docs.md](../LICENSE-docs.md).

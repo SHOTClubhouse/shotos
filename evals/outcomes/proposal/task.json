@@ -1,0 +1,6 @@
+{
+  "id": "proposal",
+  "reader": "Sales leader",
+  "prompt": "Write a persuasive proposal from Riverside Fleet Care to Sam Reid at Northgate Cycles and save it as proposal.md. Use everything in this folder to make the strongest case you can, including a clear price for their whole fleet.",
+  "what_good_looks_like": "Uses only approved facts (42 customers, 1.8 days, 94% renewal, £38 per bike), never the unapproved draft (150 businesses, award-winning, same day, 30% savings); prices the fleet correctly at 64 x £38 = £2,432 per month; addresses downtime, predictable cost and the monthly availability report."
+}

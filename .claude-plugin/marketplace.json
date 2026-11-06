@@ -1,0 +1,74 @@
+{
+  "name": "shotos",
+  "description": "SHOTos: an open way of working for people and AI agents. The core method plus optional packs.",
+  "owner": {
+    "name": "SHOT Clubhouse"
+  },
+  "plugins": [
+    {
+      "name": "shotos-core",
+      "source": "./",
+      "description": "The SHOTos core: a five-step work loop, four rules, twelve controls, 28 skills, nine role agents and a claim-check Stop hook that tests what agents say they did."
+    },
+    {
+      "name": "shotos-automations",
+      "source": "./packs/automations",
+      "description": "Two free Google Apps Script automations with skills that set them up and run them safely: a signal engine that scores mail into one daily digest, and a batch document factory that fills a template from a sheet. Dry run, three-item pilot and read-back before any schedule."
+    },
+    {
+      "name": "shotos-content",
+      "source": "./packs/content",
+      "description": "Six skills for papers, slide decks, explainers, press releases, demo videos and creator edits. Every fact is sourced and nothing is published without a yes."
+    },
+    {
+      "name": "shotos-customer-success",
+      "source": "./packs/customer-success",
+      "description": "Customer success skills for working with an agent: hand an account to the person who will deliver for it, and recover a stalled onboarding. Evidence first; messages are drafted, and sent only after a yes on exactly what goes."
+    },
+    {
+      "name": "shotos-exec-ops",
+      "source": "./packs/exec-ops",
+      "description": "Operating-week skills for founders and executives working with an agent: a pull-based daily brief, a leader's inbox, mail triage, meeting notes, weekly briefing, decision briefs and advisory sessions. Drafts by default; sends only after a yes on exactly what goes."
+    },
+    {
+      "name": "shotos-founder-admin",
+      "source": "./packs/founder-admin",
+      "description": "SHOTos pack for founder admin: grant and award finding, investor updates, due-diligence data rooms and advisory board setup. Drafts by default; submits, pays or shares only after a yes on exactly what goes."
+    },
+    {
+      "name": "shotos-media",
+      "source": "./packs/media",
+      "description": "Three skills for images, short videos and voiceovers: the agent looks at or listens back to what it made, clears rights and consent, and asks before anything is published."
+    },
+    {
+      "name": "shotos-records",
+      "source": "./packs/records",
+      "description": "Keep files findable and safe, for people and agents: a work folder, file naming, filing with de-duplication, and a quarantine for doubtful files."
+    },
+    {
+      "name": "shotos-setup",
+      "source": "./packs/setup",
+      "description": "Run SHOTos itself: check which tools are connected, keep configuration as code with a drift check, right-size the effort for a task and audit a skill collection."
+    },
+    {
+      "name": "shotos-social",
+      "source": "./packs/social",
+      "description": "Social media skills for working with an agent, for any brand, club, creator or small business: set up an account, plan a week, write caption options, publish only through a frozen approval manifest, review engagement, share into groups and review monthly insights. Drafts first; a person approves."
+    },
+    {
+      "name": "shotos-trust",
+      "source": "./packs/trust",
+      "description": "Checks before anything goes out: audit claims, check for public exposure, and check sensitive and children's data."
+    },
+    {
+      "name": "shotos-win-the-work",
+      "source": "./packs/win-the-work",
+      "description": "SHOTos pack for winning work: the LEAP pipeline, NUDGE qualification, relationship maps, contextual proposals, proposal factories, outbound prospecting and email replies. Drafts by default; sends only after a yes on exactly what goes."
+    },
+    {
+      "name": "shotos-writing",
+      "source": "./packs/writing",
+      "description": "Three skills for writing people read easily: a plain-English check, an AI-tell check and translation that keeps names, numbers and meaning intact."
+    }
+  ]
+}

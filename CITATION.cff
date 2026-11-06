@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use SHOTos, please cite Liam McDowell as below. Code is MIT; documentation, skills and templates are CC BY 4.0."
+title: "SHOTos"
+abstract: "Open skills, rules and checks that keep AI agent work bounded, verified and owned."
+type: software
+authors:
+  - family-names: McDowell
+    given-names: Liam
+publisher:
+  name: SHOT Clubhouse
+version: 1.0.0
+repository-code: "https://github.com/SHOTClubhouse/shotos"

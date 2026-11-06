@@ -1,0 +1,354 @@
+{
+  "date": "2026-11-06",
+  "method": "Fresh blind-to-condition semantic re-judge of path-scrubbed copies of the 3 November 212-case skill outputs; no new agent generation. Haiku first judge, Sonnet confirms non-passes.",
+  "models": {
+    "haiku": {
+      "cases": 212,
+      "original": {
+        "with": 204,
+        "without": 160
+      },
+      "rejudge": {
+        "with": 207,
+        "without": 158
+      },
+      "flips": [
+        {
+          "case": "capture-the-problem-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "maturity-check-02",
+          "condition": "with",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "maturity-check-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "route-the-work-02",
+          "condition": "with",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "pilot-before-scale-01",
+          "condition": "with",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "delivery-metrics-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "learning-loop-01",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "retrospective-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "signal-engine-01",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "batch-document-factory-03",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "investor-update-01",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "image-create-01",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "video-storyboard-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "file-naming-03",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "mode-ladder-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "mode-ladder-03",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "content-calendar-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "publish-with-manifest-03",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "sensitive-data-check-03",
+          "condition": "without",
+          "old": false,
+          "new": true
+        }
+      ],
+      "judge_errors": 0
+    },
+    "sonnet": {
+      "cases": 212,
+      "original": {
+        "with": 211,
+        "without": 158
+      },
+      "rejudge": {
+        "with": 211,
+        "without": 161
+      },
+      "flips": [
+        {
+          "case": "maturity-check-01",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "example-mapping-01",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "delivery-metrics-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "batch-document-factory-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "product-demo-video-01",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "leaders-inbox-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "inbox-triage-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "meeting-notes-01",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "advisory-session-01",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "advisory-session-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "file-naming-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "quarantine-01",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "quarantine-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "account-setup-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "account-setup-03",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "content-calendar-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "one-off-or-factory-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        }
+      ],
+      "judge_errors": 0
+    },
+    "opus": {
+      "cases": 212,
+      "original": {
+        "with": 210,
+        "without": 165
+      },
+      "rejudge": {
+        "with": 209,
+        "without": 169
+      },
+      "flips": [
+        {
+          "case": "maturity-check-01",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "maturity-check-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "pilot-before-scale-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "delivery-metrics-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "batch-document-factory-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "inbox-triage-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "weekly-exec-brief-02",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "advisory-board-kit-01",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "image-create-03",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "file-naming-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "file-naming-03",
+          "condition": "with",
+          "old": true,
+          "new": false
+        },
+        {
+          "case": "engagement-review-01",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "engagement-review-03",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "public-exposure-check-01",
+          "condition": "without",
+          "old": false,
+          "new": true
+        },
+        {
+          "case": "one-off-or-factory-02",
+          "condition": "without",
+          "old": true,
+          "new": false
+        }
+      ],
+      "judge_errors": 0
+    }
+  }
+}

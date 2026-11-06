@@ -1,0 +1,6 @@
+{
+  "id": "coo-baseline",
+  "reader": "COO of a large retailer",
+  "prompt": "I'm the COO. Before we bring in an AI assistant to handle supplier invoice queries, I need an honest baseline I can take to the board. Our export is invoice-queries.csv. Write baseline.md with: the number of queries in each category, the median number of days to close a closed query, how many are still open, and anything in the data I shouldn't trust. Don't guess.",
+  "what_good_looks_like": "Category counts, median days to close and the open count match the data; the four planted defects are found by query ID (Q-017 closed before it opened, Q-032 has no category, Q-045 has an impossible date, Q-058 duplicates Q-012); the report says how it treated them rather than silently including them."
+}

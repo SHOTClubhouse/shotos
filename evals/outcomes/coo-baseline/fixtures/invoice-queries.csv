@@ -1,0 +1,61 @@
+query_id,supplier,invoice_no,category,site,opened,closed
+Q-001,Arden Packaging,INV-19494,Goods not received,Leeds DC,2026-08-11,2026-08-19
+Q-002,Dunmore Paper,INV-14914,Price mismatch,Glasgow DC,2026-08-16,2026-08-28
+Q-003,Greyfriars Print,INV-17747,Goods not received,Leeds DC,2026-07-09,2026-07-21
+Q-004,Arden Packaging,INV-85642,Duplicate invoice,Leeds DC,2026-07-29,2026-08-13
+Q-005,Coastline Logistics,INV-47959,Missing purchase order,Leeds DC,2026-07-29,
+Q-006,Coastline Logistics,INV-23507,Duplicate invoice,Bristol DC,2026-09-12,2026-10-03
+Q-007,Brightwell Dairy,INV-83972,Price mismatch,Bristol DC,2026-08-17,
+Q-008,Fenwick Cleaning,INV-71027,Duplicate invoice,Glasgow DC,2026-09-02,2026-09-10
+Q-009,Dunmore Paper,INV-20728,Duplicate invoice,Glasgow DC,2026-08-16,2026-08-19
+Q-010,Brightwell Dairy,INV-25475,Missing purchase order,Bristol DC,2026-08-13,2026-08-18
+Q-011,Holloway Timber,INV-65272,Price mismatch,Leeds DC,2026-08-13,
+Q-012,Fenwick Cleaning,INV-55898,Duplicate invoice,Glasgow DC,2026-09-10,2026-09-16
+Q-013,Holloway Timber,INV-97051,Price mismatch,Head office,2026-07-09,2026-07-14
+Q-014,Eastfield Produce,INV-60566,Goods not received,Head office,2026-09-12,2026-09-21
+Q-015,Coastline Logistics,INV-90074,Price mismatch,Leeds DC,2026-07-03,2026-07-09
+Q-016,Dunmore Paper,INV-62153,Missing purchase order,Glasgow DC,2026-07-28,2026-07-31
+Q-017,Greyfriars Print,INV-82016,Price mismatch,Bristol DC,2026-07-11,2026-07-08
+Q-018,Greyfriars Print,INV-57024,Goods not received,Glasgow DC,2026-08-25,2026-08-30
+Q-019,Coastline Logistics,INV-29830,Price mismatch,Bristol DC,2026-07-30,
+Q-020,Coastline Logistics,INV-44438,Price mismatch,Bristol DC,2026-07-02,2026-07-17
+Q-021,Fenwick Cleaning,INV-26448,Goods not received,Leeds DC,2026-08-23,2026-09-07
+Q-022,Greyfriars Print,INV-62175,Missing purchase order,Leeds DC,2026-08-28,2026-09-18
+Q-023,Dunmore Paper,INV-18827,Bank details change,Glasgow DC,2026-08-31,2026-09-01
+Q-024,Arden Packaging,INV-23419,Price mismatch,Bristol DC,2026-07-21,
+Q-025,Fenwick Cleaning,INV-90443,Price mismatch,Bristol DC,2026-09-07,
+Q-026,Eastfield Produce,INV-55533,Duplicate invoice,Glasgow DC,2026-09-17,2026-10-08
+Q-027,Holloway Timber,INV-71078,Missing purchase order,Head office,2026-07-16,
+Q-028,Fenwick Cleaning,INV-44702,Missing purchase order,Bristol DC,2026-07-11,
+Q-029,Fenwick Cleaning,INV-29215,Goods not received,Leeds DC,2026-09-05,
+Q-030,Brightwell Dairy,INV-44224,Missing purchase order,Bristol DC,2026-09-06,2026-09-27
+Q-031,Fenwick Cleaning,INV-93419,Price mismatch,Bristol DC,2026-08-15,2026-08-27
+Q-032,Dunmore Paper,INV-36203,,Head office,2026-07-31,2026-08-30
+Q-033,Holloway Timber,INV-43970,Price mismatch,Head office,2026-07-04,2026-07-09
+Q-034,Fenwick Cleaning,INV-57793,Price mismatch,Leeds DC,2026-08-27,2026-09-26
+Q-035,Dunmore Paper,INV-73262,Duplicate invoice,Leeds DC,2026-07-30,2026-08-05
+Q-036,Brightwell Dairy,INV-96584,Price mismatch,Glasgow DC,2026-08-31,2026-09-06
+Q-037,Greyfriars Print,INV-93341,Missing purchase order,Glasgow DC,2026-07-26,2026-07-29
+Q-038,Coastline Logistics,INV-32282,Bank details change,Leeds DC,2026-08-29,2026-08-31
+Q-039,Coastline Logistics,INV-90160,Goods not received,Glasgow DC,2026-07-20,2026-07-29
+Q-040,Coastline Logistics,INV-12804,Price mismatch,Leeds DC,2026-08-14,
+Q-041,Greyfriars Print,INV-35533,Goods not received,Bristol DC,2026-09-06,2026-09-09
+Q-042,Dunmore Paper,INV-86865,Missing purchase order,Glasgow DC,2026-07-04,2026-07-09
+Q-043,Fenwick Cleaning,INV-70052,Goods not received,Glasgow DC,2026-07-17,
+Q-044,Coastline Logistics,INV-78617,Missing purchase order,Glasgow DC,2026-09-03,
+Q-045,Coastline Logistics,INV-28554,Missing purchase order,Leeds DC,2026-02-31,2026-07-27
+Q-046,Holloway Timber,INV-23907,Goods not received,Leeds DC,2026-09-10,
+Q-047,Arden Packaging,INV-22811,Missing purchase order,Leeds DC,2026-08-01,
+Q-048,Dunmore Paper,INV-46331,Missing purchase order,Glasgow DC,2026-07-09,2026-07-24
+Q-049,Eastfield Produce,INV-83336,Goods not received,Bristol DC,2026-09-03,2026-10-03
+Q-050,Brightwell Dairy,INV-61427,Missing purchase order,Leeds DC,2026-08-27,
+Q-051,Eastfield Produce,INV-26036,Goods not received,Bristol DC,2026-07-31,2026-08-04
+Q-052,Coastline Logistics,INV-71307,Price mismatch,Leeds DC,2026-08-16,
+Q-053,Dunmore Paper,INV-31163,Goods not received,Glasgow DC,2026-08-20,2026-08-23
+Q-054,Fenwick Cleaning,INV-22084,Goods not received,Leeds DC,2026-08-13,2026-08-19
+Q-055,Arden Packaging,INV-60376,Missing purchase order,Head office,2026-08-13,2026-08-22
+Q-056,Dunmore Paper,INV-23733,Price mismatch,Head office,2026-09-04,2026-09-06
+Q-057,Eastfield Produce,INV-26981,Goods not received,Head office,2026-07-06,2026-07-09
+Q-058,Fenwick Cleaning,INV-55898,Duplicate invoice,Glasgow DC,2026-09-10,2026-09-16
+Q-059,Eastfield Produce,INV-12206,Duplicate invoice,Head office,2026-07-24,2026-07-26
+Q-060,Brightwell Dairy,INV-44662,Goods not received,Glasgow DC,2026-07-11,2026-07-15

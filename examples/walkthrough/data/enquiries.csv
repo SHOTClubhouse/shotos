@@ -1,0 +1,21 @@
+id,date,tenant,category,message
+E01,2026-09-01,T-104,repair,"Boiler not working since Friday, no hot water. Second email about this."
+E02,2026-09-01,T-221,rent,Can I move my rent date to the 15th?
+E03,2026-09-02,T-087,repair,"Damp patch spreading in the bedroom, reported last month too."
+E04,2026-09-02,T-104,repair,Chasing again about the boiler. Is anyone coming?
+E05,2026-09-03,T-330,deposit,When will my deposit be returned? I moved out three weeks ago.
+E06,2026-09-03,T-145,repair,Kitchen tap leaking under the sink.
+E07,2026-09-04,T-087,repair,Following up on the damp. It is getting worse.
+E08,2026-09-05,T-412,viewing,Can I book a viewing for the two-bed on Quay Street?
+E09,2026-09-05,T-221,rent,Did you get my question about changing the rent date?
+E10,2026-09-08,T-290,repair,Electric shower trips the fuse every morning.
+E11,2026-09-08,T-145,repair,"Tap still leaking, any update?"
+E12,2026-09-09,T-503,noise,Neighbour above plays loud music after midnight.
+E13,2026-09-10,T-330,deposit,Second email about my deposit.
+E14,2026-09-10,T-618,repair,Front door lock is stiff and hard to open.
+E15,2026-09-11,T-104,repair,Third time asking. Still no hot water.
+E16,2026-09-12,T-412,viewing,Is Saturday possible for the viewing?
+E17,2026-09-15,T-290,repair,Shower still tripping. Is it safe to use?
+E18,2026-09-15,T-701,rent,Where do I find my rent statement?
+E19,2026-09-16,T-087,repair,Damp now on the wardrobe and clothes.
+E20,2026-09-17,T-618,repair,Following up on the lock.
