@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased · Six-stage edition
+## 1.1.0 (6 November 2026)
 
 - Organise SHOTos around Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale, with a programme record that travels with project installs.
 - Start with an acceptance card in your usual assistant or a local demo that checks two reports about the same work.
