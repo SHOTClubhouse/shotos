@@ -11,6 +11,8 @@ This pack is for anyone who has to win customers, partners, funding or advisers 
 - Account owners who need a clean handover from "we won it" to "we are delivering it".
 - Anyone who wants an agent to draft outreach and replies and send nothing until they say yes to exactly what goes.
 
+![Worked school bike proposal. The buyer sees the fee and terms. The internal working sheet holds unsupported figures, unconfirmed photo rights and commitments awaiting approval.](../../docs/images/win-the-work.svg)
+
 ## The two methods
 
 ### LEAP: the pipeline
