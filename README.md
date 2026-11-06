@@ -38,6 +38,8 @@ A role sets the responsibility. An audience persona tells you who the work is fo
 
 ## Try SHOTos
 
+**Start without a terminal.** Try the fictional retail decision in [Codex or Claude Code](docs/guides/codex-claude-code.md#copy-one-skill-without-a-terminal) or [ChatGPT or Claude](docs/guides/chat-assistants.md). Draft a recommendation from the initial evidence, then introduce the decision and handoff records to see whether the assistant updates each status correctly.
+
 **On work you already have.** Open the [acceptance card](templates/acceptance.md). Pick one task, name the person who can accept it and write down one check that should fail. Use this prompt in your usual assistant:
 
 > Use this card for the task. Show me the saved result and what you checked. Leave anything you could not verify open for review.
