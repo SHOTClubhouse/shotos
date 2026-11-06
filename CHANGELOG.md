@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 (6 November 2026)
+
+- Set up SHOTos for one assistant or for teams with distinct execution roles and review lenses.
+- Install packs as you need them. All 82 skill ZIPs and project installs include worked examples and portable README links.
+- Keep unapproved proposal terms in a separate working sheet. Record dispatch, acceptance, completion and independent operation separately in handoffs.
+- Follow illustrated decisions in the setup, framework, proposal, handoff and audience guides.
+
 ## 1.1.0 (6 November 2026)
 
 - Organise SHOTos around Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale, with a programme record that travels with project installs.

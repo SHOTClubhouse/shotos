@@ -14,6 +14,16 @@ SHOTos is an open-source delivery method for people and AI agents. Founders, ope
 | [A handoff](packs/customer-success/skills/success-handoff/README.md) | A brief the next person can act on, with the offer, acknowledgement and first action recorded separately |
 | [A change across teams](docs/walkthrough.md) | A worked example of testing one change, handing it over and deciding whether to scale |
 
+## Make it your team
+
+Start with the assistant you already use. Give it a role, a task and a check. As the work grows, give other people or supported agents their own responsibilities and have them hand over the saved result and evidence.
+
+- **Bootstrap with one assistant.** Use the same assistant to qualify a lead, draft the proposal and check the claims. You own the decision to send.
+- **Move faster on repeat work.** Give drafting and checking clear responsibilities, and reuse the accepted brief, templates and checks. Bring in a separate reviewer when the decision needs one.
+- **Scale across business areas.** Set up sales, operations, product or engineering around their own records, owners and permissions. Reuse the working agreement and evidence checks. Add the next team once its receiving lead can run a full cycle independently.
+
+A role sets the responsibility. An audience persona tells you who the work is for. A review lens brings a perspective such as customer, commercial or sceptic. You can use all three in one assistant or assign roles to separate agents where your runtime supports them. [Set up your team with the full pack](docs/full-pack.md)
+
 ## Try SHOTos
 
 **On work you already have.** Open the [acceptance card](templates/acceptance.md). Pick one task, name the person who can accept it and write down one check that should fail. Use this prompt in your usual assistant:
