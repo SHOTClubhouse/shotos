@@ -16,6 +16,8 @@ With the skill, the paper shows the lease cost and current margin as sourced fac
 
 Use it before a significant, hard-to-reverse choice. Skip it for cheap, reversible choices, questions with no real alternatives, and decisions already made.
 
+For a recurring leadership choice, use [Executive Decision Review](review-cycle.md) to connect the brief to a recorded decision, handoff and independent next cycle.
+
 ## Who it is for
 
 Founders, executives, board members, advisers and anyone who has to put a choice in front of someone else.

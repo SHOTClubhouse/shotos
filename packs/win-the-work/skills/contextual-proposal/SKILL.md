@@ -11,9 +11,9 @@ Stage: Operate. Rules served: 3 (read back the real result) and 4 (claim only wh
 
 ## Context and handoff
 
-Read the buyer’s own words, organisation type, current constraints, approved offer and relevant prior proposal. Verify buyer-specific claims against current sources.
+Read the buyer’s own words, organisation type, current constraints, approved offer and relevant prior proposal. Verify buyer-specific claims against current sources. Select the nearest relevant proposal by buyer type and buying route. Reuse its structure where it fits, and verify the new buyer’s needs, terms, rights and decision process independently.
 
-Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitments in the deal working sheet.
+Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitments in the deal working sheet. If leadership needs to decide whether to proceed, link the exact draft and the private working sheet from the decision brief. Distinguish proposal readiness, authority to send, buyer response and delivery handoff.
 
 ## When not to use this
 

@@ -8,6 +8,7 @@ Start with the [Harbourside example](walkthrough.md) to see how context travels 
 | Start from your situation | [Enterprise operations](guides/enterprise-operations.md), [small business](guides/small-business.md) or [startup founder](guides/startup-founder.md) |
 | Learn by doing | [Harbourside walkthrough](walkthrough.md): six stages, with a runnable draft pilot and illustrated decisions |
 | Find your starting point | [Self-check](self-check.md) and [personas](personas.md) |
+| Review a recurring leadership decision | [Executive Decision Review](../packs/exec-ops/skills/decision-brief/review-cycle.md) |
 | Run an initiative | [The six stages](framework.md) and the [programme record](../templates/programme.md) |
 | Understand the rules | [The four rules](controls.md), [the twelve controls](../rules/README.md), [the guardrails](../rules/guardrails/README.md) and [the Claims block](claims.md) |
 | Learn the craft underneath | [Ways of working](../ways-of-working/README.md): specification by example, Definition of Done, engineering excellence, DORA, Team Topologies and more |

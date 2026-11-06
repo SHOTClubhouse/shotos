@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.0 (6 November 2026)
+
+- Run Executive Decision Review from the weekly brief through a recorded decision, a handoff and an independently operated next cycle.
+- Try three fictional examples for retail, bank operations and startup proposals. The examples travel with the Decision Brief skill.
+- Link proposal and weekly briefing work to the same decision record while keeping draft, approval, dispatch and buyer response separate.
+
 ## 1.2.0 (6 November 2026)
 
 - Set up SHOTos for one assistant or for teams with distinct execution roles and review lenses.

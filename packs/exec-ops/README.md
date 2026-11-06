@@ -23,6 +23,10 @@ The pack turns the repeating parts of an operating week into short, checkable lo
 | [decision-brief](skills/decision-brief/README.md) | Hypothesise | Sets out question, sourced facts, assumptions, options, a recommendation and what would change it. |
 | [advisory-session](skills/advisory-session/README.md) | Own | Prepares and runs an advisory session and leaves one action record with one owner per action. |
 
+## Executive Decision Review
+
+Start with one recurring choice from the weekly brief. Use the [review cycle](skills/decision-brief/review-cycle.md) to connect the one-page decision brief, the owner's decision and the handoff. Use the next cycle to see whether another operator can run it from the evidence.
+
 ## Needs
 
 Read-only access first, and drafts instead of sends, throughout.

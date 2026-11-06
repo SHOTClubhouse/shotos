@@ -13,7 +13,7 @@ Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show
 
 Read this week’s operating figures, meetings and last week’s commitments. Separate new evidence, unresolved actions and repeated context.
 
-Use `progress-wrap-up` for delivery claims. File one dated brief and link to the owners’ records.
+Use `progress-wrap-up` for delivery claims. File one dated brief and link to the owners’ records. For a recurring choice, send the decision question to `decision-brief` and use its Executive Decision Review workflow. In the weekly brief, carry the question, decider, due date and owning record. Carry the decision as agreed only when the authorised person's dated decision is linked from the owning record.
 
 ## When not to use this
 
@@ -23,8 +23,8 @@ Skip it when nothing changed (send a one-line "no change" note instead), for an 
 
 1. **Set the window and reader.** Name the week, the reader and their authority. If the reader is not the owner, apply the owner's rule for what can go outward.
 2. **Gather evidence from named sources.** Read the daily ledger and digests, meeting notes, task records, calendar and any external signals the owner follows. Write down every source used and every source that was unavailable or empty.
-3. **Find what changed.** List changes since the last brief, each with a source and date. A repeated line from the daily notes is not a change; check whether anything new happened.
-4. **List what needs deciding.** For each: the question, the decision maker, the date by which it is needed and what happens if it slips.
+3. **Find what changed.** List changes since the last brief, each with a source and date. A repeated line from the daily notes is not a change. Give each material item its consequence for the reader. Carry a meeting, proposal or release forward only if the evidence shows a changed outcome, a blocker or a decision. A draft, a send, a response and an agreed outcome are separate states.
+4. **List what needs deciding.** For each: the question, the decision maker, the date by which it is needed and what happens if it slips. Make any ask specific enough to act on. Say what help is needed, from whom and what it enables. Keep detail the reader cannot act on in the linked source record.
 5. **Pick external signals worth acting on.** Keep only items that bear on a current decision or commitment. State what each means for the work, and mark it fact, hypothesis or target.
 6. **Separate commitments from recommendations.** A **commitment** is something a named person has agreed to by a date, with a source. A **recommendation** is the agent's view. Never let a recommendation or a repeated daily note read as a commitment.
 7. **List what is unverified.** Claims with one source, figures not rechecked, items reported but not observed.

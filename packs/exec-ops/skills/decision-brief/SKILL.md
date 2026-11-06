@@ -13,7 +13,7 @@ Stage: Hypothesise. Rules: 2 Agree acceptance first, 4 Claim only what you can s
 
 Read the decision owner’s mandate, earlier decisions, available options and evidence that could reverse the recommendation.
 
-Use `decision-record` after a decision is made. Keep the brief and decision in the same owning record.
+Use `decision-record` after a decision is made. Keep the brief and decision in the same owning record. For a recurring leadership choice, follow [Executive Decision Review](review-cycle.md) through the handoff and next independent cycle.
 
 ## When not to use this
 

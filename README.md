@@ -14,7 +14,7 @@ Choose the role that fits the work in front of you. Try it on one real task and 
 
 | I’m a… | Try this first | What would show it helped? |
 | --- | --- | --- |
-| **Business leader** | Use the [decision brief](packs/exec-ops/skills/decision-brief/README.md) to turn a stalled decision into options, evidence and a named decider. | The decider can choose an option or name the evidence they still need. |
+| **Business leader** | Use [Executive Decision Review](packs/exec-ops/skills/decision-brief/review-cycle.md#try-a-worked-scenario) to turn a recurring choice into a brief, a recorded decision and a handoff. | The decider can choose an option or name the evidence they still need. |
 | **Founder** | Use [contextual proposal](packs/win-the-work/skills/contextual-proposal/README.md) to turn prospect notes into a draft for a named buyer. | A reviewer can trace the claims and see what needs approval before sharing. |
 | **Marketer** | Use the [content calendar](packs/social/skills/content-calendar/README.md) to plan one week around real events and available assets. | Each draft has a reason to exist, an owner and the assets needed for review. |
 | **Analyst** | Use the [evidence pack](skills/evidence-pack/README.md) to compare a pilot with its baseline. | A sponsor can see the sample, the result and the gaps before deciding. |
