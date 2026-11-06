@@ -33,7 +33,7 @@ import tempfile
 from contextlib import contextmanager
 from pathlib import Path
 
-from tools.skill_resources import example_files
+from tools.skill_resources import example_files, portable_readme
 
 REPO = Path(__file__).resolve().parent
 MANIFEST = ".shotos-install.json"
@@ -346,6 +346,7 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
                 folder.mkdir()
                 manifest["dirs"].append(folder.relative_to(root).as_posix())
             if src.is_dir():
+                readme = portable_readme(src, REPO) if (src / "SKILL.md").is_file() else None
                 shutil.copytree(src, dst)
                 manifest["dirs"].append(dst.relative_to(root).as_posix())
                 files = [p for p in dst.rglob("*") if p.is_file()]
@@ -355,6 +356,10 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
                 files = [dst]
             for f in files:
                 manifest["files"][f.relative_to(root).as_posix()] = sha(f)
+            if src.is_dir() and readme is not None:
+                installed_readme = dst / "README.md"
+                installed_readme.write_bytes(readme.encode("utf-8"))
+                manifest["files"][installed_readme.relative_to(root).as_posix()] = sha(installed_readme)
         if hook:
             before = settings_path.read_bytes() if settings_path.is_file() else None
             if not settings_path.parent.exists():
