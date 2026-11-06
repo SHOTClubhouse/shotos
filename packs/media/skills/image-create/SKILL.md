@@ -13,7 +13,7 @@ Produce an image that fits its job, has been looked at after generation, and is 
 
 Read the actual subject, audience, destination crop, brand or style references and rights. Use references to settle composition before choosing a generation route.
 
-Use `explainer` if the image must teach a sequence. Review likeness, hierarchy and crop, and keep sources with the final asset.
+Use `explainer` if the image must teach a sequence. For a campaign graphic, agree one message and the destination first. Use editable layout for copy-heavy graphics and retain the editable master. Read the [campaign graphics checks](campaign-graphics.md) when the same design will ship in several sizes.
 
 ## When not to use this
 
@@ -21,11 +21,11 @@ Do not use it for photographs presented as real events, for images of real peopl
 
 ## Steps
 
-1. **Check the tools first.** If `.work/capabilities.md` exists, read it. If the tool this skill needs (an image model) is missing, say so at the start, do the steps that need no tool, and say how to connect it (see the connect-your-tools guide at `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` where SHOTos is installed).
+1. **Check the tools first.** If `.work/capabilities.md` exists, read it. For a text-led or vector graphic, use the project's layout tool. If a generated image is needed and no image model is available, say so, do the steps that need no tool, and say how to connect it (see the connect-your-tools guide at `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` where SHOTos is installed).
 2. **Write the brief.** Capture the job (where it will appear and what it must help the reader do), the size and ratio, the style, any text that must appear, and the owner who accepts it.
 3. **Agree references.** List any reference images the owner supplied and the rights to use them. Describe style in words rather than naming a living artist or a copyrighted character.
 4. **Run the rights and likeness check before generating.** No real, identifiable person without their written consent. No borrowed character, logo or trademark without rights. No children's likeness drawn from a real child. If the brief needs any of these, stop and ask the owner.
-5. **Generate a small set.** Ask the chosen model for two to four options. Keep the prompt, model name and settings with the work.
+5. **Build the first design.** For an editable graphic, use the approved layout and copy. If generating an image, ask the chosen model for two to four options and keep the prompt, model and settings with the work.
 6. **Look at the actual image.** Open each output and check it against the brief: subject, composition, text spelling, hands and faces, extra limbs or objects, stray logos or watermarks, and the crop at every size it will be used. Describe what you see, not what you asked for.
 7. **Fix and regenerate.** List each defect, adjust the prompt or edit, regenerate and look again. Stop after a set number of rounds (three unless the owner says otherwise) and report what remains.
 8. **Write alt text.** One or two sentences describing what the image shows and why it is there, for a reader who cannot see it. No "image of".

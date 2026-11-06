@@ -4,6 +4,8 @@
 
 This pack is for anyone who has to win customers, partners, funding or advisers and wants the evidence behind each deal to be visible. It gives an agent a repeatable way to run a pipeline, ask the right questions, research the reader, write the proposal and reply to the thread, without sending anything on your behalf.
 
+Use [bid response](skills/bid-response/README.md) for an issued tender and [RFP authoring](skills/rfp-authoring/README.md) to prepare an invitation as the buyer.
+
 ## Who it is for
 
 - Founders and sales leads who run a pipeline in a spreadsheet and lose track of what is real.
@@ -93,4 +95,3 @@ Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
 Evidence: earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). See [evals/packs/win-the-work.json](../../evals/packs/win-the-work.json).
-

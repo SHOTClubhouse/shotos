@@ -13,7 +13,7 @@ Research goes wrong when a fact loses its source on the way to the page. Keep th
 
 Read the question and decision first. Prefer original sources, note freshness and reconcile conflicts before synthesising.
 
-Use `claims-audit` where assertions will be reused externally. Keep a source ledger with the output.
+Use `claims-audit` where assertions will be reused externally. Keep a source ledger with the output. Start with the sources most likely to change the decision. Stop when the material claims are checked or the remaining gap has a named source and a reason it could change the answer.
 
 ## When not to use this
 

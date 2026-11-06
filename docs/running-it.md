@@ -1,8 +1,8 @@
 # Run SHOTos in your project
 
-Start with the runtime your team already uses. [Try the method](../README.md#try-shotos) with an acceptance card or run the local demo. The [install guide](../README.md#install) shows how to preview what changes in your project.
+Choose [Codex or Claude Code on Windows or Mac](guides/codex-claude-code.md), or [ChatGPT or Claude without a terminal](guides/chat-assistants.md). Start with the runtime your team already uses. [Try the method](../README.md#try-shotos) with an acceptance card or run the local demo. The [install guide](../README.md#install) shows how to preview what changes in your project.
 
-Use the [full-pack guide](full-pack.md) to install all 82 skills and follow one task across personas, execution roles and review lenses. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
+Use the [full-pack guide](full-pack.md) to install all 85 skills and follow one task across personas, execution roles and review lenses. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
 
 Download the individual skills from [GitHub Releases](https://github.com/SHOTClubhouse/shotos/releases/latest) if you use the Claude app. For a local project, add a pack by rerunning the installer with the same runtime and scope and the additional pack name. The installer keeps existing files and adds only the requested packs.
 
@@ -16,7 +16,7 @@ Download the individual skills from [GitHub Releases](https://github.com/SHOTClu
 | **Antigravity** | `--runtime antigravity --scope project` | Skills in `.agents/skills` and an import of `AGENTS.md` in `GEMINI.md`. Verify skill loading in your runtime before adoption. |
 | **Several local runtimes** | `--runtime all --scope project` | Shared project rules and skills in the relevant runtime folders. Review the install plan for each tool your team uses. |
 | **Other compatible local agents** | `--runtime agents --scope project` | The shared `.agents/skills` directory and project rules. |
-| **Claude app** | Package the skills from this checkout with `python tools/package_skills.py --pack <name>` and upload the ZIPs in a compatible setup. Add the [working agreement](../templates/AGENTS.md) to your Project instructions. | Skills and the six-stage working agreement. |
+| **Claude app** | Download a skill ZIP from GitHub Releases and [upload it through Customize](guides/chat-assistants.md#claude-with-skills-enabled). Add the [working agreement](../templates/AGENTS.md) to your Project instructions. | Skills and the six-stage working agreement. |
 | **ChatGPT or another assistant** | Add the [project rules](../templates/AGENTS.md) and the relevant skill files to a project or assistant that can read them. | The workflow as instructions and templates. |
 | **Manual** | Copy the [templates](../templates/) into the tools you already use. | Briefs, checklists, decision records and handovers. |
 

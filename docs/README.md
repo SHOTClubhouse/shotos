@@ -15,6 +15,7 @@ Start with the [Harbourside example](walkthrough.md) to see how context travels 
 | Use several agents or models | [Multi-agent patterns](multi-agent-patterns.md), [role agents](../agents/README.md) and [review lenses](../lenses/README.md) |
 | Write or audit a skill | [How a skill is built](skill-format.md) |
 | See where it fits | [Maturity levels](levels.md) and [how SHOTos compares](compare.md) |
+| Set up without a terminal | [Local Codex or Claude Code](guides/codex-claude-code.md) or [ChatGPT and Claude](guides/chat-assistants.md) |
 | Run it in your tool | [Where to run SHOTos](running-it.md): Claude app, Claude Code, ChatGPT, Codex, Gemini, Antigravity, terminals |
 | Install the whole pack and share work across models | [Full-pack guide](full-pack.md) and [work record](../templates/work-record.md) |
 | Connect slides, speech, images, mail and the browser | [Connect your tools](connect-your-tools.md) |
