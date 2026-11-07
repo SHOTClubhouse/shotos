@@ -55,7 +55,7 @@ def package(skill: Path, out: Path, *, source_ref: str = "main") -> Path:
             write_member(archive, f"{skill.name}/{name}", path.read_bytes())
         if skill == REPO / "packs" / "exec-ops" / "skills" / "decision-brief":
             scenarios = {path.resolve(): f"../scenarios/{path.name}"
-                         for path in (skill / "scenarios").glob("retail-trial-*.md")}
+                         for path in (skill / "scenarios").glob("*.md")}
             for name in ("codex-claude-code.md", "chat-assistants.md"):
                 guide = REPO / "docs" / "guides" / name
                 markdown = portable_markdown(guide, REPO, scenarios, source_ref=source_ref)

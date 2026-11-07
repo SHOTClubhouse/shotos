@@ -6,7 +6,7 @@ The walkthrough below uses Decision Brief. To try a different job, pick its ZIP 
 
 ## Claude with Skills enabled
 
-1. Download `decision-brief.zip` from the [latest GitHub release](https://github.com/SHOTClubhouse/shotos/releases/latest). Keep the ZIP intact for this route.
+1. [Download `decision-brief.zip`](https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip). Keep the ZIP intact for this route.
 2. Open **Customize → Skills**, choose **+ → Create skill → Upload a skill**, then select the ZIP and enable the skill. If the menu is unavailable, check the workspace settings for skills and file creation, or use the file route below.
 3. Start a fresh chat and ask Claude to use Decision Brief and its bundled `template.md` and `review-cycle.md`. Follow the two prompts below and check which scenario files and evidence IDs it cites. [Official Claude instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
@@ -35,3 +35,19 @@ A ChatGPT Project uses the files as context. Some eligible ChatGPT workspace age
 Look for a named decider, dated evidence, an explicit decision and a handoff state that matches its receipt. If the assistant cannot see a supporting file, give it that file and repeat the check. A file upload provides instructions and examples. Tools, connectors and approval settings depend on the workspace.
 
 For the retail example, R1–R3 support a conditional recommendation to extend the trial to one evening site, subject to a local baseline and existing staffing. R4 records the conditional approval, R5 records the receiving lead's acceptance, and R6 records a later decision to stop at that site after overtime rose. The independent cycle passes because the receiving operator ran the review without help from the original operator and the director accepted the review record. Wider rollout remains unauthorised.
+
+## Try a bank or startup decision
+
+Use the same setup in a fresh chat. Open the initial evidence first. After you have the brief, add the follow-up records. Open the worked answer yourself to check the result.
+
+### Bank operations
+
+1. Attach or open the [initial evidence](../../packs/exec-ops/skills/decision-brief/scenarios/bank-remediation-initial.md). Ask for the closure options and what evidence the service owner would need.
+2. Add the [follow-up records](../../packs/exec-ops/skills/decision-brief/scenarios/bank-remediation-follow-up.md). Ask whether the closure request changes the decision, handoff or independent-cycle status.
+3. Compare with the [worked bank review](../../packs/exec-ops/skills/decision-brief/scenarios/bank-remediation.md).
+
+### Startup proposal
+
+1. Attach or open the [initial evidence](../../packs/exec-ops/skills/decision-brief/scenarios/startup-proposal-initial.md). Ask for the founder's decision brief, one buyer-facing sentence and the corresponding private working-sheet entry.
+2. Add the [follow-up records](../../packs/exec-ops/skills/decision-brief/scenarios/startup-proposal-follow-up.md). Ask what the founder authorised, what the operator accepted and whether the next review was independent.
+3. Compare with the [worked startup review](../../packs/exec-ops/skills/decision-brief/scenarios/startup-proposal.md).

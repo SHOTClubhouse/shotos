@@ -30,7 +30,7 @@ Keep missing measures blank or mark them unmeasured. Track attempts and model sp
 
 ## Try a worked scenario
 
-Each scenario gives you fictional inputs, a worked brief, the decision and handoff evidence, and a prompt you can reuse. The retail scenario has separate input files for the initial brief and the follow-up. Compare your result with the worked output after both replies.
+Each scenario gives you an initial evidence file, a separate follow-up file and a worked answer. Share the input files one at a time and use the worked answer to review the result after both replies.
 
 | Scenario | What it demonstrates |
 | --- | --- |
