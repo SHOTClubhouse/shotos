@@ -11,26 +11,26 @@ HOOK = Path(__file__).resolve().parents[1] / "hooks" / "stop_claim_check.py"
 LAUNCHER = HOOK.parent / "run_hook.sh"
 
 
-def transcript(tmp: Path, text: str, tools=("Write",), earlier=()) -> Path:
+def transcript(tmp: Path, text: str, tools=("Write",), earlier=(), history=()) -> Path:
     path = tmp / "t.jsonl"
-    lines = [{"type": "user", "message": {"role": "user", "content": "Write the plan."}}]
+    lines = [*history, {"type": "user", "message": {"role": "user", "content": "Write the plan."}}]
     for name in tools:
         lines.append({"type": "assistant", "message": {"content": [{"type": "tool_use", "name": name, "input": {}}]}})
         lines.append({"type": "user", "message": {"content": [{"type": "tool_result", "content": "ok"}]}})
     for part in earlier:
         lines.append({"type": "assistant", "message": {"content": [{"type": "text", "text": part}]}})
     lines.append({"type": "assistant", "message": {"content": [{"type": "text", "text": text}]}})
-    path.write_text("\n".join(json.dumps(line) for line in lines), encoding="utf-8")
+    path.write_text("\n".join(json.dumps(line, ensure_ascii=False) for line in lines), encoding="utf-8")
     return path
 
 
 class StopHookTests(unittest.TestCase):
-    def run_hook(self, text, active=False, command=None, tools=("Write",), opted_in=True, earlier=()):
+    def run_hook(self, text, active=False, command=None, tools=("Write",), opted_in=True, earlier=(), history=()):
         with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as home:
             tmp = Path(tmp)
             if opted_in:
                 (tmp / ".shotos").mkdir()
-            event = {"transcript_path": str(transcript(tmp, text, tools, earlier)), "cwd": str(tmp), "stop_hook_active": active}
+            event = {"transcript_path": str(transcript(tmp, text, tools, earlier, history)), "cwd": str(tmp), "stop_hook_active": active}
             env = {**os.environ, "HOME": home, "USERPROFILE": home}  # no user config on the machine running the test
             return subprocess.run(command or [sys.executable, str(HOOK)], input=json.dumps(event),
                                   capture_output=True, text=True, env=env)
@@ -75,6 +75,17 @@ class StopHookTests(unittest.TestCase):
     def test_earlier_completion_claim_is_checked(self):
         run = self.run_hook("Let me know if you need anything.", earlier=("Done, I emailed the client.",))
         self.assertEqual(run.returncode, 2)
+
+    def test_old_turns_do_not_supply_current_claims(self):
+        old = {"type": "assistant", "message": {"content": [{"type": "text", "text": "Done, I sent it."}]}}
+        run = self.run_hook("Nothing was sent.", history=(old,))
+        self.assertEqual(run.returncode, 0, run.stderr)
+
+    def test_long_record_keeps_current_claim_lines_in_order(self):
+        body = "é" * 70000 + "\n\n## Claims"
+        run = self.run_hook("- [file] created: absent.md", earlier=(body,))
+        self.assertEqual(run.returncode, 2, run.stderr)
+        self.assertIn("UNSUPPORTED", run.stderr)
 
     def test_unverified_only_cannot_back_a_done_claim(self):
         run = self.run_hook("Done.\n\n## Claims\n- [unverified] everything\n")

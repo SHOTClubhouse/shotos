@@ -26,11 +26,14 @@ The [outcome runner](../evals/run_outcomes.py) ran the ten fictional task fixtur
 
 These runs help identify specific changes to the fixtures, graders and instructions. Measuring accepted work would require reviewers to take the drafts through to an agreed outcome. Raw responses from this run stay in the local release workspace.
 
+A Windows walkthrough started from the public Decision Brief ZIP. Claude Code discovered the skill and opened the two bundled retail inputs directly. Codex discovered the installed skill and used the same ZIP's instructions and inputs in a text-only exercise. Both kept the first decision pending and cited the later stop decision, receiver acceptance and independent cycle from R4–R6.
+
 ## Checks on main after v1.7.0
 
 - **Restored handoff fixture.** The handoff task at `5b7fa07` gave both Claude Haiku conditions the same fictional note, including the missing report specification. Both runs passed all five checks. This replaces the unusable handoff pair for that exercise only.
 - **Proposal draft and private working sheet.** After the proposal update at `bb5ed74`, one text-only exercise in Codex and one in Claude each passed all seven checks. Both drafted the approved £2,432 monthly offer and put unapproved service decisions in the separate working sheet. Each received the fictional inputs and skill in the prompt. These checks cover the draft content and separation of records.
 - **Phrase-grader sensitivity.** We selected the four v1.7.0 cases where the literal grader had favoured the baseline, then graded the same eight saved outputs by meaning with the condition label withheld. Both conditions passed all four. The meaning-based result covers this sample. The 70-case result above uses the literal method.
+- **Stop hook transcript reading.** On one synthetic 19.6 MB transcript on Windows, the median parsing time across five runs fell from about 177 ms to 0.11 ms. Both implementations returned the same current-turn text and tools. This measures transcript parsing in the hook.
 
 ## Six-stage runtime check
 
