@@ -12,7 +12,7 @@ Both skills work from evidence, keep facts separate from opinions and draft any 
 
 ## Skills
 
-![Prepared, Offered, Accepted and Completed each require different evidence. An independent cycle is a separate Own check.](../../docs/images/handoff-status-evidence.svg)
+![A saved brief is Prepared, authorised dispatch is Offered, and agreement to the offered revision is Accepted. Completion needs customer notification, the owner record update and evidence of the first action. Own also requires an independent cycle.](../../docs/images/handoff-status-evidence.svg)
 
 | Skill | Stage | What it does |
 |---|---|---|

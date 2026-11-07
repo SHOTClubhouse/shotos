@@ -1,6 +1,6 @@
 # What you can do with SHOTos
 
-Pick the job, install the pack, and ask in plain words. Every skill below drafts first and stops for your yes before anything is sent, posted, published, bought or deleted. The prompts are examples: change the details to fit your own work.
+Pick the job, install the pack and ask in plain words. The skills can prepare a decision, build a working result or check a release. A request that names an authorised project action supplies authority for that action. For an external action, record the owner's approval of the applicable content, recipients, destination or amount. [Stop at the boundaries](../rules/04-stop-boundaries.md)
 
 ## Make things
 
