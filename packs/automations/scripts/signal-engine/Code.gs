@@ -163,6 +163,10 @@ function collectSignals() {
     var processedRows = [];
     var aiCalls = 0;
     var aiOn = isAiEnabled_();
+    if (dry && aiOn) {
+      log_('INFO', '[DRY RUN] Keyword scoring only. No items sent to the AI scoring provider.');
+      aiOn = false;
+    }
 
     for (var i = 0; i < messageIds.length; i++) {
       if (Date.now() - started > CONFIG.RUN_BUDGET_MS) {
@@ -245,6 +249,10 @@ function sendDigest(force) {
     ensureSheets_();
     var props = PropertiesService.getScriptProperties();
     var today = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd');
+    if (!dry && props.getProperty('PENDING_DIGEST')) {
+      log_('WARN', 'A previous digest needs reconciliation. See PENDING_DIGEST in Script Properties.');
+      return;
+    }
     if (!dry && force !== true && props.getProperty('LAST_DIGEST_DATE') === today) {
       log_('INFO', 'A digest was already sent today. Skipping.');
       return;
@@ -279,11 +287,19 @@ function sendDigest(force) {
         throw new Error('No digest address: DIGEST_TO is blank and the account email could not be read.');
       }
       var content = buildDigest_(chosen.map(function (e) { return e.row; }), col, candidates.length);
+      var attempt = {
+        id: Utilities.getUuid(),
+        date: today,
+        recipient: recipient,
+        itemKeys: chosen.map(function (e) { return String(e.row[col.ItemKey]); })
+      };
+      // Keep the reservation if sending or recording the result is interrupted.
+      props.setProperty('PENDING_DIGEST', JSON.stringify(attempt));
       MailApp.sendEmail({
         to: recipient, // DIGEST_TO or the owner: never a recipient taken from mail or the sheet
         subject: CONFIG.DIGEST_SUBJECT_PREFIX + ' ' + today + ' (' + chosen.length + ' item' + (chosen.length === 1 ? '' : 's') + ')',
-        body: content.text,
-        htmlBody: content.html,
+        body: content.text + '\nDigest reference: ' + attempt.id,
+        htmlBody: content.html + '<p><small>Digest reference: ' + attempt.id + '</small></p>',
         name: 'Signal Engine'
       });
       props.setProperty('LAST_DIGEST_DATE', today);
@@ -294,6 +310,8 @@ function sendDigest(force) {
       });
       belowThreshold.forEach(function (e) { table.rows[e.index][col.Status] = 'skipped'; });
       writeColumns_(sheet, table.rows, [col.Status, col.DigestedAt]);
+      SpreadsheetApp.flush();
+      props.deleteProperty('PENDING_DIGEST');
       log_('INFO', 'Digest sent to ' + recipient + ' with ' + chosen.length + ' item(s); ' +
         belowThreshold.length + ' low-score item(s) marked skipped.');
     }

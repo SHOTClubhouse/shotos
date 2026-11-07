@@ -33,7 +33,7 @@ Time: about 15 minutes.
 
 ## Modes
 
-The script starts in **dry run**: it reads and scores, writes only to the Log tab, and sends nothing. Modes are Script Properties (Project Settings), switched by running a function:
+The script starts in **dry run**: it reads and scores with keywords, and writes only to the Log tab. Email and external AI scoring wait for live mode. Modes are Script Properties (Project Settings), switched by running a function:
 
 | Run this | Effect |
 |---|---|
@@ -52,6 +52,14 @@ Recommended order: dry run, then pilot plus live mode (three messages), then che
 | `sendDigest` | Sends today's digest (once per day). `sendDigestAgain` sends another. |
 | `installTriggers` | Hourly collect and a daily digest around 07:00. |
 | `removeTriggers` | Removes only this script's triggers. |
+
+## Recover a pending digest
+
+If a send or queue update is interrupted, both scheduled and manual sends pause while `PENDING_DIGEST` exists in Script Properties. The record contains a digest reference, date, recipient and queue item keys. Check that the earlier execution has finished, then look for that exact reference in the recipient's mailbox.
+
+- If you confirm the digest arrived, mark its listed item keys `digested` in **Queue**, record the delivery time, and make sure `LAST_DIGEST_DATE` reflects the digest date. Then clear `PENDING_DIGEST`.
+- If you verify it was never sent, clear `PENDING_DIGEST` and rerun the intended digest when ready.
+- If delivery remains uncertain, leave the reservation in place while you investigate.
 
 ## Optional AI scoring
 

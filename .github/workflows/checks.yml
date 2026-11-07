@@ -23,4 +23,4 @@ jobs:
         with:
           node-version: '22'
       - if: matrix.os == 'ubuntu-latest' && matrix.python == '3.13'
-        run: node --test tests/batch_document_factory.test.js
+        run: node --test tests/*.test.js
