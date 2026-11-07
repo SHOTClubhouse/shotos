@@ -652,8 +652,9 @@ function pruneOldRows_(sheet, width, dateCol, days) {
   });
   var removed = values.length - kept.length;
   if (removed > 0) {
-    sheet.getRange(2, 1, values.length, width).clearContent();
-    if (kept.length) { sheet.getRange(2, 1, kept.length, width).setValues(kept); }
+    // Replace the retained rows and blank tail together so cleanup never clears first.
+    for (var i = 0; i < removed; i++) { kept.push(Array(width).fill('')); }
+    sheet.getRange(2, 1, values.length, width).setValues(literalSheetValues_(kept));
   }
   return removed;
 }
@@ -744,7 +745,16 @@ function readQueueIndex_() {
 
 function appendRows_(sheet, rows) {
   if (!rows.length) { return; }
-  sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, rows[0].length).setValues(rows);
+  sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, rows[0].length).setValues(literalSheetValues_(rows));
+}
+
+/** Escape strings that Sheets would otherwise treat as formulas or text prefixes. */
+function literalSheetValues_(rows) {
+  return rows.map(function (row) {
+    return row.map(function (value) {
+      return typeof value === 'string' && /^[=']/.test(value) ? "'" + value : value;
+    });
+  });
 }
 
 /** Writes selected columns back for all data rows in one call per column. */
