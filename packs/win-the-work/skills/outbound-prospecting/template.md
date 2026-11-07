@@ -9,18 +9,20 @@
 **Opt-out line used:** 
 **Review date:** 
 
-## Batch of five
-| Contact (role, organisation) | Why they fit | Suppression checked (yes/no, against what) | Sender identity checked | Research sources | Ready? |
-|---|---|---|---|---|---|
-| 1 | | | | | |
+## Up to five candidates
+| Contact (role, organisation) | Why they fit | Suppression checked (yes/no, against what) | Sender identity checked | Role and relevance evidence | Ready, held or excluded | Reason or owner |
+|---|---|---|---|---|---|---|
+| 1 | | | | | | |
 
 ## Research per contact
 **Contact 1:** (role; what the organisation does; one specific recent fact; source; unverified items)
 
-## Drafts (for the sender to send)
+## Drafts (for eligible contacts only)
 **To:** 
 **Subject:** 
 **Body:**
+
+**If the eligible batch is smaller than planned:** owner decision and revised measure.
 
 ## Measure
 | Measure | Count |
