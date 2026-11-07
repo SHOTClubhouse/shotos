@@ -47,7 +47,8 @@ Use the [full-pack guide](full-pack.md) when you want all 88 skills and the role
 | **Several local runtimes** | `--runtime all --scope project` | Shared project rules and skills in the relevant runtime folders. Review the install plan for each tool your team uses. |
 | **Other compatible local agents** | `--runtime agents --scope project` | The shared `.agents/skills` directory and project rules. |
 | **Claude app** | Download a skill ZIP from GitHub Releases and [upload it through Customize](guides/chat-assistants.md#claude-with-skills-enabled). Add the [working agreement](../templates/AGENTS.md) to your Project instructions. | Skills and the six-stage working agreement. |
-| **ChatGPT or another assistant** | Add the [project rules](../templates/AGENTS.md) and the relevant skill files to a project or assistant that can read them. | The workflow as instructions and templates. |
+| **ChatGPT** | [Upload a skill](guides/chat-assistants.md#chatgpt-with-skills-enabled) when your workspace supports it, or [use project files](guides/chat-assistants.md#chatgpt-projects-or-a-claude-chat-using-files). | A native skill where enabled, or the workflow as instructions and templates. |
+| **Another assistant** | Add the [project rules](../templates/AGENTS.md) and the relevant skill files to a project or assistant that can read them. | The workflow as instructions and templates. |
 | **Manual** | Copy the [templates](../templates/) into the tools you already use. | Briefs, checklists, decision records and handovers. |
 
 Pass these flags to `python /path/to/shotos/install.py` from the project you want to configure. Add `--pack <name>` once per pack, `--list-packs` to see the options and `--dry-run` to preview the plan. Use `--scope user` for a skills-only install where supported. Project installs include the programme record at `.shotos/templates/programme.md`. [Security and installer behaviour](../SECURITY.md)

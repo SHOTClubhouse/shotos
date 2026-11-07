@@ -10,6 +10,14 @@ The walkthrough below uses Decision Brief. To try a different job, pick its ZIP 
 2. Open **Customize → Skills**, choose **+ → Create skill → Upload a skill**, then select the ZIP and enable the skill. If the menu is unavailable, check the workspace settings for skills and file creation, or use the file route below.
 3. Start a fresh chat and ask Claude to use Decision Brief and its bundled `template.md` and `review-cycle.md`. Follow the two prompts below and check which scenario files and evidence IDs it cites. [Official Claude instructions](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
+## ChatGPT with Skills enabled
+
+1. In the sidebar, open **Plugins** and select **Skills**. Choose **Create**, then **Upload from your computer**.
+2. Choose the Decision Brief skill download and check that the upload is available after review. Skill upload depends on your workspace. If the option is absent or the file is rejected, use the file route below.
+3. In a fresh chat, type `@` and select the skill if it appears. Ask it to open its own `template.md` and the first scenario file before continuing.
+
+[ChatGPT skills and workspace permissions](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) · [Invoking skills in ChatGPT](https://learn.chatgpt.com/docs/build-skills#how-chatgpt-and-codex-use-skills)
+
 ## ChatGPT Projects, or a Claude chat using files
 
 1. Download the same ZIP. Use **Extract All** in Windows File Explorer or double-click it in Mac Finder.
@@ -29,6 +37,10 @@ Once you have the brief, attach or paste the [follow-up records](../../packs/exe
 Keep the worked answer for your own review. If your ZIP contains only the original combined scenario, use the two linked input files above.
 
 A ChatGPT Project uses the files as context. Some eligible ChatGPT workspace agents also offer **Add skill** in the agent builder. Use that native option where your workspace allows it, and verify that the agent can open the scenario before relying on it. [ChatGPT Projects](https://learn.chatgpt.com/docs/projects) · [Workspace agent skill setup](https://developers.openai.com/cookbook/articles/chatgpt-agents-sales-meeting-prep#3-enabling-skills-and-memories-for-consistent-customized-outputs)
+
+## Try a newer release
+
+Download the skill again from the [release you want](https://github.com/SHOTClubhouse/shotos/releases). Open a fresh chat with the new files, or test the new native skill separately from the old one where your workspace allows it. Run the same fictional exercise first. When updating a shared project, review which files and instructions belong to the old skill and keep one active revision. Keep your own decisions, notes and working agreement with the project.
 
 ## Check your first result
 

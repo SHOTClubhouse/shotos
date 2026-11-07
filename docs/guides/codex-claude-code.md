@@ -22,6 +22,8 @@ Use the same installed skill for the [bank and startup exercises](chat-assistant
 
 For a shared agreement, add the [working agreement](../../templates/AGENTS.md) at the project root or merge its guidance into the existing file with the project owner's review. In Claude Code, reference it from the project's `CLAUDE.md` using `@AGENTS.md`. Manual copying gives you the selected skill and its files. Add other skills from the same release as needed. Keep one copy of each skill per project.
 
+To update a manually copied skill, extract the new release to a separate folder. Back up your old skill folder outside the project and any watched skills folders. Copy the complete new folder into the same installation location, then check it in a fresh session with the same fictional exercise. Review any custom templates or instructions before bringing them across. Keep project records and the working agreement in the project.
+
 [Official Codex skill locations](https://developers.openai.com/codex/skills) · [Claude Code skills](https://code.claude.com/docs/en/skills)
 
 ## Install Executive Ops from Claude Code
