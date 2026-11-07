@@ -23,6 +23,8 @@ For Decision Brief, use the [two-round retail exercise](guides/chat-assistants.m
 - **Handoff.** Check that the signed scope and weekly report promise carry over. The proposed receiver has yet to accept and the customer has an open question about keys.
 - **Website.** Check that Home links to the weekly sessions and Open Day leads to a first-visit plan. The preview should give visitors no impression that a signup service exists.
 
+If you already used the installer, run `python install.py --status --target <project-folder>` from the SHOTos checkout. It reads the manifest and shows the recorded runtime, scope, packs and any installer-owned files that changed or went missing. For a user-scope install, pass `--scope user` and leave out the project target. The check leaves files alone and covers installer-managed copies.
+
 For a second job, add its skill ZIP or preview the additional pack with `--dry-run` and your existing runtime and scope. The installer adds missing packs. For a version upgrade, preview removal with `--uninstall --dry-run`, review any local changes the installer would preserve, and preview a fresh install from the desired tag. The release ZIPs match their tag. The default branch can include newer skills and guides. [Installer safeguards](../SECURITY.md)
 
 Use the [full-pack guide](full-pack.md) when you want all 88 skills and the role and review resources. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.

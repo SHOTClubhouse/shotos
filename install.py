@@ -17,6 +17,7 @@ Examples:
   python install.py --pack exec-ops --pack win-the-work
   python install.py --all-packs --with-agents
   python install.py --list-packs
+  python install.py --status --scope project
   python install.py --uninstall --scope project
 """
 
@@ -460,6 +461,41 @@ def uninstall(root: Path, dry_run: bool) -> int:
     return 0
 
 
+def status(root: Path) -> int:
+    root = root.resolve()
+    manifest_path = root / MANIFEST
+    if manifest_path.is_symlink():
+        raise InstallError("The existing manifest is a link.")
+    if not manifest_path.is_file():
+        print("No installer-managed SHOTos setup was found here. Manually copied skills are outside this check.")
+        return 0
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if not isinstance(manifest, dict) or not isinstance(manifest.get("files"), dict):
+        raise InstallError("The install manifest does not contain a managed file list.")
+    packs = manifest.get("packs", [])
+    if not isinstance(packs, list) or not all(isinstance(name, str) for name in packs):
+        raise InstallError("The install manifest has an invalid pack list.")
+    print(f"Runtime: {manifest.get('runtime', 'unknown')}. Scope: {manifest.get('scope', 'unknown')}.")
+    print(f"Optional packs: {', '.join(packs) if packs else 'none'}.")
+    files = manifest["files"]
+    differences = []
+    for name, digest in sorted(files.items()):
+        relative = Path(name)
+        path = root / relative
+        if relative.is_absolute() or relative.anchor or ".." in relative.parts or not contained(root, path):
+            differences.append(("Skipped outside target", name))
+        elif path.is_symlink() or (path.exists() and not path.is_file()):
+            differences.append(("Replaced", name))
+        elif not path.exists():
+            differences.append(("Missing", name))
+        elif sha(path) != digest:
+            differences.append(("Changed", name))
+    print(f"Managed files: {len(files)} recorded, {len(files) - len(differences)} unchanged.")
+    for description, name in differences:
+        print(f"  {description}: {name}")
+    return 0
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--runtime", choices=["all", "claude", "codex", "gemini", "antigravity", "agents"], default="claude")
@@ -468,10 +504,12 @@ def main(argv=None) -> int:
     parser.add_argument("--with-hook", action="store_true", help="add the claim-check Stop hook (Claude Code, project scope)")
     parser.add_argument("--pack", action="append", default=[], help="also install this pack's skills (repeatable)")
     parser.add_argument("--all-packs", action="store_true", help="install every pack")
-    parser.add_argument("--list-packs", action="store_true", help="list the packs and exit")
     parser.add_argument("--with-agents", action="store_true", help="install the role agents into .claude/agents (Claude Code)")
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--uninstall", action="store_true")
+    action = parser.add_mutually_exclusive_group()
+    action.add_argument("--list-packs", action="store_true", help="list the packs and exit")
+    action.add_argument("--status", action="store_true", help="check the recorded setup without changing the target")
+    action.add_argument("--uninstall", action="store_true")
     args = parser.parse_args(argv)
     if args.list_packs:
         for name in available_packs():
@@ -482,6 +520,8 @@ def main(argv=None) -> int:
     default = Path.home() if args.scope == "user" else Path.cwd()
     root = Path(args.target) if args.target else default
     try:
+        if args.status:
+            return status(root)
         if args.dry_run or (args.uninstall and not root.exists()):
             return uninstall(root, True) if args.uninstall else install(
                 args.runtime, args.scope, root, args.with_hook, True, packs, args.with_agents)

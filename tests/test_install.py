@@ -52,6 +52,31 @@ class InstallTests(unittest.TestCase):
         self.assertFalse(added.exists())
         self.assertEqual(existing.read_text(encoding="utf-8"), "local edit")
 
+    def test_status_reports_changed_and_missing_files_without_mutation(self):
+        self.install("--pack", "customer-success")
+        changed = self.root / ".claude/skills/success-handoff/SKILL.md"
+        changed.write_text("local edit", encoding="utf-8")
+        missing = changed.with_name("template.md")
+        missing.unlink()
+        manifest = self.root / ".shotos-install.json"
+        before = manifest.read_bytes()
+        result = run("--status", "--target", str(self.root))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("Runtime: claude. Scope: project.", result.stdout)
+        self.assertIn("Optional packs: customer-success.", result.stdout)
+        self.assertIn("Changed: .claude/skills/success-handoff/SKILL.md", result.stdout)
+        self.assertIn("Missing: .claude/skills/success-handoff/template.md", result.stdout)
+        self.assertEqual(manifest.read_bytes(), before)
+        self.assertEqual(changed.read_text(encoding="utf-8"), "local edit")
+        self.assertFalse(missing.exists())
+
+    def test_status_on_missing_target_does_not_create_it(self):
+        target = self.root / "absent"
+        result = run("--status", "--target", str(target))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("No installer-managed SHOTos setup", result.stdout)
+        self.assertFalse(target.exists())
+
     def test_pack_clash_leaves_the_existing_install_intact(self):
         self.install()
         path = self.root / ".claude/skills/success-handoff/SKILL.md"
