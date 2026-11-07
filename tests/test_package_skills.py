@@ -130,6 +130,9 @@ class PackageSkillsTests(unittest.TestCase):
                 self.assertIn(f"/blob/{source_commit}/templates/AGENTS.md".encode("ascii"), guide)
                 self.assertIn(b"(../scenarios/retail-trial-initial.md)", guide)
                 self.assertIn("decision-brief/scenarios/retail-trial-initial.md", archive.namelist())
+            with zipfile.ZipFile(Path(tmp) / "graduation-ladder.zip") as archive:
+                example = archive.read("graduation-ladder/example-output.md")
+                self.assertIn(f"/blob/{source_commit}/skills/skill-quality-gate/README.md".encode("ascii"), example)
 
     def test_unknown_pack_is_refused(self):
         with tempfile.TemporaryDirectory() as tmp:
