@@ -47,10 +47,15 @@ STATUS_RECEIPTS = {
     "completed": "attach the completion record and its evidence",
     "independent": "attach the cycle evidence and receiving lead's sign-off",
 }
-COMPLETION = re.compile(
-    r"\b(done|completed?|finished|fixed|sent|emailed|deployed|published|pushed|merged|"
-    r"tests? pass(?:es|ed)?|all green|works now)\b",
-    re.IGNORECASE,
+COMPLETED_VERB = r"(?:done|completed?|finished|fixed|sent|emailed|deployed|published|pushed|merged)"
+COMPLETION = re.compile(rf"\b(?:{COMPLETED_VERB}|tests? pass(?:es|ed)?|all green|works now)\b", re.I)
+NEGATED_COMPLETION = re.compile(
+    r"\b(?:(?:not|never)\s+(?:yet\s+)?"
+    r"|(?:nothing|no (?:e-?mails?|messages?|files?|changes?|outreach|pull requests?))\s+"
+    r"(?:(?:was|were|is|are|has been|have been)\s+)?"
+    r"|(?:hasn|haven|hadn|wasn|weren|isn|aren)['’]t\s+(?:been\s+)?)"
+    rf"{COMPLETED_VERB}(?:\s+(?:or|nor)\s+{COMPLETED_VERB})*\b",
+    re.I,
 )
 HEADING = re.compile(r"^\s*(#{1,6}\s*claims\b|\*\*claims\*\*|claims:)\s*$", re.IGNORECASE)
 FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
@@ -98,7 +103,7 @@ def report_lines(report: str):
 
 
 def has_completion_language(report: str) -> bool:
-    return any(COMPLETION.search(line) for line in report_lines(report))
+    return any(COMPLETION.search(NEGATED_COMPLETION.sub("", line)) for line in report_lines(report))
 
 
 def parse_claims(report: str) -> list:

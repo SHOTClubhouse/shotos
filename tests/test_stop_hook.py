@@ -93,6 +93,10 @@ class StopHookTests(unittest.TestCase):
         run = self.run_hook("I drafted nothing yet.\n\n## Claims\n- [unverified] no file written\n")
         self.assertEqual(run.returncode, 0)
 
+    def test_an_unsent_status_does_not_trigger_a_retry(self):
+        run = self.run_hook("Nothing was sent or published.\n\n## Claims\n- [unverified] external delivery\n")
+        self.assertEqual(run.returncode, 0, run.stderr)
+
     def test_never_blocks_twice_in_one_turn(self):
         run = self.run_hook("Done.\n\n## Claims\n- [file] created: plan.md\n", active=True)
         self.assertEqual(run.returncode, 0)
