@@ -309,13 +309,20 @@ function processRows_(options) {
   }
 }
 
-/** Reasons a row cannot proceed: empty values, banned terms. Returns '' when clean. */
+/** Reasons a row cannot proceed: empty values, placeholder-shaped data, banned terms. Returns '' when clean. */
 function checkRow_(row, values, name, banned) {
   if (CONFIG.REQUIRE_ALL_VALUES) {
     var empty = Object.keys(values).filter(function (k) {
       return values[k] === '' && CONFIG.OPTIONAL_COLUMNS.indexOf(k) === -1;
     });
     if (empty.length) { return 'empty value for: ' + empty.join(', '); }
+  }
+  // Ordered replacements can otherwise rewrite a token inserted as row data.
+  var tokenColumns = Object.keys(values).filter(function (key) {
+    return findTokens_(values[key]).length > 0;
+  });
+  if (tokenColumns.length) {
+    return 'placeholder text in values for: ' + tokenColumns.join(', ');
   }
   var texts = [name].concat(Object.keys(values).map(function (k) { return values[k]; }));
   for (var t = 0; t < banned.length; t++) {
