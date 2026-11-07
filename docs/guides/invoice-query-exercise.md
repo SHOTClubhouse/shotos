@@ -46,4 +46,31 @@ Once Imani has reviewed the first round, add these records to the same work reco
 
 The expected result routes Q4 to Accounts Payable for a match check and withholds a routine reply. The sponsor's decision permits the same queue to continue. Ellis has accepted ownership, and the independent cycle is awaiting reviewer acceptance. B1 and R1 use different timing boundaries and different sample sizes, so retain both figures and collect like-for-like data before assessing the change.
 
+## Decide whether another site can start
+
+Use the [programme record](../../templates/programme.md), [Enablement Plan](../../skills/enablement-plan/README.md) and [Rollout Plan](../../skills/rollout-plan/README.md). Read the two rounds in order. Update the same record after each one.
+
+### Round one
+
+| ID | Record |
+| --- | --- |
+| R4 | Imani accepted Ellis's routing of Q4. Ellis asked the original operator where to find P2 before routing it. Imani added the policy link to the runbook. |
+| R5 | Four comparable pilot cycles are now available. The median from triage to acceptance was 24 minutes against a comparable 27-minute baseline. Tomas accepted the evidence for the original queue and requested another independent cycle before making an expansion decision. |
+
+> Record the Track decision and the Own status. Name the evidence still needed before preparing a rollout.
+
+The sponsor accepted the pilot evidence. Ellis still needs to complete a full cycle without help. An accepted disposition shows the result was correct. The request for help means the independence check remains open.
+
+### Round two
+
+| ID | Record |
+| --- | --- |
+| R6 | Ellis ran the next full cycle from source check through draft review, including a disputed charge, without help from the original operator. Imani reviewed the result afterwards. Ellis accepted ownership and linked the checked runbook and review record. |
+| R7 | Tomas approved a first wave at one site only, conditional on the local baseline, policy and reviewer being confirmed. |
+| R8 | The second site named a queue owner. It has a different invoice policy and has yet to confirm which reviewer is available or measure its baseline. |
+
+> Update Own and draft the first-wave plan. Say what can be reused, what the second site needs to establish and who decides whether it can start.
+
+Own can close with R6. Record the conditional first wave from R7, and keep the site at Scope until the local owner supplies its baseline, checks the policy differences and names the reviewer. Reuse the work record, review routine and draft-only boundary. Carry the original queue figures as pilot evidence. The second site needs its own measures before starting, and Tomas decides whether the conditions have been met.
+
 Return to the [enterprise guide](enterprise-operations.md) to use the same pattern with an approved source set.
