@@ -3,9 +3,10 @@
 **Date:**
 **Written by:**
 **Confirmed by (owner):**
+**Sources checked and any material gap:**
 
 ## What we heard
-Quote or summarise what people observed, believe and asked for. Keep the three apart.
+Separate direct observations, reported symptoms, beliefs and the requested solution.
 
 ## Who is affected
 - Feels the problem:

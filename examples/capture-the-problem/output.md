@@ -1,24 +1,23 @@
 # Problem statement
 
 **Written by:** agent, from the sales lead's request
-**Confirmed by (owner):** waiting for the head of sales
+**Confirmed by (owner):** awaiting confirmation of who owns enquiry response.
+**Sources checked:** the sales lead's request. No inbox sample or response data supplied.
 
 ## What we heard
-- Observed: "People keep emailing the same questions." "The team is drowning."
+- Reported by the sales lead: "People keep emailing the same questions." "The team is drowning."
 - Believed: a chatbot would reduce the load.
 - Asked for: an AI chatbot on the website this month.
 
 ## Who is affected
 - Feels the problem: the sales team answering enquiry emails; prospects waiting for replies.
-- Decides whether it is fixed: the head of sales.
+- Decides whether it is fixed: owner of enquiry response, to confirm.
 
 ## What happens today
-1. A prospect emails the shared inbox.
-2. Someone in sales reads it, finds the answer and replies.
-3. Volume, repeat rate and reply time: not measured.
+The sales lead reports that prospects email repeated questions. The current triage and reply process is unverified. Volume, repeat rate and reply time are not measured.
 
 ## The problem
-The sales team spends time answering repeated prospect questions by email, which delays replies and takes time away from selling.
+The sales team reports that repeated prospect questions take time to answer. The workload and effect on response times are still unmeasured.
 
 ## What we don't know
 - How many enquiries a week, and what share are repeats.
@@ -26,4 +25,4 @@ The sales team spends time answering repeated prospect questions by email, which
 - How long prospects wait now, and whether slow replies lose deals.
 
 ## Cheapest first test
-Tag the last 100 enquiry emails by question type (about two hours). If fewer than a third are repeats, a chatbot is the wrong fix. If most repeats are answered on the site already, the fix may be making those answers easier to find.
+Ask the enquiry owner to approve a one-week sample and count questions by topic using the minimum fields. Compare the repeated questions with answers already available on the site. If the sample has few repeats, stop and check what else drives the workload. If the answers already exist, test whether making them easier to find helps before proposing a build.
