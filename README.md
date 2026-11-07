@@ -6,7 +6,7 @@ SHOTos is an open-source delivery method for people and AI agents. Founders, ope
 
 **Six-stage edition · 88 skills, 12 optional packs**
 
-[Try it](#try-shotos) · [Follow a worked example](docs/walkthrough.md) · [Find a skill](docs/what-you-can-do.md) · [Run the full pack](docs/full-pack.md)
+[Try it](#try-shotos) · [Choose a practice exercise](examples/README.md#practise-with-fictional-work) · [Find a skill](docs/what-you-can-do.md) · [Run the full pack](docs/full-pack.md)
 
 ## Pick your starting point
 
