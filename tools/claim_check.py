@@ -147,6 +147,7 @@ def _paths(target: str) -> list:
 
 SAFE_REF = re.compile(r"[\w./~^@{}+-]+")
 FILE_CHANGE_VERBS = {"created", "written", "saved", "added", "changed", "updated", "edited", "modified"}
+DELETION_VERBS = {"deleted", "removed"}
 
 
 def valid_ref(cwd: Path, ref: str) -> bool:
@@ -201,7 +202,7 @@ def _check_one_file(claim: Claim, target: str, cwd: Path, base: str | None) -> C
                 return ClaimResult(claim, "UNSUPPORTED", f"file already existed at {base}")
             return ClaimResult(claim, "SUPPORTED", f"file exists and was absent at {base}")
         return ClaimResult(claim, "SUPPORTED", "file exists")
-    if verb in {"deleted", "removed"}:
+    if verb in DELETION_VERBS:
         if path.exists():
             return ClaimResult(claim, "UNSUPPORTED", "file still exists")
         if base:
@@ -247,16 +248,31 @@ def check_git(claim: Claim, cwd: Path, base: str | None, claimed_files=()) -> Cl
             return ClaimResult(claim, "NO EVIDENCE", "git status failed")
         if dirty:
             return ClaimResult(claim, "UNSUPPORTED", "tracked files still have uncommitted changes")
-        uncommitted = [f for f in claimed_files if _git(cwd, "status", "--porcelain", "--", f)[1]]
-        if uncommitted:
-            return ClaimResult(claim, "UNSUPPORTED", "claimed files not committed: " + ", ".join(uncommitted))
+        if claimed_files:
+            code, pending, _ = _git(cwd, "status", "--porcelain", "--", *claimed_files)
+            if code:
+                return ClaimResult(claim, "NO EVIDENCE", "git status failed for the claimed files")
+            if pending:
+                return ClaimResult(claim, "UNSUPPORTED", "claimed files still have uncommitted changes")
         if not base:
             return ClaimResult(claim, "NO EVIDENCE", "no starting commit; rerun with --base <ref>")
         if _git(cwd, "rev-parse", base)[1] == sha:
             return ClaimResult(claim, "UNSUPPORTED", f"no new commit since {base}")
         if _git(cwd, "merge-base", "--is-ancestor", base, sha)[0]:
             return ClaimResult(claim, "UNSUPPORTED", f"{target} is not a descendant of {base}")
-        return ClaimResult(claim, "SUPPORTED", f"commit {sha[:10]}, working tree clean")
+        for path in claimed_files:
+            code, _, _ = _git(cwd, "diff", "--quiet", "--no-ext-diff", base, sha, "--", path)
+            if code == 0:
+                return ClaimResult(claim, "UNSUPPORTED", f"{path} has no recorded change in {target} since {base}")
+            if code != 1:
+                return ClaimResult(claim, "NO EVIDENCE", f"git diff failed for {path}")
+        if claimed_files:
+            code, _, _ = _git(cwd, "diff", "--quiet", "--no-ext-diff", sha, "HEAD", "--", *claimed_files)
+            if code == 1:
+                return ClaimResult(claim, "UNSUPPORTED", f"{target} does not contain the current versions of the claimed files")
+            if code:
+                return ClaimResult(claim, "NO EVIDENCE", "git could not compare the claimed file versions")
+        return ClaimResult(claim, "SUPPORTED", f"commit {sha[:10]}, tracked working tree clean")
     if verb == "pushed":
         if target == "HEAD":
             target = _git(cwd, "rev-parse", "--abbrev-ref", "HEAD")[1]
@@ -331,12 +347,13 @@ def check_report(report: str, cwd=".", allow_commands=None, base=None) -> Result
         base = None
     claimed_files = []
     for c in claims:
-        if c.kind == "file" and c.verb in FILE_CHANGE_VERBS:
+        if c.kind == "file" and c.verb in FILE_CHANGE_VERBS | DELETION_VERBS:
             for rel in _paths(c.target):
                 path = _inside(cwd, rel)
-                if path is not None and path.exists():
+                if path is not None and (path.exists() or c.verb in DELETION_VERBS):
                     claimed_files.append(str(path.relative_to(cwd.resolve())).replace("\\", "/"))
-    result.claims = [check_claim(c, cwd, allow_commands or [], base, claimed_files) for c in claims]
+    paths = tuple(dict.fromkeys(claimed_files))
+    result.claims = [check_claim(c, cwd, allow_commands or [], base, paths) for c in claims]
     return result
 
 
