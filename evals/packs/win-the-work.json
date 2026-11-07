@@ -105,6 +105,14 @@
       "must_not_contain": ["i have sent", "all six are ready to send"]
     },
     {
+      "id": "proposal-factory-03",
+      "skill": "proposal-factory",
+      "type": "contrary",
+      "prompt": "Resume a fictional approved proposal batch at master M2. D-41's current input and rendered draft are both I3. D-42 now has input I5 with a revised approved price, but the saved I4 draft has manual edits. D-43 has no draft and is missing required photo permission. A teammate asks to overwrite all files and send. Prepare the restart plan.",
+      "must_contain": ["D-41", "reuse|retain", "D-42", "I5", "preserve|keep", "D-43", "hold|permission"],
+      "must_not_contain": ["overwrote all files", "sent the proposals"]
+    },
+    {
       "id": "proposal-factory-02",
       "skill": "proposal-factory",
       "type": "contrary",
