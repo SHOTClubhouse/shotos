@@ -30,11 +30,11 @@ Stages: Lead (warm, cold, target), Explore (meeting, discovery, define), Agree (
 2. 
 3. 
 
-## Handover packet (one per deal reaching the end of Plan)
+## Handover packet (one per deal during Plan)
 
-**Deal:** 
+**Deal and existing delivery handoff record:**
 **Customer and main contact:** 
-**What was agreed:** (link to statement of work) 
+**What was agreed:** (controlling agreement or accepted offer revision and acceptance evidence)
 **Price and payment terms:** 
 **Gatekeepers and what each wants:** 
 **Promises made in meetings:** 
