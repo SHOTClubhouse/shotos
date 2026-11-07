@@ -2,7 +2,7 @@
 
 **Sort a mail account by what each thread needs, draft the replies, and find the threads that went quiet.**
 
-The agent confirms the account, lists the existing labels, reads each thread and gives it one action state: needs reply, to read, waiting on others, for information, notification or noise. It drafts replies from the real thread, flags threads where you sent last and nobody answered, and files only within the label or folder scheme you already use. It never sends, and it proposes a new label rather than creating one.
+The agent confirms the account, reads the existing labels and gives each reviewed thread one action state. It uses the last substantive message to work out what is still due, reuses current drafts and flags a changed thread for review. It files only in your existing scheme when you ask and leaves sending with you.
 
 It serves the Operate stage. Rules: 1 Stop at the boundaries, 3 Read back the real result.
 
@@ -36,7 +36,7 @@ Output uses [template.md](template.md). Worked example: [input](../../examples/i
 
 Mail connector: read threads, list labels, create drafts, and (only if you agree) apply existing labels. Creating labels is not needed. Sending is not needed and should stay off.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
+**Evidence:** The 3 November version ran once per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 2 of 2. The current worked example covers acknowledgements and draft reuse. See [evidence](../../../../docs/evidence.md) for the evaluation history.
 
 ## Tips and common mistakes
 
