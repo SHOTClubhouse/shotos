@@ -43,6 +43,9 @@ class PackageSkillsTests(unittest.TestCase):
             self.assertIn("(review-cycle.md)", (installed / "SKILL.md").read_text(encoding="utf-8"))
             with zipfile.ZipFile(target / "decision-brief.zip") as archive:
                 self.assertEqual(archive.read("decision-brief/review-cycle.md"), workflow)
+                desktop_guide = archive.read("decision-brief/guides/codex-claude-code.md")
+                self.assertIn(b"(chat-assistants.md#run-the-retail-scenario)", desktop_guide)
+                chat_guide = archive.read("decision-brief/guides/chat-assistants.md")
                 for name in ("retail-trial", "bank-remediation", "startup-proposal"):
                     with self.subTest(scenario=name):
                         relative = f"scenarios/{name}.md"
@@ -59,6 +62,7 @@ class PackageSkillsTests(unittest.TestCase):
                         relative = f"scenarios/{name}"
                         content = (installed / relative).read_bytes()
                         self.assertEqual(archive.read(f"decision-brief/{relative}"), content)
+                        self.assertIn(f"(../{relative})".encode("ascii"), chat_guide)
                         self.assertEqual(re.findall(rb"(?m)^- \*\*R([1-6]),", content), record_ids)
 
     def test_unknown_pack_is_refused(self):

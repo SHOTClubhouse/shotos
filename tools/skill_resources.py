@@ -20,13 +20,17 @@ def example_files(skill: Path):
 def portable_readme(skill: Path, repo: Path) -> str:
     """Keep bundled resources local and link other resources to their public source."""
     examples = {path.resolve(): name for path, name in example_files(skill)}
+    return portable_markdown(skill / "README.md", repo, examples)
 
+
+def portable_markdown(source: Path, repo: Path, bundled_links: dict) -> str:
+    """Rewrite parent links for Markdown moved out of its repository folder."""
     def destination(match):
-        path = (skill / match[1]).resolve()
+        path = (source.parent / match[1]).resolve()
         fragment = match[2] or ""
-        if path in examples:
-            return examples[path] + fragment
+        if path in bundled_links:
+            return bundled_links[path] + fragment
         kind = "tree" if path.is_dir() else "blob"
         return f"{PUBLIC_REPO}/{kind}/main/{quote(path.relative_to(repo).as_posix())}{fragment}"
 
-    return PARENT_LINK.sub(destination, (skill / "README.md").read_text(encoding="utf-8"))
+    return PARENT_LINK.sub(destination, source.read_text(encoding="utf-8"))
