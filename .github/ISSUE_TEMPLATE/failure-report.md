@@ -4,14 +4,16 @@ about: An agent followed SHOTos and still got it wrong, or claim-check gave the 
 labels: failure
 ---
 
-**What the agent was asked to do**
+**Fictional request and minimum inputs**
 
-**What it reported (paste the summary and Claims block)**
+**Expected decision and evidence**
 
-**What actually happened**
+**Observed result (include a sanitised Claims block when relevant)**
+
+**Smallest way to reproduce it**
 
 **Runtime and model** (for example Claude Code with Sonnet, Codex)
 
 **SHOTos version**
 
-Remove any private or personal information before posting.
+Use invented names and records. Leave real transcripts, customer records, credentials and private paths in their authorised systems. Report a suspected security vulnerability through the private route in SECURITY.md.
