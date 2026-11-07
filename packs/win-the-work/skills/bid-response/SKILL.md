@@ -9,7 +9,7 @@ description: "Qualify and draft a response to an issued tender or RFP. Trace man
 
 ## Context and handoff
 
-Read the official tender, response instructions, clarifications, amendments, draft contract and approved supplier evidence. Use `research-and-assemble` for disputed claims and `contextual-proposal` if the buyer has invited a free-form proposal. Use `rfp-authoring` when the team is the buyer.
+Read the official tender, response instructions, clarifications, amendments, draft contract and approved supplier evidence. Use `research-and-assemble` for disputed claims and `contextual-proposal` if the buyer has invited a free-form proposal. Use `rfp-authoring` when the team is the buyer. Keep the tender reference and exact submitted revision with the deal so the eventual delivery team can trace what was offered.
 
 ## When not to use this
 
@@ -25,4 +25,4 @@ Skip for writing an RFP, a general pitch, or submitting an already-approved resp
 
 ## Output and checks
 
-Give the owner a bid recommendation, compliance matrix, draft response and submission checklist. No row becomes compliant because a draft says so. An unresolved mandatory item blocks readiness.
+Use the [bid record](template.md) for the recommendation, compliance matrix and submission checklist. Link the exact draft separately. After award, compare the submitted revision and clarifications with the controlling agreement before preparing `success-handoff`. Carry delivery commitments and exclusions, surface conflicts with an owner, and keep transfer status separate from commercial acceptance. See the [worked award example](award-handoff.md). No row becomes compliant because a draft says so. An unresolved mandatory item blocks readiness.
