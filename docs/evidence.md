@@ -6,6 +6,7 @@ This page records what has been tested, how, what it showed and what has not bee
 
 | Build | Evidence |
 | --- | --- |
+| Main after v1.7.0 | [Targeted handoff, proposal and grading checks](#checks-on-main-after-v170). |
 | v1.7.0 release candidate | [Fresh Haiku skill and outcome checks](#v170-release-candidate-checks) on the code and skills at `f08ba33`. |
 | November skill evaluation builds | Paired skill and outcome evaluations reported below. Some later runs used the five-step wording. |
 | v1.1.0 | Returned to Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. The GitHub matrix passed on Windows, macOS and Linux. |
@@ -24,6 +25,12 @@ The [outcome runner](../evals/run_outcomes.py) ran the ten fictional task fixtur
 - The folder-tidy result retained content-matched copies in quarantine. That failed a non-critical check and preserved all unique content.
 
 These runs help identify specific changes to the fixtures, graders and instructions. Measuring accepted work would require reviewers to take the drafts through to an agreed outcome. Raw responses from this run stay in the local release workspace.
+
+## Checks on main after v1.7.0
+
+- **Restored handoff fixture.** The handoff task at `5b7fa07` gave both Claude Haiku conditions the same fictional note, including the missing report specification. Both runs passed all five checks. This replaces the unusable handoff pair for that exercise only.
+- **Proposal draft and private working sheet.** After the proposal update at `bb5ed74`, one text-only exercise in Codex and one in Claude each passed all seven checks. Both drafted the approved £2,432 monthly offer and put unapproved service decisions in the separate working sheet. Each received the fictional inputs and skill in the prompt. These checks cover the draft content and separation of records.
+- **Phrase-grader sensitivity.** We selected the four v1.7.0 cases where the literal grader had favoured the baseline, then graded the same eight saved outputs by meaning with the condition label withheld. Both conditions passed all four. The meaning-based result covers this sample. The 70-case result above uses the literal method.
 
 ## Six-stage runtime check
 
