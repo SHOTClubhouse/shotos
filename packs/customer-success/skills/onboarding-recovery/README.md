@@ -2,7 +2,7 @@
 
 **Find where a stalled onboarding stopped, pick the smallest next step to first value, and draft the message for a person to send.**
 
-The agent builds a dated timeline from mail, calendar, notes and usage, finds the last confirmed step and the first missed one, and labels the likely cause as a hypothesis. It proposes one next step with an owner and date on each side, says what the customer must do and drafts the message. It never sends.
+The agent builds a dated timeline from mail, calendar, notes and usage, finds the last confirmed step and the first missed one, and labels the likely cause as a hypothesis. It proposes one next step with an owner and date, says what the customer can do once ready and drafts the message. It never sends.
 
 It serves the Operate stage. Rules: 1 Stop at the boundaries, 3 Read back the real result, 4 Claim only what you can show.
 
@@ -24,7 +24,7 @@ Customer success managers, account managers, delivery leads and founders who onb
 
 > The Larkfield onboarding stalled. Work out where it stopped from the mail thread and the calendar, tell me the smallest step to first value, and draft the message for me to review.
 
-Output uses [template.md](template.md). Worked example: [input](../../examples/onboarding-recovery/input.md) and [output](../../examples/onboarding-recovery/output.md).
+Output uses [template.md](template.md). For an account that looks active in the CRM but still needs first-value proof, use the [first-value example](first-value-example.md). Worked example: [input](../../examples/onboarding-recovery/input.md) and [output](../../examples/onboarding-recovery/output.md).
 
 ## How it connects
 
