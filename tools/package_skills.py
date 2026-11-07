@@ -24,10 +24,16 @@ from skill_resources import example_files, portable_markdown, portable_readme
 REPO = Path(__file__).resolve().parents[1]
 
 
+def require_source(path: Path) -> None:
+    if not path.is_relative_to(REPO) or path.resolve() != path:
+        raise SystemExit(f"refusing linked package source: {path.name}")
+
+
 def skill_folders(packs) -> list:
     sources = [REPO / "skills"] + [REPO / "packs" / name / "skills" for name in packs]
     found = []
     for source in sources:
+        require_source(source)
         if not source.is_dir():
             raise SystemExit(f"No such pack: {source.parent.name}")
         found += [p for p in sorted(source.iterdir()) if (p / "SKILL.md").is_file()]
@@ -43,25 +49,34 @@ def write_member(archive: zipfile.ZipFile, name: str, content: bytes) -> None:
 
 
 def package(skill: Path, out: Path, *, source_ref: str = "main") -> Path:
+    require_source(skill)
+    paths = sorted(skill.rglob("*"))
+    examples = list(example_files(skill))
+    guides = []
+    if skill == REPO / "packs" / "exec-ops" / "skills" / "decision-brief":
+        guides = [REPO / "docs" / "guides" / name for name in ("codex-claude-code.md", "chat-assistants.md")]
+    notices = [REPO / name for name in ("LICENSE-docs.md", "LICENSE")]
+    for path in [*paths, *(source for source, _ in examples), *guides, *notices]:
+        require_source(path)
+
     target = out / f"{skill.name}.zip"
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as archive:
-        for path in sorted(skill.rglob("*")):
+        for path in paths:
             if path == skill / "README.md":
                 readme = portable_readme(skill, REPO, source_ref=source_ref)
                 write_member(archive, f"{skill.name}/README.md", readme.encode("utf-8"))
             elif path.is_file():
                 write_member(archive, f"{skill.name}/{path.relative_to(skill).as_posix()}", path.read_bytes())
-        for path, name in example_files(skill):
+        for path, name in examples:
             write_member(archive, f"{skill.name}/{name}", path.read_bytes())
-        if skill == REPO / "packs" / "exec-ops" / "skills" / "decision-brief":
+        if guides:
             scenarios = {path.resolve(): f"../scenarios/{path.name}"
                          for path in (skill / "scenarios").glob("*.md")}
-            for name in ("codex-claude-code.md", "chat-assistants.md"):
-                guide = REPO / "docs" / "guides" / name
+            for guide in guides:
                 markdown = portable_markdown(guide, REPO, scenarios, source_ref=source_ref)
-                write_member(archive, f"{skill.name}/guides/{name}", markdown.encode("utf-8"))
-        for notice in ("LICENSE-docs.md", "LICENSE"):
-            write_member(archive, f"{skill.name}/{notice}", (REPO / notice).read_bytes())
+                write_member(archive, f"{skill.name}/guides/{guide.name}", markdown.encode("utf-8"))
+        for notice in notices:
+            write_member(archive, f"{skill.name}/{notice.name}", notice.read_bytes())
     return target
 
 
@@ -75,6 +90,8 @@ def main(argv=None) -> int:
     if args.source_commit and not re.fullmatch(r"[0-9a-fA-F]{40}", args.source_commit):
         parser.error("--source-commit must be a full 40-character Git commit")
     source_ref = args.source_commit.lower() if args.source_commit else "main"
+    if args.all_packs:
+        require_source(REPO / "packs")
     packs = sorted(p.name for p in (REPO / "packs").iterdir() if (p / "skills").is_dir()) if args.all_packs else args.pack
     skills = skill_folders(dict.fromkeys(packs))
     seen = set()
