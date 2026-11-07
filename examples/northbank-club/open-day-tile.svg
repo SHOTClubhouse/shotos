@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 960" role="img" aria-labelledby="title description">
+  <title id="title">Northbank Football open day</title>
+  <desc id="description">Your first game starts here. A route across the pitch leads from meeting the team to a short game. See the visit plan for this fictional open day.</desc>
+  <defs>
+    <linearGradient id="ground" x2="1" y2="1">
+      <stop stop-color="#183e32"/>
+      <stop offset="1" stop-color="#0c2922"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="960" fill="url(#ground)"/>
+  <path d="M74 130H886M74 802H886" stroke="#6a9a72" stroke-width="2"/>
+  <g font-family="system-ui, sans-serif">
+    <circle cx="98" cy="88" r="23" fill="#dcf48f"/>
+    <text x="98" y="98" text-anchor="middle" fill="#172d20" font-size="28" font-weight="800">N</text>
+    <text x="137" y="98" fill="#f7f7ec" font-size="26" font-weight="750">Northbank Football</text>
+    <text x="886" y="96" text-anchor="end" fill="#a6cda3" font-size="22" font-weight="750" letter-spacing="3">FICTIONAL DEMO</text>
+    <text x="72" y="194" fill="#dcf48f" font-size="27" font-weight="800" letter-spacing="6">OPEN DAY</text>
+    <g fill="#f7f7ec" font-weight="850" font-size="99" letter-spacing="-6">
+      <text x="68" y="302">Your first game</text>
+      <text x="68" y="405">starts here.</text>
+    </g>
+    <text x="74" y="468" fill="#d6e5d3" font-size="31">Try a short game or watch from the touchline.</text>
+    <rect x="74" y="510" width="812" height="253" rx="27" fill="#214e3e"/>
+    <path d="M101 537h758v199H101zM480 537v199M101 584h118v105H101m758-105H741v105h118"
+          fill="none" stroke="#86aa80" stroke-width="3"/>
+    <circle cx="480" cy="637" r="51" fill="none" stroke="#86aa80" stroke-width="3"/>
+    <path d="M203 686c109-84 196 24 301-52 62-45 127-58 238-44" fill="none"
+          stroke="#dcf48f" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 13"/>
+    <path d="m724 576 18 14-21 10" fill="none" stroke="#dcf48f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="201" cy="686" r="15" fill="#dcf48f" stroke="#173c2c" stroke-width="5"/>
+    <circle cx="760" cy="592" r="16" fill="#dcf48f" stroke="#173c2c" stroke-width="5"/>
+    <g fill="#f7f7ec" font-size="25" font-weight="750">
+      <text x="126" y="620">MEET THE TEAM</text>
+      <text x="674" y="686">TRY A GAME</text>
+    </g>
+    <rect x="74" y="831" width="356" height="58" rx="8" fill="#dcf48f"/>
+    <text x="97" y="869" fill="#172d20" font-size="29" font-weight="800">See the visit plan →</text>
+    <text x="886" y="867" text-anchor="end" fill="#a6cda3" font-size="24">Example itinerary</text>
+  </g>
+</svg>

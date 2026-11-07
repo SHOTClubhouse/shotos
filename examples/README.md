@@ -14,6 +14,7 @@ Choose a job and run it in your usual assistant or with the installed skills. Gi
 | Recover a partial executive brief | [Daily Brief recovery](../packs/exec-ops/skills/daily-brief/recovery-example.md) | The checkpoint survives an outage and the retry matches the existing ledger row. |
 | Hand over an operational pilot | [Invoice-query exercise](../docs/guides/invoice-query-exercise.md) | A reviewer checks exceptions, a receiving lead runs independently, and the next site starts with its own baseline. |
 | Build and verify a public preview | [Northbank club website](northbank-club/README.md) | Visitors can use the home and open-day journeys and the public revision matches the intended release. |
+| Prepare a campaign and hand over its review | [Northbank campaign review](northbank-club/campaign-review.md) | The page and artwork carry one approved action. A venue change triggers a fresh check and the operator records which revision can go forward. |
 
 For the full six-stage sequence, follow the [Harbourside walkthrough](../docs/walkthrough.md).
 
