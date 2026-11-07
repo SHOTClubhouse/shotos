@@ -1,6 +1,6 @@
 # Weekly executive brief, week of <date>
 
-**Reader:** <name, authority>. **Comparison point:** <last accepted brief or first reporting window>. **Sources read:** <list>. **Unavailable:** <list, or "none">.
+**Reader:** <name, authority>. **Comparison point:** <last accepted brief or first reporting window>. **Sources read:** <list>. **Coverage:** <complete or partial, with affected decisions and sources still open>.
 
 ## Decisions needed
 | Question | Decision maker | Needed by | If it slips |
