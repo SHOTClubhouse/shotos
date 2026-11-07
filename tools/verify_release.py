@@ -7,7 +7,9 @@ import json
 import re
 import subprocess
 import sys
+import zipfile
 from concurrent.futures import ThreadPoolExecutor
+from io import BytesIO
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request, urlopen
@@ -45,16 +47,39 @@ def check_inventory(label, actual, expected):
                          f"Extra: {', '.join(extra) or 'none'}.")
 
 
-def verify(tag, source, assets):
-    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=source, capture_output=True,
+def source_head(source):
+    command = ["git", "--no-optional-locks", "-c", "core.fsmonitor=false", "-C", str(source)]
+    root = subprocess.run([*command, "rev-parse", "--show-toplevel"], capture_output=True,
                           text=True, check=True, timeout=10).stdout.strip()
+    if Path(root).resolve() != source:
+        raise ValueError("source must be the root of the release checkout")
+    status = subprocess.run([*command, "status", "--porcelain", "--untracked-files=all"], capture_output=True,
+                            text=True, check=True, timeout=10).stdout.strip()
+    if status:
+        raise ValueError("source checkout has uncommitted changes")
+    return subprocess.run([*command, "rev-parse", "HEAD"], capture_output=True,
+                          text=True, check=True, timeout=10).stdout.strip()
+
+
+def verify_archive(name, content, skill):
+    with zipfile.ZipFile(BytesIO(content)) as archive:
+        if len(archive.namelist()) != len(set(archive.namelist())) or archive.testzip() is not None:
+            raise ValueError(f"invalid skill archive: {name}")
+        member = f"{skill.parent.name}/SKILL.md"
+        if member not in archive.namelist() or archive.read(member) != skill.read_bytes():
+            raise ValueError(f"skill instructions do not match the release source: {name}")
+
+
+def verify(tag, source, assets):
+    head = source_head(source)
     if tag_commit(tag) != head:
         raise ValueError(f"public tag {tag} does not match checkout {head}")
 
     folders = [*source.glob("skills/*/SKILL.md"), *source.glob("packs/*/skills/*/SKILL.md")]
-    expected = {f"{path.parent.name}.zip" for path in folders}
-    if not expected or len(expected) != len(folders):
+    sources = {f"{path.parent.name}.zip": path for path in folders}
+    if not sources or len(sources) != len(folders):
         raise ValueError("checkout has no skill inventory or has duplicate skill names")
+    expected = sources.keys()
     local = {path.name for path in assets.glob("*.zip") if path.is_file()}
     check_inventory("local ZIP", local, expected)
 
@@ -67,6 +92,7 @@ def verify(tag, source, assets):
 
     def verify_zip(name):
         content = (assets / name).read_bytes()
+        verify_archive(name, content, sources[name])
         asset = published[name]
         if asset.get("state") != "uploaded" or asset["size"] != len(content):
             raise ValueError(f"GitHub metadata differs: {name}")
@@ -102,7 +128,7 @@ def main():
         parser.error("expected a release tag such as v1.7.0")
     try:
         head, assets, guides = verify(args.tag, args.source.resolve(), args.assets.resolve())
-    except (OSError, ValueError, KeyError, subprocess.SubprocessError) as error:
+    except (OSError, ValueError, KeyError, subprocess.SubprocessError, zipfile.BadZipFile) as error:
         print(f"Release verification failed: {error}", file=sys.stderr)
         return 1
     print(f"Verified {args.tag} at {head}: {assets} public ZIPs match by SHA-256 and {guides} guides match the checkout.")
