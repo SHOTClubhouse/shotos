@@ -22,12 +22,12 @@ Skip it for a one-off question about a single thread or date, or when there is n
 ## Steps
 
 1. **Confirm scope.** Name the owner, the mail account and the calendar in scope, and the run (morning or evening). If any is unclear, ask once.
-2. **Load the ledger.** Read the existing ledger in place. Never create a second copy. If none exists, create it from the template and say so.
-3. **Gather fresh signal.** Read mail and calendar since the ledger's "last run" time. Filter out the owner's own automated mail (their scripts, digests, receipts they generate and notifications from their own systems), so the loop does not feed on itself. Note any source that was unavailable.
-4. **Reconcile in place.** For each ledger row, mark it done, moved (new date), slipping, or unchanged, citing the message or event that shows it. Add new obligations the signal creates, each with a source. A date mentioned only in passing is a candidate, not a row, until the owner confirms.
-5. **Draft what needs drafting.** Write replies or reminders as drafts in the mail account or the digest. Never send. Use the real thread, not a guess at it.
-6. **Build the digest.** Use [digest-template.md](digest-template.md). Include only four things: decisions needed, things slipping, today's fixed points, drafts ready to review. Leave a section out when it is empty. If all four are empty, say "Nothing needs you today" and list the sources read.
-7. **Read back.** Re-open the ledger and confirm the changes landed and the "last run" time moved. Report any source that failed.
+2. **Load the ledger.** Read the existing ledger in place. Treat its last completed coverage as the start of this run. Older ledgers may call it “Last run”. For a first run, record the agreed starting point and create the ledger from the template.
+3. **Read one bounded window.** Record a cutoff with its timezone before reading. Read mail and calendar changes since the saved start through the cutoff. Read today's current appointments for the digest. Filter the owner's automated mail out of the obligations. Treat an unavailable source, truncated results, or a pasted sample with unknown coverage as incomplete. Report what was actually read.
+4. **Reconcile in place.** Match by the obligation and source thread or event before adding a row. Apply only changes supported by a source you read. Reopening the same window must update the same row. Missing source access cannot close, move or confirm a row. A passing date mention stays a candidate until the owner confirms.
+5. **Draft what needs drafting.** Use the real thread. If coverage is incomplete, leave the drafts in the digest. On a complete run, reuse an existing matching mail draft where available, or leave the draft in the digest when you cannot check for a duplicate. Never send.
+6. **Build the digest.** Use [digest-template.md](digest-template.md). List decisions needed, things slipping, today's fixed points and drafts to review. Omit empty sections. If coverage is incomplete, label the brief partial even when the available sources show no items.
+7. **Read back and save coverage.** Reopen the ledger and verify the changes. Advance the coverage to the cutoff only when both sources covered the window and the ledger reconciliation is verified. Read back the saved timestamp. On a partial run keep the previous completed coverage, name the missing source and retry from that same point.
 8. **Offer graduation, never assume it.** If a task class inside the loop (for example "draft routine meeting confirmations") has been accepted unedited many times, suggest a rung change under `rules/12-graduation.md` (in the SHOTos repository, or `.shotos/rules/12-graduation.md` where SHOTos is installed). Until the owner agrees, every class stays at rung 1: draft only.
 
 ## Output
@@ -40,4 +40,4 @@ The reconciled ledger (updated in place) and one digest, both using the template
 - Every ledger change cites a message, event or the owner's word.
 - The owner's own automated mail did not create or close any row.
 - No message was sent, no event created or changed, nothing deleted.
-- Unavailable sources are named, not skipped silently.
+- A partial or unverified run leaves the previous completed coverage in place. Retrying matches existing rows and drafts. See [the recovery example](recovery-example.md).

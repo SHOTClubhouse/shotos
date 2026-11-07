@@ -1,7 +1,7 @@
 # Ledger of dated obligations and open commitments
 
 **Owner:**
-**Last run (date and time):**
+**Last completed coverage (date, time and timezone):**
 **Sources in scope (mail account, calendar):**
 
 | ID | Item | Type (deadline, commitment, waiting on) | Due | Who owes | Status (open, done, moved, slipping) | Source (thread or event, date) | Last checked |

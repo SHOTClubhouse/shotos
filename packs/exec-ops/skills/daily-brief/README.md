@@ -42,7 +42,7 @@ Mail connector (read, create drafts), calendar connector (read), document connec
 
 - Keep one ledger, edited in place.
 - Run it at set times. Pulling on demand beats a feed that interrupts you.
-- A quiet digest is a good digest.
+- A partial brief keeps the last completed coverage in place. Retry from that point to catch up without duplicating obligations. [Recovery example](recovery-example.md).
 - Do not let the loop read mail that your own scripts generate; it will log its own output as new work.
 
 ## Limits
