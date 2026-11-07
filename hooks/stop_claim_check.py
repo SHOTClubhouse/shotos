@@ -28,33 +28,54 @@ import claim_check  # noqa: E402
 CHANGING_TOOLS = {"Write", "Edit", "MultiEdit", "NotebookEdit", "Bash", "PowerShell"}
 
 
-def _is_human_turn(entry: dict) -> bool:
-    content = (entry.get("message") or {}).get("content")
+def _is_human_turn(content) -> bool:
     if isinstance(content, str):
         return True
     return isinstance(content, list) and any(isinstance(c, dict) and c.get("type") == "text" for c in content)
 
 
+def _reverse_lines(transcript: Path, block_size: int = 65536):
+    """Read JSONL from the end, joining a record that spans multiple blocks."""
+    with transcript.open("rb") as stream:
+        offset = stream.seek(0, 2)
+        suffix = []
+        while offset:
+            size = min(offset, block_size)
+            offset -= size
+            stream.seek(offset)
+            lines = stream.read(size).split(b"\n")
+            if len(lines) > 1:
+                yield b"".join([lines[-1], *reversed(suffix)])
+                yield from reversed(lines[1:-1])
+                suffix.clear()
+            suffix.append(lines[0])
+        if suffix:
+            yield b"".join(reversed(suffix))
+
+
 def last_turn(transcript: Path):
     """Return assistant text and tools used since the last human message."""
     texts, tools = [], set()
-    for line in transcript.read_text(encoding="utf-8").splitlines():
+    for line in _reverse_lines(transcript):
         try:
             entry = json.loads(line)
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, UnicodeDecodeError):
             continue
-        if entry.get("type") == "user" and _is_human_turn(entry):
-            texts, tools = [], set()
+        if not isinstance(entry, dict) or not isinstance(entry.get("message"), dict):
             continue
-        if entry.get("type") != "assistant":
+        content = entry["message"].get("content")
+        if entry.get("type") == "user" and _is_human_turn(content):
+            break
+        if entry.get("type") != "assistant" or not isinstance(content, list):
             continue
-        content = (entry.get("message") or {}).get("content") or []
-        for item in content:
-            if isinstance(item, dict) and item.get("type") == "tool_use":
-                tools.add(item.get("name", ""))
-        parts = [c.get("text", "") for c in content if isinstance(c, dict) and c.get("type") == "text"]
-        texts.extend(p for p in parts if p.strip())
-    return "\n\n".join(texts), tools
+        for item in reversed(content):
+            if not isinstance(item, dict):
+                continue
+            if item.get("type") == "tool_use" and isinstance(item.get("name"), str):
+                tools.add(item["name"])
+            if item.get("type") == "text" and isinstance(item.get("text"), str) and item["text"].strip():
+                texts.append(item["text"])
+    return "\n\n".join(reversed(texts)), tools
 
 
 def main() -> int:
