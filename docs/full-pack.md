@@ -55,11 +55,22 @@ The project roles are in `.shotos/agents/`. They can be held by people, assigned
 
 Use the cards in `.shotos/lenses/` when a perspective can change the decision. **Lead** combines findings. **Sceptic** tests failure. **Voice of reason** checks risk and authority. **Customer** tests usefulness. **Care** checks the burden on people. **Commercial** tests value and commitments. **Connector** checks links to prior work. Use the cast template there if you want to give the lenses names and voices. Keep lens commentary in conversation and keep deliverables in the owner's voice. Only a person with the relevant authority accepts work or approves action.
 
+## Choose from your garage
+
+Your garage is the set of runtimes, models and tools that your team can use on the job at hand. Keep one record of what each project can reach and how it was verified. Use [Connect Your Tools](connect-your-tools.md) to create or refresh `.work/capabilities.md`.
+
+1. Name the artefact and its acceptance check. Choose the skill that does that job.
+2. Check which route has the required capability, approved inputs and current proof. A tool listed as connected still needs its own read-back.
+3. Use the smallest qualified route. Add a model, tool or separate reviewer when it supplies a capability or check the task needs.
+4. When you switch runtimes, pass the saved work record, exact revision, acceptance check and permitted source links. Recheck the capability that matters in the new runtime and record the result beside the same work.
+
+For a buyer proposal, a file-based chat can draft from the approved offer and the prospect notes. A local runtime can read the saved draft back against its ledger. If the reviewer cannot open the restricted pricing source, route that check to the authorised commercial owner and leave the verdict open. Use the [model and tool routing guide](../ways-of-working/model-and-tool-routing.md) to compare routes for recurring work.
+
 ## Try it with a real task
 
-> Read our existing account record and check the last onboarding milestone. Prepare a handoff using the installed SHOTos agreement. Keep ownership unchanged until there is a named receiver and written acceptance. Save the draft and evidence with the account, then show me the next decision.
+> Read our existing account record and check the last onboarding milestone. Prepare a handoff using the installed SHOTos agreement. Cite the owner of record and any written acceptance of the offered revision. Save the draft and evidence with the account, then show me the next decision.
 
-The agent should open `success-handoff`, use `onboarding-recovery` only if there is a stalled milestone to resolve, and preserve the source links and transfer status. If you switch models, provide the same saved task record and source links. Check the same acceptance and output location on either run. Tool access, native agent support and authority depend on the runtime and project setup.
+The agent should open `success-handoff`, use `onboarding-recovery` if there is a stalled milestone to resolve, and preserve the source links and transfer status. Check that acceptance of the brief, ownership of the next action and the update to the system of record each have their own evidence.
 
 ## Improve the pack from real work
 

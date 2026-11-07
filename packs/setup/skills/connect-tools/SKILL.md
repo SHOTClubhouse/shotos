@@ -11,7 +11,7 @@ Find out, with evidence, which tools this agent can use, so skills fail early an
 
 ## Context and handoff
 
-Read the task’s exact data needs and current connector inventory. Check account, task scope and proof with a safe read before proposing writes. Use the task data access card at `templates/data-access.md` in the SHOTos repository or `.shotos/templates/data-access.md` in an installed project.
+Read the task’s exact data needs, current connector inventory and any existing `.work/capabilities.md`. Check account, task scope and proof with a safe read before proposing writes. Use the task data access card at `templates/data-access.md` in the SHOTos repository or `.shotos/templates/data-access.md` in an installed project.
 
 Use `mode-ladder` to choose authority. Record verified capabilities and gaps in the project setup notes.
 
@@ -21,21 +21,22 @@ Do not use it to set up accounts or create credentials; that is the owner's job.
 
 ## Steps
 
-1. **List what you have.** Write down every tool, connector and MCP server available to you in this session, and check for local tools: `python --version`, `git --version`, and whether `python-pptx`, LibreOffice (`soffice`), `ffmpeg` and Playwright are installed.
+1. **List the relevant tools.** Inventory the runtime on its first setup. When resolving a blocked job, refresh the affected capabilities. Include local tools or connectors that could meet the same need.
 2. **Map them to capabilities.** For each capability on this list (local slides, Google Slides, speech, transcription, images, video and ffmpeg, browser, mail, calendar, documents, Apps Script), note which tool would serve it, or "none".
 3. **Test each one read-only.** Make the smallest approved call that proves access: list one designated test folder, read an approved test calendar, list available voices, open a blank browser page or import `pptx`. Verify the account and intended scope first. If there is no approved test target, record the connector as connected, not tested. Reachability alone gives no permission to use live data. Never send, post, publish, create live documents or generate paid media during the check. If the only possible test costs credits or creates something, mark it "connected, not tested" and say why.
-4. **Record the evidence.** For each capability, write: status (works, connected not tested, missing), the tool, the test you ran and its result.
+4. **Record the evidence.** For each capability, record status (works, connected not tested, missing), tool, scope tested, date and test result.
 5. **Name the affected skills.** For each missing capability, list the skills that need it and the step that will stop.
-6. **Say how to connect each missing tool.** Point to the matching row of the connect-your-tools guide: `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` in a project where SHOTos is installed. If neither can be opened, give a one-line pointer per tool from the list above (for example: python-pptx and LibreOffice for local slides; a Google Slides or Drive connector for Google Slides; a text-to-speech service or its MCP server for speech; a speech-to-text tool for transcription; an image model for images; a video model plus ffmpeg for video; Playwright for browser work; a Gmail or Outlook connector for mail; a calendar connector for calendar; Drive, Docs and Sheets connectors for documents; a Google account for Apps Script). Do not connect anything yourself that needs the owner's account or credentials.
-7. **Write the file.** Save `.work/capabilities.md` from [template.md](template.md), dated. Read it back to confirm it saved.
+6. **Route the gap.** Open `docs/connect-your-tools.md` or the installed `.shotos/docs/connect-your-tools.md` for the matching capability. If the guide is unavailable, name the tool category that would unblock the step. The owner handles credentials and account connections.
+7. **Update the matching section.** Use [template.md](template.md) in `.work/capabilities.md`. Keep separate dated sections for distinct runtime and workspace scopes. A targeted check updates only the relevant rows. Read back the refreshed entries and retain other evidence.
 
 ## Output
 
-`.work/capabilities.md`: date, runtime, a capability table with status, tool and test evidence, the skills affected by each gap, and the next connection to make.
+`.work/capabilities.md` holds the runtime and scope, dated checks, affected skills and next connection. Refer to the section for the environment doing the work.
 
 ## Checks
 
 - Every "works" entry has a test that actually ran, with its result.
+- A targeted refresh preserves checks from other runtime and workspace scopes.
 - Nothing was sent, posted, published or bought during the check.
 - Every gap names the skills it affects and how to connect it.
 - The file exists and was read back.
