@@ -2,7 +2,18 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from evals.run_outcomes import grade_proposal
+from evals.run_outcomes import grade_proposal, setup
+
+
+class HandoffFixtureTests(unittest.TestCase):
+    def test_both_conditions_receive_the_same_handoff_note(self):
+        with tempfile.TemporaryDirectory() as folder:
+            roots = [Path(folder) / condition for condition in ("with", "without")]
+            for root, condition in zip(roots, ("with", "without")):
+                setup(root, "handoff-pickup", condition)
+            notes = [(root / "HANDOFF.md").read_text(encoding="utf-8") for root in roots]
+            self.assertEqual(*notes)
+            self.assertIn("low_stock_report(stock, usage, lead)", notes[0])
 
 
 class ProposalClaimGraderTests(unittest.TestCase):
