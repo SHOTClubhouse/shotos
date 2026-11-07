@@ -1,7 +1,9 @@
 # Decision record NNNN: title
 
 **Status:** Draft, awaiting the decider | Decided | Superseded by NNNN
-**Decider (name, role):**
+**Decider (person and role, or authorised body):**
+
+**Authority source and accountable follow-up owner:**
 **Date decided:**
 **Review date and reviewer:**
 
@@ -16,7 +18,7 @@ The situation, the constraint, the deadline, what happens if nothing is decided.
 | Do nothing | | | | |
 
 ## Decision
-One sentence in plain words.
+One sentence in plain words. Link the dated controlling record and capture the scope, conditions and exclusions.
 
 ## Why
 Reasons tied to the evidence below. Include the downside of the chosen option.
@@ -32,5 +34,8 @@ Observable triggers that would reopen the decision.
 
 ## Supersedes / depends on
 
-## Actions still needing a yes
-Anything that sends, spends, deletes or publishes, and who must approve it.
+## Actions and approvals
+
+| Next action | Named owner | Approval or condition still open | Completion evidence |
+| --- | --- | --- | --- |
+| | | | |

@@ -1,6 +1,6 @@
 # Decision brief: <question as a choice>
 
-**Decision maker:** <one person>. **Needed by:** <date>. **If late:** <consequence>.
+**Decision maker:** <named person or formally authorised body, with authority source>. **Brief owner, if different:** <named person>. **Needed by:** <date>. **If late:** <consequence>.
 
 ## Facts (with sources)
 | Fact | Source | Date | Single source? |

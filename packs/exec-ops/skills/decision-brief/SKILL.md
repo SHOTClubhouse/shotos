@@ -22,7 +22,7 @@ Skip it for a choice that is cheap and easy to reverse, for a question that has 
 ## Steps
 
 1. **Write the question.** One sentence, phrased as a choice. "Should we open a second shop in March or wait until autumn?" not "Second shop".
-2. **Name the decision maker and the date.** One person decides. State the date by which the choice is needed and what happens if it is late.
+2. **Name the decision maker and the date.** Name the person with authority, or the formally authorised body and the person who owns bringing the decision to it. Keep advisory input separate from that authority. State the date by which the choice is needed and what happens if it is late.
 3. **Collect facts with sources.** List only what you can show: the figure, where it came from and its date. If a fact comes from one source, say so.
 4. **State assumptions.** What the options rely on that is not yet shown. Give each a way to test it and a cheap check, if there is one.
 5. **Set out two to four options.** Include "do nothing" or "wait" when it is real. For each: what it involves, cost and effort where known, benefits, risks and what you would have to believe for it to be right.
