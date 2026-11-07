@@ -65,6 +65,20 @@ class PackageSkillsTests(unittest.TestCase):
                         self.assertIn(f"(../{relative})".encode("ascii"), chat_guide)
                         self.assertEqual(re.findall(rb"(?m)^- \*\*R([1-6]),", content), record_ids)
 
+    def test_proposal_resources_travel_in_both_skill_zips(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            subprocess.run([sys.executable, str(TOOL), "--pack", "win-the-work",
+                            "--pack", "customer-success", "--out", tmp],
+                           check=True, capture_output=True)
+            target = Path(tmp)
+            with zipfile.ZipFile(target / "contextual-proposal.zip") as proposal, \
+                    zipfile.ZipFile(target / "success-handoff.zip") as handoff:
+                for name in ("worked-deal.md", "organisation-templates.md", "template.md"):
+                    with self.subTest(resource=name):
+                        self.assertEqual(proposal.read(f"contextual-proposal/{name}"),
+                                         handoff.read(f"success-handoff/proposal/{name}"))
+                self.assertIn(b"(proposal/worked-deal.md)", handoff.read("success-handoff/README.md"))
+
     def test_unknown_pack_is_refused(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = subprocess.run([sys.executable, str(TOOL), "--pack", "no-such-pack", "--out", tmp],

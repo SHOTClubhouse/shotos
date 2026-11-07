@@ -9,18 +9,24 @@ PARENT_LINK = re.compile(r"(?<=\]\()((?:\.\./)+[^\s)#]+)(#[^\s)]*)?")
 
 
 def example_files(skill: Path):
-    """Yield each fictional example with its installed name."""
+    """Yield fictional examples and their supporting resources with installed names."""
     examples = skill.parent.parent / "examples" / skill.name
     for kind in ("input", "output"):
         path = examples / f"{kind}.md"
         if path.is_file():
             yield path, f"example-{kind}.md"
 
+    pack = skill.parent.parent
+    if skill.name == "success-handoff" and pack.name == "customer-success":
+        proposal = pack.parent / "win-the-work" / "skills" / "contextual-proposal"
+        for name in ("worked-deal.md", "organisation-templates.md", "template.md"):
+            yield proposal / name, f"proposal/{name}"
+
 
 def portable_readme(skill: Path, repo: Path) -> str:
     """Keep bundled resources local and link other resources to their public source."""
-    examples = {path.resolve(): name for path, name in example_files(skill)}
-    return portable_markdown(skill / "README.md", repo, examples)
+    resources = {path.resolve(): name for path, name in example_files(skill)}
+    return portable_markdown(skill / "README.md", repo, resources)
 
 
 def portable_markdown(source: Path, repo: Path, bundled_links: dict) -> str:
