@@ -7,6 +7,7 @@ Start with the [Harbourside example](walkthrough.md) to see how context travels 
 | See what you can make and do |  [What you can do](what-you-can-do.md): every job with a prompt to try |
 | Start from your situation | [Enterprise operations](guides/enterprise-operations.md), [small business](guides/small-business.md) or [startup founder](guides/startup-founder.md) |
 | Learn by doing | [Harbourside walkthrough](walkthrough.md): six stages, with a runnable draft pilot and illustrated decisions |
+| Practise a job with fictional records | [Practice exercises](../examples/README.md#practise-with-fictional-work) for discovery, delivery, operations and buying |
 | Find your starting point | [Self-check](self-check.md) and [personas](personas.md) |
 | Review a recurring leadership decision | [Executive Decision Review](../packs/exec-ops/skills/decision-brief/review-cycle.md) |
 | Run a review across several teams | [Executive operating review](../packs/exec-ops/skills/weekly-exec-brief/operating-review.md): turn updates into decisions and route each action back to its owner |
