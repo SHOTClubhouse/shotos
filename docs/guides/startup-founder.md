@@ -2,6 +2,22 @@
 
 You are starting something: a coaching business, an agency, a software product, a consultancy. You are the salesperson, the operations team and the product owner at once, and you are already using AI agents for a lot of it. The risk is not that the agent is slow. The risk is that it sends the wrong thing to a prospect, claims a customer you do not have, or builds the wrong product well.
 
+## Try one task
+
+Pick the row that matches the work in front of you. Start with the relevant skill and one brief or record you can share with your assistant.
+
+| If you need to | Start with | First useful result |
+| --- | --- | --- |
+| Turn a live opportunity into a proposal | [Contextual Proposal](../../packs/win-the-work/skills/contextual-proposal/README.md) | A buyer-facing draft and a private working sheet that links each material claim or commitment to evidence |
+| Give an accepted deal to the person delivering it | [Success Handoff](../../packs/customer-success/skills/success-handoff/README.md) | One deal record with the accepted revision, the first action and the receiving lead's status |
+| Put a small website in front of customers | [Build a Small Website](../../packs/content/skills/build-small-website/README.md) | A preview with the key visitor journeys checked |
+
+For a proposal, start a fresh chat with the buyer's brief, the approved offer and any source you want the assistant to use.
+
+> Draft a tailored proposal from these sources. Use the organisation template that fits the buyer. Save the draft and private working sheet separately. Show which claims are ready for my review, what still needs a decision and where the record should live. Leave dispatch with me.
+
+Review the proposed terms and evidence together. If the buyer later accepts, pass the same record to the delivery lead and record their acceptance separately. Follow [one fictional deal](../../packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see what travels.
+
 ## How SHOTos fits a startup
 
 | You need to | SHOTos gives you |

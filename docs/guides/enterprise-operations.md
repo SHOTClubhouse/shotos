@@ -2,6 +2,24 @@
 
 You run operations for a large business: thousands of staff, many sites, a technology function, a risk function and a board. Teams are already using AI tools, some approved and some not. You want the productivity without losing control of what goes out, what gets spent and what gets claimed.
 
+## Try one workflow
+
+Start with one team, one recurring task and the people who own it. Use an approved assistant and source set. A supplier invoice query is a good starting point when an operations lead can name the current queue, approved response policy and escalation path.
+
+| Role | First job | What they leave in the same work record |
+| --- | --- | --- |
+| Process owner | Choose one query type and name who can review and approve it | Scope, allowed data and actions, and the existing response baseline |
+| Operator | Use the approved sources to prepare drafts for review | Draft responses, policy citations and cases that need escalation |
+| Reviewer | Check a routine draft and an exception against the agreed criteria | What passed, what needed rework and what still needs a decision |
+| Sponsor | Decide what the evidence supports | A dated decision to continue, change, hold or stop |
+| Receiving lead | Run the next cycle once ownership is agreed | Evidence they could run it and their acceptance |
+
+Start with the [work record](../../templates/work-record.md) and [acceptance card](../../templates/acceptance.md). Use the prompt below with approved or fictional sample inputs.
+
+> Prepare a draft answer for each supplier query using the attached policy. Cite the source for any commitment. Route disputed charges to the finance owner and show who should pick up each exception. Keep replies as drafts and record what the reviewer needs to decide.
+
+Use [Evidence Pack](../../skills/evidence-pack/README.md) for the pilot review and [Enablement Plan](../../skills/enablement-plan/README.md) when the receiving lead is ready to take over.
+
 ## What SHOTos gives you
 
 - **One way of working that business and technical teams share.** The six stages ([framework](../framework.md)) work for a process change in stores, a new system in head office, or both at once.
