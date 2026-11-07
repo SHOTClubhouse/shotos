@@ -2,7 +2,7 @@
 
 **Take what worked to the next team by copying the method, and make each new team measure its own starting point.**
 
-The agent checks the Track evidence, the accepted independent cycle from Own and the sponsor's rollout decision. It identifies what each team can reuse, what each team must check locally and where to stop. The sponsor approves the proposed sequence and support.
+The agent checks the Track evidence, the accepted independent cycle from Own and the sponsor's rollout decision. It reconciles earlier holds, separates wave approval from permission to start and identifies what each team can reuse or needs to check locally.
 
 It supports Sustain and Scale. It serves rule 1, Stop at the boundaries, rule 3, Read back the real result, and rule 4, Claim only what you can show. It is the practical form of control 9, pilot-before-scale.
 
@@ -41,7 +41,7 @@ Correct the sequence and people, then approve or change it.
 
 Nothing beyond the agent. The plan sends nothing to the teams.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 0 of 2, Opus 0 of 2. See [evidence](../../docs/evidence.md) for how to read this.
+**Evidence:** The 3 November version ran once per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 0 of 2, Opus 0 of 2. The [invoice-query exercise](../../docs/guides/invoice-query-exercise.md) covers the later handover and first-wave checks. See [evidence](../../docs/evidence.md) for the evaluation history.
 
 ## Tips and common mistakes
 

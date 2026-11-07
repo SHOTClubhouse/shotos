@@ -21,7 +21,7 @@ When approval or independent ownership is missing, identify the blocker and rout
 
 ## Steps
 
-1. **Confirm the basis.** Link the Track evidence and decision, the independent cycle accepted by the receiving lead in Own, and the sponsor's recorded rollout decision. If any is missing, hold rollout and name the missing evidence or decision. Restate what worked, the conditions and what remains unknown.
+1. **Confirm the basis.** Link the Track decision, the accepted independent cycle in Own and the sponsor's rollout decision. Reconcile earlier holds against later evidence and decisions for the same scope. Close a hold only when its requirement is met or the authorised owner supersedes it. Keep approval of the wave separate from permission to start each site. If evidence or conditions are missing, name the owner and hold the affected step.
 2. **List what travels.** Separate the method (stages, rules, skills, templates, eval sets, the runbook), from the settings (thresholds, names, data sources, owners) and from the assumptions (the first team's workload, data quality, people, tools). Mark each as copy, adapt or re-establish.
 3. **Choose the sequence.** Order the next teams by readiness and value, not by who asked first. Start with three units or fewer, then check before widening. If asked to go to every team at once, say that the first wave is three or fewer and why, and that the rest follow a checkpoint. For each team: why this one, what is different from the first team, and the main risk.
 4. **Decide who moves with it.** Name the people from the first team who will support (a coach, a champion, a reviewer), the share of time they give and the end date. Build in train-the-trainer so each new team has its own people who can teach.
@@ -30,7 +30,7 @@ When approval or independent ownership is missing, identify the blocker and rout
 7. **Set the governance.** Who decides at each stage, what each team may change locally and what only the sponsor may change, how a team asks to deviate, and how stops are recorded. Keep the boundary list intact.
 8. **Set the improvement cadence.** A regular slot (for example every four weeks) where the teams share evidence, bring lessons to the `learning-loop` and update shared skills through the gate. Say who owns the shared copy.
 9. **Define the checkpoints and the stop.** After each team: an evidence pack, a decision to continue, adapt or pause. Say what would pause the whole rollout, such as a material failure or a team that cannot meet its baseline.
-10. **Present as a draft.** The sponsor approves the sequence and the people. The agent does not announce, schedule meetings, or contact teams.
+10. **Present as a draft.** Carry forward the sponsor's existing approvals. Request decisions on any changes or unresolved parts of the sequence and support. The agent does not announce, schedule meetings or contact teams.
 
 ## Output
 
@@ -39,6 +39,7 @@ Use [template.md](template.md). Save as `.work/<task>/rollout-plan.md`.
 ## Checks
 
 - The plan links Track evidence, an accepted Own exit and a named rollout decision.
+- Earlier holds, the current sponsor decision and each site's start status agree with the latest applicable receipts.
 - It separates method, settings and assumptions, and each new team has a re-baseline step.
 - Three or fewer units go first, with a checkpoint before more.
 - People who move with the method and their time and end date are named.

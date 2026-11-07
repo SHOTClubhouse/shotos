@@ -18,7 +18,7 @@ Start with the [work record](../../templates/work-record.md) and [acceptance car
 
 > Prepare a draft answer for each supplier query using the attached policy. Cite the source for any commitment. Route disputed charges to the finance owner and show who should pick up each exception. Keep replies as drafts and record what the reviewer needs to decide.
 
-To try it without supplier data, use the [fictional invoice-query exercise](invoice-query-exercise.md). It includes a routine draft, a disputed charge and a request to change payment details, with a review key and a receiving lead's next-cycle check.
+To try it without supplier data, use the [fictional invoice-query exercise](invoice-query-exercise.md). Four separate input files take the same queue from the first draft and exceptions through sponsor review, independent ownership and a conditional rollout. The reviewer keeps the answer key separately.
 
 Use [Evidence Pack](../../skills/evidence-pack/README.md) for the pilot review and [Enablement Plan](../../skills/enablement-plan/README.md) when the receiving lead is ready to take over.
 
@@ -55,7 +55,7 @@ Then [Sustain and Scale](../../skills/rollout-plan/README.md): the next team sta
 | Commercial and buying teams | The [win-the-work pack](../../packs/win-the-work/README.md) | Proposals with every claim sourced; qualification with NUDGE |
 | Marketing and communications | The [content](../../packs/content/README.md), [social](../../packs/social/README.md) and [trust](../../packs/trust/README.md) packs | Drafts to an agreed brief, a claims audit before anything goes public |
 | Technology | The [ways of working](../../ways-of-working/README.md), the role [agents](../../agents/README.md), claim-check in CI | Specification by example, DORA measures, evidence before merge |
-| Risk, legal and data protection | The [guardrails](../../rules/guardrails/README.md) and the [trust pack](../../packs/trust/README.md) | Data classification, exposure checks, children's and special-category data handled with consent |
+| Risk, legal and data protection | The [guardrails](../../rules/guardrails/README.md) and the [trust pack](../../packs/trust/README.md) | Data classification, exposure checks and an approved purpose, source set and access scope |
 
 ## What it does not do
 

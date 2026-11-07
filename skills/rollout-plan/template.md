@@ -6,6 +6,8 @@
 
 **Sponsor (approves):**
 **Basis:** Track evidence and decision (link), Own exit and receiving lead sign-off (link), sponsor rollout decision (by whom, date)
+**Earlier holds:** Condition, closing evidence or current blocker
+**Wave approval and conditions:** Scope, decision reference, conditions still open
 **What worked, in what conditions, what is unknown (two sentences):**
 
 ## What travels
@@ -41,6 +43,8 @@ Slot, attendees, what is shared, who owns the shared copy, how changes reach sha
 ## Checkpoints and stop
 After each team: evidence pack, then continue, adapt or pause. What would pause the whole rollout:
 
-## Approval
-Approved by (name, role):
-Date:
+## Approval and start
+| Decision | Owner | Status and conditions | Receipt |
+| --- | --- | --- | --- |
+| Wave sequence and support | | | |
+| Start each site | | | |
