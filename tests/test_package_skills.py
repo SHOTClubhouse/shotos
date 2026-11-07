@@ -1,4 +1,5 @@
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -10,6 +11,32 @@ TOOL = Path(__file__).resolve().parents[1] / "tools" / "package_skills.py"
 
 
 class PackageSkillsTests(unittest.TestCase):
+    def test_linked_source_cannot_enter_a_skill_zip(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = Path(tmp)
+            repo = workspace / "repo"
+            tools = repo / "tools"
+            tools.mkdir(parents=True)
+            for source in (TOOL, TOOL.with_name("skill_resources.py")):
+                shutil.copy2(source, tools)
+            skill = repo / "skills" / "sample"
+            skill.mkdir(parents=True)
+            (skill / "SKILL.md").write_text("# Sample", encoding="utf-8")
+            for name in ("LICENSE", "LICENSE-docs.md"):
+                (repo / name).write_text("Fictional licence fixture", encoding="utf-8")
+            outside = workspace / "private-fixture.txt"
+            outside.write_text("Synthetic content outside the source checkout", encoding="utf-8")
+            try:
+                (skill / "linked.txt").symlink_to(outside)
+            except (OSError, NotImplementedError):
+                self.skipTest("symlinks are not available here")
+            out = workspace / "out"
+            result = subprocess.run([sys.executable, str(tools / TOOL.name), "--out", str(out)],
+                                    capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0, result.stdout)
+            self.assertIn("linked package source", result.stderr)
+            self.assertFalse((out / "sample.zip").exists())
+
     def test_each_zip_holds_one_skill_folder_with_skill_md(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = subprocess.run([sys.executable, str(TOOL), "--all-packs", "--out", tmp],
