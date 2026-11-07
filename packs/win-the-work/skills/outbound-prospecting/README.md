@@ -1,8 +1,8 @@
 # outbound-prospecting
 
-**Test one segment with five carefully drafted messages, judge it by qualified conversations, and send none yourself.**
+**Test one segment with up to five reviewed drafts, judge it by qualified conversations, and send none yourself.**
 
-The agent defines one segment and a hypothesis, picks five contacts you approve, checks each against your suppression list and your sender identity, researches each person, and drafts one message per contact for you to send. It writes down what success means before anything goes out.
+The agent defines one segment and a hypothesis, checks up to five contacts you approve, checks each against your suppression list and your sender identity, researches each person, and drafts one message per contact for you to send. It writes down what success means before anything goes out.
 
 It belongs to **Operate**. It serves rule 1, Stop at the boundaries, rule 4, Claim only what you can show, and rule 3, Read back the real result, and applies [control 9, pilot before scale](../../../../rules/09-pilot-before-scale.md).
 
@@ -26,7 +26,7 @@ Do not use it for people who already know you, for newsletters, or for anything 
 
 > Segment: facilities managers at multi-academy trusts with 5 to 10 schools. Offer: school bike maintenance. Here are five names I picked and my do-not-contact list. Check them, research them and draft the messages. I will send them.
 
-You get the filled [template.md](template.md). Read each draft as if you were the recipient, then send them yourself.
+Use the [template](template.md) to review eligible drafts and the reasons any candidate was held. Try the [fictional eligibility exercise](eligibility-exercise.md) before using your own campaign data.
 
 ## How it connects
 
