@@ -1,5 +1,7 @@
 # weekly-exec-brief
 
+Use the [executive operating review](operating-review.md) when the brief needs to turn updates from several teams into a meeting agenda and actions for named owners.
+
 **A one-page weekly briefing built from evidence: what changed, what needs deciding, and how much of it is proven.**
 
 The agent reads the week's ledger, notes and signals, lists changes with sources, puts decisions in front with a decision maker and date, and keeps recommendations apart from commitments. It lists what is unverified and which sources it could not read. A line repeated from the daily notes is not counted as a new commitment.
