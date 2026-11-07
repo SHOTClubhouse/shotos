@@ -23,13 +23,13 @@ def example_files(skill: Path):
             yield proposal / name, f"proposal/{name}"
 
 
-def portable_readme(skill: Path, repo: Path) -> str:
+def portable_readme(skill: Path, repo: Path, *, source_ref: str = "main") -> str:
     """Keep bundled resources local and link other resources to their public source."""
     resources = {path.resolve(): name for path, name in example_files(skill)}
-    return portable_markdown(skill / "README.md", repo, resources)
+    return portable_markdown(skill / "README.md", repo, resources, source_ref=source_ref)
 
 
-def portable_markdown(source: Path, repo: Path, bundled_links: dict) -> str:
+def portable_markdown(source: Path, repo: Path, bundled_links: dict, *, source_ref: str = "main") -> str:
     """Rewrite parent links for Markdown moved out of its repository folder."""
     def destination(match):
         path = (source.parent / match[1]).resolve()
@@ -37,6 +37,6 @@ def portable_markdown(source: Path, repo: Path, bundled_links: dict) -> str:
         if path in bundled_links:
             return bundled_links[path] + fragment
         kind = "tree" if path.is_dir() else "blob"
-        return f"{PUBLIC_REPO}/{kind}/main/{quote(path.relative_to(repo).as_posix())}{fragment}"
+        return f"{PUBLIC_REPO}/{kind}/{source_ref}/{quote(path.relative_to(repo).as_posix())}{fragment}"
 
     return PARENT_LINK.sub(destination, source.read_text(encoding="utf-8"))

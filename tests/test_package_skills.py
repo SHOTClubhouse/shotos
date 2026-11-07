@@ -79,6 +79,18 @@ class PackageSkillsTests(unittest.TestCase):
                                          handoff.read(f"success-handoff/proposal/{name}"))
                 self.assertIn(b"(proposal/worked-deal.md)", handoff.read("success-handoff/README.md"))
 
+    def test_release_zip_pins_repository_links_and_keeps_bundled_links_local(self):
+        source_commit = "b" * 40
+        with tempfile.TemporaryDirectory() as tmp:
+            subprocess.run([sys.executable, str(TOOL), "--pack", "exec-ops",
+                            "--source-commit", source_commit, "--out", tmp],
+                           check=True, capture_output=True)
+            with zipfile.ZipFile(Path(tmp) / "decision-brief.zip") as archive:
+                guide = archive.read("decision-brief/guides/chat-assistants.md")
+                self.assertIn(f"/blob/{source_commit}/templates/AGENTS.md".encode("ascii"), guide)
+                self.assertIn(b"(../scenarios/retail-trial-initial.md)", guide)
+                self.assertIn("decision-brief/scenarios/retail-trial-initial.md", archive.namelist())
+
     def test_unknown_pack_is_refused(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = subprocess.run([sys.executable, str(TOOL), "--pack", "no-such-pack", "--out", tmp],
