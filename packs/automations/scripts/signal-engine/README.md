@@ -33,7 +33,7 @@ Time: about 15 minutes.
 
 ## Modes
 
-The script starts in **dry run**: it reads and scores, writes only to the Log tab, and sends nothing. Modes are Script Properties (Project Settings), switched by running a function:
+The script starts in **dry run**: it reads and scores with keywords, and writes only to the Log tab. Email and external AI scoring wait for live mode. Modes are Script Properties (Project Settings), switched by running a function:
 
 | Run this | Effect |
 |---|---|

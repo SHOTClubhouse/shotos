@@ -86,3 +86,30 @@ test('dry run leaves the queue and mail alone', () => {
   assert.equal(properties.size, 0);
   assert.equal(sent.length, 0);
 });
+
+test('dry collection uses keyword scoring even when external AI scoring is configured', () => {
+  const context = vm.createContext({});
+  vm.runInContext(script, context);
+  const messages = [];
+  Object.assign(context, {
+    withLock_: (_name, run) => run(),
+    isDryRun_: () => true,
+    ensureSheets_: () => {},
+    readPriorities_: () => [],
+    getSheet_: () => ({}),
+    readIdSet_: () => ({}),
+    readQueueIndex_: () => ({ keys: {}, urls: {} }),
+    isPilot_: () => false,
+    findNewMessages_: () => ({ ids: ['fixture-message'], waiting: 0 }),
+    getMessage_: () => ({ id: 'fixture-message', date: new Date(), subject: 'Fixture' }),
+    extractItems_: () => [{ title: 'Fixture', url: '', snippet: 'Sample text' }],
+    scoreByKeywords_: () => ({ score: 2, matched: ['sample'] }),
+    isAiEnabled_: () => true,
+    scoreWithAi_: () => assert.fail('Dry run must not call the external scoring provider'),
+    appendRows_: () => assert.fail('Dry run must not write queue or processed rows'),
+    log_: (_level, message) => messages.push(message),
+  });
+  context.collectSignals();
+  assert.ok(messages.some((message) => message.includes('Keyword scoring only')));
+  assert.ok(messages.some((message) => message.includes('Would queue 1 item(s)')));
+});

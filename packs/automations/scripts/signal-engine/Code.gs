@@ -163,6 +163,10 @@ function collectSignals() {
     var processedRows = [];
     var aiCalls = 0;
     var aiOn = isAiEnabled_();
+    if (dry && aiOn) {
+      log_('INFO', '[DRY RUN] Keyword scoring only. No items sent to the AI scoring provider.');
+      aiOn = false;
+    }
 
     for (var i = 0; i < messageIds.length; i++) {
       if (Date.now() - started > CONFIG.RUN_BUDGET_MS) {
