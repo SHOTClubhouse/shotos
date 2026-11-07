@@ -47,7 +47,7 @@ The ability to run the skill on test inputs. Nothing beyond the agent.
 
 - One change at a time. A bundle hides which part caused a failure.
 - Keep the conflicting-source and boundary scenarios in every gate; they catch what averages hide.
-- Count the time spent fixing outputs in the cost.
+- Include every attempt and all human review and rework. Report time and spend separately unless the team agrees a labour rate. [Accepted-work measurement guide](../../docs/prerequisites.md#measuring-your-own-cost-per-accepted-task)
 - Do not give a maturity label the evidence does not earn.
 
 ## Limits

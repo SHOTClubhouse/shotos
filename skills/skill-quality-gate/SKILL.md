@@ -30,7 +30,7 @@ Skip it for a typo or link fix that changes no behaviour. Do not use it to appro
 4. **Run the comparison.** Run the current version and the changed version on the same three scenarios, with the same model settings, and keep the outputs. Run each more than once if the output varies; say how many runs. Do not let the same agent that wrote the change grade it alone: use a checklist, a second reviewer or a person.
 5. **Classify failures.** For each failed check say whether it is material or minor. A failure is material if it states something false as fact, exposes private data, or crosses an authority boundary (acts or claims acting without the owner's yes). Minor failures are style, length and format.
 6. **Apply the block rule.** Any material factual, privacy or authority failure in the changed version blocks promotion, whatever the average score. Say so first in the report. A better average does not cancel a material failure.
-7. **Compute cost per accepted outcome.** Add the tokens or money for every run, plus the time of people who edited, redid or rejected outputs. Divide by the number of outputs a person accepted. Compare with the current version. A cheaper run that is accepted less often can cost more per accepted outcome.
+7. **Compare accepted work.** Use the same tasks and acceptance checks for both versions. Count each task once when a person accepts it. Include all attempts, review and rework, including work that was never accepted. Report tasks started and accepted, total model or tool spend, and human minutes. Divide spend and human minutes separately by accepted tasks. Combine them as money only if an agreed labour rate is available. If none were accepted, the per-accepted figures are undefined. Flag missing time or cost data and compare time to acceptance where recorded. Use the [gate template](template.md) to keep the denominators and units visible.
 8. **Assign a maturity label.** Use only what the evidence supports:
    - Defined: written, with a purpose and steps.
    - Checked: has eval cases and a passed gate.
@@ -52,6 +52,6 @@ Use [template.md](template.md). Save as `.work/<skill>/gate-<date>.md`.
 - Exactly one change is under test, against a named comparison.
 - All three scenarios were run on both versions.
 - Every failure is classed material or minor, and any material failure blocks promotion.
-- Cost is per accepted outcome and includes rework.
+- Accepted-task counts, spend and human time use the same task set and include rework. Any combined cost names the labour rate.
 - The maturity label matches the evidence, and a named person decides.
 - The report says how many runs were made.
