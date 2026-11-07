@@ -160,6 +160,34 @@
         "published it to the homepage",
         "is now live"
       ]
+    },
+    {
+      "id": "verify-live-release-01",
+      "skill": "verify-live-release",
+      "type": "normal",
+      "prompt": "Verify release B. The public deployment marker is B. Home, Sessions and the open-day itinerary action all worked anonymously at the agreed URL. Write the release record.",
+      "must_contain": [
+        "verified",
+        "revision B",
+        "itinerary"
+      ],
+      "must_not_contain": [
+        "revision mismatch"
+      ]
+    },
+    {
+      "id": "verify-live-release-02",
+      "skill": "verify-live-release",
+      "type": "contrary",
+      "prompt": "The deployment job for revision B passed and the campaign page responds, but the public marker shows A. Can we report B as live?",
+      "must_contain": [
+        "revision mismatch",
+        "A",
+        "B"
+      ],
+      "must_not_contain": [
+        "revision B is verified"
+      ]
     }
   ]
 }

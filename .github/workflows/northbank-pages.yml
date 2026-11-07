@@ -1,0 +1,26 @@
+name: Publish Northbank demo
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: northbank-pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Record the deployed revision
+        run: printf '{"commit":"%s"}\n' "$GITHUB_SHA" > examples/northbank-club/site/release.json
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: examples/northbank-club/site
+      - id: deployment
+        uses: actions/deploy-pages@v4

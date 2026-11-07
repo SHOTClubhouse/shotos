@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0 (7 November 2026)
+
+- Build a small website around visitor journeys, with a reusable site brief.
+- Verify the actual public revision and visitor actions using a live release record.
+- Explore Northbank Community Football, a fictional three-page site with an open-day campaign.
+
 ## 1.5.0 (7 November 2026)
 
 - Route tailored offers, tender responses, buyer RFPs and batches of similar proposals to the appropriate skill.

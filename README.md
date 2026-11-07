@@ -4,7 +4,7 @@
 
 SHOTos is an open-source delivery method for people and AI agents. Founders, operators, product teams and engineers can use it for one task or for a change another team needs to run. It gives you a way to agree what good looks like, check the work where it happened and make the next decision with evidence.
 
-**Six-stage edition · 85 skills, 12 optional packs**
+**Six-stage edition · 87 skills, 12 optional packs**
 
 [Try it](#try-shotos) · [Follow a worked example](docs/walkthrough.md) · [Find a skill](docs/what-you-can-do.md) · [Run the full pack](docs/full-pack.md)
 
@@ -39,6 +39,8 @@ Start with the assistant you already use. Give it a role, a task and a check. As
 A role sets the responsibility. An audience persona tells you who the work is for. A review lens brings a perspective such as customer, commercial or sceptic. You can use all three in one assistant or assign roles to separate agents where your runtime supports them. [Set up your team with the full pack](docs/full-pack.md)
 
 ## Try SHOTos
+
+Explore the [Northbank fictional club website](https://shotclubhouse.github.io/shotos/) and its [worked example](examples/northbank-club/README.md), from visitor brief to public release.
 
 **Start without a terminal.** Try the fictional retail decision in [Codex or Claude Code](docs/guides/codex-claude-code.md#copy-one-skill-without-a-terminal) or [ChatGPT or Claude](docs/guides/chat-assistants.md). Draft a recommendation from the initial evidence, then introduce the decision and handoff records to see whether the assistant updates each status correctly.
 
@@ -120,7 +122,7 @@ For Claude Code, use `--runtime claude` and add `--with-hook` if you want the op
 | Give another team the work and its evidence | [Evidence handoff](skills/evidence-handoff/README.md) |
 | Prove a team can run the workflow and prepare the next wave | [Enablement plan](skills/enablement-plan/README.md) and [rollout plan](skills/rollout-plan/README.md) |
 
-Browse the [28 core skills and 57 skills across optional packs](docs/what-you-can-do.md), [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md). See the [evidence](docs/evidence.md) for recorded checks and their scope.
+Browse the [28 core skills and 59 skills across optional packs](docs/what-you-can-do.md), [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md). See the [evidence](docs/evidence.md) for recorded checks and their scope.
 
 ## What you can use today
 

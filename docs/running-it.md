@@ -2,7 +2,7 @@
 
 Choose [Codex or Claude Code on Windows or Mac](guides/codex-claude-code.md), or [ChatGPT or Claude without a terminal](guides/chat-assistants.md). Start with the runtime your team already uses. [Try the method](../README.md#try-shotos) with an acceptance card or run the local demo. The [install guide](../README.md#install) shows how to preview what changes in your project.
 
-Use the [full-pack guide](full-pack.md) to install all 85 skills and follow one task across personas, execution roles and review lenses. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
+Use the [full-pack guide](full-pack.md) to install all 87 skills and follow one task across personas, execution roles and review lenses. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
 
 Download the individual skills from [GitHub Releases](https://github.com/SHOTClubhouse/shotos/releases/latest) if you use the Claude app. For a local project, add a pack by rerunning the installer with the same runtime and scope and the additional pack name. The installer keeps existing files and adds only the requested packs.
 

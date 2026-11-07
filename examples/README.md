@@ -10,3 +10,4 @@ One worked example per skill: the input given to the agent, and an output that m
 | [report-with-evidence](report-with-evidence/) | A short report with a decision for the reader and a Claims block |
 | [evidence-handoff](evidence-handoff/) | A paused piece of work someone else can pick up in minutes |
 | [Proposal to customer handoff](../packs/win-the-work/skills/contextual-proposal/worked-deal.md) | One fictional deal record holds the accepted offer, delivery commitments and receiving lead's written acceptance |
+| [Northbank club website](northbank-club/README.md) | A fictional multi-page site and open-day campaign, with public revision evidence. |
