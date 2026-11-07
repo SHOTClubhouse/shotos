@@ -6,11 +6,24 @@ This page records what has been tested, how, what it showed and what has not bee
 
 | Build | Evidence |
 | --- | --- |
+| v1.7.0 release candidate | [Fresh Haiku skill and outcome checks](#v170-release-candidate-checks) on the code and skills at `f08ba33`. |
 | November skill evaluation builds | Paired skill and outcome evaluations reported below. Some later runs used the five-step wording. |
 | v1.1.0 | Returned to Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. The GitHub matrix passed on Windows, macOS and Linux. |
 | Six-stage Windows replay | The draft workflow and stop gate checks described below. |
 
-The historical paired runs apply to the builds named in their results. They do not provide a paired result for the current release wording.
+The historical paired runs apply to the builds named in their results.
+
+## v1.7.0 release candidate checks
+
+On 7 November 2026, the [paired skill runner](../evals/run_paired.py) ran all 70 cases for the 29 skill instructions changed since v1.6.0 on Claude Haiku, once with SHOTos and once without. All 140 runs returned responses. The literal phrase grader recorded **50/70 with SHOTos and 19/70 without**. The baseline passed four cases that the installed condition missed, in Baseline, Capture the Problem, Image Create and Resume Pack. These counts reflect the phrase checks. A meaning-based judgement may reach a different verdict on an individual output.
+
+The [outcome runner](../evals/run_outcomes.py) ran the ten fictional task fixtures once per condition on Claude Haiku, in fresh Windows projects. The automatic report recorded **7/10 with SHOTos and 9/10 without**. Both handoff runs lacked the `HANDOFF.md` required by the task. Excluding that unusable pair leaves **7/9 and 9/9 on the automated checks**.
+
+- The bakery form offered the six Christmas products. The grader counted non-Christmas items mentioned in an internal HTML comment. Ingredient coverage still needs review. The panettone recipe includes a hazelnut glaze that was absent from the form's allergen row.
+- The proposal's blocked promotional claims appeared in an internal comment, which the grader counted as offer text. The buyer-facing copy also described servicing bikes on site and providing a board report without agreed terms. Those are review findings in the draft itself.
+- The folder-tidy result retained content-matched copies in quarantine. That failed a non-critical check and preserved all unique content.
+
+These runs help identify specific changes to the fixtures, graders and instructions. Measuring accepted work would require reviewers to take the drafts through to an agreed outcome. Raw responses from this run stay in the local release workspace.
 
 ## Six-stage runtime check
 
