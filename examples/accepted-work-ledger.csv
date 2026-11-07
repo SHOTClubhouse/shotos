@@ -1,8 +1,8 @@
-task_id,work_type,condition,model,attempt,model_cost_usd,run_minutes,review_minutes,rework_minutes,handoff_pickup_minutes,accepted,reviewer_role,defects_at_review,defects_after_acceptance,evidence_reference
-F-01,proposal,with,example model,1,0.0600,4,3,0,5,yes,sales lead,0,0,F-01 accepted offer draft
-F-01,proposal,without,example model,1,0.0300,3,5,8,,no,sales lead,2,,F-01 returned draft
-F-01,proposal,without,example model,2,0.0400,4,3,0,6,yes,sales lead,0,0,F-01 accepted revision
-F-02,proposal,with,example model,1,0.0700,5,4,0,4,yes,sales lead,0,0,F-02 accepted offer draft
-F-02,proposal,without,example model,1,0.0500,4,4,0,5,yes,sales lead,0,0,F-02 accepted offer draft
-F-03,proposal,with,example model,1,0.0500,3,4,2,,no,sales lead,1,,F-03 abandoned pending terms
-F-03,proposal,without,example model,1,0.0400,3,5,3,,no,sales lead,1,,F-03 abandoned pending terms
+task_id,work_type,condition,model,attempt,model_cost_usd,run_minutes,review_minutes,rework_minutes,handoff_pickup_minutes,accepted,reviewer_role,defects_at_review,defects_after_acceptance,evidence_reference,accepted_elapsed_minutes
+F-01,proposal,with,example model,1,0.0600,4,3,0,5,yes,sales lead,0,0,F-01 accepted offer draft,12
+F-01,proposal,without,example model,1,0.0300,3,5,8,,no,sales lead,2,,F-01 returned draft,
+F-01,proposal,without,example model,2,0.0400,4,3,0,6,yes,sales lead,0,0,F-01 accepted revision,27
+F-02,proposal,with,example model,1,0.0700,5,4,0,4,yes,sales lead,0,0,F-02 accepted offer draft,20
+F-02,proposal,without,example model,1,0.0500,4,4,0,5,yes,sales lead,0,0,F-02 accepted offer draft,
+F-03,proposal,with,example model,1,0.0500,3,4,2,,no,sales lead,1,,F-03 abandoned pending terms,
+F-03,proposal,without,example model,1,0.0400,3,5,3,,no,sales lead,1,,F-03 abandoned pending terms,
