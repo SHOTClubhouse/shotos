@@ -1,6 +1,6 @@
 {
   "name": "shotos-core",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "The SHOTos core: six stages, four rules, twelve controls, 28 skills, nine role agents and a claim-check Stop hook that tests what agents say they did.",
   "author": {
     "name": "Liam McDowell"
