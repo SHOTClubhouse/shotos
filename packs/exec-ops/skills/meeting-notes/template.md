@@ -8,7 +8,7 @@
 
 ## <date>, <meeting title>
 **Attendees (confirmed by):** <names, and how confirmed>
-**Source:** <recording ID, length>. Calendar entry used for context only.
+**Source:** <recording ID, length and revision or corrected-at date>. Calendar entry used for context only.
 
 ### Purpose
 ### Decisions
