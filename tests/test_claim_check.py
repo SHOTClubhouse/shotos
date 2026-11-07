@@ -86,6 +86,20 @@ class FileClaimTests(RepoCase):
         self.assertEqual(self.states(result), ["SUPPORTED"])
         self.assertTrue(result.ok)
 
+    def test_existing_baseline_file_cannot_be_claimed_as_created(self):
+        result = self.check("## Claims\n- [file] created: plan.md\n", base="HEAD")
+        self.assertEqual(result.claims[0].state, "UNSUPPORTED")
+        self.assertIn("already existed", result.claims[0].evidence)
+
+    def test_tracked_baseline_file_can_be_verified_as_deleted(self):
+        (self.repo / "plan.md").unlink()
+        result = self.check("## Claims\n- [file] deleted: plan.md\n", base="HEAD")
+        self.assertEqual(result.claims[0].state, "SUPPORTED")
+
+    def test_absence_from_both_trees_does_not_verify_deletion(self):
+        result = self.check("## Claims\n- [file] deleted: missing.md\n", base="HEAD")
+        self.assertEqual(result.claims[0].state, "NO EVIDENCE")
+
     def test_created_file_that_is_missing_is_unsupported(self):
         result = self.check("## Claims\n- [file] created: missing.md\n")
         self.assertEqual(self.states(result), ["UNSUPPORTED"])

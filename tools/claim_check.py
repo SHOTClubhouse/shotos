@@ -188,11 +188,23 @@ def _check_one_file(claim: Claim, target: str, cwd: Path, base: str | None) -> C
         return ClaimResult(claim, "UNSUPPORTED", "path is outside the workspace")
     verb = claim.verb
     if verb in {"created", "exists", "written", "saved", "added"}:
-        return ClaimResult(claim, "SUPPORTED" if path.exists() else "UNSUPPORTED",
-                           "file exists" if path.exists() else "file not found")
+        if not path.exists():
+            return ClaimResult(claim, "UNSUPPORTED", "file not found")
+        if base and verb in {"created", "added"}:
+            rel = path.relative_to(cwd.resolve()).as_posix()
+            if _git(cwd, "cat-file", "-e", f"{base}:./{rel}")[0] == 0:
+                return ClaimResult(claim, "UNSUPPORTED", f"file already existed at {base}")
+            return ClaimResult(claim, "SUPPORTED", f"file exists and was absent at {base}")
+        return ClaimResult(claim, "SUPPORTED", "file exists")
     if verb in {"deleted", "removed"}:
-        return ClaimResult(claim, "UNSUPPORTED" if path.exists() else "SUPPORTED",
-                           "file still exists" if path.exists() else "file is gone")
+        if path.exists():
+            return ClaimResult(claim, "UNSUPPORTED", "file still exists")
+        if base:
+            rel = path.relative_to(cwd.resolve()).as_posix()
+            if _git(cwd, "cat-file", "-e", f"{base}:./{rel}")[0] != 0:
+                return ClaimResult(claim, "NO EVIDENCE", f"file was not recorded at {base}")
+            return ClaimResult(claim, "SUPPORTED", f"file was present at {base} and is now gone")
+        return ClaimResult(claim, "SUPPORTED", "file is gone")
     if verb in {"changed", "updated", "edited", "modified"}:
         if not path.exists():
             return ClaimResult(claim, "UNSUPPORTED", "file not found")
