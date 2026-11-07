@@ -49,7 +49,7 @@ Time: about 15 minutes.
 | `dryRun` | Checks the template, columns, empty values and banned terms. Creates nothing. |
 | `runSample` | Makes documents for the first three pending rows. Read them before going on. |
 | `runBatch` | Processes all pending rows in time-boxed batches. |
-| `retryFailed` | Resets attempts on rows in error and processes them again. |
+| `retryFailed` | Resets and retries only unfinished rows in error. If the time limit is reached, run it again for the remaining errors. |
 | `auditDocuments` | Checks every DONE row still has a document that is not in the bin. |
 | `removeContinuation` | Removes a waiting continuation trigger. |
 

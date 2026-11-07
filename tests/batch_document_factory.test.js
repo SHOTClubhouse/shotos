@@ -115,3 +115,45 @@ test('the report writes formula-shaped document names and details as text', () =
   assert.equal(rows[0][7], "'=3+4");
   assert.equal(rows[0][8], 0);
 });
+
+test('retryFailed processes only unfinished errors', () => {
+  const context = vm.createContext({});
+  vm.runInContext(script, context);
+  const pending = { client: 'Pending' };
+  const failed = { client: 'Failed', status: 'error', attempts: 3 };
+  const done = { client: 'Done', status: 'error', done: 'DONE' };
+  const rows = [pending, failed, done].map((fields, index) => ({
+    rowNumber: index + 2,
+    get: (key) => fields[key] ?? '',
+  }));
+  const reset = [];
+  const rendered = [];
+  Object.assign(context, {
+    runWithLock_: (_name, run) => run(),
+    getSetting_: () => 'fixture-id',
+    inspectTemplate_: () => ({ keys: ['client'], tokens: [{ key: 'client', token: '{{client}}' }] }),
+    readRows_: () => ({
+      data: rows,
+      col: { client: 0, attempts: 1 },
+      sheet: { getRange: (row, col) => ({ setValue: (value) => {
+        reset.push([row, col, value]);
+        failed.attempts = value;
+      } }) },
+    }),
+    SpreadsheetApp: { flush: () => {} },
+    readBannedTerms_: () => [],
+    deleteContinuationTriggers_: () => assert.fail('A retry must not alter the batch continuation'),
+    copyTemplate_: () => 'verified-fixture',
+    fillDocument_: (_id, _type, _tokens, values) => rendered.push(values.client),
+    verifyDocument_: () => [],
+    DriveApp: {
+      getFolderById: () => ({}),
+      getFileById: () => ({ getUrl: () => 'fixture-link' }),
+    },
+    report_: () => {},
+    setControl_: () => {},
+  });
+  context.retryFailed();
+  assert.deepEqual(reset, [[3, 2, 0]]);
+  assert.deepEqual(rendered, ['Failed']);
+});
