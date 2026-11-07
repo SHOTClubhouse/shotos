@@ -20,6 +20,8 @@
 
 ## Rendered check
 
+**Deck revision and renderer:** <reference and tool, or pending with reason>
+
 | Pass | Slides checked | Defects found | Fixed |
 |---|---|---|---|
 | 1 | | | |
