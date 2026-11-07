@@ -8,15 +8,17 @@ Information about people, and the organisation's duty to handle it properly. An 
 
 ### 1. Classify data before using it
 
-Place each source in one class. When in doubt, use the higher class. The adopter can rename these, but should keep the same number of steps.
+Place each source in one class. When in doubt, use the higher class. Use your organisation's own classifications. Record the approved source, purpose and destination on the [task data access card](../../templates/data-access.md).
 
 | Class | Examples (invented) | Agent may | Needs |
 |---|---|---|---|
 | **Public** | Published opening hours, a public price list | Use freely, with source | Nothing special |
 | **Internal** | Meeting notes, draft plans, internal procedures | Use inside the project; share only inside the organisation | Mark as internal in outputs |
 | **Confidential** | Contracts, customer lists, financial results, staff records | Use only for the named task; no copying outside the project | Owner's yes to use; minimum fields only |
-| **Special category** | Health, religion, ethnicity, union membership, sexual orientation, biometrics, criminal records | Use only where the task cannot be done without it | Named approver, stated lawful basis, independent review, no external output |
+| **Special category** | Health, religion, ethnicity, union membership, sexual orientation, biometrics used to identify someone | Use only where the task cannot be done without it | Named approver, stated lawful basis, independent review, no external output |
 | **Children's data** | Any data about under-18s, such as names, ages, photos, results or contact details | Use only where essential and approved by a responsible adult | Named safeguarding lead, parent or guardian consent where required, minimum fields, no external output without sign-off |
+
+Criminal offence data has separate rules under the UK GDPR. Route it to the responsible data owner before use. [ICO guidance on criminal offence data](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/criminal-offence-data/what-is-criminal-offence-data/)
 
 The classes tie to risk tags in [control 2](../02-evidence-based-risk.md): `personal-data`, `special-category` and `children` are added when evidence in the task triggers them.
 

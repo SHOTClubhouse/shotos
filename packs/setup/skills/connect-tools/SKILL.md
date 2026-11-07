@@ -11,7 +11,7 @@ Find out, with evidence, which tools this agent can use, so skills fail early an
 
 ## Context and handoff
 
-Read the task’s exact data needs and current connector inventory. Check account, scope and proof with a safe read before proposing writes.
+Read the task’s exact data needs and current connector inventory. Check account, task scope and proof with a safe read before proposing writes. Use the task data access card at `templates/data-access.md` in the SHOTos repository or `.shotos/templates/data-access.md` in an installed project.
 
 Use `mode-ladder` to choose authority. Record verified capabilities and gaps in the project setup notes.
 
@@ -23,7 +23,7 @@ Do not use it to set up accounts or create credentials; that is the owner's job.
 
 1. **List what you have.** Write down every tool, connector and MCP server available to you in this session, and check for local tools: `python --version`, `git --version`, and whether `python-pptx`, LibreOffice (`soffice`), `ffmpeg` and Playwright are installed.
 2. **Map them to capabilities.** For each capability on this list (local slides, Google Slides, speech, transcription, images, video and ffmpeg, browser, mail, calendar, documents, Apps Script), note which tool would serve it, or "none".
-3. **Test each one read-only.** Make the smallest harmless call that proves access: list one folder, read one calendar day, list available voices, open a blank browser page, import `pptx`. Never send, post, publish, create live documents or generate paid media during the check. If the only possible test costs credits or creates something, mark it "connected, not tested" and say why.
+3. **Test each one read-only.** Make the smallest approved call that proves access: list one designated test folder, read an approved test calendar, list available voices, open a blank browser page or import `pptx`. Verify the account and intended scope first. If there is no approved test target, record the connector as connected, not tested. Reachability alone gives no permission to use live data. Never send, post, publish, create live documents or generate paid media during the check. If the only possible test costs credits or creates something, mark it "connected, not tested" and say why.
 4. **Record the evidence.** For each capability, write: status (works, connected not tested, missing), the tool, the test you ran and its result.
 5. **Name the affected skills.** For each missing capability, list the skills that need it and the step that will stop.
 6. **Say how to connect each missing tool.** Point to the matching row of the connect-your-tools guide: `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` in a project where SHOTos is installed. If neither can be opened, give a one-line pointer per tool from the list above (for example: python-pptx and LibreOffice for local slides; a Google Slides or Drive connector for Google Slides; a text-to-speech service or its MCP server for speech; a speech-to-text tool for transcription; an image model for images; a video model plus ffmpeg for video; Playwright for browser work; a Gmail or Outlook connector for mail; a calendar connector for calendar; Drive, Docs and Sheets connectors for documents; a Google account for Apps Script). Do not connect anything yourself that needs the owner's account or credentials.

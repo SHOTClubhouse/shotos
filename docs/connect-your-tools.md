@@ -14,7 +14,7 @@ Some skills need a tool for one of their steps. Without it, the agent still does
 
 ## Connect what you need
 
-Connect only what your work needs, read-only first. Every option below uses your own account and credentials; SHOTos ships none.
+Connect only what your work needs, read-only first. Every option below uses your own account and credentials. Before the first live read, use the [task data access card](../templates/data-access.md) to agree which account, sources, fields and destinations are allowed for the task. Test the smallest approved read against a sample or test folder first.
 
 | To do this | Connect one of these | How | Skills that use it |
 |---|---|---|---|
