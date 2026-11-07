@@ -9,4 +9,4 @@ Use this to ask suppliers for comparable evidence, offers and pricing. It gives 
 
 **Evidence:** Cases written, not yet run.
 
-[Skill instructions](SKILL.md) · [Fictional input](../../examples/rfp-authoring/input.md) · [Worked output](../../examples/rfp-authoring/output.md)
+[Buyer review pack](template.md) · [Fictional scoring exercise](review-exercise.md) · [Skill instructions](SKILL.md) · [Fictional input](../../examples/rfp-authoring/input.md) · [Worked output](../../examples/rfp-authoring/output.md)
