@@ -27,7 +27,8 @@
 ## Next prompt (paste into the next session)
 > Goal:
 > Read first:
-> Run first:
+> Read-only state and version check:
+> If the record or revision changed:
 > Done means:
 > Do not do without the owner's yes:
 

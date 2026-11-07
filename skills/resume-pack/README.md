@@ -29,7 +29,7 @@ Ask:
 
 > The context is nearly full. Write a resume pack for the deposit reminders task. List any database changes still to apply. Leave out anything secret.
 
-Read the pending steps and the next prompt, then start a fresh session with the prompt.
+Read the pending steps and the next prompt, then start a fresh session with the prompt. Verify the current revision and the receipt for any pending action before continuing.
 
 ## How it connects
 

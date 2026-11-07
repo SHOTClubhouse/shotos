@@ -32,7 +32,7 @@ It ends with a Claims block, including `[unverified] supplier C pricing for the 
 
 ## When to use it, and when not to
 
-Use it when pausing, ending a session, passing work to a colleague or customer, or whenever a task will continue later.
+Use it when a colleague, customer or agent takes responsibility for the next step. For a session break with the same owner, use [resume-pack](../resume-pack/README.md).
 
 Skip it for work that is finished and accepted, with nothing left to pick up. A short report is enough.
 
