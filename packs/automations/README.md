@@ -34,6 +34,20 @@ Both skills follow the same order, which is control 9 (pilot before scale) and c
 
 An agent can write files and explain steps. It cannot paste code into your Google account or click "Allow" on the consent screen for you, so the person does those steps and the skill says exactly when.
 
+## Review your first pilot
+
+Keep one [work record](../../templates/work-record.md) with the operator, approved account and inputs, review date and next decision. Use fictional data or a designated test source for the first run.
+
+| Check | Signal Engine | Batch Document Factory |
+| --- | --- | --- |
+| Agree the test boundary | Use one test label and the approved digest address. Record whether external scoring is in scope for a later live run. | Use a template copy and a private output folder with known access. Approve the sample rows. |
+| Read back the dry run | The log shows what would queue, and the queue and mail remain unchanged. Scoring uses keywords. | The report shows which rows would create documents. Try a missing value and a value containing a template token. Both should be blocked before copying. |
+| Review the small pilot | With explicit approval for the digest, the operator checks the message reference and the matching queue statuses. | Open the generated sample files. Check the content and match each completed row to the correct link. |
+| Decide what a retry would do | A pending digest reference needs reconciliation before sending resumes. | A receipt error needs reconciliation before retry. The retry function handles only unfinished error rows. |
+| Decide whether to schedule | The owner names the operator, recipient, allowed sources and pause condition. | The owner names the operator, folder, allowed rows and pause condition. |
+
+Record the real pilot evidence with the approved input set and script revision. Keep the decision to schedule open until the person responsible for the workflow accepts the result.
+
 ## Needs
 
 - A Google account (a personal account or Workspace).
