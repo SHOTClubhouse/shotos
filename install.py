@@ -80,7 +80,7 @@ def owned_path(root: Path, rel: str) -> Path | None:
         return None
     path = root / relative
     try:
-        if path.resolve() != path:
+        if path.is_symlink() or path.resolve() != path:
             return None
     except (OSError, RuntimeError):
         return None
@@ -149,6 +149,19 @@ def plan(runtime: str, scope: str, root: Path, with_hook: bool, packs=(), with_a
     if runtime == "agents" or packs_only:
         import_files = []  # plain .agents/skills install: the user chose no runtime-specific file
     return copies, hook, import_files
+
+
+def check_copy_sources(copies) -> None:
+    paths = list(dict.fromkeys(source for source, _ in copies))
+    while paths:
+        path = paths.pop()
+        rel = path.relative_to(REPO).as_posix()
+        if owned_path(REPO, rel) is None:
+            raise InstallError(f"refusing linked install source: {rel}")
+        if path.is_dir():
+            paths.extend(path.iterdir())
+        elif not path.is_file():
+            raise InstallError(f"missing or unsupported install source: {rel}")
 
 
 def read_settings(path: Path) -> dict:
@@ -328,6 +341,7 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
             return 0
     copies, hook, import_files = plan(runtime, scope, root, with_hook and previous is None, packs,
                                      with_agents and previous is None, packs_only=previous is not None)
+    check_copy_sources(copies)
     existing_agreement = previous is None and scope == "project" and (root / "AGENTS.md").is_file()
     settings_path = root / ".claude" / "settings.json"
     destinations = [dst for _, dst in copies] + [root / ".gitignore"] + [root / name for name in import_files]
