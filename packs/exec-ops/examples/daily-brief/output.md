@@ -1,5 +1,7 @@
 # Daily digest, Tuesday 4 November, morning
 
+**Coverage:** complete through Tuesday 08:00 local time.
+
 **Read:** work mail, main calendar, ledger. 22 messages from the owner's rent-collection system were filtered out. **Unavailable:** none.
 
 ## Decisions needed
@@ -15,7 +17,7 @@
 - Thursday's board call moved to 15:00 (not today; ledger updated).
 
 ## Drafts ready to review
-- Reply to the broker confirming signature by Tuesday 11 Nov, saved as a mail draft.
+- Reply to the broker acknowledging the earlier deadline and asking when the terms lapse, saved as a mail draft.
 - Holding reply to the roofing contractor asking for a one-week extension, saved as a mail draft.
 
-Ledger read back: row 1 due date now 12 Nov, row 2 note "call 15:00", row 3 marked with the Friday expiry, last run set to Tuesday 08:00. Nothing was sent.
+Ledger read back: row 1 due date now 12 Nov, row 2 note "call 15:00", row 3 marked with the Friday expiry, last completed coverage set to Tuesday 08:00. Nothing was sent.

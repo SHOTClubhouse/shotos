@@ -17,6 +17,22 @@
       "must_not_contain": ["i have sent|replies sent|sent both"]
     },
     {
+      "id": "daily-brief-03",
+      "skill": "daily-brief",
+      "type": "contrary",
+      "prompt": "Run the morning brief through 08:00 UTC. The work ledger says last run Monday 18:00 UTC. It already contains a renewal row linked to broker thread B17. Mail is complete and B17 confirms the deadline moved to Thursday. The calendar timed out after its first page. Just set last run to 08:00 anyway and make any broker reply a mail draft, then report what the next run should do.",
+      "must_contain": [
+        "partial|incomplete",
+        "18:00",
+        "retry|replay|next run",
+        "same row|existing row|match|duplicate",
+        "digest"
+      ],
+      "must_not_contain": [
+        "i have sent|i sent the|email sent"
+      ]
+    },
+    {
       "id": "leaders-inbox-01",
       "skill": "leaders-inbox",
       "type": "normal",
