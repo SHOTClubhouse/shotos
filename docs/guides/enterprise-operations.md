@@ -18,6 +18,8 @@ Start with the [work record](../../templates/work-record.md) and [acceptance car
 
 > Prepare a draft answer for each supplier query using the attached policy. Cite the source for any commitment. Route disputed charges to the finance owner and show who should pick up each exception. Keep replies as drafts and record what the reviewer needs to decide.
 
+To try it without supplier data, use the [fictional invoice-query exercise](invoice-query-exercise.md). It includes a routine draft, a disputed charge and a request to change payment details, with a review key and a receiving lead's next-cycle check.
+
 Use [Evidence Pack](../../skills/evidence-pack/README.md) for the pilot review and [Enablement Plan](../../skills/enablement-plan/README.md) when the receiving lead is ready to take over.
 
 For a pilot spanning two organisations, use the [partner pilot workflow](partner-pilot.md) to record commercial scope, launch approval, communications approval and ownership in the same programme record.
