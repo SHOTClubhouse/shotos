@@ -1,5 +1,7 @@
 # Run the full SHOTos pack
 
+If you have one job in mind, use the [first-job chooser](running-it.md#choose-your-first-job) to find the skill ZIP or pack. Use this guide when you want the full set of skills and team resources.
+
 Install from the checkout into the project that owns the work. Preview first and replace `PATH_TO_SHOTOS` with the checkout path.
 
 ```sh

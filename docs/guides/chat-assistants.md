@@ -2,6 +2,8 @@
 
 Start with one skill and a fictional example. You can download, unpack and add the files with a browser and file manager on Windows or Mac.
 
+The walkthrough below uses Decision Brief. To try a proposal, handoff or small website instead, choose the ZIP from the [first-job guide](../running-it.md#choose-your-first-job). Use its `SKILL.md`, relevant template and example input. Keep the example output for your own review.
+
 ## Claude with Skills enabled
 
 1. Download `decision-brief.zip` from the [latest GitHub release](https://github.com/SHOTClubhouse/shotos/releases/latest). Keep the ZIP intact for this route.

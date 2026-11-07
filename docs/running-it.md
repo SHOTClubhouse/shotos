@@ -2,9 +2,22 @@
 
 Choose [Codex or Claude Code on Windows or Mac](guides/codex-claude-code.md), or [ChatGPT or Claude without a terminal](guides/chat-assistants.md). Start with the runtime your team already uses. [Try the method](../README.md#try-shotos) with an acceptance card or run the local demo. The [install guide](../README.md#install) shows how to preview what changes in your project.
 
-Use the [full-pack guide](full-pack.md) to install all 88 skills and follow one task across personas, execution roles and review lenses. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
+## Choose your first job
 
-Download the individual skills from [GitHub Releases](https://github.com/SHOTClubhouse/shotos/releases/latest) if you use the Claude app. For a local project, add a pack by rerunning the installer with the same runtime and scope and the additional pack name. The installer keeps existing files and adds only the requested packs.
+Use one skill ZIP for the chat route, or use the pack flag with your local runtime. The example gives you something to check before you use your own material.
+
+| Job | First skill ZIP | Local pack flag | What to check |
+| --- | --- | --- | --- |
+| Draft a buyer proposal | [Contextual Proposal](https://github.com/SHOTClubhouse/shotos/releases/latest/download/contextual-proposal.zip) | `--pack win-the-work` | The buyer-facing draft and private evidence sheet are separate, and the next decision is clear. |
+| Prepare a leadership decision | [Decision Brief](https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip) | `--pack exec-ops` | The recommendation cites dated evidence and the named decider can act on it. |
+| Give an accepted deal to delivery | [Success Handoff](https://github.com/SHOTClubhouse/shotos/releases/latest/download/success-handoff.zip) | `--pack customer-success` | The record points to the accepted revision and names the receiving lead and first action. |
+| Build a small website | [Build a Small Website](https://github.com/SHOTClubhouse/shotos/releases/latest/download/build-small-website.zip) | `--pack content` | A visitor can follow the agreed paths through the preview. |
+
+For a second job, add its skill ZIP or preview the additional pack with `--dry-run` and your existing runtime and scope. The installer adds missing packs. For a version upgrade, preview removal with `--uninstall --dry-run`, review any local changes the installer would preserve, and preview a fresh install from the desired tag. The release ZIPs match their tag. The default branch can include newer skills and guides. [Installer safeguards](../SECURITY.md)
+
+Use the [full-pack guide](full-pack.md) when you want all 88 skills and the role and review resources. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
+
+## Set up your runtime
 
 ![Try the acceptance card in chat, preview a project install, or run the local demo.](images/setup-first-run.svg)
 
