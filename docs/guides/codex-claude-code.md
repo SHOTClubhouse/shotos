@@ -24,6 +24,20 @@ For a shared agreement, add the [working agreement](../../templates/AGENTS.md) a
 
 [Official Codex skill locations](https://developers.openai.com/codex/skills) · [Claude Code skills](https://code.claude.com/docs/en/skills)
 
+## Install Executive Ops from Claude Code
+
+You can add the whole Executive Ops pack from the Claude Code panel in VS Code.
+
+1. Type `/plugins` to open **Manage plugins**. In **Marketplaces**, add `SHOTClubhouse/shotos`.
+2. In **Plugins**, find **shotos-exec-ops** and choose **Install locally** for a first try in this repository.
+3. Start a fresh session and select `/shotos-exec-ops:decision-brief`. Run the [two retail prompts](chat-assistants.md#run-the-retail-scenario), using the scenario files that come with the skill.
+
+In a terminal-based Claude Code session, use `/plugin marketplace add SHOTClubhouse/shotos` followed by `/plugin install shotos-exec-ops@shotos`.
+
+Executive Ops adds seven skills and no hooks. The separate Core plugin adds the role agents and the Stop hook. Use the installer if you want Core's project files with the hook as a separate choice. Keep each skill on one setup route in a project. For an exact GitHub release, use its ZIP or source archive.
+
+[VS Code plugin controls](https://code.claude.com/docs/en/vs-code#manage-plugins) · [Claude Code plugin setup](https://code.claude.com/docs/en/discover-plugins)
+
 ## Install a pack or the full setup
 
 Download and extract the source archive from the [release](https://github.com/SHOTClubhouse/shotos/releases/latest), or clone the repository. This route needs Git for cloning and Python 3.9 or later to run the installer. From your project folder, replace `PATH_TO_SHOTOS` with the location of the extracted source.
