@@ -11,7 +11,7 @@ Please report security issues privately through GitHub's private vulnerability r
 - **Git evidence checks disable filesystem monitors, external diff drivers and configured file filters.** Files that depend on a Git filter may need separate review. Verify the working tree inside each submodule separately. The checker ignores malformed untrusted project configuration and reports trusted configuration errors.
 - **Option injection is refused.** The `base` setting must name a real commit, and anything starting with `-` is rejected.
 - **claim-check stays inside the workspace.** It refuses paths outside the folder it was given.
-- **Install stays inside the project.** It checks target paths for file and directory links before writing.
+- **Install checks source and target paths.** It refuses linked resources in the source checkout and linked paths in the target before copying files.
 - **Uninstall only removes what install created.** The manifest records paths relative to the project. Uninstall skips linked paths, paths outside the project and files you changed after installing.
 - **Refresh uses the existing manifest.** It updates matching managed files and adds new files from the same packs. It keeps files you changed or removed, linked paths and unmanaged files. Use `--refresh --dry-run` to see the changes first.
 - **Local defaults.** The installer and default claim checks use local files and Git metadata. Commands you allow run with your own permissions. The [optional automation pack](packs/automations/README.md) uses Google services and can send an approved digest or call a configured model endpoint when you enable those features.

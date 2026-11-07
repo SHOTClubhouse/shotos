@@ -1,6 +1,7 @@
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -357,6 +358,30 @@ class InstallTests(unittest.TestCase):
             self.assertFalse((self.root / ".shotos-install.json").exists())
         finally:
             outside.cleanup()
+
+    def test_install_never_copies_a_linked_resource_from_the_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            workspace = Path(directory)
+            checkout = workspace / "source"
+            tools = checkout / "tools"
+            tools.mkdir(parents=True)
+            shutil.copy2(INSTALL, checkout)
+            shutil.copy2(INSTALL.parent / "tools/skill_resources.py", tools)
+            skill = checkout / "skills/sample"
+            skill.mkdir(parents=True)
+            (skill / "SKILL.md").write_text("# Fictional skill", encoding="utf-8")
+            (skill / "README.md").write_text("# Example", encoding="utf-8")
+            outside = workspace / "outside.txt"
+            outside.write_text("Synthetic data outside the source", encoding="utf-8")
+            try:
+                (skill / "template.md").symlink_to(outside)
+            except (OSError, NotImplementedError):
+                self.skipTest("symlinks are not available here")
+            result = subprocess.run([sys.executable, str(checkout / INSTALL.name), "--scope", "user",
+                                     "--target", str(self.root)], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+            self.assertIn("refusing linked install source", result.stdout)
+            self.assertEqual(list(self.root.iterdir()), [])
 
     def test_all_runtimes_work_in_user_scope_too(self):
         with tempfile.TemporaryDirectory() as tmp:
