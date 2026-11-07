@@ -362,6 +362,24 @@
       ]
     },
     {
+      "id": "rollout-plan-03",
+      "skill": "rollout-plan",
+      "type": "contrary",
+      "prompt": "Update the scale decision for a fictional invoice workflow. R5: Tomas accepted the pilot evidence and held expansion for an independent cycle. R6: Ellis independently ran the cycle, Imani reviewed the results, and Ellis accepted ownership. R7: Tomas reviewed R6, closed the independence condition, and approved preparing one site, conditional on its baseline, policy and reviewer. R8: that site has a queue owner, a different policy, and no baseline or confirmed reviewer. The old action list says expansion is held until Ellis runs independently. State what is closed, what is approved, and what can start.",
+      "must_contain": [
+        "R6",
+        "R7",
+        "baseline",
+        "reviewer",
+        "superseded|closed|cleared|met",
+        "cannot start|start is blocked|not yet ready|still blocked|start remains"
+      ],
+      "must_not_contain": [
+        "independent cycle is still outstanding",
+        "second site can start now"
+      ]
+    },
+    {
       "id": "retrospective-01",
       "skill": "retrospective",
       "type": "normal",
