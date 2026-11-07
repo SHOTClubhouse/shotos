@@ -4,7 +4,7 @@
 
 SHOTos is an open-source delivery method for people and AI agents. Founders, operators, product teams and engineers can use it for one task or for a change another team needs to run. It gives you a way to agree what good looks like, check the work where it happened and make the next decision with evidence.
 
-**Six-stage edition · 87 skills, 12 optional packs**
+**Six-stage edition · 88 skills, 12 optional packs**
 
 [Try it](#try-shotos) · [Follow a worked example](docs/walkthrough.md) · [Find a skill](docs/what-you-can-do.md) · [Run the full pack](docs/full-pack.md)
 
@@ -124,7 +124,7 @@ For Claude Code, use `--runtime claude` and add `--with-hook` if you want the op
 | Give another team the work and its evidence | [Evidence handoff](skills/evidence-handoff/README.md) |
 | Prove a team can run the workflow and prepare the next wave | [Enablement plan](skills/enablement-plan/README.md) and [rollout plan](skills/rollout-plan/README.md) |
 
-Browse the [28 core skills and 59 skills across optional packs](docs/what-you-can-do.md), [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md). See the [evidence](docs/evidence.md) for recorded checks and their scope.
+Browse the [28 core skills and 60 skills across optional packs](docs/what-you-can-do.md), [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md). See the [evidence](docs/evidence.md) for recorded checks and their scope.
 
 ## What you can use today
 

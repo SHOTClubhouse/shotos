@@ -7,7 +7,7 @@ python "PATH_TO_SHOTOS/install.py" --runtime all --scope project --all-packs --d
 python "PATH_TO_SHOTOS/install.py" --runtime all --scope project --all-packs
 ```
 
-Project installs include all 87 skills when you select `--all-packs`, the working agreement, programme and work records, nine role definitions and seven review lenses. Each installed skill has its own fictional input and output. An existing `AGENTS.md` points to the installed agreement. Claude Code can also register the nine definitions as native subagents with `--with-agents`. For other setups, select the appropriate runtime in the installer or give the model the agreement and the relevant role or skill as project instructions.
+Project installs include all 88 skills when you select `--all-packs`, the working agreement, programme and work records, nine role definitions and seven review lenses. Each installed skill has its own fictional input and output. An existing `AGENTS.md` points to the installed agreement. Claude Code can also register the nine definitions as native subagents with `--with-agents`. For other setups, select the appropriate runtime in the installer or give the model the agreement and the relevant role or skill as project instructions.
 
 ## From the request to the saved result
 

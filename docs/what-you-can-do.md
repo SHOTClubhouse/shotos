@@ -10,6 +10,7 @@ Pick the job, install the pack, and ask in plain words. Every skill below drafts
 | Research a decision from source material | [research-and-assemble](../skills/research-and-assemble/README.md) | Give me the three facts that could change this decision and show the source for each. |
 | Build a small website | [build-small-website](../packs/content/skills/build-small-website/README.md) | Plan and build a site around a few visitor journeys. |
 | Verify a live release | [verify-live-release](../packs/setup/skills/verify-live-release/README.md) | Confirm the public revision and open what users will see. |
+| Review a batch of record changes | [reconcile-before-batch-change](../packs/records/skills/reconcile-before-batch-change/README.md) | Compare these two exports. Show exact changes, unchanged rows and exceptions for review. |
 | Build a campaign website preview | [campaign-website](../packs/content/skills/campaign-website/README.md) | Build a preview with one primary action and show me what works on a phone. |
 | Design campaign graphics | [Campaign graphics](../packs/media/skills/image-create/campaign-graphics.md) | Make an editable hero and square tile from this approved copy, and check both crops. |
 | Make a slide deck | [slide-deck](../packs/content/skills/slide-deck/README.md) | "Make a ten-slide board update on the repairs backlog. Show me the storyline first, then render and check every slide." |
