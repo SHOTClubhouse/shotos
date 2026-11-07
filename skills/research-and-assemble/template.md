@@ -6,7 +6,7 @@
 **Date:**
 
 ## Source log
-| # | Fact (one sentence) | Exact quote or figure | Source (title, owner, link or path) | Source date | Date read | Reliability (primary / secondary / unknown) | Type (fact / inference / guess) | After assembly (checked / softened / removed) |
+| # | Claim (one sentence) | Exact quote or figure | Source (title, owner, link or path) | Source date and applicable scope | Date read | Evidence relationship (primary / secondary / unknown) | Type (fact / inference / guess) | After assembly (checked / softened / removed) |
 |---|---|---|---|---|---|---|---|---|
 | 1 | | | | | | | | |
 
@@ -16,7 +16,7 @@
 | | | | |
 
 ## Conflicts between sources
-| Point | Source A says | Source B says | Which I prefer, and why |
+| Point | Source A says | Source B says | Which applies, why, and what remains open |
 |---|---|---|---|
 | | | | |
 

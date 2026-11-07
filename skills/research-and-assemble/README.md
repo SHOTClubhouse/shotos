@@ -28,7 +28,7 @@ Use it for briefings, comparisons, reports and proposals built from outside mate
 
 > Research whether Northgate Cycles should start selling e-bikes. Use only the public pages and files I list. Keep a source log and check the claims at the end.
 
-Read the handover note first, then the log entries behind the claims that matter most.
+Read the handover note first, then the log entries behind the claims that matter most. The [source authority example](source-authority-example.md) shows how to handle a headline that conflicts with the applicable evidence.
 
 ## How it connects
 
