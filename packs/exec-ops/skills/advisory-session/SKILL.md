@@ -11,9 +11,9 @@ Stage: Own. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 ## Context and handoff
 
-Read the group mandate, last decisions, open actions and member roles. Put the one decision the group can actually make at the centre.
+Read the group mandate, last decisions, open actions and member roles. Put one question at the centre. State whether the mandate allows the group to decide or asks it to advise a separate decision maker.
 
-Use `decision-brief` for options or `meeting-notes` after the session. File the decision with the existing forum record.
+Use `decision-brief` for options or `meeting-notes` after the session. Link any recommendation, controlling decision and actions from the existing forum record.
 
 ## When not to use this
 
@@ -27,8 +27,8 @@ Skip it for a one-to-one meeting (use `meeting-notes`), for a decision that need
 4. **Send nothing.** Draft the agenda and pre-read for the chair to send. Do not invite members, share documents or commit anyone to a date.
 5. **During or after: capture what was said.** From a transcript or the chair's notes, write what each member actually said, attributed only where the identity is confirmed. Keep this section separate from anything the AI recommends.
 6. **Record the AI view separately.** If the agent offers a recommendation or a synthesis, put it under its own heading, labelled "AI view, not the group's".
-7. **Make one action record.** One list of actions across the session. Each action has one owner (a person, not a team), a due date, evidence of done and a source in what was said. Propose owners; the chair confirms. An action with no owner is listed as "owner needed", not assigned.
-8. **Write the handoff.** What was decided or left open, who owns what, what the next session needs, and anything members asked to be kept private.
+7. **Make one action record.** One list of actions across the session. Each action has one owner (a person, not a team), a due date, evidence of done and a source in what was said. Record a proposed action and owner separately from an agreed commitment. The chair can confirm that it belongs in the record. Mark it accepted only when the named owner agrees the action and timing or the governing record shows a valid assignment. Link completion evidence separately. See the [advisory action example](advisory-action-example.md).
+8. **Write the handoff.** What was recommended, what the authorised owner actually decided, and which actions are accepted or pending. Link private evidence from its approved location using the applicable access rules.
 9. **Read back.** Check names, attributions and dates against the notes. Remove anything not said.
 
 ## Output
@@ -39,6 +39,6 @@ Mandate, contribution map, session plan, session record, action record and hando
 
 - There is one main question and one decision maker.
 - What was said is separate from the AI view, and attributed only where confirmed.
-- Each action has exactly one owner and a date, or says "owner needed".
+- Each action has one named owner and date or shows what is still open. Accepted and completed actions have their own evidence.
 - Nothing was sent, and no member was committed.
 - The contribution map uses only what members have said or published.
