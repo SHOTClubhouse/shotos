@@ -33,20 +33,20 @@ A deal is "closed lost" or "parked" only with a reason written down.
 ## Steps
 
 1. **Collect the deals.** Ask for the pipeline source (spreadsheet, CRM export, notes). Read it; do not edit it. If there is none, start the table from the template.
-2. **Place each deal.** For each, set the stage and sub-step from the criteria above, not from the owner's feeling. If the evidence for the claimed stage is missing, place the deal one step back and say so.
-3. **Fill the pipeline table.** One row per deal using [template.md](template.md): organisation, contact, stage and sub-step, owner, value (label as estimate if it is), last contact date, evidence link, next action and its date.
+2. **Separate CRM stage from evidence.** Keep the source stage visible. Walk the exit criteria from Lead and record the earliest open gate and the evidence for later events. Where stage evidence is missing, show the supported stage or mark it unresolved. A verified agreement stays accepted even if earlier discovery records are missing. Preserve that agreement and route the live delivery prerequisites rather than asking the buyer to repeat discovery. See the [stage review example](stage-review.md).
+3. **Fill the pipeline table.** One row per deal using [template.md](template.md): organisation, contact, recorded stage, supported stage or open gate, owner, value (label as estimate if it is), last contact date, evidence link, next action and its date.
 4. **Run the weekly review.** Flag a deal as stalled when any of these is true: no recorded contact for 14 days (or the cadence the owner sets); next action is overdue; the same stage for longer than the owner's expected time; the main contact has not replied to the last two messages. For each flag, give the evidence: the last dated touch, the overdue action, the number of days. Do not guess why; propose one question the owner could ask.
-5. **Check stage moves.** For any deal the owner wants to advance, list each exit criterion and the evidence. Mark each met, not met or unknown. Advance only when all are met.
-6. **Prepare the handover packet during Plan.** Reuse the existing deal record and its delivery handoff section where present. Link the controlling agreement and accepted revision, then carry forward price and payment terms, gatekeepers, commitments, risks, delivery owner, start date and the first three actions. Mark every item confirmed or unconfirmed. Link receiver acceptance when available and use the packet as the input to SHOTos Scope.
+5. **Check stage moves.** For any deal the owner wants to advance, list each exit criterion and the evidence. Mark each met, not met or unknown. Propose a move only when the evidence supports it. For a signed deal with incomplete history, keep the missing gates visible and route the record to the pipeline owner for reconciliation.
+6. **Prepare the handover packet once the agreement is verified.** Reuse the existing deal record and its delivery handoff section where present. Link the controlling agreement and accepted revision, then carry forward price and payment terms, gatekeepers, commitments, risks, delivery owner, start date and the first three actions. Mark every item confirmed or unconfirmed. Draft the packet before the receiving lead accepts it. Close Plan only when the agreed start date and receiving lead's acceptance are recorded and the delivery work has a SHOTos Scope record.
 7. **Stop at the boundaries.** Do not contact anyone, change a CRM record or move a deal's recorded stage. Propose the changes; the pipeline owner makes them.
 
 ## Output
 
-A pipeline table, a short weekly review (stalled deals with evidence, proposed stage moves with criteria, the three actions that matter this week) and, where a deal has reached Plan, a handover packet. Use [template.md](template.md). Save with the pipeline, for example `.work/pipeline/2026-w44.md`.
+A pipeline table, a short weekly review (stalled deals with evidence, proposed stage moves with criteria, the three actions that matter this week) and, where an agreement is verified, a handover packet with its acceptance status. Use [template.md](template.md). Save with the pipeline, for example `.work/pipeline/2026-w44.md`.
 
 ## Checks
 
-- Every stage claim has evidence or is marked unknown.
+- The recorded CRM stage and assessed gates remain distinct. An accepted agreement survives gaps in earlier evidence.
 - Every stalled flag cites a date or a count, not an impression.
 - No deal moved forward with a criterion unmet or unknown.
 - Estimated values are labelled estimates.

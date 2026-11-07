@@ -2,7 +2,7 @@
 
 **Run a pipeline through Lead, Explore, Agree and Plan, flag stalled deals with evidence, and hand won work over to Scope.**
 
-The agent reads your pipeline, places each deal by its evidence rather than its owner's optimism, produces a pipeline table, runs a weekly review that names stalled deals with dates and counts, and writes a handover packet when a deal reaches the end of Plan.
+The agent reads your pipeline, keeps the recorded stage and evidence assessment visible together, produces a pipeline table, runs a weekly review that names stalled deals with dates and counts, and prepares a handover packet once the agreement is verified.
 
 It can be used at any SHOTos stage and hands over into **Scope**. It serves rule 3, Read back the real result, and rule 4, Claim only what you can show.
 
@@ -26,7 +26,7 @@ Do not use it for a one-day enquiry, or to forecast revenue. A pipeline table sh
 
 > Here is our pipeline export. Place each deal in the LEAP stages, flag anything stalled with the evidence, and tell me which deal I can honestly move to Agree this week.
 
-You get a table, a short review and, for any deal at the end of Plan, a handover packet using [template.md](template.md). Check the stage claims against your own knowledge and make any changes to the pipeline yourself.
+You get a table, a short review and, for any verified agreement, a handover packet using [template.md](template.md). Use the [stage review example](stage-review.md) to check how a stage label and a signed agreement are handled. The pipeline owner reviews any proposed changes.
 
 ## How it connects
 

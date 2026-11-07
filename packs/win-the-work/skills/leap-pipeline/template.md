@@ -6,9 +6,9 @@
 
 ## Pipeline table
 
-| Organisation | Contact | Stage / sub-step | Owner | Value (state if estimate) | Last contact | Evidence | Next action | Due |
-|---|---|---|---|---|---|---|---|---|
-| | | Lead / warm | | | | | | |
+| Organisation | Contact | CRM stage | Supported stage or open gate | Owner | Value (state if estimate) | Last contact | Evidence | Next action | Due |
+|---|---|---|---|---|---|---|---|---|---|
+| | | | Lead / warm | | | | | | |
 
 Stages: Lead (warm, cold, target), Explore (meeting, discovery, define), Agree (proposal, statement of work, gatekeepers), Plan (start date, handover, delivery).
 
@@ -30,7 +30,7 @@ Stages: Lead (warm, cold, target), Explore (meeting, discovery, define), Agree (
 2. 
 3. 
 
-## Handover packet (one per deal during Plan)
+## Handover packet (one per verified agreement)
 
 **Deal and existing delivery handoff record:**
 **Customer and main contact:** 
@@ -47,4 +47,6 @@ Stages: Lead (warm, cold, target), Explore (meeting, discovery, define), Agree (
 |---|---|---|
 | | | |
 
-**Hands over to:** SHOTos Scope. Accepted by (name, date):
+**Receiving lead acceptance (status, name, date and receipt):**
+
+**Delivery Scope record:**
