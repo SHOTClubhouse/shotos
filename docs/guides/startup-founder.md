@@ -8,6 +8,7 @@ Pick the row that matches the work in front of you. Start with the relevant skil
 
 | If you need to | Start with | First useful result |
 | --- | --- | --- |
+| Decide whether a customer problem is worth a build | [Capture the Problem](../../skills/capture-the-problem/README.md) | A one-page problem statement with the smallest test that could change your mind |
 | Turn a live opportunity into a proposal | [Contextual Proposal](../../packs/win-the-work/skills/contextual-proposal/README.md) | A buyer-facing draft and a private working sheet that links each material claim or commitment to evidence |
 | Give an accepted deal to the person delivering it | [Success Handoff](../../packs/customer-success/skills/success-handoff/README.md) | One deal record with the accepted revision, the first action and the receiving lead's status |
 | Run a pilot with an external partner | [Partner pilot](partner-pilot.md) | A launch decision, named owners and a clear measure for the sponsor's review |
@@ -18,6 +19,21 @@ For a proposal, start a fresh chat with the buyer's brief, the approved offer an
 > Draft a tailored proposal from these sources. Use the organisation template that fits the buyer. Save the draft and private working sheet separately. Show which claims are ready for my review, what still needs a decision and where the record should live. Leave dispatch with me.
 
 Review the proposed terms and evidence together. If the buyer later accepts, pass the same record to the delivery lead and record their acceptance separately. Follow [one fictional deal](../../packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see what travels.
+
+## Try a fictional discovery exercise
+
+A founder is asked to build a booking app for an independent repair workshop. Paste the records into a fresh chat, or use [Capture the Problem](../../skills/capture-the-problem/README.md) and [Hypothesis Card](../../skills/hypothesis-card/README.md) in an installed project.
+
+| ID | What the founder has |
+| --- | --- |
+| D1 | The manager reports that the front desk gets repeat calls about appointment availability and asks for an app. |
+| D2 | A one-week manual tally records 18 appointment enquiries, six of which led to at least one repeat contact about confirmation. The tally has no comparable weeks. |
+| D3 | In three of the six repeat cases, the calendar shows a slot but no staff member had taken ownership of confirming it. The other cases have no recorded cause. |
+| D4 | The manager can assign a front-desk owner for a one-week manual test. The founder can propose a change. The manager decides whether it runs. |
+
+> Use D1–D4 to capture the problem and propose one testable bet. Separate the observed problem from the requested app. Name the measure, baseline, threshold, stop condition and decision owner. Keep the test as a plan for review.
+
+Look for a plan that tests confirmation ownership before committing to software. An example bet is that assigning a confirmation owner for one week brings the repeat-contact rate down from the observed 6 of 18 to at most 1 in 6 comparable enquiries. Count each enquiry once, use the same recording window for both weeks and record missed bookings as a guard measure. The earlier tally gives no baseline for missed bookings. Compare only if the test records at least 18 comparable enquiries. Pause if a booking is missed because of the change. An inconclusive result goes back to the manager for review. A better result supports another bounded test, with software investment a separate decision.
 
 ## How SHOTos fits a startup
 
@@ -45,7 +61,7 @@ A founder is launching a coaching business for first-time managers.
 
 ## Agent habits worth adopting on day one
 
-- Install the [core](../../README.md#install) and the claim-check hook. Let the hook challenge "done" when nothing was checked.
+- Start with one relevant skill or install the [core](../../README.md#install). In Claude Code, the optional Stop hook can challenge an unchecked completion claim. In any tool, open the result and verify it against the agreed checks.
 - Keep a `.work/` folder for drafts and notes ([work-folder](../../packs/records/skills/work-folder/README.md)).
 - Use the [graduation ladder](../../rules/12-graduation.md) before letting any task run without you: earn autonomy with a record of accepted drafts.
 - Read [what we can prove](../evidence.md), and test on your own work before trusting any claim, including ours.
