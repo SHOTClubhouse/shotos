@@ -78,6 +78,7 @@ Only each item's title and a short snippet are sent. If the provider fails, the 
 - **Idempotent:** processed message IDs, and a unique key for each queued item, make a rerun harmless.
 - **Time budget:** a run stops starting new messages after five minutes; the rest wait for the next run.
 - **Self-cleaning:** Queue rows after 30 days, Processed rows after 90, Log rows after 30 (change in `CONFIG`). `LOOKBACK_DAYS` must stay below the Processed retention.
+- **Sheet writes:** mail and log text that looks like a formula is written as literal text. Retention cleanup writes the retained rows and clears the unused tail together.
 - **Fixed recipient:** the digest goes to `DIGEST_TO`, or to the script owner's own address when that is blank. Nothing in mail or the sheet can change it. Live mode throws an error, after logging it, if the address is empty.
 - **Backlog:** each run takes at most `MAX_PER_RUN` messages, oldest first. The rest wait for the next run and the Log tab records how many are left. Mail older than `LOOKBACK_DAYS` is not read, so raise that setting (and keep it below the Processed retention) if a long gap is possible.
 - **Failures are loud:** an error is written to the Log tab and then rethrown, so a trigger run shows as failed in Apps Script and you get Google's standard failure email.
