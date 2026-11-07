@@ -1,6 +1,7 @@
 # Success handoff: <account>
 
 **Giver:** . **Receiver:** (proposed | confirmed) . **Date prepared:** .
+**Handoff brief revision:**
 **Linked deal or account record and permitted access:**
 **Accepted offer or controlling agreement, revision, date and evidence (if applicable):**
 
@@ -14,7 +15,7 @@
 |---|---|---|---|
 
 ## Contacts
-| Name | Role | Preferred contact | Source |
+| Name | Role | Permitted contact route or reference | Source |
 |---|---|---|---|
 
 ## History
@@ -27,22 +28,23 @@
 - <hypothesis>. Would be confirmed by: .
 
 ## First three actions for the receiver
-1.
-2.
-3.
+| Action | Owner | Due date or date gap | Prerequisite or evidence |
+|---|---|---|---|
+| | | | |
 
 ## What is not known
 -
 
 # Acceptance record
-**Current owner until acceptance:**
+**Owner of record (source and date):**
+**Agreed action owners during transfer:**
 **Offer authorised by, date and revision:**
 **Offer dispatch date, channel and receipt:**
 **Receiver:**
-**I have read the brief and I accept the account:** yes | no | yes, with changes
+**I have read the offered revision and I accept the account:** yes | no | conditional
 **Changes or conditions:**
 **Scope, capacity and permitted access confirmed by:**
 **First action and date:**
 **Date and how confirmed (written reply, signature):**
 **Independent cycle evidence and receiving lead sign-off (if this is an Own exit):**
-**Completed when:** customer told (date), system of record updated (date), first action done (date).
+**Completion receipts:** customer notification, ownership update and first action, each with a date and reference.

@@ -2,9 +2,11 @@
 
 **Hand an account to the person who will deliver for it, with stage, health and transfer status kept separate and a source for every fact.**
 
-The agent builds the handoff brief from mail, notes and the system of record. It marks each fact as stated, observed or inferred, and tracks transfer through Prepared, Offered, Accepted and Completed. A brief is not a transfer: the account has moved only when the receiver has accepted in writing.
+The agent starts with the account record and fills specific gaps from mail and notes. It labels each fact as stated, observed or inferred and tracks Prepared, Offered, Accepted and Completed separately from lifecycle and health. The receiving lead confirms the offered revision in writing.
 
 It serves the Own stage. Acceptance is the receiver’s written agreement. Completion requires the customer notification, owner update and first action. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
+
+Practise with the [conditional acceptance exercise](conditional-acceptance.md) to check who owns the work while access and the ownership update are pending.
 
 ## The problem it solves
 

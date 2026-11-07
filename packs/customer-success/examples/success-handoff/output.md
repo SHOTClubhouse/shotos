@@ -43,13 +43,13 @@ Draft introduction to the customer (held until Accepted and authorised for dispa
 Completion needs customer notification, a recorded owner update and evidence that Asif took the first action.
 
 # Acceptance record
-**Current owner until acceptance:** Priya Raman
+**Owner of record:** Priya Raman.
 **Offer authorisation and dispatch receipt:** outstanding
 **Receiver:** Asif Rahman
-**I have read the brief and I accept the account:** awaiting Asif's reply
+**I have read the offered revision and I accept the account:** awaiting Asif's reply
 **Changes or conditions:** awaiting reply
 **Scope, capacity and permitted access:** outstanding
 **First action and date:** outstanding
 **Independent cycle and receiving-lead sign-off:** no cycle recorded
 **Date and how confirmed:** none yet
-**Completed when:** customer told (not yet), system of record updated (not yet), first action done (not yet).
+**Completion receipts:** customer notification pending, system-of-record update pending, first action pending.

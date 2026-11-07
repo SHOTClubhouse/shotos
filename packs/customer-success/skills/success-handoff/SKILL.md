@@ -24,7 +24,7 @@ Skip it for a quick note about one conversation, or for an account that is stayi
 ## Steps
 
 1. **Name the account, the giver and the receiver.** The receiver is a named person. If the proposed owner is not confirmed, write "proposed" and do not describe the transfer as made.
-2. **Gather the facts, with sources.** From mail, notes, proposals, call transcripts and the system of record. Record each fact once with its source and date: what was promised, to whom, by when; who the contacts are and their role; what has been delivered; open issues.
+2. **Gather the facts, with sources.** Record each promise, contact role, delivery result and open issue once with its source and date. Open mail, notes or transcripts to close specific gaps. Link restricted records and include contact details only when the receiver needs them and is permitted to see them.
 3. **Keep three fields separate** and never merge them:
    - **Lifecycle stage:** where the account is in its relationship (for example: pre-start, onboarding, live, renewal due). Based on what has happened.
    - **Health:** how it is going (healthy, at risk, unknown), with the evidence for the rating. If there is no evidence, write "unknown".
@@ -34,10 +34,10 @@ Skip it for a quick note about one conversation, or for an account that is stayi
 6. **Set the transfer status honestly.**
    - **Prepared:** the brief exists.
    - **Offered:** there is a dispatch receipt or a read-back of the authorised offer to the named receiver. If the giver reports dispatch and the evidence is unavailable, keep Prepared and record the report as unverified. The status stays Offered while acknowledgement is pending.
-   - **Accepted:** the named receiver agreed in writing, confirmed scope, capacity and permitted access, and gave a date for the first action.
+   - **Accepted:** the named receiver agreed to the offered revision in writing, confirmed scope, capacity and permitted access, and dated their first action. Keep Offered if their reply depends on an unresolved condition for taking on the work.
    - **Completed:** the customer has been told, ownership is changed in the system of record and the first action has been taken.
    Only the receiver can accept. The agent records the evidence and leaves the status decision to the authorised people. Confirm who can authorise dispatch, grant access and approve any rollout separately. Route missing authority to the relationship owner to identify the right decision maker. Their role alone does not give them dispatch, access or rollout authority. When the handoff is part of Own in a programme, acceptance of the brief and completion of an independent cycle have separate evidence.
-7. **Keep the current owner accountable until acceptance.** Keep outstanding customer actions with that owner. Draft a customer introduction only when useful and label it held until Accepted and authorised for dispatch.
+7. **Name who owns each action during the transfer.** Read back the owner of record. Keep each open action with that owner unless the receiver or a named interim owner accepts responsibility for it. An accepted brief can precede the ownership update. Draft a customer introduction when useful and hold it until Accepted and authorised for dispatch.
 8. **Read back.** Check every fact against its source, and check that no field is merged or marked beyond what the evidence shows.
 
 ## Output
@@ -49,5 +49,5 @@ The handoff brief and the acceptance record, both from the template. Save with t
 - Lifecycle stage, health and transfer status are separate fields.
 - Every fact has a source; inferences are labelled.
 - Health states its evidence or "unknown".
-- Transfer status is no higher than what has happened; the agent did not mark Accepted.
+- Transfer status follows the evidence. Accepted points to the receiver's written confirmation of the offered revision. Completed points to the notification, ownership update and first action.
 - No message to the customer was sent.
