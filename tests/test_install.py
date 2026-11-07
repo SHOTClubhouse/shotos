@@ -235,6 +235,22 @@ class InstallTests(unittest.TestCase):
         self.assertEqual(self.uninstall().returncode, 0)
         self.assertEqual(list(self.root.iterdir()), [])
 
+    def test_uninstall_leaves_unrelated_cache_files(self):
+        self.install("--with-hook")
+        tool_cache = self.root / ".shotos" / "tools" / "__pycache__"
+        local_cache = self.root / ".shotos" / "local-tool" / "__pycache__"
+        tool_cache.mkdir()
+        local_cache.mkdir(parents=True)
+        generated = tool_cache / "claim_check.cpython-313.pyc"
+        generated.write_bytes(b"installed tool cache")
+        unrelated = [tool_cache / "notes.txt", tool_cache / "local_check.cpython-313.pyc",
+                     local_cache / "helper.cpython-313.pyc"]
+        for path in unrelated:
+            path.write_bytes(b"keep")
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertFalse(generated.exists())
+        self.assertEqual([path.read_bytes() for path in unrelated], [b"keep"] * len(unrelated))
+
     def test_install_refuses_to_write_through_a_symlink_that_leaves_the_folder(self):
         outside = tempfile.TemporaryDirectory()
         try:
@@ -273,6 +289,21 @@ class InstallTests(unittest.TestCase):
         self.uninstall()
         self.assertTrue(victim.is_file())
         outside.cleanup()
+
+    def test_uninstall_refuses_a_linked_manifest(self):
+        with tempfile.TemporaryDirectory() as outside:
+            record = Path(outside) / "record.json"
+            record.write_text('{"version": 2}', encoding="utf-8")
+            link = self.root / ".shotos-install.json"
+            try:
+                link.symlink_to(record)
+            except (OSError, NotImplementedError):
+                self.skipTest("symlinks are not available here")
+            result = self.uninstall()
+            self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+            self.assertIn("manifest is a link", result.stdout)
+            self.assertTrue(link.is_symlink())
+            self.assertEqual(record.read_text(encoding="utf-8"), '{"version": 2}')
 
     def test_files_changed_after_install_are_kept(self):
         self.install()
