@@ -94,3 +94,24 @@ test('a receipt write failure leaves a verified copy intact and stops the batch'
   assert.equal(writes, 2);
   assert.deepEqual(reports, [{ action: 'receipt-error', id: 'verified-fixture' }]);
 });
+
+test('the report writes formula-shaped document names and details as text', () => {
+  const context = vm.createContext({});
+  vm.runInContext(script, context);
+  const rows = [];
+  Object.assign(context, {
+    Logger: { log: () => {} },
+    SpreadsheetApp: { getActiveSpreadsheet: () => ({
+      getSheetByName: () => ({
+        getLastRow: () => 1,
+        getRange: () => ({ setValues: (values) => rows.push(...values) }),
+      }),
+    }) },
+  });
+  context.report_(2, '=1+2', 'blocked', '', '', '=3+4', 0);
+  context.flushReport_();
+  assert.equal(rows[0][3], "'=1+2");
+  assert.equal(rows[0][4], 'blocked');
+  assert.equal(rows[0][7], "'=3+4");
+  assert.equal(rows[0][8], 0);
+});

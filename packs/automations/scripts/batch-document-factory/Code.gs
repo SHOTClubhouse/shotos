@@ -109,7 +109,7 @@ function setupFactory() {
       lower.push(name);
     }
   });
-  rows.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight('bold');
+  rows.getRange(1, 1, 1, headers.length).setValues([headers.map(literalSheetValue_)]).setFontWeight('bold');
   rows.setFrozenRows(1);
   Logger.log('Setup done. Add placeholder columns to the left of doc_name, one per {{placeholder}} in the template.');
 }
@@ -552,7 +552,7 @@ function buildName_(row, table, keys) {
 /** Writes the receipt first. DONE is written only after those fields flush. */
 function setControl_(table, row, updates) {
   function write(name) {
-    table.sheet.getRange(row.rowNumber, table.col[name] + 1).setValue(updates[name]);
+    table.sheet.getRange(row.rowNumber, table.col[name] + 1).setValue(literalSheetValue_(updates[name]));
     row.values[table.col[name]] = String(updates[name]);
   }
   Object.keys(updates).forEach(function (name) {
@@ -563,6 +563,11 @@ function setControl_(table, row, updates) {
     write('done');
     SpreadsheetApp.flush();
   }
+}
+
+// Sheet writes must keep names and diagnostic messages as literal text.
+function literalSheetValue_(value) {
+  return typeof value === 'string' && /^[=']/.test(value) ? "'" + value : value;
 }
 
 function readBannedTerms_() {
@@ -588,7 +593,9 @@ function flushReport_() {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CONFIG.TAB_REPORT);
     if (!sheet) { return; }
-    sheet.getRange(sheet.getLastRow() + 1, 1, REPORT_BUFFER_.length, REPORT_HEADERS.length).setValues(REPORT_BUFFER_);
+    sheet.getRange(sheet.getLastRow() + 1, 1, REPORT_BUFFER_.length, REPORT_HEADERS.length).setValues(REPORT_BUFFER_.map(function (row) {
+      return row.map(literalSheetValue_);
+    }));
   } catch (err) {
     Logger.log('Could not write the Report tab: ' + err);
   }

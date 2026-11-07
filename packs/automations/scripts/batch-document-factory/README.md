@@ -68,6 +68,7 @@ If you upgrade from an earlier version, run `setupFactory` once to add the `copy
 ## Safety notes
 
 - **Sharing is inherited.** A copy made inside a shared folder is visible to everyone who can see that folder. Use a private output folder until you have checked the documents.
+- **Literal report text.** A document name or diagnostic message beginning with an equals sign stays text in the sheet.
 - **Blocked is not failed.** A blocked row waits for you to fix the sheet. Fix the value and run again.
 - **Sample documents are real.** Rows made by `runSample` are marked DONE. If they are wrong, clear `done` on those rows after fixing the template or data.
 - **Banned-term check** matches whole words, ignoring case, in the document name and every placeholder value. It checks your data, not the template wording.
