@@ -35,6 +35,8 @@ Audience personas describe who needs the outcome. Execution roles describe respo
 | Enablement coach or consultant | `runbook` → `enablement-plan` → `rollout-plan` | Observed independent cycle and approved next wave |
 | Agent | `route-the-work` → task skill → `report-with-evidence` | Saved artefact, claims, open checks and next action |
 
+For a concrete starting task in marketing, HR, analysis, product or your first role on a team, use [the first jobs by role](personas.md#pick-a-first-job-by-role).
+
 ## Who does each part
 
 The project roles are in `.shotos/agents/`. They can be held by people, assigned to supported subagents, or used as a perspective by the same model. Record which happened.

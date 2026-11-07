@@ -20,6 +20,17 @@ Pick the line that sounds most like your Monday.
 
 Many people are two of these. A founder who also writes the briefs is a solo founder and a product owner. Start with the persona whose pain is sharpest this week.
 
+## Pick a first job by role
+
+Choose the row that matches the work in front of you. Start with the first linked skill and add the next one when you have a draft or a decision to pass forward.
+
+| If you work in | Try this first | Leave this for the next person |
+| --- | --- | --- |
+| Marketing | Turn a campaign brief into a [campaign website preview](../packs/content/skills/campaign-website/README.md). Use [Claims Audit](../packs/trust/skills/claims-audit/README.md) before asking for approval to publish. | Preview, approved sources, the main visitor action and the claims still awaiting sign-off. |
+| HR or people operations | Use [Explainer](../packs/content/skills/explainer/README.md) to turn an approved policy into a staff FAQ. Start with the policy and fictional questions. Route any need for employee case data to the data owner. | A draft FAQ linked to the policy version, questions the policy does not answer, and the HR reviewer who can resolve them. |
+| Analysis or product | Use [Capture the Problem](../skills/capture-the-problem/README.md) with one concrete example, then [Baseline](../skills/baseline/README.md) to record what can be measured today. | An issue with the affected group, the source for each figure and the next question for the decision owner. |
+| Your first role on a team | Use [Agree Acceptance](../skills/agree-acceptance/README.md) on a small assigned task, then [Report with Evidence](../skills/report-with-evidence/README.md). | The agreed result, the file or record that proves it, and the specific open question for your reviewer. |
+
 ## Comparison
 
 | Persona | Main worry | Stage to start with (and rule) | First skill | Where the rules run |
