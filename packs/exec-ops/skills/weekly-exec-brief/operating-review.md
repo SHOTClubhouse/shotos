@@ -33,3 +33,11 @@ The meeting transcript is temporarily unavailable. The service lead filed the ne
 > Update the brief. Say which action is complete, what the last verified decision was and what is needed to change it.
 
 The filed rota closes the service lead's action. The hold remains the last verified decision. The calendar title gives context for the planned discussion. Mark decision coverage partial and route the current decision back to the director or the keeper of the official record. Staffing and launch stay unverified until the approval and execution have their own evidence.
+
+## A figure changes its coverage
+
+The previous brief recorded 18 of 24 repairs resolved on first visit across seven days. The new export shows 15 of 16 weekday repairs. Weekend results arrive after the brief's Monday noon cut-off, and the director asks whether the figures justify a second crew.
+
+> Update the decision section. Say what each figure measures, what comparison you need and where the late evidence should go.
+
+Record both figures with their scope. Ask Service for the same seven-day measure or the same weekday cut for both periods. The staffing decision also needs the current rota and funding position. If the late evidence changes the decision, add a dated update to the same brief and link the decision record. The director owns the staffing decision.

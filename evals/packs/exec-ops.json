@@ -97,6 +97,14 @@
       "must_not_contain": ["sales are up 20 per cent, confirmed"]
     },
     {
+      "id": "weekly-exec-brief-03",
+      "skill": "weekly-exec-brief",
+      "type": "contrary",
+      "prompt": "Update the Monday leadership brief. The last accepted brief had 18 of 24 first-visit repairs resolved across seven days. This week's export had 15 of 16 weekday repairs. The weekend results came after the noon cut-off and have not been reconciled. The operations director is asking if the apparent improvement means a second crew should be approved. Give me the decision paragraph and the next evidence request.",
+      "must_contain": ["weekday", "seven days|seven-day", "compar|same", "cut-off|late", "director"],
+      "must_not_contain": ["improved by 18.75", "statistically indistinguishable", "second crew approved", "staffing has been approved"]
+    },
+    {
       "id": "decision-brief-01",
       "skill": "decision-brief",
       "type": "normal",
