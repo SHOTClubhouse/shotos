@@ -91,7 +91,7 @@ In Claude Code, when the agent tries to finish, the hook runs `claim-check` on i
 
 ### Does it work with Codex?
 
-Not yet tested. The installer has a Codex option and the skills use the shared `SKILL.md` format, so it should install. We have not run the evals or the hook on Codex, and the Stop hook is for Claude Code. Treat Codex as unproven until the evidence page says otherwise.
+Yes. Codex CLI on Windows loaded the installed skills and completed a draft proposal-to-handoff workflow. The Stop hook runs in Claude Code. In Codex, use the review checks in the [setup guide](guides/codex-claude-code.md) before relying on an output. See the [six-stage runtime check](evidence.md#six-stage-runtime-check) for what the run verified.
 
 ## Security and privacy
 
@@ -111,9 +111,7 @@ An agent told to follow a document from the internet can be told to do anything.
 
 ### Does it slow agents down or cost more?
 
-Yes, and we measured it. In the outcome evals on ten realistic tasks across Haiku, Sonnet and Opus, SHOTos runs cost about 41% more in model usage and took about 42% longer, because the agent reads the rules and skills and writes more. See [evidence.md](evidence.md).
-
-The following is reasoning, not measurement: the cost may pay back through less rework, because acceptance is agreed before the work, and because you spend less time checking a report line by line. We have not measured rework, so treat that as a hypothesis to test in your own work.
+Measure the time and cost to get a piece of work accepted. Earlier evaluations measured individual attempts. For your own workflow, include repeat attempts, human review and handoff repair in the [accepted-work ledger](../templates/accepted-work-ledger.csv). The [measurement guide](prerequisites.md#measuring-your-own-cost-per-accepted-task) explains how to make the comparison.
 
 ### Which skill costs the most?
 
@@ -135,16 +133,17 @@ It is a baseline, not a certification. It gives named owners, human checkpoints 
 
 ## Evidence and limits
 
-### What has actually been proven?
+### Where has SHOTos been checked?
 
-- The v1.1.0 CI matrix passed on Windows, macOS and Linux with Python 3.9 and 3.13.
-- On ten realistic tasks across Haiku, Sonnet and Opus, agents passed 59 of 60 runs with SHOTos and 58 of 59 without: no measurable difference in outcomes, at about 41% more cost.
-- In the paired run of all 212 skill cases on Haiku, Sonnet and Opus, graded by meaning, agents followed the skill in 204, 211 and 210 cases with SHOTos against 160, 158 and 165 without. Haiku with SHOTos beat Sonnet without it at about an eighth of the cost.
-- One live run of the Stop hook, and one of the walkthrough.
+| Check | Coverage |
+| --- | --- |
+| Automated repository checks | The [v1.6.0 checks](https://github.com/SHOTClubhouse/shotos/commit/4ea9655905da9e8c4530715ec403613ddbd7354f/checks) cover Windows, macOS and Linux. |
+| Installed workflow | Codex CLI and Claude Code ran a six-stage proposal and handoff on Windows. Claude Code also exercised the Stop hook. [Runtime evidence](evidence.md#six-stage-runtime-check) |
+| Chat setup | The [no-terminal guide](guides/chat-assistants.md) includes a sample job and the result to check before using it on your own work. |
 
-### What has not been proven?
+### What should my team check before rollout?
 
-macOS and Linux have not been tested. Codex, Gemini, Antigravity, ChatGPT and the Claude app have not been tested. That SHOTos reduces rework or improves team outcomes over weeks has not been tested. The paired run was one run per case, graded mainly by keywords that sometimes match the skills' own wording, which favours the "with" side. A human review is still to do. The details are in [evidence.md](evidence.md).
+Run one representative workflow in your chosen app and environment. Have a second person verify the work and use the handoff to run the next cycle. Record review time, rework and acceptance using the [team rollout guide](running-it.md#team-rollout). The [evidence page](evidence.md) records which builds and workflows were evaluated.
 
 ### Did SHOTos make the agent safer?
 
