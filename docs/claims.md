@@ -42,6 +42,8 @@ Put each status claim in the Claims block. The checker reads those lines and che
 | Completed | The customer notification, owner update and first action are recorded |
 | Independent cycle | The receiving team runs a full cycle on its own and its lead signs off |
 
+For file creation and deletion, pass a starting commit with `--base` when you have one. The checker can then compare the path with the starting tree. Without a starting commit, it can check only whether the path exists now. Untracked files are outside the starting commit.
+
 ## Installed, executed, accepted
 
 - **Installed:** the thing is present.
