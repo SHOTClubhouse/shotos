@@ -28,6 +28,7 @@ import base64
 import hashlib
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -420,6 +421,22 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
     return 0
 
 
+def remove_generated_bytecode(module: Path) -> None:
+    cache = module.parent / "__pycache__"
+    name = re.compile(re.escape(module.stem) + r"\.[\w-]+(?:\.opt-[\w-]+)?\.pyc")
+    try:
+        if not cache.is_dir() or cache.resolve() != cache:
+            return
+        for path in cache.iterdir():
+            if name.fullmatch(path.name) and path.is_file() and not path.is_symlink():
+                path.unlink()
+        if not any(cache.iterdir()):
+            cache.rmdir()
+    except OSError:
+        # An in-use or concurrently populated cache can be left in place.
+        pass
+
+
 def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
     kept = []
     edits = manifest.get("edits", {})
@@ -437,6 +454,8 @@ def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
         print(f"{'would remove' if dry_run else 'remove'}  {rel}")
         if not dry_run:
             path.unlink()
+            if rel.startswith(".shotos/") and path.suffix == ".py":
+                remove_generated_bytecode(path)
     if manifest.get("hook"):
         restore_or_trim(root, ".claude/settings.json", edits.get(".claude/settings.json"), None, dry_run, None)
     if manifest.get("gitignore"):
@@ -449,10 +468,6 @@ def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
     for name, state in imports.items():
         restore_or_trim(root, name, edits.get(name), IMPORT_LINE, dry_run, state)
     if not dry_run:
-        shotos = root / ".shotos"
-        if shotos.is_dir():
-            for cache in [c for c in shotos.rglob("__pycache__") if c.is_dir()]:
-                shutil.rmtree(cache, ignore_errors=True)  # bytecode written when the tools ran, never installed by us
         for rel in sorted(manifest.get("dirs", []), key=lambda d: d.count("/"), reverse=True):
             path = inside(root, rel)
             if path is not None and path.is_dir() and not any(path.iterdir()):
@@ -463,6 +478,8 @@ def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
 def uninstall(root: Path, dry_run: bool) -> int:
     root = root.resolve()
     manifest_path = root / MANIFEST
+    if manifest_path.is_symlink():
+        raise InstallError("The existing manifest is a link.")
     if not manifest_path.is_file():
         print(f"No manifest at {manifest_path}; nothing to remove.")
         return 1
