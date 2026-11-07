@@ -30,10 +30,10 @@ Keep missing measures blank or mark them unmeasured. Track attempts and model sp
 
 ## Try a worked scenario
 
-Each scenario gives you fictional inputs, a worked brief, the decision and handoff evidence, and a prompt you can reuse. Read the inputs first and compare your result with the worked output.
+Each scenario gives you fictional inputs, a worked brief, the decision and handoff evidence, and a prompt you can reuse. The retail scenario has separate input files for the initial brief and the follow-up. Compare your result with the worked output after both replies.
 
 | Scenario | What it demonstrates |
 | --- | --- |
-| [Retail trial](scenarios/retail-trial.md) | Limit the next wave and recognise an independent cycle that ends in a decision to stop. |
+| [Retail trial](scenarios/retail-trial.md) | Use pilot evidence to recommend a next step, then assess the decision and handoff from new records. |
 | [Bank remediation](scenarios/bank-remediation.md) | Hold a closure decision when a source is missing and keep an unsent handoff Prepared. |
 | [Startup proposal](scenarios/startup-proposal.md) | Keep unapproved terms private and record a failed independent cycle when the next operator needs the original author. |

@@ -18,7 +18,7 @@ import sys
 import zipfile
 from pathlib import Path
 
-from skill_resources import example_files, portable_readme
+from skill_resources import example_files, portable_markdown, portable_readme
 
 REPO = Path(__file__).resolve().parents[1]
 
@@ -43,6 +43,12 @@ def package(skill: Path, out: Path) -> Path:
                 archive.write(path, Path(skill.name) / path.relative_to(skill))
         for path, name in example_files(skill):
             archive.write(path, Path(skill.name) / name)
+        if skill == REPO / "packs" / "exec-ops" / "skills" / "decision-brief":
+            scenarios = {path.resolve(): f"../scenarios/{path.name}"
+                         for path in (skill / "scenarios").glob("retail-trial-*.md")}
+            for name in ("codex-claude-code.md", "chat-assistants.md"):
+                guide = REPO / "docs" / "guides" / name
+                archive.writestr(f"{skill.name}/guides/{name}", portable_markdown(guide, REPO, scenarios))
         for notice in ("LICENSE-docs.md", "LICENSE"):
             archive.write(REPO / notice, Path(skill.name) / notice)
     return target

@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.4.1 (7 November 2026)
+
+- Start from the no-terminal guides for Codex, Claude Code, ChatGPT and Claude.
+- Run the fictional retail decision in two rounds. Draft from the initial evidence, then introduce the decision and handoff records. Keep the worked answer for comparison.
+- Find both setup guides and both rounds of retail evidence in the Decision Brief ZIP.
+
+## 1.4.0 (6 November 2026)
+
+- Add workflows for research, bid responses, buyer-side RFPs, prospecting emails, campaign graphics and campaign website previews.
+- Add no-terminal setup guides and publish 85 individual skill ZIPs.
+
 ## 1.3.0 (6 November 2026)
 
 - Run Executive Decision Review from the weekly brief through a recorded decision, a handoff and an independently operated next cycle.
