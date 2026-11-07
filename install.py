@@ -291,6 +291,18 @@ def installed_markdown_locations(copies):
     return locations
 
 
+def codex_skill_conflicts(root: Path, copies) -> list:
+    shared = root / ".agents" / "skills"
+    legacy = root / ".codex" / "skills"
+    alternate = {shared: legacy, legacy: shared}
+    conflicts = []
+    for _, destination in copies:
+        other = alternate.get(destination.parent)
+        if other is not None and (other / destination.name / "SKILL.md").is_file():
+            conflicts.append(other / destination.name)
+    return conflicts
+
+
 def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool, packs=(), with_agents=False) -> int:
     root = root.resolve()
     manifest_path = root / MANIFEST
@@ -320,6 +332,13 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
         raise InstallError("these paths lead outside the target folder (through a symlink), so nothing was changed:\n  "
                            + "\n  ".join(str(d) for d in outside))
     clashes = [dst for _, dst in copies if dst.exists()]
+    codex_conflicts = codex_skill_conflicts(root, copies) if runtime in {"codex", "agents", "all"} else []
+    if clashes or codex_conflicts:
+        if codex_conflicts:
+            print("Codex can load both .agents/skills and .codex/skills. Keep one copy of each skill in this scope.")
+        print("\nThese already exist, so nothing was changed:\n  "
+              + "\n  ".join(str(path.relative_to(root)) for path in [*clashes, *codex_conflicts]))
+        return 1
     verb = "would" if dry_run else "will"
     for src, dst in copies:
         print(f"{verb} copy  {src.relative_to(REPO)}  ->  {dst.relative_to(root)}")
@@ -333,9 +352,6 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
         print(f"{verb} link  the installed SHOTos agreement from the existing AGENTS.md")
     for name in import_files:
         print(f"{verb} add   {IMPORT_LINE} to {name} (if missing), so the four rules load")
-    if clashes:
-        print("\nThese already exist, so nothing was changed:\n  " + "\n  ".join(str(c.relative_to(root)) for c in clashes))
-        return 1
     if dry_run:
         print("\nDry run: nothing was changed.")
         return 0

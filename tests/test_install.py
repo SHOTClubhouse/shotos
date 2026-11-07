@@ -90,6 +90,20 @@ class InstallTests(unittest.TestCase):
         self.assertEqual(manifest.read_bytes(), before)
         self.assertFalse((path.parent.parent / "onboarding-recovery").exists())
 
+    def test_codex_install_refuses_the_same_skill_in_its_other_directory(self):
+        for runtime, existing in (("codex", ".agents"), ("all", ".codex")):
+            with self.subTest(runtime=runtime), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                manual = root / existing / "skills" / "decision-brief" / "SKILL.md"
+                manual.parent.mkdir(parents=True)
+                manual.write_text("manual copy", encoding="utf-8")
+                for flags in (("--dry-run",), ()):
+                    result = run("--runtime", runtime, "--target", tmp, "--pack", "exec-ops", *flags)
+                    self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+                    self.assertIn("Codex can load both", result.stdout)
+                    self.assertEqual(manual.read_text(encoding="utf-8"), "manual copy")
+                    self.assertFalse((root / ".shotos-install.json").exists())
+
     def test_install_then_uninstall_restores_the_project(self):
         settings = self.root / ".claude" / "settings.json"
         settings.parent.mkdir()
