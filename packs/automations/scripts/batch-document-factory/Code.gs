@@ -146,7 +146,10 @@ function retryFailed() {
       }
     });
     report_('-', '', 'retry-reset', '', '', 'Reset attempts on ' + changed + ' row(s) in error.', '');
-    processRows_({ mode: 'live', limit: Infinity });
+    if (changed) {
+      SpreadsheetApp.flush();
+      processRows_({ mode: 'live', limit: Infinity, retryOnly: true });
+    }
   });
 }
 
@@ -188,7 +191,7 @@ function removeContinuation() {
 function processRows_(options) {
   var started = Date.now();
   var live = options.mode === 'live';
-  if (live && options.limit === Infinity) {
+  if (live && options.limit === Infinity && !options.retryOnly) {
     deleteContinuationTriggers_(); // a fresh one is made below only if work remains
   }
 
@@ -221,7 +224,8 @@ function processRows_(options) {
 
   for (var i = 0; i < table.data.length; i++) {
     var row = table.data[i];
-    if (row.get('done') === CONFIG.DONE_VALUE) { skipped++; continue; }
+    if (row.get('done') === CONFIG.DONE_VALUE ||
+        (options.retryOnly && row.get('status') !== 'error')) { skipped++; continue; }
     var attempts = Number(row.get('attempts')) || 0;
     if (attempts >= CONFIG.MAX_ATTEMPTS) { skipped++; continue; }
     if (created + failed >= options.limit) { stoppedEarly = true; break; }
@@ -309,7 +313,7 @@ function processRows_(options) {
   report_('-', '', 'summary', '', '', summary, '');
 
   // Continuation: only for a live full batch that stopped for time, not for a sample.
-  var more = live && stoppedEarly && options.limit === Infinity;
+  var more = live && stoppedEarly && options.limit === Infinity && !options.retryOnly;
   if (more) {
     var trigger = ScriptApp.newTrigger(CONTINUE_HANDLER).timeBased().after(CONFIG.CONTINUE_AFTER_MS).create();
     PropertiesService.getScriptProperties().setProperty('CONTINUATION_TRIGGER_ID', trigger.getUniqueId());
