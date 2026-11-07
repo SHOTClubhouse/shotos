@@ -61,6 +61,14 @@ class PackageTests(unittest.TestCase):
         names = [skill.name for skill, _ in self.all_skills()]
         self.assertEqual(sorted(names), sorted(set(names)))
 
+    def test_catalogue_has_a_guide_and_download_for_every_skill(self):
+        text = (ROOT / "docs/skill-catalogue.md").read_text(encoding="utf-8")
+        skills = [skill for skill, _ in self.all_skills()]
+        guides = re.findall(r"\]\(\.\./((?:packs/[^/]+/)?skills/[^/]+/README\.md)\)", text)
+        downloads = re.findall(r"\]\(https://github\.com/SHOTClubhouse/shotos/releases/latest/download/([^/)]+)\)", text)
+        self.assertCountEqual(guides, [skill.joinpath("README.md").relative_to(ROOT).as_posix() for skill in skills])
+        self.assertCountEqual(downloads, [f"{skill.name}.zip" for skill in skills])
+
     def test_case_ids_are_unique_and_well_formed(self):
         cases = self.all_cases()
         ids = [c["id"] for c in cases]
