@@ -30,7 +30,7 @@ For Decision Brief, use the [two-round retail exercise](guides/chat-assistants.m
 
 If you already used the installer, run `python install.py --status --target <project-folder>` from the SHOTos checkout. It reads the manifest and shows the recorded runtime, scope, packs and any installer-owned files that changed or went missing. For a user-scope install, pass `--scope user` and leave out the project target. The check leaves files alone and covers installer-managed copies.
 
-For a second job, add its skill ZIP or preview the additional pack with `--dry-run` and your existing runtime and scope. The installer adds missing packs. For a version upgrade, preview removal with `--uninstall --dry-run`, review any local changes the installer would preserve, and preview a fresh install from the desired tag. The release ZIPs match their tag. The default branch can include newer skills and guides. [Installer safeguards](../SECURITY.md)
+For a second job, add its skill ZIP or preview the additional pack with `--dry-run` and your existing runtime and scope. The installer adds missing packs. To update an installer-managed setup, use the desired source revision and [preview a refresh](guides/codex-claude-code.md#refresh-an-installed-setup). The release ZIPs match their tag. The default branch can include newer skills and guides. [Installer safeguards](../SECURITY.md)
 
 Use the [full-pack guide](full-pack.md) when you want all 88 skills and the role and review resources. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
 

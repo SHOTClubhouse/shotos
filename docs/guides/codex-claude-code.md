@@ -36,3 +36,15 @@ python "PATH_TO_SHOTOS/install.py" --runtime codex --scope project --pack exec-o
 Use `python3` if that is how Python runs on your Mac. For Claude Code change the runtime to `claude`. Add `--with-hook` if you have reviewed and want the optional Claude Code Stop hook. Add `--with-agents` if you want its role subagents. If your Codex client uses the documented shared skill folder only, choose `--runtime agents` for a fresh project install. Avoid installing both runtime variants into the same project.
 
 Review the dry run before installing. If it lists an existing skill in the other Codex folder, review that copy and choose one path before trying again. Confirm skill loading in a fresh session before relying on it. The installer adds the portable tools and records. The manual route is useful when you only need a few skills. [Full pack and role setup](../full-pack.md)
+
+## Refresh an installed setup
+
+Open the project that already has an installer-managed setup. Use the installer from the source revision you want and preview the file changes.
+
+```sh
+python "PATH_TO_SHOTOS/install.py" --refresh --scope project --dry-run
+python "PATH_TO_SHOTOS/install.py" --refresh --scope project
+python "PATH_TO_SHOTOS/install.py" --status --scope project
+```
+
+Refresh uses the runtime and packs already recorded. It updates matching managed files and adds new files from those packs. Review anything it reports as kept, including local edits, files removed locally, and files absent from the new source. Existing settings and your working records stay in place. Start a new session and run the same first-job check before relying on the refreshed setup.

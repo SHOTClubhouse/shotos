@@ -1,3 +1,4 @@
+import hashlib
 import json
 import re
 import subprocess
@@ -5,8 +6,11 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 from urllib.parse import unquote
 from zipfile import ZipFile
+
+import install as installer
 
 INSTALL = Path(__file__).resolve().parents[1] / "install.py"
 
@@ -30,6 +34,15 @@ class InstallTests(unittest.TestCase):
 
     def uninstall(self):
         return run("--uninstall", "--scope", "project", "--target", str(self.root))
+
+    def previous_file(self, rel, data):
+        path = self.root / rel
+        path.write_bytes(data)
+        manifest = self.root / installer.MANIFEST
+        record = json.loads(manifest.read_text(encoding="utf-8"))
+        record["files"][rel] = hashlib.sha256(data).hexdigest()
+        manifest.write_text(json.dumps(record), encoding="utf-8")
+        return path
 
     def test_dry_run_changes_nothing(self):
         self.install("--with-hook", "--dry-run")
@@ -76,6 +89,67 @@ class InstallTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("No installer-managed SHOTos setup", result.stdout)
         self.assertFalse(target.exists())
+
+    def test_refresh_updates_owned_files_and_preserves_local_work(self):
+        self.install("--pack", "exec-ops", "--with-hook")
+        base = ".claude/skills/decision-brief/"
+        updated = self.previous_file(base + "SKILL.md", b"previous released instructions")
+        custom = self.root / (base + "template.md")
+        custom.write_bytes(b"my team's template")
+        removed = self.root / (base + "review-cycle.md")
+        removed.unlink()
+        receipt = self.root / "decision-receipt.md"
+        receipt.write_bytes(b"team record")
+        settings = self.root / ".claude/settings.json"
+        original_settings = settings.read_bytes()
+        manifest = self.root / installer.MANIFEST
+        record = json.loads(manifest.read_text(encoding="utf-8"))
+        new_name = base + "scenarios/retail-trial-initial.md"
+        new_path = self.root / new_name
+        new_path.unlink()
+        del record["files"][new_name]
+        manifest.write_text(json.dumps(record), encoding="utf-8")
+
+        flags = ("--refresh", "--target", str(self.root))
+        preview = run(*flags, "--dry-run")
+        self.assertEqual(preview.returncode, 0, preview.stdout + preview.stderr)
+        self.assertIn(f"would update  {base}SKILL.md", preview.stdout)
+        self.assertIn(f"would add  {new_name}", preview.stdout)
+        self.assertEqual(updated.read_bytes(), b"previous released instructions")
+        self.assertFalse(new_path.exists())
+        applied = run(*flags)
+        self.assertEqual(applied.returncode, 0, applied.stdout + applied.stderr)
+        self.assertEqual(updated.read_bytes(), (INSTALL.parent / "packs/exec-ops/skills/decision-brief/SKILL.md").read_bytes())
+        self.assertEqual(custom.read_bytes(), b"my team's template")
+        self.assertFalse(removed.exists())
+        self.assertTrue(new_path.is_file())
+        self.assertEqual(receipt.read_bytes(), b"team record")
+        self.assertEqual(settings.read_bytes(), original_settings)
+        self.assertIn("No managed file updates applied.", run(*flags).stdout)
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertFalse(updated.exists())
+        self.assertFalse(new_path.exists())
+        self.assertTrue(custom.is_file())
+        self.assertTrue(receipt.is_file())
+
+    def test_refresh_restores_the_old_bytes_if_saving_the_manifest_fails(self):
+        self.install()
+        name = ".claude/skills/report-with-evidence/SKILL.md"
+        path = self.previous_file(name, b"old instructions")
+        manifest = self.root / installer.MANIFEST
+        original_manifest = manifest.read_bytes()
+        save = installer.write_manifest
+
+        def fail_for_target(destination, record):
+            if destination == manifest.resolve():
+                raise OSError("simulated manifest write failure")
+            save(destination, record)
+
+        with patch.object(installer, "write_manifest", side_effect=fail_for_target):
+            with self.assertRaisesRegex(OSError, "simulated manifest write failure"):
+                installer.refresh(self.root, False)
+        self.assertEqual(path.read_bytes(), b"old instructions")
+        self.assertEqual(manifest.read_bytes(), original_manifest)
 
     def test_pack_clash_leaves_the_existing_install_intact(self):
         self.install()

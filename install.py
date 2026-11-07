@@ -18,6 +18,7 @@ Examples:
   python install.py --all-packs --with-agents
   python install.py --list-packs
   python install.py --status --scope project
+  python install.py --refresh --scope project --dry-run
   python install.py --uninstall --scope project
 """
 
@@ -26,13 +27,14 @@ from __future__ import annotations
 import argparse
 import base64
 import hashlib
+import io
 import json
 import os
 import re
 import shutil
 import sys
 import tempfile
-from contextlib import contextmanager
+from contextlib import contextmanager, redirect_stdout
 from pathlib import Path
 
 from tools.skill_resources import example_files, portable_markdown, portable_readme
@@ -260,6 +262,17 @@ def write_manifest(path: Path, manifest: dict) -> None:
             temp.unlink(missing_ok=True)
 
 
+def replace_from(source: Path, path: Path) -> None:
+    """Copy a complete file into place without exposing partially written bytes."""
+    with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as stream:
+        temporary = Path(stream.name)
+    try:
+        shutil.copy2(source, temporary)
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
 @contextmanager
 def install_lock(root: Path):
     path = root / ".shotos-install.lock"
@@ -438,6 +451,100 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
     return 0
 
 
+def refresh(root: Path, dry_run: bool) -> int:
+    root = root.resolve()
+    manifest_path = owned_path(root, MANIFEST)
+    if manifest_path is None or not manifest_path.is_file():
+        raise InstallError("Refresh needs an installer-managed setup at this target.")
+    previous = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if previous.get("version") != 2:
+        raise InstallError("Refresh needs a version 2 install manifest.")
+    runtime, scope = previous["runtime"], previous["scope"]
+    packs = previous.get("packs", [])
+    copies, _, _ = plan(runtime, scope, root, False, packs)
+    conflicts = codex_skill_conflicts(root, copies) if runtime in {"codex", "agents", "all"} else []
+    if conflicts:
+        raise InstallError("Refresh found duplicate Codex skills. Review these copies first:\n  "
+                           + "\n  ".join(str(path.relative_to(root)) for path in conflicts))
+
+    with tempfile.TemporaryDirectory(prefix="shotos-refresh-") as temporary:
+        stage = Path(temporary) / "stage"
+        stage.mkdir()
+        log = io.StringIO()
+        with redirect_stdout(log):
+            result = install(runtime, scope, stage, False, False, packs, previous.get("agents", False))
+        if result:
+            raise InstallError(f"Could not prepare the refreshed files:\n{log.getvalue()}")
+        desired = json.loads((stage / MANIFEST).read_text(encoding="utf-8"))["files"]
+        recorded = dict(previous["files"])
+        changes = []
+        for rel, new_digest in sorted(desired.items()):
+            old_digest = recorded.get(rel)
+            if rel == "AGENTS.md" and old_digest is None:
+                continue  # Existing projects may have their own agreement.
+            path = owned_path(root, rel)
+            if path is None:
+                print(f"keep  {rel} (linked path)")
+            elif old_digest is None and path.exists():
+                print(f"keep  {rel} (unmanaged path)")
+            elif old_digest is not None and (not path.is_file() or sha(path) != old_digest):
+                print(f"keep  {rel} (changed or removed locally)")
+            elif old_digest != new_digest:
+                print(f"{'would ' if dry_run else ''}{'update' if old_digest else 'add'}  {rel}")
+                changes.append((rel, path, old_digest, new_digest))
+        for rel in sorted(recorded.keys() - desired.keys()):
+            print(f"keep  {rel} (absent from this source)")
+        if dry_run or not changes:
+            print("\nDry run: nothing was changed." if dry_run else "\nNo managed file updates applied.")
+            return 0
+
+        created_dirs = []
+        applied = []
+        try:
+            for rel, path, old_digest, new_digest in changes:
+                if (owned_path(root, rel) != path
+                        or (old_digest is None and path.exists())
+                        or (old_digest is not None and (not path.is_file() or sha(path) != old_digest))):
+                    raise InstallError(f"{rel} changed during refresh. Review it and retry.")
+                missing = []
+                for folder in path.parents:
+                    if folder.exists():
+                        break
+                    missing.append(folder)
+                for folder in reversed(missing):
+                    folder.mkdir()
+                    created_dirs.append(folder)
+                backup = None
+                if old_digest is not None:
+                    backup = Path(temporary) / "backup" / rel
+                    backup.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(path, backup)
+                replace_from(stage / rel, path)
+                applied.append((rel, path, backup, new_digest))
+                recorded[rel] = new_digest
+            directories = [folder.relative_to(root).as_posix() for folder in created_dirs]
+            write_manifest(manifest_path, {
+                **previous,
+                "files": recorded,
+                "dirs": list(dict.fromkeys(previous["dirs"] + directories)),
+            })
+        except Exception:
+            for rel, path, backup, digest in reversed(applied):
+                if owned_path(root, rel) != path or not path.is_file() or sha(path) != digest:
+                    print(f"keep  {rel} (changed during refresh)")
+                    continue
+                if backup is None:
+                    path.unlink()
+                else:
+                    replace_from(backup, path)
+            for folder in reversed(created_dirs):
+                if not any(folder.iterdir()):
+                    folder.rmdir()
+            raise
+    print(f"\nRefreshed {len(changes)} managed file(s). Open a fresh session to load them.")
+    return 0
+
+
 def remove_generated_bytecode(module: Path) -> None:
     cache = module.parent / "__pycache__"
     name = re.compile(re.escape(module.stem) + r"\.[\w-]+(?:\.opt-[\w-]+)?\.pyc")
@@ -561,8 +668,11 @@ def main(argv=None) -> int:
     action = parser.add_mutually_exclusive_group()
     action.add_argument("--list-packs", action="store_true", help="list the packs and exit")
     action.add_argument("--status", action="store_true", help="check the recorded setup without changing the target")
+    action.add_argument("--refresh", action="store_true", help="update files from this source using the existing setup")
     action.add_argument("--uninstall", action="store_true")
     args = parser.parse_args(argv)
+    if args.refresh and (args.pack or args.all_packs or args.with_hook or args.with_agents):
+        parser.error("--refresh uses the packs, hook and role options already recorded at the target")
     if args.list_packs:
         for name in available_packs():
             skills = sorted(p.name for p in (REPO / "packs" / name / "skills").iterdir() if (p / "SKILL.md").is_file())
@@ -574,6 +684,11 @@ def main(argv=None) -> int:
     try:
         if args.status:
             return status(root)
+        if args.refresh:
+            if args.dry_run or not root.is_dir():
+                return refresh(root, True)
+            with install_lock(root.resolve()):
+                return refresh(root, False)
         if args.dry_run or (args.uninstall and not root.exists()):
             return uninstall(root, True) if args.uninstall else install(
                 args.runtime, args.scope, root, args.with_hook, True, packs, args.with_agents)
