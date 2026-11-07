@@ -13,6 +13,8 @@ Stage: Own. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 Read the account record, commitments, last interaction and access restrictions. Resolve conflicts between CRM labels and observed customer behaviour.
 
+For a sales-to-delivery handoff, start with the linked deal record and its **Delivery handoff** section when available. Verify the accepted revision or controlling agreement and each commitment against the cited evidence. Use the latest authoritative agreement to resolve discrepancies. Carry unresolved conflicts and missing approval as open items with an owner. Use mail or notes to resolve a specific gap. Buyer acceptance confirms the commercial agreement. Transfer status follows the separate receiving lead evidence below.
+
 Use `enablement-plan` if the receiving team must prove an independent cycle. Keep acknowledgement and first action with the account.
 
 ## When not to use this

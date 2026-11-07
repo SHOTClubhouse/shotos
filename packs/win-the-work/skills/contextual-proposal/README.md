@@ -28,6 +28,8 @@ Do not use it for a generic one-pager, or for many near-identical proposals (see
 
 You get the proposal and a working sheet from [template.md](template.md). Read the ledger first: anything marked unsupported has been removed or flagged.
 
+Choose an [organisation template](organisation-templates.md) based on who can approve the work. The [worked fictional deal](worked-deal.md) shows how the proposal's deal record carries through to customer success.
+
 ## How it connects
 
 - **Before:** [nudge-qualify](../nudge-qualify/README.md) says whether the proposal is worth writing; [relationship-map](../relationship-map/README.md) shows who the reader is among the gatekeepers.

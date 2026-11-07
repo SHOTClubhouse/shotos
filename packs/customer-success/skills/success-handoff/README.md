@@ -26,6 +26,8 @@ Customer success leads, account managers, founders and delivery leads.
 
 Output uses [template.md](template.md). Worked example: [input](../../examples/success-handoff/input.md) and [output](../../examples/success-handoff/output.md).
 
+Follow one [fictional deal from proposal to accepted handoff](../../../win-the-work/skills/contextual-proposal/worked-deal.md) to see which records the receiving lead uses.
+
 ## How it connects
 
 - **After:** [onboarding-recovery](../onboarding-recovery/README.md) if the account arrives stalled.

@@ -5,6 +5,7 @@
 **Proposal owner and assignment source:**
 **Approved offer and price source, approver and date:**
 **Relevant proposal reference and what was reused:**
+**Organisation type and buying route:**
 
 ## Reader note
 | Fact | Source | Date | Status |
@@ -41,6 +42,17 @@ Because the reader cares about ___ (evidence), this proposal does ___, and they 
 **Draft review or acceptance evidence:**
 **Authorised to send by, date and exact revision:**
 **Dispatch date and receipt:**
-**Buyer response and delivery handoff, each with evidence:**
+**Buyer response, authority and exact revision:**
 
 Keep proposed and unapproved commitments in this working sheet. Leave authorisation and dispatch open until their own evidence exists.
+
+## Delivery handoff
+
+Complete this section in the existing deal record when one is available and link to it from here.
+
+- Deal or account reference and current owner:
+- Accepted offer or controlling agreement, revision, date and source (or pending):
+- Agreed commitments with owner, due date and evidence:
+- Open decisions with owner and due date:
+- Proposed receiving lead, permitted source access and first action with date:
+- Customer success handoff reference and receiver acceptance evidence (when available):
