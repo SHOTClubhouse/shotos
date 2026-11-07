@@ -10,6 +10,8 @@ CLAUDE_CONFIG_DIR=/path/to/clean-config python evals/run_paired.py --tmp-base /p
 
 Each case runs in a fresh temporary project, once with SHOTos installed and once without. Output is graded against `must_contain` and `must_not_contain`, then a person spot-checks a sample. Use a Claude config holding only your credentials, and a temporary folder outside your home folder. Otherwise your own instructions leak into both sides.
 
+The paired skill run enables the local read and edit tools used by its fixtures. Shell and connected tools are excluded. An unavailable run is recorded separately from a failed check and makes the command exit with status 2.
+
 Use [the meaning-based judge](judge_paired.py) on raw results JSON files when phrasing affects a verdict. It pairs outputs from the same source file, case and model. It reports missing verdicts separately and exits with status 2 if any run could not be scored.
 
 The [outcome runner](run_outcomes.py) grades the files and checks left behind by longer tasks. If the runtime or a grader cannot return a score, the runner saves the evidence, marks the run unavailable and exits with status 2. Use only complete pairs for with-and-without comparisons.

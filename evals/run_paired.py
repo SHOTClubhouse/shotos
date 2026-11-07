@@ -102,6 +102,7 @@ def run_one(case: dict, condition: str, model: str, timeout: int, tmp_base: str 
                    "GIT_COMMITTER_EMAIL": "eval@example.com"}
             proc = subprocess.Popen([shutil.which("claude") or "claude", "-p", "--model", model, "--output-format", "json",
                                      "--permission-mode", "acceptEdits", "--no-session-persistence",
+                                     "--tools", "Read,Write,Edit,Glob,Grep",
                                      "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}'],
                                     cwd=root, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                     text=True, encoding="utf-8", env=env)
@@ -115,15 +116,18 @@ def run_one(case: dict, condition: str, model: str, timeout: int, tmp_base: str 
                     proc.kill()
                 raise
             data = json.loads(stdout or "{}")
-        except (subprocess.TimeoutExpired, json.JSONDecodeError) as error:
+            if not isinstance(data, dict):
+                data = {"error": "runtime returned an unexpected JSON value"}
+            elif not data.get("error") and (proc.returncode or data.get("is_error") or not isinstance(data.get("result"), str)):
+                detail = str(data.get("result") or "no result returned")[:200]
+                data["error"] = f"runtime failed: {detail}"
+        except (subprocess.TimeoutExpired, json.JSONDecodeError, OSError) as error:
             data = {"result": "", "error": str(error)}
-        if data.get("is_error") and not data.get("error"):
-            data["error"] = "runtime error: " + str(data.get("result", ""))[:200]
         stalled = "timed out" in str(data.get("error") or "")
         STALLS["in_a_row"] = STALLS["in_a_row"] + 1 if stalled else 0
-        reply = data.get("result", "") or ""
+        reply = data.get("result") if isinstance(data.get("result"), str) else ""
         text = reply + project_text(root)
-        result = grade(text, case)
+        result = grade(text, case) if not data.get("error") else {"pass": False, "missing": [], "forbidden_found": []}
         return {"id": case["id"], "skill": case["skill"], "type": case["type"], "condition": condition,
                 "model": model, **result, "cost_usd": data.get("total_cost_usd"), "turns": data.get("num_turns"),
                 "seconds": round((dt.datetime.now() - started).total_seconds(), 1),
@@ -131,15 +135,18 @@ def run_one(case: dict, condition: str, model: str, timeout: int, tmp_base: str 
 
 
 def summarise(results: list) -> str:
-    rows = ["| Skill | Cases | Pass with SHOTos | Pass without | Cost with (USD) | Cost without (USD) |",
-            "|---|---|---|---|---|---|"]
+    rows = ["| Skill | Cases | Pass with SHOTos | Pass without | Unavailable with / without | Cost with (USD) | Cost without (USD) |",
+            "|---|---|---|---|---|---|---|"]
     for skill in sorted({r["skill"] for r in results}):
         mine = [r for r in results if r["skill"] == skill]
         w = [r for r in mine if r["condition"] == "with"]
         wo = [r for r in mine if r["condition"] == "without"]
         cost = lambda rs: round(sum(r["cost_usd"] or 0 for r in rs), 3)
-        rows.append(f"| {skill} | {len(w)} | {sum(r['pass'] for r in w)}/{len(w)} | "
-                    f"{sum(r['pass'] for r in wo)}/{len(wo)} | {cost(w)} | {cost(wo)} |")
+        available_with = [r for r in w if not r.get("error")]
+        available_without = [r for r in wo if not r.get("error")]
+        rows.append(f"| {skill} | {len(w)} | {sum(r['pass'] for r in available_with)}/{len(available_with)} | "
+                    f"{sum(r['pass'] for r in available_without)}/{len(available_without)} | "
+                    f"{len(w) - len(available_with)} / {len(wo) - len(available_without)} | {cost(w)} | {cost(wo)} |")
     return "\n".join(rows)
 
 
@@ -162,6 +169,8 @@ def main(argv=None) -> int:
         cases = [c for c in cases if c["skill"] in args.skills]
     if args.limit:
         cases = cases[: args.limit]
+    if not cases:
+        parser.error("no cases match the requested filters")
     jobs = [(c, cond) for c in cases for cond in ("with", "without")]
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         results = list(pool.map(lambda j: run_one(j[0], j[1], args.model, args.timeout, args.tmp_base, args.all_packs), jobs))
@@ -173,11 +182,12 @@ def main(argv=None) -> int:
     (out / f"summary-{stamp}.md").write_text(table + "\n", encoding="utf-8")
     print(table)
     for r in results:
-        if not r["pass"]:
-            print(f"FAIL {r['id']} {r['condition']}: missing {r['missing']} forbidden {r['forbidden_found']}"
-                  + (f" error {r['error']}" if r.get("error") else ""))
+        if r.get("error"):
+            print(f"ERROR {r['id']} {r['condition']}: {r['error']}")
+        elif not r["pass"]:
+            print(f"FAIL {r['id']} {r['condition']}: missing {r['missing']} forbidden {r['forbidden_found']}")
     print(f"\nResults: {out / f'results-{stamp}.json'}")
-    return 0
+    return 2 if any(r.get("error") for r in results) else 0
 
 
 if __name__ == "__main__":
