@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -200,6 +201,44 @@ class GitClaimTests(RepoCase):
         result = self.check("## Claims\n- [git] pushed: main\n")
         self.assertEqual(self.states(result), ["UNSUPPORTED"])
 
+    def test_pushed_uses_the_real_upstream_ref_when_a_local_branch_shadows_it(self):
+        git(self.repo, "remote", "add", "origin", ".")
+        git(self.repo, "update-ref", "refs/remotes/origin/main", "HEAD")
+        git(self.repo, "branch", "--set-upstream-to=origin/main", "main")
+        git(self.repo, "commit", "--allow-empty", "-q", "-m", "update")
+        git(self.repo, "branch", "origin/main", "HEAD")
+        claim = "## Claims\n- [git] pushed: main\n"
+        self.assertEqual(self.states(self.check(claim)), ["UNSUPPORTED"])
+        git(self.repo, "update-ref", "refs/remotes/origin/main", "HEAD")
+        self.assertEqual(self.states(self.check(claim)), ["SUPPORTED"])
+
+    def test_check_never_launches_the_repository_filesystem_monitor(self):
+        monitor = self.repo / "monitor.sh"
+        monitor.write_bytes(b"#!/bin/sh\nprintf invoked > monitor-marker\n")
+        monitor.chmod(0o755)
+        git(self.repo, "config", "core.fsmonitor", "./monitor.sh")
+        git(self.repo, "status", "--porcelain")
+        marker = self.repo / "monitor-marker"
+        self.assertTrue(marker.is_file(), "test fixture did not run")
+        marker.unlink()
+        self.check("## Claims\n- [git] clean: working tree\n")
+        self.assertFalse(marker.exists())
+
+    def test_worktree_claims_never_launch_a_configured_git_clean_filter(self):
+        (self.repo / ".gitattributes").write_bytes(b"plan.md filter=probe\n")
+        git(self.repo, "add", ".gitattributes")
+        git(self.repo, "commit", "-q", "-m", "attributes")
+        git(self.repo, "config", "filter.probe.clean", "printf invoked > filter-marker; cat")
+        plan = self.repo / "plan.md"
+        original = plan.stat()
+        os.utime(plan, (original.st_atime, original.st_mtime + 5))
+        git(self.repo, "--no-optional-locks", "status", "--porcelain")
+        marker = self.repo / "filter-marker"
+        self.assertTrue(marker.is_file(), "test fixture did not run")
+        marker.unlink()
+        self.assertEqual(self.states(self.check("## Claims\n- [git] clean: working tree\n")), ["SUPPORTED"])
+        self.assertFalse(marker.exists())
+
 
 class CommandClaimTests(RepoCase):
     def test_command_is_not_run_unless_allowed(self):
@@ -326,6 +365,18 @@ class ReviewFindingTests(RepoCase):
         self.assertEqual(config.get("allow_commands", []), [])
         trusted = claim_check.load_config(self.repo, None, trust_project=True)
         self.assertEqual(trusted["allow_commands"], ["echo pwned"])
+
+    def test_malformed_project_config_cannot_disable_checks_unless_trusted(self):
+        shotos = self.repo / ".shotos"
+        shotos.mkdir()
+        settings = shotos / "claim-check.json"
+        for broken in ("{", "[]", '{"base": 42}'):
+            with self.subTest(config=broken):
+                settings.write_text(broken, encoding="utf-8")
+                with patch.object(claim_check, "USER_CONFIG", self.repo / "absent-user-config"):
+                    self.assertEqual(claim_check.load_config(self.repo, None), {"base": None, "allow_commands": []})
+                    with self.assertRaises(ValueError):
+                        claim_check.load_config(self.repo, None, trust_project=True)
 
     def test_everyday_words_without_claims_do_not_fail(self):
         result = self.check("I shared my thinking above and posted the options for you to pick from.")

@@ -25,11 +25,18 @@ def transcript(tmp: Path, text: str, tools=("Write",), earlier=(), history=()) -
 
 
 class StopHookTests(unittest.TestCase):
-    def run_hook(self, text, active=False, command=None, tools=("Write",), opted_in=True, earlier=(), history=()):
+    def run_hook(self, text, active=False, command=None, tools=("Write",), opted_in=True, earlier=(), history=(),
+                 project_config=None, user_config=None):
         with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as home:
             tmp = Path(tmp)
             if opted_in:
                 (tmp / ".shotos").mkdir()
+            if project_config is not None:
+                (tmp / ".shotos/claim-check.json").write_text(project_config, encoding="utf-8")
+            if user_config is not None:
+                settings = Path(home) / ".shotos"
+                settings.mkdir()
+                (settings / "claim-check.json").write_text(user_config, encoding="utf-8")
             event = {"transcript_path": str(transcript(tmp, text, tools, earlier, history)), "cwd": str(tmp), "stop_hook_active": active}
             env = {**os.environ, "HOME": home, "USERPROFILE": home}  # no user config on the machine running the test
             return subprocess.run(command or [sys.executable, str(HOOK)], input=json.dumps(event),
@@ -38,6 +45,16 @@ class StopHookTests(unittest.TestCase):
     def test_never_blocks_a_project_that_has_not_set_up_claim_check(self):
         run = self.run_hook("Done.\n\n## Claims\n- [file] created: plan.md\n", opted_in=False)
         self.assertEqual(run.returncode, 0, run.stderr)
+
+    def test_a_bad_project_config_leaves_the_hook_active(self):
+        run = self.run_hook("Done.\n\n## Claims\n- [file] created: absent.md", project_config="{")
+        self.assertEqual(run.returncode, 2, run.stderr)
+        self.assertIn("UNSUPPORTED", run.stderr)
+
+    def test_a_bad_trusted_config_reports_an_error(self):
+        run = self.run_hook("Done.\n\n## Claims\n- [file] created: absent.md", user_config='{"allow_commands": 5}')
+        self.assertEqual(run.returncode, 2, run.stderr)
+        self.assertIn("could not read its trusted configuration", run.stderr)
 
     def test_a_fenced_example_does_not_satisfy_the_stop_hook(self):
         run = self.run_hook("Done.\n\n~~~markdown\n## Claims\n- [unverified] example\n~~~")
