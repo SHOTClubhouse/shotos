@@ -42,7 +42,7 @@ To adopt it as team policy, ask: "Write our default effort levels and who may ra
 
 Nothing beyond the agent. Knowing which models and tools are available helps; if not known, the skill names the level and leaves the model choice to the owner.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 2 of 3, Sonnet 1 of 3, Opus 1 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
+**Evidence:** The 3 November version ran once per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 2 of 3, Sonnet 1 of 3, Opus 1 of 3. The current instructions add a case for retaining an accepted result when the required connector is unavailable. See [evidence](../../../../docs/evidence.md) for the evaluation history.
 
 ## Tips and common mistakes
 

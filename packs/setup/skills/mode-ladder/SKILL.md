@@ -1,72 +1,41 @@
 ---
 name: mode-ladder
-description: Picks an effort level (Quick, Standard, Thorough, Team of agents) from the work's size, risk and uncertainty. Use when starting work, when risk changes, or when writing a team policy. A bigger level never grants more authority.
+description: Chooses Quick, Standard, Thorough or Team of agents based on size, risk and uncertainty. Use to route a task, respond to a change in risk, or set a team policy. Effort leaves authority with the owner.
 ---
 
 # Right-size the effort
 
-Stage: Scope. Rules: 1 (stop at the boundaries) and controls 3 (mode contract) and 11 (context control).
-
-Effort should follow the work. A larger setting buys more thinking, more context and more checking; it never buys more permission.
+Stage: Scope. Rule 1 (stop at the boundaries). Controls 3 (mode contract) and 11 (context control).
 
 ## Context and handoff
 
-Read the actual action, risk, authority and observed evidence from earlier runs before selecting autonomy.
-
-Use `graduation-ladder` for any promotion. Record the current rung and stop condition with the task class.
+Start with the output, its reader, the acceptance check and the authority already given. Look for a recorded route that worked on comparable tasks. Use `graduation-ladder` for a change in autonomy, and `connector-check` when a required capability is unproven. Keep the route and any change in the task record.
 
 ## When not to use this
 
-Skip it for a one-line question. Do not use the level to decide what is allowed; authority comes from the owner and is set per task under control 3.
+Skip the routing ceremony for a simple question. Resolve permission from the owner's scope and project rules.
 
-## How to size a task
+## Choose the route
 
-Score the task on three questions before choosing a level:
+Size the work by how many things it touches, the cost and reversibility of an error, and how much of the method is unknown.
 
-- **Size:** how many steps, files, documents or people does it touch?
-- **Risk:** what does a mistake cost, and can it be undone? Personal data, money, legal wording and anything customer-facing raise risk.
-- **Uncertainty:** is the goal clear and the method known, or is the problem new?
+| Level | Use when | Context and check |
+| --- | --- | --- |
+| Quick | The task is understood, low risk and reversible. Use a small model or deterministic tool. | Give it the exact input and expected result. Run one observable check. |
+| Standard | Several steps or shared artefacts, with a clear acceptance decision. Use a model capable of the work. | Read the acceptance and current project sources. Open the saved result and check it against the examples. |
+| Thorough | Unfamiliar judgement, sensitive material or a costly reversal. Use the smallest route that can pass the required checks. | Add sources for the decision at risk. Give a bounded independent reviewer the result, acceptance and relevant evidence. |
+| Team of agents | Independent pieces benefit from parallel workers after a small pilot. Use a fixed procedure or script as supervisor. | Set worker count, time, cost, supervisor and stop condition. Pilot three units or fewer, then compare outputs and read back a sample. |
 
-## The four levels
+Use a deterministic script for repeated exact work when it can meet the checks. Load the current brief and primary sources first. Open more context for an identified gap, contradictory evidence or a material decision.
 
-- **Quick.** Small and fast model, little context, the person's usual tools. For small, well understood, low-risk, reversible work such as renaming, summarising or drafting a short message. Review: one observable check.
-- **Standard.** Mid-range model plus the project's context. Acceptance examples first, a short plan, the work, a read-back. For ordinary document, product or code work with a clear goal. Review: the acceptance examples, run against the real result.
-- **Thorough.** A model capable of the task, the research the task needs, and the context of related decisions. Use the smallest model that can perform the work and meet the agreed checks. For hard design, difficult trade-offs, unfamiliar domains and choices that are costly to reverse. Review: one bounded independent review (control 7) sized to the risk.
-- **Team of agents.** Several independent workers, each with its own task, under a deterministic supervisor (a script or fixed procedure, not another agent's judgement). Set worker count, time limit and cost limit up front. For work that splits into independent parts, such as checking fifty documents. Run a pilot of three units or fewer first (control 9).
+## Change one thing at a time
 
-## What each level sets
+1. If a check fails, name the cause. Missing evidence calls for retrieval or a held decision. Unavailable access calls for another authorised route or the owner. Weak reasoning can justify a stronger model or independent review.
+2. Carry the saved result, exact revision and failed check into a retry or handoff. If the result already meets acceptance, resolve the access or delivery check first. Rebuild only when the approved result is missing, wrong or superseded.
+3. Continue inside existing authority. Ask for a decision if the new route increases spend beyond the approved limit, needs new access or expands the work. Sending, spending, deleting, deploying and publishing follow the same approval boundaries at every level.
 
-| | Model choice | Context loaded | Review | Parallel work |
-|---|---|---|---|---|
-| Quick | Small | Minimal | One check | None |
-| Standard | Mid-range | Project context | Acceptance examples | None, or one helper |
-| Thorough | Smallest capable of the agreed checks | Project plus related decisions | One bounded independent review | Only if the task splits |
-| Team of agents | Fits each worker's job | Only what each worker needs | Pilot, then sampled spot-checks | Many, within set limits |
+For a recurring workflow, record the default, who can change it and the evidence required to step down. Compare equivalent accepted work before changing the default.
 
-## What never changes with the level
+## Output and checks
 
-The six stages, the four rules, acceptance first, read-back and the stop boundaries. The owner keeps authority over sending, spending, deleting, deploying and publishing at every level. A bigger setting never grants more authority.
-
-## Using it as team policy
-
-A team lead can adopt this as written. Agree the default level for routine work (usually Quick or Standard), name who may raise it, and set the cost limit above which a person must approve a Team of agents run. Keep the policy in the shared configuration (see config-as-code) so everyone starts from the same default.
-
-## Steps
-
-1. **Describe the task in one line,** including the reader or user and what going wrong would cost.
-2. **Pick the lowest level that fits** (use these four names, not the model's own effort settings) the size, risk and uncertainty. Clear, routine, low cost of error and reversible: Quick. Several steps or shared things touched: Standard. Hard, new or costly to reverse: Thorough. Many independent parts: Team of agents, after a pilot.
-3. **Say what the level changes:** model class, context, review, helpers, and the expected cost.
-4. **Set limits for a Team of agents:** workers, time, spending, who watches, and the stop condition. If asked for no limits, or for agents to decide for themselves when to send, say no: the limits are set per task, the first run is a pilot of three units or fewer, and every send stays with the owner.
-5. **State the choice in one line** and continue within the owner's existing authority. Confirm a change with the owner when it adds spend, grants access, expands the task or requires a decision they have reserved.
-6. **Re-check at checkpoints.** Move up if the task proves harder or riskier; move down when the hard part is done. Record each change in the task record.
-
-## Output
-
-One line per task: level, reason, what changes, what does not. Use [template.md](template.md).
-
-## Checks
-
-- The level is the lowest one that fits, with a reason tied to size, risk or uncertainty.
-- The reply states that authority and the method are unchanged by the level.
-- Thorough includes one bounded independent review.
-- Team of agents states worker, time and cost limits and a pilot, and the supervisor is deterministic.
+Record the level, reason, model or tool, minimum sources and review in one line. Use [template.md](template.md) when the choice needs to be shared. Check that the route can perform the task, the review matches the risk and any parallel work has limits and a pilot.
