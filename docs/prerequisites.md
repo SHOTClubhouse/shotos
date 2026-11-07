@@ -143,3 +143,9 @@ Cost per generated draft is easy to count and not very useful. The number that m
 8. **Review monthly.** Change one thing at a time, such as the model, the length of `AGENTS.md` or the acceptance checks, and see whether the number moves.
 
 Keep the [accepted-work ledger](../templates/accepted-work-ledger.csv) beside the acceptance cards in your project. A small honest record beats a large estimated one.
+
+Use one row per attempt and keep the task ID, work type and condition consistent across its attempts. Number attempts from 1. Record `yes` only when the reviewer role and acceptance evidence are recorded. Use `no` or `pending` for other attempts. Enter `0` for a measured zero and leave unknown values blank.
+
+From the SHOTos checkout, run `python tools/summarise_accepted_work.py path/to/ledger.csv` to read the totals by work type and condition. It reports first-pass acceptance, spend and recorded minutes per accepted result. Unknown amounts remain unmeasured. Agent run, review and rework minutes are separate measures. Record elapsed time from request to acceptance in your own work record if needed.
+
+The [fictional proposal ledger](../examples/accepted-work-ledger.csv) gives two accepted tasks out of three in each condition. First-pass acceptance is two of three with the workflow and one of three without it. The cost totals include the third proposal, which was abandoned. Compare tasks with the same scope and acceptance checks before using a result to choose a workflow.
