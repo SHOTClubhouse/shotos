@@ -169,6 +169,33 @@ class GitClaimTests(RepoCase):
         result = self.check("## Claims\n- [git] committed: HEAD\n", base="HEAD~1")
         self.assertEqual(self.states(result), ["SUPPORTED"])
 
+    def test_named_commit_must_contain_the_current_file_version(self):
+        plan = self.repo / "plan.md"
+        plan.write_text("intermediate\n", encoding="utf-8")
+        git(self.repo, "commit", "-qam", "intermediate")
+        plan.write_text("final\n", encoding="utf-8")
+        git(self.repo, "commit", "-qam", "final")
+        result = self.check("## Claims\n- [file] changed: plan.md\n- [git] committed: HEAD~1\n", base="HEAD~2")
+        self.assertEqual(self.states(result), ["SUPPORTED", "UNSUPPORTED"])
+
+    def test_ignored_draft_is_not_part_of_a_commit(self):
+        (self.repo / ".gitignore").write_text(".work/\n", encoding="utf-8")
+        git(self.repo, "add", ".gitignore")
+        git(self.repo, "commit", "-qm", "ignore work")
+        (self.repo / ".work").mkdir()
+        (self.repo / ".work/draft.md").write_text("draft\n", encoding="utf-8")
+        result = self.check("## Claims\n- [file] created: .work/draft.md\n- [git] committed: HEAD\n", base="HEAD~1")
+        self.assertEqual(self.states(result), ["SUPPORTED", "UNSUPPORTED"])
+
+    def test_named_commit_must_contain_the_reported_deletion(self):
+        git(self.repo, "commit", "--allow-empty", "-qm", "checkpoint")
+        (self.repo / "plan.md").unlink()
+        git(self.repo, "commit", "-qam", "remove")
+        result = self.check("## Claims\n- [file] deleted: plan.md\n- [git] committed: HEAD~1\n", base="HEAD~2")
+        self.assertEqual(self.states(result), ["SUPPORTED", "UNSUPPORTED"])
+        result = self.check("## Claims\n- [file] deleted: plan.md\n- [git] committed: HEAD\n", base="HEAD~2")
+        self.assertEqual(self.states(result), ["SUPPORTED", "SUPPORTED"])
+
     def test_pushed_without_upstream_is_unsupported(self):
         result = self.check("## Claims\n- [git] pushed: main\n")
         self.assertEqual(self.states(result), ["UNSUPPORTED"])

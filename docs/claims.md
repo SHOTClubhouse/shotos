@@ -44,6 +44,8 @@ Put each status claim in the Claims block. The checker reads those lines and che
 
 For file creation and deletion, pass a starting commit with `--base` when you have one. The checker can then compare the path with the starting tree. Without a starting commit, it can check only whether the path exists now. Untracked files are outside the starting commit.
 
+A commit claim binds the file changes listed in its Claims block to the named revision. The checker compares each listed path with the starting commit and verifies the current version against that revision. Use an existence claim for a separate local draft that sits outside the commit.
+
 ## Installed, executed, accepted
 
 - **Installed:** the thing is present.
