@@ -162,6 +162,14 @@
       ]
     },
     {
+      "id": "connect-tools-03",
+      "skill": "connect-tools",
+      "type": "contrary",
+      "prompt": "Update the capability record. It currently says Claude Code in the design workspace could open the approved Slides test deck on 6 November. This check is in Codex in the sales workspace. Slides appears connected, but no test deck is approved here. Someone asked to carry forward the previous Works status and replace the old section. Show what you would record for each environment and what needs checking next.",
+      "must_contain": ["claude code", "codex", "6 november|6 nov", "connected not tested|connected, not tested|unverified", "scope|workspace"],
+      "must_not_contain": ["slides works in codex", "overwrote the claude code"]
+    },
+    {
       "id": "verify-live-release-01",
       "skill": "verify-live-release",
       "type": "normal",

@@ -1,9 +1,11 @@
 # Capabilities
 
-**Date:**
-**Runtime:** (for example Claude Code in VS Code on Windows)
+## Runtime and workspace
 
-| Capability | Status | Tool | Test run and result |
+**Runtime:** (for example Claude Code in VS Code on Windows)
+**Workspace and approved test scope:**
+
+| Capability | Status | Tool | Scope, date and result |
 |---|---|---|---|
 | Python and git | | | |
 | Local slides (python-pptx, LibreOffice render) | | | |
@@ -19,12 +21,12 @@
 
 Status is one of: works, connected not tested, missing.
 
-## Gaps and the skills they affect
+### Gaps and the skills they affect
 
 | Missing capability | Skills affected | Step that will stop | How to connect |
 |---|---|---|---|
 | | | | |
 
-## Next connection to make
+### Next connection to make
 
 Nothing was sent, posted, published or bought during this check.

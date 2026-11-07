@@ -40,7 +40,7 @@ Start with the assistant you already use. Give it a role, a task and a check. As
 - **Move faster on repeat work.** Give drafting and checking clear responsibilities, and reuse the accepted brief, templates and checks. Bring in a separate reviewer when the decision needs one.
 - **Scale across business areas.** Set up sales, operations, product or engineering around their own records, owners and permissions. Reuse the working agreement and evidence checks. Add the next team once its receiving lead can run a full cycle independently.
 
-A role sets the responsibility. An audience persona tells you who the work is for. A review lens brings a perspective such as customer, commercial or sceptic. You can use all three in one assistant or assign roles to separate agents where your runtime supports them. [Set up your team with the full pack](docs/full-pack.md)
+A role sets the responsibility. An audience persona tells you who the work is for. A review lens brings a perspective such as customer, commercial or sceptic. You can use all three in one assistant or assign roles to separate agents where your runtime supports them. Your garage records the tools and runtimes the team can use and how they were verified. [Set up your team](docs/full-pack.md) · [Choose from your garage](docs/full-pack.md#choose-from-your-garage)
 
 ## Try SHOTos
 

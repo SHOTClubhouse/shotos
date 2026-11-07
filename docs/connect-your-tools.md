@@ -37,7 +37,7 @@ After connecting, ask your agent to run the [connect-tools](../packs/setup/skill
 
 > Check which tools you can reach for SHOTos and write the capability list.
 
-It lists what is connected, tests each one with a harmless read-only call, and writes `.work/capabilities.md`: what works, what is missing, and which skills are affected. Other skills read that file, so they can tell you early when a step needs a tool you have not connected.
+It checks connected tools with approved read-only calls and records what works, what is missing and which skills are affected in `.work/capabilities.md`. Keep dated sections for each runtime and workspace so a check in one environment does not stand in for another.
 
 ## The safe way to connect anything
 
