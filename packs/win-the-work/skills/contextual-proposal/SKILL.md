@@ -1,6 +1,6 @@
 ---
 name: contextual-proposal
-description: Researches a named organisation, then writes a proposal argued for that reader, with a claim ledger, asset register and every page rendered and checked. Use when writing one proposal, bid or pitch. Never sends; many similar ones use proposal-factory.
+description: Researches a named organisation and drafts a tailored proposal or pitch, with a claim ledger, asset register and format checks. Use for a negotiated offer to a specific buyer. Routes formal tenders, buyer RFPs and repeat batches to their dedicated skills.
 ---
 
 # Contextual proposal
@@ -14,6 +14,15 @@ Stage: Operate. Rules served: 3 (read back the real result) and 4 (claim only wh
 Read the buyer’s own words, organisation type, current constraints, approved offer and relevant prior proposal. Verify buyer-specific claims against current sources. Select the nearest relevant proposal by buyer type and buying route. Reuse its structure where it fits, and verify the new buyer’s needs, terms, rights and decision process independently.
 
 Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitments in the deal working sheet. If leadership needs to decide whether to proceed, link the exact draft and the private working sheet from the decision brief. Distinguish proposal readiness, authority to send, buyer response and delivery handoff.
+
+## Choose the proposal route
+
+| Request | Skill to use |
+| --- | --- |
+| One tailored offer or pitch for a named buyer | `contextual-proposal`. Choose the [organisation template](organisation-templates.md) that fits the buying route. |
+| Supplier response to an issued tender or RFP | `bid-response`. The buyer's instructions govern the format and submission requirements. |
+| Buyer preparing an invitation for suppliers | `rfp-authoring`. Set requirements, scoring and approval gates. |
+| Repeated proposals for similar buyers | `one-off-or-factory`, then `proposal-factory` if the work qualifies. |
 
 ## When not to use this
 
@@ -33,7 +42,9 @@ Skip it when the reader is unknown and a generic one-pager will do, or when many
 
 ## Output
 
-A proposal file, plus [template.md](template.md): reader note, argument sentence, claim ledger, asset register, money note, page check and status. Save with the deal, for example `.work/proposals/<reader>/`. Keep the ledger, the register and all working notes in that separate file: the proposal the reader sees contains none of them, and a rejected claim never appears in it, not even as something left out. When writing files, save the proposal and the private working sheet as separate files so the proposal can be reviewed on its own.
+A proposal file and a private [working sheet](template.md). Save both with the deal. Keep the ledger, asset register and draft terms in the working sheet so the buyer-facing proposal can be reviewed on its own.
+
+When buyer acceptance is evidenced, update **Delivery handoff** in the existing deal record or working sheet and give `success-handoff` that reference with permitted access. Carry the accepted revision, source-backed commitments, open decisions, current owner, proposed receiver and dated first action. If acceptance is pending, carry the gap explicitly. Buyer acceptance and receiver acceptance require their own evidence. See the [worked fictional deal](worked-deal.md).
 
 ## Checks
 

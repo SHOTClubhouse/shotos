@@ -22,7 +22,7 @@ Skip it when the customer has asked to cancel or has a complaint that needs the 
 ## Steps
 
 1. **Define first value.** Ask or find what first value means for this customer: the first outcome they would call a success (for example, "first weekly report received", "first booking made"). If it is not written down, propose one and ask the owner to confirm.
-2. **Gather the evidence.** Read the thread, calendar (meetings held, missed, booked), onboarding plan, call notes and any usage record. Build a short timeline with dates and sources.
+2. **Gather the evidence.** Start with the account record, accepted handoff if available, and the onboarding plan. Find the planned next action and its owner. Use the thread, calendar, call notes or usage records where needed to confirm what happened. Build a short timeline with dates and sources.
 3. **Diagnose where it stopped.** Find the last confirmed step and the first missed one. Name the likely cause only as a hypothesis, one of: waiting on the customer, waiting on us, unclear ownership, blocked by a dependency, lost interest, or unknown. State what evidence would confirm it.
 4. **Choose the smallest next step to first value.** One step the customer can complete in under 30 minutes, if possible. Prefer removing a blocker for them over adding a meeting. If the stall is on our side, the next step is ours.
 5. **Assign owner and date.** One person for our step, one for the customer's step, each with a date. If the customer's owner is unknown, write "to confirm" and make that the first question.

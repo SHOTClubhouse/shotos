@@ -1,6 +1,8 @@
 # Success handoff: <account>
 
 **Giver:** . **Receiver:** (proposed | confirmed) . **Date prepared:** .
+**Linked deal or account record and permitted access:**
+**Accepted offer or controlling agreement, revision, date and evidence (if applicable):**
 
 ## Status (three separate fields)
 - **Lifecycle stage:** <pre-start | onboarding | live | renewal due | other>, because <evidence>.

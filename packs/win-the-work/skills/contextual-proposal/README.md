@@ -28,6 +28,8 @@ Do not use it for a generic one-pager, or for many near-identical proposals (see
 
 You get the proposal and a working sheet from [template.md](template.md). Read the ledger first: anything marked unsupported has been removed or flagged.
 
+Choose an [organisation template](organisation-templates.md) based on who can approve the work. The [worked fictional deal](worked-deal.md) shows how the proposal's deal record carries through to customer success.
+
 ## How it connects
 
 - **Before:** [nudge-qualify](../nudge-qualify/README.md) says whether the proposal is worth writing; [relationship-map](../relationship-map/README.md) shows who the reader is among the gatekeepers.
@@ -39,7 +41,7 @@ You get the proposal and a working sheet from [template.md](template.md). Read t
 
 Nothing beyond the agent for writing. Opening or rendering the file needs a way to produce and view it (a document tool, a presentation tool, or an export to images). Public web research needs your approval of sources.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
+**Evidence:** The 3 November 2026 version was evaluated in a paired run, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
 
 ## Tips
 

@@ -25,7 +25,7 @@ Audience personas describe who needs the outcome. Execution roles describe respo
 
 | Audience persona | First useful route | What stays with the work |
 | --- | --- | --- |
-| Solo founder | `nudge-qualify` → `contextual-proposal` → `claims-audit` | Deal brief, approved offer and sources |
+| Solo founder | `nudge-qualify` → `contextual-proposal` → `claims-audit`, then `success-handoff` when delivery changes hands | Deal record with the approved offer, buyer acceptance and receiving lead's next action |
 | Small team lead | `agree-acceptance` → relevant delivery skill → `evidence-handoff` | Task checks, reviewed result and named next action |
 | Product owner or analyst | `capture-the-problem` → `example-mapping` → `agree-acceptance` | Problem, examples and acceptance beside the issue |
 | Engineering or practice lead | `route-the-work` → delivery → `cross-agent-review` or `delivery-metrics` | Change, tests, review and evidence in the repository |

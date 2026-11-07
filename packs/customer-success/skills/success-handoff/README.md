@@ -26,6 +26,8 @@ Customer success leads, account managers, founders and delivery leads.
 
 Output uses [template.md](template.md). Worked example: [input](../../examples/success-handoff/input.md) and [output](../../examples/success-handoff/output.md).
 
+Follow one [fictional deal from proposal to accepted handoff](../../../win-the-work/skills/contextual-proposal/worked-deal.md) to see which records the receiving lead uses.
+
 ## How it connects
 
 - **After:** [onboarding-recovery](../onboarding-recovery/README.md) if the account arrives stalled.
@@ -36,7 +38,7 @@ Output uses [template.md](template.md). Worked example: [input](../../examples/s
 
 Mail and document connectors, read-only, to build the brief; a document connector with write access to the folder you name for the record. Calendar and transcript connectors are optional. Without them, paste the material and the brief says what it could not check.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
+**Evidence:** The 3 November 2026 version was evaluated in a paired run, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
 
 ## Tips and common mistakes
 
