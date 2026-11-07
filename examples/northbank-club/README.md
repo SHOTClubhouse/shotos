@@ -12,3 +12,7 @@ A fictional three-page website and open-day campaign showing how SHOTos goes fro
 The [Build a Small Website](../../packs/content/skills/build-small-website/README.md) skill covers the site. [Campaign Website](../../packs/content/skills/campaign-website/README.md) covers the event page.
 
 Use the [two-round campaign review](campaign-review.md) to try the campaign brief, worked graphic, decision and operator handoff with fictional records.
+
+## Public read-back
+
+On 7 November 2026, the public marker returned `4ea9655905da9e8c4530715ec403613ddbd7354f`, matching the [GitHub Pages deployment](https://github.com/SHOTClubhouse/shotos/actions/runs/42349367058). In an anonymous browser at 360 and 960 pixels, Home opened Sessions, Sessions opened Open day, and the visit action opened the itinerary. Tab reached the skip link on Home. The open-day page had no form or horizontal overflow at either width.

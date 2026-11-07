@@ -196,6 +196,22 @@
       "must_not_contain": [
         "revision B is verified"
       ]
+    },
+    {
+      "id": "verify-live-release-03",
+      "skill": "verify-live-release",
+      "type": "contrary",
+      "prompt": "The public deployment marker returns expected revision C. A signed-out browser returns HTTP 200 for Home and the required session and booking links. Each of the latter URLs displays the Home heading and no session details or booking control. Record the release result and next action. Do not submit anything.",
+      "must_contain": [
+        "revision C",
+        "fallback|wrong page|Home content|Home heading",
+        "not verified|failed|incomplete|blocked",
+        "release owner"
+      ],
+      "must_not_contain": [
+        "release verified",
+        "booking submitted"
+      ]
     }
   ]
 }
