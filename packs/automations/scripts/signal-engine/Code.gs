@@ -90,7 +90,7 @@ var CONFIG = {
  *   DIGEST_TO       digest recipient. Blank or unset = the account running the script.
  *   AI_ENABLED      'true' adds AI scoring.
  *   AI_API_KEY      the key for your AI provider. Stored here only.
- *   AI_ENDPOINT     URL of an OpenAI-compatible chat completions endpoint.
+ *   AI_ENDPOINT     Direct HTTPS URL of an OpenAI-compatible chat completions endpoint.
  *   AI_MODEL        model name your provider accepts.
  *   SPREADSHEET_ID  only if the script is not bound to the sheet.
  *   LAST_DIGEST_DATE  written by the script to stop a second digest on one day.
@@ -559,9 +559,9 @@ function scoreByKeywords_(item, priorities) {
 }
 
 /**
- * Optional AI relevance score from 0 to 10. Only the title and snippet leave
- * the sheet. The item text is untrusted, so the reply is reduced to one number
- * and clamped; any instructions inside the item cannot do more than change it.
+ * Optional AI relevance score from 0 to 10. The request carries the title,
+ * snippet and configured priority keywords and weights. Item text is untrusted.
+ * The reply is reduced to one score and clamped.
  */
 function scoreWithAi_(item, priorities) {
   var props = PropertiesService.getScriptProperties();
@@ -570,6 +570,9 @@ function scoreWithAi_(item, priorities) {
   var model = props.getProperty('AI_MODEL');
   if (!key || !endpoint || !model) {
     throw new Error('AI_API_KEY, AI_ENDPOINT and AI_MODEL must all be set in Script Properties.');
+  }
+  if (!/^https:\/\/[^/\s\\?#@]+(?:[/?][^\s\\#]*)?$/i.test(endpoint)) {
+    throw new Error('AI_ENDPOINT must be a direct HTTPS URL without embedded credentials.');
   }
   var priorityText = priorities.map(function (p) { return p.keyword + ' (weight ' + p.weight + ')'; }).join(', ');
   var payload = {
@@ -592,6 +595,8 @@ function scoreWithAi_(item, priorities) {
     contentType: 'application/json',
     headers: { Authorization: 'Bearer ' + key },
     payload: JSON.stringify(payload),
+    followRedirects: false,
+    timeoutSeconds: 20,
     muteHttpExceptions: true
   });
   var code = response.getResponseCode();

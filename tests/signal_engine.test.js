@@ -7,6 +7,32 @@ const vm = require('node:vm');
 const script = readFileSync(resolve(__dirname,
   '../packs/automations/scripts/signal-engine/Code.gs'), 'utf8');
 
+test('AI scoring sends credentials only to a direct HTTPS endpoint', () => {
+  const properties = new Map([
+    ['AI_API_KEY', 'fictional-key'],
+    ['AI_MODEL', 'fixture-model'],
+  ]);
+  const calls = [];
+  const context = vm.createContext({
+    PropertiesService: { getScriptProperties: () => ({ getProperty: (key) => properties.get(key) }) },
+    UrlFetchApp: { fetch: (url, options) => {
+      calls.push({ url, options });
+      return { getResponseCode: () => 302 };
+    } },
+  });
+  vm.runInContext(script, context);
+  for (const endpoint of ['http://provider.example.invalid/score', 'https://user@provider.example.invalid/score']) {
+    properties.set('AI_ENDPOINT', endpoint);
+    assert.throws(() => context.scoreWithAi_({ title: 'Fixture', snippet: 'Short' }, []), /direct HTTPS URL/);
+  }
+  assert.equal(calls.length, 0);
+  properties.set('AI_ENDPOINT', 'https://provider.example.invalid/score');
+  assert.throws(() => context.scoreWithAi_({ title: 'Fixture', snippet: 'Short' }, []), /HTTP 302/);
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].options.followRedirects, false);
+  assert.equal(calls[0].options.timeoutSeconds, 20);
+});
+
 function digestHarness({ dry = false, failSend = false, failFlush = false } = {}) {
   const properties = new Map();
   const sent = [];

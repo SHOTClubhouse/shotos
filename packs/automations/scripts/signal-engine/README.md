@@ -67,10 +67,10 @@ Off by default. To turn it on, add these in **Project Settings > Script Properti
 
 - `AI_ENABLED` = `true`
 - `AI_API_KEY` = your key
-- `AI_ENDPOINT` = the URL of an OpenAI-compatible chat completions endpoint
+- `AI_ENDPOINT` = the direct HTTPS URL of an approved OpenAI-compatible chat completions endpoint
 - `AI_MODEL` = a model name your provider accepts
 
-Only each item's title and a short snippet are sent. If the provider fails, the script falls back to keyword scores for that run and says so in the Log. Final score = keyword score + AI score x `AI_WEIGHT`.
+The request carries the item's title and short snippet, and the configured priority keywords and weights. Review those fields before enabling the provider. The script waits up to 20 seconds for the endpoint and treats redirects as failures. If the provider fails, it falls back to keyword scores for that run and records the reason in the Log. Final score = keyword score + AI score x `AI_WEIGHT`.
 
 ## Safety design
 
