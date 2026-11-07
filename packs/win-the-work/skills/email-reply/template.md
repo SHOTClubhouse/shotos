@@ -1,6 +1,7 @@
 # Reply working sheet
 
 **Thread:** (subject, participants, dates) 
+**Current message:** (sender, date and reference)
 **Owner (sends):** 
 **Sources used:** (thread, notes, documents) 
 
@@ -17,7 +18,7 @@
 - 
 
 ## Draft
-**To / Cc:** 
+**Proposed To / Cc:** (check against the current message and owner's instruction)
 **Subject:** 
 
 **Body:**

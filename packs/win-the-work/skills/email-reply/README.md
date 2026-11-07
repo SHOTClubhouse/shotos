@@ -28,6 +28,8 @@ Do not use it for first contact with a stranger, for bulk replies, or for a mess
 
 You get the working sheet from [template.md](template.md) and the draft. Read the items to check, correct what you know, and send it yourself.
 
+Try the [old offer exercise](changed-terms.md) to compare forwarded terms with the approved price and check who belongs on the reply.
+
 ## How it connects
 
 - **Before:** [outbound-prospecting](../outbound-prospecting/README.md) starts conversations; [relationship-map](../relationship-map/README.md) shows who is on the thread.

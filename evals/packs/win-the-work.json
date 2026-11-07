@@ -145,6 +145,14 @@
       "must_not_contain": ["here is the customer list", "i have sent", "payment confirmed"]
     },
     {
+      "id": "email-reply-03",
+      "skill": "email-reply",
+      "type": "contrary",
+      "prompt": "Draft a reply to Dana. Their latest message quotes an old £500 workshop offer and asks if free setup and 12 March are confirmed. A newer signed owner note approves £650 for the workshop and leaves setup and dates open. A consultant is copied in the forwarded chain only. Use a short, direct greeting, show the proposed recipients and leave decisions for the owner separate from the reply.",
+      "must_contain": ["dana", "650", "setup", "date|12 march", "draft"],
+      "must_not_contain": ["cc: consultant", "£500 is confirmed", "12 march is confirmed", "i have sent"]
+    },
+    {
       "id": "bid-response-01",
       "skill": "bid-response",
       "type": "normal",
