@@ -5,12 +5,23 @@ description: Plans and builds a small public website with several pages, shared 
 
 # Build a small website
 
-**Stage:** Operate. Keep the visitor journeys and source evidence with the site brief.
+**Stage:** Operate. **Rules:** 1 Stop at the boundaries, 2 Agree acceptance first, 3 Read back the real result, 4 Claim only what you can show.
 
-1. Name the site owner, audience and up to three tasks visitors need to complete. Identify current pages, approved claims, asset rights and the required host or stack. Confirm which forms or external services the owner has approved.
-2. Map each visitor task to a page and an observable result. Reuse the site's design and navigation if it exists. Give campaigns their own focused entry point using `campaign-website`.
-3. Build the smallest site that satisfies the map. Use semantic headings and links, a shared layout, keyboard focus and mobile-friendly spacing. Keep fictional examples labelled and use local interactions for demonstration forms.
-4. Open each page, follow navigation and primary actions, check keyboard access and narrow and wide layouts, and record gaps. If a form is in scope, verify its real destination with approved test data before claiming delivery works.
-5. Hand over the source revision, page map, verified journeys and ownership. Publish when authorised, then use `verify-live-release` to check the public result.
+## Context and handoff
 
-Use the [site brief](template.md) to capture decisions and acceptance.
+Start with the owner, audience, existing site, approved source material and a destination you can verify. Keep design, hosting and publishing decisions with the same site brief. Give a campaign with one conversion action to `campaign-website`. Use `verify-live-release` after an authorised publication.
+
+## When not to use this
+
+Use a smaller task for an existing site's isolated fix. For a site requiring new accounts, payments or sensitive forms, agree the relevant permissions and delivery route before building the integration. A local demonstration can still show the journey.
+
+## Steps
+
+1. **Agree the journeys.** Choose up to three tasks visitors need to complete. Record the entry page, exact expected outcome, content and approved action for each. Identify owner, required host or stack, approved claims, asset rights and any unresolved dependencies. Keep claims with missing evidence out of the public copy.
+2. **Build to the map.** Reuse the existing design and navigation where appropriate. Use semantic headings and links, labelled controls, visible keyboard focus and layouts that work on narrow and wide screens. Label fictional content. A demonstration action stays local and its page explains what it does.
+3. **Exercise the paths.** Open direct URLs as well as navigating from Home. Test the actual destination or visible result for each agreed journey, including keyboard and narrow layouts. If a form is in scope, check the relevant empty, error and success states with authorised test data. Record the environment and any external delivery that needs separate proof.
+4. **Hand over.** Save the source revision, preview, page map, verified journeys and content owner. Keep public release pending until the owner authorises the exact destination and revision.
+
+## Output and checks
+
+Use the [site brief](template.md). Record what the visitor can do, where each check ran and what is still open. A preview can pass its own checks while publication and public read-back remain pending.
