@@ -1,3 +1,4 @@
+import posixpath
 import re
 import shutil
 import subprocess
@@ -6,11 +7,37 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 TOOL = Path(__file__).resolve().parents[1] / "tools" / "package_skills.py"
 
 
 class PackageSkillsTests(unittest.TestCase):
+    def assert_markdown_links_resolve(self, archive):
+        names = set(archive.namelist())
+        for name in sorted(names):
+            if not name.endswith(".md"):
+                continue
+            fence = None
+            for line in archive.read(name).decode("utf-8").splitlines():
+                marker = re.match(r"^ {0,3}(`{3,}|~{3,})", line)
+                if marker:
+                    delimiter = marker[1]
+                    if fence is None:
+                        fence = delimiter
+                    elif delimiter[0] == fence[0] and len(delimiter) >= len(fence):
+                        fence = None
+                    continue
+                if fence:
+                    continue
+                for destination in re.findall(r"\]\(([^)\s]+)\)", line):
+                    link = urlsplit(destination)
+                    if link.scheme or link.netloc or not link.path:
+                        continue
+                    target = posixpath.normpath(posixpath.join(posixpath.dirname(name), unquote(link.path)))
+                    exists = target in names or any(member.startswith(target + "/") for member in names)
+                    self.assertTrue(exists, f"{name} links to missing {destination}")
+
     def test_linked_source_cannot_enter_a_skill_zip(self):
         with tempfile.TemporaryDirectory() as tmp:
             workspace = Path(tmp)
@@ -60,6 +87,7 @@ class PackageSkillsTests(unittest.TestCase):
                     self.assertIn(f"{z.stem}/example-output.md", names)
                     self.assertIn(f"{z.stem}/LICENSE-docs.md", names)
                     self.assertIn(f"{z.stem}/LICENSE", names)
+                    self.assert_markdown_links_resolve(archive)
 
     def test_executive_review_travels_with_decision_brief(self):
         with tempfile.TemporaryDirectory() as tmp:
