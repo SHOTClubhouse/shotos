@@ -53,6 +53,7 @@ COMPLETION = re.compile(
     re.IGNORECASE,
 )
 HEADING = re.compile(r"^\s*(#{1,6}\s*claims\b|\*\*claims\*\*|claims:)\s*$", re.IGNORECASE)
+FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
 ITEM = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s*\[(\w+)\]\s*(.*)$")
 COMMENT = re.compile(r"\s+\([^()]*\)\s*$")
 
@@ -83,9 +84,26 @@ class Result:
         return not self.problems and all(r.state in PASS_STATES for r in self.claims)
 
 
+def report_lines(report: str):
+    fence = ""
+    for line in report.splitlines():
+        match = FENCE.match(line)
+        if fence:
+            if match and match[1][0] == fence[0] and len(match[1]) >= len(fence) and not match[2].strip():
+                fence = ""
+        elif match:
+            fence = match[1]
+        else:
+            yield line
+
+
+def has_completion_language(report: str) -> bool:
+    return any(COMPLETION.search(line) for line in report_lines(report))
+
+
 def parse_claims(report: str) -> list:
     claims, inside = [], False
-    for line in report.splitlines():
+    for line in report_lines(report):
         if HEADING.match(line):
             inside = True
             continue
@@ -109,7 +127,7 @@ def parse_claims(report: str) -> list:
 
 
 def has_claims_block(report: str) -> bool:
-    return any(HEADING.match(line) for line in report.splitlines())
+    return any(HEADING.match(line) for line in report_lines(report))
 
 
 def _unquote(text: str) -> str:
@@ -280,7 +298,7 @@ def check_report(report: str, cwd=".", allow_commands=None, base=None) -> Result
     if not claims:
         if has_claims_block(report):
             result.problems.append("Claims block is empty")
-        elif COMPLETION.search(report):
+        elif has_completion_language(report):
             result.problems.append("completion language used but no Claims block: say what was done and how to check it")
         return result
     if base and not valid_ref(cwd, base):

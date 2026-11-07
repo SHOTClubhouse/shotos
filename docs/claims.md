@@ -1,6 +1,6 @@
 # The Claims block
 
-Every task that changes something ends with a Claims block. Each line is one claim that a person or `claim-check` can test.
+Every task that changes something ends with a Claims block. Place the actual block in the report outside a code fence. Each line is one claim that a person or `claim-check` can test.
 
 ```
 ## Claims

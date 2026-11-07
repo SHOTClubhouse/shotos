@@ -39,6 +39,11 @@ class StopHookTests(unittest.TestCase):
         run = self.run_hook("Done.\n\n## Claims\n- [file] created: plan.md\n", opted_in=False)
         self.assertEqual(run.returncode, 0, run.stderr)
 
+    def test_a_fenced_example_does_not_satisfy_the_stop_hook(self):
+        run = self.run_hook("Done.\n\n~~~markdown\n## Claims\n- [unverified] example\n~~~")
+        self.assertEqual(run.returncode, 2, run.stderr)
+        self.assertIn("no Claims block", run.stderr)
+
     def test_hook_leaves_no_bytecode_behind(self):
         with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as home:
             hooks = Path(tmp) / ".shotos" / "hooks"
