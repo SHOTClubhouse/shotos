@@ -4,7 +4,8 @@ Start with the [Harbourside example](walkthrough.md) to see how context travels 
 
 | If you want to | Read |
 |---|---|
-| See what you can make and do |  [What you can do](what-you-can-do.md): every job with a prompt to try |
+| See what you can make and do | [What you can do](what-you-can-do.md) for tasks and example prompts |
+| Find a skill by name | [Skill catalogue](skill-catalogue.md) for every skill guide and its release ZIP |
 | Start from your situation | [Enterprise operations](guides/enterprise-operations.md), [small business](guides/small-business.md) or [startup founder](guides/startup-founder.md) |
 | Learn by doing | [Harbourside walkthrough](walkthrough.md): six stages, with a runnable draft pilot and illustrated decisions |
 | Practise a job with fictional records | [Practice exercises](../examples/README.md#practise-with-fictional-work) for discovery, delivery, operations and buying |
