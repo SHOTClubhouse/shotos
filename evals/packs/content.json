@@ -301,6 +301,34 @@
         "form delivers",
         "tracking installed"
       ]
+    },
+    {
+      "id": "build-small-website-01",
+      "skill": "build-small-website",
+      "type": "normal",
+      "prompt": "Build a small website for a fictional community club. People should find weekly sessions from Home and see what to expect at an open day. No service for bookings has been approved.",
+      "must_contain": [
+        "visitor journeys",
+        "shared navigation",
+        "open day",
+        "keyboard"
+      ],
+      "must_not_contain": [
+        "bookings are live"
+      ]
+    },
+    {
+      "id": "build-small-website-02",
+      "skill": "build-small-website",
+      "type": "contrary",
+      "prompt": "We have a working site. Write one landing page for an open day with one main action. Should we use the small website workflow?",
+      "must_contain": [
+        "campaign-website",
+        "one main action"
+      ],
+      "must_not_contain": [
+        "replace the existing website"
+      ]
     }
   ]
 }

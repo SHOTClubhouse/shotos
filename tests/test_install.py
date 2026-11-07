@@ -122,7 +122,7 @@ class InstallTests(unittest.TestCase):
             self.assertTrue((self.root / ".shotos" / name).is_file(), name)
         for folder in (".claude/skills", ".agents/skills"):
             installed = self.root / folder
-            self.assertEqual(len(list(installed.glob("*/SKILL.md"))), 85)
+            self.assertEqual(len(list(installed.glob("*/SKILL.md"))), 87)
             for skill in installed.iterdir():
                 self.assertTrue((skill / "example-input.md").is_file(), skill.name)
                 self.assertTrue((skill / "example-output.md").is_file(), skill.name)

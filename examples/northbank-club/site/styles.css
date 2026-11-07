@@ -1,0 +1,30 @@
+* { box-sizing: border-box; }
+:root { font: 17px/1.55 system-ui, sans-serif; color: #122c25; background: #f7f7ec; }
+body { margin: 0; }
+a { color: #154b38; text-underline-offset: .2em; }
+a:focus-visible, [tabindex]:focus-visible { outline: 3px solid #a84605; outline-offset: 4px; }
+header, footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; padding: 1rem max(5vw, calc((100vw - 1160px)/2)); }
+.club { display: inline-flex; gap: .6rem; align-items: center; font-weight: 850; text-decoration: none; }
+.club span { background: #164535; color: white; border-radius: 50%; width: 2rem; height: 2rem; text-align: center; line-height: 2rem; }
+nav { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; }
+nav a { padding: .35rem 0; }
+[aria-current] { font-weight: 800; }
+.hero { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 2rem; background: #163e31; color: #f7f7ec; padding: clamp(2rem, 7vw, 5rem) max(5vw, calc((100vw - 1160px)/2)); }
+.hero img { width: 100%; height: auto; }
+.eyebrow, article span { font-size: .76rem; font-weight: 800; letter-spacing: .12em; }
+.eyebrow { color: #dcf48f; }
+h1, h2, h3 { line-height: 1.06; margin: 0 0 .7rem; }
+h1 { font-size: clamp(2.65rem, 7.3vw, 6rem); letter-spacing: -.055em; }
+h2 { font-size: clamp(1.85rem, 4vw, 3rem); letter-spacing: -.035em; }
+.hero p { max-width: 39ch; }
+.button { display: inline-block; background: #dcf48f; color: #172d20; font-weight: 800; padding: .8rem 1.1rem; text-decoration: none; border-radius: .25rem; }
+.hero a:focus-visible { outline-color: white; }
+.content { max-width: 1160px; padding: 2.75rem 0; margin: auto; width: 90%; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 2rem; }
+article { border: 1px solid #a5b7a7; background: white; padding: clamp(1rem, 3vw, 2rem); }
+article h3 { margin-top: .5rem; }
+footer { border-top: 1px solid #a5b7a7; }
+footer p { margin: 0; }
+.skip { position: absolute; left: 1rem; top: 1rem; padding: .5rem; background: white; transform: translateY(-200%); z-index: 1; }
+.skip:focus { transform: none; }
+@media (max-width: 650px) { .hero, .grid { grid-template-columns: 1fr; } .hero img { max-width: 24rem; } }
