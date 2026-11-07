@@ -1,6 +1,6 @@
 # Use SHOTos in Codex or Claude Code
 
-Start with one skill in the folder that owns your work. On Windows or Mac, you can copy it with the file manager. Use the installer when you want a pack, shared tools or the full setup.
+Start with one skill in the folder that owns your work. On Windows or Mac, you can copy it with the file manager. Use the installer when you want a pack, shared tools or the full setup. The steps below use Decision Brief. For another job, choose a ZIP from the [first-job guide](../running-it.md#choose-your-first-job), substitute its folder and skill name, and [run its sample](../running-it.md#run-the-sample-from-your-zip).
 
 ## Copy one skill without a terminal
 

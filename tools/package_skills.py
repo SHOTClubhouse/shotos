@@ -2,7 +2,7 @@
 """Package SHOTos skills as zip files for upload to the Claude app or claude.ai.
 
 The Claude apps take a custom skill as a zip holding the skill folder, with
-SKILL.md inside it (Settings, then Capabilities, then Skills, then Upload skill).
+SKILL.md inside it. See docs/guides/chat-assistants.md for upload and file setup.
 Each zip made here is one skill. Upload the ones you want, one at a time.
 
 Examples:
@@ -66,7 +66,7 @@ def main(argv=None) -> int:
     made = [package(skill, out) for skill in skill_folders(packs)]
     for path in made:
         print(path)
-    print(f"\n{len(made)} skill zip(s) in {out}. Upload each in the Claude app under Settings, Capabilities, Skills.")
+    print(f"\n{len(made)} skill zip(s) in {out}. See docs/guides/chat-assistants.md for setup.")
     return 0
 
 

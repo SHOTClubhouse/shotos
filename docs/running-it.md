@@ -13,6 +13,16 @@ Use one skill ZIP for the chat route, or use the pack flag with your local runti
 | Give an accepted deal to delivery | [Success Handoff](https://github.com/SHOTClubhouse/shotos/releases/latest/download/success-handoff.zip) | `--pack customer-success` | The record points to the accepted revision and names the receiving lead and first action. |
 | Build a small website | [Build a Small Website](https://github.com/SHOTClubhouse/shotos/releases/latest/download/build-small-website.zip) | `--pack content` | A visitor can follow the agreed paths through the preview. |
 
+### Run the sample from your ZIP
+
+For Decision Brief, use the [two-round retail exercise](guides/chat-assistants.md#run-the-retail-scenario). For the other jobs, find `example-input.md` and `example-output.md` inside the extracted skill folder. Ask an installed skill to open the input, or attach it with `SKILL.md` and the relevant template in a file-based chat. Keep `example-output.md` for your own comparison.
+
+> Use this skill on example-input.md. Work from the supplied fictional sources and show the files or records you used. Keep the result as a draft or local preview. Flag any step that needs another file, approval or receipt.
+
+- **Proposal.** Check that the draft uses the approved price and scope. The unverified repair count and the photo with unconfirmed permission belong in the review notes.
+- **Handoff.** Check that the signed scope and weekly report promise carry over. The proposed receiver has yet to accept and the customer has an open question about keys.
+- **Website.** Check that Home links to the weekly sessions and Open Day leads to a first-visit plan. The preview should give visitors no impression that a signup service exists.
+
 For a second job, add its skill ZIP or preview the additional pack with `--dry-run` and your existing runtime and scope. The installer adds missing packs. For a version upgrade, preview removal with `--uninstall --dry-run`, review any local changes the installer would preserve, and preview a fresh install from the desired tag. The release ZIPs match their tag. The default branch can include newer skills and guides. [Installer safeguards](../SECURITY.md)
 
 Use the [full-pack guide](full-pack.md) when you want all 88 skills and the role and review resources. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
