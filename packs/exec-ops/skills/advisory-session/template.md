@@ -21,9 +21,15 @@ Source: <terms document, or "draft for the chair to confirm">.
 ## AI view, not the group's
 - <synthesis or recommendation>.
 
+## Recommendation and decision
+
+- Advice or options from the group:
+- Decision maker and authority:
+- Controlling decision or pending decision:
+
 ## Action record (one owner per action)
-| Action | Owner | Due | Evidence of done | Source in what was said |
-|---|---|---|---|---|
+| Action | Named owner | Due | Proposed, accepted or completed | Agreement or assignment source | Evidence of done |
+|---|---|---|---|---|---|
 
 ## Handoff
 - Decided or left open:
