@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Claude Code Stop hook: run claim-check on the agent's text in this turn.
 
-A Claims block anywhere in the assistant's turn is checked. Completion language
+A Claims block outside a code fence in the assistant's turn is checked. Completion language
 ("done", "sent", "tests pass") without a Claims block is only challenged when
 the agent used a tool that changes things in this turn, so ordinary
 conversation is never blocked. If the check fails, the hook blocks the stop and
@@ -75,7 +75,7 @@ def main() -> int:
     report, tools = last_turn(transcript)
     if not claim_check.has_claims_block(report) and not (tools & CHANGING_TOOLS):
         return 0
-    if tools & CHANGING_TOOLS and claim_check.COMPLETION.search(report):
+    if tools & CHANGING_TOOLS and claim_check.has_completion_language(report):
         claims = claim_check.parse_claims(report)
         if claims and all(c.kind == "unverified" for c in claims):
             print("claim-check needs a checkable claim for reported completed work, not only [unverified].", file=sys.stderr)

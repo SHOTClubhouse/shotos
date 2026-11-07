@@ -57,6 +57,22 @@ class ParsingTests(unittest.TestCase):
         report = "## Claims\n- [file] created: first.md\n\n## Update\nLater.\n\n## Claims\n- [file] created: second.md\n"
         self.assertEqual([c.target for c in claim_check.parse_claims(report)], ["first.md", "second.md"])
 
+    def test_a_fenced_example_cannot_support_a_completion_claim(self):
+        report = "Done.\n\n~~~markdown\n## Claims\n- [unverified] example\n~~~"
+        result = claim_check.check_report(report)
+        self.assertFalse(result.ok)
+        self.assertIn("no Claims block", result.problems[0])
+
+    def test_a_code_sample_alone_does_not_claim_completion(self):
+        fence = chr(96) * 3
+        report = f"{fence}markdown\nDone.\n## Claims\n- [file] created: example.md\n{fence}"
+        self.assertTrue(claim_check.check_report(report).ok)
+        self.assertFalse(claim_check.has_claims_block(report))
+
+    def test_parse_real_claims_after_a_fenced_example(self):
+        report = "~~~~\n~~~\n## Claims\n- [file] created: example.md\n~~~~\n## Claims\n- [file] created: real.md"
+        self.assertEqual([c.target for c in claim_check.parse_claims(report)], ["real.md"])
+
     def test_receipt_is_split_from_target(self):
         claims = claim_check.parse_claims("## Claims\n- [external] sent: update to finance | receipt: out/send.json\n")
         self.assertEqual(claims[0].target, "update to finance")
