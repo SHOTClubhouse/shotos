@@ -8,6 +8,7 @@ Each item ships when it has evidence behind it, not before.
 - 28 core skills covering every stage, and 12 packs with 60 more.
 - Ways of working, role agents, review lenses and a cast file.
 - Installer support for packs and role agents, and a Claude Code plugin per pack.
+- An [enterprise risk review](guides/enterprise-risk-review.md) that connects pilot evidence to the four NIST AI RMF 1.0 functions.
 - Outcome evals: ten fictional work scenarios, graded on what the agent produced, run with and without SHOTos on three Claude models. See the [evidence by build](evidence.md).
 
 ## Maturity gaps
@@ -35,6 +36,6 @@ Use the [full-pack guide](full-pack.md#improve-the-pack-from-real-work) to turn 
 
 ## Later
 
-- **Enterprise bridge:** how the controls map to NIST AI RMF, ISO/IEC 42001 and EU AI Act human-oversight duties.
+- **Enterprise bridge:** extend the workflow evidence guide for other risk and assurance processes.
 - **Community packs:** a review process and quality gate for packs written by others.
 - **Translations** of the method, templates and guides.

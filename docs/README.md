@@ -12,6 +12,7 @@ Start with the [Harbourside example](walkthrough.md) to see how context travels 
 | Review a recurring leadership decision | [Executive Decision Review](../packs/exec-ops/skills/decision-brief/review-cycle.md) |
 | Run a review across several teams | [Executive operating review](../packs/exec-ops/skills/weekly-exec-brief/operating-review.md): turn updates into decisions and route each action back to its owner |
 | Run a pilot with a partner | [Partner pilot](guides/partner-pilot.md): use one record from the accepted deal through launch, review and ownership |
+| Review risk for an AI-assisted workflow | [Enterprise risk review](guides/enterprise-risk-review.md): take scope, evidence and ownership into your existing review |
 | Run an initiative | [The six stages](framework.md) and the [programme record](../templates/programme.md) |
 | Understand the rules | [The four rules](controls.md), [the twelve controls](../rules/README.md), [the guardrails](../rules/guardrails/README.md) and [the Claims block](claims.md) |
 | Learn the craft underneath | [Ways of working](../ways-of-working/README.md): specification by example, Definition of Done, engineering excellence, DORA, Team Topologies and more |

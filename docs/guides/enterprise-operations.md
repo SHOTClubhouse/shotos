@@ -26,6 +26,8 @@ For a pilot spanning two organisations, use the [partner pilot workflow](partner
 
 For a batch of account or membership changes, use [Reconcile Records Before a Batch Change](../../packs/records/skills/reconcile-before-batch-change/README.md) to give operations, the data owner and the operator one plan to review.
 
+For a risk review, use [Review one AI-assisted workflow](enterprise-risk-review.md) to bring the scope, acceptance evidence, ownership and stop conditions into your existing decision record.
+
 ## What SHOTos gives you
 
 - **One way of working that business and technical teams share.** The six stages ([framework](../framework.md)) work for a process change in stores, a new system in head office, or both at once.
