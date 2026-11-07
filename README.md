@@ -40,6 +40,8 @@ A role sets the responsibility. An audience persona tells you who the work is fo
 
 ## Try SHOTos
 
+Start with [one founder task](docs/guides/startup-founder.md#try-one-task) or [one enterprise workflow](docs/guides/enterprise-operations.md#try-one-workflow). Both routes include a prompt, an output to review and the person who decides what happens next.
+
 Explore the [Northbank fictional club website](https://shotclubhouse.github.io/shotos/) and its [worked example](examples/northbank-club/README.md), from visitor brief to public release.
 
 **Start without a terminal.** Try the fictional retail decision in [Codex or Claude Code](docs/guides/codex-claude-code.md#copy-one-skill-without-a-terminal) or [ChatGPT or Claude](docs/guides/chat-assistants.md). Draft a recommendation from the initial evidence, then introduce the decision and handoff records to see whether the assistant updates each status correctly.
