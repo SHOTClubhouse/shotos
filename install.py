@@ -71,27 +71,18 @@ def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def inside(root: Path, rel: str):
-    path = (root / rel).resolve()
+def owned_path(root: Path, rel: str) -> Path | None:
+    """Return the named path only when it is inside the target with no path aliases."""
+    relative = Path(rel)
+    if relative.anchor or not relative.parts or ".." in relative.parts:
+        return None
+    path = root / relative
     try:
-        path.relative_to(root.resolve())
-    except ValueError:
+        if path.resolve() != path:
+            return None
+    except (OSError, RuntimeError):
         return None
     return path
-
-
-def contained(root: Path, path: Path) -> bool:
-    """True if path, after following every symlink on the way, stays inside root."""
-    probe = path
-    while not probe.exists() and not probe.is_symlink():
-        if probe.parent == probe:
-            return False
-        probe = probe.parent
-    try:
-        probe.resolve().relative_to(root.resolve())
-    except ValueError:
-        return False
-    return True
 
 
 def b64(data):
@@ -234,7 +225,10 @@ def remove_line(path: Path, line: str, created: bool) -> None:
 
 def restore_or_trim(root: Path, rel: str, edit: dict, line, dry_run: bool, created_state) -> None:
     """Undo one edit to an existing text file: exact original bytes if untouched since, else remove our line only."""
-    path = root / rel
+    path = owned_path(root, rel)
+    if path is None:
+        print(f"skip  {rel} (linked or outside the target folder)")
+        return
     if not path.is_file():
         return
     label = "settings.json hook" if line is None else f"{line} from {rel}"
@@ -309,7 +303,7 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
     previous = None
     packs = sorted(set(packs))
     if manifest_path.exists():
-        if manifest_path.is_symlink() or not contained(root, manifest_path):
+        if manifest_path.is_symlink():
             raise InstallError("The existing manifest is a link. Nothing was changed.")
         previous = json.loads(manifest_path.read_text(encoding="utf-8"))
         if (previous.get("version") != 2 or (previous.get("runtime"), previous.get("scope")) != (runtime, scope)
@@ -323,14 +317,18 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
                                      with_agents and previous is None, packs_only=previous is not None)
     existing_agreement = previous is None and scope == "project" and (root / "AGENTS.md").is_file()
     settings_path = root / ".claude" / "settings.json"
+    destinations = [dst for _, dst in copies] + [root / ".gitignore"] + [root / name for name in import_files]
+    if existing_agreement:
+        destinations.append(root / "AGENTS.md")
+    if hook:
+        destinations.append(settings_path)
+    linked = [path.relative_to(root).as_posix() for path in destinations
+              if owned_path(root, path.relative_to(root).as_posix()) is None]
+    if linked:
+        raise InstallError("these paths are linked or lead outside the target folder, so nothing was changed:\n  "
+                           + "\n  ".join(linked))
     if hook:
         read_settings(settings_path)
-    outside = [dst for dst in [d for _, d in copies] + [root / ".gitignore"] + [root / n for n in import_files]
-               + ([root / "AGENTS.md"] if existing_agreement else [])
-               + ([settings_path] if hook else []) if not contained(root, dst)]
-    if outside:
-        raise InstallError("these paths lead outside the target folder (through a symlink), so nothing was changed:\n  "
-                           + "\n  ".join(str(d) for d in outside))
     clashes = [dst for _, dst in copies if dst.exists()]
     codex_conflicts = codex_skill_conflicts(root, copies) if runtime in {"codex", "agents", "all"} else []
     if clashes or codex_conflicts:
@@ -460,9 +458,9 @@ def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
     kept = []
     edits = manifest.get("edits", {})
     for rel, digest in manifest.get("files", {}).items():
-        path = inside(root, rel)
+        path = owned_path(root, rel)
         if path is None:
-            print(f"skip  {rel} (outside the target folder)")
+            print(f"skip  {rel} (linked or outside the target folder)")
             continue
         if not path.is_file():
             continue
@@ -488,7 +486,7 @@ def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
         restore_or_trim(root, name, edits.get(name), IMPORT_LINE, dry_run, state)
     if not dry_run:
         for rel in sorted(manifest.get("dirs", []), key=lambda d: d.count("/"), reverse=True):
-            path = inside(root, rel)
+            path = owned_path(root, rel)
             if path is not None and path.is_dir() and not any(path.iterdir()):
                 path.rmdir()
     return kept
@@ -536,9 +534,9 @@ def status(root: Path) -> int:
     for name, digest in sorted(files.items()):
         relative = Path(name)
         path = root / relative
-        if relative.is_absolute() or relative.anchor or ".." in relative.parts or not contained(root, path):
-            differences.append(("Skipped outside target", name))
-        elif path.is_symlink() or (path.exists() and not path.is_file()):
+        if owned_path(root, name) is None:
+            differences.append(("Skipped linked or outside target", name))
+        elif path.exists() and not path.is_file():
             differences.append(("Replaced", name))
         elif not path.exists():
             differences.append(("Missing", name))

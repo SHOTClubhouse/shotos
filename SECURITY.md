@@ -10,7 +10,7 @@ Please report security issues privately through GitHub's private vulnerability r
 - **claim-check never runs a command because a report or a repository asks it to.** Commands run only from your own `~/.shotos/claim-check.json`, a config you name with `--config`, `--allow-command`, or a project config you explicitly trust with `--trust-project-config`. The Stop hook ignores commands in a project's config, so a cloned repository cannot use it to run code.
 - **Option injection is refused.** The `base` setting must name a real commit, and anything starting with `-` is rejected.
 - **claim-check stays inside the workspace.** It refuses paths outside the folder it was given.
-- **Install stays inside the project.** It refuses any path that leads outside the folder through a symlink, before writing anything.
-- **Uninstall only removes what install created.** The manifest records paths relative to the project, uninstall refuses anything outside it, and any file you changed after install is kept.
+- **Install stays inside the project.** It checks target paths for file and directory links before writing.
+- **Uninstall only removes what install created.** The manifest records paths relative to the project. Uninstall skips linked paths, paths outside the project and files you changed after installing.
 - **Local defaults.** The installer and default claim checks use local files and Git metadata. Commands you allow run with your own permissions. The [optional automation pack](packs/automations/README.md) uses Google services and can send an approved digest or call a configured model endpoint when you enable those features.
 - **Forks.** Install from this repository or a fork you have read. A modified installer or hook runs with your permissions.
