@@ -10,6 +10,7 @@ Pick the row that matches the work in front of you. Start with the relevant skil
 | --- | --- | --- |
 | Turn a live opportunity into a proposal | [Contextual Proposal](../../packs/win-the-work/skills/contextual-proposal/README.md) | A buyer-facing draft and a private working sheet that links each material claim or commitment to evidence |
 | Give an accepted deal to the person delivering it | [Success Handoff](../../packs/customer-success/skills/success-handoff/README.md) | One deal record with the accepted revision, the first action and the receiving lead's status |
+| Run a pilot with an external partner | [Partner pilot](partner-pilot.md) | A launch decision, named owners and a clear measure for the sponsor's review |
 | Put a small website in front of customers | [Build a Small Website](../../packs/content/skills/build-small-website/README.md) | A preview with the key visitor journeys checked |
 
 For a proposal, start a fresh chat with the buyer's brief, the approved offer and any source you want the assistant to use.

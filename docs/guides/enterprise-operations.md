@@ -20,6 +20,8 @@ Start with the [work record](../../templates/work-record.md) and [acceptance car
 
 Use [Evidence Pack](../../skills/evidence-pack/README.md) for the pilot review and [Enablement Plan](../../skills/enablement-plan/README.md) when the receiving lead is ready to take over.
 
+For a pilot spanning two organisations, use the [partner pilot workflow](partner-pilot.md) to record commercial scope, launch approval, communications approval and ownership in the same programme record.
+
 ## What SHOTos gives you
 
 - **One way of working that business and technical teams share.** The six stages ([framework](../framework.md)) work for a process change in stores, a new system in head office, or both at once.
