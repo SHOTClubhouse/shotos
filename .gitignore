@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 .shotos-install.json
 dist/
+
+# The stock-control eval starts from a fictional handoff. Keep this fixture in source.
+!/evals/outcomes/handoff-pickup/fixtures/HANDOFF.md
