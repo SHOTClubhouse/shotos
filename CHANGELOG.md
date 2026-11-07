@@ -1,9 +1,8 @@
 # Changelog
 
-## Unreleased
+## 1.7.0 (7 November 2026)
 
-These changes are on the default branch. Use the [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) for the packaged ZIPs available today.
-
+- Includes 88 individually downloadable skill ZIPs across the core and 12 optional packs.
 - Start with a [practice exercise](examples/README.md#practise-with-fictional-work) for discovery, leadership decisions, proposals, procurement, handoffs or a public website. Founder and enterprise guides include scenarios that continue into a second decision.
 - Carry the same record across [bid response](packs/win-the-work/skills/bid-response/award-handoff.md), contract and delivery. Use the [buyer review pack](packs/win-the-work/skills/rfp-authoring/template.md) for a response schedule and panel scorecard. Keep CRM stages, agreed scope and delivery acceptance separate.
 - Recover interrupted [meeting notes](packs/exec-ops/skills/meeting-notes/retry-example.md), [daily briefs](packs/exec-ops/skills/daily-brief/recovery-example.md) and batch automations from their recorded state. The [automation pilot guide](packs/automations/README.md#review-your-first-pilot) covers dry runs, read-back and recovery before scheduling.
