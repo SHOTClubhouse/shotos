@@ -49,3 +49,48 @@ test('plain data can pass dry run', () => {
   const { reports } = batchWithClient('Example {Community Centre}', 'dry');
   assert.ok(reports.some(({ action }) => action === 'would-create'));
 });
+
+test('DONE is written only after the document receipt flushes', () => {
+  const events = [];
+  const context = vm.createContext({
+    SpreadsheetApp: { flush: () => events.push('flush') },
+  });
+  vm.runInContext(script, context);
+  const table = {
+    col: { done: 0, doc_url: 1, copy_state: 2 },
+    sheet: { getRange: (_row, col) => ({ setValue: (value) => events.push([col, value]) }) },
+  };
+  context.setControl_(table, { rowNumber: 2, values: [] },
+    { done: 'DONE', doc_url: 'fixture-link', copy_state: 'complete' });
+  assert.deepEqual(events, [[2, 'fixture-link'], [3, 'complete'], 'flush', [1, 'DONE'], 'flush']);
+});
+
+test('a receipt write failure leaves a verified copy intact and stops the batch', () => {
+  const context = vm.createContext({});
+  vm.runInContext(script, context);
+  const row = { rowNumber: 2, get: (key) => (key === 'client' ? 'Workshop' : '') };
+  const reports = [];
+  let writes = 0;
+  Object.assign(context, {
+    getSetting_: () => 'fixture-id',
+    inspectTemplate_: () => ({ keys: ['client'], tokens: [{ key: 'client', token: '{{client}}' }] }),
+    readRows_: () => ({ data: [row], col: { client: 0 } }),
+    readBannedTerms_: () => [],
+    copyTemplate_: () => 'verified-fixture',
+    fillDocument_: () => {},
+    verifyDocument_: () => [],
+    markCopyFailed_: () => assert.fail('A verified document must be left intact'),
+    DriveApp: {
+      getFolderById: () => ({}),
+      getFileById: () => ({ getUrl: () => 'fixture-link' }),
+    },
+    report_: (_row, _name, action, id) => reports.push({ action, id }),
+    setControl_: (_table, _row, updates) => {
+      writes++;
+      if (updates.done) throw new Error('receipt write interrupted');
+    },
+  });
+  assert.throws(() => context.processRows_({ mode: 'live', limit: 3 }), /receipt write interrupted/);
+  assert.equal(writes, 2);
+  assert.deepEqual(reports, [{ action: 'receipt-error', id: 'verified-fixture' }]);
+});

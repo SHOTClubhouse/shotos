@@ -259,6 +259,8 @@ function processRows_(options) {
     // otherwise make a fresh copy and fill it from the current sheet values.
     if (reuse && !hasAllPlaceholders_(existingId, template)) { reuse = false; }
     var docId = reuse ? existingId : '';
+    var docUrl = '';
+    var receiptReady = false;
     try {
       if (!reuse) {
         docId = copyTemplate_(templateId, name);
@@ -275,23 +277,31 @@ function processRows_(options) {
 
       var file = DriveApp.getFileById(docId);
       if (reuse) { file.setName(name); } // undo the FAILED prefix
+      docUrl = file.getUrl();
+      receiptReady = true;
       setControl_(table, row, {
-        done: CONFIG.DONE_VALUE, status: 'ok', doc_id: docId, doc_url: file.getUrl(),
+        done: CONFIG.DONE_VALUE, status: 'ok', doc_id: docId, doc_url: docUrl,
         attempts: attempts + 1, last_message: 'created', done_at: new Date(), copy_state: 'complete'
       });
-      created++;
-      report_(row.rowNumber, name, reuse ? 'retried' : (existingId ? 'regenerated' : 'created'), docId, file.getUrl(),
-        'Filled ' + template.tokens.length + ' placeholder(s) in one update and read back clean.', attempts + 1);
     } catch (err) {
-      failed++;
       var message = String(err && err.message ? err.message : err);
+      if (receiptReady) {
+        report_(row.rowNumber, name, 'receipt-error', docId, docUrl,
+          'The document was verified. Check the row and reconcile its receipt before retrying. ' + message, attempts + 1);
+        throw err;
+      }
+      failed++;
       if (docId) { markCopyFailed_(docId, name); }
       var failure = { status: 'error', attempts: attempts + 1, last_message: truncate_(message, 200) };
       if (docId) { failure.doc_id = docId; failure.copy_state = 'retry'; }
       setControl_(table, row, failure);
       report_(row.rowNumber, name, 'error', docId || existingId, '', message +
-        (docId ? ' The copy was kept as "' + FAILED_PREFIX + name + '" and the next attempt reuses it.' : ''), attempts + 1);
+        (docId ? ' The copy was kept as "' + FAILED_PREFIX + name + '". A retry checks it before reuse.' : ''), attempts + 1);
+      continue;
     }
+    created++;
+    report_(row.rowNumber, name, reuse ? 'retried' : (existingId ? 'regenerated' : 'created'), docId, docUrl,
+      'Filled ' + template.tokens.length + ' placeholder(s) in one update and read back clean.', attempts + 1);
   }
 
   var summary = (live ? '' : 'DRY RUN. ') + 'Created or would create ' + created + ', blocked ' + blocked +
@@ -539,13 +549,20 @@ function buildName_(row, table, keys) {
   return name || ('Document row ' + row.rowNumber);
 }
 
-/** Writes control cells for one row, then flushes so a crash loses at most this row. */
+/** Writes the receipt first. DONE is written only after those fields flush. */
 function setControl_(table, row, updates) {
-  Object.keys(updates).forEach(function (name) {
+  function write(name) {
     table.sheet.getRange(row.rowNumber, table.col[name] + 1).setValue(updates[name]);
     row.values[table.col[name]] = String(updates[name]);
+  }
+  Object.keys(updates).forEach(function (name) {
+    if (name !== 'done') { write(name); }
   });
   SpreadsheetApp.flush();
+  if (Object.prototype.hasOwnProperty.call(updates, 'done')) {
+    write('done');
+    SpreadsheetApp.flush();
+  }
 }
 
 function readBannedTerms_() {
