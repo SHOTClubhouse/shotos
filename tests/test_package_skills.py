@@ -12,18 +12,23 @@ TOOL = Path(__file__).resolve().parents[1] / "tools" / "package_skills.py"
 class PackageSkillsTests(unittest.TestCase):
     def test_each_zip_holds_one_skill_folder_with_skill_md(self):
         with tempfile.TemporaryDirectory() as tmp:
-            result = subprocess.run([sys.executable, str(TOOL), "--pack", "media", "--out", tmp],
+            result = subprocess.run([sys.executable, str(TOOL), "--all-packs", "--out", tmp],
                                     capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stderr)
             zips = sorted(Path(tmp).glob("*.zip"))
-            self.assertIn("voiceover.zip", [z.name for z in zips])
-            self.assertIn("agree-acceptance.zip", [z.name for z in zips])
+            repo = TOOL.parents[1]
+            sources = [*repo.glob("skills/*/SKILL.md"), *repo.glob("packs/*/skills/*/SKILL.md")]
+            self.assertCountEqual((z.stem for z in zips), (source.parent.name for source in sources))
+            by_name = {source.parent.name: source for source in sources}
             for z in zips:
                 with zipfile.ZipFile(z) as archive:
                     names = archive.namelist()
+                    self.assertIsNone(archive.testzip())
+                    self.assertEqual(len(names), len(set(names)), z.name)
                     top = {n.split("/")[0] for n in names}
                     self.assertEqual(top, {z.stem})
-                    self.assertIn(f"{z.stem}/SKILL.md", names)
+                    self.assertEqual(archive.read(f"{z.stem}/SKILL.md"), by_name[z.stem].read_bytes())
+                    self.assertTrue(all(entry.date_time == (1980, 1, 1, 0, 0, 0) for entry in archive.infolist()))
                     self.assertIn(f"{z.stem}/example-input.md", names)
                     self.assertIn(f"{z.stem}/example-output.md", names)
                     self.assertIn(f"{z.stem}/LICENSE-docs.md", names)

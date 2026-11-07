@@ -34,24 +34,34 @@ def skill_folders(packs) -> list:
     return found
 
 
+def write_member(archive: zipfile.ZipFile, name: str, content: bytes) -> None:
+    # Avoid embedding the build time, checkout timestamps or the host filesystem's mode.
+    entry = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
+    entry.create_system = 3
+    entry.external_attr = 0o100644 << 16
+    archive.writestr(entry, content, compress_type=zipfile.ZIP_DEFLATED)
+
+
 def package(skill: Path, out: Path, *, source_ref: str = "main") -> Path:
     target = out / f"{skill.name}.zip"
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(skill.rglob("*")):
             if path == skill / "README.md":
-                archive.writestr(f"{skill.name}/README.md", portable_readme(skill, REPO, source_ref=source_ref))
+                readme = portable_readme(skill, REPO, source_ref=source_ref)
+                write_member(archive, f"{skill.name}/README.md", readme.encode("utf-8"))
             elif path.is_file():
-                archive.write(path, Path(skill.name) / path.relative_to(skill))
+                write_member(archive, f"{skill.name}/{path.relative_to(skill).as_posix()}", path.read_bytes())
         for path, name in example_files(skill):
-            archive.write(path, Path(skill.name) / name)
+            write_member(archive, f"{skill.name}/{name}", path.read_bytes())
         if skill == REPO / "packs" / "exec-ops" / "skills" / "decision-brief":
             scenarios = {path.resolve(): f"../scenarios/{path.name}"
                          for path in (skill / "scenarios").glob("retail-trial-*.md")}
             for name in ("codex-claude-code.md", "chat-assistants.md"):
                 guide = REPO / "docs" / "guides" / name
-                archive.writestr(f"{skill.name}/guides/{name}", portable_markdown(guide, REPO, scenarios, source_ref=source_ref))
+                markdown = portable_markdown(guide, REPO, scenarios, source_ref=source_ref)
+                write_member(archive, f"{skill.name}/guides/{name}", markdown.encode("utf-8"))
         for notice in ("LICENSE-docs.md", "LICENSE"):
-            archive.write(REPO / notice, Path(skill.name) / notice)
+            write_member(archive, f"{skill.name}/{notice}", (REPO / notice).read_bytes())
     return target
 
 
@@ -66,9 +76,15 @@ def main(argv=None) -> int:
         parser.error("--source-commit must be a full 40-character Git commit")
     source_ref = args.source_commit.lower() if args.source_commit else "main"
     packs = sorted(p.name for p in (REPO / "packs").iterdir() if (p / "skills").is_dir()) if args.all_packs else args.pack
+    skills = skill_folders(dict.fromkeys(packs))
+    seen = set()
+    for skill in skills:
+        if skill.name.casefold() in seen:
+            parser.error(f"duplicate skill ZIP name: {skill.name}.zip")
+        seen.add(skill.name.casefold())
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    made = [package(skill, out, source_ref=source_ref) for skill in skill_folders(packs)]
+    made = [package(skill, out, source_ref=source_ref) for skill in skills]
     for path in made:
         print(path)
     print(f"\n{len(made)} skill zip(s) in {out}. See docs/guides/chat-assistants.md for setup.")
