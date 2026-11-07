@@ -4,7 +4,7 @@ Start with one skill in the folder that owns your work. On Windows or Mac, you c
 
 ## Copy one skill without a terminal
 
-1. Download `decision-brief.zip` from the [latest GitHub release](https://github.com/SHOTClubhouse/shotos/releases/latest). On Windows, right-click and choose **Extract All**. On Mac, double-click the ZIP in Finder.
+1. [Download `decision-brief.zip`](https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip). On Windows, right-click and choose **Extract All**. On Mac, double-click the ZIP in Finder.
 2. Open the project folder in File Explorer or Finder. Create the folders shown below if they are absent. On Mac, use **Command–Shift–.** to show dot folders. In Finder, **Go to Folder** can open a dot folder once it exists. If Finder refuses to create a dot folder, use the file explorer in your editor to create it, or use the [chat setup](chat-assistants.md).
 3. Copy the whole extracted `decision-brief` folder into the right `skills` folder below. On Windows, you can also choose that `skills` folder as the **Extract All** destination. Check that `SKILL.md` sits directly inside `decision-brief`, with its examples and resources alongside it.
 
@@ -17,6 +17,8 @@ Start with one skill in the folder that owns your work. On Windows or Mac, you c
    - **Codex desktop.** For a new project, open the project picker above the composer and choose **New project**. Name it, use **Add folder** under **Source folders** to select the project root, then choose **Create project**. Review any folder trust prompt before continuing. In the new chat, type `$decision` and select **Decision Brief** from the project skill picker.
    - **Claude Code in VS Code.** With the [Claude Code extension](https://code.claude.com/docs/en/vs-code) installed, use **File → Open Folder** to open the project root. Open the Claude Code panel and type `/decision-brief` in its prompt box. Select the project skill there.
 5. Ask the selected skill to read `review-cycle.md`, then use the [two retail prompts](chat-assistants.md#run-the-retail-scenario) in order. Check that it cites the installed scenario files and evidence IDs. Compare your result with the [retail check](chat-assistants.md#check-your-first-result).
+
+Use the same installed skill for the [bank and startup exercises](chat-assistants.md#try-a-bank-or-startup-decision). If your ZIP predates a scenario's split input files, open the two linked evidence files from GitHub.
 
 For a shared agreement, add the [working agreement](../../templates/AGENTS.md) at the project root or merge its guidance into the existing file with the project owner's review. In Claude Code, reference it from the project's `CLAUDE.md` using `@AGENTS.md`. Manual copying gives you the selected skill and its files. Add other skills from the same release as needed. Keep one copy of each skill per project.
 

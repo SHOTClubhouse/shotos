@@ -58,6 +58,14 @@ class PackageSkillsTests(unittest.TestCase):
                         content = (installed / relative).read_bytes()
                         self.assertIn(b"Fictional scenario", content)
                         self.assertEqual(archive.read(f"decision-brief/{relative}"), content)
+                        if name != "retail-trial":
+                            for phase in ("initial", "follow-up"):
+                                filename = f"{name}-{phase}.md"
+                                input_path = f"scenarios/{filename}"
+                                self.assertIn(f"({filename})".encode("ascii"), content)
+                                self.assertIn(f"(../{input_path})".encode("ascii"), chat_guide)
+                                self.assertEqual(archive.read(f"decision-brief/{input_path}"),
+                                                 (installed / input_path).read_bytes())
                 retail_example = (installed / "scenarios/retail-trial.md").read_text(encoding="utf-8")
                 for phase, record_ids in (("initial", [b"1", b"2", b"3"]),
                                           ("follow-up", [b"4", b"5", b"6"])):

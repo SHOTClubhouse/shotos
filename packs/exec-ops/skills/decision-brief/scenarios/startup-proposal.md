@@ -2,11 +2,9 @@
 
 **Fictional scenario.** The buyer, product, pricing and records are invented. All outcomes below are simulated.
 
-## Inputs
+## Try it
 
-- **S1, Monday 2 March, buyer call note.** A facilities buyer wants to test one team's scheduling workflow for two weeks. The buyer will ask their operations lead to check the scope. No purchase decision or pilot start was agreed.
-- **S2, Monday 2 March, buyer draft and private working sheet.** The draft proposes the two-week test and says onboarding will be free. The working sheet labels free onboarding as proposed and unapproved. The founder can approve pricing. There is no approval for this term and no dispatch receipt.
-- **S3, Tuesday 3 March, competing option.** A second buyer has asked for a general overview but has given no buying date or decision maker.
+Share the [initial evidence](startup-proposal-initial.md) and ask for a decision brief, a buyer-facing sentence and a private working-sheet entry. Then share the [follow-up records](startup-proposal-follow-up.md) and ask what is authorised, what is pending and which handoff gap needs fixing. Keep the worked answer below for review.
 
 ## Worked decision brief
 
@@ -25,7 +23,3 @@
 - **S4, Wednesday 4 March, founder's decision note.** Approve preparation of the revised draft only. Send authority and commercial terms remain open.
 - **S5, Thursday 5 March, work record.** The proposal operator accepted the drafting handoff and agreed to return a revision with the buyer copy and private working sheet as separate files. This is drafting acceptance. Buyer acceptance and delivery transfer are still open.
 - **S6, next review, observer note.** The new operator needed the original author to reconstruct the approved terms from chat. Mark the independence check **failed for this run**. Add the authority record to the handoff with permission to read it, then repeat the cycle before counting it as independent.
-
-## Try it
-
-Ask an assistant for the decision brief, buyer-facing sentence and private working-sheet entry. The buyer sentence should leave the terms open. Then supply S4–S6 and ask what has been authorised, what is still pending and which handoff gap needs fixing.
