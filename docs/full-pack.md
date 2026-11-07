@@ -80,4 +80,6 @@ Turn a consequential miss into a fictional example someone else can run. Preserv
 
 Use the accepted-work ledger beside your task records. Start with first-pass acceptance, material defects, minutes spent reviewing or reworking, and the time it takes someone else to pick up the task. Track model spend if the runtime reports it. Count from the first request to a named person's acceptance and include reruns. Keep task types and acceptance criteria comparable before making a performance claim.
 
+For a project install, copy `.shotos/templates/accepted-work-ledger.csv` into the approved work folder. To read the results from the project root, run `python .shotos/tools/summarise_accepted_work.py path/to/ledger.csv`. Use `--matched-only` when comparing the same task IDs across conditions. The [measurement guide](prerequisites.md#measuring-your-own-cost-per-accepted-task) explains the fields and review time.
+
 **Example from maintaining SHOTos.** A worked example could be opened in the repository and was missing from an uploaded skill ZIP. That was a packaging problem. The fix was to ship each skill's existing fictional input and output through both packaging routes. The check opens those files in a fresh project install and in the ZIP. This verifies availability. A separate run is needed to show how an agent uses them.

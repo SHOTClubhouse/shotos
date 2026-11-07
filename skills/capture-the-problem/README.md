@@ -63,6 +63,10 @@ On paper: print the template, copy the quotes in under "What we heard", and fill
 - **Throughout:** [report-with-evidence](../report-with-evidence/README.md) makes the agent's own account of what it found checkable.
 - **At the end:** [evidence-handoff](../evidence-handoff/README.md) passes the open unknowns to whoever runs the test.
 
+## Needs
+
+The problem as reported and access to any source needed to verify it. If evidence is missing, keep the report attributed and say what to check next.
+
 ## How it is tested
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal (a chatbot request, a slow session planner, wrong invoices). Two are contrary: a typo fix that should not trigger the skill, and a "40% churn because of pricing" claim that should be treated as unverified.

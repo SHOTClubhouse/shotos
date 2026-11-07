@@ -61,6 +61,10 @@ On paper: print the template and fill it in with the person who will accept the 
 - **After:** [report-with-evidence](../report-with-evidence/README.md) reports against these checks, and [evidence-handoff](../evidence-handoff/README.md) records which passed.
 - **Boundaries:** the list on the card is rule 1 applied to one task. See [docs/controls.md](../../docs/controls.md).
 
+## Needs
+
+The request, the person who can accept it, and any source or example needed to agree the checks. You can draft the card in a chat.
+
 ## How it is tested
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal and ask for a card (a customer FAQ, a file-renaming script, classifying survey comments). Two are contrary: the agent should not send a newsletter to a whole mailing list, or delete shared staging folders, without a yes.

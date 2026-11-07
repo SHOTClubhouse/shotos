@@ -58,6 +58,10 @@ This skill has no template file, because the Claims format is the template. On p
 - **After:** [evidence-handoff](../evidence-handoff/README.md) ends with a Claims block too, so the next person inherits checkable lines.
 - **Tool:** `claim-check` and the Stop hook turn the format into a pass or fail. See [hooks/](../../hooks/).
 
+## Needs
+
+The saved result and its authoritative evidence, such as a file, test result or external receipt. The local claim checker is optional. Record any check you could not run.
+
 ## How it is tested
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal: create a file and report, report that a plan was not run, and draft an email without claiming it was sent. Two are contrary: refuse to mark a project accepted from a passing remark, and refuse to say a deploy worked when the agent has not seen it.

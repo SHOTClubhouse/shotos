@@ -61,6 +61,10 @@ On paper: print the template and fill in the state first. Choose one of prepared
 - **Before:** [agree-acceptance](../agree-acceptance/README.md) provides the checks the state refers to.
 - **With:** [report-with-evidence](../report-with-evidence/README.md) supplies the Claims block at the end of the handoff.
 
+## Needs
+
+The current artefact and its revision, approved links to its evidence, and the named receiving owner. A written receipt is needed to record acceptance.
+
 ## How it is tested
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal: a payroll comparison, a website copy rewrite and an onboarding checklist. Two are contrary: the agent should not mark everything accepted because a client nodded, and should not invent a migration status it cannot see.

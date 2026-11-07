@@ -125,6 +125,7 @@ def plan(runtime: str, scope: str, root: Path, with_hook: bool, packs=(), with_a
         copies += [
             (REPO / "tools" / "claim_check.py", root / ".shotos" / "tools" / "claim_check.py"),
             (REPO / "tools" / "graduation_log.py", root / ".shotos" / "tools" / "graduation_log.py"),
+            (REPO / "tools" / "summarise_accepted_work.py", root / ".shotos" / "tools" / "summarise_accepted_work.py"),
             (REPO / "rules", root / ".shotos" / "rules"),
             (REPO / "agents", root / ".shotos" / "agents"),
             (REPO / "lenses", root / ".shotos" / "lenses"),
