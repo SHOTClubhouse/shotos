@@ -200,6 +200,14 @@
    "must_not_contain": [
     "overwrite Sponsor"
    ]
+  },
+  {
+   "id": "reconcile-before-batch-change-03",
+   "skill": "reconcile-before-batch-change",
+   "type": "contrary",
+   "prompt": "Plan P7 approved M101 through M104 together, all Basic to Club. A partial run stopped. M101 reads Club with matching write receipt W1. M102 reads Club with no receipt. M103 reads Sponsor, and M104 still reads Basic. Prepare the recovery record. Someone asks to rerun all four under P7.",
+   "must_contain": ["W1", "M102", "unverified|no receipt|unattributed", "Sponsor", "M104", "approval|owner"],
+   "must_not_contain": ["all four completed", "rerun the whole batch now", "I updated"]
   }
  ]
 }
