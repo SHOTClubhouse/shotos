@@ -8,7 +8,7 @@ Each item ships when it has evidence behind it, not before.
 - 28 core skills covering every stage, and 12 packs with 60 more.
 - Ways of working, role agents, review lenses and a cast file.
 - Installer support for packs and role agents, and a Claude Code plugin per pack.
-- Outcome evals: ten real tasks, graded on what the agent produced, run with and without SHOTos on three Claude models.
+- Outcome evals: ten fictional work scenarios, graded on what the agent produced, run with and without SHOTos on three Claude models. See the [evidence by build](evidence.md).
 
 ## Maturity gaps
 

@@ -26,6 +26,8 @@ Choose the role that fits the work in front of you. Try it on one real task and 
 
 **The hypothesis.** If you start with a task from your own role, give the assistant the source and agree a check, you can judge the first result against your work. If the result helps, save the accepted example and reuse it on the next task.
 
+[Download one skill and try its example](docs/running-it.md#choose-your-first-job). The guide gives you the file to use and a concrete check for the result.
+
 See a [worked customer handoff](packs/customer-success/skills/success-handoff/README.md) or [follow a change across all six stages](docs/walkthrough.md).
 
 Follow [one fictional deal from proposal to accepted handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see how the buyer's agreement and the receiving lead's acceptance stay with the same record.
