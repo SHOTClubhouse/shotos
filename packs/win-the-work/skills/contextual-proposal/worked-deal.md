@@ -44,7 +44,7 @@ This record stays with the account. Sales adds the proposal and approval evidenc
 
 **Account health.** Unknown. The record has a baseline for register completion and no delivery observations yet.
 
-**Transfer status.** Accepted on 6 November. Jordan offered H1 with a dispatch receipt (E5). Robin accepted in writing, confirmed scope, capacity and permitted access, and dated the first action (E6). Jordan remained accountable until that acceptance.
+**Transfer status.** Accepted on 6 November. Jordan offered H1 with a dispatch receipt (E5). Robin accepted H1 in writing, confirmed scope, capacity and permitted access, and dated the first action (E6). Robin owns that action. The system of record still shows Jordan as account owner until the ownership update is recorded.
 
 **Next actions.** On 9 November, Robin contacts Morgan to confirm the register lead and book setup. Robin then records the setup date before the first session and schedules the 9 December review. Confirm the register lead before setup.
 

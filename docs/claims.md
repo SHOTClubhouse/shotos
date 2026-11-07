@@ -38,7 +38,7 @@ Put each status claim in the Claims block. The checker reads those lines and che
 | Draft or Prepared | Saved artefact and its current version |
 | Authorised | A named owner approved the exact action and revision |
 | Offered | Dispatch receipt or read-back for the authorised offer |
-| Accepted | Written acknowledgement by the named receiver with scope, capacity, access and a dated first action |
+| Accepted | Written acknowledgement of the offered revision by the named receiver, with scope, capacity, access and a dated first action |
 | Completed | The customer notification, owner update and first action are recorded |
 | Independent cycle | The receiving team runs a full cycle on its own and its lead signs off |
 
