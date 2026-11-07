@@ -5,7 +5,7 @@
 **Date recorded:**
 
 ## Measures
-| Measure | Definition and unit | Current value | Source (where to look) | Period covered | Collected by | Status (measured / not measured / estimate) |
+| Measure | Definition, unit and who or what counts | Current value (counts for rates) | Source (where to look) | Period covered | Collected by | Status (measured / not measured / estimate) |
 |---|---|---|---|---|---|---|
 | | | | | | | |
 

@@ -27,13 +27,26 @@ A founder is asked to build a booking app for an independent repair workshop. Pa
 | ID | What the founder has |
 | --- | --- |
 | D1 | The manager reports that the front desk gets repeat calls about appointment availability and asks for an app. |
-| D2 | A one-week manual tally records 18 appointment enquiries, six of which led to at least one repeat contact about confirmation. The tally has no comparable weeks. |
+| D2 | A one-week manual tally records 18 phone enquiries, six of which led to at least one repeat contact about confirmation. The tally has no comparable weeks. |
 | D3 | In three of the six repeat cases, the calendar shows a slot but no staff member had taken ownership of confirming it. The other cases have no recorded cause. |
 | D4 | The manager can assign a front-desk owner for a one-week manual test. The founder can propose a change. The manager decides whether it runs. |
 
 > Use D1–D4 to capture the problem and propose one testable bet. Separate the observed problem from the requested app. Name the measure, baseline, threshold, stop condition and decision owner. Keep the test as a plan for review.
 
 Look for a plan that tests confirmation ownership before committing to software. An example bet is that assigning a confirmation owner for one week brings the repeat-contact rate down from the observed 6 of 18 to at most 1 in 6 comparable enquiries. Count each enquiry once, use the same recording window for both weeks and record missed bookings as a guard measure. The earlier tally gives no baseline for missed bookings. Compare only if the test records at least 18 comparable enquiries. Pause if a booking is missed because of the change. An inconclusive result goes back to the manager for review. A better result supports another bounded test, with software investment a separate decision.
+
+### Read the result before deciding what to build
+
+Try a second round with [Evidence Pack](../../skills/evidence-pack/README.md). Keep the original threshold and guard measure.
+
+| ID | Follow-up record |
+| --- | --- |
+| D5 | The manager approved the manual test. In the agreed week, 3 of 18 phone enquiries led to a repeat confirmation contact. A new online form received six more enquiries, with no comparable online baseline. |
+| D6 | The manager confirmed that a workshop slot was lost because the new confirmation owner was off shift and the backup had no access to the queue. |
+
+> Compare the results with D2, check the guard and give the workshop manager one next decision. Explain what would need to change before another trial.
+
+The phone measure reached 3 of 18, or one in six. The online enquiries belong in a separate line. The missed booking triggers the agreed pause, even though the primary threshold was reached. The manager can decide whether to fix backup access and approve another manual trial. The one-week result alone gives no decision to build an app.
 
 ## How SHOTos fits a startup
 
