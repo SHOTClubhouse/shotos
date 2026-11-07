@@ -1,4 +1,5 @@
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -221,6 +222,21 @@ class GitClaimTests(RepoCase):
         self.assertTrue(marker.is_file(), "test fixture did not run")
         marker.unlink()
         self.check("## Claims\n- [git] clean: working tree\n")
+        self.assertFalse(marker.exists())
+
+    def test_worktree_claims_never_launch_a_configured_git_clean_filter(self):
+        (self.repo / ".gitattributes").write_bytes(b"plan.md filter=probe\n")
+        git(self.repo, "add", ".gitattributes")
+        git(self.repo, "commit", "-q", "-m", "attributes")
+        git(self.repo, "config", "filter.probe.clean", "printf invoked > filter-marker; cat")
+        plan = self.repo / "plan.md"
+        original = plan.stat()
+        os.utime(plan, (original.st_atime, original.st_mtime + 5))
+        git(self.repo, "--no-optional-locks", "status", "--porcelain")
+        marker = self.repo / "filter-marker"
+        self.assertTrue(marker.is_file(), "test fixture did not run")
+        marker.unlink()
+        self.assertEqual(self.states(self.check("## Claims\n- [git] clean: working tree\n")), ["SUPPORTED"])
         self.assertFalse(marker.exists())
 
 

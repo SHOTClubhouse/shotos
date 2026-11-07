@@ -157,10 +157,23 @@ def valid_ref(cwd: Path, ref: str) -> bool:
     return _git(cwd, "rev-parse", "--verify", "--quiet", "--end-of-options", f"{ref}^{{commit}}")[0] == 0
 
 
-def _git(cwd: Path, *args: str):
-    # Git status can otherwise launch a repository-configured filesystem monitor.
-    command = ["git", "-c", "core.fsmonitor=false", "--literal-pathspecs", *args]
-    run = subprocess.run(command, cwd=cwd, capture_output=True, text=True)
+def _git(cwd: Path, *args: str, working_tree: bool = False):
+    # Inspecting the working tree can otherwise run configured Git helpers.
+    command = ["git", "--no-optional-locks", "-c", "core.fsmonitor=false", "--literal-pathspecs"]
+    if args[0] == "status" or working_tree:
+        drivers = subprocess.run([*command, "config", "--null", "--name-only", "--get-regexp",
+                                  r"^filter\..*\.(clean|process)$"], cwd=cwd, capture_output=True, text=True)
+        if drivers.returncode not in {0, 1}:
+            return drivers.returncode, "", "could not enumerate Git filters"
+        filters = {key.rsplit(".", 1)[0] for key in drivers.stdout.split("\0") if key}
+        for prefix in sorted(filters):
+            if "=" in prefix:
+                return 2, "", "could not safely disable a Git filter"
+            command.extend(["-c", f"{prefix}.clean=", "-c", f"{prefix}.process=", "-c", f"{prefix}.required=false"])
+        args = (args[0], "--ignore-submodules=dirty", *args[1:])
+    if args[0] == "diff":
+        args = (args[0], "--no-ext-diff", "--no-textconv", *args[1:])
+    run = subprocess.run([*command, *args], cwd=cwd, capture_output=True, text=True)
     return run.returncode, run.stdout.strip(), run.stderr.strip()
 
 
@@ -225,7 +238,7 @@ def _check_one_file(claim: Claim, target: str, cwd: Path, base: str | None) -> C
         if status:
             return ClaimResult(claim, "SUPPORTED", "uncommitted change in the working tree")
         if base:
-            code, diff, _ = _git(cwd, "diff", "--name-only", base, "--", rel)
+            code, diff, _ = _git(cwd, "diff", "--name-only", base, "--", rel, working_tree=True)
             if code:
                 return ClaimResult(claim, "NO EVIDENCE", f"git diff against {base} failed")
             if diff:
