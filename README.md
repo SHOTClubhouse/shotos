@@ -4,7 +4,9 @@
 
 SHOTos is an open-source delivery method for people and AI agents. Founders, operators, product teams and engineers can use it for one task or for a change another team needs to run. It gives you a way to agree what good looks like, check the work where it happened and make the next decision with evidence.
 
-**Six-stage edition · 88 skills, 12 optional packs**
+**Six-stage edition · 88 skills, 12 optional packs in this repository**
+
+The [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) lists the skill ZIPs and source archive available for that version.
 
 [Try it](#try-shotos) · [Choose a practice exercise](examples/README.md#practise-with-fictional-work) · [Find a skill](docs/what-you-can-do.md) · [Run the full pack](docs/full-pack.md)
 

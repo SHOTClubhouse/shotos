@@ -1,8 +1,8 @@
 # Automations pack
 
-**Two complete Google Apps Script automations, free on any Google account, plus the skills that set them up and run them safely.**
+**Two Google Apps Script automations with setup and pilot guides.**
 
-Apps Script runs inside your Google account, so there is nothing to host and no extra bill. The two scripts here are written for this repository and are small enough to read in one sitting. Each one starts in a safe mode, proves itself on a few items, and only then runs on a schedule.
+Apps Script runs inside your Google account. The optional external AI scoring in Signal Engine uses the account you configure with that provider. The two scripts here are written for this repository and are small enough to read in one sitting. Each one starts in a safe mode, proves itself on a few items, and only then runs on a schedule.
 
 ## What is in it
 
@@ -56,6 +56,6 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 
 ## Evidence
 
-Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). The scripts have been syntax-checked with Node.js (`node --check`) and their text-handling functions exercised outside Google. They have not been run inside a live Google account by the author of this pack, so treat your own dry run and pilot as the real test.
+Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). The current source has automated Node.js checks for factory preflight, output receipts, interrupted digest sends, dry-run scoring and literal sheet writes. The checks use simulated Google services. Use a dry run and an approved small pilot to verify behaviour in your own account.
 
 Cases: [evals/packs/automations.json](../../evals/packs/automations.json).

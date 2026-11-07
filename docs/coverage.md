@@ -22,7 +22,7 @@ A plain map of where SHOTos is strong, where it is thin, and what it leaves out 
 | **Social posts** | Account set-up, weekly plan, captions, publishing through an approval manifest, engagement review, group sharing, monthly insights | No automated posting, liking, following or commenting, on purpose. No paid advertising. Posting needs a person or your own scheduling tool |
 | **Images, video, voice** | Briefs, rights and consent, inspection of the real output, labelling | SHOTos ships no media model. You connect one ([connect your tools](connect-your-tools.md)) |
 | **Slides and documents** | Storyline first, sourced numbers, rendered check of every slide | Needs PowerPoint tooling locally or a Google Slides connector |
-| **Automations** | Two complete Google Apps Script automations with safe defaults, syntax-checked | Not yet run in a live Google account |
+| **Automations** | [Two Google Apps Script automations](../packs/automations/README.md) with automated checks for batch preflight, document receipts, digest recovery and sheet writes | Checks use simulated Google services. Validate an approved pilot in your own account. |
 | **Measurement** | Baselines, evidence packs, DORA, cost per accepted task | No dashboard; the numbers live in your files and tools |
 
 ## Not covered yet
