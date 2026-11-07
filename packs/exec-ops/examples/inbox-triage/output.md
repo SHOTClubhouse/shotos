@@ -2,6 +2,7 @@
 
 **Account confirmed by:** Priya Raman
 **Existing folders or labels read:** yes, 4 November (Admin, Landlords, Contractors, Finance)
+**Coverage:** all six supplied work mailbox threads, through 4 November 2026, Europe/London.
 
 ## Counts
 Needs reply: 2 . To read: 1 . Waiting on others: 1 . For information: 0 . Notification: 1 . Noise: 1 .
@@ -9,15 +10,15 @@ Needs reply: 2 . To read: 1 . Waiting on others: 1 . For information: 0 . Notifi
 ## Needs reply
 | Thread | From | What they need | Draft status | Missing from the thread |
 |---|---|---|---|---|
-| Inspection date | Mr Doyle | Which date the flat inspection is | Draft saved | Nothing; the notice of 20 October gives 22 November |
-| Contractor invoices | Finance manager | Invoices by Friday | Draft saved, attachments not added | The invoice files themselves; Priya needs to attach them |
+| Inspection date | Mr Doyle | Which date the flat inspection is | Existing draft reused | The notice of 20 October supports 22 November |
+| Contractor invoices | Finance manager | Invoices by Friday | Draft shown, attachments pending | Priya needs to confirm the invoice files |
 
-Draft to Mr Doyle: "Hello, the inspection is on Saturday 22 November, as in our notice of 20 October. Let me know if you have any other questions."
+Existing draft to Mr Doyle: "Hello, the inspection is on 22 November, as in our notice of 20 October."
 
-## Slipped (owner sent last, no reply)
-| Thread | To | Owner's last message | Days quiet | Chase draft |
+## Slipped
+| Thread | To | Last substantive message | Chase reason | Chase draft |
 |---|---|---|---|---|
-| Roof repair quote | Roofing contractor | 26 October | 9 | Saved: asks again whether a quote by 14 November is possible and what the latest date is |
+| Roof repair quote | Roofing contractor | Priya on 26 October | Seven working days without a human reply. The acknowledgement was automated. | Shown: "Could you confirm whether you can provide the repair quote by 14 November?" |
 
 ## To read
 - Association spring regulation update (no action).
@@ -26,6 +27,4 @@ Draft to Mr Doyle: "Hello, the inspection is on Saturday 22 November, as in our 
 - Association regulation update: no existing label fits better than Admin. Left unlabelled. Proposed label: "Regulation", would cover this thread and similar updates. Priya decides whether it is created; nothing was created or restructured.
 
 ## Changes made
-- Drafts created: 3. Labels applied: 0 (filing not yet agreed). Nothing sent, created or restructured.
-
-Read back: labels re-listed, unchanged; three drafts present in the drafts folder.
+- Two drafts shown for review and one existing draft reused by reference. No mailbox writes.

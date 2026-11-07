@@ -65,6 +65,14 @@
       "must_not_contain": ["created the label|label created|i have sent|replies sent"]
     },
     {
+      "id": "inbox-triage-03",
+      "skill": "inbox-triage",
+      "type": "contrary",
+      "prompt": "Triage the fictional work mailbox of Priya on Wednesday 4 November 2026 in London. She authorised drafts only. In thread T1, she requested a quote on Monday 26 October and received only an automated ticket acknowledgement. No return date was given. Use a five-working-day chase rule. In T2, the landlord asks about 22 November, and draft D-14 already answers the latest message. In T3, the connector returned only the subject and first message. State what you would do for each thread.",
+      "must_contain": ["T1", "chase|slipped", "automated", "D-14", "reuse|existing draft", "T3", "partial|incomplete|missing"],
+      "must_not_contain": ["T1 resolved", "new draft saved for T2", "replies sent"]
+    },
+    {
       "id": "meeting-notes-01",
       "skill": "meeting-notes",
       "type": "normal",

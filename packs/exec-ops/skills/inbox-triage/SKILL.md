@@ -23,7 +23,7 @@ Skip it for a single known thread (just draft the reply), for a request to send 
 
 1. **Confirm the account.** Name the mail account and the time window in scope (for example, the last 7 days, or unread). If there are several accounts, ask which. Do not read an account that was not named.
 2. **Read the existing filing scheme.** List the account's current folders or labels before any filing and treat that scheme as the owner's. A label mentioned in a note or earlier request may not exist; check, and do not assume. Never restructure the mailbox (rename, merge, delete or move folders) without asking.
-3. **Read the threads.** Read each thread in full, not just the subject or the latest message.
+3. **Read the threads.** Read each thread in full. Identify the latest substantive human message, promised dates and any later evidence that resolves or changes the request. Mark partial or unavailable thread history as incomplete.
 4. **Classify each thread** into exactly one action state:
    - **Needs reply:** a person is waiting on the owner.
    - **To read:** worth the owner's time, no reply needed.
@@ -31,8 +31,8 @@ Skip it for a single known thread (just draft the reply), for a request to send 
    - **For information:** keep, no action.
    - **Notification:** automated and expected.
    - **Noise:** can be ignored.
-5. **Draft replies.** For needs-reply threads, write the draft from the real thread: its dates, names, questions and commitments. Save it as a draft in the account or show it in the output. Never send. If the thread lacks something needed to answer, say what is missing instead of inventing it.
-6. **Check for slipped threads.** Find threads where the owner sent the last message and nobody has replied beyond a stated period (default 5 working days). List them with the date of the owner's last message and a one-line chase draft.
+5. **Draft replies.** Use the current question, recipients and approved commitments. Keep private notes and missing attachments out of the draft. If asked to save to the mailbox, first look for an existing draft against the same thread and source message. Reuse a current draft, flag a stale one for review and keep new text in the summary if draft access or thread history is incomplete. Never send.
+6. **Check for slipped threads.** Find outstanding requests where the owner sent the last substantive human message and an agreed due date or chase period has passed. Use the owner's working calendar and timezone if given, with a default of five working days for the chase period. Automated acknowledgements do not resolve a request. Respect an explicit return date, agreed follow-up date or a later human reply. Record the last substantive date and why a chase is due.
 7. **File within the existing scheme.** Apply the closest suitable existing label if the owner has agreed to filing. If none fits, leave the thread unlabelled and add a proposal to the report: the label name you suggest and the threads it would cover. The owner decides whether it is created. Do not apply a misleading label as a stand-in.
 8. **Read back.** Re-list the labels or folders and the drafts to confirm what changed. Report anything that failed.
 
@@ -44,6 +44,6 @@ Use [template.md](template.md): counts by state, the needs-reply list with draft
 
 - The account and window were confirmed before reading.
 - The existing scheme was read first, nothing was created or restructured, and any new label was proposed rather than made.
-- Each thread has one action state.
-- Drafts quote facts from the thread, and nothing was sent.
-- Slipped threads show who sent last and when.
+- Each reviewed thread has one action state. Report any incomplete coverage beside the counts.
+- Drafts use current facts and recipients. A rerun does not create duplicate mailbox drafts.
+- Slipped threads show the substantive message and the date or chase threshold used. Nothing was sent.
