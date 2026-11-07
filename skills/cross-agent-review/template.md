@@ -15,7 +15,8 @@ If the reviewer is the same model in a fresh session, say so: this is a weaker c
 
 ## Packet given to both
 - Acceptance card:
-- Evidence (outputs, inputs, results, paths):
+- Exact artefact revision and approved evidence references:
+- Checks needing additional evidence and the authorised reviewer:
 - Boundaries (no sending, spending, deleting, deploying or publishing):
 
 ## Findings

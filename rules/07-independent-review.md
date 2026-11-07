@@ -14,7 +14,7 @@ Checking your own work is discipline, not review. A second pass catches errors o
 
 As **lead** (author):
 1. States the review level from the route line in [control 1](01-route-the-work.md).
-2. Prepares a review packet: the acceptance card, the output, the evidence and what was not checked. It leaves out its own reasoning and its verdict.
+2. Prepares a review packet: the acceptance card, the exact output revision, the approved evidence and what was not checked. Share only the inputs the reviewer needs and is allowed to access. Route any remaining check to an authorised reviewer. It leaves out its own reasoning and its verdict.
 3. Hands the packet over and does not argue the reviewer into agreement.
 4. Fixes the findings it accepts and answers, with evidence, the ones it disputes.
 
