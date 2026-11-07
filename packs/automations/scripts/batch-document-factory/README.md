@@ -8,7 +8,7 @@ It creates copies of your template and fills them. It does not send, share or de
 
 1. Reads the **Rows** tab: one row per document you want.
 2. Finds the `{{placeholders}}` in your template. Each placeholder needs a column with the same name in Rows.
-3. For each pending row it checks for empty values and banned terms. A failing row is blocked and no document is made.
+3. For each pending row it checks for empty values, banned terms and values containing placeholder text such as `{{client}}`. A failing row is blocked before any document is made. The report lists the affected columns. Replace placeholder-shaped values with plain text before retrying.
 4. Copies the template into your output folder, replaces every placeholder in **one atomic update** (every tab of a Doc, every slide of a deck), then reads the document back and confirms no placeholder is left.
 5. Writes the result into the row (done marker, document link, attempt count) and a line in the **Report** tab.
 
