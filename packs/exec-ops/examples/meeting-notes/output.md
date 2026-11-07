@@ -1,6 +1,6 @@
 # Run summary, 4 November
 
-Processed after the watermark of 28 October 14:00: three recordings.
+Reviewed three recordings since the 28 October 14:00 checkpoint. Coverage remains partial.
 
 | Recording | Status | Why |
 |---|---|---|
@@ -27,6 +27,6 @@ Open questions: is the 6 per cent final? Does it apply to all product lines? (no
 Conflicts with earlier notes: none found.
 
 ## Verification and ledger
-Output checked against the R-101 transcript for the figure, date and speaker. Ledger edited in place: R-101 processed, R-102 skipped, R-103 needs identity; watermark moved to 29 October 16:30 (R-103 stays listed so it is not lost). Ledger read back after the edit.
+Output checked against the R-101 transcript for the figure, date and speaker. Ledger edited in place: R-101 processed, R-102 skipped, R-103 needs identity; the completed checkpoint stays at 28 October 14:00 until R-103 is resolved. Ledger read back after the edit.
 
 Question for Dan: who was the second speaker on R-103? Nothing will be written about them until you confirm.
