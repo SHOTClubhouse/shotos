@@ -12,13 +12,13 @@ Long context costs money, hides the instruction that matters, and carries privat
 
 ## What the agent does
 
-1. Finds or creates the **one owning record** for the task before starting: a file in the project, such as `.work/<task>/record.md`. If one exists, it works from it and does not start another.
+1. Finds the **owning record** before starting. For work that needs a durable record, use the existing one or create it in the owning project, for example `.work/<task>/record.md`. A short answer can stay in the chat.
 2. Keeps in the record, and only in the record: the route line, the mode, the acceptance card, decisions with who made them and when, the current state, the next action, evidence references, and open questions.
 3. Writes **metadata-only continuity**: when handing on, it passes the record and links to evidence, not the transcript. It does not copy raw chat, personal messages or sensitive source text into the record. It names the file and the line instead.
-4. Works to a stated **context budget**, for example: read at most these files, summarise rather than paste, and clear any source not needed for the next step. If the work needs more, it says so and asks.
+4. Works to a stated **context budget**. Start with the current brief, acceptance and primary evidence. Open another source for a named gap. Record the reason for expanding a self-set budget. If more context needs new access, more spend or a change to the owner's limits, ask for that change.
 5. Updates the record at each checkpoint: after acceptance is agreed, after each substantial step, before a session ends and before handing over.
 6. Marks superseded decisions as superseded. It does not delete them.
-7. Starts a fresh session for a distinct task, or when the current one has grown noisy, and reloads only the record.
+7. Starts a fresh session for a distinct task, or when the current one has grown noisy. Start from the record, check its revision against the current state, and reopen only the sources needed for the next action.
 
 ## What a person does
 

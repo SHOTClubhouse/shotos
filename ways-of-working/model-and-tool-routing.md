@@ -14,7 +14,7 @@ The cost of an agent task is not only the price per call. It is the price of the
 
 Deciding what matters, what to build, how to trade off, what a reader needs, whether an argument holds. Ambiguous, high stakes, hard to check by rule.
 
-*Route to:* the strongest available model, with the owner's involvement. Give it the problem statement, the audience and the constraints. Expect to read and challenge the answer.
+*Route to:* a model capable of the judgement and review the decision needs. Give it the problem statement, the audience and the constraints. Use a stronger first pass where a mistake would be costly and the route is unproven.
 
 ### Building
 
@@ -34,11 +34,11 @@ Checking someone else's work against the acceptance. The value is independence, 
 
 *Route to:* a capable model given only the acceptance, the evidence and the output. Size the review to the risk. See [control 7](../rules/07-independent-review.md).
 
-## Start high, then step down
+## Start with a route you can check
 
-When you take on a new kind of task, start with a stronger option than you think you need. Get it right, with the checks passing and the owner satisfied. Then try the next step down on the same cases and compare using your eval set (see [evals-for-ai-output.md](evals-for-ai-output.md)). If the cheaper option passes the same cases at the same quality, move to it and record the choice. If it fails, stay where you were.
+For a familiar, reversible job, start with the smallest route already shown to pass. For unfamiliar work with costly mistakes, establish a reviewed reference on a bounded example first. Try a smaller model or smaller context on the same inputs and acceptance checks before adopting it. [Build an evaluation set](evals-for-ai-output.md)
 
-Starting low and moving up is false economy: you spend the time and risk learning that the cheap option cannot do it, and you may not notice the failure.
+Read the current brief, acceptance and authoritative sources. Open another source to resolve a material gap. Reuse the saved result and evidence when switching routes. If a connector cannot read the source or save the requested format, choose an authorised route that can and verify it. A reasoning failure calls for a different check or model. Compare review time and rework as well as model spend before changing the default. [Accepted-work measures](../docs/prerequisites.md#measuring-your-own-cost-per-accepted-task)
 
 ## Retest when models change
 
