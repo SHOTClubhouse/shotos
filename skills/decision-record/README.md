@@ -2,7 +2,7 @@
 
 **Write one page that says what was decided, by whom, on what evidence, and what would change it.**
 
-The agent drafts a short record: context, options with their costs and risks, the decision, the named decider, evidence labelled measured, inferred or opinion, a trigger that would reopen it and a review date. It records decisions that a person has made. It does not make them.
+The agent drafts a short record: context, options with their costs and risks, the decision, the named decider, evidence labelled measured, inferred or opinion, a trigger that would reopen it and a review date. It records decisions made by an authorised person or body and names the person responsible for following up.
 
 It works at any stage, most often Track. It serves rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, because a record is not an approval.
 
@@ -29,7 +29,7 @@ Ask:
 
 > Write a decision record for the fixtures app choice. Rosa Quintero, the treasurer, decided on 14 March to go with option B. Here are the quotes and the committee notes.
 
-Check the options and the evidence labels, then confirm that the decider agrees it matches what she decided.
+Check the options and evidence against the controlling record. Use the [committee decision example](committee-example.md) to practise separating the decision, action approval and delivery.
 
 ## How it connects
 

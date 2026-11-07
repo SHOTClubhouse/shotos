@@ -1,6 +1,6 @@
 # decision-brief
 
-**A two-page paper that lets one named person make a significant decision with the facts, options and doubts in front of them.**
+**A two-page paper that gives the authorised decision maker a significant choice with the facts, options and doubts in front of them.**
 
 The agent writes the question as a choice, lists facts with sources, keeps assumptions apart, sets out options with trade-offs, recommends one and says what would change the recommendation. The decision maker decides. It works alone or as the paper for an advisory group.
 
