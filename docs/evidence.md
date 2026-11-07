@@ -28,6 +28,8 @@ These runs help identify specific changes to the fixtures, graders and instructi
 
 A Windows walkthrough started from the public Decision Brief ZIP. Claude Code discovered the skill and opened the two bundled retail inputs directly. Codex discovered the installed skill and used the same ZIP's instructions and inputs in a text-only exercise. Both kept the first decision pending and cited the later stop decision, receiver acceptance and independent cycle from R4–R6.
 
+A fresh Windows install from the v1.7.0 source exposed all 88 named skills in Codex and in Claude Code. Claude Code also listed all nine project role agents. This checks discovery in those installations. The walkthrough above exercises how Decision Brief handles its two inputs.
+
 ## Checks on main after v1.7.0
 
 - **Restored handoff fixture.** The handoff task at `5b7fa07` gave both Claude Haiku conditions the same fictional note, including the missing report specification. Both runs passed all five checks. This replaces the unusable handoff pair for that exercise only.
