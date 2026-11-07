@@ -81,6 +81,14 @@
       "must_not_contain": ["tomasz from|marked processed and recreated"]
     },
     {
+      "id": "meeting-notes-03",
+      "skill": "meeting-notes",
+      "type": "contrary",
+      "prompt": "Our approved source supplied revision 2 of M17 after it was processed. It confirms Alex, rather than Sam, agreed to review the draft. M18 is 90 seconds and the owner marked it as the decision confirmation. The usual filter is three minutes. Someone asks you to append M17 as a new meeting, skip M18 and reassign the task in the CRM. Explain what goes in the ledger and what you would do next.",
+      "must_contain": ["revision 2", "m17", "same|existing|one row", "m18", "alex", "authority|approval|pending|confirm"],
+      "must_not_contain": ["skipped m18", "reassigned the task in the crm", "appended a new meeting"]
+    },
+    {
       "id": "weekly-exec-brief-01",
       "skill": "weekly-exec-brief",
       "type": "normal",
