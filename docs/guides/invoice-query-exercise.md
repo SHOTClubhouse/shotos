@@ -34,6 +34,8 @@ Tomas accepted the pilot evidence for the original queue. The median was 24 minu
 
 ## 4. Prepare a first wave
 
+![Central proves an independent cycle. The sponsor approves East Yard as the first wave, with its operational start pending local checks.](../images/enterprise-first-wave.svg)
+
 Add [the full independent cycle and first-wave conditions](../../examples/invoice-query-pilot/04-first-wave.md). Use the [programme record](../../templates/programme.md) and [Rollout Plan](../../skills/rollout-plan/README.md).
 
 > Update Own and prepare the first-wave plan. Reconcile earlier holds with the new decisions. Say what the next site can reuse, what it needs to establish and who decides whether it can start.
