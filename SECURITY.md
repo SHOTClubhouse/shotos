@@ -12,5 +12,6 @@ Please report security issues privately through GitHub's private vulnerability r
 - **claim-check stays inside the workspace.** It refuses paths outside the folder it was given.
 - **Install stays inside the project.** It checks target paths for file and directory links before writing.
 - **Uninstall only removes what install created.** The manifest records paths relative to the project. Uninstall skips linked paths, paths outside the project and files you changed after installing.
+- **Refresh uses the existing manifest.** It updates matching managed files and adds new files from the same packs. It keeps files you changed or removed, linked paths and unmanaged files. Use `--refresh --dry-run` to see the changes first.
 - **Local defaults.** The installer and default claim checks use local files and Git metadata. Commands you allow run with your own permissions. The [optional automation pack](packs/automations/README.md) uses Google services and can send an approved digest or call a configured model endpoint when you enable those features.
 - **Forks.** Install from this repository or a fork you have read. A modified installer or hook runs with your permissions.
