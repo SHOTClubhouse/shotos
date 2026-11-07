@@ -34,6 +34,7 @@ A Windows walkthrough started from the public Decision Brief ZIP. Claude Code di
 - **Proposal draft and private working sheet.** After the proposal update at `bb5ed74`, one text-only exercise in Codex and one in Claude each passed all seven checks. Both drafted the approved £2,432 monthly offer and put unapproved service decisions in the separate working sheet. Each received the fictional inputs and skill in the prompt. These checks cover the draft content and separation of records.
 - **Phrase-grader sensitivity.** We selected the four v1.7.0 cases where the literal grader had favoured the baseline, then graded the same eight saved outputs by meaning with the condition label withheld. Both conditions passed all four. The meaning-based result covers this sample. The 70-case result above uses the literal method.
 - **Stop hook transcript reading.** On one synthetic 19.6 MB transcript on Windows, the median parsing time across five runs fell from about 177 ms to 0.11 ms. Both implementations returned the same current-turn text and tools. This measures transcript parsing in the hook.
+- **Claude Code marketplace install.** From the public GitHub marketplace, Claude Code 2.1.296 on Windows listed seven Executive Ops skills and no hooks for that pack. A fresh session listed all nine Core role agents at start. The QA lead used the fictional acceptance card to keep a saved draft pending. The install was in an isolated profile through the CLI. The VS Code picker and macOS marketplace route were outside this check.
 
 ## Six-stage runtime check
 
