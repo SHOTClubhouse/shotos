@@ -53,6 +53,14 @@ Recommended order: dry run, then pilot plus live mode (three messages), then che
 | `installTriggers` | Hourly collect and a daily digest around 07:00. |
 | `removeTriggers` | Removes only this script's triggers. |
 
+## Recover a pending digest
+
+If a send or queue update is interrupted, both scheduled and manual sends pause while `PENDING_DIGEST` exists in Script Properties. The record contains a digest reference, date, recipient and queue item keys. Check that the earlier execution has finished, then look for that exact reference in the recipient's mailbox.
+
+- If you confirm the digest arrived, mark its listed item keys `digested` in **Queue**, record the delivery time, and make sure `LAST_DIGEST_DATE` reflects the digest date. Then clear `PENDING_DIGEST`.
+- If you verify it was never sent, clear `PENDING_DIGEST` and rerun the intended digest when ready.
+- If delivery remains uncertain, leave the reservation in place while you investigate.
+
 ## Optional AI scoring
 
 Off by default. To turn it on, add these in **Project Settings > Script Properties** (never in the code or the sheet):
