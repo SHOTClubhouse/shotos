@@ -61,6 +61,8 @@ To make a row's document again, clear its `done` cell. Because `copy_state` is `
 
 When an attempt fails after the copy was made, the copy's id is saved on the row (`status` `error`, `copy_state` `retry`) and the copy is renamed `FAILED - <name>`. The next attempt (after `retryFailed`, or once the cause is fixed) fills that same copy and removes the prefix on success. If that copy has been binned, a fresh one is made and the old id goes to `previous_doc_ids`.
 
+If a verified document exists but the row update fails, the run stops with `receipt-error`. Open the logged document and check the row before rerunning. If its values and link match the verified copy, reconcile the row's receipt and mark it DONE. If they differ, leave the old copy intact and resolve which input revision should be used before regenerating.
+
 If you upgrade from an earlier version, run `setupFactory` once to add the `copy_state` column.
 
 ## Safety notes
