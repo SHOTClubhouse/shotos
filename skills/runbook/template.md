@@ -3,7 +3,7 @@
 **Purpose (one sentence):**
 **Owner / backup:**
 **Accepted as usable by (name, date):**
-**Status:** Draft from design | Run once, observed | Tested by (name) on (date)
+**Status:** Draft | Observed with builder | Independently verified
 **Review date:**
 
 ## Schedule and triggers
@@ -30,6 +30,12 @@ How to undo or stop. What cannot be undone. Who must say yes before an irreversi
 ## Who to call
 | Order | Role or name | When | How (point to the contact sheet) |
 |---|---|---|---|
+
+## Operator verification
+
+| Runbook revision and environment | Operator and date | Steps checked and evidence | Help or exceptions | Result and follow-up |
+| --- | --- | --- | --- | --- |
+| | | | | |
 
 ## Changes made to this runbook
 | Date | Change | By |
