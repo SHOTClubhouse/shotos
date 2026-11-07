@@ -68,7 +68,11 @@ def package(skill: Path, out: Path, *, source_ref: str = "main") -> Path:
             elif path.is_file():
                 write_member(archive, f"{skill.name}/{path.relative_to(skill).as_posix()}", path.read_bytes())
         for path, name in examples:
-            write_member(archive, f"{skill.name}/{name}", path.read_bytes())
+            if name in {"example-input.md", "example-output.md"}:
+                content = portable_markdown(path, REPO, {}, source_ref=source_ref).encode("utf-8")
+            else:
+                content = path.read_bytes()
+            write_member(archive, f"{skill.name}/{name}", content)
         if guides:
             scenarios = {path.resolve(): f"../scenarios/{path.name}"
                          for path in (skill / "scenarios").glob("*.md")}

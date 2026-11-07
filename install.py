@@ -364,7 +364,8 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
         manifest["edits"][rel] = {"original": b64(before), "after": sha(root / rel)}
 
     shared_guides = tuple(root / ".shotos" / name for name in ("docs", "rules", "agents", "lenses", "templates"))
-    locations = installed_markdown_locations(copies) if scope == "project" and previous is None else {}
+    locations = installed_markdown_locations(copies)
+    rewrite_shared = scope == "project" and previous is None
     try:
         for src, dst in copies:
             missing = []
@@ -387,7 +388,9 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
             for f in files:
                 relative_path = f.relative_to(root).as_posix()
                 manifest["files"][relative_path] = sha(f)
-                if locations and f.suffix == ".md" and any(f.is_relative_to(folder) for folder in shared_guides):
+                bundled_example = not src.is_dir() and f.name in {"example-input.md", "example-output.md"}
+                shared_guide = rewrite_shared and any(f.is_relative_to(folder) for folder in shared_guides)
+                if f.suffix == ".md" and (bundled_example or shared_guide):
                     original = src / f.relative_to(dst) if src.is_dir() else src
                     guide = portable_markdown(original, REPO, locations, installed_dir=f.parent)
                     f.write_bytes(guide.encode("utf-8"))

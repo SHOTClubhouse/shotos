@@ -191,6 +191,10 @@ class InstallTests(unittest.TestCase):
         subprocess.run([sys.executable, str(repo / "tools/package_skills.py"),
                         "--all-packs", "--out", str(archives)], check=True, capture_output=True)
         installed = sorted((self.root / ".claude/skills").glob("*/README.md"))
+        example = self.root / ".claude/skills/graduation-ladder/example-output.md"
+        target = "../skill-quality-gate/README.md"
+        self.assertIn(f"({target})", example.read_text(encoding="utf-8"))
+        self.assertTrue((example.parent / target).is_file())
         self.assertEqual(len(installed), len(list(archives.glob("*.zip"))))
         self.assertGreater(len(installed), 0)
         base = "https://github.com/SHOTClubhouse/shotos/"
