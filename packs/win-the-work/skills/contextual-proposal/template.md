@@ -18,7 +18,7 @@ Unknowns:
 Because the reader cares about ___ (evidence), this proposal does ___, and they will see ___ by ___.
 
 ## Claim and commitment ledger
-| # | Claim or commitment | Where it appears | Source and approval | Status (confirmed, reported, inferred, unsupported, proposed and unapproved) | Action |
+| # | Claim, need or commitment | Where it appears | Source and approval | Status (buyer need, verified fact, approved offer, decision needed) | Action or owner |
 |---|---|---|---|---|---|
 | 1 | | | | | |
 
