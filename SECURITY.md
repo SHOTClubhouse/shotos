@@ -12,5 +12,5 @@ Please report security issues privately through GitHub's private vulnerability r
 - **claim-check stays inside the workspace.** It refuses paths outside the folder it was given.
 - **Install stays inside the project.** It refuses any path that leads outside the folder through a symlink, before writing anything.
 - **Uninstall only removes what install created.** The manifest records paths relative to the project, uninstall refuses anything outside it, and any file you changed after install is kept.
-- **No network, no telemetry.** Nothing in this version sends data anywhere.
+- **Local defaults.** The installer and default claim checks use local files and Git metadata. Commands you allow run with your own permissions. The [optional automation pack](packs/automations/README.md) uses Google services and can send an approved digest or call a configured model endpoint when you enable those features.
 - **Forks.** Install from this repository or a fork you have read. A modified installer or hook runs with your permissions.

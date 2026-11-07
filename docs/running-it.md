@@ -4,12 +4,17 @@ Choose [Codex or Claude Code on Windows or Mac](guides/codex-claude-code.md), or
 
 ## Choose your first job
 
-Use one skill ZIP for the chat route, or use the pack flag with your local runtime. The example gives you something to check before you use your own material.
+Download one skill ZIP to try it with a file manager, or use the pack flag with the local installer. Core skills come with the local installer without an extra pack flag. Try the bundled example before adding your own material.
 
 | Job | First skill ZIP | Local pack flag | What to check |
 | --- | --- | --- | --- |
 | Draft a buyer proposal | [Contextual Proposal](https://github.com/SHOTClubhouse/shotos/releases/latest/download/contextual-proposal.zip) | `--pack win-the-work` | The buyer-facing draft and private evidence sheet are separate, and the next decision is clear. |
 | Prepare a leadership decision | [Decision Brief](https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip) | `--pack exec-ops` | The recommendation cites dated evidence and the named decider can act on it. |
+| Plan a week of marketing | [Content Calendar](https://github.com/SHOTClubhouse/shotos/releases/latest/download/content-calendar.zip) | `--pack social` | Four slots fit the studio's capacity. Unverified claims and images with missing permission stay out of the plan. |
+| Review the evidence from a pilot | [Evidence Pack](https://github.com/SHOTClubhouse/shotos/releases/latest/download/evidence-pack.zip) | Core | The review shows that one service target was met and another missed. Staff time stays unmeasured. |
+| Train someone to take over a process | [Enablement Plan](https://github.com/SHOTClubhouse/shotos/releases/latest/download/enablement-plan.zip) | Core | The new team has a full Friday cycle to run independently, with a planted fault and a named reviewer. |
+| Clarify an assignment before starting | [Agree Acceptance](https://github.com/SHOTClubhouse/shotos/releases/latest/download/agree-acceptance.zip) | Core | The card names who can accept the board summary and what to do if the complaints log is incomplete. |
+| Turn a product request into testable examples | [Example Mapping](https://github.com/SHOTClubhouse/shotos/releases/latest/download/example-mapping.zip) | Core | The examples show how two interpretations of a sibling discount change the total. The committee owns the unresolved rule. |
 | Give an accepted deal to delivery | [Success Handoff](https://github.com/SHOTClubhouse/shotos/releases/latest/download/success-handoff.zip) | `--pack customer-success` | The record points to the accepted revision and names the receiving lead and first action. |
 | Build a small website | [Build a Small Website](https://github.com/SHOTClubhouse/shotos/releases/latest/download/build-small-website.zip) | `--pack content` | A visitor can follow the agreed paths through the preview. |
 
