@@ -12,7 +12,7 @@ Northgate Cycles is about to send a brochure to a council buyer. It says "truste
 
 ## When to use it, and when not to
 
-Use it before any public or customer-facing document goes out: a brochure, web page, proposal, press release, deck or grant bid. Use it again when a document is reused after a few months.
+Use it before any public or customer-facing document goes out: a brochure, web page, proposal, press release, deck or grant bid. Reopen affected checks if material wording, audience or destination changes. Try the [release review example](release-review-example.md) to see how facts and permission are checked separately.
 
 Skip it for internal notes, private drafts and personal messages. It does not judge the quality of the writing and it is not a legal review.
 
