@@ -15,22 +15,19 @@
 ## Screen
 | Grant | Eligibility | Evidence required and held | Budget fit | Deadline | Result |
 |---|---|---|---|---|---|
-| A. Millbrook Community Chest | Constituted community group in the town: met | Constitution (held), bank statement (held, to be dated), two quotes (goalposts: held; storage: none) | Up to 2,500 of 6,000; match funding not mentioned | 30 Nov (as read by chairman, 2 Nov) | Shortlist |
+| A. Millbrook Community Chest | Constituted community group in town, apparently met on the chairman's summary | Constitution held. Confirm current bank statement and whether the two goalpost quotes cover the same scope. Storage quotes missing. | Reported cap £2,500. Eligible scope and match rules unverified. | Reported 30 Nov, time and zone unverified | Held for current guidance |
 | B. Greenfield Sports Trust | Registered charities and CICs only: **not met** | n/a | n/a | 15 Dec | Removed: legal form |
-| C. Lowfield Community Foundation | Constituted youth sport group: met. Safeguarding policy approved by committee: **unknown** (being appointed) | Policy (not yet confirmed), constitution (held) | Up to 5,000; at least 10 per cent match (600 for a 6,000 project); opens January | Applications open January | Shortlist, conditional on the policy |
+| C. Lowfield Community Foundation | Constituted youth sport group appears eligible. Committee-approved safeguarding policy unconfirmed. | Constitution held. Verify the policy and the approval minute separately from the officer appointment. | Reported cap £5,000. Confirm the match basis and acceptable sources before calculating. | Reported January opening | Held for eligibility and current terms |
 
-## Shortlist
-| Rank | Grant | Fit and reason | Deadline | Next step | Owner |
-|---|---|---|---|---|---|
-| 1 | A. Millbrook Community Chest | High: eligible now, deadline in four weeks. Covers the goalposts (1,900 or 2,150) but not the full 6,000 | 30 Nov | Draft application for goalposts only; get a storage quote if storage is to be included | Chairman |
-| 2 | C. Lowfield Community Foundation | Medium to high: larger amount, but needs an approved safeguarding policy and 10 per cent match | Opens January | Approve the safeguarding policy at the next committee; plan 600 pounds match | Chairman |
+## Next steps
+There is no verified shortlist on these summaries. Verify Community Chest first because of the reported deadline. Confirm its scope, deadline and match rules. Keep Lowfield on hold while the chairman checks the policy approval and current grant terms.
 
-Combined, A (up to 2,500) and C (up to 5,000) could cover 6,000 if both succeed. That is a possibility, not an expectation.
+No combined funding plan is supported. Each fund would need to allow any overlapping costs or match before they could be combined.
 
 ## Draft status
 | Grant | Draft written | Gaps marked | Claims sourced | Submitted |
 |---|---|---|---|---|
-| A | Yes, goalposts, 150 words per section | Storage quote; bank statement date; member numbers confirmation | Yes: 120 members and income from chairman's notes | No. The chairman submits. |
-| C | Not started | n/a | n/a | No |
+| A | Held | Verify current questions, eligible costs and budget. | Applicant's notes only | Pending |
+| C | Held | Confirm eligibility and match rules. | Applicant's notes only | Pending |
 
 Nothing was submitted and no funder was contacted.

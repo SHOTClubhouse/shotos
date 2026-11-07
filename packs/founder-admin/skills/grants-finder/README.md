@@ -16,6 +16,8 @@ Use it to find funding, or to decide which grants are worth the hours.
 
 Do not use it for loans, investment or sponsorship, or to send the same text to many funders.
 
+If you already have an invitation or a named fund, check that round's terms and use the [application pack](application-pack.md). It keeps the answers, approved budget and private evidence in the same work record. The [fictional application exercise](application-example.md) shows what changes when the applicant supplies an official deadline and confirms its cash contribution.
+
 ## Who it is for
 
 - Club chairs, charity trustees and founders looking for funding.
@@ -38,7 +40,7 @@ You get the screen from [template.md](template.md). Check the eligibility lines 
 
 Nothing beyond the agent. Public web access to funder pages helps; you approve the sources.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
+**Evidence:** The 3 November version ran once per case, graded by meaning. Both conditions passed both cases on Haiku, Sonnet and Opus. The current application pack has a separate fictional budget and approval exercise. See [evidence](../../../../docs/evidence.md) for the evaluation history.
 
 ## Tips
 

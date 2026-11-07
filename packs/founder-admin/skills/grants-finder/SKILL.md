@@ -13,31 +13,32 @@ Stage: Scope. Rules served: 4 (claim only what you can show) and 1 (stop at the 
 
 Read the applicant’s entity type, geography, delivery capacity and budget. Verify eligibility, deadline, match funding and restrictions with the funder.
 
-Use `claims-audit` for the evidence narrative. Record each opportunity and the reason to pursue or decline.
+Use `claims-audit` for the evidence narrative. Record each opportunity and the reason to pursue, hold or decline. Use the same record when the applicant chooses a fund.
 
 ## When not to use this
 
-Skip it for loans, investment or sponsorship (a different relationship and different checks), and when a funder has already invited a specific application (go straight to drafting). Do not use it to apply to many grants with the same text.
+Skip it for loans, investment or sponsorship. If the applicant has a named fund or an invitation, skip discovery and verify that fund's current eligibility, terms and application instructions.
 
 ## Steps
 
 1. **Profile the applicant.** Legal form, location, size, years operating, purpose, beneficiaries, existing funding and what the money would be for. Ask for what is missing. Mark anything the person is unsure of as unknown.
-2. **Find candidate grants** from the sources the person approves: funder websites, public directories, local authority pages. Record the name, funder, URL and the date you read it. Do not rely on memory for deadlines or amounts; read them from the source and note the date.
+2. **Find candidate grants** from the sources the person approves. Verify the named round on the funder's own guidance, including deadline, timezone, amount and version or date read. A directory or applicant's summary can provide a lead. Leave it provisional until verified.
 3. **Screen for eligibility first.** For each grant, list every eligibility rule (legal form, location, size, purpose, exclusions, match funding, previous grants) and mark the applicant met, not met or unknown. One not-met rule removes the grant. Unknowns must be resolved before it is shortlisted.
 4. **Screen for evidence next.** What does the funder ask applicants to show (accounts, safeguarding policy, outcomes data, governing document, references)? Mark which the applicant already has, can get, or lacks.
-5. **Screen for budget last.** Grant size against the project cost, match funding required, restrictions on costs, reporting burden, payment timing, and the applicant's time to apply. State the cost to apply in hours.
-6. **Rank and shortlist.** Fit (high, medium, low) from the three screens, with reasons, deadline and next step. Show rejected grants and the rule that removed them.
-7. **Draft the application** for any grant the person picks. Use only approved material and source every number and claim. Where the application needs something the applicant does not have, leave a marked gap. Do not invent outcomes, partners or quotations.
+5. **Screen for budget last.** Separate eligible and excluded costs, check the grant cap and match basis, and reconcile the requested amount plus permitted match against the eligible budget. Distinguish confirmed cash, pending funding and in-kind support. Count in-kind support or another grant only where the current terms allow it. Record reporting burden, payment timing and estimated hours to apply.
+6. **Rank and shortlist.** Give verified fits, held opportunities and rejections separate lists. Show the decision, reason, deadline and next owner for each.
+7. **Draft the selected application.** Use the funder's current questions, limits and attachment instructions. Write the narrative separately from the private claim and budget sources. State how the activity will be measured and label intended outcomes as targets. Check any exact word count before reporting it. Mark missing approvals and documents with an owner and due date. Say whether the draft is ready for the applicant's review or held for evidence.
 8. **Stop.** Do not submit, register on a portal, contact the funder, or upload documents. The applicant submits.
 
 ## Output
 
-Use [template.md](template.md): applicant profile, screened list with the three screens, shortlist with deadlines and fit, draft status. Save with the project, for example `.work/grants/<date>.md`.
+Use [template.md](template.md) for the screen and [application-pack.md](application-pack.md) for a selected fund. Save the draft, budget and private evidence beside the existing opportunity record.
 
 ## Checks
 
 - Eligibility was screened before evidence and budget, and every rejection names its rule.
 - Every deadline and amount has a source and a date read.
 - Unknown eligibility is shown as unknown, not assumed met.
+- The application budget adds up using the funder's match and eligible cost rules.
 - Drafts contain no unsupported claim; gaps are marked.
 - Nothing was submitted or sent.
