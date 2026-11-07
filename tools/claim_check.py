@@ -152,7 +152,7 @@ def valid_ref(cwd: Path, ref: str) -> bool:
 
 
 def _git(cwd: Path, *args: str):
-    run = subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True)
+    run = subprocess.run(["git", "--literal-pathspecs", *args], cwd=cwd, capture_output=True, text=True)
     return run.returncode, run.stdout.strip(), run.stderr.strip()
 
 
@@ -211,11 +211,15 @@ def _check_one_file(claim: Claim, target: str, cwd: Path, base: str | None) -> C
         if not _is_git(cwd):
             return ClaimResult(claim, "NO EVIDENCE", "not a git repository, so a change cannot be shown")
         rel = str(path.relative_to(cwd.resolve())).replace("\\", "/")
-        _, status, _ = _git(cwd, "status", "--porcelain", "--", rel)
+        code, status, _ = _git(cwd, "status", "--porcelain", "--", rel)
+        if code:
+            return ClaimResult(claim, "NO EVIDENCE", "git status failed")
         if status:
             return ClaimResult(claim, "SUPPORTED", "uncommitted change in the working tree")
         if base:
-            _, diff, _ = _git(cwd, "diff", "--name-only", base, "--", rel)
+            code, diff, _ = _git(cwd, "diff", "--name-only", base, "--", rel)
+            if code:
+                return ClaimResult(claim, "NO EVIDENCE", f"git diff against {base} failed")
             if diff:
                 return ClaimResult(claim, "SUPPORTED", f"changed since {base}")
             return ClaimResult(claim, "UNSUPPORTED", f"no change since {base}")
@@ -230,10 +234,12 @@ def check_git(claim: Claim, cwd: Path, base: str | None, claimed_files=()) -> Cl
     verb = claim.verb
     target = (_unquote(COMMENT.sub("", claim.target)).split() or ["HEAD"])[0].strip("`")
     if verb == "committed":
-        code, sha, _ = _git(cwd, "rev-parse", "--verify", f"{target}^{{commit}}")
+        code, sha, _ = _git(cwd, "rev-parse", "--verify", "--end-of-options", f"{target}^{{commit}}")
         if code:
             return ClaimResult(claim, "UNSUPPORTED", f"no commit '{target}'")
-        _, dirty, _ = _git(cwd, "status", "--porcelain", "--untracked-files=no")
+        code, dirty, _ = _git(cwd, "status", "--porcelain", "--untracked-files=no")
+        if code:
+            return ClaimResult(claim, "NO EVIDENCE", "git status failed")
         if dirty:
             return ClaimResult(claim, "UNSUPPORTED", "tracked files still have uncommitted changes")
         uncommitted = [f for f in claimed_files if _git(cwd, "status", "--porcelain", "--", f)[1]]
@@ -257,7 +263,9 @@ def check_git(claim: Claim, cwd: Path, base: str | None, claimed_files=()) -> Cl
             return ClaimResult(claim, "SUPPORTED", f"{target} matches {upstream} (as of the last fetch)")
         return ClaimResult(claim, "UNSUPPORTED", f"{target} differs from {upstream}")
     if verb == "clean":
-        _, dirty, _ = _git(cwd, "status", "--porcelain")
+        code, dirty, _ = _git(cwd, "status", "--porcelain")
+        if code:
+            return ClaimResult(claim, "NO EVIDENCE", "git status failed")
         return ClaimResult(claim, "UNSUPPORTED" if dirty else "SUPPORTED",
                            "working tree has changes" if dirty else "working tree clean")
     return ClaimResult(claim, "NO EVIDENCE", f"unknown git claim '{verb}'")

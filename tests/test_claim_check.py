@@ -4,6 +4,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -124,12 +125,28 @@ class FileClaimTests(RepoCase):
         result = self.check("## Claims\n- [file] changed: plan.md\n")
         self.assertEqual(self.states(result), ["SUPPORTED"])
 
+    def test_literal_brackets_do_not_match_a_different_changed_file(self):
+        literal = self.repo / "plan[1].md"
+        neighbour = self.repo / "plan1.md"
+        literal.write_text("first\n", encoding="utf-8")
+        neighbour.write_text("first\n", encoding="utf-8")
+        git(self.repo, "add", ".")
+        git(self.repo, "commit", "-qm", "add notes")
+        neighbour.write_text("second\n", encoding="utf-8")
+        result = self.check("## Claims\n- [file] changed: plan[1].md\n", base="HEAD")
+        self.assertEqual(self.states(result), ["UNSUPPORTED"])
+
     def test_path_outside_the_workspace_is_refused(self):
         result = self.check("## Claims\n- [file] exists: ../../etc/passwd\n")
         self.assertEqual(self.states(result), ["UNSUPPORTED"])
 
 
 class GitClaimTests(RepoCase):
+    def test_failed_git_status_does_not_verify_a_clean_tree(self):
+        with patch.object(claim_check, "_git", side_effect=[(0, "true", ""), (128, "", "status unavailable")]):
+            result = self.check("## Claims\n- [git] clean: working tree\n")
+        self.assertEqual(self.states(result), ["NO EVIDENCE"])
+
     def test_committed_with_uncommitted_changes_is_unsupported(self):
         (self.repo / "plan.md").write_text("dirty\n", encoding="utf-8")
         result = self.check("## Claims\n- [git] committed: HEAD\n")
