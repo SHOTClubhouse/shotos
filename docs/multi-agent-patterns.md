@@ -19,7 +19,7 @@ How to run it:
 
 1. Write the acceptance card first ([agree-acceptance](../skills/agree-acceptance/README.md)).
 2. Give the lead the card and the inputs. The lead finishes with a Claims block.
-3. Give the reviewer the card, the inputs, the output and the Claims block. Not the lead's reasoning: you want an independent read, not agreement.
+3. Give the reviewer the card, the exact output revision and the approved evidence. Keep the lead's Claims block and verdict for after the independent pass. Route any check needing restricted inputs to a reviewer with existing access.
 4. The reviewer reports findings with evidence, ranked by severity.
 5. The lead fixes, or argues back with evidence.
 6. **The owner decides.** Two agents agreeing is not authority. Agreement only tells you two models made the same judgement, sometimes the same mistake.
