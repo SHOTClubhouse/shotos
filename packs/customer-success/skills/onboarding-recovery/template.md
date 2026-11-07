@@ -17,13 +17,13 @@
 <one step, under 30 minutes if possible>
 
 ## Owners and dates
-| Step | Owner | Date |
-|---|---|---|
-| Ours: | | |
-| Customer's: | | |
+| Step | Owner | Date and status | Prerequisite |
+|---|---|---|---|
+| Next step | | | |
+| Customer step, if needed | | | |
 
 ## What the customer must do
-1.
+<The smallest customer action once ready, or no action yet.>
 
 ## Draft message (not sent)
 Subject:
@@ -31,4 +31,4 @@ Subject:
 Body:
 
 ## Recovery check
-Look again on <date>. Recovered means: <first value event happened>.
+Checked by <owner> on <date>. Recovery requires <first-value event and evidence source>. Current status <open, first value unverified, or recovered with evidence>.
