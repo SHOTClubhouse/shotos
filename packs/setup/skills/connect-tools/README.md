@@ -38,6 +38,8 @@ Install the setup pack as described in the [pack README](../../README.md). Then 
 - **Alongside:** [mode-ladder](../mode-ladder/README.md) and [skill-audit](../skill-audit/README.md) in this pack.
 - The rules behind it are in [docs/controls.md](../../../../docs/controls.md).
 
+For task-specific account, source and output approval, use the [task data access card](../../../../templates/data-access.md).
+
 ## Needs
 
 Nothing beyond the agent. It checks for everything else.

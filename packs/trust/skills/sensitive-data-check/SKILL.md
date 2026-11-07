@@ -21,7 +21,7 @@ Skip work that holds no personal data. This is not legal advice. A data protecti
 
 ## Steps
 
-1. **Describe the work and the data.** List each item of data the work collects, stores, shares or publishes, who it is about, and why. Mark which items are special-category (health, ethnicity, religion, sexuality, biometrics, criminal records, and similar) and which concern children.
+1. **Describe the work and the data.** List each item of data the work collects, stores, shares or publishes, who it is about, and why. Mark which items are special-category (health, ethnicity, religion, sexual orientation or biometrics used to identify someone) and which concern children. Record criminal offence data separately and refer it to the responsible data owner under the applicable policy.
 2. **Check minimisation.** For each item ask: what decision does it support? If none, recommend removing it. Prefer less detail (a yes or no) over more (a diagnosis).
 3. **Check the lawful basis and the consent record.** For each purpose, ask what basis is relied on and where it is recorded. Ask to see the record, not a statement. If consent is the basis, it must be specific, recorded, and easy to withdraw.
 4. **Check parental consent for children.** For anyone under the age that applies in your country, ask who gave consent, when, for what, and where it is stored. Check that it covers each use, including photos and any sharing.
