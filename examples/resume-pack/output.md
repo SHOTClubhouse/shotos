@@ -31,16 +31,17 @@
 ## Pending manual steps
 | Order | Step | Where | Who can do it | How to confirm it was done | Irreversible? |
 |---|---|---|---|---|---|
-| 1 | Apply `migrations/0004_reminders.sql` to the live database | Live database | Someone with live database rights; ask Dominic Hale who | Query that the reminders table exists with the expected columns and zero rows | Hard to reverse once rows are loaded; take a backup first |
-| 2 | Confirm the reminder date column type | The migration file | Dominic Hale | A written yes in the task file | No |
-| 3 | Load the spreadsheet rows into the live table | Live database | Dominic Hale, after step 1 | Row count equals the number of unique tenant references in the spreadsheet | Yes, treat as hard to undo |
+| 1 | Confirm the date column type and the treatment of disputed rows | Task record and migration file | Dominic Hale | Written decisions in the task record | No |
+| 2 | Check the final revision on the test database and approve the live plan | Test database and task record | Operator runs the test, Dominic Hale approves | Test result and approval name the same revision | No |
+| 3 | Apply the approved migration and import after checking current live state | Live database | Named live operator, once Dominic Hale confirms authority | Schema matches the approved revision and the eligible unique rows reconcile | Requires a rollback or recovery plan |
 | 4 | Review ten drafts and approve the first batch | Draft folder | Dominic Hale | His written yes in the task file | Sending is irreversible; the agent does not send |
 
 ## Next prompt (paste into the next session)
-> Goal: finish the deposit reminders task in `.work/deposit-reminders/task.md`. The live migration has not been applied, so treat the live table as not existing.
+> Goal: finish the deposit reminders task in `.work/deposit-reminders/task.md`. The last checkpoint had no live migration receipt.
 > Read first: `.work/deposit-reminders/task.md` and this pack.
-> Run first: the import test and a check on whether `migrations/0004_reminders.sql` has been applied to the test database; do not connect to the live database.
-> Done means: every spreadsheet reminder appears once in the table, drafts are created but never sent, and Dominic Hale has approved the first batch after seeing ten drafts.
+> Read-only state and version check: open the task record, current branch status and migration revision. Check for a newer migration receipt in the task record.
+> If the record or revision changed: rerun the affected test checks and confirm the scope of any approval. Keep live work with the named operator, who checks the current schema before any application.
+> Done means: each eligible reminder appears once in the table, with disputed rows handled under the agreed rule, drafts are created but never sent, and Dominic Hale has approved the first batch after seeing ten drafts.
 > Do not do without the owner's yes: touching the live database, sending any email, changing the date column type.
 
 ## Learnings
@@ -49,7 +50,7 @@
 - Suggested rule or skill change (not yet a rule): add a trim-and-compare check to any import from a spreadsheet. Pass to the learning loop with the duplicate case as evidence.
 
 ## Not verified in this pack
-- The 212-row count and the passing import test are from earlier in the session; re-run to confirm.
+- The 212-row count and passing import test describe the earlier test revision. Re-run the checks if the input or migration revision changed.
 - That `draft_emails.py` has no obvious fault: it has not been run.
 
 ## Kept out on purpose
