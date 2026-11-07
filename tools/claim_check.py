@@ -158,15 +158,17 @@ def valid_ref(cwd: Path, ref: str) -> bool:
 
 
 def _git(cwd: Path, *args: str):
-    run = subprocess.run(["git", "--literal-pathspecs", *args], cwd=cwd, capture_output=True, text=True)
+    # Git status can otherwise launch a repository-configured filesystem monitor.
+    command = ["git", "-c", "core.fsmonitor=false", "--literal-pathspecs", *args]
+    run = subprocess.run(command, cwd=cwd, capture_output=True, text=True)
     return run.returncode, run.stdout.strip(), run.stderr.strip()
 
 
 def _inside(cwd: Path, target: str):
-    path = (cwd / target).resolve()
     try:
+        path = (cwd / target).resolve()
         path.relative_to(cwd.resolve())
-    except ValueError:
+    except (OSError, RuntimeError, ValueError):
         return None
     return path
 
@@ -275,11 +277,20 @@ def check_git(claim: Claim, cwd: Path, base: str | None, claimed_files=()) -> Cl
         return ClaimResult(claim, "SUPPORTED", f"commit {sha[:10]}, tracked working tree clean")
     if verb == "pushed":
         if target == "HEAD":
-            target = _git(cwd, "rev-parse", "--abbrev-ref", "HEAD")[1]
-        code, upstream, _ = _git(cwd, "rev-parse", "--abbrev-ref", f"{target}@{{upstream}}")
+            code, target, _ = _git(cwd, "symbolic-ref", "--quiet", "--short", "HEAD")
+            if code:
+                return ClaimResult(claim, "NO EVIDENCE", "HEAD is not on a local branch")
+        code, local, _ = _git(cwd, "show-ref", "--verify", "--hash", f"refs/heads/{target}")
+        if code:
+            return ClaimResult(claim, "UNSUPPORTED", f"'{target}' is not a local branch")
+        code, upstream, _ = _git(cwd, "rev-parse", "--symbolic-full-name",
+                                 "--verify", "--end-of-options", f"{target}@{{upstream}}")
         if code:
             return ClaimResult(claim, "UNSUPPORTED", f"'{target}' has no upstream branch")
-        local, remote = _git(cwd, "rev-parse", target)[1], _git(cwd, "rev-parse", upstream)[1]
+        code, remote, _ = _git(cwd, "rev-parse", "--verify", "--end-of-options", f"{upstream}^{{commit}}")
+        if code:
+            return ClaimResult(claim, "NO EVIDENCE", f"could not resolve '{upstream}'")
+        upstream = upstream.removeprefix("refs/remotes/").removeprefix("refs/heads/")
         if local == remote:
             return ClaimResult(claim, "SUPPORTED", f"{target} matches {upstream} (as of the last fetch)")
         return ClaimResult(claim, "UNSUPPORTED", f"{target} differs from {upstream}")
@@ -362,7 +373,17 @@ COMMAND_TIMEOUT = 100  # seconds; below the 120 second Stop hook limit so a slow
 
 
 def _read(path: Path) -> dict:
-    return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+    data = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+    if not isinstance(data, dict):
+        raise ValueError("claim-check configuration must be a JSON object")
+    return data
+
+
+def _allowed_commands(config: dict) -> list:
+    commands = config.get("allow_commands", [])
+    if not isinstance(commands, list) or not all(isinstance(command, str) for command in commands):
+        raise ValueError("allow_commands must be a list of strings")
+    return commands
 
 
 def load_config(cwd: Path, path: str | None, trust_project: bool = False) -> dict:
@@ -374,11 +395,25 @@ def load_config(cwd: Path, path: str | None, trust_project: bool = False) -> dic
     set. A repository you cloned cannot make claim-check run its commands.
     """
     user = _read(USER_CONFIG)
-    project = _read(Path(path)) if path else _read(Path(cwd) / ".shotos" / "claim-check.json")
     trusted = bool(path) or trust_project
+    source = Path(path) if path else Path(cwd) / ".shotos" / "claim-check.json"
+    try:
+        project = _read(source)
+    except (OSError, ValueError):
+        if trusted:
+            raise
+        project = {}
+    project_base = project.get("base")
+    if project_base is not None and not isinstance(project_base, str):
+        if trusted:
+            raise ValueError("base must name a starting commit")
+        project_base = None
+    user_base = user.get("base")
+    if user_base is not None and not isinstance(user_base, str):
+        raise ValueError("base must name a starting commit")
     return {
-        "allow_commands": list(user.get("allow_commands", [])) + (project.get("allow_commands", []) if trusted else []),
-        "base": project.get("base") or user.get("base"),
+        "allow_commands": _allowed_commands(user) + (_allowed_commands(project) if trusted else []),
+        "base": project_base or user_base,
     }
 
 

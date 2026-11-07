@@ -8,6 +8,7 @@ Please report security issues privately through GitHub's private vulnerability r
 
 - **Install is a script, not instructions for an agent.** An agent told to follow a document from the internet can be told to do anything. `install.py` only copies files from this repository, shows its plan with `--dry-run`, records what it created and removes exactly that with `--uninstall`. If you ask an agent to install SHOTos, ask it to run the script, and read the dry run first.
 - **claim-check never runs a command because a report or a repository asks it to.** Commands run only from your own `~/.shotos/claim-check.json`, a config you name with `--config`, `--allow-command`, or a project config you explicitly trust with `--trust-project-config`. The Stop hook ignores commands in a project's config, so a cloned repository cannot use it to run code.
+- **Git checks disable repository-configured filesystem monitors.** The checker ignores malformed untrusted project configuration. A problem with explicitly trusted configuration is reported as an error.
 - **Option injection is refused.** The `base` setting must name a real commit, and anything starting with `-` is rejected.
 - **claim-check stays inside the workspace.** It refuses paths outside the folder it was given.
 - **Install stays inside the project.** It checks target paths for file and directory links before writing.

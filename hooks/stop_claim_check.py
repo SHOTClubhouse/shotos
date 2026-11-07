@@ -101,7 +101,11 @@ def main() -> int:
         if claims and all(c.kind == "unverified" for c in claims):
             print("claim-check needs a checkable claim for reported completed work, not only [unverified].", file=sys.stderr)
             return 2
-    config = claim_check.load_config(cwd, None)
+    try:
+        config = claim_check.load_config(cwd, None)
+    except (OSError, ValueError) as error:
+        print(f"claim-check could not read its trusted configuration: {error}", file=sys.stderr)
+        return 2
     result = claim_check.check_report(report, cwd, config.get("allow_commands", []), config.get("base"))
     if result.ok:
         return 0
