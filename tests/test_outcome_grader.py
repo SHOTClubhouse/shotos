@@ -43,6 +43,26 @@ class ProposalClaimGraderTests(unittest.TestCase):
             promise_check = next(item for item in checks if item["check"] == "no unsupported service commitments")
             self.assertFalse(promise_check["pass"])
 
+    def test_buyer_needs_do_not_authorise_the_offer_or_hidden_notes(self):
+        with tempfile.TemporaryDirectory() as folder:
+            proposal = Path(folder) / "proposal.md"
+            proposal.write_text("You need a monthly fleet availability report for your board.\n", encoding="utf-8")
+            checks = {item["check"]: item for item in grade_proposal(Path(folder), "")}
+            self.assertTrue(checks["no unsupported service commitments"]["pass"])
+
+            proposal.write_text(
+                "<!-- Private notes: do not claim award-winning or 150 businesses. -->\n"
+                "- **A monthly fleet availability report for your board.** [Owner to confirm]\n"
+                "- **Mechanics on site at your hubs.**\n",
+                encoding="utf-8",
+            )
+            checks = {item["check"]: item for item in grade_proposal(Path(folder), "")}
+            self.assertTrue(checks["no unapproved claims"]["pass"])
+            self.assertFalse(checks["buyer file contains no hidden review notes"]["pass"])
+            self.assertFalse(checks["no unsupported service commitments"]["pass"])
+            self.assertIn("board report", checks["no unsupported service commitments"]["detail"])
+            self.assertIn("hub servicing", checks["no unsupported service commitments"]["detail"])
+
 
 if __name__ == "__main__":
     unittest.main()
