@@ -12,7 +12,9 @@ An operations director asks for a ten-slide board update on a repairs backlog. T
 
 ## What the agent does differently
 
-Without the skill, an agent writes the deck from the source file and never looks at the result. With the skill, it writes the storyline first, sources each figure, renders every slide, and records the defects it found and fixed. See [the worked example](../../examples/slide-deck/output.md).
+The skill starts with the decision and sourced headlines. It checks the actual deck revision in the intended viewer. The [worked storyboard](../../examples/slide-deck/output.md) shows the difference between a quote, a target and evidence of results.
+
+![Example board slide showing 81% of urgent repairs within 24 hours against a 95% target, a gap of 14 percentage points.](assets/urgent-repairs-slide.svg)
 
 ## When to use it, and when not to
 

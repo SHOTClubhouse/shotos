@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Urgent repairs missed the 24-hour target</title>
+  <desc id="desc">Fictional October data. 81 per cent of urgent repairs were completed within 24 hours against a target of 95 per cent, a gap of 14 percentage points.</desc>
+  <rect width="1280" height="720" fill="#f7f5ed"/>
+  <rect x="0" y="0" width="1280" height="12" fill="#215546"/>
+  <g font-family="system-ui, sans-serif">
+    <text x="80" y="77" fill="#215546" font-size="22" font-weight="750" letter-spacing="4">HARBOURSIDE LETTINGS / BOARD REVIEW</text>
+    <text x="80" y="169" fill="#16342c" font-size="64" font-weight="800" letter-spacing="-2.5">Urgent repairs missed</text>
+    <text x="80" y="238" fill="#16342c" font-size="64" font-weight="800" letter-spacing="-2.5">the 24-hour target.</text>
+    <text x="82" y="310" fill="#38554c" font-size="25">Share of urgent repairs completed within 24 hours</text>
+    <text x="1144" y="366" text-anchor="end" fill="#7b3417" font-size="23" font-weight="750">95% TARGET</text>
+    <rect x="80" y="390" width="1120" height="72" rx="9" fill="#e4e9dc"/>
+    <rect x="80" y="390" width="907.2" height="72" rx="9" fill="#215546"/>
+    <text x="102" y="439" fill="#ffffff" font-size="38" font-weight="800">81%</text>
+    <path d="M1144 375v106" stroke="#9a3e19" stroke-width="5"/>
+    <g fill="#38554c" font-size="20" text-anchor="middle">
+      <text x="80" y="514">0%</text>
+      <text x="360" y="514">25%</text>
+      <text x="640" y="514">50%</text>
+      <text x="920" y="514">75%</text>
+      <text x="1200" y="514">100%</text>
+    </g>
+    <rect x="80" y="558" width="450" height="63" rx="8" fill="#e9edde"/>
+    <text x="102" y="599" fill="#16342c" font-size="27" font-weight="740">Gap of 14 percentage points</text>
+    <path d="M80 651h1120" stroke="#c6d1c5" stroke-width="2"/>
+    <text x="80" y="688" fill="#38554c" font-size="19">Source · October repairs report, fictional example</text>
+    <text x="1200" y="688" text-anchor="end" fill="#38554c" font-size="19">04 / 10</text>
+  </g>
+</svg>
