@@ -28,6 +28,8 @@ Do not use it for fewer than five, for proposals that differ in substance, or wi
 
 You get the pilot first. Read the three, correct the master, and tell the agent to continue. The batch report uses [template.md](template.md).
 
+For a restart, use the [worked revision check](restart-example.md). It shows which drafts can be reused, which buyer changes need a new review and how to preserve an owner's edits.
+
 ## How it connects
 
 - **Before:** [one-off-or-factory](../one-off-or-factory/README.md) decides; [contextual-proposal](../contextual-proposal/README.md) produces the master.
@@ -38,7 +40,7 @@ You get the pilot first. Read the three, correct the master, and tell the agent 
 
 Nothing beyond the agent. A spreadsheet or CSV of readers helps. Rendering needs a way to produce and view the file.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 1 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
+**Evidence:** The 3 November version ran once per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 1 of 2. The current example covers a batch restart. See [evidence](../../../../docs/evidence.md) for the evaluation history.
 
 ## Tips
 

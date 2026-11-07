@@ -1,6 +1,6 @@
 # Proposal factory batch report
 
-**Master:** (file, accepted by, date) 
+**Reusable master:** (file, revision, approved scope and owner)
 **Decision record:** (link) 
 **Owner:** 
 
@@ -10,9 +10,8 @@
 | | | | |
 
 ## Reader sheet (extract)
-| Reader | Variable | Value | Source | Status (confirmed, reported, inferred, unknown) |
-|---|---|---|---|---|
-| | | | | |
+| Deal ID and buyer | Variable | Value | Source and revision | Status |
+| --- | --- | --- | --- | --- |
 
 ## Pilot of three
 | Reader | Produced | Rendered and looked at | Edits by owner | Accepted? |
@@ -22,9 +21,8 @@
 Changes made to the master or variables after the pilot:
 
 ## Batch
-| Reader | Status (draft, ready for review, rejected) | Open flags | Leftover placeholder check | Names and numbers check | Rendered check |
-|---|---|---|---|---|---|
-| | | | | | |
+| Deal ID and buyer | Master and input revisions | Saved output revision | Status and open flags | Cross-reader and rendered checks |
+| --- | --- | --- | --- | --- |
 
 ## Totals
 - Items produced: 
