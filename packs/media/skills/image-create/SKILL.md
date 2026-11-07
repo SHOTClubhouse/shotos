@@ -28,7 +28,7 @@ Do not use it for photographs presented as real events, for images of real peopl
 5. **Build the first design.** For an editable graphic, use the approved layout and copy. If generating an image, ask the chosen model for two to four options and keep the prompt, model and settings with the work.
 6. **Look at the actual image.** Open each output and check it against the brief: subject, composition, text spelling, hands and faces, extra limbs or objects, stray logos or watermarks, and the crop at every size it will be used. Describe what you see, not what you asked for.
 7. **Fix and regenerate.** List each defect, adjust the prompt or edit, regenerate and look again. Stop after a set number of rounds (three unless the owner says otherwise) and report what remains.
-8. **Write alt text.** One or two sentences describing what the image shows and why it is there, for a reader who cannot see it. No "image of".
+8. **Write alt text.** For an informative image, describe the information it adds. For an image used as a link or button, describe the action. Put the essential values and relationships from a complex graphic in nearby text. For a decorative web image, use an empty alt attribute so the page can skip it. Follow the [W3C images tutorial](https://www.w3.org/WAI/tutorials/images/).
 9. **Label where required.** Check whether the channel or the owner's policy requires an AI-generated label. If so, add it. If unsure, add it and say so.
 10. **Hand over for approval.** Present the chosen image, the prompt log, the alt text and the rights check. Do not publish, post or upload to a live page without the owner's yes.
 
@@ -41,6 +41,6 @@ A folder with the chosen image, the prompt and model log, the alt text, the righ
 - The agent looked at the rendered image and described what it saw.
 - No real person, borrowed character or logo appears, or written rights are on file.
 - Any text in the image is spelled correctly.
-- Alt text is present and describes the image.
+- The text alternative fits the role of the image, including an empty alt attribute for a decorative web image.
 - The AI label decision is recorded.
 - Nothing was published without the owner's yes.
