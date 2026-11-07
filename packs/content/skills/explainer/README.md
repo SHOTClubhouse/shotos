@@ -32,6 +32,8 @@ Install the content pack as described in the [pack README](../../README.md). The
 
 > Write an external explainer for new tenants on how their deposit is protected. Include one worked example with invented figures. Run the QA gate, file it in the drafts folder and do not publish.
 
+Use the [visual brief example](visual-brief.md) when the reader needs to see a decision, sequence or handoff.
+
 ## How it connects
 
 - **Before:** [agree-acceptance](../../../../skills/agree-acceptance/README.md) sets the checks.
