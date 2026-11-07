@@ -35,13 +35,21 @@ def skill_folders(packs) -> list:
 
 def package(skill: Path, out: Path) -> Path:
     target = out / f"{skill.name}.zip"
+    shared_resources = []
+    if skill == REPO / "packs" / "customer-success" / "skills" / "success-handoff":
+        proposal = REPO / "packs" / "win-the-work" / "skills" / "contextual-proposal"
+        shared_resources = [(proposal / name, f"proposal/{name}")
+                            for name in ("worked-deal.md", "organisation-templates.md", "template.md")]
+
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(skill.rglob("*")):
             if path == skill / "README.md":
-                archive.writestr(f"{skill.name}/README.md", portable_readme(skill, REPO))
+                archive.writestr(f"{skill.name}/README.md", portable_readme(skill, REPO, shared_resources))
             elif path.is_file():
                 archive.write(path, Path(skill.name) / path.relative_to(skill))
         for path, name in example_files(skill):
+            archive.write(path, Path(skill.name) / name)
+        for path, name in shared_resources:
             archive.write(path, Path(skill.name) / name)
         if skill == REPO / "packs" / "exec-ops" / "skills" / "decision-brief":
             scenarios = {path.resolve(): f"../scenarios/{path.name}"

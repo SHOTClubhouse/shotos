@@ -17,10 +17,11 @@ def example_files(skill: Path):
             yield path, f"example-{kind}.md"
 
 
-def portable_readme(skill: Path, repo: Path) -> str:
+def portable_readme(skill: Path, repo: Path, extra_resources=()) -> str:
     """Keep bundled resources local and link other resources to their public source."""
-    examples = {path.resolve(): name for path, name in example_files(skill)}
-    return portable_markdown(skill / "README.md", repo, examples)
+    resources = {path.resolve(): name for path, name in example_files(skill)}
+    resources.update((path.resolve(), name) for path, name in extra_resources)
+    return portable_markdown(skill / "README.md", repo, resources)
 
 
 def portable_markdown(source: Path, repo: Path, bundled_links: dict) -> str:

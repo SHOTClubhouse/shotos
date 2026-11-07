@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.0 (7 November 2026)
+
+- Route tailored offers, tender responses, buyer RFPs and batches of similar proposals to the appropriate skill.
+- Start with proposal templates for independent clubs, affiliated clubs and partners, private providers, and associations or governing bodies.
+- Follow a fictional deal from its accepted proposal to a receiving lead's written acceptance. Both the Contextual Proposal and Success Handoff ZIPs include the worked deal and proposal templates.
+- Start weekly executive briefings, LEAP handovers and onboarding recovery from the existing records, then open supporting sources for specific gaps.
+
 ## 1.4.1 (7 November 2026)
 
 - Start from the no-terminal guides for Codex, Claude Code, ChatGPT and Claude.
