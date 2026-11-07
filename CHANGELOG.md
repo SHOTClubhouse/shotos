@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+- **Start and update a project.** Use the [desktop setup guide](docs/guides/codex-claude-code.md) to refresh managed files or copy a new skill without a terminal. Use the [chat guide](docs/guides/chat-assistants.md) for workspace skill upload and the file-based route. The installer checks linked source and target paths and protects local changes during refresh.
+- **Skill ZIP checks.** Check every relative Markdown link inside the skill ZIPs and verify downloaded instructions against the exact tag. The [release checklist](RELEASING.md) includes a marketplace version check for changed packs.
+- **Carry work forward.** Keep buyer-facing proposals separate from internal decisions, reuse checked drafts when their sources still match, and tie handoff acceptance to the exact offered revision. Reconcile partial batch changes from the current values and earlier receipts.
+- **Run the operating week.** Keep automated acknowledgements separate from substantive mail replies, reuse current drafts and retain stable meeting references across source corrections. Use the [accepted-work report](docs/prerequisites.md#measuring-your-own-cost-per-accepted-task) to compare review, rework and elapsed time alongside model spend.
+- **Try an enterprise rollout.** The [four-round invoice exercise](docs/guides/invoice-query-exercise.md) separates independent ownership, conditional wave approval and a receiving site's start. Use the [risk review guide](docs/guides/enterprise-risk-review.md) to bring the resulting evidence into an existing review.
+- **Model and tool routing.** Use the [routing guide](ways-of-working/model-and-tool-routing.md) to carry verified results across a change in tool or model. The Stop hook reads the current transcript turn and Git evidence checks disable configured file-monitor and filter commands.
+- **Prepare and verify external artefacts.** Use the founder pack to carry approved grant terms into a budget and application draft. Use the website and live release skills to check the expected content and visitor paths at the published destination.
+
 ## 1.7.0 (7 November 2026)
 
 - Includes 88 individually downloadable skill ZIPs across the core and 12 optional packs.

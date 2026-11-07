@@ -7,6 +7,7 @@ This page records what has been tested, how, what it showed and what has not bee
 | Build | Evidence |
 | --- | --- |
 | Main after v1.7.0 | [Targeted handoff, proposal and grading checks](#checks-on-main-after-v170). |
+| v1.7.0 public release | [Downloads and setup read-back](#v170-downloads-and-setup) on the published tag. |
 | v1.7.0 release candidate | [Fresh Haiku skill and outcome checks](#v170-release-candidate-checks) on the code and skills at `f08ba33`. |
 | November skill evaluation builds | Paired skill and outcome evaluations reported below. Some later runs used the five-step wording. |
 | v1.1.0 | Returned to Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. The GitHub matrix passed on Windows, macOS and Linux. |
@@ -26,9 +27,15 @@ The [outcome runner](../evals/run_outcomes.py) ran the ten fictional task fixtur
 
 These runs help identify specific changes to the fixtures, graders and instructions. Measuring accepted work would require reviewers to take the drafts through to an agreed outcome. Raw responses from this run stay in the local release workspace.
 
+## v1.7.0 downloads and setup
+
+All 88 public skill ZIPs matched the release build by SHA-256, and their skill instructions matched the tagged source. The seven tagged guides matched the checkout. Both setup guides rendered in a signed-out browser. [Public v1.7.0 release](https://github.com/SHOTClubhouse/shotos/releases/tag/v1.7.0)
+
 A Windows walkthrough started from the public Decision Brief ZIP. Claude Code discovered the skill and opened the two bundled retail inputs directly. Codex discovered the installed skill and used the same ZIP's instructions and inputs in a text-only exercise. Both kept the first decision pending and cited the later stop decision, receiver acceptance and independent cycle from R4–R6.
 
 A fresh Windows install from the v1.7.0 source exposed all 88 named skills in Codex and in Claude Code. Claude Code also listed all nine project role agents. This checks discovery in those installations. The walkthrough above exercises how Decision Brief handles its two inputs.
+
+A broader link audit found six broken relative links in worked examples in the Graduation Ladder, Learning Loop, Maturity Check and Rollout Plan ZIPs. The fix and full ZIP link check are on the default branch. [Example link fix](https://github.com/SHOTClubhouse/shotos/pull/88) · [ZIP regression check](https://github.com/SHOTClubhouse/shotos/pull/92)
 
 ## Checks on main after v1.7.0
 
