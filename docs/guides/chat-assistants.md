@@ -2,7 +2,7 @@
 
 Start with one skill and a fictional example. You can download, unpack and add the files with a browser and file manager on Windows or Mac.
 
-The walkthrough below uses Decision Brief. To try a proposal, handoff or small website instead, choose the ZIP from the [first-job guide](../running-it.md#choose-your-first-job). Use its `SKILL.md`, relevant template and example input. Keep the example output for your own review.
+The walkthrough below uses Decision Brief. To try a proposal, handoff or small website instead, choose the ZIP from the [first-job guide](../running-it.md#choose-your-first-job). Substitute its ZIP and skill name in the upload steps. For a file-based chat, use its `SKILL.md`, relevant template and example input. Follow the [sample prompt and review checks](../running-it.md#run-the-sample-from-your-zip) for that job.
 
 ## Claude with Skills enabled
 
