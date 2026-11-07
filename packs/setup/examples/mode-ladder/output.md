@@ -10,4 +10,4 @@
 
 **What does not change:** the method, the acceptance checks and your authority. At every level the agent drafts and waits for you before sending, deleting, publishing or deploying. The booking design includes personal data, so the data check applies at the start.
 
-Please confirm or change the levels. I will re-check after the pilot and when the design reaches a decision point.
+The authorised design work can start. Confirm the proposed batch limits before the pilot. Re-check effort after the pilot and at the design decision.

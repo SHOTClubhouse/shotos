@@ -40,7 +40,7 @@ Skip it for a quick factual answer or a trivial edit the person will see at once
 3. **Add a risk tag only when evidence triggers it.** Look at the asset, the data and the action. Add a tag when you can point to the evidence: `personal-data` (the files contain names, health or children's records), `money` (the action spends, refunds or invoices), `external` (it goes to people outside the team), `irreversible` (it deletes, overwrites or publishes), `legal` (a contract, a regulatory claim). Write the evidence beside the tag. Do not add a tag because the topic sounds serious.
 4. **Raise the route when a tag appears.** One tag usually needs a named human decision before the action; two or more, or `irreversible` with `external`, need an independent reviewer as well.
 5. **Name the stop point.** Say the first action that needs the owner's yes. Sending, posting, spending, deleting, deploying and publishing always do.
-6. **Show the line to the person** if the route is anything other than direct, and wait for a change or a yes.
+6. **Record the route and start the authorised work.** Surface the route when it affects the reader, proof or plan. Use the owner's request and any recorded approvals to identify what can start. Pause only the step with an unresolved decision, review or boundary approval, and complete independent authorised work while it is pending. See the [routing example](authorised-work-example.md).
 7. **Revisit the line** if what you find while working changes the risk. Say so and re-route; do not carry on under the old line.
 
 ## Output
@@ -52,4 +52,4 @@ One line in the reply or saved with the work, for example at the top of `.work/<
 - All six parts are filled in.
 - Each risk tag has evidence next to it, and no tag is there without evidence.
 - The route is the lightest one that fits the risk, with a stated trigger for a heavier one.
-- The first action that needs the owner's yes is named.
+- The route names the first action still awaiting approval, if any, and the authorised work that can proceed.

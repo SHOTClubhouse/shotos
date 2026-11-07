@@ -9,4 +9,4 @@ Team of agents limits (if used): workers <n>, time <limit>, cost <limit>, superv
 
 Unchanged at every level: the method, the stop boundaries, the owner's authority.
 
-Confirmed by: <name>. Re-check at: <checkpoint>.
+Existing authority: <request or approval>. Decision still needed, if any: <owner and boundary>. Re-check at: <checkpoint>.
