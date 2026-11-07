@@ -9,6 +9,14 @@
       "must_not_contain": ["i have submitted", "application submitted", "i emailed the funder"]
     },
     {
+      "id": "grants-finder-03",
+      "skill": "grants-finder",
+      "type": "contrary",
+      "prompt": "Draft an application for a named fictional fund. Current terms cover 80% of eligible cash costs, capped at £2,500. In-kind work and other public grants cannot count as match. The approved supplier quote is £1,900 plus £100 delivery, both eligible. The committee approved £500 cash from reserves and £300 volunteer time is estimated. Storage has no quote. The chair will review before submitting. Show the eligible budget, request, match and holds.",
+      "must_contain": ["2,000|2000", "1,600|1600", "400", "volunteer|in.kind", "storage", "chair|pending|draft"],
+      "must_not_contain": ["submitted the application", "storage is eligible"]
+    },
+    {
       "id": "grants-finder-02",
       "skill": "grants-finder",
       "type": "contrary",
