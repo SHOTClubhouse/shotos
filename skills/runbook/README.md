@@ -29,7 +29,7 @@ Ask:
 
 > Write a runbook for the monthly landlord statement run, from the script, the shell history and my notes. Mark which steps you have seen. Then give me a checklist for a colleague to test it.
 
-You get a runbook on [template.md](template.md). Ask a colleague to follow it while you watch, and update it.
+You get a runbook on [template.md](template.md). Ask a colleague to follow it while you watch, and record any help they needed. Use the [handover exercise](handover-exercise.md) to check how evidence carries between revisions.
 
 ## How it connects
 

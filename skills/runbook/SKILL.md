@@ -11,7 +11,7 @@ Stage: Own. Rules: 3 Read back the real result, 4 Claim only what you can show, 
 
 ## Context and handoff
 
-Observe the existing process and read current access and exception records. Have the intended operator attempt it using the instructions.
+Observe the existing process and read current access and exception records. Have the intended operator attempt it using the instructions. Record the runbook revision, environment and allowed actions before that attempt.
 
 Use `enablement-plan` if they need training or a supervised exit. Save the runbook in the team’s maintained location.
 
@@ -29,7 +29,7 @@ Skip it for a one-off task that will never repeat. Do not write a runbook for a 
 6. **Write the failure section.** For each failure seen or foreseeable: symptom, likely cause, what to try first, when to stop and escalate. Use failures from the incident notes before inventing any.
 7. **Write the rollback.** How to undo or stop safely, what cannot be undone, and who must say yes before an irreversible step (sending, spending, deleting, deploying, publishing).
 8. **Say who to call.** Names or roles, how to reach them, and when. Escalation order. No personal contact details in a public repository; point to the team contact sheet.
-9. **Test it with someone new.** Ask a person who did not build it to follow the runbook, with the builder only observing. Record where they stopped or guessed and fix those lines. Mark the runbook "tested by (name) on (date)".
+9. **Test it with someone new.** Ask a person who did not build it to follow the runbook, with the builder only observing. Record where they stopped or guessed and fix those lines. Record which steps were tried, what the operator needed from the builder and what remains untested. Mark independent operation verified only for a complete, checked cycle with no help. An assisted run can improve the runbook. Test the affected steps again after a change to the runbook, tools, access or process. See the [handover exercise](handover-exercise.md).
 10. **Set a review date** and say what changes trigger an update.
 
 ## Output
@@ -42,4 +42,4 @@ Use [template.md](template.md). Save with the process, for example `runbooks/wee
 - Steps give the expected result, not just the action.
 - Failures, rollback and an escalation list are present.
 - No secrets appear in the text, and none is repeated in the reply.
-- A person who did not build the process has followed it, or the runbook says "untested".
+- The run record names the operator, revision, environment, assistance and observed outcome. The status matches those facts.
