@@ -323,6 +323,26 @@ class InstallTests(unittest.TestCase):
             self.assertTrue(link.is_symlink())
             self.assertEqual(record.read_text(encoding="utf-8"), '{"version": 2}')
 
+    def test_uninstall_keeps_link_replacements_and_their_targets(self):
+        self.install("--with-hook")
+        skill = self.root / ".claude/skills/report-with-evidence/SKILL.md"
+        settings = self.root / ".claude/settings.json"
+        originals = {path: path.read_bytes() for path in (skill, settings)}
+        for path in originals:
+            target = self.root / f"local-{path.name}"
+            path.rename(target)
+            try:
+                path.symlink_to(target)
+            except (OSError, NotImplementedError):
+                self.skipTest("symlinks are not available here")
+        preview = run("--status", "--target", str(self.root))
+        self.assertIn("Skipped linked or outside target: .claude/skills/report-with-evidence/SKILL.md", preview.stdout)
+        result = self.uninstall()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        for path, data in originals.items():
+            self.assertTrue(path.is_symlink())
+            self.assertEqual((self.root / f"local-{path.name}").read_bytes(), data)
+
     def test_files_changed_after_install_are_kept(self):
         self.install()
         (self.root / "AGENTS.md").write_text("my own rules\n", encoding="utf-8")
