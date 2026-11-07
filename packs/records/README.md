@@ -17,6 +17,7 @@ The pack covers the plain habits that stop a project folder turning into a mess:
 | [work-folder](skills/work-folder/README.md) | Operate | Sets up a git-ignored `.work/` folder with one owning folder per task, and closes tasks out with a list of what moves. |
 | [file-naming](skills/file-naming/README.md) | Operate | Names files `YYYY-MM-DD_owner_subject_vNN.ext`, handles versions and status words, and shows a rename plan first. |
 | [filing-and-dedupe](skills/filing-and-dedupe/README.md) | Operate | Proposes a structure by owner and category, finds duplicates by size and checksum, and executes an approved plan with a change log. |
+| [reconcile-before-batch-change](skills/reconcile-before-batch-change/README.md) | Hypothesise | Matches source and target records, prepares a reviewable change plan and holds ambiguous or stale rows. |
 | [quarantine](skills/quarantine/README.md) | Operate | Moves doubtful files to a quarantine folder with a register and a review date, instead of deleting. |
 
 ## Needs

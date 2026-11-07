@@ -22,6 +22,8 @@ Use [Evidence Pack](../../skills/evidence-pack/README.md) for the pilot review a
 
 For a pilot spanning two organisations, use the [partner pilot workflow](partner-pilot.md) to record commercial scope, launch approval, communications approval and ownership in the same programme record.
 
+For a batch of account or membership changes, use [Reconcile Records Before a Batch Change](../../packs/records/skills/reconcile-before-batch-change/README.md) to give operations, the data owner and the operator one plan to review.
+
 ## What SHOTos gives you
 
 - **One way of working that business and technical teams share.** The six stages ([framework](../framework.md)) work for a process change in stores, a new system in head office, or both at once.
