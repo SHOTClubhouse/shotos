@@ -47,6 +47,10 @@ SKIP = {".git", ".claude", ".shotos", ".shotos-install.json", ".work", "__pycach
 
 # ---------------------------------------------------------------- helpers
 
+class EvaluationUnavailable(Exception):
+    """The runtime or fact extractor did not return a result that can be graded."""
+
+
 def claude_json(prompt: str, model: str, cwd: Path, timeout: int, allowed=None, max_turns=None, no_tools=False) -> dict:
     # The prompt goes in on stdin: on Windows the claude shim cuts a multi-line argument at its first newline.
     cmd = [CLAUDE, "-p", "--model", model, "--output-format", "json", "--no-session-persistence",
@@ -71,9 +75,19 @@ def claude_json(prompt: str, model: str, cwd: Path, timeout: int, allowed=None, 
         except subprocess.TimeoutExpired:
             kill_tree(proc)
             return {"result": "", "error": f"timed out after {timeout} seconds"}
-        return json.loads(stdout or "{}")
+        data = json.loads(stdout or "{}")
+        if not isinstance(data, dict):
+            return {"error": "runtime returned an unexpected JSON value"}
+        if data.get("error"):
+            return data
+        if proc.returncode or data.get("is_error") or not isinstance(data.get("result"), str):
+            detail = str(data.get("result") or "no result returned")[:240]
+            return {**data, "error": f"runtime failed: {detail}"}
+        return data
     except json.JSONDecodeError as error:
         return {"result": "", "error": str(error)}
+    except OSError as error:
+        return {"error": f"could not start or read the runtime: {error}"}
 
 
 def kill_tree(proc: subprocess.Popen) -> None:
@@ -95,13 +109,17 @@ def extract(instructions: str, material: str, timeout: int = 240) -> dict:
               "=== MATERIAL START ===\n" + material[:60000] + "\n=== MATERIAL END ===")
     with tempfile.TemporaryDirectory() as tmp:
         data = claude_json(prompt, "sonnet", Path(tmp), timeout, max_turns=1, no_tools=True)
+    if data.get("error"):
+        raise EvaluationUnavailable(f"fact extraction failed: {data['error']}")
     text = (data.get("result") or "").strip()
     text = re.sub(r"^```(?:json)?|```$", "", text, flags=re.M).strip()
     match = re.search(r"\{.*\}", text, re.S)
+    if not match:
+        raise EvaluationUnavailable("fact extraction returned no JSON object")
     try:
-        return json.loads(match.group(0)) if match else {"_error": "no json", "_raw": text[:500]}
-    except json.JSONDecodeError:
-        return {"_error": "bad json", "_raw": text[:500]}
+        return json.loads(match.group(0))
+    except json.JSONDecodeError as error:
+        raise EvaluationUnavailable("fact extraction returned invalid JSON") from error
 
 
 def read(root: Path, name: str) -> str:
@@ -494,18 +512,23 @@ def run_one(task: str, condition: str, model: str, repeat: int, timeout: int, tm
         started = dt.datetime.now()
         data = claude_json(spec["prompt"], model, root, timeout, allowed=ALLOWED)
         seconds = round((dt.datetime.now() - started).total_seconds(), 1)
-        reply = data.get("result", "") or ""
-        try:
-            checks = GRADERS[task](root, reply)
-        except Exception as error:  # a grader crash is a recorded failure, not a lost run
-            checks = [check("grader ran", False, repr(error))]
+        reply = data.get("result") if isinstance(data.get("result"), str) else ""
+        error = data.get("error")
+        checks = []
+        if not error:
+            try:
+                checks = GRADERS[task](root, reply)
+            except EvaluationUnavailable as unavailable:
+                error = str(unavailable)
+            except Exception as unexpected:
+                error = f"grader failed: {unexpected!r}"
         files = {p.relative_to(root).as_posix(): p.read_text(encoding="utf-8", errors="replace")[:20000]
                  for p in root.rglob("*.md") if p.is_file() and not (set(p.relative_to(root).parts) & SKIP)}
-    critical_pass = all(c["pass"] for c in checks if c["critical"])
+    critical_pass = None if error else all(c["pass"] for c in checks if c["critical"])
     return {"task": task, "condition": condition, "model": model, "repeat": repeat, "outcome_pass": critical_pass,
             "checks": checks, "checks_passed": sum(c["pass"] for c in checks), "checks_total": len(checks),
             "cost_usd": data.get("total_cost_usd"), "turns": data.get("num_turns"), "seconds": seconds,
-            "reply": reply[:4000], "files": files, "error": data.get("error")}
+            "reply": reply[:4000], "files": files, "error": error}
 
 
 def paired_test(results: list) -> str:
@@ -524,6 +547,8 @@ def paired_test(results: list) -> str:
             losses += 1
         else:
             ties += 1
+    if not (wins or losses or ties):
+        return "No complete with/without pairs were available."
     n = wins + losses
     k = min(wins, losses)
     p = min(1.0, 2 * sum(math.comb(n, i) for i in range(k + 1)) / 2 ** n) if n else 1.0
@@ -538,10 +563,10 @@ def summarise(results: list) -> str:
         for cond in ("with", "without"):
             errored = [r for r in results if r["model"] == model and r["condition"] == cond and r.get("error")]
             rs = [r for r in results if r["model"] == model and r["condition"] == cond and not r.get("error")]
+            if errored:
+                lines.append(f"| {model} | {cond} SHOTos | {len(errored)} run(s) unavailable for scoring | | | |")
             if not rs:
                 continue
-            if errored:
-                lines.append(f"| {model} | {cond} SHOTos | {len(errored)} run(s) timed out or failed to run; left out below | | | |")
             lines.append(f"| {model} | {cond} SHOTos | {sum(r['outcome_pass'] for r in rs)}/{len(rs)} | "
                          f"{sum(r['checks_passed'] for r in rs)}/{sum(r['checks_total'] for r in rs)} | "
                          f"{sum(r['cost_usd'] or 0 for r in rs):.2f} | {statistics.mean(r['seconds'] for r in rs):.0f} |")
@@ -577,11 +602,13 @@ def main(argv=None) -> int:
     (out / f"summary-{stamp}.md").write_text(table + "\n", encoding="utf-8")
     print(table)
     for r in results:
+        if r["error"]:
+            print(f"ERROR {r['task']} {r['model']} {r['condition']} #{r['repeat']}: {r['error']}")
         for c in r["checks"]:
             if not c["pass"]:
                 print(f"FAIL {r['task']} {r['model']} {r['condition']} #{r['repeat']}: {c['check']} {c['detail']}")
     print(f"\nResults: {out / f'results-{stamp}.json'}")
-    return 0
+    return 2 if any(r["error"] for r in results) else 0
 
 
 if __name__ == "__main__":
