@@ -1,11 +1,15 @@
 """Resources that travel with a skill in an install or upload ZIP."""
 
+import os
 import re
 from pathlib import Path
 from urllib.parse import quote
 
 PUBLIC_REPO = "https://github.com/SHOTClubhouse/shotos"
 PARENT_LINK = re.compile(r"(?<=\]\()((?:\.\./)+[^\s)#]+)(#[^\s)]*)?")
+
+
+LOCAL_LINK = re.compile(r"(?<=\]\()((?![A-Za-z][\w+.-]*:|/|#)[^\s)#]+)(#[^\s)]*)?")
 
 
 def example_files(skill: Path):
@@ -29,14 +33,19 @@ def portable_readme(skill: Path, repo: Path, *, source_ref: str = "main") -> str
     return portable_markdown(skill / "README.md", repo, resources, source_ref=source_ref)
 
 
-def portable_markdown(source: Path, repo: Path, bundled_links: dict, *, source_ref: str = "main") -> str:
+def portable_markdown(source: Path, repo: Path, bundled_links: dict, *,
+                      source_ref: str = "main", installed_dir=None) -> str:
     """Rewrite parent links for Markdown moved out of its repository folder."""
     def destination(match):
         path = (source.parent / match[1]).resolve()
         fragment = match[2] or ""
         if path in bundled_links:
-            return bundled_links[path] + fragment
+            link = bundled_links[path]
+            if installed_dir is not None:
+                link = quote(Path(os.path.relpath(link, installed_dir)).as_posix())
+            return link + fragment
         kind = "tree" if path.is_dir() else "blob"
         return f"{PUBLIC_REPO}/{kind}/{source_ref}/{quote(path.relative_to(repo).as_posix())}{fragment}"
 
-    return PARENT_LINK.sub(destination, source.read_text(encoding="utf-8"))
+    pattern = LOCAL_LINK if installed_dir is not None else PARENT_LINK
+    return pattern.sub(destination, source.read_text(encoding="utf-8"))

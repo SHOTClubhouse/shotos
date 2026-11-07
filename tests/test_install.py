@@ -155,6 +155,21 @@ class InstallTests(unittest.TestCase):
         self.assertEqual(agreement.read_bytes(), original)
         self.assertEqual(list(self.root.iterdir()), [agreement])
 
+    def test_installed_guides_link_to_available_resources_and_public_fallbacks(self):
+        self.install("--pack", "content")
+        guides = self.root / ".shotos/docs"
+        setup = (guides / "connect-your-tools.md").read_text(encoding="utf-8")
+        self.assertIn("(../templates/data-access.md)", setup)
+        self.assertIn("(../../.claude/skills/slide-deck/README.md)", setup)
+        self.assertIn("/blob/main/packs/media/skills/voiceover/README.md)", setup)
+        self.assertIn("(https://developers.google.com/workspace/slides/api/guides/configure-mcp-server)", setup)
+        full_pack = (guides / "full-pack.md").read_text(encoding="utf-8")
+        self.assertIn("/blob/main/docs/running-it.md#choose-your-first-job)", full_pack)
+        for guide in (self.root / ".shotos").rglob("*.md"):
+            for target in re.findall(r"\]\(([^)#\s]+)", guide.read_text(encoding="utf-8")):
+                if "://" not in target:
+                    self.assertTrue((guide.parent / unquote(target)).exists(), target)
+
     def test_portable_readmes_resolve_in_install_and_zip(self):
         self.install("--all-packs")
         repo = INSTALL.parent

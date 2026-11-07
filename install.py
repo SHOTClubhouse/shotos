@@ -34,7 +34,7 @@ import tempfile
 from contextlib import contextmanager
 from pathlib import Path
 
-from tools.skill_resources import example_files, portable_readme
+from tools.skill_resources import example_files, portable_markdown, portable_readme
 
 REPO = Path(__file__).resolve().parent
 MANIFEST = ".shotos-install.json"
@@ -280,6 +280,16 @@ def install_lock(root: Path):
         path.unlink(missing_ok=True)
 
 
+def installed_markdown_locations(copies):
+    locations = {}
+    for original, installed in copies:
+        locations.setdefault(original.resolve(), installed)
+        if original.is_dir():
+            for resource in original.rglob("*.md"):
+                locations.setdefault(resource.resolve(), installed / resource.relative_to(original))
+    return locations
+
+
 def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool, packs=(), with_agents=False) -> int:
     root = root.resolve()
     manifest_path = root / MANIFEST
@@ -336,6 +346,8 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
     def record(rel: str, before) -> None:
         manifest["edits"][rel] = {"original": b64(before), "after": sha(root / rel)}
 
+    shared_guides = tuple(root / ".shotos" / name for name in ("docs", "rules", "agents", "lenses", "templates"))
+    locations = installed_markdown_locations(copies) if scope == "project" and previous is None else {}
     try:
         for src, dst in copies:
             missing = []
@@ -356,7 +368,13 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
                 shutil.copy2(src, dst)
                 files = [dst]
             for f in files:
-                manifest["files"][f.relative_to(root).as_posix()] = sha(f)
+                relative_path = f.relative_to(root).as_posix()
+                manifest["files"][relative_path] = sha(f)
+                if locations and f.suffix == ".md" and any(f.is_relative_to(folder) for folder in shared_guides):
+                    original = src / f.relative_to(dst) if src.is_dir() else src
+                    guide = portable_markdown(original, REPO, locations, installed_dir=f.parent)
+                    f.write_bytes(guide.encode("utf-8"))
+                    manifest["files"][relative_path] = sha(f)
             if src.is_dir() and readme is not None:
                 installed_readme = dst / "README.md"
                 installed_readme.write_bytes(readme.encode("utf-8"))
