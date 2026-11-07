@@ -11,8 +11,8 @@
 Proceed to Own, pivot to Hypothesise or stop, by (date). Hold while outcome evidence is missing.
 
 ## Before and after
-| Measure | Baseline (from Scope, date, source) | After (value, date range) | Change | Threshold from Hypothesise | Met? |
-|---|---|---|---|---|---|
+| Measure | Baseline (from Scope, date, source) | After (value, date range) | Comparable slice or reason it differs | Change | Threshold or guard | Met? |
+|---|---|---|---|---|---|---|
 
 ## Evidence table
 | # | Figure | Unit | Date range | Source (file, system, export) | How calculated | Sample size |
