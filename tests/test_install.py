@@ -234,6 +234,12 @@ class InstallTests(unittest.TestCase):
         self.assertIn(".shotos/templates/AGENTS.md", agreement.read_text(encoding="utf-8"))
         for name in ("docs/full-pack.md", "templates/work-record.md", "agents/qa-lead.md", "lenses/customer.md"):
             self.assertTrue((self.root / ".shotos" / name).is_file(), name)
+        summary = self.root / ".shotos/tools/summarise_accepted_work.py"
+        ledger = INSTALL.parent / "examples/accepted-work-ledger.csv"
+        report = subprocess.run([sys.executable, str(summary), str(ledger), "--matched-only"],
+                                cwd=self.root, capture_output=True, text=True)
+        self.assertEqual(report.returncode, 0, report.stdout + report.stderr)
+        self.assertIn("Matched task IDs only", report.stdout)
         for folder in (".claude/skills", ".agents/skills"):
             installed = self.root / folder
             self.assertEqual(len(list(installed.glob("*/SKILL.md"))), 88)
