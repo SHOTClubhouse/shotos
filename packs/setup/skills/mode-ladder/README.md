@@ -2,7 +2,7 @@
 
 **Right-size the effort: choose Quick, Standard, Thorough or Team of agents from the work's size, risk and uncertainty. A bigger setting never grants more authority.**
 
-This skill picks one of four effort levels for a session or task and says why. Quick is the lean default for small, safe work. Standard adds project context and acceptance examples. Thorough uses the strongest model, research and one bounded independent review. Team of agents runs several independent workers under a deterministic supervisor with set worker, time and cost limits. The choice is stated in one line and can be changed.
+This skill picks one of four effort levels for a session or task and says why. Quick is the lean default for small, safe work. Standard adds project context and acceptance examples. Thorough uses a model capable of the agreed checks, relevant research and one bounded independent review. Team of agents runs several independent workers under a deterministic supervisor with set worker, time and cost limits. The choice is stated in one line and can be changed.
 
 It supports the Scope stage. It serves rule 1, Stop at the boundaries, and controls [03, mode-contract](../../../../rules/03-mode-contract.md) and [11, context-control](../../../../rules/11-context-control.md).
 
@@ -28,7 +28,7 @@ Install SHOTos as described in the [main README](../../../../README.md#install).
 
 > I need to rename about forty files and then write a design for moving our booking system to a new provider. What effort level should each part use?
 
-You get a level for each task, the reason, what the level sets (model, context, review, parallel work), what it does not change, and the one line to confirm.
+You get a level for each task, the reason, what the level sets (model, context, review, parallel work), what it does not change, and any decision that still needs the owner's confirmation.
 
 To adopt it as team policy, ask: "Write our default effort levels and who may raise them, using the mode-ladder skill."
 

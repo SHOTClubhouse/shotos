@@ -31,7 +31,7 @@ Score the task on three questions before choosing a level:
 
 - **Quick.** Small and fast model, little context, the person's usual tools. For small, well understood, low-risk, reversible work such as renaming, summarising or drafting a short message. Review: one observable check.
 - **Standard.** Mid-range model plus the project's context. Acceptance examples first, a short plan, the work, a read-back. For ordinary document, product or code work with a clear goal. Review: the acceptance examples, run against the real result.
-- **Thorough.** Strongest available model, the research the task needs, and the context of related decisions. For hard design, difficult trade-offs, unfamiliar domains and choices that are costly to reverse. Review: one bounded independent review (control 7) sized to the risk.
+- **Thorough.** A model capable of the task, the research the task needs, and the context of related decisions. Use the smallest model that can perform the work and meet the agreed checks. For hard design, difficult trade-offs, unfamiliar domains and choices that are costly to reverse. Review: one bounded independent review (control 7) sized to the risk.
 - **Team of agents.** Several independent workers, each with its own task, under a deterministic supervisor (a script or fixed procedure, not another agent's judgement). Set worker count, time limit and cost limit up front. For work that splits into independent parts, such as checking fifty documents. Run a pilot of three units or fewer first (control 9).
 
 ## What each level sets
@@ -40,7 +40,7 @@ Score the task on three questions before choosing a level:
 |---|---|---|---|---|
 | Quick | Small | Minimal | One check | None |
 | Standard | Mid-range | Project context | Acceptance examples | None, or one helper |
-| Thorough | Strongest | Project plus related decisions | One bounded independent review | Only if the task splits |
+| Thorough | Smallest capable of the agreed checks | Project plus related decisions | One bounded independent review | Only if the task splits |
 | Team of agents | Fits each worker's job | Only what each worker needs | Pilot, then sampled spot-checks | Many, within set limits |
 
 ## What never changes with the level
@@ -57,7 +57,7 @@ A team lead can adopt this as written. Agree the default level for routine work 
 2. **Pick the lowest level that fits** (use these four names, not the model's own effort settings) the size, risk and uncertainty. Clear, routine, low cost of error and reversible: Quick. Several steps or shared things touched: Standard. Hard, new or costly to reverse: Thorough. Many independent parts: Team of agents, after a pilot.
 3. **Say what the level changes:** model class, context, review, helpers, and the expected cost.
 4. **Set limits for a Team of agents:** workers, time, spending, who watches, and the stop condition. If asked for no limits, or for agents to decide for themselves when to send, say no: the limits are set per task, the first run is a pilot of three units or fewer, and every send stays with the owner.
-5. **State the choice in one line** and ask the owner to confirm or change it.
+5. **State the choice in one line** and continue within the owner's existing authority. Confirm a change with the owner when it adds spend, grants access, expands the task or requires a decision they have reserved.
 6. **Re-check at checkpoints.** Move up if the task proves harder or riskier; move down when the hard part is done. Record each change in the task record.
 
 ## Output

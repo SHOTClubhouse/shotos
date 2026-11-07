@@ -18,7 +18,7 @@ A route line takes ten seconds to write and makes that mismatch visible before a
 4. Names the **reader**: the person or system that will act on the result, and whether they are inside or outside the team.
 5. Picks the **route**: do it directly, do it with a reviewer, split into review and execution sessions, or hand it to a person.
 6. Names the **proof**: the observable thing that will show the work is right, as agreed under [control 5](05-acceptance-first.md).
-7. Writes the line in the task record and shows it to the owner. For small work it goes in one chat message. The agent starts when the owner has not objected, unless the route includes an external action, in which case it waits for a yes.
+7. Writes the line in the task record and shows it to the owner. For small work it goes in one chat message. Start the parts already authorised. Pause at the specific action that still needs a decision, review or approval under [control 4](04-stop-boundaries.md). Record what would unblock it.
 
 ## What a person does
 
