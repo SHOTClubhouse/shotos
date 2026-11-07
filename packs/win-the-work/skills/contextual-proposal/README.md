@@ -41,7 +41,7 @@ Choose an [organisation template](organisation-templates.md) based on who can ap
 
 Nothing beyond the agent for writing. Opening or rendering the file needs a way to produce and view it (a document tool, a presentation tool, or an export to images). Public web research needs your approval of sources.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
+**Evidence:** The 3 November 2026 version was evaluated in a paired run, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
 
 ## Tips
 

@@ -26,6 +26,8 @@ Choose the role that fits the work in front of you. Try it on one real task and 
 
 See a [worked customer handoff](packs/customer-success/skills/success-handoff/README.md) or [follow a change across all six stages](docs/walkthrough.md).
 
+Follow [one fictional deal from proposal to accepted handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see how the buyer's agreement and the receiving lead's acceptance stay with the same record.
+
 ## Make it your team
 
 Start with the assistant you already use. Give it a role, a task and a check. As the work grows, give other people or supported agents their own responsibilities and have them hand over the saved result and evidence.
