@@ -28,12 +28,12 @@
 The author's averages (v1 82 per cent, v2 91 per cent) are not used for the decision.
 
 ## Cost per accepted outcome
-| Version | Model cost | Time editing, redoing or rejecting | Outputs accepted | Cost per accepted outcome |
-|---|---|---|---|---|
-| v1 | 1.20 pounds | 10 edits x 5 min + 3 redos x 10 min = 80 min = 32.00 pounds | 27 | 33.20 / 27 = about 1.23 pounds |
-| v2 | 1.35 pounds | 6 edits x 5 min + 4 redos x 10 min = 70 min = 28.00 pounds | 26 | 29.35 / 26 = about 1.13 pounds |
+| Version | Tasks started / accepted | Model spend | Recorded human minutes | Spend per accepted task | Recorded human minutes per accepted task |
+|---|---|---|---|---|---|
+| v1 | 30 / 27 | £1.20 | 80 | £0.04 | 2.96 |
+| v2 | 30 / 26 | £1.35 | 70 | £0.05 | 2.69 |
 
-v2 is about 8 per cent cheaper per accepted outcome on these 30 drafts. The saving rests on one run each and a single reviewer, and it does not offset the material failure.
+At the agreed £24 hourly rate, recorded spend plus rework is £1.23 per accepted task for v1 and £1.13 for v2. That is about 8% lower in this sample. Routine review and elapsed time to acceptance were unavailable, so this comparison covers recorded costs only. The material failure blocks promotion.
 
 ## Maturity label
 **Used** for v1 (written, has cases, accepted in about 20 real replies with notes, not yet measured for reliability). v2 stays **Defined** until it passes the gate: it is written and has cases, but a material failure means it is not Checked. Not Portable (never used outside the support team) and not Public-ready (not reviewed).

@@ -19,8 +19,10 @@ Request from Noor Haddad, support lead at Northgate Cycles: "We changed the cust
 **Scores the author reported:** average check score v1 82 per cent, v2 91 per cent.
 
 **Cost data:**
-- v1: 30 test drafts, model cost 1.20 pounds, 10 drafts needed a human edit (5 minutes each), 3 were rejected and redone (10 minutes each). 27 accepted.
-- v2: 30 test drafts, model cost 1.35 pounds, 6 needed a human edit (5 minutes each), 4 were rejected and redone (10 minutes each). 26 accepted.
+- v1: 30 comparable test tasks, model cost 1.20 pounds, 10 drafts needed a human edit (5 minutes each), 3 were rejected and redone (10 minutes each). 27 accepted.
+- v2: 30 comparable test tasks, model cost 1.35 pounds, 6 needed a human edit (5 minutes each), 4 were rejected and redone (10 minutes each). 26 accepted.
 - Staff time is valued at 24 pounds an hour.
+
+Each accepted task is counted once. The time figures cover edits and redos only. Routine review and elapsed time to acceptance were not recorded.
 
 **The skill has:** a README, template and 3 eval cases. It has been used in real replies about 20 times with notes. It has not been used outside the support team. It has not been reviewed for publication.

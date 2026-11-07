@@ -137,8 +137,8 @@ Cost per generated draft is easy to count and not very useful. The number that m
 2. **Record cost per attempt.** Most runtimes show tokens or cost for a session. Note it for each run, or read it from your provider's usage page.
 3. **Count attempts to acceptance.** Include reruns and fixes after review, not only the first try.
 4. **Record who accepted it.** If nobody accepted it, it does not count.
-5. **Divide.** Total cost for the period, divided by the number of accepted tasks, gives your cost per accepted task.
-6. **Add your time.** Reviewing and fixing take person time. Put a rate on it if you can, or at least log the minutes.
+5. **Divide.** Count each task once when a named reviewer accepts it. Divide total model and tool spend for all attempts, including abandoned work, by the number of accepted tasks. If none were accepted, report the totals and leave the per-accepted figure undefined.
+6. **Report human time separately.** Include review and rework for all attempts, and divide those minutes by the same number of accepted tasks. Combine spend and human time into one cost only if you have an agreed labour rate. If you record elapsed time from request to acceptance, report it separately.
 7. **Compare with and without.** Run a few tasks both ways, with acceptance cards and without. SHOTos may raise the cost of each run, as the [paired run](evidence.md) found, so check whether fewer reruns pay for it in your work.
 8. **Review monthly.** Change one thing at a time, such as the model, the length of `AGENTS.md` or the acceptance checks, and see whether the number moves.
 

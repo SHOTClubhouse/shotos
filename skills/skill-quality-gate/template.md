@@ -23,8 +23,12 @@ Promote | Promote with conditions | Do not promote. Blocked by (material failure
 |---|---|---|---|
 
 ## Cost per accepted outcome
-| Version | Model or tool cost | Time spent editing, redoing or rejecting | Outputs accepted | Cost per accepted outcome |
-|---|---|---|---|---|
+| Version | Tasks started / accepted | Model and tool spend, all attempts | Human review and rework minutes | Spend per accepted task | Human minutes per accepted task |
+|---|---|---|---|---|---|
+
+- **Coverage and missing data:**
+- **Combined cost per accepted task, if an agreed labour rate is available:**
+- **Elapsed time to acceptance, where recorded:**
 
 ## Maturity label
 Defined | Checked | Used | Reliable | Optimised | Portable | Public-ready. Evidence it rests on:
