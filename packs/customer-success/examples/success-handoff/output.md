@@ -24,11 +24,11 @@
 - 30 Oct: call, described by Priya as "great, very happy". Source: call notes. Stated by the giver.
 
 ## Open issues and risks
-- Key collection question unanswered since 29 Oct.
+- Key collection question open since 29 Oct. No response deadline is recorded.
 - No onboarding plan, 27 days before the start date.
 
-## Hypotheses (inferred, not confirmed)
-- The customer is satisfied. Would be confirmed by: a written reply to the key question, or early use.
+## Evidence still needed for account health
+- The giver reports a positive call. Ask for the customer's feedback or review evidence of onboarding before changing the health rating.
 
 ## Current owner and next actions
 1. Priya owns the unanswered key question while the transfer is Prepared. Confirm the key arrangements before replying.

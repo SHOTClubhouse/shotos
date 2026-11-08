@@ -24,7 +24,7 @@ Skip it for a quick note about one conversation, or for an account that is stayi
 ## Steps
 
 1. **Name the account, the giver and the receiver.** The receiver is a named person. If the proposed owner is not confirmed, write "proposed" and do not describe the transfer as made.
-2. **Gather the facts, with sources.** Record each promise, contact role, delivery result and open issue once with its source and date. Open mail, notes or transcripts to close specific gaps. Link restricted records and include contact details only when the receiver needs them and is permitted to see them.
+2. **Gather the facts, with sources.** Record each promise, contact role, delivery result and open issue once with its source and date. For an open issue, distinguish when it was raised from its agreed due date. Call it overdue only when the evidence gives a deadline that has passed. Keep dates in the form supplied until the year or calendar context is known. Open mail, notes or transcripts to close specific gaps. Link restricted records and include contact details only when the receiver needs them and is permitted to see them.
 3. **Keep three fields separate** and never merge them:
    - **Lifecycle stage:** where the account is in its relationship (for example: pre-start, onboarding, live, renewal due). Based on what has happened.
    - **Health:** how it is going (healthy, at risk, unknown), with the evidence for the rating. If there is no evidence, write "unknown".
