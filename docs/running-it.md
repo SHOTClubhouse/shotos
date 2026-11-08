@@ -22,7 +22,7 @@ Download one skill ZIP to try it with a file manager, or use the pack flag with 
 | --- | --- | --- | --- |
 | Prepare one leadership decision | [Decision Brief](https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip) | `--pack exec-ops` | The two-round brief separates the recommendation, the director's approval and the later stop decision. |
 | Turn several updates into a review agenda | [Weekly Executive Brief](https://github.com/SHOTClubhouse/shotos/releases/latest/download/weekly-exec-brief.zip) | `--pack exec-ops` | The earlier insurance renewal date appears as one decision. Missing portal evidence stays visible. |
-| Plan a safe test of a batch change | [Pilot Before Scale](https://github.com/SHOTClubhouse/shotos/releases/latest/download/pilot-before-scale.zip) | Core | The pilot uses a copy and includes a typical row, an awkward date and a blank value. The full run needs the owner's approval. |
+| Plan a safe test of a batch change | [Pilot Before Scale](https://github.com/SHOTClubhouse/shotos/releases/latest/download/pilot-before-scale.zip) | Core | Pick a typical row, an awkward date and a blank value. Use an authorised copy for any workbook changes. Keep the full run pending. |
 | Review the evidence from a pilot | [Evidence Pack](https://github.com/SHOTClubhouse/shotos/releases/latest/download/evidence-pack.zip) | Core | The review shows that one service target was met and another missed. Staff time stays unmeasured. |
 | Train someone to take over a process | [Enablement Plan](https://github.com/SHOTClubhouse/shotos/releases/latest/download/enablement-plan.zip) | Core | The new team has a full Friday cycle to run independently, with a planted fault and a named reviewer. |
 
@@ -40,7 +40,7 @@ Download one skill ZIP to try it with a file manager, or use the pack flag with 
 2. For Decision Brief, follow the [two-round retail exercise](guides/chat-assistants.md#run-the-retail-scenario). For other skills, ask the installed skill to open `example-input.md`. In a file-based chat, attach `SKILL.md`, `example-input.md` and `template.md` if included. Add any other file the skill needs for the sample. Keep `example-output.md` for your own review.
 3. For a sample using `example-input.md`, use the prompt below. Compare the result with the check for your job and open the worked output to see where the two differ.
 
-> Use the selected skill on example-input.md. Work from the supplied fictional sources. Return the first useful draft or preview and identify the sources you actually used. Name any evidence or decision still needed and who owns it. If a required input is missing, say which one. Keep live action pending.
+> Use the selected skill on example-input.md. Work from the supplied fictional sources. Return the first useful draft or preview. If we are using chat with files, put the result in your reply. Identify the sources you actually used. Name any evidence or decision still needed and who owns it. If a required input is missing, say which one. Keep live action pending.
 
 For your next run, replace the fictional input with the smallest set of records approved for your assistant. Keep the skill, expected result and checks the same. Save the accepted result and its sources together, with any open decision named.
 

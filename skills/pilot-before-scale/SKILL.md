@@ -1,6 +1,6 @@
 ---
 name: pilot-before-scale
-description: Runs a task on three items or fewer first, inspects and fixes, then completes a preflight checklist before the full run. Use for bulk edits, mass drafts, clean-ups, migrations or any run touching many records.
+description: Plans or runs a task on three items or fewer, then completes a preflight checklist before the full run. Use for bulk edits, mass drafts, clean-ups, migrations or any run touching many records.
 ---
 
 # Pilot before scale
@@ -21,9 +21,9 @@ Skip it when there are three items or fewer, or the run is read-only and can be 
 
 ## Steps
 
-1. **Count the items and state the action.** If you are asked how you will do the job, answer with the pilot of three and the preflight checklist by name, and say what each will hold for this job. Say how many items, what will happen to each, and whether it can be undone. If the count is three or fewer, run it and inspect each one.
+1. **Count the items and state the action.** If you are asked how you will do the job, answer with the pilot of three and the preflight checklist by name, and say what each will hold for this job. Say how many items, what will happen to each, and whether it can be undone. If three items or fewer are available and authorised for the action, inspect each result after running it.
 2. **Pick the pilot items.** Choose up to three that differ from each other: a typical one, an awkward one (missing data, odd format) and, if you can find it, one that should be skipped. Say why each was chosen. Do not pick the three easiest.
-3. **Run the pilot in the real home, within the boundaries.** If the action goes outside the team (a send, a post, a purchase, a delete), the pilot goes to the owner or to a test address first and needs the owner's yes. A pilot is not a licence to send three.
+3. **Run the pilot in an authorised target.** Use a working copy when the live target has downstream effects. If the target or authority is missing, give the owner a plan with expected results, the missing input and the next check. Label any simulated result as a desk check and leave observed run counts blank. If the action goes outside the team, use the owner or a test address first and get the owner's approval.
 4. **Inspect the results.** Open each result where it actually lives, not just the agent's log. Compare with the input and the acceptance checks. Write down what is wrong, what is surprising and what took longer or cost more than expected.
 5. **Fix and re-run.** Change the instructions, template or script, and run the three again. If a fix changes the nature of the task, pick three fresh items. Repeat until all three pass, or stop and report that it does not work.
 6. **Complete the preflight checklist** (see [template.md](template.md)) before the full run:
@@ -43,7 +43,7 @@ Use [template.md](template.md). Save it with the work, for example `.work/<task>
 ## Checks
 
 - Three or fewer pilot items, chosen to differ, with reasons.
-- Each pilot result was inspected in its real home.
+- Each executed pilot result was inspected in its real home. A plan or desk check records which execution evidence is still missing.
 - The preflight lists inputs, targets, rollback, budget and stop condition.
 - Anything that goes outside the team waited for the owner's yes.
 - The final report gives counts and a sample check.
