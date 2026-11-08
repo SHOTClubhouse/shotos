@@ -23,6 +23,8 @@ For a proposal, start a fresh chat with the buyer's brief, the approved offer an
 
 Review the proposed terms and evidence together. If the buyer later accepts, pass the same record to the delivery lead and record their acceptance separately. Follow [one fictional deal](../../packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see what travels.
 
+If your assistant can only reply in chat, ask for the proposal copy and the private evidence sheet as separate sections. You can check the argument, terms and sources in that draft. Keep layout review open until you can render and inspect the proposal in the format the buyer will see.
+
 ## Try a fictional discovery exercise
 
 Copy this whole block into a fresh chat. In a project with SHOTos installed, ask the assistant to use [Capture the Problem](../../skills/capture-the-problem/README.md) and [Hypothesis Card](../../skills/hypothesis-card/README.md).
