@@ -18,9 +18,9 @@ If the question is whether the team may use the data or tool, start with [enterp
 
 Open the [three fictional retail records](../../packs/exec-ops/skills/decision-brief/scenarios/retail-trial-initial.md). Paste or attach those records in a fresh chat with the prompt below. If you have the skill installed, ask it to use those same three records.
 
-> Draft a one-page decision brief for the retail director from records R1–R3. Give a recommendation and a credible alternative. Cite the wait times and sample sizes. Show what must be checked at the next store, who owns that check, and what remains for the director to decide. Keep the brief in draft for review.
+> Draft a one-page decision brief for the retail director from records R1–R3. Give a recommendation and a credible alternative. Cite the wait times and sample sizes. Use dates as written in the records. State the local baseline and staffing checks, who owns each one and what remains for the director to decide. Keep the brief in draft for review.
 
-The draft should report 8 minutes across 120 orders before the trial and 5 across 118 during it. If it recommends a one-store extension, it should make that conditional on a local evening baseline and staffing check, owned by the receiving store manager. The director's decision stays pending. If your assistant cannot read R1–R3, paste the records before judging the draft.
+The draft should report 8 minutes across 120 orders before the trial and 5 across 118 during it. If it recommends a one-store extension, it should make that conditional on a local evening baseline and staffing check. The regional operations lead runs the review and confirms the baseline. The receiving store manager owns the staffing check. The director's decision stays pending. If your assistant cannot read R1–R3, paste the records before judging the draft.
 
 To install the skill or carry the brief through to a recorded decision and handoff, follow the [two-round retail exercise](chat-assistants.md#run-the-retail-scenario).
 
