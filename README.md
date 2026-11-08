@@ -12,6 +12,10 @@ The [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) li
 
 ## Pick your starting point
 
+**Founders.** [Choose a founder skill](docs/guides/startup-founder.md#try-one-task) for the problem, prospect or delivery handoff in front of you. [Try a fictional discovery brief](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise) in one chat message.
+
+**Enterprise leaders.** [Choose an enterprise skill](docs/guides/enterprise-operations.md#choose-the-work-in-front-of-you) for a decision, operating review, pilot or handoff. [Try a fictional leadership brief](docs/guides/enterprise-operations.md#try-a-decision-in-one-chat) using three short records.
+
 Choose the role that fits the work in front of you. Try it on one real task and use the check to decide whether to keep it.
 
 | I’m a… | Try this first | What would show it helped? |
@@ -44,7 +48,7 @@ A role sets the responsibility. An audience persona tells you who the work is fo
 
 ## Try SHOTos
 
-Start with [one founder task](docs/guides/startup-founder.md#try-one-task) or [one enterprise workflow](docs/guides/enterprise-operations.md#try-one-workflow). Both routes include a prompt, an output to review and the person who decides what happens next.
+For one quick result, pick a [first job](docs/running-it.md#choose-your-first-job). To see how a team carries the evidence forward, try the [enterprise workflow exercise](docs/guides/enterprise-operations.md#try-one-workflow).
 
 Explore the [Northbank fictional club website](https://shotclubhouse.github.io/shotos/) and its [worked example](examples/northbank-club/README.md), from visitor brief to public release.
 
