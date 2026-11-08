@@ -12,7 +12,7 @@ Start with one decision or recurring task you can review with its owner. Use fic
 | Completed pilot records and the original acceptance checks | [Evidence Pack](../../skills/evidence-pack/README.md) | A comparison that shows what passed, what missed and what the sponsor can decide. |
 | A named team ready to receive a workflow | [Enablement Plan](../../skills/enablement-plan/README.md) | A practice cycle the receiving lead can run independently, with a reviewer and a way to record acceptance. |
 
-If the question is whether the team may use the data or tool, start with [enterprise risk review](enterprise-risk-review.md). If you need to practise the whole operating cycle, use the [invoice-query workflow](#try-one-workflow).
+Get the skill and its sample from [enterprise downloads](../running-it.md#enterprise-starting-points). If the question is whether the team may use the data or tool, start with [enterprise risk review](enterprise-risk-review.md). To practise the whole operating cycle, use the [invoice-query workflow](#try-one-workflow).
 
 ## Try a decision in one chat
 

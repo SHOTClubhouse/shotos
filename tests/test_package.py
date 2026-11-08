@@ -69,6 +69,17 @@ class PackageTests(unittest.TestCase):
         self.assertCountEqual(guides, [skill.joinpath("README.md").relative_to(ROOT).as_posix() for skill in skills])
         self.assertCountEqual(downloads, [f"{skill.name}.zip" for skill in skills])
 
+    def test_first_job_downloads_match_their_install_route(self):
+        text = (ROOT / "docs/running-it.md").read_text(encoding="utf-8")
+        skills = {skill.name: skill for skill, _ in self.all_skills()}
+        rows = re.findall(r"\]\(https://github\.com/SHOTClubhouse/shotos/releases/latest/download/([^/)]+)\.zip\) \| ([^|]+) \|", text)
+        self.assertTrue(rows)
+        for name, route in rows:
+            with self.subTest(skill=name):
+                parts = skills[name].relative_to(ROOT).parts
+                expected = f"`--pack {parts[1]}`" if parts[0] == "packs" else "Core"
+                self.assertEqual(route.strip(), expected)
+
     def test_case_ids_are_unique_and_well_formed(self):
         cases = self.all_cases()
         ids = [c["id"] for c in cases]
