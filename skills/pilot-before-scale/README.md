@@ -12,7 +12,7 @@ Millbrook Rovers youth club has 212 player records to update with a new age-grou
 
 ## What the agent does differently
 
-It picks three records: a normal one, one with a day-first date typed as text, and one with a blank date of birth. It runs the change on those, opens the live sheet, and finds the date format problem on the second. It fixes the rule, re-runs the three, writes a rollback (a copy of the sheet taken first), sets the stop condition (halt after two rows it cannot classify) and only then asks for the yes to run the rest. See [examples/pilot-before-scale/output.md](../../examples/pilot-before-scale/output.md).
+It picks three records that exercise different behaviour. The [worked example](../../examples/pilot-before-scale/output.md) checks the expected codes for an ordinary date, a date stored as text and a blank. The workbook is absent in the exercise, so the result is a proposed pilot. On real work, use an authorised copy, inspect the written values and test restoration before requesting approval for the live batch.
 
 ## When to use it, and when not to
 

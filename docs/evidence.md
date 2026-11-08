@@ -6,6 +6,7 @@ This page records what has been tested, how, what it showed and what has not bee
 
 | Build | Evidence |
 | --- | --- |
+| Main after v1.8.0 | [Founder and enterprise first-run checks](#first-run-checks-after-v180). |
 | v1.8.0 release candidate | [Fresh Haiku skill and outcome checks](#v180-release-candidate-checks) on the code and skills at `222c6eb`. |
 | Main after v1.7.0 | [Targeted handoff, proposal and grading checks](#checks-on-main-after-v170). |
 | v1.7.0 public release | [Downloads and setup read-back](#v170-downloads-and-setup) on the published tag. |
@@ -15,6 +16,12 @@ This page records what has been tested, how, what it showed and what has not bee
 | Six-stage Windows replay | The draft workflow and stop gate checks described below. |
 
 The historical paired runs apply to the builds named in their results.
+
+## First-run checks after v1.8.0
+
+- **Try a brief in chat.** The fictional [founder discovery](guides/startup-founder.md#try-a-fictional-discovery-exercise) and [retail decision](guides/enterprise-operations.md#try-a-decision-in-one-chat) prompts were run as text in Claude Haiku. The founder draft separated the app request from the observed problem and kept the test with the manager. The retail draft used both order counts and left the director's decision pending.
+- **Select one ZIP.** All 13 public first-job links were downloaded and checked for skill instructions, sample input and worked output. In two text-based Codex replays from the candidate skill files, NUDGE gave a go for the procurement call and kept pricing blocked. Pilot Before Scale computed the expected values for three fictional rows and left workbook execution pending.
+- **Check what the paired runner measured.** On three NUDGE cases the Haiku literal checker scored 2/3 with the installed skill and 1/3 without. On two Pilot Before Scale cases it scored 0/2 with and 1/2 without. Responses missed required fields or phrases, and a mounted skill alone does not establish that its instructions were used. The two direct Codex replays tested the supplied instructions and inputs separately from automatic routing. These checks cover fictional first results.
 
 ## v1.8.0 release candidate checks
 
