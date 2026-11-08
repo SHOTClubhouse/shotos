@@ -1,6 +1,28 @@
 # Start here: a COO or operations leader in a large organisation
 
-You run operations for a large business: thousands of staff, many sites, a technology function, a risk function and a board. Teams are already using AI tools, some approved and some not. You want the productivity without losing control of what goes out, what gets spent and what gets claimed.
+Start with one decision or recurring task you can review with its owner. Use fictional records to learn the method. For real work, confirm the assistant, data and actions are approved for the task before sharing records.
+
+## Choose the work in front of you
+
+| What you have | Start with | First result to check |
+| --- | --- | --- |
+| One choice for a named leader and a few dated sources | [Decision Brief](../../packs/exec-ops/skills/decision-brief/README.md) | A one-page recommendation that cites its evidence, states any conditions and names the decider. |
+| Updates from several teams and an upcoming leadership review | [Weekly Executive Brief](../../packs/exec-ops/skills/weekly-exec-brief/operating-review.md) | A short agenda that separates decisions from routine progress and names the missing evidence. |
+| A process worth trying, with a known baseline or a way to measure it | [Pilot Before Scale](../../skills/pilot-before-scale/README.md) | A bounded plan with eligible cases, acceptance checks and a stop condition. |
+| Completed pilot records and the original acceptance checks | [Evidence Pack](../../skills/evidence-pack/README.md) | A comparison that shows what passed, what missed and what the sponsor can decide. |
+| A named team ready to receive a workflow | [Enablement Plan](../../skills/enablement-plan/README.md) | A practice cycle the receiving lead can run independently, with a reviewer and a way to record acceptance. |
+
+If the question is whether the team may use the data or tool, start with [enterprise risk review](enterprise-risk-review.md). If you need to practise the whole operating cycle, use the [invoice-query workflow](#try-one-workflow).
+
+## Try a decision in one chat
+
+Open the [three fictional retail records](../../packs/exec-ops/skills/decision-brief/scenarios/retail-trial-initial.md). Paste or attach those records in a fresh chat with the prompt below. If you have the skill installed, ask it to use those same three records.
+
+> Draft a one-page decision brief for the retail director from records R1–R3. Give a recommendation and a credible alternative. Cite the wait times and sample sizes. Show what must be checked at the next store, who owns that check, and what remains for the director to decide. Keep the brief in draft for review.
+
+The draft should report 8 minutes across 120 orders before the trial and 5 across 118 during it. If it recommends a one-store extension, it should make that conditional on a local evening baseline and staffing check, owned by the receiving store manager. The director's decision stays pending. If your assistant cannot read R1–R3, paste the records before judging the draft.
+
+To install the skill or carry the brief through to a recorded decision and handoff, follow the [two-round retail exercise](chat-assistants.md#run-the-retail-scenario).
 
 ## Try one workflow
 

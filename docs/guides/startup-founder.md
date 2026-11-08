@@ -1,18 +1,21 @@
 # Start here: a startup founder
 
-You are starting something: a coaching business, an agency, a software product, a consultancy. You are the salesperson, the operations team and the product owner at once, and you are already using AI agents for a lot of it. The risk is not that the agent is slow. The risk is that it sends the wrong thing to a prospect, claims a customer you do not have, or builds the wrong product well.
+Start with one question you need answered or one piece of work you can review today. If you are just exploring SHOTos, [try the fictional discovery brief](#try-a-fictional-discovery-exercise) in your usual assistant. It needs one message and no setup.
 
 ## Try one task
 
-Pick the row that matches the work in front of you. Start with the relevant skill and one brief or record you can share with your assistant.
+Pick the row whose input you have. Start with one skill, one source set and one result you can check. The [first-job guide](../running-it.md#choose-your-first-job) explains how to use a ZIP in your assistant.
 
-| If you need to | Start with | First useful result |
+| What you have | Start with | First result to check |
 | --- | --- | --- |
-| Decide whether a customer problem is worth a build | [Capture the Problem](../../skills/capture-the-problem/README.md) | A one-page problem statement with the smallest test that could change your mind |
-| Turn a live opportunity into a proposal | [Contextual Proposal](../../packs/win-the-work/skills/contextual-proposal/README.md) | A buyer-facing draft and a private working sheet that links each material claim or commitment to evidence |
-| Give an accepted deal to the person delivering it | [Success Handoff](../../packs/customer-success/skills/success-handoff/README.md) | One deal record with the accepted revision, the first action and the receiving lead's status |
-| Run a pilot with an external partner | [Partner pilot](partner-pilot.md) | A launch decision, named owners and a clear measure for the sponsor's review |
-| Put a small website in front of customers | [Build a Small Website](../../packs/content/skills/build-small-website/README.md) | A preview with the key visitor journeys checked |
+| Customer notes and a proposed feature | [Capture the Problem](../../skills/capture-the-problem/README.md) | A one-page problem brief that separates what customers reported from the proposed fix. |
+| A promising conversation with budget or buying authority still unclear | [NUDGE Qualification](../../packs/win-the-work/skills/nudge-qualify/README.md) | A go, pause or walk-away recommendation with one question for a named person. |
+| A named buyer, their brief and an approved offer | [Contextual Proposal](../../packs/win-the-work/skills/contextual-proposal/README.md) | A buyer-facing draft and a private evidence sheet. Check approved terms against the source. |
+| A signed or otherwise evidenced agreement ready for delivery | [Success Handoff](../../packs/customer-success/skills/success-handoff/README.md) | A record with the accepted revision, the first action and the receiving lead's status. |
+| A proposed joint trial and a named partner | [Partner pilot](partner-pilot.md) | A launch recommendation with named owners, a measure and any permissions still pending. |
+| A defined audience and a short list of things visitors need to do | [Build a Small Website](../../packs/content/skills/build-small-website/README.md) | A preview with the main visitor journeys checked on a narrow and wide screen. |
+
+For a proposal, use [Bid Response](../../packs/win-the-work/skills/bid-response/README.md) when the buyer has issued a tender with required questions, evidence or submission rules.
 
 For a proposal, start a fresh chat with the buyer's brief, the approved offer and any source you want the assistant to use.
 
@@ -22,16 +25,16 @@ Review the proposed terms and evidence together. If the buyer later accepts, pas
 
 ## Try a fictional discovery exercise
 
-A founder is asked to build a booking app for an independent repair workshop. Paste the records into a fresh chat, or use [Capture the Problem](../../skills/capture-the-problem/README.md) and [Hypothesis Card](../../skills/hypothesis-card/README.md) in an installed project.
+Copy this whole block into a fresh chat. In a project with SHOTos installed, ask the assistant to use [Capture the Problem](../../skills/capture-the-problem/README.md) and [Hypothesis Card](../../skills/hypothesis-card/README.md).
 
-| ID | What the founder has |
-| --- | --- |
-| D1 | The manager reports that the front desk gets repeat calls about appointment availability and asks for an app. |
-| D2 | A one-week manual tally records 18 phone enquiries, six of which led to at least one repeat contact about confirmation. The tally has no comparable weeks. |
-| D3 | In three of the six repeat cases, the calendar shows a slot but no staff member had taken ownership of confirming it. The other cases have no recorded cause. |
-| D4 | The manager can assign a front-desk owner for a one-week manual test. The founder can propose a change. The manager decides whether it runs. |
+~~~text
+Draft a one-page problem brief for a fictional repair workshop and propose one small test. Separate the observed problem from the requested app. Cite D1–D4. Test assigning a confirmation owner while keeping the existing process and hours. Give the baseline, measure, proposed threshold, minimum comparable sample, stop condition and the person who decides whether to run it. Keep the test as a plan for review.
 
-> Use D1–D4 to capture the problem and propose one testable bet. Separate the observed problem from the requested app. Name the measure, baseline, threshold, stop condition and decision owner. Keep the test as a plan for review.
+D1. The manager reports repeat calls about appointment availability and asks for an app.
+D2. In one week, six of 18 phone enquiries led to at least one repeat confirmation call. There are no comparable weeks.
+D3. Three of those six cases had a calendar slot but no staff member owned confirmation. The other three have no recorded cause.
+D4. The manager can assign a front-desk owner for a one-week manual test. The founder can propose a change. The manager decides whether it runs.
+~~~
 
 Look for a plan that tests confirmation ownership before committing to software. An example bet is that assigning a confirmation owner for one week brings the repeat-contact rate down from the observed 6 of 18 to at most 1 in 6 comparable enquiries. Count each enquiry once, use the same recording window for both weeks and record missed bookings as a guard measure. The earlier tally gives no baseline for missed bookings. Compare only if the test records at least 18 comparable enquiries. Pause if a booking is missed because of the change. An inconclusive result goes back to the manager for review. A better result supports another bounded test, with software investment a separate decision.
 

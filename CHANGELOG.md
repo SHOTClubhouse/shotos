@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- **Get a first result.** The founder and enterprise guides match the records you have to one skill, then give you a fictional brief you can try and check in chat.
+
 ## 1.8.0 (8 November 2026)
 
 - Includes 88 individually downloadable skill ZIPs. The four repaired examples link to related skills at the exact release revision.
