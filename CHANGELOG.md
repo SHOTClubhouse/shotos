@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased
+## 1.8.0 (8 November 2026)
+
+- Includes 88 individually downloadable skill ZIPs. The four repaired examples link to related skills at the exact release revision.
 
 - **Start and update a project.** Use the [desktop setup guide](docs/guides/codex-claude-code.md) to refresh managed files or copy a new skill without a terminal. Use the [chat guide](docs/guides/chat-assistants.md) for workspace skill upload and the file-based route. The installer checks linked source and target paths and protects local changes during refresh.
 - **Skill ZIP checks.** Check every relative Markdown link inside the skill ZIPs and verify downloaded instructions against the exact tag. The [release checklist](RELEASING.md) includes a marketplace version check for changed packs.

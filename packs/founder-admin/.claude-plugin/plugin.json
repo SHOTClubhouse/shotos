@@ -1,6 +1,6 @@
 {
   "name": "shotos-founder-admin",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "SHOTos pack for founder admin: grant and award finding, investor updates, due-diligence data rooms and advisory board setup. Drafts by default; submits, pays or shares only after a yes on exactly what goes.",
   "author": {
     "name": "Liam McDowell"
