@@ -1,6 +1,6 @@
 # What you can do with SHOTos
 
-Pick the job, install the pack and ask in plain words. The skills can prepare a decision, build a working result or check a release. A request that names an authorised project action supplies authority for that action. For an external action, record the owner's approval of the applicable content, recipients, destination or amount. [Stop at the boundaries](../rules/04-stop-boundaries.md)
+Pick the job and ask in plain words. Start with [one skill ZIP and its sample](running-it.md#choose-your-first-job). Install a pack when you need several related skills. A request that names an authorised project action supplies authority for that action. For an external action, record the owner's approval of the applicable content, recipients, destination or amount. [Stop at the boundaries](../rules/04-stop-boundaries.md)
 
 Looking for a specific skill or ZIP? Open the [complete skill catalogue](skill-catalogue.md).
 
