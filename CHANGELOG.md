@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased
+## 1.9.0 (8 November 2026)
+
+- **Start with one skill.** The [founder guide](docs/guides/startup-founder.md) and [enterprise guide](docs/guides/enterprise-operations.md) give you a first result to try in chat. Download any of the 88 skills individually.
 
 - **Get a first result.** The founder and enterprise guides match the records you have to one skill, then give you a fictional brief you can try and check in chat. The [first-job guide](docs/running-it.md#choose-your-first-job) links each job to one ZIP and a worked sample check.
 - **Keep the next decision clear.** NUDGE separates pursuing a lead from clearing it for a priced proposal. The weekly executive brief asks for evidence of the decider and deadline and keeps any gaps visible.
