@@ -3,6 +3,7 @@
 ## Unreleased
 
 - **Get a first result.** The founder and enterprise guides match the records you have to one skill, then give you a fictional brief you can try and check in chat. The [first-job guide](docs/running-it.md#choose-your-first-job) links each job to one ZIP and a worked sample check.
+- **Keep the next decision clear.** NUDGE separates pursuing a lead from clearing it for a priced proposal. The weekly executive brief example keeps an unverified deadline and unknown approval owners visible.
 
 ## 1.8.0 (8 November 2026)
 

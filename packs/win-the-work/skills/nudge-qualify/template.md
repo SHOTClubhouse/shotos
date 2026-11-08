@@ -19,8 +19,10 @@
 - 
 
 ## Recommendation
-**Go, pause or walk away:** 
-**Because:** 
+- **Pursuit recommendation (go, pause or walk away) and exact next step**
+- **Because**
+- **Pricing gate (blocked or cleared for drafting)**
+- **What clears it and who confirms**
 
 ## Next question
 **Ask:** (named person) 
