@@ -6,6 +6,7 @@ This page records what has been tested, how, what it showed and what has not bee
 
 | Build | Evidence |
 | --- | --- |
+| v1.9.0 release candidate | [Fresh Haiku skill and outcome checks](#v190-release-candidate-checks) on the code and skills at `3b679be`. |
 | Main after v1.8.0 | [Founder and enterprise first-run checks](#first-run-checks-after-v180). |
 | v1.8.0 release candidate | [Fresh Haiku skill and outcome checks](#v180-release-candidate-checks) on the code and skills at `222c6eb`. |
 | Main after v1.7.0 | [Targeted handoff, proposal and grading checks](#checks-on-main-after-v170). |
@@ -17,11 +18,19 @@ This page records what has been tested, how, what it showed and what has not bee
 
 The historical paired runs apply to the builds named in their results.
 
+## v1.9.0 release candidate checks
+
+The [paired skill runner](../evals/run_paired.py) ran ten cases across the four skill instructions changed since v1.8.0 on Claude Haiku. All 20 runs returned responses. The literal checker scored **3/10 with SHOTos and 2/10 without**. The weekly-brief contrary case presented both unsupported claims as facts in the installed condition. The handoff checker also matched the words “marked completed” in a response that expressly held the transfer and email.
+
+With the skill instructions and templates supplied explicitly, the same weekly-brief case kept both claims unverified, the handoff case stayed Prepared with health unknown and the batch case described a desk plan with no workbook execution. The handoff replay still inferred the giver from the session. The batch replay also suggested an optional fourth case. These checks distinguish explicit selection from automatic routing and use fictional inputs.
+
+The [outcome runner](../evals/run_outcomes.py) ran ten fictional tasks on Claude Haiku once per condition. Both conditions passed **10/10 tasks and 49/50 individual checks**. The baseline proposal covered two of the three required buyer needs. The SHOTos folder-tidy run kept duplicate copies in quarantine. Each missed check was non-critical for its fixture. The results record one attempt per condition and raw responses stay in the local release workspace.
+
 ## First-run checks after v1.8.0
 
 - **Try a brief in chat.** The fictional [founder discovery](guides/startup-founder.md#try-a-fictional-discovery-exercise) and [retail decision](guides/enterprise-operations.md#try-a-decision-in-one-chat) prompts were run as text in Claude Haiku. The founder draft separated the app request from the observed problem and kept the test with the manager. The retail draft used both order counts and left the director's decision pending.
 - **Select one ZIP.** All 13 public first-job links were downloaded and checked for skill instructions, sample input and worked output. In two text-based Codex replays from the candidate skill files, NUDGE gave a go for the procurement call and kept pricing blocked. Pilot Before Scale computed the expected values for three fictional rows and left workbook execution pending.
-- **Read one installed skill.** In fresh local Claude Code projects, NUDGE and Weekly Executive Brief opened their bundled inputs and templates from a single copied skill folder. After the decision-authority update, the weekly brief left both approval owners unconfirmed and kept the dated survey commitment. Codex CLI recognised the two skills, but the test session's policy blocked reading local sample files. Text-based Codex runs with the same inputs supplied produced drafts. The setup guide gives this fallback when local file access is unavailable.
+- **Read one installed skill.** In fresh local Claude Code projects, NUDGE and Weekly Executive Brief opened their bundled inputs and templates from a single copied skill folder. After the decision-authority update, the weekly brief left both approval owners unconfirmed and kept the dated survey commitment. Codex CLI recognised the two skills. The restricted session failed to read its startup instructions and did not open the local sample files. Text-based Codex runs with the same inputs supplied produced drafts. The setup guide gives this fallback when local file access is unavailable.
 - **Check what the paired runner measured.** On three NUDGE cases the Haiku literal checker scored 2/3 with the installed skill and 1/3 without. On two Pilot Before Scale cases it scored 0/2 with and 1/2 without. Responses missed required fields or phrases, and a mounted skill alone does not establish that its instructions were used. The two direct Codex replays tested the supplied instructions and inputs separately from automatic routing. These checks cover fictional first results.
 
 ## v1.8.0 release candidate checks
