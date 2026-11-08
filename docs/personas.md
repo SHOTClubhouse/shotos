@@ -26,6 +26,8 @@ Choose the row that matches the work in front of you. Start with the first linke
 
 | If you work in | Try this first | Leave this for the next person |
 | --- | --- | --- |
+| Founding a business | [Choose a founder skill](guides/startup-founder.md#try-one-task) based on the customer evidence or buyer record you have. | A problem brief, qualification decision or reviewed offer with its sources. |
+| Leading an enterprise team | [Choose an enterprise skill](guides/enterprise-operations.md#choose-the-work-in-front-of-you) for one decision, review, pilot or handoff. | A reviewable result with its evidence, owner and next decision. |
 | Marketing | Turn a campaign brief into a [campaign website preview](../packs/content/skills/campaign-website/README.md). Use [Claims Audit](../packs/trust/skills/claims-audit/README.md) before asking for approval to publish. | Preview, approved sources, the main visitor action and the claims still awaiting sign-off. |
 | HR or people operations | Use [Explainer](../packs/content/skills/explainer/README.md) to turn an approved policy into a staff FAQ. Start with the policy and fictional questions. Route any need for employee case data to the data owner. | A draft FAQ linked to the policy version, questions the policy does not answer, and the HR reviewer who can resolve them. |
 | Analysis or product | Use [Capture the Problem](../skills/capture-the-problem/README.md) with one concrete example, then [Baseline](../skills/baseline/README.md) to record what can be measured today. | An issue with the affected group, the source for each figure and the next question for the decision owner. |
@@ -35,11 +37,11 @@ Choose the row that matches the work in front of you. Start with the first linke
 
 | Persona | Main worry | Stage to start with (and rule) | First skill | Where the rules run |
 |---|---|---|---|---|
-| Solo founder | Checking everything, or trusting blindly | Scope and Hypothesise, then Operate (rules 3 and 4) | report-with-evidence | Your machine: `AGENTS.md` and the Stop hook |
+| Solo founder | Checking everything, or trusting blindly | Scope and Hypothesise, then Operate (rules 3 and 4) | [Capture the Problem or NUDGE Qualification](guides/startup-founder.md#try-one-task) | The task checks, project agreement and optional Stop hook |
 | Small team lead | Five people, five ways of working | Scope and Hypothesise (rule 2) | agree-acceptance | One `AGENTS.md` in every repository |
 | Product owner | Work that is done but wrong | Scope and Hypothesise (rule 2) | capture-the-problem | The acceptance card, before the work |
 | Engineering or practice lead | Quality that varies by person and team | Operate and Track (rule 4) | evidence-handoff | claim-check in review and CI |
-| Business unit leader or sponsor | No owner, no proof, no audit trail | Scope, Track and Sustain and Scale (rule 1) | None directly, read the records | Policy, with records kept beside the work |
+| Business unit leader or sponsor | No owner, no proof, no audit trail | Scope, Track and Sustain and Scale (rule 1) | [Decision Brief or Evidence Pack](guides/enterprise-operations.md#choose-the-work-in-front-of-you) | Policy, with records kept beside the work |
 | Enablement coach | Leaving a team dependent on you | Own and Sustain and Scale (all four rules, one at a time) | The one the client's pain points to | The client's own repositories and habits |
 | The agent itself | Being asked to guess what "done" means | Works inside Operate (all four rules) | Whichever skill the task matches | Its own report, tested by claim-check |
 
@@ -64,16 +66,15 @@ Choose the row that matches the work in front of you. Start with the first linke
 
 **What SHOTos gives you**
 - **Rules 3 and 4 first.** The agent opens the file and runs the test before it reports, then ends with a [Claims block](claims.md) that `claim-check` tests. You read the verdict instead of the diff.
-- **Rule 1 as a safety net.** The working agreement stops the agent sending, spending or deleting without you.
-- **agree-acceptance** for anything a customer will see, in five minutes.
-- **The Stop hook** (`install.py --with-hook`), so a false "done" is sent back before you see it.
+- **Rule 1 sets the approval boundary.** Use tool permissions to enforce it.
+- **Agree Acceptance** gives you a short check for work someone will rely on.
+- **The optional Claude Code Stop hook** challenges supported types of unchecked completion claims.
 
 **First week**
-1. Day 1: install with the hook. Run `python examples/demo/run_demo.py` to see a failing report.
-2. Day 2: follow the [walkthrough](walkthrough.md) once, start to finish. It takes about 20 minutes.
-3. Day 3: on a real task, use the report-with-evidence habit and read only the claim-check verdict first.
-4. Day 4: agree acceptance on one task a customer will see. Include one case that should fail.
-5. Day 5: list which commands claim-check may run in `~/.shotos/claim-check.json`. Look back at what it caught.
+1. Try the [fictional discovery brief](guides/startup-founder.md#try-a-fictional-discovery-exercise) in chat and compare it with the example check.
+2. Pick one real job from the [founder guide](guides/startup-founder.md#try-one-task). Share only the records your assistant is allowed to use.
+3. Agree one check before asking for the draft. Review the result against its sources and record any decision you still need to make.
+4. If the job repeats, keep the accepted brief or proposal as a reference for the next run. Add [local claim checks](claims.md) when you want a repeatable check of reported actions.
 
 **A good month looks like**
 - You leave agents on bounded tasks and read the report when you return, not each change.
@@ -84,7 +85,7 @@ Choose the row that matches the work in front of you. Start with the first linke
 **Maturity.** Typically near the middle of Yegge's levels, with the agent in the editor and most changes reviewed, and at organisational level 0 or 1 (personal use). The next step is agents working while you are away, which needs a report you trust. That is rule 4.
 
 **Objections**
-- *"This slows me down."* The first card costs five minutes. Skipping it costs a rework or a customer message you cannot recall. In the [outcome evals](evidence.md), runs with SHOTos cost about 41% more and took longer, because the agent reads the rules and skills and writes more. That is real overhead. Use it where a mistake would cost more than the overhead.
+- *"This slows me down."* Compare time to a result you can accept. Include review and rework, and use a task you repeat often enough to compare. The [measurement guide](prerequisites.md#measuring-your-own-cost-per-accepted-task) gives you a record to use.
 - *"My model is already careful."* The same run found the same on safety: all ten safety cases passed without SHOTos. What differed was structure, such as an owner, a failure case and a list of unknowns. Careful is good. Checked is better, and your model changes every few months.
 - *"I only have myself to answer to."* Then you are the one who pays for a wrong "done", with no colleague to catch it.
 
@@ -248,14 +249,13 @@ Choose the row that matches the work in front of you. Start with the first linke
 - **Named owners.** Every acceptance card names the person who accepts. Every handoff names who decides what is open.
 - **An audit trail.** Acceptance cards and Claims blocks kept with the work show what was agreed, what was checked and who accepted it.
 - **Honest states.** Prepared, executed and accepted are different, and the reports say which.
-- **Mapping to public frameworks.** The [sources](sources.md) list NIST AI RMF, ISO/IEC 42001 and the EU AI Act Article 14 on human oversight. Mapping to them is on the [roadmap](roadmap.md), not done in 0.1. Do not present SHOTos as compliance with any of them.
+- **A starting point for risk review.** The [enterprise risk guide](guides/enterprise-risk-review.md) groups the workflow evidence under the four NIST AI RMF functions for an existing review.
 
 **First week**
-1. Day 1: read [controls.md](controls.md) and [claims.md](claims.md). Ask one team to demo the walkthrough.
-2. Day 2: list the agent pilots in your area and name an owner for each.
-3. Day 3: agree the boundaries as policy: what needs a yes, and from whom.
-4. Day 4: choose one pilot. Ask for its acceptance card and last three Claims blocks.
-5. Day 5: decide where the records live and who may read them.
+1. Try the [fictional retail brief](guides/enterprise-operations.md#try-a-decision-in-one-chat), or ask a process owner to bring one existing decision and its evidence.
+2. Choose a bounded task. Name the operator, reviewer and decider. Confirm which assistant and sources they can use and where the draft can be saved.
+3. Review one typical result and one exception against the same [acceptance card](../templates/acceptance.md). Record what the evidence supports and who owns the next decision.
+4. If a team is ready to run the task again, use the [handoff and independent cycle](guides/enterprise-operations.md#try-one-workflow) to check who can operate it and who accepts the evidence.
 
 **A good month looks like**
 - Every active pilot has a named owner and a card you can open.
@@ -267,8 +267,8 @@ Choose the row that matches the work in front of you. Start with the first linke
 
 **Objections**
 - *"This is not compliance."* Correct, and it does not claim to be. It is a working baseline that makes later compliance work easier because the records exist.
-- *"We need a platform and a vendor."* Version 0.1 needs Python and git. Start small and prove it on a few pieces of work before you scale, as the manifesto says.
-- *"Our people will not follow it."* The hook and CI check make the default the safe path. Policy that depends on remembering will fail.
+- *"We need a platform and a vendor."* Use one approved assistant and one approved source set for the first draft. Choose additional tools when the work needs their capabilities.
+- *"How do we make the checks stick?"* Keep the review in the team's normal workflow. Apply tool permissions to restricted actions and use the hook or CI check where it can verify evidence.
 
 ---
 

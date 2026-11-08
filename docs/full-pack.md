@@ -27,11 +27,11 @@ Audience personas describe who needs the outcome. Execution roles describe respo
 
 | Audience persona | First useful route | What stays with the work |
 | --- | --- | --- |
-| Solo founder | `nudge-qualify` → `contextual-proposal` → `claims-audit`, then `success-handoff` when delivery changes hands | Deal record with the approved offer, buyer acceptance and receiving lead's next action |
+| Solo founder | [Choose the starting skill](guides/startup-founder.md#try-one-task). Use `capture-the-problem` for discovery, `nudge-qualify` for a lead or `contextual-proposal` for an approved offer. | Problem evidence or a deal record with the exact draft, approvals and next action |
 | Small team lead | `agree-acceptance` → relevant delivery skill → `evidence-handoff` | Task checks, reviewed result and named next action |
 | Product owner or analyst | `capture-the-problem` → `example-mapping` → `agree-acceptance` | Problem, examples and acceptance beside the issue |
 | Engineering or practice lead | `route-the-work` → delivery → `cross-agent-review` or `delivery-metrics` | Change, tests, review and evidence in the repository |
-| Business unit leader or sponsor | `decision-brief` → `evidence-pack` → `decision-record` | Options, evidence, decision owner and dated decision |
+| Business unit leader or sponsor | Use `decision-brief` for a live choice or `evidence-pack` for a pilot result. Add a `decision-record` once the owner decides. [Enterprise guide](guides/enterprise-operations.md#choose-the-work-in-front-of-you) | Options, evidence, decision owner and dated decision |
 | Enablement coach or consultant | `runbook` → `enablement-plan` → `rollout-plan` | Observed independent cycle and approved next wave |
 | Agent | `route-the-work` → task skill → `report-with-evidence` | Saved artefact, claims, open checks and next action |
 

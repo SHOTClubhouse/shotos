@@ -1,6 +1,6 @@
 # Documentation
 
-Start with the [Harbourside example](walkthrough.md) to see how context travels from source evidence to a decision. If you already have a task, pick the guide that fits your role below.
+Pick a [founder task](guides/startup-founder.md#try-one-task), an [enterprise task](guides/enterprise-operations.md#choose-the-work-in-front-of-you) or [one skill to try](running-it.md#choose-your-first-job). Use the [Harbourside example](walkthrough.md) to see how context travels from source evidence to a decision across the full method.
 
 | If you want to | Read |
 |---|---|
