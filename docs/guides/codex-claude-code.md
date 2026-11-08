@@ -20,6 +20,10 @@ Start with one skill in the folder that owns your work. On Windows or Mac, you c
 
 Use the same installed skill for the [bank and startup exercises](chat-assistants.md#try-a-bank-or-startup-decision). If your ZIP predates a scenario's split input files, open the two linked evidence files from GitHub.
 
+### If the assistant cannot open the sample
+
+Check that the session is open at the project root and that the whole skill folder sits at the path above. Ask it to name the missing file. If the project cannot read that file under its current permissions, [use a chat with files](chat-assistants.md#chatgpt-projects-or-a-claude-chat-using-files). Extract the ZIP and attach the selected skill's instructions, template and sample input. Ask for the result in the reply and keep the worked answer for your review.
+
 For a shared agreement, add the [working agreement](../../templates/AGENTS.md) at the project root or merge its guidance into the existing file with the project owner's review. In Claude Code, reference it from the project's `CLAUDE.md` using `@AGENTS.md`. Manual copying gives you the selected skill and its files. Add other skills from the same release as needed. Keep one copy of each skill per project.
 
 To update a manually copied skill, extract the new release to a separate folder. Back up your old skill folder outside the project and any watched skills folders. Copy the complete new folder into the same installation location, then check it in a fresh session with the same fictional exercise. Review any custom templates or instructions before bringing them across. Keep project records and the working agreement in the project.
