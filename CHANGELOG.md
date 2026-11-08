@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- **Get a first result.** The founder and enterprise guides match the records you have to one skill, then give you a fictional brief you can try and check in chat.
+- **Get a first result.** The founder and enterprise guides match the records you have to one skill, then give you a fictional brief you can try and check in chat. The [first-job guide](docs/running-it.md#choose-your-first-job) links each job to one ZIP and a worked sample check.
 
 ## 1.8.0 (8 November 2026)
 

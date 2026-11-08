@@ -4,7 +4,7 @@ Start with one question you need answered or one piece of work you can review to
 
 ## Try one task
 
-Pick the row whose input you have. Start with one skill, one source set and one result you can check. The [first-job guide](../running-it.md#choose-your-first-job) explains how to use a ZIP in your assistant.
+Pick the row whose input you have. Start with one skill, one source set and one result you can check. The [founder downloads](../running-it.md#founder-starting-points) give you one ZIP per job and a check for its sample.
 
 | What you have | Start with | First result to check |
 | --- | --- | --- |
