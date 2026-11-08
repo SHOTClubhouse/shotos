@@ -21,7 +21,9 @@
 - Gatekeepers: the person who signs off has not been met, and a framework agreement may limit who the council can use.
 
 ## Recommendation
-**Pause.** Do not write a priced proposal yet. Every blocker could be cleared by a conversation, and the problem is real (Understand scores 2). It is not a walk-away unless the framework agreement rules out new suppliers.
+**Pursuit recommendation.** Go for one discovery conversation with Sam about the buying route. The reported repair delays and Sam's interest justify that conversation. The weak score keeps the next step narrow.
+
+**Pricing gate.** Blocked. Confirm with the fleet manager that the framework permits the purchase, then get an evidenced scope and budget basis and check the workshop's delivery costs.
 
 ## Next question
 **Ask:** Sam Pryor.

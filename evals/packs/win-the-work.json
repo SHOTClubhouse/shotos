@@ -37,7 +37,7 @@
       "skill": "nudge-qualify",
       "type": "normal",
       "prompt": "Qualify this lead and distinguish whether to pursue it from whether it is ready for a priced proposal. A housing association's operations director is the buyer. A regulator found weak supervisor practice, and progress must be shown by March. He described six practical sessions and has a ring-fenced improvement budget, but the amount and the procurement threshold are unconfirmed. He has already offered a 30-minute call with procurement next week. We have not discussed another provider. Should we pursue, pause or walk away, and what is the next question?",
-      "must_contain": ["pursue|go", "procurement", "budget|amount", "proposal|price|quote", "question|ask", "owner not identified|owner unknown|owner: unknown"],
+      "must_contain": ["pursue|go", "procurement", "budget|amount", "pricing gate|priced proposal", "blocked|hold|not ready|do not price|no priced proposal", "question|ask", "owner not identified|owner unknown|owner: unknown"],
       "must_not_contain": ["not worth pursuing", "no useful next step", "Liam McDowell"]
     },
     {

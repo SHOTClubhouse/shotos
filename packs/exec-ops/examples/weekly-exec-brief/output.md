@@ -1,15 +1,15 @@
 # Weekly executive brief, week of 3 November
 
-**Reader:** Priya Raman, founder. **Sources read:** daily ledger, meeting notes, task board. **Unavailable:** broker portal (login failed); local lettings news feed returned nothing this week.
+**Reader:** Priya Raman, founder. **Sources read:** daily ledger, meeting notes and task board. **Coverage:** partial because the broker portal login failed. The local lettings news feed was checked and returned no entries.
 
 ## Decisions needed
 | Question | Decision maker | Needed by | If it slips |
 |---|---|---|---|
-| Sign the insurance renewal proposal | Priya | Wed 12 Nov | The renewal rate may not be held (broker thread, Tuesday) |
-| Accept or decline the Elm Court roofing quote | Priya | Fri 7 Nov | The quote expires |
+| Decide whether to sign the insurance renewal | Signing authority unconfirmed. Ask Priya to identify the decider. | 12 Nov, as reported in Tuesday's ledger | The reported signing deadline could be missed. The effect on terms is unknown. |
+| Accept or decline the Elm Court roofing quote | Approval authority unconfirmed. Ask Priya to identify the decider. | By Friday's reported expiry | The team may need a revised quote. |
 
 ## What changed
-- The broker moved the renewal signing date from 14 Nov to 12 Nov (Tue 4 Nov, ledger row 1 and broker thread). Priya needs to decide two days earlier to protect the quoted rate.
+- Tuesday's ledger says the broker moved the renewal signing date from 14 Nov to 12 Nov. Wednesday repeats 12 Nov without adding a source. The portal is unavailable, so keep the deadline marked as reported.
 - The board call produced one dated commitment. It is recorded below rather than counting the meeting as a separate outcome.
 
 ## External signals worth acting on
@@ -20,11 +20,12 @@
 |---|---|---|---|
 | Send tenant survey results to the board | Priya | 14 Nov | Board call notes, Thursday |
 
-The insurance entries on Monday to Wednesday are reminders of one obligation, not three commitments.
+The three insurance entries refer to one renewal decision. They add no commitment until the authorised person decides.
 
 ## Recommendations (the agent's view, not agreed)
-- Set a due date of 14 Nov on the tenant survey task so the board commitment is visible on the board.
+- Ask the task-board owner to record the board's 14 Nov date on the existing tenant survey task.
 - Review the contractor panel in Q1. This is a suggestion only; nobody has agreed to it.
 
 ## Unverified
-- The renewal rate hold depends on the 12 Nov date; only the broker's email says so, and the portal could not be checked.
+- The broker's instruction and renewal terms were unavailable. Confirm the signing deadline and any effect on terms with the renewal owner.
+- The supplied records do not identify the signing or quote-approval authorities. Priya is the reader. The survey commitment is the only action explicitly assigned to her.

@@ -28,10 +28,12 @@ Do not use it on signed work, or on a request so small it costs less to do than 
 
 You get the scorecard from [template.md](template.md). Challenge any score; the evidence column shows where it came from.
 
+Read the pursuit recommendation and pricing gate separately. Go may mean one procurement conversation. Draft a priced offer only when the gate is cleared for drafting.
+
 ## How it connects
 
 - **Part of:** [leap-pipeline](../leap-pipeline/README.md) uses the scorecard as an Explore exit criterion.
-- **Next:** [contextual-proposal](../contextual-proposal/README.md) writes the proposal after a go; [relationship-map](../relationship-map/README.md) helps with the Gatekeepers question.
+- **Next:** [contextual-proposal](../contextual-proposal/README.md) drafts the offer once the pricing gate clears. [Relationship Map](../relationship-map/README.md) helps with the Gatekeepers question.
 - **Rules:** [docs/controls.md](../../../../docs/controls.md).
 
 ## Needs
