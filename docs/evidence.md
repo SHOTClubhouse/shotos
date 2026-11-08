@@ -6,6 +6,7 @@ This page records what has been tested, how, what it showed and what has not bee
 
 | Build | Evidence |
 | --- | --- |
+| v1.8.0 release candidate | [Fresh Haiku skill and outcome checks](#v180-release-candidate-checks) on the code and skills at `222c6eb`. |
 | Main after v1.7.0 | [Targeted handoff, proposal and grading checks](#checks-on-main-after-v170). |
 | v1.7.0 public release | [Downloads and setup read-back](#v170-downloads-and-setup) on the published tag. |
 | v1.7.0 release candidate | [Fresh Haiku skill and outcome checks](#v170-release-candidate-checks) on the code and skills at `f08ba33`. |
@@ -14,6 +15,12 @@ This page records what has been tested, how, what it showed and what has not bee
 | Six-stage Windows replay | The draft workflow and stop gate checks described below. |
 
 The historical paired runs apply to the builds named in their results.
+
+## v1.8.0 release candidate checks
+
+The [paired skill runner](../evals/run_paired.py) ran 44 cases across the 15 skill instructions that changed since v1.7.0. All 88 Claude Haiku runs returned responses. The literal phrase grader recorded **20/44 with SHOTos and 12/44 without**. Eleven cases passed only with the skills installed. Three passed only without them, in Rollout Plan, Inbox Triage and Meeting Notes. Both conditions missed both Build a Small Website cases. These scores reflect phrase checks on the returned text. Raw responses stay in the local release workspace.
+
+On 8 November 2026, the [outcome runner](../evals/run_outcomes.py) ran ten fictional tasks on Claude Haiku, once with SHOTos and once without, using the code and skills at `222c6eb`. SHOTos passed **10/10 tasks** and the baseline passed **9/10**. Both passed 49 of the 50 individual checks. The difference was in folder tidy. The SHOTos run retained duplicate copies in quarantine and missed a non-critical check. The baseline missed the critical check that its report of deletions matched the files left on disk. Nine tasks tied. These one-pass exercises help find issues in specific workflows. They do not measure repeatable gains or the cost of getting real work accepted.
 
 ## v1.7.0 release candidate checks
 
