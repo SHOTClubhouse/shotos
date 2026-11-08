@@ -1,6 +1,6 @@
 {
   "name": "shotos-trust",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Checks before anything goes out: audit claims, check for public exposure, and check sensitive and children's data.",
   "author": {
     "name": "Liam McDowell"
