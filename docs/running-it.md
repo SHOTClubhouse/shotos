@@ -42,6 +42,8 @@ Download one skill ZIP to try it with a file manager, or use the pack flag with 
 
 > Use the selected skill on example-input.md. Work from the supplied fictional sources. Return the first useful draft or preview. If we are using chat with files, put the result in your reply. Identify the sources you actually used. Name any evidence or decision still needed and who owns it. If a required input is missing, say which one. Keep live action pending.
 
+If the local assistant finds the skill but cannot open its sample, [switch to the file route](guides/codex-claude-code.md#if-the-assistant-cannot-open-the-sample) with the same ZIP.
+
 For your next run, replace the fictional input with the smallest set of records approved for your assistant. Keep the skill, expected result and checks the same. Save the accepted result and its sources together, with any open decision named.
 
 If you already used the installer, run `python install.py --status --target <project-folder>` from the SHOTos checkout. It reads the manifest and shows the recorded runtime, scope, packs and any installer-owned files that changed or went missing. For a user-scope install, pass `--scope user` and leave out the project target. The check leaves files alone and covers installer-managed copies.

@@ -3,7 +3,7 @@
 ## Unreleased
 
 - **Get a first result.** The founder and enterprise guides match the records you have to one skill, then give you a fictional brief you can try and check in chat. The [first-job guide](docs/running-it.md#choose-your-first-job) links each job to one ZIP and a worked sample check.
-- **Keep the next decision clear.** NUDGE separates pursuing a lead from clearing it for a priced proposal. The weekly executive brief example keeps an unverified deadline and unknown approval owners visible.
+- **Keep the next decision clear.** NUDGE separates pursuing a lead from clearing it for a priced proposal. The weekly executive brief asks for evidence of the decider and deadline and keeps any gaps visible.
 - **Check pilot and handoff evidence.** The batch example starts with three fictional rows and leaves the live run pending. The evidence and enablement examples keep unverified results, training capacity and handoff approval visible.
 
 ## 1.8.0 (8 November 2026)
