@@ -40,10 +40,6 @@ Do not use it without an export, or to prove that a single post caused a sale.
 
 Platform exports (CSV or dated screenshots) and last month's plan. Nothing else beyond the agent.
 
-## Evidence
-
-Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 4 of 4, Sonnet 4 of 4, Opus 4 of 4. Without: Haiku 4 of 4, Sonnet 4 of 4, Opus 4 of 4. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Export on the same day each month.

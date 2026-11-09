@@ -223,4 +223,3 @@ For how each kind of reader starts, see [who SHOTos is for](personas.md). For wh
 - They do not judge quality. A report can pass and the work can still be poor.
 - They do not replace a person's review of anything touching customers, money, safety or children.
 - They do not prove that a receipt is genuine.
-- They have been tested on a small scale. See the [evidence](evidence.md) for what was measured, with its limits.

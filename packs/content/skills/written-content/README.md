@@ -43,8 +43,6 @@ Install the content pack as described in the [pack README](../../README.md). The
 
 Nothing beyond the agent for drafting. Optional: a document or file connector to read sources and to save the draft, and the publishing tool of your choice, used only after the owner's yes.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Name the reader in one line before the first draft.

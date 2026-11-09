@@ -85,4 +85,3 @@ Then [Sustain and Scale](../../skills/rollout-plan/README.md): the next team sta
 
 - It does not replace your AI policy, your security review or your procurement process. It gives them something concrete to review.
 - It does not enforce boundaries inside third-party tools. Rule 1 is followed by the agent and checked by people; claim-check tests claims after the fact.
-- The published evidence so far is limited. Read [what we can prove](../evidence.md) and run your own paired tests on your own work before relying on it.

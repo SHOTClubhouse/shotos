@@ -39,10 +39,6 @@ Do not use it while captions are still being chosen, or when no one will approve
 
 A named approver and the final files. A scheduling tool or connector is optional. Without one, a person posts from the manifest and does the read-back.
 
-## Evidence
-
-Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 4 of 4, Sonnet 4 of 4, Opus 4 of 4. Without: Haiku 3 of 4, Sonnet 2 of 4, Opus 2 of 4. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Keep the manifest with the asset files so the fresh step can verify them.

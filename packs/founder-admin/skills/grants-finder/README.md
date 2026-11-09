@@ -40,8 +40,6 @@ You get the screen from [template.md](template.md). Check the eligibility lines 
 
 Nothing beyond the agent. Public web access to funder pages helps; you approve the sources.
 
-**Evidence:** The 3 November version ran once per case, graded by meaning. Both conditions passed both cases on Haiku, Sonnet and Opus. The current application pack has a separate fictional budget and approval exercise. See [evidence](../../../../docs/evidence.md) for the evaluation history.
-
 ## Tips
 
 - Give the agent your governing document and last accounts. Eligibility turns on them.

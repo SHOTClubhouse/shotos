@@ -20,4 +20,4 @@ The [outcome runner](run_outcomes.py) grades the files and checks left behind by
 
 Secret-shaped strings such as `sk_live_...` in the cases and results are invented test fixtures, not real credentials.
 
-The first results are in [docs/evidence.md](../docs/evidence.md), with raw outputs in [results/](results/). Codex runs are still to do.
+Historical Claude outputs are in [results/](results/), with run notes in the [v1.11.0 test record](https://github.com/SHOTClubhouse/shotos/blob/v1.11.0/docs/evidence.md).

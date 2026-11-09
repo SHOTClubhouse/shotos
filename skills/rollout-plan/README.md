@@ -41,8 +41,6 @@ Correct the sequence and people, then approve or change it.
 
 Nothing beyond the agent. The plan sends nothing to the teams.
 
-**Evidence:** The 3 November version ran once per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 0 of 2, Opus 0 of 2. The [invoice-query exercise](../../docs/guides/invoice-query-exercise.md) covers the later handover and first-wave checks. See [evidence](../../docs/evidence.md) for the evaluation history.
-
 ## Tips and common mistakes
 
 - Carry the method. Never carry the first team's figures.

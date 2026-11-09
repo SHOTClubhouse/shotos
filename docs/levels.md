@@ -210,4 +210,4 @@ When the first team's record is solid, the next team adopts the same four rules 
 
 The starting points in this guide are typical patterns, not measurements. We have not surveyed anyone, and we publish no figures for how many people sit at which level. Both source frameworks are also simplifications; real teams straddle levels, and a person can be at level 6 on one task and level 3 on another.
 
-Use the maps to ask a better question than "how advanced are we?". Ask what the next step needs, and whether the rule that supports it is already in place. If you want a quick read, take the [self-check](self-check.md). Our own evidence for what SHOTos does and does not show is on the [evidence page](evidence.md).
+Use the maps to ask a better question than "how advanced are we?". Ask what the next step needs, and whether the rule that supports it is already in place. If you want a quick read, take the [self-check](self-check.md).

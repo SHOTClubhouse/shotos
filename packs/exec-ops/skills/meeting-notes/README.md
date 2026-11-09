@@ -35,8 +35,6 @@ Output uses [template.md](template.md); the ledger starts from [ledger-template.
 
 A transcript connector (list recordings with start times and lengths, return transcripts) or pasted transcripts. A calendar connector for context, read-only. A document connector to keep the ledger and rolling files.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 1 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Keep the minimum length setting visible in the ledger.

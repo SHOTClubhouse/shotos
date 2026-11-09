@@ -44,8 +44,6 @@ Install the media pack as described in the [pack README](../../README.md). Then 
 - Optional: an image editor for crops and fixes.
 - Reference images, with written permission to use them.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 3 of 3, Sonnet 2 of 3, Opus 2 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Say what the image is for before you say what it looks like.

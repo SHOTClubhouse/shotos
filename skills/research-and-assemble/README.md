@@ -38,8 +38,6 @@ Read the handover note first, then the log entries behind the claims that matter
 
 **Needs:** Web access or the files you provide, depending on the sources. No logins, and no contact with anyone, are needed or allowed.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Two sources that quote each other are one source.

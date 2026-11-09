@@ -38,8 +38,6 @@ Paste or point to the notes. Read the map, correct the labels and decide who to 
 
 **Needs:** Nothing beyond the agent.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 1 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Prefer a role to a full personal profile. Goal and stance are all you need.

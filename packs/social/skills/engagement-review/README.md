@@ -39,10 +39,6 @@ Do not use it to automate engagement, to handle a live safeguarding or legal mat
 
 An export or paste of the items, your facts, and the name of a safeguarding lead. Nothing else beyond the agent.
 
-## Evidence
-
-Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 4 of 4, Sonnet 4 of 4, Opus 4 of 4. Without: Haiku 3 of 4, Sonnet 3 of 4, Opus 2 of 4. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Put the safeguarding lead's name at the top of the page so flags have a destination.

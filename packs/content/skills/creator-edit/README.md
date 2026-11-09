@@ -42,8 +42,6 @@ Install the content pack as described in the [pack README](../../README.md). The
 
 Nothing beyond the agent. Optional: a document tool with tracked changes or comparison, and the channels' own scheduling tools, used only by the creator.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Paste a sample of earlier work so the agent can learn your voice.

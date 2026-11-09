@@ -36,8 +36,6 @@ Output uses [template.md](template.md). For an account that looks active in the 
 
 Mail and calendar connectors, read-only, with permission to create drafts. A document connector to read the onboarding plan and notes. Usage data is optional; without it the diagnosis says so. Sending is not needed and should stay off.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 1 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Check whether the stall is yours before writing to the customer.

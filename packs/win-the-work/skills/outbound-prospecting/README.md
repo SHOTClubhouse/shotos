@@ -38,8 +38,6 @@ Use the [template](template.md) to review eligible drafts and the reasons any ca
 
 Nothing beyond the agent. A list of contacts and a suppression list that you supply. Public web research needs your approval of sources.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 0 of 2, Opus 0 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Write the success line before the first message. It stops you moving the target.

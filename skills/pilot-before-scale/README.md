@@ -38,8 +38,6 @@ Read the pilot results yourself in the sheet. Give the yes for the full run only
 
 **Needs:** Nothing beyond the agent. The agent needs write access to a copy of the data for a pilot.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 1 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 0 of 2, Sonnet 0 of 2, Opus 1 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Pick the awkward items on purpose. Three easy ones prove nothing.

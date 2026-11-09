@@ -40,10 +40,6 @@ Do not use it to write the captions (use [caption-options](../caption-options/RE
 
 Dated events with sources, a list of assets, and the name of whoever approves. Nothing else beyond the agent.
 
-## Evidence
-
-Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 4 of 4, Sonnet 4 of 4, Opus 4 of 4. Without: Haiku 2 of 4, Sonnet 2 of 4, Opus 3 of 4. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Plan fewer slots than you think you can manage.

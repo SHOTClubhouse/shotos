@@ -38,8 +38,6 @@ Answer the open questions, then confirm the checks.
 
 **Needs:** Nothing beyond the agent.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Use real numbers and names in examples. Vague examples hide disagreement.

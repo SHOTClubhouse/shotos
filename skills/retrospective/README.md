@@ -40,8 +40,6 @@ Share the page with the people involved. Change the draft where they disagree.
 
 Nothing beyond the agent. The meeting is run by a person.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 1 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Start with the record of what was expected, not memories.

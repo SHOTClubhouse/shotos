@@ -53,5 +53,3 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 ## How it connects
 
 The loops follow the four rules in [docs/controls.md](../../docs/controls.md). Any task class that wants to run without a person in the loop earns that through [rules/12-graduation.md](../../rules/12-graduation.md). The stages are described in [docs/framework.md](../../docs/framework.md).
-
-**Evidence:** Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). Eval cases are in [evals/packs/exec-ops.json](../../evals/packs/exec-ops.json).

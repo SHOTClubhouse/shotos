@@ -38,8 +38,6 @@ Output uses [template.md](template.md). Worked example: [input](../../examples/w
 
 Document connector to read the ledger, notes and board. Calendar and mail connectors read-only, optional. If a source is not connected, the brief says so.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 1 of 2, Opus 1 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Make "unverified" a standing section, even when empty.

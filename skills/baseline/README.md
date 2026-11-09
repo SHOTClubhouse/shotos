@@ -38,8 +38,6 @@ Read the table, decide what to do about each gap, and confirm it.
 
 **Needs:** Nothing beyond the agent. If a data export is used, the agent needs read access to that file.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Two or three honest measures beat ten doubtful ones.

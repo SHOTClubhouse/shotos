@@ -39,5 +39,3 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 ## How it connects
 
 The pack follows [docs/controls.md](../../docs/controls.md): the mode ladder applies control 3 (mode contract) and control 11 (context control), and the drift check applies rule 3, Read back the real result. The format the audit checks is in [docs/skill-format.md](../../docs/skill-format.md). Stages are described in [docs/framework.md](../../docs/framework.md).
-
-**Evidence:** Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). Eval cases are in [evals/packs/setup.json](../../evals/packs/setup.json).

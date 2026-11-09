@@ -24,7 +24,7 @@ Customer success leads, account managers, founders and delivery leads.
 
 ## How to use it
 
-> Prepare a handoff for the Larkfield Landlords account to Asif. Use the proposal, the mail thread and my call notes. Keep stage, health and transfer status separate, and draft the introduction to the customer for me to send.
+> Prepare the North Quay handoff.
 
 Output uses [template.md](template.md). Worked example: [input](../../examples/success-handoff/input.md) and [output](../../examples/success-handoff/output.md).
 
@@ -39,8 +39,6 @@ Follow one [fictional deal from proposal to accepted handoff](../../../win-the-w
 ## Needs
 
 Mail and document connectors, read-only, to build the brief; a document connector with write access to the folder you name for the record. Calendar and transcript connectors are optional. Without them, paste the material and the brief says what it could not check.
-
-**Evidence:** The 3 November 2026 version was evaluated in a paired run, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
 
 ## Tips and common mistakes
 

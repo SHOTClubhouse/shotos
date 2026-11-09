@@ -1,6 +1,6 @@
 # Frequently asked questions
 
-Short answers first, with a link where there is more. Where something is reasoning and not a measurement, the answer says so. The measured results are all in [evidence.md](evidence.md).
+Short answers first, with a link where there is more. Where something is reasoning and not a measurement, the answer says so.
 
 ## Getting started
 
@@ -91,7 +91,7 @@ In Claude Code, when the agent tries to finish, the hook runs `claim-check` on i
 
 ### Does it work with Codex?
 
-Yes. Codex CLI on Windows loaded the installed skills and completed a draft proposal-to-handoff workflow. The Stop hook runs in Claude Code. In Codex, use the review checks in the [setup guide](guides/codex-claude-code.md) before relying on an output. See the [six-stage runtime check](evidence.md#six-stage-runtime-check) for what the run verified.
+Yes. Codex CLI on Windows loaded the installed skills and completed a draft proposal-to-handoff workflow. The Stop hook runs in Claude Code. In Codex, use the review checks in the [setup guide](guides/codex-claude-code.md) before relying on an output. See the [v1.11.0 runtime record](https://github.com/SHOTClubhouse/shotos/blob/v1.11.0/docs/evidence.md#six-stage-runtime-check) for what the run verified.
 
 ## Security and privacy
 
@@ -115,7 +115,7 @@ Measure the time and cost to get a piece of work accepted. Earlier evaluations m
 
 ### Which skill costs the most?
 
-The cost follows how much the agent reads and writes, so the skills that produce the most structure (handoffs, proposals, evidence packs) cost the most. Per-run costs for every task and model are in the raw results linked from [evidence.md](evidence.md).
+Cost depends on the source material, model, output and review rounds. Measure the workflows you use.
 
 ### How do I keep the cost down?
 
@@ -138,12 +138,12 @@ It is a baseline, not a certification. It gives named owners, human checkpoints 
 | Check | Coverage |
 | --- | --- |
 | Automated repository checks | The [release checks](https://github.com/SHOTClubhouse/shotos/actions/workflows/checks.yml?query=branch%3Amain) cover Windows, macOS and Linux. |
-| Installed workflow | Codex CLI and Claude Code ran a six-stage proposal and handoff on Windows. Claude Code also exercised the Stop hook. [Runtime evidence](evidence.md#six-stage-runtime-check) |
+| Installed workflow | Codex CLI and Claude Code ran a six-stage proposal and handoff on Windows. Claude Code also exercised the Stop hook. [v1.11.0 runtime record](https://github.com/SHOTClubhouse/shotos/blob/v1.11.0/docs/evidence.md#six-stage-runtime-check) |
 | Chat setup | The [no-terminal guide](guides/chat-assistants.md) includes a sample job and the result to check before using it on your own work. |
 
 ### What should my team check before rollout?
 
-Run one representative workflow in your chosen app and environment. Have a second person verify the work and use the handoff to run the next cycle. Record review time, rework and acceptance using the [team rollout guide](running-it.md#team-rollout). The [evidence page](evidence.md) records which builds and workflows were evaluated.
+Run one representative workflow in your chosen app and environment. Have a second person verify the work and use the handoff to run the next cycle. Record review time, rework and acceptance using the [team rollout guide](running-it.md#team-rollout).
 
 ### Did SHOTos make the agent safer?
 

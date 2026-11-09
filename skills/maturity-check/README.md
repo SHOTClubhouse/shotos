@@ -37,8 +37,6 @@ Answer the questions with an example each where you can.
 
 **Needs:** Nothing beyond the agent.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 1 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 0 of 2, Sonnet 2 of 2, Opus 0 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Give a real example for each answer. A level claimed without one is marked low confidence.

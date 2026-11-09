@@ -38,8 +38,6 @@ You get the update from [template.md](template.md). Read the numbers table first
 
 Nothing beyond the agent. Read access to the accounts or reports you approve; no access to send.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Lead with the number investors will ask about.

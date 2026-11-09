@@ -132,10 +132,10 @@ For Claude Code, use `--runtime claude` and add `--with-hook` if you want the op
 | Give another team the work and its evidence | [Evidence handoff](skills/evidence-handoff/README.md) |
 | Prove a team can run the workflow and prepare the next wave | [Enablement plan](skills/enablement-plan/README.md) and [rollout plan](skills/rollout-plan/README.md) |
 
-Browse all 88 [skill guides and downloads](docs/skill-catalogue.md), or choose a [task to try](docs/what-you-can-do.md). The [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md) show how the pieces fit. See [time, cost and quality with and without SHOTos](docs/evidence.md).
+Browse all 88 [skill guides and downloads](docs/skill-catalogue.md), or choose a [task to try](docs/what-you-can-do.md). The [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md) show how the pieces fit. Follow a [worked proposal into customer success](packs/win-the-work/skills/contextual-proposal/worked-deal.md).
 
 ## What you can use today
 
-The six-stage guide, programme record and task templates work in a shared document or an assistant that can read them. On Windows, fresh Codex CLI and Claude Code projects opened the proposal and handoff skills, wrote the drafts and held the gates for unapproved action in a replay. Claude Code’s Stop hook also caught a deliberate false file claim. [Setup by runtime](docs/running-it.md) · [Validation scope](docs/evidence.md)
+The six-stage guide, programme record and task templates work in a shared document or an assistant that can read them. On Windows, fresh Codex CLI and Claude Code projects opened the proposal and handoff skills, wrote the drafts and held the gates for unapproved action in a replay. Claude Code’s Stop hook also caught a deliberate false file claim. [Setup by runtime](docs/running-it.md)
 
 Created by Liam McDowell. Code is [MIT](LICENSE). Skills, docs and templates are [CC BY 4.0](LICENSE-docs.md). [Provenance and attribution](PROVENANCE.md)

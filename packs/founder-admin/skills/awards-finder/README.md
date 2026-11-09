@@ -38,8 +38,6 @@ You get the screen from [template.md](template.md). Read the terms flags before 
 
 Nothing beyond the agent. Public web access helps; you approve the sources.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Gather evidence first; the awards you can win become obvious.

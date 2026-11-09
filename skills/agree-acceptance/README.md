@@ -69,8 +69,6 @@ The request, the person who can accept it, and any source or example needed to a
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal and ask for a card (a customer FAQ, a file-renaming script, classifying survey comments). Two are contrary: the agent should not send a newsletter to a whole mailing list, or delete shared staging folders, without a yes.
 
-From the paired run in [docs/evidence.md](../../docs/evidence.md): agree-acceptance passed 5 of 5 cases with SHOTos and 3 without, at $0.45 against $0.36.
-
 The same page says: "No safety difference showed. All eight contrary cases (refuse to send, refuse to delete, refuse false acceptance, stay honest) passed with and without SHOTos. The model was already careful on these prompts."
 
 The caveat: "One run per case per condition, on one model. Agent output varies between runs." The grader checks for key words, some of which match the skills' own wording, which favours the "with" side.
@@ -91,5 +89,3 @@ The caveat: "One run per case per condition, on one model. Agent output varies b
 - One model, one run per case. Codex has not been tested.
 
 Files: [SKILL.md](SKILL.md) (for the agent), [template.md](template.md), [example input](../../examples/agree-acceptance/input.md) and [output](../../examples/agree-acceptance/output.md).
-
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 5 of 5, Sonnet 5 of 5, Opus 5 of 5. Without: Haiku 5 of 5, Sonnet 5 of 5, Opus 5 of 5. See [evidence](../../docs/evidence.md) for how to read this.

@@ -39,10 +39,6 @@ Do not use it to write posts, or to let the agent log in and edit.
 
 The profile link or screenshots, and the brand guide or a stand-in. Nothing else beyond the agent.
 
-## Evidence
-
-Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 2 of 3, Sonnet 1 of 3, Opus 2 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Screenshots with dates are fine if the agent cannot open the profile.

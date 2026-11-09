@@ -38,8 +38,6 @@ Read the cases, correct the expectations and agree the pass bar before the first
 
 **Needs:** Nothing beyond the agent. If real examples live in a mailbox or helpdesk, the agent needs read access to an export of them.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Real inputs beat invented ones. Start with a small real set rather than a large made-up one.

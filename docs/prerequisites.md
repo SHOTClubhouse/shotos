@@ -119,8 +119,6 @@ SHOTos does not name a best model and publishes no benchmark of models. Model li
 - **Start high, then step down.** Run a task type on a strong model first. Once the acceptance checks pass reliably, try a cheaper one on the same checks. Keep the cheaper one only if it passes.
 - **Retest when models change.** A new model version is a new experiment. Run your acceptance cards again.
 
-The paired run in the [evidence](evidence.md) used one model on one runtime. Do not assume the same result elsewhere.
-
 ## Keeping token use down
 
 - Keep `AGENTS.md` short. It loads on every task.
@@ -139,7 +137,7 @@ Cost per generated draft is easy to count and not very useful. The number that m
 4. **Record who accepted it.** If nobody accepted it, it does not count.
 5. **Divide.** Count each task once when a named reviewer accepts it. Divide total model and tool spend for all attempts, including abandoned work, by the number of accepted tasks. If none were accepted, report the totals and leave the per-accepted figure undefined.
 6. **Report human time separately.** Include review and rework for all attempts, and divide those minutes by the same number of accepted tasks. Combine spend and human time into one cost only if you have an agreed labour rate. If you record elapsed time from request to acceptance, report it separately.
-7. **Compare with and without.** Run a few tasks both ways, with acceptance cards and without. SHOTos may raise the cost of each run, as the [paired run](evidence.md) found, so check whether fewer reruns pay for it in your work.
+7. **Compare with and without.** Start each run in a fresh chat with the same short request, model and permitted access. Give each setup the context it would actually have in use. Count time spent finding sources, answering questions, attaching files, drafting and reviewing through sign-off. Use the same standard to accept both outputs.
 8. **Review monthly.** Change one thing at a time, such as the model, the length of `AGENTS.md` or the acceptance checks, and see whether the number moves.
 
 Keep the [accepted-work ledger](../templates/accepted-work-ledger.csv) beside the acceptance cards in your project. A small honest record beats a large estimated one.

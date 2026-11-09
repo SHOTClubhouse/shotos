@@ -40,8 +40,6 @@ You get a proposed structure, a duplicate report (groups of identical files with
 
 Nothing beyond the agent, plus read and write access to the one folder it is tidying and a way to compute checksums, for example a command line tool. No connectors.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 2 of 3, Sonnet 2 of 3, Opus 2 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Start with a read-only report; many folders need only a rename.

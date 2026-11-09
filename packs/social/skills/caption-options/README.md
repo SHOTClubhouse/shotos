@@ -39,10 +39,6 @@ Do not use it to publish, to invent facts, or to caption an image of a child wit
 
 The photo or brief, the facts, and your voice or a few past posts. Nothing else beyond the agent.
 
-## Evidence
-
-Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 4 of 4, Sonnet 4 of 4, Opus 4 of 4. Without: Haiku 1 of 4, Sonnet 1 of 4, Opus 2 of 4. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Give the agent the awkward facts too (prices, limits, dates) so it does not guess.

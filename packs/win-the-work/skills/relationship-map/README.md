@@ -38,8 +38,6 @@ You get the tables from [template.md](template.md). Correct any label you know t
 
 Nothing beyond the agent. A mail export or CRM extract adds evidence; the skill only reads it.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Date every link. A historic link is useful only if it says when.

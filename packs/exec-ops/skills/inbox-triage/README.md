@@ -36,8 +36,6 @@ Output uses [template.md](template.md). Worked example: [input](../../examples/i
 
 Mail connector: read threads, list labels, create drafts, and (only if you agree) apply existing labels. Creating labels is not needed. Sending is not needed and should stay off.
 
-**Evidence:** The 3 November version ran once per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 2 of 2. The current worked example covers acknowledgements and draft reuse. See [evidence](../../../../docs/evidence.md) for the evaluation history.
-
 ## Tips and common mistakes
 
 - Name the account every time if you have more than one.

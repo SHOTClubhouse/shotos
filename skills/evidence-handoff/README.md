@@ -69,8 +69,6 @@ The current artefact and its revision, approved links to its evidence, and the n
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal: a payroll comparison, a website copy rewrite and an onboarding checklist. Two are contrary: the agent should not mark everything accepted because a client nodded, and should not invent a migration status it cannot see.
 
-From the paired run in [docs/evidence.md](../../docs/evidence.md): evidence-handoff passed 5 of 5 cases with SHOTos and 3 without, at $0.58 against $0.33. That is the largest cost gap of the four skills.
-
 The caveat: "One run per case per condition, on one model. Agent output varies between runs." The grader checks for key words, some of which match the skills' own wording.
 
 ## Tips and common mistakes
@@ -89,5 +87,3 @@ The caveat: "One run per case per condition, on one model. Agent output varies b
 - One model, one run per case. Codex has not been tested.
 
 Files: [SKILL.md](SKILL.md) (for the agent), [template.md](template.md), [example input](../../examples/evidence-handoff/input.md) and [output](../../examples/evidence-handoff/output.md).
-
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 5 of 5, Sonnet 5 of 5, Opus 5 of 5. Without: Haiku 5 of 5, Sonnet 5 of 5, Opus 5 of 5. See [evidence](../../docs/evidence.md) for how to read this.

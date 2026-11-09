@@ -40,8 +40,6 @@ You get a `.work/` folder, a git ignore entry (shown to you before it is written
 
 Nothing beyond the agent, plus read and write access to the one project folder it is working in. No connectors.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 2 of 3, Sonnet 2 of 3, Opus 2 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Name the task folder with a date and a short subject so the list sorts itself.

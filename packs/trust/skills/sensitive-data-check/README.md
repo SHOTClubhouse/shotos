@@ -40,8 +40,6 @@ You get a checklist with each item marked met, not met or unknown, and a decisio
 
 Nothing beyond the agent. It needs the plan or design, and whatever consent records and policies exist. It does not see systems it has not been given.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 1 of 3, Sonnet 3 of 3, Opus 3 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Ask for the consent record itself, not a statement that consent exists.

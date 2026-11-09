@@ -47,8 +47,6 @@ Install the content pack as described in the [pack README](../../README.md). The
 - A way to render slides as images, such as an export to PNG or PDF, so the agent can look at them.
 - The owner's template or brand guide, if they have one.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Write slide titles as messages. If a title is a topic, the slide has no point yet.

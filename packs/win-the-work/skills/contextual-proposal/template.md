@@ -51,7 +51,8 @@ Keep proposed and unapproved commitments in this working sheet. Leave authorisat
 Complete this section in the existing deal record when one is available and link to it from here.
 
 - Deal or account reference and current owner:
-- Accepted offer or controlling agreement, revision, date and source (or pending):
+- Current proposal revision and link:
+- Buyer acceptance or controlling agreement, revision, date and source (or pending):
 - Agreed commitments with owner, due date and evidence:
 - Open decisions with owner and due date:
 - Proposed receiving lead, permitted source access and first action with date:

@@ -31,7 +31,7 @@ At SHOT those lessons became six delivery stages, set out in [the stage guide](f
 
 A method kept private is a brochure. Publishing it lets anyone test it, find where it fails and improve it. It also holds SHOT to its own standard in public.
 
-What stays private is SHOT's business: its products, customers and data. The way of working is separate from all three, and nothing in this repository depends on them. The [evidence page](evidence.md) states what has been tested and what has not, including results that were less flattering than hoped. Failure reports are welcome, and [CONTRIBUTING.md](../CONTRIBUTING.md) says how to send one.
+What stays private is SHOT's business: its products, customers and data. The way of working is separate from all three, and nothing in this repository depends on them. Failure reports are welcome, and [CONTRIBUTING.md](../CONTRIBUTING.md) says how to send one.
 
 ## Design choices
 

@@ -44,8 +44,6 @@ Install the media pack as described in the [pack README](../../README.md). Then 
 - Editing tools to stitch the cut, add audio and captions.
 - A licensed or self-made music track and a voice you have the right to use.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 2 of 3, Sonnet 1 of 3, Opus 3 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Fix the character description before the first prompt and paste it unchanged every time.

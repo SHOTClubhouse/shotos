@@ -44,8 +44,6 @@ Install the media pack as described in the [pack README](../../README.md). Then 
 - A speech-to-text tool to transcribe the result for the listen-back check.
 - Written consent for any cloned or custom voice of a real person.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Write numbers the way they should be spoken: "thirty-eight pounds a month", not "£38/month".
