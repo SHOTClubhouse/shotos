@@ -31,7 +31,7 @@ Use `mode-ladder` before enabling a scheduled run. Keep the processed-ID record 
 8. **Optional AI scoring.** Only if the owner wants it. The key goes in Script Properties by the person; never ask for it in chat, never write it in a file. Compare ten items with and without AI and let the owner decide whether it earns its place.
 9. **Owner accepts.** Show the pilot evidence. Wait for a yes.
 10. **Schedule.** Only after the yes: `disablePilotMode`, then `installTriggers`. Confirm the trigger list and the mode, and record the date, the owner and how to switch off (`removeTriggers`, `enableDryRunMode`).
-11. **Recover safely.** If a digest run stops or `PENDING_DIGEST` is set, do not resend. Check the digest recipient's mailbox (`DIGEST_TO`, or the owner's if blank) to see whether it arrived. If it did, mark its item keys `digested` and clear `PENDING_DIGEST`; if it did not, clear it and rerun. Follow the README steps exactly. After an outage, `collectSignals` can be rerun: processed IDs make it skip finished work. If the Log shows repeated errors or lock skips, `removeTriggers`, `enableDryRunMode` and tell the owner.
+11. **Recover safely.** If a digest run stops or `PENDING_DIGEST` is set, do not resend, and leave the marker in place while delivery is uncertain. First confirm the earlier execution has ended. Then look for the exact digest reference from the marker in the owner's Sent mail, or get confirmation of that reference from the configured recipient (`DIGEST_TO`, or the owner's address if blank). Do not open the recipient's mailbox. Only with that proof of arrival, and the owner's go-ahead to change state, mark the listed item keys `digested` and clear `PENDING_DIGEST`. Clear it and rerun only with proof it was never sent and the owner's go-ahead. With neither proof, stop, report what is unknown and keep the marker. Follow the README steps exactly. After an outage, `collectSignals` can be rerun: processed IDs make it skip finished work. If the Log shows repeated errors or lock skips, `removeTriggers`, `enableDryRunMode` and tell the owner.
 12. **First week check.** After a week, review the Log for errors and lock skips, and tune the Priorities with the owner.
 
 ## Output
@@ -45,4 +45,5 @@ A filled [template.md](template.md): acceptance, settings, pilot evidence and th
 - The digest goes to one address, the owner's unless the owner sets `DIGEST_TO`; no step sends mail to anyone else.
 - The report separates installed, executed (pilot ran) and accepted (owner said yes).
 - A rerun adds no duplicate Queue rows and no second digest for the same items.
+- `PENDING_DIGEST` is cleared only after the earlier run has ended and the exact digest reference is found in the owner's Sent mail or confirmed by the recipient; no recipient mailbox was opened, and an uncertain case keeps the marker and no rerun.
 - If a dry run shows zero messages or obviously wrong items, the skill stops and fixes rather than going live.
