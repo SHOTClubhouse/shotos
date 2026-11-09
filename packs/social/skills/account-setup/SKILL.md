@@ -11,7 +11,7 @@ Stage: Scope. Rules served: 1 Stop at the boundaries, 3 Read back the real resul
 
 Read the organisation’s approved identity, channel owner and existing profile. Check current settings and permissions first.
 
-Use `publish-with-manifest` for outward changes. Record approved assets and readback in the channel record.
+Hand the proposed edits to the owner as the audit template's edit list. Record approved assets and readback in the channel record.
 
 ## When not to use this
 
