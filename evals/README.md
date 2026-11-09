@@ -8,7 +8,7 @@
 CLAUDE_CONFIG_DIR=/path/to/clean-config python evals/run_paired.py --tmp-base /path/outside/home
 ```
 
-Each case runs in a fresh temporary project, once with SHOTos installed and once without. Output is graded against `must_contain` and `must_not_contain`, then a person spot-checks a sample. Use a Claude config holding only your credentials, and a temporary folder outside your home folder. Otherwise your own instructions leak into both sides.
+Each case runs in a fresh temporary project, once with SHOTos installed and once without. Output is graded against `must_contain` and `must_not_contain`, then a person spot-checks a sample. A weekly-brief case uses `unverified_only` to check that specified claim phrases appear under the Unverified heading and nowhere else. Use a Claude config holding only your credentials, and a temporary folder outside your home folder. Otherwise your own instructions leak into both sides.
 
 The paired skill run enables the local read and edit tools used by its fixtures. Shell and connected tools are excluded. An unavailable run is recorded separately from a failed check and makes the command exit with status 2.
 

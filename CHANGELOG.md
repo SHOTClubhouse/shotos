@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Weekly Executive Brief puts unsupported claims only under Unverified and shows an explicit partial-coverage line when required sources are missing.
+- The evidence page starts with tested workflows, exercises and checks readers can use. Detailed earlier evaluations are linked by release.
+
 ## 1.10.0 (9 November 2026)
 
 **Aim.** An ordinary weekly leadership request should pick up the installed Weekly Executive Brief skill and keep unsupported claims unverified inside the draft.

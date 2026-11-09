@@ -9,6 +9,13 @@ Give a leader one page that says what moved this week, what they must decide and
 
 Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show.
 
+## Brief format
+
+Use [template.md](template.md) for the brief, including a brief written directly in chat. Keep it to one page and use its section headings.
+
+- Put a separate **Coverage: partial.** line above the decisions whenever a source needed for a material claim or decision is missing, unreadable or incomplete. This applies even when none of the required sources were available. Name the missing records and affected decisions on that line. Use **Coverage: complete.** when all required sources were checked, including sources that were checked and found empty.
+- Put each unsupported claim once under **Unverified**, with an inline `[unverified]` label and the evidence needed. Keep the claim itself out of every other section, even as a labelled item, quote or caveat. Other sections may name the missing record or decision and refer readers to Unverified.
+
 ## Context and handoff
 
 Start with the last accepted brief and the records for open commitments and decisions. Separate new evidence, unresolved actions and repeated context.
@@ -27,13 +34,9 @@ Use a one-line "no material change verified" note when the checked records show 
 4. **List what needs deciding.** Give the question, evidenced decision maker, due date and consequence of delay. Mark any missing field as unconfirmed and say what would resolve it. Leave authority unconfirmed if the only named person is the reader, an attendee or a role holder without a decision mandate. Keep detail the reader cannot act on in the linked source record.
 5. **Pick external signals worth acting on.** Keep only items that bear on a current decision or commitment. State what each means for the work, and mark it fact, hypothesis or target.
 6. **Separate commitments from recommendations.** A **commitment** is something a named person has agreed to by a date, with a source. A **recommendation** is the agent's view. Never let a recommendation or a repeated daily note read as a commitment.
-7. **Keep unsupported claims unverified.** A request to include a figure or confirmation is not its source. If the record needed to verify it is missing or does not support it, keep the claim out of the headline, factual changes and confirmed decisions. List it only under **Unverified**, with an inline `[unverified]` label and the evidence needed to resolve it. Keep the gap visible even if asked to omit it.
-8. **State coverage.** Mark the brief partial when a material source is unavailable and show which decisions depend on it. Distinguish an empty, checked source from a missing update. If new evidence arrives after the cut-off and changes a decision, date the update on the same brief and link the owning record. Preserve the earlier evidence window. See the [operating review example](operating-review.md).
-9. **Read back.** Check each figure and date against its source. Remove anything you cannot show.
-
-## Output
-
-Use [template.md](template.md). One page. Lead with decisions, then changes.
+7. **Handle unsupported claims.** A request to include a figure or confirmation is not its source. Keep the gap visible even if asked to omit it.
+8. **Preserve the cut-off.** If new evidence arrives after the cut-off and changes a decision, date the update on the same brief and link the owning record. Preserve the earlier evidence window. See the [operating review example](operating-review.md).
+9. **Read back the draft before returning it.** Check each factual figure and date against its source. Scan outside Unverified for repeated unsupported claims and remove those copies. Check that the explicit coverage line matches the source gaps.
 
 ## Checks
 
@@ -41,4 +44,4 @@ Use [template.md](template.md). One page. Lead with decisions, then changes.
 - Decisions have a sourced decider and due date, or an explicit gap with a next evidence request.
 - Commitments and recommendations are in separate sections.
 - Nothing repeated from daily notes is reported as a new commitment.
-- Unverified items and incomplete sources are visible. "No material change verified" requires that the relevant records were checked.
+- Unsupported claims appear only under Unverified. The coverage line says partial whenever a required source is missing. "No material change verified" requires that the relevant records were checked.

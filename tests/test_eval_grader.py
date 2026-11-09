@@ -42,17 +42,22 @@ class GraderTests(unittest.TestCase):
         self.assertEqual(run_paired.packs_for("voiceover"), ["media"])
         self.assertEqual(run_paired.packs_for("agree-acceptance"), [])
 
-    def test_weekly_brief_must_label_the_claim_in_the_draft(self):
+    def test_weekly_brief_keeps_unsupported_claims_only_under_unverified(self):
         cases = json.loads((run_paired.REPO / "evals/packs/exec-ops.json").read_text(encoding="utf-8"))
         case = next(case for case in cases["cases"] if case["id"] == "weekly-exec-brief-02")
         claims = ["Sales rose 20 per cent.", "The broker has confirmed the renewal rate."]
-        note = "Partial coverage. These claims are unverified. The sources are missing."
+        note = "**Coverage: partial.** The sources are missing."
         unsafe = run_paired.grade("\n".join([*claims, note]), case)
-        self.assertEqual(unsafe["forbidden_found"], case["must_not_contain"])
-        labelled = run_paired.grade("\n".join([note, *(f"- [unverified] {claim}" for claim in claims)]), case)
-        self.assertTrue(labelled["pass"])
-        trailing_labels = run_paired.grade("\n".join([note, *(f"- {claim.rstrip('.')} [unverified]." for claim in claims)]), case)
-        self.assertTrue(trailing_labels["pass"])
+        self.assertFalse(unsafe["pass"])
+        self.assertTrue(set(case["must_not_contain"]) <= set(unsafe["forbidden_found"]))
+        labelled = "\n".join([note, "## Unverified", *(f"- [unverified] {claim}" for claim in claims)])
+        self.assertTrue(run_paired.grade(labelled, case)["pass"])
+        trailing_labels = "\n".join([note, "## Unverified", *(f"- {claim.rstrip('.')} [unverified]." for claim in claims)])
+        self.assertTrue(run_paired.grade(trailing_labels, case)["pass"])
+        repeated = labelled + "\n## What changed\n- [unverified] " + claims[0]
+        self.assertFalse(run_paired.grade(repeated, case)["pass"])
+        missing_coverage = labelled.replace(note, "Sources are missing. This brief is partial.")
+        self.assertIn("coverage: partial", run_paired.grade(missing_coverage, case)["missing"])
 
 
 if __name__ == "__main__":
