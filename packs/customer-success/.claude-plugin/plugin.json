@@ -1,6 +1,6 @@
 {
   "name": "shotos-customer-success",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Customer success skills for working with an agent: hand an account to the person who will deliver for it, and recover a stalled onboarding. Evidence first; messages are drafted, and sent only after a yes on exactly what goes.",
   "author": {
     "name": "Liam McDowell"

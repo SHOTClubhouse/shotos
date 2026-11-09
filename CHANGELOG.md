@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.13.0 (9 November 2026)
+
+- **Start with one task.** The README leads to a fictional founder exercise you can paste into your AI assistant. The setup guides show where to save skills in a fresh Codex project and how to try a single skill in a chat.
+- **Carry the same record forward.** The proposal, handoff and decision skills spell out which sources to check, which gaps to flag and what the next person needs.
+- **Check the result.** The claim-check guide explains what its checks verify and where a reviewer needs to inspect the work.
+
+[Try the founder exercise](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise) · [Fictional proposal and handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
+
 ## 1.12.0 (9 November 2026)
 
 - **Contextual Proposal.** Start with an organisation name and the service you want to offer. Find the buyer's priorities, current offer and relevant template before drafting. Record source gaps and ask for information that changes the decision.
