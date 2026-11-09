@@ -1,5 +1,7 @@
 # Who SHOTos is for: seven personas
 
+[Start by role](guides/start-by-role.md) for free first jobs for founders, commercial leads, product managers, graduates, marketers and social creators.
+
 SHOTos has the same six stages and the same four rules for everyone. The stages (Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale) are in [the stage guide](framework.md); the four rules are in [controls](controls.md) and run inside every stage. What differs is which stage you start in, which rule matters most first, which skill you open first and where the rules are enforced. This page describes seven readers, including the agent itself, and gives each a first week and a picture of a good month.
 
 Starting points on the maturity maps are typical patterns, not measurements. See [maturity levels](levels.md) for the two frameworks used here.

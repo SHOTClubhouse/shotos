@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
+  <title id="title">SHOTos</title>
+  <rect width="240" height="240" rx="51" fill="#201239"/>
+  <rect x="1" y="1" width="238" height="238" rx="50" fill="none" stroke="#b698fe" stroke-opacity=".38" stroke-width="2"/>
+  <path d="M155 54h-43c-23 0-40 15-40 34 0 16 12 26 31 31l30 8c13 3 19 8 19 16 0 10-10 18-25 18H82" fill="none" stroke="#f5eeff" stroke-width="23" stroke-linecap="round"/>
+  <path d="M170 170l19-19m-14 0h14v14" fill="none" stroke="#d7ff74" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

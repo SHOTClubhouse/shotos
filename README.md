@@ -1,6 +1,8 @@
 # SHOTos
 
-**Open-source workflows for AI work you can check.**
+<img src="docs/images/shotos-mark.svg" alt="SHOTos mark" width="56" height="56">
+
+**Free, open-source skills for the work you do with AI.**
 
 SHOTos gives founders and teams reusable AI skills for work like proposals, leadership decisions and customer handoffs. Each skill helps you find the right inputs, check the result and give the next person enough context to continue.
 
@@ -14,6 +16,8 @@ The [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) li
 
 ## Pick your starting point
 
+[Founder](docs/guides/start-by-role.md#founder) · [Commercial lead](docs/guides/start-by-role.md#commercial-lead) · [Product manager](docs/guides/start-by-role.md#product-manager) · [Graduate](docs/guides/start-by-role.md#graduate) · [Marketing manager](docs/guides/start-by-role.md#marketing-manager) · [Social content creator](docs/guides/start-by-role.md#social-content-creator)
+
 **Founders.** [Choose a founder skill](docs/guides/startup-founder.md#try-one-task) for the problem, prospect or delivery handoff in front of you. [Try a fictional discovery brief](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise) in one chat message.
 
 **Enterprise leaders.** [Choose an enterprise skill](docs/guides/enterprise-operations.md#choose-the-work-in-front-of-you) for a decision, operating review, pilot or handoff. [Try a fictional leadership brief](docs/guides/enterprise-operations.md#try-a-decision-in-one-chat) using three short records.
@@ -23,12 +27,14 @@ Choose the role that fits the work in front of you. Try it on one real task and 
 | I’m a… | Try this first | What would show it helped? |
 | --- | --- | --- |
 | **Business leader** | Use [Executive Decision Review](packs/exec-ops/skills/decision-brief/review-cycle.md#try-a-worked-scenario) to turn a recurring choice into a brief, a recorded decision and a handoff. | The decider can choose an option or name the evidence they still need. |
-| **Founder** | Use [contextual proposal](packs/win-the-work/skills/contextual-proposal/README.md) to turn prospect notes into a draft for a named buyer. | A reviewer can trace the claims and see what needs approval before sharing. |
-| **Marketer** | Use the [content calendar](packs/social/skills/content-calendar/README.md) to plan one week around real events and available assets. | Each draft has a reason to exist, an owner and the assets needed for review. |
+| **Founder** | Turn customer notes into a [problem brief and a small test](docs/guides/start-by-role.md#founder). | You have a decision to make and a way to learn before building. |
+| **Commercial lead** | Turn buyer notes into an [offer and customer handoff](docs/guides/start-by-role.md#commercial-lead). | Delivery can see the accepted terms and who owns the next action. |
+| **Marketing manager** | Turn a B2B or direct-to-consumer brief into a [campaign page people can try](docs/guides/start-by-role.md#marketing-manager). | A reviewer can follow the main visitor action and trace the offer to approved copy. |
+| **Social content creator** | Turn dates and available assets into [a week of ready-to-review posts](docs/guides/start-by-role.md#social-content-creator). | Each slot has a clear purpose, an asset and a named reviewer. |
 | **Analyst** | Use the [evidence pack](skills/evidence-pack/README.md) to compare a pilot with its baseline. | A sponsor can see the sample, the result and the gaps before deciding. |
 | **HR or people lead** | Use the [enablement plan](skills/enablement-plan/README.md) to turn an onboarding workflow into a practice run with a clear owner. | The person taking it on can complete the agreed steps independently and show the evidence. |
-| **Junior team member** | Use the [acceptance card](templates/acceptance.md) to turn an unclear assignment into examples of good work and one case that should fail. | Your lead can confirm what done looks like and you can check the result yourself. |
-| **Tech leader or product owner** | Use [example mapping](skills/example-mapping/README.md) to turn a feature request into testable examples and open questions. | The team can identify a first slice and the examples that decide whether it works. |
+| **Graduate or junior team member** | Turn an assignment into [a clear brief and a result to review](docs/guides/start-by-role.md#graduate). | Your lead can open the work, see your sources and give specific feedback. |
+| **Product manager, product owner or tech lead** | Turn a feature request into [examples the team can build and check](docs/guides/start-by-role.md#product-manager). | The team can agree on a first slice and how to check it. |
 
 **The hypothesis.** If you start with a task from your own role, give the assistant the source and agree a check, you can judge the first result against your work. If the result helps, save the accepted example and reuse it on the next task.
 
@@ -58,17 +64,13 @@ Explore the [Northbank fictional club website](https://shotclubhouse.github.io/s
 
 > Use this card for the task. Show me the saved result and what you checked. Leave anything you could not verify open for review.
 
-**See the evidence check in action.** From this checkout, with Git and Python 3.9 or later:
-
-```sh
-python examples/demo/run_demo.py
-```
-
-The demo checks two reports about the same work. The pricing summary exists, the test fails and there is no send receipt. Claim-check flags the unsupported claims and accepts the corrected report. The summary itself still needs review.
+**See how the work gets checked.** Open the [worked proposal and handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see the input, finished drafts and the two acceptance decisions. The [local checker guide](docs/claims.md) has the detailed checks.
 
 ![Six stages from Scope to Sustain and Scale. Track can continue to Own, return to Hypothesise, stop or hold for evidence. Scaling starts the next team at Scope.](docs/images/six-stages.svg)
 
 ## The six stages
+
+**Scope · Hypothesise · Operate · Track · Own · Sustain and Scale.** Start with the stage that fits the job in front of you. Bring the stages together when a team needs to take an initiative from its first brief to a repeatable way of working.
 
 | Stage | What you do | What you hand forward |
 |---|---|---|

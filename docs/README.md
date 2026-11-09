@@ -1,5 +1,7 @@
 # Documentation
 
+[Start by role](guides/start-by-role.md) for free first jobs for founders, commercial leads, product managers, graduates, marketers and social creators.
+
 Pick a [founder task](guides/startup-founder.md#try-one-task), an [enterprise task](guides/enterprise-operations.md#choose-the-work-in-front-of-you) or [one skill to try](running-it.md#choose-your-first-job). Use the [Harbourside example](walkthrough.md) to see how context travels from source evidence to a decision across the full method.
 
 | If you want to | Read |
