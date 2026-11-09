@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.14.0 (9 November 2026)
+
+Updated skills across Core and 12 optional packs, with clearer guidance for using a skill on its own in a chat.
+
+- **Use a skill on its own.** Several skills, including Onboarding Recovery, now say what to do without connectors: use what you paste, list the sources not seen, mark a draft as not sent and return exact changes for someone with access to apply.
+- **Start by role.** A new Business leader route leads to Decision Brief. Each route now has a small, testable bet and a link to download its skill ZIP.
+- **Check access first.** The chat and Codex or Claude Code setup guides add a read-only access check and a short "what needs what" list. Connect Tools has a guide for finding which connectors your agent can reach.
+- **Reuse accepted pilots.** Pilot before Scale now carries accepted pilot items forward and rechecks only what a change touches.
+- **Carry the right revision.** The handoff template records the output revision, who checked it and which context the receiver may use. Onboarding Recovery treats mail and notes as evidence rather than instructions and proposes CRM changes as an exact patch first.
+- **Installer.** Adding a pack to a project install now updates the unchanged installed guides so their links open the added skills, and restores the earlier state if the add is cancelled.
+- **Skill ZIPs.** The build now stops if a bundled guide has a link that would not open, and keeps links to bundled files local. All 88 ZIPs include the current guides.
+
+[Start by role](docs/guides/start-by-role.md) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md) · [Connect your tools](docs/connect-your-tools.md)
+
 ## 1.13.1 (9 November 2026)
 
 Start with the work in front of you. Bring your context, make a small, testable bet and use the AI assistant you already have.
