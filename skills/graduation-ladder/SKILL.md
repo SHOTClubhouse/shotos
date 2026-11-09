@@ -13,7 +13,7 @@ Stage: Sustain and Scale. Rules: 1 Stop at the boundaries, 4 Claim only what you
 
 Read the task class, accepted run log and latest exception. Verify the sample covers realistic failures before proposing more autonomy.
 
-Use `mode-ladder` to define the new authority. Record promotion or demotion in the existing log.
+Use `mode-ladder` (from the setup pack) to define the new authority; if it is not installed, write the new authority and its limits in the log entry. Record promotion or demotion in the existing log.
 
 ## When not to use this
 

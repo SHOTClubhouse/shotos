@@ -7,6 +7,8 @@ description: "Agrees what done looks like before work starts: concrete checks, w
 
 Write down how everyone will know the work is finished before starting it. It takes five minutes and saves the rework that comes from building the wrong thing well.
 
+Stage: Hypothesise (any stage may use it before work starts). Rules: 2 Agree acceptance first, 4 Claim only what you can show.
+
 ## Context and handoff
 
 Read the actual request and last accepted comparable result. Identify the named person who can accept and what evidence would make them reject it.
