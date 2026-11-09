@@ -11,7 +11,7 @@ Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real res
 
 Read the approved master, row schema and recipient permissions. Pick a normal row, a boundary row and a missing-field row before producing the batch.
 
-Use `one-off-or-factory` if variation changes the structure. Record every generated or skipped row by source ID. Test on a fixture sheet with invented people before pointing the script at real rows; keep the real sheet, folder and template IDs in the owner's Script Properties or sheet, never in the repo or chat; the template and final handover may name the owner's own sheet, folder and links.
+Use `one-off-or-factory` if variation changes the structure. If it has already recorded a factory decision with a pilot of three, take those rows and their accepted documents as the sample (step 7) rather than a new one. If it recorded a direct-authoring decision, stop; do not rerun until a factory wins. Record every generated or skipped row by source ID. Test on a fixture sheet with invented people before pointing the script at real rows; keep the real sheet, folder and template IDs in the owner's Script Properties or sheet, never in the repo or chat; the template and final handover may name the owner's own sheet, folder and links.
 
 ## When not to use this
 
@@ -28,7 +28,7 @@ Use `one-off-or-factory` if variation changes the structure. Record every genera
 4. **Choose the output folder.** A copy inherits the folder's sharing. Recommend a private folder, and say so. `OUTPUT_FOLDER_ID` is required: a live run will not start without it.
 5. **Person installs.** The agent cannot paste the script or approve permissions. Give the steps from the script README. Confirm `setupFactory` ran and the tabs exist.
 6. **Dry run.** Run `dryRun`. Read the Report tab: template placeholders found, columns matched, rows blocked and why. Fix blocked rows and mismatches. Nothing is created.
-7. **Sample of three.** Run `runSample`. Open each of the three documents in Drive.
+7. **Sample of three.** Run `runSample`. Open each of the three documents in Drive. If a one-off-or-factory pilot already has three accepted documents, do not run a second sample: match each to its row, template and data revision and agreed acceptance, and keep it if all still match. Run `runSample` again only for a row whose template, relevant data or acceptance changed, or that has no accepted document. Stop if acceptance or the owner's signoff for a pilot document is missing.
 8. **Read back the real result.** Check: every placeholder replaced with the right value for that row; layout and formatting intact; the name is right; no leftover braces; the row shows DONE with a link; the Report has one line per document. Compare against the source data, not just against the script's own check.
 9. **Owner accepts the sample.** Show the three documents. If any is wrong, fix the template or data, clear `done` on those rows, and repeat the sample. Do not go on.
 10. **Full batch.** Run `runBatch`. Expect it to stop and schedule a continuation if the batch is large. Check afterwards that the continuation trigger is gone (`removeContinuation` if not).
@@ -42,7 +42,7 @@ A filled [template.md](template.md): acceptance, template and data checks, dry-r
 
 ## Checks
 
-- The dry run and the sample come before the full batch, always.
+- The dry run and an owner-accepted sample of three come before the full batch, always; an accepted pilot is reused, not repeated.
 - Blocked rows are reported with their reason, not worked around.
 - The agent never sends, shares, moves to the bin or deletes a generated document.
 - Final counts add up: rows = done + blocked + error + not yet processed.

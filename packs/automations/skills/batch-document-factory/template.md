@@ -23,7 +23,8 @@
 |---|---|---|---|---|
 | | | yes / no | yes / no | yes / no |
 
-- Owner accepted the sample: yes | no | changes needed
+- Sample reused from a one-off-or-factory pilot: yes | no. If yes, template, data and acceptance unchanged for each row: yes | no (redone rows and why):
+- Owner accepted the sample: yes | no | changes needed (stop if signoff is missing)
 
 ## Full batch
 - Rows in sheet:
