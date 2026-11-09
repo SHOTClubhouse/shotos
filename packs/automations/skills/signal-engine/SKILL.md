@@ -27,7 +27,7 @@ Use `mode-ladder` before enabling a scheduled run. Keep the processed-ID record 
 4. **Person installs.** The agent cannot paste into Apps Script or approve permissions. Give the person the numbered steps from the script README and wait. They must confirm that `setup` ran and the four tabs exist.
 5. **Dry run.** Ask the person to run `collectSignals` in dry-run mode (the default) and `sendDigest`. Read the Log tab with them. Confirm: messages found, items extracted, plausible scores, nothing in Queue or Processed, no email sent. If the label is empty or items look wrong, fix before moving on.
 6. **Pilot of three.** Run `enablePilotMode`, then `enableLiveMode`, then `collectSignals` and `sendDigest`. Three messages at most are processed.
-7. **Read back the real result.** Open the Queue tab, the Processed tab and the owner's inbox. Check three things: each queued item matches its source message; the digest arrived once and only to the owner; no mail changed (no new labels, nothing archived or deleted). Rerun `collectSignals` and confirm no duplicate rows (idempotence).
+7. **Read back the real result.** Open the Queue tab, the Processed tab and the owner's inbox. Check three things: each queued item matches its source message; the owner's Sent mail holds exactly one digest, addressed to the configured recipient (`DIGEST_TO`, or the owner's address if blank), with its "Digest reference" line; no mail changed (no new labels, nothing archived or deleted). Sent mail proves one delivery to that address. It does not prove the recipient received or read it. If the recipient's receipt matters and nobody has confirmed it, record it as unverified; do not contact them or open their mailbox to find out, and leave any later confirmation to the owner. Rerun `collectSignals` and confirm no duplicate rows (idempotence).
 8. **Optional AI scoring.** Only if the owner wants it. The key goes in Script Properties by the person; never ask for it in chat, never write it in a file. Compare ten items with and without AI and let the owner decide whether it earns its place.
 9. **Owner accepts.** Show the pilot evidence. Wait for a yes.
 10. **Schedule.** Only after the yes: `disablePilotMode`, then `installTriggers`. Confirm the trigger list and the mode, and record the date, the owner and how to switch off (`removeTriggers`, `enableDryRunMode`).
@@ -41,6 +41,7 @@ A filled [template.md](template.md): acceptance, settings, pilot evidence and th
 ## Checks
 
 - Nothing is scheduled before the pilot is read back and the owner has said yes.
+- Pilot proof is one digest in the script owner's Sent mail, with the exact reference and the configured recipient; receipt by the recipient is reported as unverified unless they have confirmed it unprompted, and no recipient mailbox was opened and no one was contacted for it.
 - No API key appears in chat, code, sheet or log.
 - The digest goes to one address, the owner's unless the owner sets `DIGEST_TO`; no step sends mail to anyone else.
 - The report separates installed, executed (pilot ran) and accepted (owner said yes).
