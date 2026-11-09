@@ -4,6 +4,7 @@
 **Current message:** (sender, date and reference)
 **Owner (sends):** 
 **Sources used:** (thread, notes, documents) 
+**Deal or account record, and governing terms source:**
 
 ## Response map
 | | |

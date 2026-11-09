@@ -12,7 +12,7 @@ This is a fictional email exercise. Keep the buyer reply and the owner's notes a
 
 Hi Dana,
 
-The approved workshop price is £650. Can we confirm what setup you need and then agree a date?
+The £500 in the earlier note was provisional. The approved workshop price is £650. Can we confirm what setup you need and then agree a date?
 
 Morgan
 
