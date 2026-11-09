@@ -15,6 +15,10 @@ Read the applicant’s entity type, geography, delivery capacity and budget. Ver
 
 Use `claims-audit` for the evidence narrative. Record each opportunity and the reason to pursue, hold or decline. Use the same record when the applicant chooses a fund.
 
+## Start here
+
+**Minimum to start:** legal form, location, purpose, budget and whether a named fund exists. **First output:** the shortlist, held and rejected lists with the deciding rule for each, before any drafting. **Uncertain:** unknown eligibility, unverified rounds and directory-only leads are marked provisional. **Handoff:** ask the applicant which fund to pursue, with deadline, estimated hours, missing evidence and the approvals needed.
+
 ## When not to use this
 
 Skip it for loans, investment or sponsorship. If the applicant has a named fund or an invitation, skip discovery and verify that fund's current eligibility, terms and application instructions.

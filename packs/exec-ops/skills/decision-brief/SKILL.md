@@ -15,6 +15,10 @@ Read the decision owner’s mandate, earlier decisions, available options and ev
 
 Use `decision-record` after a decision is made. Keep the brief and decision in the same owning record. For a recurring leadership choice, follow [Executive Decision Review](review-cycle.md) through the handoff and next independent cycle.
 
+## Start here
+
+**Minimum to start:** the choice, the decision maker (or authorised body) and the date. If one is missing, draft the question and list the missing field first rather than inventing it. **First output:** the question and recommendation in the opening lines, with confidence and what would change it, then the facts. **Uncertain:** one-source facts and untested assumptions are labelled where they appear. **Handoff:** end with the exact decision requested, by whom and by when, and where the decision will be recorded.
+
 ## When not to use this
 
 Skip it for a choice that is cheap and easy to reverse, for a question that has no real alternatives, or when the decision has already been made and only needs recording.

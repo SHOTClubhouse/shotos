@@ -15,6 +15,10 @@ Read the group mandate, last decisions, open actions and member roles. Put one q
 
 Use `decision-brief` for options or `meeting-notes` after the session. Link any recommendation, controlling decision and actions from the existing forum record.
 
+## Start here
+
+**Minimum to start:** the group's purpose and who decides. **First output:** the mandate paragraph and the one main question, with unknown members or terms marked, before any agenda. **Uncertain:** unconfirmed attendance, roles and attributions stay labelled as unknown. **Handoff:** open with the question the chair must settle and the single decision maker, then list actions still awaiting an owner's agreement.
+
 ## When not to use this
 
 Skip it for a one-to-one meeting (use `meeting-notes`), for a decision that needs no outside input, or for a session whose members have not agreed to take part.

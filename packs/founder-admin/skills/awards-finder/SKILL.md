@@ -15,6 +15,10 @@ Read the organisation’s eligibility facts, proof bank and fee limit. Verify de
 
 Use `claims-audit` before drafting entry claims. Keep shortlisted awards and rejection reasons with the opportunity record.
 
+## Start here
+
+**Minimum to start:** who is entering, the recognition wanted, the proof held and any fee limit (assume zero). **First output:** a screened shortlist with cost and eligibility status, before any entry text. **Uncertain:** cost, eligibility or terms not shown on the organiser's source stay "unknown" and are not shortlisted. **Handoff:** ask the entrant to choose which awards to pursue, giving effort, deadline, the evidence missing and any rights terms to accept.
+
 ## When not to use this
 
 Skip it when the person wants an award for its own sake and has no evidence, when a paid listing is the aim, or when an entry is already written and only needs proofreading. Do not enter an organisation or person into an award without their agreement.

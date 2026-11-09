@@ -15,6 +15,10 @@ Read the agenda and source transcript or notes. Verify names, commitments and da
 
 Use `decision-record` for a material decision and link to the original meeting record.
 
+## Start here
+
+**Minimum to start:** the transcript or recording ID, the agreed scope and the ledger. **First output:** the per-meeting note with decisions, actions and open questions at the top, and speakers marked unidentified where unconfirmed. **Uncertain:** disputed owners, dates and gaps in the transcript are listed under open questions rather than smoothed over. **Handoff:** pull out decisions and actions awaiting confirmation for the owner, each with who must confirm.
+
 ## When not to use this
 
 Skip it for a live meeting that has no recording yet, for a request to publish or send notes to attendees (draft only; the owner sends), and for recordings the owner has marked private.

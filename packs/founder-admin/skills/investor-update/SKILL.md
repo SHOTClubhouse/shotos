@@ -15,6 +15,10 @@ Read the last update, approved metrics, current period and commitments. Reconcil
 
 Use `decision-brief` for a board ask. Store the approved update and linked metric sources with investor records.
 
+## Start here
+
+**Minimum to start:** the period, the recipients, the approved sources and the last update. **First output:** the headline and numbers table, with any figure lacking a source shown as held back, not guessed. **Uncertain:** estimates and forecasts carry their label and basis. **Handoff:** tell the owner what is held back and what must be approved, and phrase each ask with the specific yes needed from the investor.
+
 ## When not to use this
 
 Skip it for a fundraising pitch (that is persuasion; this is reporting), for legal or regulatory notices, and for an announcement of material news that needs advice before disclosure. If an investor asks for non-public information that others have not received, stop and ask the owner.

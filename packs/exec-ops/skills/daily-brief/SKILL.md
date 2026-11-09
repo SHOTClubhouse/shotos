@@ -15,6 +15,10 @@ Start with today’s calendar, actual deadlines, inbox changes and yesterday’s
 
 Use `leaders-inbox` for decisions that need routing. Keep one dated brief with links to owning tasks.
 
+## Start here
+
+**Minimum to start:** owner, mail account, calendar and run type. **First output:** the digest with a Coverage line (complete or partial) and what was actually read, even if a source failed. **Uncertain:** a date mention or unread source stays a candidate or gap, never a closed row. **Handoff:** lead with the decisions needed, each with who decides, the evidence and what slips if it waits; route routing questions to `leaders-inbox`.
+
 ## When not to use this
 
 Skip it for a one-off question about a single thread or date, or when there is no ledger and the owner does not want one. In that case offer to start the ledger from [ledger-template.md](ledger-template.md) and stop.

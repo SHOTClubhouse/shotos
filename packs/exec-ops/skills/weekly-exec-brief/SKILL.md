@@ -22,6 +22,10 @@ Start with the last accepted brief and the records for open commitments and deci
 
 Use `progress-wrap-up` for delivery claims. File one dated brief and link to the owners’ records. For a recurring choice, send the decision question to `decision-brief` and use its Executive Decision Review workflow. In the weekly brief, carry the question, decider, due date and owning record. Carry the decision as agreed only when the authorised person's dated decision is linked from the owning record.
 
+## Start here
+
+**Minimum to start:** the reader, reporting window and the last accepted brief or agreed baseline. If sources are missing, still produce the one-page brief in the template with Coverage: partial and the gaps named. **First output:** the Coverage line and Decisions needed come first, so the reader sees what to decide and how far it is proven. **Handoff:** each decision row names the decider and date, or says what would confirm them.
+
 ## When not to use this
 
 Use a one-line "no material change verified" note when the checked records show no material change and coverage is complete. Use the recipient's reporting format for an investor or board report. Route a decision that needs options to `decision-brief`.

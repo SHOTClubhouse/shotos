@@ -15,6 +15,10 @@ Confirm mailbox, time window, existing folders and what the user considers urgen
 
 Use `email-reply` for a draft if installed. Link to the original thread and record any still-unassigned action.
 
+## Start here
+
+**Minimum to start:** the named account, time window and what counts as urgent. **First output:** counts by state and the needs-reply list with draft status, ahead of detail. **Uncertain:** truncated or partial thread history is flagged beside the counts, and affected threads are not marked resolved. **Handoff:** surface only the threads that need the owner's decision or reply, each with the question being asked and the date it is waiting from.
+
 ## When not to use this
 
 Skip it for a single known thread (just draft the reply), for a request to send mail, or for an account the owner has not named. Never triage someone else's mailbox on a guess.
