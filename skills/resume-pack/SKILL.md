@@ -19,6 +19,10 @@ Use `evidence-handoff` if responsibility changes. Link this pack from that hando
 
 Skip it when the work is finished and handed over with an `evidence-handoff`. Skip it for a short chat with nothing to continue. Do not use it to store a conversation.
 
+## Quick version for one person
+
+If you will resume alone tomorrow, fill only: owning record, output revision, next prompt, way back and what is not verified. A pack for reversible work with nothing pending can be five lines.
+
 ## Steps
 
 1. **Find the owning record.** Work has one place where its state lives (a task file, an issue, a folder). Update that record first. The pack summarises and points to it; it does not replace it.

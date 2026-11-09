@@ -9,13 +9,15 @@
 | Role | Person, model or runtime actually used | Access |
 |---|---|---|
 | Lead | | |
-| Reviewer | | read-only |
+| Reviewer (the checker that actually ran) | | read-only |
 
 Independence level (different person / different model or runtime / same model, fresh session). The last is a weaker check; say so:
 
 ## Packet given to both
 - Acceptance card:
-- Exact artefact revision and approved evidence references:
+- Exact output revision reviewed (commit, version or saved date):
+- Context given (only what the reviewer is authorised to see), and what was withheld:
+- Approved evidence references:
 - Checks needing additional evidence and the authorised reviewer:
 - Boundaries (no sending, spending, deleting, deploying or publishing):
 

@@ -19,6 +19,21 @@ Use `decision-record` when findings need a decision. Save both assessments and t
 
 Skip it for low-risk, easily reversed work. A second agent costs time and money, and a review of a trivial change teaches nothing. Do not use it as a substitute for the owner's decision.
 
+## Small version for chat
+
+If the work is medium risk and one page will do, fill only four lines of [template.md](template.md): output revision, context given, checker that actually ran, owner decision. Add findings only if there are any. Reversible, low-risk work needs none of this.
+
+Before (unclear): "Reviewed, looks fine. Ready to send."
+
+After (fictional):
+
+> Work: volunteer rota for the spring fair, revision saved 9 Nov 14:05.
+> Context given: the rota and the rule card (no more than 3 shifts each). Not given: volunteers' phone numbers.
+> Checker that ran: a second model in a fresh session, read-only. Weaker check, same model family as the lead.
+> Found: Sam is on 4 shifts (row 7). Fixed in the 14:20 revision and rechecked.
+> Not checked: whether anyone is unavailable. Only Priya holds that list.
+> Owner decision: Priya says yes once availability is checked.
+
 ## Steps
 
 1. **Check the risk calls for it.** Use the route from `route-the-work`. Medium risk or above, or any `external`, `money`, `personal-data`, `legal` or `irreversible` tag, means yes. If the route is low risk, say why a review is not needed.
