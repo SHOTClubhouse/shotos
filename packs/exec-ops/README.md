@@ -18,7 +18,7 @@ The pack turns the repeating parts of an operating week into short, checkable lo
 | [daily-brief](skills/daily-brief/README.md) | Operate | Reconciles a ledger of dated obligations against fresh mail and calendar signal, drafts what needs drafting, and produces one digest of what needs a person. |
 | [leaders-inbox](skills/leaders-inbox/README.md) | Scope | Reduces rough notes, links and ideas to meaning and source, then routes each to exactly one outcome. |
 | [inbox-triage](skills/inbox-triage/README.md) | Operate | Classifies mail threads by action state, drafts replies from the real thread and flags slipped threads. |
-| [meeting-notes](skills/meeting-notes/README.md) | Track | Turns new recordings or transcripts into structured notes, with a watermark ledger and one rolling file per person or organisation. |
+| [meeting-notes](skills/meeting-notes/README.md) | Track | Turns new recordings or transcripts into structured notes, with a watermark ledger (the watermark is the last completed coverage) and one rolling file per person or organisation. |
 | [weekly-exec-brief](skills/weekly-exec-brief/README.md) | Track | Writes an evidence-led weekly briefing: what changed, what needs deciding, what is unverified. |
 | [decision-brief](skills/decision-brief/README.md) | Hypothesise | Sets out question, sourced facts, assumptions, options, a recommendation and what would change it. |
 | [advisory-session](skills/advisory-session/README.md) | Own | Prepares and runs an advisory session and leaves one action record with one owner per action. |

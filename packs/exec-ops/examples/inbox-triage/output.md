@@ -24,7 +24,7 @@ Existing draft to Mr Doyle: "Hello, the inspection is on 22 November, as in our 
 - Association spring regulation update (no action).
 
 ## Label gaps and proposals
-- Association regulation update: no existing label fits better than Admin. Left unlabelled. Proposed label: "Regulation", would cover this thread and similar updates. Priya decides whether it is created; nothing was created or restructured.
+- Association regulation update: no existing label fits. Left unlabelled. Proposed label: "Regulation", would cover this thread and similar updates. Priya decides whether it is created; nothing was created or restructured.
 
 ## Changes made
 - Two drafts shown for review and one existing draft reused by reference. No mailbox writes.
