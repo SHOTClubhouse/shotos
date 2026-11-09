@@ -11,7 +11,7 @@
 | Accept or decline the Elm Court roofing quote | Approval authority unconfirmed. Ask Priya to identify the decider. | Date unconfirmed, see Unverified | The team may need a revised quote. |
 
 ## What changed
-- The ledger's renewal signing date changed during the week without a source, and the broker portal was unavailable. See Unverified.
+- The renewal signing deadline is unconfirmed, and the broker portal was unavailable. See Unverified.
 - The board call produced one dated commitment. It is recorded below rather than counting the meeting as a separate outcome.
 
 ## External signals worth acting on

@@ -28,16 +28,19 @@ import claim_check  # noqa: E402
 
 CHANGING_TOOLS = {"Write", "Edit", "MultiEdit", "NotebookEdit", "Bash", "PowerShell"}
 # An MCP tool (mcp__server__action) changes things when its action names a change, such as
-# send_message, create_draft or notion-update-page, before any read word. Reads such as
-# search_threads or get_run_status do not.
+# send_message, create_draft, untrash_message or notion-update-page, before any read word.
+# Reads such as search_threads, get_run_status or email_send_status do not.
 MCP_CHANGE = re.compile(
-    r"(?:^|(?<=[_-]))(?:send|reply|forward|create|update|delete|remove|trash|archive|post|publish|"
-    r"write|edit|upload|share|move|rename|copy|append|insert|add|set|label|unlabel|submit|"
-    r"approve|merge|push|deploy|schedule|cancel|complete|enable|disable|activate|deactivate|"
-    r"install|invite|book|transfer|pay|refund|run|execute|apply|import|replace|restore|manage)(?=$|[_-])",
+    r"(?:^|(?<=[_-]))(?:un)?(?:send|reply|respond|forward|create|generate|duplicate|update|delete|remove|"
+    r"trash|archive|clear|post|publish|write|edit|save|upload|share|move|rename|copy|append|insert|add|"
+    r"set|label|mark|submit|request|approve|resolve|merge|rebase|push|deploy|schedule|cancel|stop|"
+    r"complete|enable|disable|activate|deactivate|install|invite|assign|grant|revoke|reset|link|"
+    r"connect|disconnect|convert|spawn|book|transfer|pay|refund|run|exec|execute|apply|import|"
+    r"replace|restore|manage|enrich)(?=$|[_-])",
     re.IGNORECASE)
 MCP_READ = re.compile(r"(?:^|(?<=[_-]))(?:get|list|search|read|query|fetch|find|show|describe|count|download|"
-                      r"lookup|validate|check|preview|view)(?=$|[_-])", re.IGNORECASE)
+                      r"lookup|validate|check|preview)(?=$|[_-])", re.IGNORECASE)
+MCP_READ_SUFFIX = re.compile(r"[_-](?:status|preview)$", re.IGNORECASE)
 
 
 def changes_things(tool: str) -> bool:
@@ -46,10 +49,12 @@ def changes_things(tool: str) -> bool:
     parts = tool.split("__")
     if len(parts) < 3 or parts[0] != "mcp":
         return False
-    change = MCP_CHANGE.search(parts[-1])
-    read = MCP_READ.search(parts[-1])
-    # get_flow_run_status reads; send_message and notion-create-pages change.
-    return bool(change) and not (read and read.start() < change.start())
+    action = parts[-1]
+    change = MCP_CHANGE.search(action)
+    read = MCP_READ.search(action)
+    if not change or MCP_READ_SUFFIX.search(action):
+        return False
+    return not (read and read.start() < change.start())
 
 
 def _is_human_turn(content) -> bool:
@@ -114,12 +119,13 @@ def main() -> int:
         return 0
     if event.get("stop_hook_active"):
         return 0
-    cwd = Path(event.get("cwd") or ".")
+    cwd = Path(event["cwd"]) if isinstance(event.get("cwd"), str) and event["cwd"] else Path(".")
     if not (cwd / ".shotos").is_dir() and not claim_check.USER_CONFIG.is_file():
         return 0  # not opted in: neither this project nor the user has set up claim-check
-    transcript = Path(event.get("transcript_path", ""))
-    if not transcript.is_file():
+    transcript = event.get("transcript_path")
+    if not isinstance(transcript, str) or not transcript or not Path(transcript).is_file():
         return 0
+    transcript = Path(transcript)
     report, tools = last_turn(transcript)
     changed = any(changes_things(tool) for tool in tools)
     if not claim_check.has_claims_block(report) and not changed:

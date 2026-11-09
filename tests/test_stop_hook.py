@@ -134,9 +134,29 @@ class StopHookTests(unittest.TestCase):
         self.assertEqual(run.returncode, 2, run.stderr)
 
     def test_a_connector_read_is_not_treated_as_a_change(self):
-        tools = ("mcp__claude_ai_Gmail__search_threads", "mcp__flows__creative_get_flow_run_status")
+        tools = ("mcp__claude_ai_Gmail__search_threads", "mcp__flows__creative_get_flow_run_status",
+                 "mcp__mail__emailer_messages_email_send_status", "mcp__agents__agents_merge_branch_preview")
         run = self.run_hook("Done. That is what the inbox shows.", tools=tools)
         self.assertEqual(run.returncode, 0, run.stderr)
+
+    def test_connector_change_names_are_recognised(self):
+        sys.path.insert(0, str(HOOK.parent))
+        sys.dont_write_bytecode = True
+        from stop_claim_check import changes_things
+        changes = ["send_message", "create_draft", "untrash_message", "mark_message_spam", "respond_to_event",
+                   "notion-duplicate-page", "notion-update-view", "creative_generate_image", "exec"]
+        reads = ["search_threads", "list_labels", "notion-fetch", "get_file_metadata", "creative_get_flow_run_status"]
+        for action in changes:
+            self.assertTrue(changes_things(f"mcp__server__{action}"), action)
+        for action in reads:
+            self.assertFalse(changes_things(f"mcp__server__{action}"), action)
+        self.assertFalse(changes_things("Read"))
+
+    def test_fields_of_the_wrong_type_never_block(self):
+        for event in ({"cwd": 5}, {"transcript_path": 5}, {"cwd": None, "transcript_path": ["x"]}):
+            run = subprocess.run([sys.executable, str(HOOK)], input=json.dumps(event), capture_output=True, text=True)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            self.assertEqual(run.stderr, "")
 
     def test_messages_reach_claude_code_as_utf8_on_any_console(self):
         with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as home:
