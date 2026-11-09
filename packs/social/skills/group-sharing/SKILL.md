@@ -21,17 +21,17 @@ Use `publish-with-manifest` for approved batches. Keep group, proposed wording a
 
 ## Steps
 
-1. **Name the post and the goal.** What is being shared (event, notice, photo), the date, the link, and what the owner wants from it (attendance, awareness, volunteers).
+1. **Name the post, the goal and the audience.** What is being shared (event, notice, photo), the date, the link, and what the owner wants from it (attendance, awareness, volunteers, trade enquiries). Say whether the target readers are consumers (neighbours, parents, fans) or businesses (local traders, professional or industry groups). Most groups suit only one; a trade offer in a parents' group is a mismatch, not reach.
 2. **Get the group facts.** For each group the person names, ask for: the group name, who runs it, the written rules (pasted), the typical post type, and when the account last shared there. Do not assume rules from the group's title.
 3. **Decide for each group.** Use [template.md](template.md). Give one of:
    - **Share:** relevant to members, allowed by the rules, spaced from the last share.
    - **Ask the admin first:** the rules are unclear, require approval or limit promotion.
    - **Do not share:** the rules forbid it, the audience does not match, or it was shared there recently.
-   Give the reason, quoting the rule that decided it.
+   Give the reason, quoting the rule that decided it. A decision is a draft recommendation; the person decides whether to act on it.
 4. **Check frequency.** Treat the group's own rules as the limit. If the rules say nothing, choose a spacing that suits members' patience and say it is a judgement. One post per group per event, not reposts.
-5. **Draft share text for each "share" group.** Write it for that group in the voice of a member, not an advert: why it matters to them, one clear detail (when, where, cost), the link if allowed. Make each text different. Do not paste identical text into several groups. Remove anything the rules ban, such as links, prices or tags.
+5. **Draft share text for each "share" group.** Write it for that group in the voice of a member, not an advert: why it matters to them, one clear detail (when, where, cost), the link if allowed. Make each text different. Do not paste identical text into several groups, tag people who did not ask to be tagged, or ask members to like, share or comment for a reward. For business groups, lead with what the reader gains and give one named contact; do not cold-pitch. Remove anything the rules ban, such as links, prices or tags.
 6. **Check the claims and people.** Every detail must come from the owner. No child's name or face without recorded consent. No private details.
-7. **Hand to a person.** The person posts, from their own account, in each group, and then records the date and link. Offer to log them for the next spacing check. Do not mark anything as shared until the person confirms.
+7. **Hand to a person.** The person posts, from their own account, in each group, and then records the date and link. Offer to log them for the next spacing check. Keep a batch to what one person can post by hand and answer comments on (for example four to six in a week); say if more groups qualify and which to hold back. Do not mark anything as shared until the person confirms.
 
 ## Output
 
@@ -44,3 +44,5 @@ A filled [template.md](template.md): the decision per group with reasons and the
 - Nothing was posted by the agent.
 - Groups with unclear rules are marked "ask the admin first".
 - Posts showing or naming children have recorded consent.
+- The audience (consumer or business) matches each group, and a mismatched group is marked do not share.
+- The batch is small enough for a person to post and monitor, with no identical text, unsolicited tagging or incentive prompts.

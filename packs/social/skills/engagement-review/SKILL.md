@@ -21,20 +21,21 @@ Use `caption-options` only for content drafting. Record recommended replies and 
 
 ## Steps
 
-1. **Fix the frame.** Ask: which account, which period, who approves replies, what the voice is, and the organisation's rules for complaints, safeguarding and press enquiries. Ask for the items as an export, a paste or screenshots. The agent reads; it does not log in to post.
+1. **Fix the frame.** Ask: which account, which period, who approves replies, who the audience is (consumers, business contacts or both, since tone and speed differ), what the voice is, and the organisation's rules for complaints, safeguarding and press enquiries. Ask for the items as an export, a paste or screenshots. The agent reads; it does not log in to post.
 2. **Sort every item** into one class, with a one-line reason:
    - Question (opening times, prices, how to join)
    - Praise or thanks
    - Complaint or criticism
-   - Lead (someone wants to buy, book or partner)
+   - Consumer lead (someone wants to join, book or buy)
+   - Business lead (a supplier, sponsor or partner approach)
    - Spam or scam
    - Abusive, threatening or hateful
    - Safeguarding: any message from or about a child, any sign someone is at risk, any adult contacting a child, any request for a child's details
    - Press, legal or official
    - Personal data (someone shares an address, phone number, health detail)
 3. **Escalate first.** Pull out every abusive, safeguarding, press, legal and personal-data item. For each, write only: what it is, who should see it (a named role such as the safeguarding lead), what not to do (do not reply, do not delete, keep a copy), and the urgency. Do not draft a public reply for these.
-4. **Propose replies for the rest.** Draft short replies in the owner's voice. Answer questions only from facts supplied (opening times, prices, links); if the fact is missing, write "need: ..." and do not guess. Keep complaints calm and move detail to a private channel with the owner's contact, without promising outcomes. Do not offer refunds, medical, legal or safety advice.
-5. **Propose actions, not take them.** For spam and abuse, suggest the platform's report, hide or block tool for a person to use. Suggest which items deserve a like from the owner, but do not like anything.
+4. **Propose replies for the rest.** Draft short replies in the owner's voice. Answer questions only from facts supplied (opening times, prices, links); if the fact is missing, write "need: ..." and do not guess. Consumer replies are short and warm. Business replies name a person and a next step, and make no commitment on price, terms or exclusivity. Keep complaints calm and move detail to a private channel with the owner's contact, without promising outcomes. Do not offer refunds, medical, legal or safety advice.
+5. **Propose actions, not take them.** The agent drafts only: a reply is a proposal until a person approves it and posts it from their own account. Keep replies natural and varied. Never propose identical text to several people, bulk replies, unsolicited DMs to commenters, or comment-for-reward prompts. For spam and abuse, suggest the platform's report, hide or block tool for a person to use. Suggest which items deserve a like from the owner, but do not like anything.
 6. **Return the table** from [template.md](template.md): item, class, risk, proposed reply or action, owner, status (proposed, approved, done). Every status starts at proposed.
 7. **After approval.** The person posts the replies. The agent can record what was done and note patterns (the same question five times means the profile needs a clearer answer).
 
@@ -49,3 +50,5 @@ A filled [template.md](template.md) with an escalation list at the top and the r
 - No reply states a fact that was not supplied.
 - A message from or about a child is flagged, not answered.
 - All statuses are "proposed" until a person acts.
+- Consumer and business items are separated, and no business reply commits price, terms or exclusivity.
+- No proposed action is bulk, copied across people or unsolicited.
