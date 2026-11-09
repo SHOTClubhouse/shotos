@@ -34,7 +34,7 @@ Use `one-off-or-factory` if variation changes the structure. If it has already r
 10. **Full batch.** Run `runBatch`. Expect it to stop and schedule a continuation if the batch is large. Check afterwards that the continuation trigger is gone (`removeContinuation` if not).
 11. **Reconcile.** Count: rows, DONE, blocked, error. Run `auditDocuments`. Use `retryFailed` for errors, after reading why.
 12. **Recover safely.** Never rerun by clearing `done` on a verified row. DONE rows are skipped on a rerun. For a `receipt-error`, open the logged document and compare it with the row before anything else; see the README. For `error` rows, read the reason, fix the cause, then `retryFailed`; a row at `MAX_ATTEMPTS` waits for it. Stop if the Report and the folder disagree and ask the owner.
-13. **Record and hand over.** Fill the template with counts and links, the sheet and output folder location, any open receipt-error or error rows with their next owner, and how to resume. Tell the owner the documents exist and nothing has been sent; sending is theirs.
+13. **Record and hand over.** Fill the template with counts and links, the sheet and output folder location, any open receipt-error or error rows with their next owner, and how to resume. Tell the owner the documents exist and nothing has been sent; sending is theirs. List any superseded outputs from `previous_doc_ids` (earlier documents for a redone row) by row ID and link, marked clearly as not for use or sending; the current document is the one linked on the row. Keep those records: do not delete or bin them, and do not move them without the owner's authority; any tidy-up is the owner's decision.
 
 ## Output
 
@@ -48,3 +48,4 @@ A filled [template.md](template.md): acceptance, template and data checks, dry-r
 - Final counts add up: rows = done + blocked + error + not yet processed.
 - The report says what was checked in the real documents and what was not.
 - A rerun creates no second document for a DONE row, and any open error has an owner and a next step.
+- Superseded documents in `previous_doc_ids` are listed in the handover as not for use or sending, and are preserved, not binned, without the owner's authority.
