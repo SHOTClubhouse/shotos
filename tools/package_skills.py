@@ -14,14 +14,19 @@ Examples:
 from __future__ import annotations
 
 import argparse
+import posixpath
 import re
 import sys
 import zipfile
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
-from skill_resources import example_files, portable_markdown, portable_readme
+from skill_resources import PUBLIC_REPO, example_files, portable_markdown, portable_readme
 
 REPO = Path(__file__).resolve().parents[1]
+FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
+LINKS = re.compile(r"\]\(\s*<?([^\s)>]+)|^ {0,3}\[[^\]]+\]:\s*<?([^\s>]+)")
+SOURCE_LINK = re.compile(re.escape(PUBLIC_REPO) + r"/(?:blob|tree)/([^/]+)/([^?#]+)")
 
 
 def require_source(path: Path) -> None:
@@ -38,6 +43,49 @@ def skill_folders(packs) -> list:
             raise SystemExit(f"No such pack: {source.parent.name}")
         found += [p for p in sorted(source.iterdir()) if (p / "SKILL.md").is_file()]
     return found
+
+
+def link_problems(members, source_ref: str) -> list:
+    """List Markdown links in a ZIP that a reader could not follow."""
+    names = {name for name, _ in members}
+    problems = []
+    for name, content in members:
+        if not name.endswith(".md"):
+            continue
+        fence = None
+        for line in content.decode("utf-8").splitlines():
+            marker = FENCE.match(line)
+            if marker:
+                if fence is None:
+                    fence = marker[1]
+                elif marker[1][0] == fence[0] and len(marker[1]) >= len(fence):
+                    fence = None
+                continue
+            if fence:
+                continue
+            for found in LINKS.findall(re.sub(r"`[^`]*`", "", line)):
+                link = found[0] or found[1]
+                parts = urlsplit(link)
+                source = SOURCE_LINK.match(link)
+                if source:
+                    if source[1] != source_ref:
+                        problems.append(f"{name} links to {source[1]} instead of {source_ref}: {link}")
+                    elif not (REPO / unquote(source[2])).exists():
+                        problems.append(f"{name} links to a missing repository file: {link}")
+                elif not (parts.scheme or parts.netloc) and parts.path:
+                    target = posixpath.normpath(posixpath.join(posixpath.dirname(name), unquote(parts.path)))
+                    if target not in names and not any(member.startswith(target + "/") for member in names):
+                        problems.append(f"{name} links to a file missing from the ZIP: {link}")
+    return problems
+
+
+def bundled_markdown(source: Path, name: str, bundled: dict, source_ref: str) -> bytes:
+    """Keep links to bundled files local and point other parent links at the public source."""
+    folder = "/" + posixpath.dirname(name)
+    links = {path: posixpath.relpath("/" + installed, folder) for path, installed in bundled.items()}
+    markdown = portable_markdown(source, REPO, links, source_ref=source_ref)
+    # Leave the bytes alone when no link had to move.
+    return source.read_bytes() if markdown == source.read_text(encoding="utf-8") else markdown.encode("utf-8")
 
 
 def write_member(archive: zipfile.ZipFile, name: str, content: bytes) -> None:
@@ -59,28 +107,45 @@ def package(skill: Path, out: Path, *, source_ref: str = "main") -> Path:
     for path in [*paths, *(source for source, _ in examples), *guides, *notices]:
         require_source(path)
 
+    bundled = {path.resolve(): path.relative_to(skill).as_posix() for path in paths}
+    bundled.update((path.resolve(), name) for path, name in examples)
+    bundled.update((guide.resolve(), f"guides/{guide.name}") for guide in guides)
+    members = []
+    for path in paths:
+        name = path.relative_to(skill).as_posix()
+        if path == skill / "README.md":
+            content = portable_readme(skill, REPO, source_ref=source_ref).encode("utf-8")
+        elif path.suffix == ".md" and path.is_file():
+            content = bundled_markdown(path, name, bundled, source_ref)
+        elif path.is_file():
+            content = path.read_bytes()
+        else:
+            continue
+        members.append((f"{skill.name}/{name}", content))
+    for path, name in examples:
+        if name in {"example-input.md", "example-output.md"}:
+            content = portable_markdown(path, REPO, {}, source_ref=source_ref).encode("utf-8")
+        elif path.suffix == ".md":
+            content = bundled_markdown(path, name, bundled, source_ref)
+        else:
+            content = path.read_bytes()
+        members.append((f"{skill.name}/{name}", content))
+    if guides:
+        scenarios = {path.resolve(): f"../scenarios/{path.name}"
+                     for path in (skill / "scenarios").glob("*.md")}
+        for guide in guides:
+            markdown = portable_markdown(guide, REPO, scenarios, source_ref=source_ref)
+            members.append((f"{skill.name}/guides/{guide.name}", markdown.encode("utf-8")))
+    for notice in notices:
+        members.append((f"{skill.name}/{notice.name}", notice.read_bytes()))
+
+    problems = link_problems(members, source_ref)
+    if problems:
+        raise SystemExit(f"{skill.name}.zip has broken links:\n  " + "\n  ".join(problems))
     target = out / f"{skill.name}.zip"
     with zipfile.ZipFile(target, "w", zipfile.ZIP_DEFLATED) as archive:
-        for path in paths:
-            if path == skill / "README.md":
-                readme = portable_readme(skill, REPO, source_ref=source_ref)
-                write_member(archive, f"{skill.name}/README.md", readme.encode("utf-8"))
-            elif path.is_file():
-                write_member(archive, f"{skill.name}/{path.relative_to(skill).as_posix()}", path.read_bytes())
-        for path, name in examples:
-            if name in {"example-input.md", "example-output.md"}:
-                content = portable_markdown(path, REPO, {}, source_ref=source_ref).encode("utf-8")
-            else:
-                content = path.read_bytes()
-            write_member(archive, f"{skill.name}/{name}", content)
-        if guides:
-            scenarios = {path.resolve(): f"../scenarios/{path.name}"
-                         for path in (skill / "scenarios").glob("*.md")}
-            for guide in guides:
-                markdown = portable_markdown(guide, REPO, scenarios, source_ref=source_ref)
-                write_member(archive, f"{skill.name}/guides/{guide.name}", markdown.encode("utf-8"))
-        for notice in notices:
-            write_member(archive, f"{skill.name}/{notice.name}", notice.read_bytes())
+        for name, content in members:
+            write_member(archive, name, content)
     return target
 
 
