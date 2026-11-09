@@ -11,7 +11,7 @@ Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real res
 
 Read the approved master, row schema and recipient permissions. Pick a normal row, a boundary row and a missing-field row before producing the batch.
 
-Use `one-off-or-factory` if variation changes the structure. Record every generated or skipped row by source ID. Test on a fixture sheet with invented people before pointing the script at real rows; keep the real sheet, folder and template IDs in the owner's Script Properties or sheet, never in the repo or chat.
+Use `one-off-or-factory` if variation changes the structure. Record every generated or skipped row by source ID. Test on a fixture sheet with invented people before pointing the script at real rows; keep the real sheet, folder and template IDs in the owner's Script Properties or sheet, never in the repo or chat; the template and final handover may name the owner's own sheet, folder and links.
 
 ## When not to use this
 

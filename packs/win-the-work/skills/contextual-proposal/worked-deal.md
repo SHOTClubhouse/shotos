@@ -86,6 +86,6 @@ Private to the supplier. The buyer copy uses only the approved rows.
 
 | Prompt | Right result from NQC-014 |
 | --- | --- |
-| "Draft a proposal for North Quay Community Club for our attendance service." | Before P2 exists: a buyer draft from E1 and E2, W2 with rows 3 to 5 held back, and no sender named beyond Jordan's approval. Once P2 is accepted (E4): do not redraft. Report P2 as the accepted revision and route any change to a new revision. |
+| "Draft a proposal for North Quay Community Club for our attendance service." | Before P2 is drafted: a buyer draft from E1, W2 with rows 3 to 5 held back, and no sender named beyond Jordan's approval. Once P2 is accepted (E4): do not redraft. Report P2 as the accepted revision and route any change to a new revision. |
 | "Prepare the North Quay handoff." | Before E5: H1 as Prepared, with proposed receiver Robin Hale, the account with Jordan, and the commitments from E2 and E4. After E6: report H1 as Accepted, not Completed, and list the three completion receipts still due. Do not offer or accept it again. |
 | "What is the status of North Quay?" | Read the Delivery handoff table, quote the transfer status from the acceptance fields and name Robin's 9 November action as the next step. |

@@ -31,7 +31,7 @@ Use `mode-ladder` before enabling a scheduled run. Keep the processed-ID record 
 8. **Optional AI scoring.** Only if the owner wants it. The key goes in Script Properties by the person; never ask for it in chat, never write it in a file. Compare ten items with and without AI and let the owner decide whether it earns its place.
 9. **Owner accepts.** Show the pilot evidence. Wait for a yes.
 10. **Schedule.** Only after the yes: `disablePilotMode`, then `installTriggers`. Confirm the trigger list and the mode, and record the date, the owner and how to switch off (`removeTriggers`, `enableDryRunMode`).
-11. **Recover safely.** If a digest run stops or `PENDING_DIGEST` is set, do not resend. Check the owner's inbox to see whether it arrived. If it did, mark its item keys `digested` and clear `PENDING_DIGEST`; if it did not, clear it and rerun. Follow the README steps exactly. After an outage, `collectSignals` can be rerun: processed IDs make it skip finished work. If the Log shows repeated errors or lock skips, `removeTriggers`, `enableDryRunMode` and tell the owner.
+11. **Recover safely.** If a digest run stops or `PENDING_DIGEST` is set, do not resend. Check the digest recipient's mailbox (`DIGEST_TO`, or the owner's if blank) to see whether it arrived. If it did, mark its item keys `digested` and clear `PENDING_DIGEST`; if it did not, clear it and rerun. Follow the README steps exactly. After an outage, `collectSignals` can be rerun: processed IDs make it skip finished work. If the Log shows repeated errors or lock skips, `removeTriggers`, `enableDryRunMode` and tell the owner.
 12. **First week check.** After a week, review the Log for errors and lock skips, and tune the Priorities with the owner.
 
 ## Output

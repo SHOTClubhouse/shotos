@@ -15,7 +15,7 @@ Read the signed announcement facts, names, dates, quote permissions and embargo.
 
 Use `claims-audit` before review. Keep the public copy and approval evidence separately in the announcement record.
 
-Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a document tool is missing, say so first, draft in plain text and list approvals still to be obtained and mark the check pending.
+Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a document tool is missing, say so first, draft in plain text and list approvals still to be obtained and mark the check pending.
 
 ## When not to use this
 

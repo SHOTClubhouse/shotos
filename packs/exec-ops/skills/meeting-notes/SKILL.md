@@ -17,7 +17,7 @@ Use `decision-record` for a material decision and link to the original meeting r
 
 ## Start here
 
-**Minimum to start:** the transcript or recording ID, the agreed scope and the ledger. **First output:** the per-meeting note with decisions, actions and open questions at the top, and speakers marked unidentified where unconfirmed. **Uncertain:** disputed owners, dates and gaps in the transcript are listed under open questions rather than smoothed over. **Handoff:** pull out decisions and actions awaiting confirmation for the owner, each with who must confirm.
+**Minimum to start:** the transcript or recording ID, the agreed scope and the ledger (on a first run, the agreed source; the ledger is created in step 1). **First output:** the per-meeting note with decisions, actions and open questions at the top, and speakers marked unidentified where unconfirmed. **Uncertain:** disputed owners, dates and gaps in the transcript are listed under open questions rather than smoothed over. **Handoff:** pull out decisions and actions awaiting confirmation for the owner, each with who must confirm.
 
 ## When not to use this
 

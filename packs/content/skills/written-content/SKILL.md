@@ -15,7 +15,7 @@ Read the publication brief, reader question, approved voice sample and strongest
 
 Use `plain-english-check` for a review pass if needed. Keep the draft and evidence with the publication record.
 
-Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a link or document tool is missing, say so first, write plain text and list links as unchecked and mark the check pending.
+Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a link or document tool is missing, say so first, write plain text and list links as unchecked and mark the check pending.
 
 ## When not to use this
 

@@ -15,7 +15,7 @@ Read the decision brief and one approved visual reference. Choose the narrative 
 
 Use `claims-audit` for unsupported promises. Keep the editable deck, source notes and render check together.
 
-Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If the editor or renderer is missing, say so first, deliver the storyboard or editable draft with the storyline (step 4), say which check is pending, and stop there.
+Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If the editor or renderer is missing, say so first, deliver the storyboard or editable draft with the storyline (step 4), say which check is pending, and stop there.
 
 ## When not to use this
 

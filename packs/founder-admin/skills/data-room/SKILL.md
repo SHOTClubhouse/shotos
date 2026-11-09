@@ -17,7 +17,7 @@ Use `public-exposure-check` before external access. Maintain one index with acce
 
 ## Start here
 
-**Minimum to start:** the purpose (round, sale, audit), the reader, the source folder and the owner's list of who may see what. **First output:** the gap list and exposure findings first, then the full index. **Uncertain:** files you could not read, or settings you could not see, are listed as unchecked, not as clear. **Handoff:** give the owner a short list of changes only they can authorise, each with the evidence, the suggested change and the risk of leaving it.
+**Minimum to start:** the purpose (round, sale, audit), the reader, the source folder and the owner's list of who may see what. **First output:** the index, then the gaps, access and exposure findings, in the order of the template. **Uncertain:** files you could not read, or settings you could not see, are listed as unchecked, not as clear. **Handoff:** give the owner a short list of changes only they can authorise, each with the evidence, the suggested change and the risk of leaving it.
 
 ## When not to use this
 

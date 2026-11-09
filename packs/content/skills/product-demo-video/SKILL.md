@@ -15,7 +15,7 @@ Read the approved product flow, build or environment, audience and test account 
 
 Use `video-storyboard` if the sequence needs a shot plan. Store capture version, takes and final export with the demo.
 
-Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If Playwright or ffmpeg is missing, say so first, deliver the script, chapters and subtitle text, as in step 1, and mark the check pending.
+Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If Playwright or ffmpeg is missing, say so first, deliver the script, chapters and subtitle text, and mark the check pending.
 
 ## When not to use this
 

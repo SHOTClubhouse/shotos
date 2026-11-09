@@ -15,7 +15,7 @@ Start from the audience’s real question, source behaviour and the action they 
 
 Use `image-create` only when a visual clarifies the sequence. Keep the source and reviewed explainer together.
 
-Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If an image or link-check tool is missing, say so first, use a text diagram, check links by hand and list them as unchecked and mark the check pending.
+Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If an image or link-check tool is missing, say so first, use a text diagram, list every link as unchecked and mark the check pending.
 
 ## When not to use this
 

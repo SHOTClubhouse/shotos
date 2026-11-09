@@ -11,7 +11,7 @@ description: "Plans and builds a campaign landing page or website preview from a
 
 Read the campaign hypothesis, audience, approved offer and proof, primary action, current site or builder, approved destination and asset rights. Use `research-and-assemble` to support claims, `image-create` for a graphic and `claims-audit` before external review.
 
-Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a browser tool is missing, say so first, build the static preview and write the phone, desktop and keyboard checks as a manual script and mark the check pending.
+Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a browser tool is missing, say so first, build the static preview and write the phone, desktop and keyboard checks as a manual script and mark the check pending.
 
 ## When not to use this
 
