@@ -1,6 +1,6 @@
 ---
 name: cross-agent-review
-description: Pairs a lead agent with an independent reviewer from a different model, both given the same acceptance card and evidence. Use when work is medium or high risk or leaves the team. The owner decides.
+description: Pairs a lead agent with an independent reviewer (a different person, a different model, or the same model in a fresh session), both given the same acceptance card and evidence. Use when work is medium or high risk or leaves the team. The owner decides.
 ---
 
 # Cross-agent review
