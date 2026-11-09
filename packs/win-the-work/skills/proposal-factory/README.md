@@ -26,9 +26,9 @@ Do not use it for fewer than five, for proposals that differ in substance, or wi
 
 > The decision record says factory. Here is our accepted master and the list of 18 businesses. Build the variable list, pilot three, and give me the batch report. Send nothing.
 
-You get the pilot first. Read the three, correct the master, and tell the agent to continue. The batch report uses [template.md](template.md).
+The decision record already holds a pilot of three that you accepted, with the master revision each was made from. The agent reuses those three accepted proposals if the master revision, the reader data and your acceptance still match, and redoes only an item that changed or has no accepted output. It stops if your signoff is missing or the record says author directly. Read the pilot items, correct the master if needed, and tell the agent to continue. The batch report uses [template.md](template.md).
 
-For a restart, use the [worked revision check](restart-example.md). It shows which drafts can be reused, which buyer changes need a new review and how to preserve an owner's edits.
+For a restart, or to reuse the accepted pilot, use the [worked revision check](restart-example.md). It shows which pilot items and drafts can be reused, which buyer changes need a new review and how to preserve an owner's edits.
 
 ## How it connects
 
@@ -45,6 +45,7 @@ Nothing beyond the agent. A spreadsheet or CSV of readers helps. Rendering needs
 - Leave a value blank rather than inventing it. A blank gets fixed; an invention gets sent.
 - Search every file for the master reader's name before accepting the batch.
 - Ask for the least typical reader in the pilot.
+- Do not rerun a pilot that the owner accepted. Check each item against its master revision and recheck only what changed.
 
 ## Limits
 
