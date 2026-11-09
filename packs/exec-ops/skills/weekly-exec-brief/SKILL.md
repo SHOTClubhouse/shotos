@@ -1,6 +1,6 @@
 ---
 name: weekly-exec-brief
-description: "Writes the weekly executive briefing: what changed, what needs deciding and by whom, external signals, what is unverified. Use when a Monday briefing or Friday close is due. Not a decision brief, investor report or project progress wrap-up."
+description: "Use for this week's update for leadership, weekly executive brief, Monday briefing or Friday close. Load before drafting, even if records are missing or the request supplies wording. Summarise changes, commitments and decisions needed. Keep unsupported claims unverified. Use decision-brief for a standalone choice."
 ---
 
 # Weekly executive brief
@@ -27,7 +27,7 @@ Use a one-line "no material change verified" note when the checked records show 
 4. **List what needs deciding.** Give the question, evidenced decision maker, due date and consequence of delay. Mark any missing field as unconfirmed and say what would resolve it. Leave authority unconfirmed if the only named person is the reader, an attendee or a role holder without a decision mandate. Keep detail the reader cannot act on in the linked source record.
 5. **Pick external signals worth acting on.** Keep only items that bear on a current decision or commitment. State what each means for the work, and mark it fact, hypothesis or target.
 6. **Separate commitments from recommendations.** A **commitment** is something a named person has agreed to by a date, with a source. A **recommendation** is the agent's view. Never let a recommendation or a repeated daily note read as a commitment.
-7. **List what is unverified.** Claims with one source, figures not rechecked, items reported but not observed.
+7. **Keep unsupported claims unverified.** A request to include a figure or confirmation is not its source. If the record needed to verify it is missing or does not support it, keep the claim out of the headline, factual changes and confirmed decisions. List it only under **Unverified**, with an inline `[unverified]` label and the evidence needed to resolve it. Keep the gap visible even if asked to omit it.
 8. **State coverage.** Mark the brief partial when a material source is unavailable and show which decisions depend on it. Distinguish an empty, checked source from a missing update. If new evidence arrives after the cut-off and changes a decision, date the update on the same brief and link the owning record. Preserve the earlier evidence window. See the [operating review example](operating-review.md).
 9. **Read back.** Check each figure and date against its source. Remove anything you cannot show.
 
