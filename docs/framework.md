@@ -26,7 +26,7 @@ The stages work for business change, technical change, or both at once. Below, e
 
 ## Try one job across the six stages
 
-Start with the job you already need to do. Give your assistant the sources, say who will review the work and agree what the result should look like. The stages show how you can take that result from a first brief to a repeatable workflow. Use one skill today or follow [one fictional team through all six stages](walkthrough.md).
+Start with the job you already need to do. Give your assistant the sources, say who will review the work and agree what the result should look like. Use that context to make a small, testable bet. Decide what would count as success and who will make the next decision. The stages take that work from a first brief to a repeatable workflow. Use one skill today or follow [one fictional team through all six stages](walkthrough.md).
 
 | If you are… | Scope gives you | Hypothesise gives you | An output you can open |
 | --- | --- | --- | --- |

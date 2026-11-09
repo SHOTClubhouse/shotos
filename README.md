@@ -4,9 +4,11 @@
 
 **Free AI workflows, from the first brief to a result someone can own.**
 
-Use the AI assistant you already have to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start with one of 88 free, open-source skills. Each gives you a way to use your context and check what comes back.
+Use the AI assistant you already have to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start with one of 88 free, open-source skills. Start from your context, make a small, testable bet about what will help, and check what comes back.
 
-[See the six stages in action](docs/framework.md#try-one-job-across-the-six-stages) · [Choose your role](docs/guides/start-by-role.md) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
+[See how it works](docs/framework.md#try-one-job-across-the-six-stages) · [Open two worked examples](docs/framework.md#open-the-worked-outputs) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
+
+[![Scope. Start with a real task, its sources and the person who will review it.](docs/images/stage-01-scope.png)](docs/framework.md#try-one-job-across-the-six-stages)
 
 **Try one job in your usual chat.** Copy the [one-message founder exercise](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise), then compare the reply with the checks below it. To see what two connected skills produce, follow the [fictional proposal and handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md).
 
@@ -38,7 +40,7 @@ Choose the role that fits the work in front of you. Try it on one real task and 
 | **Graduate or junior team member** | Turn an assignment into [a clear brief and a result to review](docs/guides/start-by-role.md#graduate). | Your lead can open the work, see your sources and give specific feedback. |
 | **Product manager, product owner or tech lead** | Turn a feature request into [examples the team can build and check](docs/guides/start-by-role.md#product-manager). | The team can agree on a first slice and how to check it. |
 
-**The hypothesis.** If you start with a task from your own role, give the assistant the source and agree a check, you can judge the first result against your work. If the result helps, save the accepted example and reuse it on the next task.
+**Make a small, testable bet.** Start with a task from your role, give the assistant your sources and agree one check. For example, a founder can test whether assigning someone to confirm bookings reduces repeat calls. Save what you learn with the work.
 
 [Download one skill and try its example](docs/running-it.md#choose-your-first-job). The guide gives you the file to use and a concrete check for the result.
 
@@ -77,7 +79,7 @@ Explore the [Northbank fictional club website](https://shotclubhouse.github.io/s
 | Stage | What you do | What you hand forward |
 |---|---|---|
 | **Scope** | Agree the problem, boundaries and how you will measure today | A problem brief and baseline |
-| **Hypothesise** | Choose a testable bet and agree what counts as success | A hypothesis, experiment plan and acceptance checks |
+| **Hypothesise** | Make a small, testable bet and agree what counts as success | A hypothesis, experiment plan and acceptance checks |
 | **Operate** | Run a bounded pilot with the people who will use it | The actual result, checks and exceptions |
 | **Track** | Compare the outcome with the baseline and make a decision | Evidence and a decision to proceed to Own, pivot, stop or hold |
 | **Own** | Give the receiving team the access, runbook and practice to run a full cycle | Evidence the team ran independently and a named lead accepted it |

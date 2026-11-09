@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title">
   <title id="title">SHOTos</title>
-  <rect width="240" height="240" rx="51" fill="#201239"/>
-  <rect x="1" y="1" width="238" height="238" rx="50" fill="none" stroke="#b698fe" stroke-opacity=".38" stroke-width="2"/>
-  <path d="M155 54h-43c-23 0-40 15-40 34 0 16 12 26 31 31l30 8c13 3 19 8 19 16 0 10-10 18-25 18H82" fill="none" stroke="#f5eeff" stroke-width="23" stroke-linecap="round"/>
-  <path d="M170 170l19-19m-14 0h14v14" fill="none" stroke="#d7ff74" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect width="240" height="240" rx="46" fill="#6B00DB"/>
+  <path fill="#fff" d="M40 67h28v8H47v12h21v25H39v-8h21V95H40z M74 67h8v18h17V67h8v45h-8V93H82v19h-8z M114 67h33v45h-33z M122 75v29h17V75z M154 67h36v8h-14v37h-8V75h-14z"/>
+  <path fill="#F7B613" d="M116 131h29v34h-29z M124 139v18h13v-18z M151 131h30v8h-22v5h22v21h-30v-8h22v-5h-22z"/>
+  <path fill="#1ABC9C" d="M39 151h61v8H39z"/>
 </svg>

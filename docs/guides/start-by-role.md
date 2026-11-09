@@ -13,7 +13,7 @@ Try SHOTos for free in the AI assistant you already use. Pick one job, give the 
 **Job.** Decide what to test before committing to a build.
 
 - **Start with** customer notes and the idea someone has proposed. [Capture the Problem](../../skills/capture-the-problem/README.md) separates the observations from the proposed solution.
-- **Use next** [Hypothesis Card](../../skills/hypothesis-card/README.md) to propose a small test with a measure and an owner.
+- **Use next** [Hypothesis Card](../../skills/hypothesis-card/README.md) to make a small, testable bet with a measure and a decision owner.
 - **Keep** the problem brief, its sources and the test plan. Give the assistant a research role and keep the decision with the founder.
 
 [Try the fictional repair-workshop exercise in one message](startup-founder.md#try-a-fictional-discovery-exercise).

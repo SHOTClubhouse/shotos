@@ -1,10 +1,8 @@
 # Documentation
 
-[See what the six stages give you](framework.md#try-one-job-across-the-six-stages), then choose one job to try.
+[See how it works](framework.md#try-one-job-across-the-six-stages) · [Choose your role](guides/start-by-role.md) · [Open two worked examples](framework.md#open-the-worked-outputs) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
 
-[Start by role](guides/start-by-role.md) for free first jobs for founders, commercial leads, product managers, graduates, marketers and social creators.
-
-Pick a [founder task](guides/startup-founder.md#try-one-task), an [enterprise task](guides/enterprise-operations.md#choose-the-work-in-front-of-you) or [one skill to try](running-it.md#choose-your-first-job). Use the [Harbourside example](walkthrough.md) to see how context travels from source evidence to a decision across the full method.
+Start with one real job. Use your context to make a small, testable bet, then keep the result and the next decision together. The [Harbourside walkthrough](walkthrough.md) follows one fictional team through all six stages.
 
 | If you want to | Read |
 |---|---|
