@@ -15,6 +15,8 @@ Read the approved product flow, build or environment, audience and test account 
 
 Use `video-storyboard` if the sequence needs a shot plan. Store capture version, takes and final export with the demo.
 
+Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If Playwright or ffmpeg is missing, say so first, deliver the script, chapters and subtitle text, and mark the check pending.
+
 ## When not to use this
 
 Do not use it for features that do not exist yet, for a stylised animation (use video-storyboard), or to record a live production system with real customer data on screen. Never fake a screen to cover a feature that does not work.
@@ -44,3 +46,4 @@ The rendered video, script, chapter list, subtitle file, capture script and an i
 - The final render was played in full and key frames were inspected.
 - Any change of speed is declared.
 - Nothing was published or sent.
+- Reviewer check: jump to one chapter mark, confirm the screen is a real capture matching the script and that subtitles match the audio.

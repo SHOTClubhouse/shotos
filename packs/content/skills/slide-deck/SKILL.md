@@ -15,13 +15,15 @@ Read the decision brief and one approved visual reference. Choose the narrative 
 
 Use `claims-audit` for unsupported promises. Keep the editable deck, source notes and render check together.
 
+Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If the editor or renderer is missing, say so first, deliver the storyboard or editable draft with the storyline (step 4), say which check is pending, and stop there.
+
 ## When not to use this
 
 Do not use it for a long document that nobody will present; write a document instead. For many decks tailored from one master, use the `proposal-factory` skill. For a reader-specific sales proposal, start with the `contextual-proposal` skill.
 
 ## Steps
 
-1. **Check the editor and renderer first.** Read the relevant runtime section in `.work/capabilities.md` if it exists. If the intended editor or renderer is unavailable, prepare a storyboard or editable draft as the tools allow. State what was produced and which check is pending.
+1. **Check the editor and renderer first.** Apply the fallback in Context and handoff if either is missing.
 2. **Agree the reader and the ask.** Who will see it, in what setting (presented, sent to read, on a screen in a shop), and the one thing they should decide or do afterwards. Agree the length and the owner who accepts it.
 3. **Gather the material.** Collect the facts, figures, images and brand guide. Note the source and date of every number. Anything without a source is a question for the owner, not a slide.
 4. **Write the storyline first.** Write one message per slide and read the headlines in order. Keep observed results, proposed targets and the decision request distinct. A quote can support a cost, while the expected outcome may still be a hypothesis. Show the storyline to the owner before building when the deck matters.
@@ -44,3 +46,4 @@ An editable deck, a storyline (one line per slide), a source list for every numb
 - No text overflows, no placeholder is left empty, and figures agree across slides.
 - The deck is in an editable native format.
 - Nothing was shared or sent without the owner's yes.
+- Reviewer check: open the deck at a slide with a number and confirm the source line and the cited brief agree.

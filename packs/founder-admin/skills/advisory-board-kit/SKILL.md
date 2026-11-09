@@ -15,6 +15,10 @@ Read the purpose, proposed members, relevant expertise and existing governance. 
 
 Use `advisory-session` when the group is convened. Keep mandate, membership and terms with the board record.
 
+## Start here
+
+**Minimum to start:** the purpose, the gaps advisers should fill and who in the company owns the board. Without a purpose, stop and ask. **First output:** purpose, size, term and the roles table, before terms and rhythm. **Uncertain:** unverified adviser credentials and open terms are marked. **Handoff:** give the owner the decisions only they and a lawyer can make (terms, payment, equity, naming) as a short list of questions.
+
 ## When not to use this
 
 Skip it for a formal board of directors (a legal body with duties; ask a lawyer), for a one-off favour from a friend, and for deciding any equity or payment terms. The kit prepares material; the company and its lawyer decide terms.

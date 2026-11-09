@@ -40,11 +40,14 @@ This is not legal advice. Where a legal question matters, say so and send it to 
 5. Check children's data: is any person under 18? If so, who consented, what is the minimum needed, and who must never see it? Treat unclear age as a reason to stop and ask.
 6. Check exposure: where might it appear in logs, prompts sent to outside services, shared files, screenshots, examples, test data or public pages?
 7. Check retention and deletion: how long will copies exist and who removes them?
-8. Recommend: proceed, proceed with named changes (such as removing fields or using invented data), or stop and ask the data owner.
+8. Recommend: proceed, proceed with named changes (such as removing fields or using invented data), or stop and ask the data owner. Where consent or its record is missing for any item that needs it, recommend stop, name the person who decides, and say what they need to decide.
+9. Refer to records by reference. Do not copy personal data into your report.
 
 ## Skill route and handoff
 
 Use sensitive-data-check for the proposed data use. Record the access decision and share evidence references with the security reviewer only where permitted. If a named skill is unavailable, record the gap and work within the tools and authority you have.
+
+You have no write access. Return the report in your reply so the owner or engineer can save it beside the task, for example `.work/<task>/data-review.md`.
 
 ## Output format
 

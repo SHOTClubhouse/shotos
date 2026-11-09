@@ -27,5 +27,12 @@
 - Schedule installed (date, collect every N hours, digest hour):
 - How to switch off: removeTriggers, then enableDryRunMode
 
+## Recovery and handoff
+- Sheet location (no keys):
+- Current mode and trigger state:
+- Open pending digest or errors, next owner:
+- Test label or fixture used before the real label:
+- If something fails: removeTriggers, enableDryRunMode, check the inbox before clearing PENDING_DIGEST
+
 ## Claims
 - [unverified] anything not checked in the real account

@@ -12,7 +12,7 @@ Northgate Cycles (a fictional shop) needs a service reminder letter for each of 
 
 ## What the agent does differently
 
-It checks the template tokens against the columns first, agrees banned terms, and recommends a private output folder. It runs a dry run that creates nothing, then three real documents that a person opens and compares with the source rows. Only then does it run the batch, and afterwards it reconciles counts. It never sends the letters; that step belongs to the owner.
+It checks the template tokens against the columns first, agrees banned terms, and recommends a private output folder. It runs a dry run that creates nothing, then three real documents that a person opens and compares with the source rows. Only then does it run the batch, and afterwards it reconciles counts. If a one-off-or-factory pilot already produced three accepted documents, it reuses them as the sample when the template, data and acceptance still match, and makes new ones only for a row that changed. It stops if the pilot decision was to author directly or the owner's signoff is missing. It never sends the letters; that step belongs to the owner.
 
 ## When to use it, and when not to
 
@@ -50,6 +50,7 @@ A Google account, a master template (Google Doc or Slides), a sheet of rows, and
 
 - Rename placeholders to plain words: `{{first_name}}`, not `{{Customer First Name (formal)}}`.
 - Keep a private output folder until the sample is accepted.
+- If you already accepted three pilot documents, say so; do not ask for a second sample.
 - Banned terms are a safety net for data, not a replacement for reading the sample.
 - To redo a row, clear its `done` cell; the old document is kept and recorded.
 

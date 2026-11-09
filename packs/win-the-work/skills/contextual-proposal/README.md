@@ -28,6 +28,8 @@ Do not use it for a generic one-pager, or for many near-identical proposals (see
 
 Start with a name and what you want to offer. Give the assistant access to your approved offer and any existing account sources. It finds the relevant material and records missing approvals in the [working sheet](template.md). See the [worked deal](worked-deal.md) for the path from proposal to handoff.
 
+Try it on the fictional North Quay record by giving the assistant the worked deal as the account record. If a revision is already accepted, it reports that revision and does not redraft it.
+
 Choose an [organisation template](organisation-templates.md) based on who can approve the work. The [worked fictional deal](worked-deal.md) shows how the proposal's deal record carries through to customer success.
 
 ## How it connects

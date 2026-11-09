@@ -63,6 +63,8 @@ HOOK_COMMAND = 'sh "$CLAUDE_PROJECT_DIR/.shotos/hooks/run_hook.sh"'
 WORK_LINE = ".work/"
 IMPORT_LINE = "@AGENTS.md"
 CANON_LINE = "For SHOTos work, read and apply the installed working agreement at .shotos/templates/AGENTS.md."
+# Project installs rewrite the Markdown in these .shotos folders so its links open the installed copies.
+SHARED_GUIDES = ("docs", "rules", "agents", "lenses", "templates")
 
 
 class InstallError(Exception):
@@ -312,6 +314,31 @@ def installed_markdown_locations(copies):
     return locations
 
 
+def guide_relinks(runtime: str, scope: str, root: Path, previous: dict, added) -> list:
+    """Find unchanged installed guides whose links can now open the skills an added pack installs."""
+    installed = previous.get("packs", [])
+    if scope != "project" or not set(installed) <= set(available_packs()):
+        return []
+    agents = previous.get("agents", False)
+    before = installed_markdown_locations(plan(runtime, scope, root, False, installed, agents)[0])
+    after = installed_markdown_locations(plan(runtime, scope, root, False, sorted({*installed, *added}), agents)[0])
+    folders = tuple(root / ".shotos" / name for name in SHARED_GUIDES)
+    relinks = []
+    for source, path in before.items():
+        rel = path.relative_to(root).as_posix()
+        digest = previous.get("files", {}).get(rel)
+        if (path.suffix != ".md" or digest is None or not any(path.is_relative_to(f) for f in folders)
+                or owned_path(root, rel) is None or not path.is_file() or sha(path) != digest):
+            continue  # not a managed guide, or changed locally
+        old = portable_markdown(source, REPO, before, installed_dir=path.parent).encode("utf-8")
+        if hashlib.sha256(old).hexdigest() != digest:
+            continue  # the source changed since install; --refresh handles that
+        new = portable_markdown(source, REPO, after, installed_dir=path.parent).encode("utf-8")
+        if new != old:
+            relinks.append((rel, path, new))
+    return relinks
+
+
 def codex_skill_conflicts(root: Path, copies) -> list:
     shared = root / ".agents" / "skills"
     legacy = root / ".codex" / "skills"
@@ -365,9 +392,12 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
         print("\nThese already exist, so nothing was changed:\n  "
               + "\n  ".join(str(path.relative_to(root)) for path in [*clashes, *codex_conflicts]))
         return 1
+    relinks = guide_relinks(runtime, scope, root, previous, packs) if previous is not None else []
     verb = "would" if dry_run else "will"
     for src, dst in copies:
         print(f"{verb} copy  {src.relative_to(REPO)}  ->  {dst.relative_to(root)}")
+    for rel, _, _ in relinks:
+        print(f"{verb} relink  {rel} to the added skills")
     if hook:
         print(f"{verb} add   the claim-check Stop hook to .claude/settings.json")
     elif with_hook and previous is None:
@@ -389,9 +419,11 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
     def record(rel: str, before) -> None:
         manifest["edits"][rel] = {"original": b64(before), "after": sha(root / rel)}
 
-    shared_guides = tuple(root / ".shotos" / name for name in ("docs", "rules", "agents", "lenses", "templates"))
+    shared_guides = tuple(root / ".shotos" / name for name in SHARED_GUIDES)
     locations = installed_markdown_locations(copies)
     rewrite_shared = scope == "project" and previous is None
+    relinked = {}
+    originals = []
     try:
         for src, dst in copies:
             missing = []
@@ -425,6 +457,10 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
                 installed_readme = dst / "README.md"
                 installed_readme.write_bytes(readme.encode("utf-8"))
                 manifest["files"][installed_readme.relative_to(root).as_posix()] = sha(installed_readme)
+        for rel, path, content in relinks:
+            originals.append((path, path.read_bytes()))
+            path.write_bytes(content)
+            relinked[rel] = sha(path)
         if hook:
             before = settings_path.read_bytes() if settings_path.is_file() else None
             if not settings_path.parent.exists():
@@ -454,12 +490,14 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
             combined = {
                 **previous,
                 "packs": sorted(set(previous.get("packs", [])) | set(packs)),
-                "files": {**previous["files"], **manifest["files"]},
+                "files": {**previous["files"], **relinked, **manifest["files"]},
                 "dirs": list(dict.fromkeys(previous["dirs"] + manifest["dirs"])),
             }
             write_manifest(manifest_path, combined)
-    except Exception:
+    except BaseException:
         print("\nInstall failed part-way; rolling back.")
+        for path, original in reversed(originals):
+            path.write_bytes(original)
         _reverse(root, manifest)
         raise
     print(f"\nInstalled. Manifest: {manifest_path.name}")

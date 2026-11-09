@@ -44,4 +44,7 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 
 ## How it connects
 
+Both skills start from the account name. If the account has neither a proposal nor a controlling agreement, use [contextual-proposal](../win-the-work/skills/contextual-proposal/README.md) (or `bid-response` for a tender). An awarded tender or a live account with an agreement continues here. If the buyer writes about changed terms, use [email-reply](../win-the-work/skills/email-reply/README.md). The [North Quay worked deal](../win-the-work/skills/contextual-proposal/worked-deal.md) shows the shared record from proposal to accepted handoff.
+
+
 Both skills apply the four rules in [docs/controls.md](../../docs/controls.md). The handoff follows the same idea as [evidence-handoff](../../skills/evidence-handoff/README.md): say what is known, from where, and what is not. The stages are in [docs/framework.md](../../docs/framework.md). In the win-the-work pipeline, LEAP's Plan sends the approved deal context to the delivery team. The account transfer uses the Own checks.

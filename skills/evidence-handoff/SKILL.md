@@ -7,11 +7,18 @@ description: Hands work to a person, team, agent or later session with state, ev
 
 A good handoff lets the next person continue in minutes without asking you anything.
 
+Stage: Own. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
+
+
 ## Context and handoff
 
 Read the task record, original acceptance, actual output and receipts. Verify the current state independently of the previous status report.
 
 Use `resume-pack` for a session break where ownership stays the same, or link one for detailed restart steps. Keep one handoff linked to the artefact, open checks and named next action.
+
+## When not to use this
+
+Skip it when the same owner continues tomorrow (use `resume-pack`) or when the task simply ends (use `report-with-evidence`).
 
 ## Steps
 

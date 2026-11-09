@@ -13,7 +13,7 @@ Stage: Operate and Track. Rules: 3 Read back the real result, 4 Claim only what 
 
 Read the previous wrap, active commitments and current output evidence. Report change since last review and preserve unresolved owners.
 
-Use `decision-brief` for a decision that needs options. File the wrap with links to owning tasks.
+Use `decision-brief` (from the exec-ops pack) for a decision that needs options; if it is not installed, list the options, your recommendation and the owner in the wrap. File the wrap with links to owning tasks.
 
 ## When not to use this
 

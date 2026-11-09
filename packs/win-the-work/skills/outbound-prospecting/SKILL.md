@@ -13,7 +13,7 @@ Stage: Operate. Rules served: 1 (stop at the boundaries), 4 (claim only what you
 
 Read the audience hypothesis, approved contact source, relationship history and actual offer. Exclude duplicates and anyone already in a live conversation.
 
-Route replies through `email-reply` and qualification through `nudge-qualify`. Use `contextual-proposal` when there is evidence that a proposal is the next step. Record inclusion, exclusions and drafts in the campaign record.
+Route replies through `email-reply` and qualification through `nudge-qualify`. Use `contextual-proposal` only when a reply or qualified conversation shows a priced proposal is warranted, after `nudge-qualify` clears the pricing gate. A sent or drafted message, an opened email or interest alone is not that evidence. Record inclusion, exclusions and drafts in the campaign record.
 
 ## When not to use this
 

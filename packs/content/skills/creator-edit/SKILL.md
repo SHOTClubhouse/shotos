@@ -15,6 +15,8 @@ Read the author’s draft, their own published sample and any locked wording. As
 
 Use `claims-audit` for new factual assertions. Keep the edited draft and any material change notes with the author’s piece.
 
+Cite the author's draft revision as the source of truth; nothing outside it is added. If `.work/capabilities.md` exists, read the section for this runtime. If a comparison tool is missing, say so first, produce the side-by-side change log as a plain table and mark the check pending.
+
 ## When not to use this
 
 Do not use it to ghost-write from nothing (use written-content), to rewrite in a different voice, or when the creator wants a full rewrite. Do not use it to post on the creator's behalf.
@@ -44,3 +46,4 @@ The edited draft, a side-by-side change log, the keep rate with how it was count
 - Risks are listed with a recommendation, and the creator decides.
 - Each channel version fits its limits.
 - Nothing was posted, scheduled or sent.
+- Reviewer check: pick the largest logged change and confirm the original wording and the reason are shown; confirm the keep rate by recounting one paragraph.

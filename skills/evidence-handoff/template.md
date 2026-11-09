@@ -9,7 +9,13 @@
 Prepared / Executed / Accepted (delete two). Which acceptance checks passed, and which did not.
 
 ## Evidence
+- Output revision this handoff covers (commit, version or saved date):
 - Files, commits, documents and receipts, as paths or links.
+- Checked by (person, tool or model that actually ran the check), and on which revision:
+
+## Context the receiver may use
+- Allowed:
+- Kept out, and who can grant it:
 
 ## Open decisions
 | Decision | Who decides | By when |

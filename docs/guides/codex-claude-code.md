@@ -6,6 +6,12 @@ Start with one skill in the folder that owns your work. On Windows or Mac, you c
 
 For a proposal and handoff, add both Contextual Proposal and Success Handoff to the same project. Follow the two short requests in the [fictional worked deal](../../packs/win-the-work/skills/contextual-proposal/worked-deal.md) and keep both outputs with the same account record.
 
+## What needs what
+
+- **Copying one skill folder:** a file manager and a project folder. No installer, Python or connector.
+- **A pack, shared tools, role agents or the Stop hook:** the installer, with Python 3.9 or later.
+- **Mail, slides, speech, images, video or a browser:** a connector or local program you set up yourself. See [connect your tools](../connect-your-tools.md).
+
 ## Copy one skill without a terminal
 
 1. [Download `decision-brief.zip`](https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip). On Windows, right-click and choose **Extract All**. On Mac, double-click the ZIP in Finder.
@@ -59,7 +65,9 @@ python "PATH_TO_SHOTOS/install.py" --runtime agents --scope project --pack exec-
 
 Use `python3` if that is how Python runs on your Mac. For Claude Code change the runtime to `claude`. Add `--with-hook` if you have reviewed and want the optional Claude Code Stop hook. Add `--with-agents` if you want its role subagents. For an existing installer-managed Codex project, use the refresh steps below to keep its recorded runtime and skill folder.
 
-Review the dry run before installing. If it lists an existing skill in the other Codex folder, review that copy and choose one path before trying again. Confirm skill loading in a fresh session before relying on it. The installer adds the portable tools and records. The manual route is useful when you only need a few skills. [Full pack and role setup](../full-pack.md)
+Review the dry run before installing. It lists planned changes and writes nothing, so it is a safe way to see what the installer would do. After installing, `python "PATH_TO_SHOTOS/install.py" --status --scope project` reports what is in place.
+
+To see which connectors and local programs your agent can reach, ask it to run the [connect-tools](../../packs/setup/skills/connect-tools/README.md) skill. It makes read-only calls and records the result in `.work/capabilities.md`. If it lists an existing skill in the other Codex folder, review that copy and choose one path before trying again. Confirm skill loading in a fresh session before relying on it. The installer adds the portable tools and records. The manual route is useful when you only need a few skills. [Full pack and role setup](../full-pack.md)
 
 ## Refresh an installed setup
 

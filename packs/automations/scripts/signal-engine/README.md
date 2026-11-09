@@ -41,7 +41,9 @@ The script starts in **dry run**: it reads and scores with keywords, and writes 
 | `enablePilotMode` / `disablePilotMode` | Limits each collect run to three messages. |
 | `enableLiveMode` | Items are queued and digests are sent. |
 
-Recommended order: dry run, then pilot plus live mode (three messages), then check the Queue tab and your digest, then remove the pilot limit, then install triggers.
+Recommended order: dry run, then pilot plus live mode (three messages), then check the Queue tab and your Sent mail, then remove the pilot limit, then install triggers.
+
+Pilot proof is one delivery to the configured recipient. Check the Queue tab, then find exactly one digest in the Sent mail of the account that owns the script, addressed to `DIGEST_TO` (or that account if blank), with a "Digest reference" line in the body. Sent mail proves the script sent it; only the recipient's own confirmation proves receipt. If receipt matters and has not been confirmed, record it as unverified. Do not contact the recipient or open anyone else's mailbox to find out.
 
 ## Functions to run by hand
 
@@ -55,11 +57,11 @@ Recommended order: dry run, then pilot plus live mode (three messages), then che
 
 ## Recover a pending digest
 
-If a send or queue update is interrupted, both scheduled and manual sends pause while `PENDING_DIGEST` exists in Script Properties. The record contains a digest reference, date, recipient and queue item keys. Check that the earlier execution has finished, then look for that exact reference in the recipient's mailbox.
+If a send or queue update is interrupted, both scheduled and manual sends pause while `PENDING_DIGEST` exists in Script Properties. The record contains a digest reference, date, recipient and queue item keys. Check that the earlier execution has finished, then look for that exact reference in the script owner's Sent mail. If it is not there, the recipient (`DIGEST_TO`, or the owner if blank) can confirm the reference themselves. Never open another person's mailbox.
 
-- If you confirm the digest arrived, mark its listed item keys `digested` in **Queue**, record the delivery time, and make sure `LAST_DIGEST_DATE` reflects the digest date. Then clear `PENDING_DIGEST`.
-- If you verify it was never sent, clear `PENDING_DIGEST` and rerun the intended digest when ready.
-- If delivery remains uncertain, leave the reservation in place while you investigate.
+- If the exact reference is in Sent mail (proves sent, not received) or the recipient confirms it (proves receipt), there is enough evidence of send to prevent a duplicate. With the owner's authority, mark its listed item keys `digested` in **Queue**, record the time, and make sure `LAST_DIGEST_DATE` reflects the digest date. Then clear `PENDING_DIGEST`.
+- No match in Sent mail alone never proves it was not sent. Only if you have positive evidence it was never sent (for example the earlier execution's log shows it failed before sending) and the owner agrees, clear `PENDING_DIGEST` and rerun the intended digest when ready.
+- If delivery remains uncertain, leave the reservation in place, do not resend, and report what is unknown.
 
 ## Optional AI scoring
 

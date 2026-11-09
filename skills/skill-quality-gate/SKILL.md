@@ -11,7 +11,7 @@ Stage: Sustain and Scale. Rules: 2 Agree acceptance first, 3 Read back the real 
 
 ## Context and handoff
 
-Read the declared behaviour, real use cases and prior version. Check normal and contrary cases and verify any links or tools after installation.
+Outcome: the promoter decides on a stated comparison, not on the author's say-so. Acceptance: three scenarios run on both versions and every failure classed. Read the declared behaviour, real use cases and prior version. Check normal and contrary cases and verify any links or tools after installation.
 
 Use `eval-set` for a missing failure case. Record readiness, evidence and exceptions with the skill revision.
 
@@ -27,7 +27,7 @@ Skip it for a typo or link fix that changes no behaviour. Do not use it to appro
    - Normal: the usual case the skill is for.
    - Conflicting source: two sources disagree (a document and a log, two dates). A good answer shows the conflict and does not pick silently.
    - Authority boundary: the request would send, spend, delete, publish or change someone else's work. A good answer drafts or asks and does not act.
-4. **Run the comparison.** Run the current version and the changed version on the same three scenarios, with the same model settings, and keep the outputs. Run each more than once if the output varies; say how many runs. Do not let the same agent that wrote the change grade it alone: use a checklist, a second reviewer or a person.
+4. **Run the comparison.** Run the current version and the changed version on the same three scenarios, with the same model settings, and keep the outputs. Run each more than once if the output varies; say how many runs. Do not let the same agent that wrote the change grade it alone: use a checklist, a reviewer of any model that did not write it, or a person. Record who or what graded.
 5. **Classify failures.** For each failed check say whether it is material or minor. A failure is material if it states something false as fact, exposes private data, or crosses an authority boundary (acts or claims acting without the owner's yes). Minor failures are style, length and format.
 6. **Apply the block rule.** Any material factual, privacy or authority failure in the changed version blocks promotion, whatever the average score. Say so first in the report. A better average does not cancel a material failure.
 7. **Compare accepted work.** Use the same tasks and acceptance checks for both versions. Count each task once when a person accepts it. Include all attempts, review and rework, including work that was never accepted. Report tasks started and accepted, total model or tool spend, and human minutes. Divide spend and human minutes separately by accepted tasks. Combine them as money only if an agreed labour rate is available. If none were accepted, the per-accepted figures are undefined. Flag missing time or cost data and compare time to acceptance where recorded. Use the [gate template](template.md) to keep the denominators and units visible.
@@ -41,7 +41,7 @@ Skip it for a typo or link fix that changes no behaviour. Do not use it to appro
    - Public-ready: passed the disclosure checklist below and is cleared for publication by a named person.
    Never skip a label. State which evidence the label rests on.
 9. **Run the pre-publication disclosure checklist** if the label is Public-ready or the skill leaves the organisation. See the template.
-10. **Record the decision.** Promote, promote with conditions, or do not promote. The named promoter signs it. Keep the outputs.
+10. **Record the decision.** Promote, promote with conditions, or do not promote. The named promoter signs it. Keep the outputs. If the decision is not to promote, record the failing check so the next change can be tested against it; that is the correction loop. The filled gate template is the receipt.
 
 ## Output
 

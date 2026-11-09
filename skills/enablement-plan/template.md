@@ -32,10 +32,14 @@ Single points of failure (fewer than two people at level 2):
 ## Fault drill
 The safe fault, where it is introduced, what the team should do, who watches.
 
+## Early stop
+What pauses training, who is the operator meanwhile, who decides to re-plan:
+
 ## Support after exit
 Named contact, scope, end date, escalation route.
 
 ## Exit result (filled in after the exit run)
 Observed levels updated above. What the team needed from the builders:
+Next cycle run by the team without the builders (date, or "still to do"):
 Outcome: passed | passed with conditions | not yet
 Accepted by (name, date):

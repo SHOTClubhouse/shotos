@@ -3,6 +3,7 @@
 **Account and period:**
 **Approver of replies:**
 **Safeguarding lead (name or role):**
+**Audience (consumer / business / both):**
 **Source of the items (export, paste, screenshots):**
 
 ## Escalate to a person (no public reply drafted)
@@ -13,7 +14,8 @@
 | Item | Class | Risk | Proposed reply or action | Facts used (source) | Status |
 |---|---|---|---|---|---|
 
-Status values: proposed | approved | done (by whom, when)
+Status values: proposed (draft only) | approved (by a named person) | done (posted by a person, when)
+Class values include consumer lead and business lead. Posting permission sits with the approver; the agent posts nothing.
 
 ## Patterns
 -

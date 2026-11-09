@@ -15,6 +15,10 @@ Read the installed skill list, source versions and real task history. Compare de
 
 Use `skill-quality-gate` before promoting a change. File findings against the owning skill and its version.
 
+## Trigger and minimum inputs
+
+Run it before a release, after adding or renaming a skill, or on a schedule. It needs the collection folder and the eval file. With only a description of the collection, say the audit is from description and limited. Any runtime that can read files can run it.
+
 ## When not to use this
 
 Skip a single skill still being drafted. Do not use this audit as proof that a skill works or is useful.
@@ -33,7 +37,11 @@ Skip a single skill still being drafted. Do not use this audit as proof that a s
 
 ## Output
 
-Use [template.md](template.md).
+Use [template.md](template.md). Save it where the owner keeps release notes, for example `.work/skill-audit.md`.
+
+## Blockers and handoff
+
+If the eval file or a skill folder cannot be read, mark those checks "not run" and say why; do not pass them. Hand each finding to the owner of the skill it names. Hand quality questions to `skill-quality-gate`.
 
 ## Checks
 

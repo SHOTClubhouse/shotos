@@ -64,6 +64,64 @@ class PackageSkillsTests(unittest.TestCase):
             self.assertIn("linked package source", result.stderr)
             self.assertFalse((out / "sample.zip").exists())
 
+    def fixture_repo(self, workspace: Path, files: dict) -> Path:
+        repo = workspace / "repo"
+        tools = repo / "tools"
+        tools.mkdir(parents=True)
+        for source in (TOOL, TOOL.with_name("skill_resources.py")):
+            shutil.copy2(source, tools)
+        for name in ("LICENSE", "LICENSE-docs.md"):
+            (repo / name).write_text("Fictional licence fixture", encoding="utf-8")
+        for name, content in files.items():
+            (repo / name).parent.mkdir(parents=True, exist_ok=True)
+            (repo / name).write_bytes(content)
+        return repo
+
+    def test_links_that_leave_a_skill_zip_point_at_the_pinned_source(self):
+        source_commit = "c" * 40
+        template = b"# Template\r\n\r\nFill in [the case](scenarios/case.md).\r\n"
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = self.fixture_repo(Path(tmp), {
+                "docs/controls.md": b"# Controls",
+                "skills/other/SKILL.md": b"# Other",
+                "skills/sample/SKILL.md": b"# Sample\n\nUse [the template](template.md), then [other](../other/SKILL.md).\n",
+                "skills/sample/template.md": template,
+                "skills/sample/scenarios/case.md":
+                    b"Back to [the template](../template.md). See [rule 1](../../../docs/controls.md#rule-1).\n",
+            })
+            out = Path(tmp) / "out"
+            subprocess.run([sys.executable, str(repo / "tools" / TOOL.name), "--out", str(out),
+                            "--source-commit", source_commit], check=True, capture_output=True)
+            source = f"https://github.com/SHOTClubhouse/shotos/blob/{source_commit}"
+            with zipfile.ZipFile(out / "sample.zip") as archive:
+                self.assertEqual({name.split("/")[0] for name in archive.namelist()}, {"sample"})
+                skill = archive.read("sample/SKILL.md").decode("utf-8")
+                self.assertIn("(template.md)", skill)
+                self.assertIn(f"({source}/skills/other/SKILL.md)", skill)
+                case = archive.read("sample/scenarios/case.md").decode("utf-8")
+                self.assertIn("(../template.md)", case)
+                self.assertIn(f"({source}/docs/controls.md#rule-1)", case)
+                self.assertEqual(archive.read("sample/template.md"), template)
+                self.assert_markdown_links_resolve(archive)
+
+    def test_a_broken_zip_link_stops_the_build(self):
+        broken = {
+            "missing local file": (b"Use [the template](template.md).\n", "template.md"),
+            "unpinned repository link": (
+                b"See [controls](https://github.com/SHOTClubhouse/shotos/blob/main/docs/controls.md).\n", "main"),
+            "missing repository file": (b"See [the guide](../../docs/gone.md).\n", "docs/gone.md"),
+        }
+        for case, (skill, reported) in broken.items():
+            with self.subTest(case=case), tempfile.TemporaryDirectory() as tmp:
+                repo = self.fixture_repo(Path(tmp), {"skills/sample/SKILL.md": b"# Sample\n\n" + skill})
+                out = Path(tmp) / "out"
+                result = subprocess.run([sys.executable, str(repo / "tools" / TOOL.name), "--out", str(out),
+                                         "--source-commit", "d" * 40], capture_output=True, text=True)
+                self.assertNotEqual(result.returncode, 0, result.stdout)
+                self.assertIn("sample.zip has broken links", result.stderr)
+                self.assertIn(reported, result.stderr)
+                self.assertFalse((out / "sample.zip").exists())
+
     def test_each_zip_holds_one_skill_folder_with_skill_md(self):
         with tempfile.TemporaryDirectory() as tmp:
             result = subprocess.run([sys.executable, str(TOOL), "--all-packs", "--out", tmp],

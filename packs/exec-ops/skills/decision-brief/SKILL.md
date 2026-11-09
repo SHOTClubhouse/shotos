@@ -15,6 +15,19 @@ Read the decision owner’s mandate, earlier decisions, available options and ev
 
 Use `decision-record` after a decision is made. Keep the brief and decision in the same owning record. For a recurring leadership choice, follow [Executive Decision Review](review-cycle.md) through the handoff and next independent cycle.
 
+## Start here
+
+**Minimum to start:** the choice, the decision maker (or authorised body) and the date. If one is missing, draft the question and list the missing field first rather than inventing it. **First output:** the question and recommendation in the opening lines, with confidence and what would change it, then the facts. **Uncertain:** one-source facts and untested assumptions are labelled where they appear. **Handoff:** end with the exact decision requested, by whom and by when, and where the decision will be recorded.
+
+## If used on its own
+
+Work from the question and facts the person gives you. The owner's record and the companion skills are not required.
+
+- If the decision maker or date is missing, write "decision maker: not named" or "date: not given" at the top and carry on. Do not guess who decides.
+- A fact stated without a source goes in the facts list as "stated by [who], no source seen", or among the assumptions with a cheap test. Do not present it as checked.
+- If you cannot read the mandate or earlier decisions, say so and list them as things the decider should confirm. Skip the recurring-review workflow unless `review-cycle.md` is present.
+- End with the exact decision requested, by whom and by when, and "to be recorded in: not yet known". If `decision-record` or `advisory-session` is missing, leave recording and group questions as open actions.
+
 ## When not to use this
 
 Skip it for a choice that is cheap and easy to reverse, for a question that has no real alternatives, or when the decision has already been made and only needs recording.

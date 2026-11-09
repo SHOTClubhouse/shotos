@@ -14,9 +14,11 @@
 | --- | --- | --- | --- | --- |
 
 ## Pilot of three
-| Reader | Produced | Rendered and looked at | Edits by owner | Accepted? |
-|---|---|---|---|---|
-| | | | | |
+| Reader | Accepted output and revision (from decision record) | Master, source and acceptance unchanged? | Redone? Why | Rendered and looked at | Edits by owner | Accepted? |
+|---|---|---|---|---|---|---|
+| | | | | | | |
+
+Pilot reused from the decision record, no second pilot. Stopped if acceptance, evidence or master signoff was missing:
 
 Changes made to the master or variables after the pilot:
 

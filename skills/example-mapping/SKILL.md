@@ -11,9 +11,11 @@ Rules are abstract and people read them differently. Examples are concrete and e
 
 ## Context and handoff
 
-Read the requirement and conflicting examples. Ask which rule produces the right result for a concrete normal, boundary and failure case.
-
-Use `agree-acceptance` to turn agreed examples into checks. Keep unresolved questions beside the examples.
+- **Business question:** what exactly should this change do in real cases, and what do we still not know?
+- **Use this when** a request has business rules, or is too vague to turn into checks. It is about behaviour, not whether the change is worth making (`hypothesis-card`) or how it will be done (`route-the-work`).
+- **Minimum context:** the request, the person who can answer rule questions, and any conflicting examples. Ask which rule gives the right result for a normal, boundary and failure case.
+- **Decision boundary:** only examples confirmed by the owner or a source become checks; the rest stay `draft`. Unknown rules stay open questions, not assumptions.
+- **Next step:** `agree-acceptance` turns the settled examples into checks for the owner's yes. Send blocking questions to the people named. Keep unresolved questions beside the examples.
 
 ## When not to use this
 

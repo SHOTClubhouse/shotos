@@ -11,9 +11,11 @@ You cannot show an improvement without a "before". Write the before down first, 
 
 ## Context and handoff
 
-Read the current source, measurement window and denominator. Check exclusions and mark measures that were never observed.
-
-Use `evidence-pack` for the later comparison. Save definitions and source dates beside the programme record.
+- **Business question:** what is true today, so we can tell later whether the change helped?
+- **Use this when** a change will later be called better or worse, or before a target is set. If the "before" is already recorded, go to `hypothesis-card`.
+- **Minimum context:** the change in one sentence, who judges it, and the data sources that exist. Check the measurement window, denominator and exclusions, and mark measures that were never observed.
+- **Decision boundary:** the owner confirms the table and chooses what to do about each gap. This skill collects no new data and sets no target.
+- **Next step:** `hypothesis-card` sets the target against this baseline; `evidence-pack` supports the later comparison. Save definitions and source dates beside the programme record.
 
 ## When not to use this
 

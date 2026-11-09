@@ -23,7 +23,8 @@
 |---|---|---|---|---|
 | | | yes / no | yes / no | yes / no |
 
-- Owner accepted the sample: yes | no | changes needed
+- Sample reused from a one-off-or-factory pilot: yes | no. If yes, template, data and acceptance unchanged for each row: yes | no (redone rows and why):
+- Owner accepted the sample: yes | no | changes needed (stop if signoff is missing)
 
 ## Full batch
 - Rows in sheet:
@@ -32,6 +33,12 @@
 - Error (with reasons, retried?):
 - Continuation trigger removed: yes | no
 - auditDocuments result:
+
+## Recovery and handoff
+- Sheet and output folder (location only, no keys):
+- Open error or receipt-error rows, reason, next owner:
+- Fixture used for testing, or none:
+- To resume: read the Report tab, then `retryFailed`; DONE rows are never redone
 
 ## Claims
 - [unverified] anything not checked in the real documents

@@ -16,7 +16,7 @@ Errors that repeat cost the same each time. Volume turns a small mistake into a 
 2. If there are more than three, picks a **pilot of three or fewer**. The pilot includes the most typical item and the item most likely to fail, such as the longest name, the empty field or the one with special characters.
 3. Runs only the pilot. For external actions, the pilot needs the same approval as the whole batch (see [control 4](04-stop-boundaries.md)), and the owner may prefer to receive the pilot items themselves.
 4. Reads the pilot back in the real home under [control 6](06-read-back.md), and compares with the acceptance card.
-5. Fixes what the pilot reveals and runs the pilot again if the fix changed anything material.
+5. Fixes what the pilot reveals and reruns the pilot items the fix touched (all three only if it touched all of them).
 6. Runs the **preflight checklist** below.
 7. Asks for a go for the rest. The go names the count and what was learned.
 8. Runs the remainder, reports progress at sensible intervals, and stops on the first unexpected result.
@@ -30,7 +30,17 @@ Errors that repeat cost the same each time. Volume turns a small mistake into a 
 - [ ] A stop point exists: the agent can halt after any item.
 - [ ] A way to undo or contain exists, or the owner has accepted that none does.
 - [ ] Receipts will be kept per item.
-- [ ] Nothing changed between the pilot and now (inputs, template, target). If it did, repeat the pilot.
+- [ ] Nothing changed between the pilot and now (inputs, template, target). If it did, recheck only the pilot items the change touches (see below).
+
+### Reusing an accepted pilot
+
+A pilot the owner has already accepted, for example from `one-off-or-factory`, is not run again.
+
+- Carry forward each item whose output, source and acceptance still match the accepted revision, with its review status.
+- Recheck only the items whose template, relevant data, target or acceptance changed, and any item with no accepted output.
+- Repeat the whole pilot only if the change touches every pilot item or invalidates the owner's acceptance.
+- Stop if acceptance or evidence for a pilot item is missing; do not rerun to fill the gap.
+- Reuse never waives the checks that apply today. Gates for pricing, suppression, approval and access are checked again on each reused item.
 
 ## What a person does
 
@@ -62,7 +72,8 @@ go: "run remaining 137" by Maya, 14:20
 - Choosing the three easiest items.
 - Calling the first success the pilot and skipping the read-back.
 - Piloting on test data while the real data has different shapes.
-- Fixing a fault and not rerunning the pilot.
+- Fixing a fault and not rechecking the pilot items it touched.
+- Rerunning an accepted pilot, or reusing one whose revision no longer matches.
 - Setting off the remainder in a way that cannot be stopped.
 - Treating the pilot as approval for the batch without a separate go.
 

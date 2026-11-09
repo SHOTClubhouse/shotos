@@ -15,6 +15,10 @@ Read the diligence request, approved source locations, intended recipients and d
 
 Use `public-exposure-check` before external access. Maintain one index with access and missing items.
 
+## Start here
+
+**Minimum to start:** the purpose (round, sale, audit), the reader, the source folder and the owner's list of who may see what. **First output:** the index, then the gaps, access and exposure findings, in the order of the template. **Uncertain:** files you could not read, or settings you could not see, are listed as unchecked, not as clear. **Handoff:** give the owner a short list of changes only they can authorise, each with the evidence, the suggested change and the risk of leaving it.
+
 ## When not to use this
 
 Skip it for a single document request. Do not use it to decide what the company should disclose; that is for the owner and legal adviser. Do not move, copy, delete or re-share files without the owner's yes.

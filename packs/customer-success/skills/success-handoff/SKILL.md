@@ -13,9 +13,19 @@ Stage: Own. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 Start from the account name or proposal reference. Find the permitted account record and follow its existing source links for commitments, last interaction and access restrictions. If more than one account or proposal matches and the choice changes the handoff, ask which one. An existing account record is enough to start. Use the available evidence to prepare a brief and record any missing information or access.
 
-Use the existing **Delivery handoff** section as the shared record. Verify the accepted revision or controlling agreement and each commitment against the cited evidence. When only a draft is available, carry its revision and proposed scope, record acceptance as pending and keep the account with its current owner. Resolve discrepancies using the latest authoritative agreement or observed account activity. Open mail or notes only to resolve a specific gap. Carry unresolved conflicts, access gaps and missing approvals into the brief with the person who can resolve them, or record that this person still needs to be named.
+If the record already holds a brief or acceptance record for this account, continue that revision. Report its transfer status and the evidence still due, and do not offer or accept it again. If the record has neither a proposal nor a controlling agreement, route to `contextual-proposal` (or `bid-response` for a tender). An awarded tender or a live account with a controlling agreement continues here. If terms changed after acceptance, route the buyer reply to `email-reply` and carry the new revision as proposed until it is approved. Use the existing **Delivery handoff** section as the shared record. Verify the accepted revision or controlling agreement and each commitment against the cited evidence. When only a draft is available, carry its revision and proposed scope, record acceptance as pending and keep the account with its current owner. Resolve discrepancies using the latest authoritative agreement or observed account activity. Open mail or notes only to resolve a specific gap. Carry unresolved conflicts, access gaps and missing approvals into the brief with the person who can resolve them, or record that this person still needs to be named.
 
 Use `enablement-plan` if the receiving team must prove an independent cycle. Keep acknowledgement and first action with the account.
+
+## If used on its own
+
+Without a CRM, account record or companion skills, work from the notes, mail or agreement the person gives you.
+
+- Mark each fact with the piece it came from, and list what you could not open as "source not available".
+- With no controlling agreement or proposal, do not invent scope. Say the commitments are unknown and ask for the agreement, or point to `contextual-proposal` (or `bid-response` for a tender) first.
+- You cannot see whether a brief or acceptance already exists, so write "existing handoff not checked" in the brief. Transfer status stays **Prepared**, with the receiver unnamed or marked unconfirmed, unless the person pastes the dispatch receipt or the receiver's written acceptance.
+- Do not say the customer was told, access was granted or ownership changed. Those need evidence from the system of record.
+- If `enablement-plan` or `email-reply` is missing, record the follow-up as an open action with its owner.
 
 ## When not to use this
 

@@ -11,7 +11,7 @@ For output that varies, "it looked fine when I tried it" is not a test. An eval 
 
 ## Context and handoff
 
-Read the acceptance card and actual recurring failure patterns. Include a normal case, an incomplete case and a boundary case where relevant.
+Outcome: a change to the prompt or model can be judged on the same cases by someone who did not write it. Acceptance: the pass bar is written before the first run. Read the acceptance card and actual recurring failure patterns. Include a normal case, an incomplete case and a boundary case where relevant.
 
 Use `example-mapping` to resolve unclear rules. Store the cases and grading conditions beside the work they check.
 
@@ -35,11 +35,11 @@ Skip it when the output is deterministic and ordinary tests already cover it, or
    - Then a person reads a sample, at least the failures and every case that passed only barely.
    - Record for each run: date, model and prompt version, cases passed, cases failed, and who read the sample.
    - Pass bar: state it before the run (for example "every must-not case passes and at least 80% of the rest").
-8. **Keep it alive.** Add every real failure found later as a new case. Remove cases that no longer describe the work, and say why.
+8. **Keep it alive.** Add every real failure found later as a new case; that is the correction loop. Read each run's failures back against the case, not just the count. Remove cases that no longer describe the work, and say why.
 
 ## Output
 
-Use [template.md](template.md). Save it with the work, for example `evals/<task>.json` or `evals/<task>.md`.
+Use [template.md](template.md). Save it with the work, for example `evals/<task>.json` or `evals/<task>.md`. The receipt for a run is one line per run (date, model, prompt version, passed, failed, who read the sample); say plainly if no run has happened yet.
 
 ## Checks
 

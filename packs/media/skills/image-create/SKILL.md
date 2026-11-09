@@ -21,9 +21,9 @@ Do not use it for photographs presented as real events, for images of real peopl
 
 ## Steps
 
-1. **Check the tools first.** If `.work/capabilities.md` exists, read it. For a text-led or vector graphic, use the project's layout tool. If a generated image is needed and no image model is available, say so, do the steps that need no tool, and say how to connect it (see the connect-your-tools guide at `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` where SHOTos is installed).
-2. **Write the brief.** Capture the job (where it will appear and what it must help the reader do), the size and ratio, the style, any text that must appear, and the owner who accepts it.
-3. **Agree references.** List any reference images the owner supplied and the rights to use them. Describe style in words rather than naming a living artist or a copyrighted character.
+1. **Check the tools first.** If `.work/capabilities.md` exists, read it. For a text-led or vector graphic, use the project's layout tool. If a generated image is needed and no image model is available, say so, do the steps that need no tool, and say how to connect it (see the connect-your-tools guide at `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` where SHOTos is installed). With no image tool, still deliver the written brief, the rights note and a layout or art-direction spec a designer can follow, and mark the image as not made.
+2. **Write the brief.** Capture the job (where it will appear and what it must help the reader do), each channel it will appear on with its size, ratio and safe area (check the platform's current specification; do not rely on remembered sizes), the style, any text that must appear, and the owner who accepts it.
+3. **Agree references and source assets.** For every supplied photo, logo, screenshot or reference, record its file name, who made it, the licence or permission to use it and, for any person shown, the consent that covers this use. Mark anything without that record "not cleared" and do not build on it. Describe style in words rather than naming a living artist or a copyrighted character.
 4. **Run the rights and likeness check before generating.** No real, identifiable person without their written consent. No borrowed character, logo or trademark without rights. No children's likeness drawn from a real child. If the brief needs any of these, stop and ask the owner.
 5. **Build the first design.** For an editable graphic, use the approved layout and copy. If generating an image, ask the chosen model for two to four options and keep the prompt, model and settings with the work.
 6. **Look at the actual image.** Open each output and check it against the brief: subject, composition, text spelling, hands and faces, extra limbs or objects, stray logos or watermarks, and the crop at every size it will be used. Describe what you see, not what you asked for.
@@ -43,4 +43,6 @@ A folder with the chosen image, the prompt and model log, the alt text, the righ
 - Any text in the image is spelled correctly.
 - The text alternative fits the role of the image, including an empty alt attribute for a decorative web image.
 - The AI label decision is recorded.
+- Every supplied source asset has a recorded origin and permission, or is marked not cleared and unused.
+- Each destination channel has its own checked size or crop.
 - Nothing was published without the owner's yes.

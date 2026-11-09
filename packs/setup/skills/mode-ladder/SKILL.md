@@ -9,7 +9,11 @@ Stage: Scope. Rule 1 (stop at the boundaries). Controls 3 (mode contract) and 11
 
 ## Context and handoff
 
-Start with the output, its reader, the acceptance check and the authority already given. Look for a recorded route that worked on comparable tasks. Use `graduation-ladder` for a change in autonomy, and `connector-check` when a required capability is unproven. Keep the route and any change in the task record.
+Start with the output, its reader, the acceptance check and the authority already given. Look for a recorded route that worked on comparable tasks. Use `graduation-ladder` for a change in autonomy, and `connect-tools` when a required capability is unproven. Keep the route and any change in the task record.
+
+## Trigger and minimum inputs
+
+Run it at the start of a task, when a check fails, or when risk or scope changes. It needs a one-line task, the reader or user, the cost of an error and the acceptance check. If the acceptance check is missing, say the level is provisional and ask the owner for it. Without model or tool inventory, name the level and leave the model choice to the owner.
 
 ## When not to use this
 
@@ -35,6 +39,10 @@ Use a deterministic script for repeated exact work when it can meet the checks. 
 3. Continue inside existing authority. Ask for a decision if the new route increases spend beyond the approved limit, needs new access or expands the work. Sending, spending, deleting, deploying and publishing follow the same approval boundaries at every level.
 
 For a recurring workflow, record the default, who can change it and the evidence required to step down. Compare equivalent accepted work before changing the default.
+
+## Blockers and handoff
+
+Stop and ask the owner when the route needs more spend, new access or wider scope than approved. Hand a Team of agents route to the owner with the pilot plan. Hand a failed check back to the skill that owns the work, with the new level and reason.
 
 ## Output and checks
 

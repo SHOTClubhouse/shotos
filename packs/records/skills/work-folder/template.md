@@ -18,6 +18,9 @@ Owner: <name>
 Opened: <date>
 
 - <date> <decision, question or state, in one line>
+
+Next action: <one step> Owner: <name>
+Handoff: <where the outputs and logs are, what is done, what is in flight>
 ```
 
 ## Close-out list

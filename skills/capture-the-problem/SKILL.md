@@ -7,6 +7,8 @@ description: "Turns rough notes, a complaint, an idea or a request into a proble
 
 Before building anything, write down what is actually wrong. Most wasted work starts with a solution nobody checked against a problem.
 
+Stage: Scope. Rules: 4 Claim only what you can show, 1 Stop at the boundaries.
+
 ## Context and handoff
 
 Read the requester’s description and a concrete occurrence. Separate who experiences it, its effect and the solution they initially asked for.

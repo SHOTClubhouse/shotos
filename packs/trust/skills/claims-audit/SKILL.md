@@ -43,4 +43,5 @@ Use [template.md](template.md): a numbered claims table and a blockers list.
 - Every factual claim in the document is in the table.
 - Every status is one of the four words, and every supported claim has a dated source.
 - Every number about users, customers or revenue has a date and a definition, or is not marked supported. Supported claims with missing use permission stay blocked for the intended audience.
+- Claims are numbered and quote the exact wording, so the owner can answer against each one.
 - The document was not changed before the owner's yes (a request to fix it counts as that yes).

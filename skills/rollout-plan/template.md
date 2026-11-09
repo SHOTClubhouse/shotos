@@ -43,6 +43,10 @@ Slot, attendees, what is shared, who owns the shared copy, how changes reach sha
 ## Checkpoints and stop
 After each team: evidence pack, then continue, adapt or pause. What would pause the whole rollout:
 
+## Pause and return
+| Team | Stop trigger | Who decides | Way back to previous process | What the team keeps |
+|---|---|---|---|---|
+
 ## Approval and start
 | Decision | Owner | Status and conditions | Receipt |
 | --- | --- | --- | --- |

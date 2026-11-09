@@ -31,7 +31,7 @@ Use the [template](template.md) to review eligible drafts and the reasons any ca
 ## How it connects
 
 - **Before:** [relationship-map](../relationship-map/README.md) shows warm routes that beat cold messages.
-- **After a reply:** [email-reply](../email-reply/README.md) drafts the answer; [nudge-qualify](../nudge-qualify/README.md) qualifies the conversation; [leap-pipeline](../leap-pipeline/README.md) tracks it from Lead.
+- **After a reply:** [email-reply](../email-reply/README.md) drafts the answer; [nudge-qualify](../nudge-qualify/README.md) qualifies the conversation; [leap-pipeline](../leap-pipeline/README.md) tracks it from Lead. [contextual-proposal](../contextual-proposal/README.md) follows only when a reply shows a priced proposal is warranted.
 - **Rule:** [rules/09-pilot-before-scale.md](../../../../rules/09-pilot-before-scale.md).
 
 ## Needs

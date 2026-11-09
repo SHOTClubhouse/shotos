@@ -2,7 +2,7 @@
 
 [See what the six stages give you](../framework.md#try-one-job-across-the-six-stages), then choose one job to try.
 
-Start with one skill and a fictional example. You can download, unpack and add the files with a browser and file manager on Windows or Mac.
+Start with one skill and a fictional example. In this route the files give the assistant a method, templates and examples. Mail, calendars, Drive and similar connectors are separate settings in your workspace, and this guide does not turn them on. You can download, unpack and add the files with a browser and file manager on Windows or Mac.
 
 The walkthrough below uses Decision Brief. To try a different job, pick its ZIP from the [first-job guide](../running-it.md#choose-your-first-job) and substitute its skill name in the setup steps. For a file-based chat, use its `SKILL.md`, relevant template and example input. Then use the [sample prompt and review checks](../running-it.md#run-the-sample-from-your-zip).
 
@@ -45,6 +45,14 @@ A ChatGPT Project uses the files as context. Some eligible ChatGPT workspace age
 ## Try a newer release
 
 Download the skill again from the [release you want](https://github.com/SHOTClubhouse/shotos/releases). Open a fresh chat with the new files, or test the new native skill separately from the old one where your workspace allows it. Run the same fictional exercise first. When updating a shared project, review which files and instructions belong to the old skill and keep one active revision. Keep your own decisions, notes and working agreement with the project.
+
+## Check access before you rely on it
+
+This changes nothing. In a fresh chat, ask:
+
+> List the files you can open in this chat or project. Quote the first heading of SKILL.md. Do not create, send or edit anything.
+
+If it names the files and quotes the heading, the skill is visible here. If not, add the files again. Do the same in each new chat or project, because one chat does not prove another. To see which connectors you have, read your workspace settings rather than asking the assistant to try them. For a full list of what is and is not reachable, use the [connect-tools](../../packs/setup/skills/connect-tools/README.md) skill from a local agent.
 
 ## Check your first result
 

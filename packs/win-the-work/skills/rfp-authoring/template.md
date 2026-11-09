@@ -6,6 +6,7 @@
 - Deliverables and acceptance checks
 - Budget authority, buyer owner and authorised issue channel
 - Response deadline, timezone and clarification process
+- Contract basis, data and security terms, and offer validity period
 - Buyer dependencies, supplier obligations and exclusions
 - Governing revision and amendment record
 

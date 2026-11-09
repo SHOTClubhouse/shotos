@@ -6,16 +6,18 @@
 **Why a review is needed (risk and tags):**
 
 ## Who did what
-| Role | Model or runtime | Access |
+| Role | Person, model or runtime actually used | Access |
 |---|---|---|
 | Lead | | |
-| Reviewer | | read-only |
+| Reviewer (the checker that actually ran) | | read-only |
 
-If the reviewer is the same model in a fresh session, say so: this is a weaker check.
+Independence level (different person / different model or runtime / same model, fresh session). The last is a weaker check; say so:
 
 ## Packet given to both
 - Acceptance card:
-- Exact artefact revision and approved evidence references:
+- Exact output revision reviewed (commit, version or saved date):
+- Context given (only what the reviewer is authorised to see), and what was withheld:
+- Approved evidence references:
 - Checks needing additional evidence and the authorised reviewer:
 - Boundaries (no sending, spending, deleting, deploying or publishing):
 

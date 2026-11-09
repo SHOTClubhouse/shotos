@@ -21,11 +21,11 @@ Use `public-exposure-check` for sensitive surfaces. Store the manifest and obser
 
 ## Part 1: Prepare and freeze (review session)
 
-1. **Gather the items.** For each post: an ID, the account and platform, the exact publish time with time zone, the final caption text, the asset file name, the alt text, link and any tags or locations.
+1. **Gather the items.** For each post: an ID, the account and platform, the exact publish time with time zone, the final caption text, the asset file name, the alt text, link and any tags or locations. Check each asset's size, ratio and length against the platform's current specification for that format, and record who may authorise publishing on that account.
 2. **Check consent and claims.** Any post showing or naming a child needs recorded parental or guardian consent covering this use; remove the item if not confirmed. Check the caption against the facts list from `caption-options`; the claims must still be true on the publish day.
 3. **Compute checksums.** For every asset, compute a SHA-256 checksum from the exact file to be uploaded (for example `sha256sum file` or `Get-FileHash file -Algorithm SHA256`). Record it beside the file name. For the caption text, record a checksum too, so a changed comma is detectable.
 4. **Write the manifest** with [template.md](template.md): one row per item with every field above, an approval column, and a manifest checksum covering the whole table.
-5. **Ask a named person to approve.** Show them the exact posts as they will appear. They approve per item (yes, no, change), with name and date. Anything not approved is excluded. Mark the manifest frozen. Any later edit means a new manifest and a new approval.
+5. **Ask a named person to approve.** The approver must hold authority over the account and the content; if they do not, ask who does. Show them the exact posts as they will appear. They approve per item (yes, no, change), with name and date. Anything not approved is excluded. Mark the manifest frozen. Any later edit means a new manifest and a new approval.
 
 ## Part 2: Execute (fresh step)
 
@@ -45,4 +45,6 @@ A frozen manifest from [template.md](template.md) and a receipt with one line pe
 - Checksums were verified before publishing.
 - Every post was read back live and the result recorded.
 - Items with children have recorded consent.
+- Approval came from a person with authority over the account.
+- Each asset was checked against its platform's format.
 - The agent published nothing outside the manifest.

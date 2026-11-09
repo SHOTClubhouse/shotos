@@ -29,8 +29,14 @@ From your own project folder, with SHOTos cloned next to it:
 
 ```
 python ../shotos/install.py --runtime claude --scope project --pack setup --dry-run
+git -C ../shotos rev-parse HEAD
 python ../shotos/install.py --runtime claude --scope project --pack setup
+python ../shotos/install.py --runtime claude --scope project --status
 ```
+
+Write down the commit that `rev-parse` prints, or the release tag you meant to install, before you install. `--status` reads back the recorded runtime, scope and packs, and lists any installer-owned file that is missing or changed. It does not print the source revision, so the commit you noted is your record of which version you installed. A clean `--status` shows that the files match what the installer wrote, not that the skills work.
+
+Handing the set-up to another runtime (for example from Claude to Codex)? Run the install again with `--runtime codex` or `--runtime agents` from the same checkout and commit, then run `--status` for that runtime. Each runtime keeps its own record, so check each one separately.
 
 Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack` to add several packs at once. To add a pack, use the same runtime and scope and name the extra pack. Existing files are kept.
 

@@ -100,8 +100,8 @@
       "id": "proposal-factory-01",
       "skill": "proposal-factory",
       "type": "normal",
-      "prompt": "Our one-off-or-factory decision record says factory. We have an accepted master sponsorship proposal written for Anand Motors. Readers: Brightwell Bakery (website says it supports local causes), Cole and Sons Plumbing (sponsored us in 2021 per club records), Lowfield Dental (we know nothing but its name), Quay Cafe, Hill Pharmacy and Orchard Vets (no notes). Set up the variables, the reader sheet and the pilot of three. Explain how you will check each item.",
-      "must_contain": ["variable", "pilot", "three|3", "claim", "rendered|render", "placeholder|leftover", "unknown|blank", "report", "not sent|never send|nothing is sent|nothing has been sent"],
+      "prompt": "Our one-off-or-factory decision record says factory. We have an accepted master sponsorship proposal written for Anand Motors. Readers: Brightwell Bakery (website says it supports local causes), Cole and Sons Plumbing (sponsored us in 2021 per club records), Lowfield Dental (we know nothing but its name), Quay Cafe, Hill Pharmacy and Orchard Vets (no notes). The record's pilot of three (Brightwell Bakery, Cole and Sons Plumbing, Lowfield Dental) was accepted by the owner against master M1, which is unchanged. Set up the variables and the reader sheet, and handle the pilot of three. Explain how you will check each item.",
+      "must_contain": ["variable", "pilot", "three|3", "reuse|reused|keep|accepted", "claim", "rendered|render", "placeholder|leftover", "unknown|blank", "report", "not sent|never send|nothing is sent|nothing has been sent"],
       "must_not_contain": ["i have sent", "all six are ready to send"]
     },
     {

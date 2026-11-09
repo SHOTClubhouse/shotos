@@ -2,6 +2,13 @@
 
 **Decision maker:** Dan Whitlock. **Needed by:** 30 November. **If late:** the landlord may let the unit to another party (landlord's statement, unverified).
 
+## Recommendation (the agent's view, not a decision)
+Option C, with B as the fallback if the landlord refuses. It is the only option that tests the main unproven assumption before the large commitment. Confidence: medium, resting on the missing demand data and a single fit-out quote.
+
+**What would change this:**
+- A pop-up or footfall count showing demand at or above the first shop would move the recommendation to A. Dan would see it first.
+- A landlord refusal with a firm deadline would leave A or B as the only choices.
+
 ## Facts (with sources)
 | Fact | Source | Date | Single source? |
 |---|---|---|---|
@@ -36,12 +43,8 @@
 - Risks and costs: the landlord may refuse; the pop-up has its own cost.
 - You would have to believe: the landlord values a committed tenant over speed.
 
-## Recommendation (the agent's view, not a decision)
-Option C, with B as the fallback if the landlord refuses. It is the only option that tests the main unproven assumption before the large commitment. Confidence: medium, resting on the missing demand data and a single fit-out quote.
-
-## What would change this
-- A pop-up or footfall count showing demand at or above the first shop would move the recommendation to A. Dan would see it first.
-- A landlord refusal with a firm deadline would leave A or B as the only choices.
-
 ## Who is affected and who to consult
 - The shop manager (staffing), the accountant (cash and lease terms) and a solicitor for the lease and break clause.
+
+## Decision requested
+Dan to choose A, B or C by 30 November and tell the landlord. Record the decision in the Northgate Cycles decision log.

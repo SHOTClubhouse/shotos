@@ -23,7 +23,7 @@ Use `claims-audit` for a disputed claim. Keep selected copy and asset reference 
 
 1. **Collect the inputs.** The photo or brief, the account and platforms, the voice (brand guide or a sample of past posts), the goal (inform, thank, invite), and the call to action if any, with its link.
 2. **List the facts.** Write the facts you may use, each tagged with its source: given by the owner, visible in the photo, or from a link the owner supplied. Mark anything you would like to say but cannot source as "need" and ask for it. Do not guess species, scores, prices, dates, names, places or numbers.
-3. **Check people and consent.** If the image shows or names anyone, ask whether they agreed to appear. For a child, require recorded parental or guardian consent that covers this platform and use. If it is missing, offer captions that do not identify anyone and recommend a different image.
+3. **Check the asset and people.** Ask who made the photo or graphic and whether the owner may post it, and note any credit it needs; if that is unknown, mark it "not cleared" and say so. If the image shows or names anyone, ask whether they agreed to appear. For a child, require recorded parental or guardian consent that covers this platform and use. If it is missing, offer captions that do not identify anyone and recommend a different image.
 4. **Write five options, A to E.** Make them different in approach, not just wording:
    - A: plain and informative.
    - B: a short story or moment.
@@ -44,5 +44,6 @@ A filled [template.md](template.md): the facts list, options A to E, platform va
 - Every claim in every option appears in the facts list with a source.
 - The five options differ in approach.
 - Alt text describes the image.
+- The asset's maker and permission to post are recorded, or it is marked not cleared.
 - No child is named or identifiable without recorded consent.
 - Nothing was posted and no caption is marked approved.

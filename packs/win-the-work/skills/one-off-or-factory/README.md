@@ -26,7 +26,7 @@ Do not use it for a single item, or to justify a tool someone already wants. Run
 
 > I need 25 tailored welcome letters to new landlords. Should I write them directly or build a factory? Plan the pilot and give me the decision record.
 
-You get the record from [template.md](template.md) with the pilot plan. After the pilot, bring the results and the agent completes the comparison.
+You get the record from [template.md](template.md) with the pilot plan. After the pilot, bring the results and the agent completes the comparison. For each pilot item the record notes the output and revision you accepted. A factory decision hands those three accepted items to the next skill, which reuses them instead of running a second pilot. A direct decision is a stop: nothing reruns until you reopen it with new evidence.
 
 ## How it connects
 
@@ -43,6 +43,7 @@ Nothing beyond the agent.
 - Pick the hardest item for the pilot, not the easiest.
 - Count your own checking time. It is the cost that hides.
 - Record edits, not just a yes or no.
+- Write down which revision of each item you accepted, so the next step can tell what has changed.
 
 ## Limits
 

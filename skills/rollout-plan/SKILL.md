@@ -17,7 +17,7 @@ Use `enablement-plan` when independence is missing. Keep the wave decision and l
 
 ## When not to use this
 
-When approval or independent ownership is missing, identify the blocker and route back to the sponsor or `enablement-plan`. With both recorded, draft the sequence and staffing for review. Announcement needs separate authority.
+For a single founder-led team with no second team to receive it, use `runbook` and sustain the current workflow. When approval or independent ownership is missing, identify the blocker and route back to the sponsor or `enablement-plan`. With both recorded, draft the sequence and staffing for review. Announcement needs separate authority.
 
 ## Steps
 
@@ -29,7 +29,7 @@ When approval or independent ownership is missing, identify the blocker and rout
 6. **Run a preflight.** For each team, check access, data quality, owners, the boundary list and the stop conditions before any agent task runs. List what blocks starting.
 7. **Set the governance.** Who decides at each stage, what each team may change locally and what only the sponsor may change, how a team asks to deviate, and how stops are recorded. Keep the boundary list intact.
 8. **Set the improvement cadence.** A regular slot (for example every four weeks) where the teams share evidence, bring lessons to the `learning-loop` and update shared skills through the gate. Say who owns the shared copy.
-9. **Define the checkpoints and the stop.** After each team: an evidence pack, a decision to continue, adapt or pause. Say what would pause the whole rollout, such as a material failure or a team that cannot meet its baseline.
+9. **Define the checkpoints, the stop and the rollback.** After each team: an evidence pack, a decision to continue, adapt or pause. Say what would pause the whole rollout, such as a material failure or a team that cannot meet its baseline. For each team, say how it returns to its previous way of working, who decides, and what it keeps (data, records) when it does. A team that stops early is a recorded result, not a failure to hide.
 10. **Present as a draft.** Carry forward the sponsor's existing approvals. Request decisions on any changes or unresolved parts of the sequence and support. The agent does not announce, schedule meetings or contact teams.
 
 ## Output
@@ -42,5 +42,6 @@ Use [template.md](template.md). Save as `.work/<task>/rollout-plan.md`.
 - Earlier holds, the current sponsor decision and each site's start status agree with the latest applicable receipts.
 - It separates method, settings and assumptions, and each new team has a re-baseline step.
 - Three or fewer units go first, with a checkpoint before more.
+- Each team has a stop trigger and a way back to its previous way of working.
 - People who move with the method and their time and end date are named.
 - No announcement, invitation or message has been sent.

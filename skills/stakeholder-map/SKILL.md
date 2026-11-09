@@ -13,7 +13,7 @@ Write down who is involved, what each one wants, and how you know. A map that mi
 
 Read the project mandate and existing contacts. Verify who decides, who does the work and whose consent or input is required.
 
-Use `decision-brief` when conflicting needs require a decision. Save the map with the owning programme.
+Use `decision-brief` (from the exec-ops pack) when conflicting needs require a decision; if it is not installed, state the conflict, options and decision owner in the map. Save the map with the owning programme.
 
 ## When not to use this
 

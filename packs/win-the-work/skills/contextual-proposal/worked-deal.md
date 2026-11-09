@@ -19,6 +19,34 @@ This record stays with the account. Sales adds the proposal and approval evidenc
 | E5 | 6 November handoff offer and dispatch receipt. Jordan authorised and shared brief H1 with Robin Hale, the proposed customer success lead, via the account record. Robin was given access to P2 and E1–E4. |
 | E6 | 6 November receiving lead reply. Robin accepted H1, confirmed the scope, capacity and access, and agreed to contact Morgan on 9 November to confirm the register lead and book setup. |
 
+## Where the files live
+
+All three sit with NQC-014 in the account record, so the next person finds them from the account name alone.
+
+| File | Holds | Who can edit |
+| --- | --- | --- |
+| P2, editable proposal document | The buyer copy below, with its revision label. | Jordan, as proposal owner. |
+| W2, private working sheet | The ledger, asset register and status below. Never shared with the buyer. | Jordan and the supplier reviewer. |
+| H1, handoff brief and acceptance record | The customer success handoff below. | Jordan until offered, then the receiving lead for the acceptance fields. |
+
+A change to P2 after E4 gets a new revision (P3) and a new approval. It does not overwrite P2. Reply to the buyer about the change with `email-reply`, and keep the accepted P2 as the controlling revision until the buyer accepts P3.
+
+## Working sheet W2 for proposal P2
+
+Private to the supplier. The buyer copy uses only the approved rows.
+
+| # | Claim, need or commitment | Source and approval | Status | Action or owner |
+| --- | --- | --- | --- | --- |
+| 1 | 2 of the last 4 registers were complete by Monday. | E1, stated by Morgan Ellis. Not observed in the register. | Buyer need, reported by the club | Say "according to the programme lead's discovery note". Do not present it as measured. |
+| 2 | Four Saturday sessions from 14 November, one staff setup session, review on 9 December, £480, club owns the register and access. | E2, approved by Jordan Vale. | Approved offer | Retain. |
+| 3 | The pilot will raise the number of registers complete by Monday. | No source and no approval. | Decision needed | Omit. P2 compares results with the baseline at the review and promises no improvement. |
+| 4 | Supplier statements on data protection, safeguarding or storage of the register. | None. The record does not say who the register lists. | Decision needed | Omit. Ask Jordan to approve wording before any such sentence appears. P2 says only that the club owns the register and controls access. |
+| 5 | Extra reporting, further sessions or support beyond setup. | None. | Not offered | Omit. |
+
+**Asset register.** P2 uses no logo, photograph, quote or chart. Nothing is shown with unknown rights.
+
+**Status.** Draft review and approval of P2: E2. Dispatch: E3. Buyer response: E4. Nothing in W2 is a commitment the buyer has seen.
+
 ## What the buyer sees in proposal P2
 
 **Club priority.** Make the Saturday attendance register easier for the club to complete. Two of the last four registers were complete by Monday, according to the programme lead's discovery note.
@@ -53,3 +81,11 @@ This record stays with the account. Sales adds the proposal and approval evidenc
 **Next actions.** On 9 November, Robin contacts Morgan to confirm the register lead and book setup. Robin then records the setup date before the first session and schedules the 9 December review. Confirm the register lead before setup.
 
 **Completion evidence still due.** Record the customer notification, the ownership update in the system of record and completion of the first action before moving the transfer to Completed.
+
+## What each normal entry point returns on this record
+
+| Prompt | Right result from NQC-014 |
+| --- | --- |
+| "Draft a proposal for North Quay Community Club for our attendance service." | Before P2 is drafted: a buyer draft from E1, W2 with rows 3 to 5 held back, and no sender named beyond Jordan's approval. Once P2 is accepted (E4): do not redraft. Report P2 as the accepted revision and route any change to a new revision. |
+| "Prepare the North Quay handoff." | Before E5: H1 as Prepared, with proposed receiver Robin Hale, the account with Jordan, and the commitments from E2 and E4. After E6: report H1 as Accepted, not Completed, and list the three completion receipts still due. Do not offer or accept it again. |
+| "What is the status of North Quay?" | Read the Delivery handoff table, quote the transfer status from the acceptance fields and name Robin's 9 November action as the next step. |

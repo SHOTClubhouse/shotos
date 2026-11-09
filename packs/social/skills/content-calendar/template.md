@@ -7,9 +7,9 @@
 **Posts planned:** __   **Actual mix:** education __ / community __ / promotion __
 
 ## Slots
-| # | Day and time | Platform | Pillar | Topic (one line) | Source | Owner | Asset | Caption status | Approval status |
-|---|---|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | | none / draft / approved | pending / approved by (name, date) |
+| # | Day and time | Platform | Format | Pillar | Topic (one line) | Source | Owner | Asset | Caption status | Approval status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | | | | | | | | | none / draft / approved | pending / approved by (name, date) |
 
 ## Asset checks
 | Asset | Shows or names | Consent recorded (where, what it covers) | Licence or owner | Usable |

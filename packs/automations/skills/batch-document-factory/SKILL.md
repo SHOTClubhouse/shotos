@@ -11,7 +11,7 @@ Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real res
 
 Read the approved master, row schema and recipient permissions. Pick a normal row, a boundary row and a missing-field row before producing the batch.
 
-Use `one-off-or-factory` if variation changes the structure. Record every generated or skipped row by source ID.
+Use `one-off-or-factory` if variation changes the structure. If it has already recorded a factory decision with a pilot of three, take those rows and their accepted documents as the sample (step 7) rather than a new one. If it recorded a direct-authoring decision, stop; do not rerun until a factory wins. Record every generated or skipped row by source ID. Test on a fixture sheet with invented people before pointing the script at real rows; keep the real sheet, folder and template IDs in the owner's Script Properties or sheet, never in the repo or chat; the template and final handover may name the owner's own sheet, folder and links.
 
 ## When not to use this
 
@@ -28,12 +28,13 @@ Use `one-off-or-factory` if variation changes the structure. Record every genera
 4. **Choose the output folder.** A copy inherits the folder's sharing. Recommend a private folder, and say so. `OUTPUT_FOLDER_ID` is required: a live run will not start without it.
 5. **Person installs.** The agent cannot paste the script or approve permissions. Give the steps from the script README. Confirm `setupFactory` ran and the tabs exist.
 6. **Dry run.** Run `dryRun`. Read the Report tab: template placeholders found, columns matched, rows blocked and why. Fix blocked rows and mismatches. Nothing is created.
-7. **Sample of three.** Run `runSample`. Open each of the three documents in Drive.
+7. **Sample of three.** Check for reuse before `runSample`. If a one-off-or-factory pilot already has accepted documents, match each to its row, template and data revision and agreed acceptance. Keep one only if all still match and its row is already DONE in the sheet with the correct link to that document. If a matching approved document has no DONE row or the link is wrong or missing, stop and reconcile with the owner before any run; do not run `runSample` or `runBatch`, so no duplicate is made. Run `runSample` only for a row whose template, relevant data or acceptance changed, or that has no accepted document, and only after the reuse check shows no existing document for it. Repeat all three only if the change touches all of them or invalidates the owner's acceptance. Stop if acceptance or the owner's signoff for a pilot document is missing. Then open each of the three documents in Drive.
 8. **Read back the real result.** Check: every placeholder replaced with the right value for that row; layout and formatting intact; the name is right; no leftover braces; the row shows DONE with a link; the Report has one line per document. Compare against the source data, not just against the script's own check.
 9. **Owner accepts the sample.** Show the three documents. If any is wrong, fix the template or data, clear `done` on those rows, and repeat the sample. Do not go on.
 10. **Full batch.** Run `runBatch`. Expect it to stop and schedule a continuation if the batch is large. Check afterwards that the continuation trigger is gone (`removeContinuation` if not).
 11. **Reconcile.** Count: rows, DONE, blocked, error. Run `auditDocuments`. Use `retryFailed` for errors, after reading why.
-12. **Record and hand over.** Fill the template with counts and links. Tell the owner the documents exist and nothing has been sent; sending is theirs.
+12. **Recover safely.** Never rerun by clearing `done` on a verified row. DONE rows are skipped on a rerun. For a `receipt-error`, open the logged document and compare it with the row before anything else; see the README. For `error` rows, read the reason, fix the cause, then `retryFailed`; a row at `MAX_ATTEMPTS` waits for it. Stop if the Report and the folder disagree and ask the owner.
+13. **Record and hand over.** Fill the template with counts and links, the sheet and output folder location, any open receipt-error or error rows with their next owner, and how to resume. Tell the owner the documents exist and nothing has been sent; sending is theirs. List any superseded outputs from `previous_doc_ids` (earlier documents for a redone row) by row ID and link, marked clearly as not for use or sending; the current document is the one linked on the row. Keep those records: do not delete or bin them, and do not move them without the owner's authority; any tidy-up is the owner's decision.
 
 ## Output
 
@@ -41,8 +42,10 @@ A filled [template.md](template.md): acceptance, template and data checks, dry-r
 
 ## Checks
 
-- The dry run and the sample come before the full batch, always.
+- The dry run and an owner-accepted sample of three come before the full batch, always; an accepted pilot is reused, not repeated, and only when its row is already DONE with the correct link; otherwise reconcile before any run.
 - Blocked rows are reported with their reason, not worked around.
 - The agent never sends, shares, moves to the bin or deletes a generated document.
 - Final counts add up: rows = done + blocked + error + not yet processed.
 - The report says what was checked in the real documents and what was not.
+- A rerun creates no second document for a DONE row, and any open error has an owner and a next step.
+- Superseded documents in `previous_doc_ids` are listed in the handover as not for use or sending, and are preserved, not binned, without the owner's authority.

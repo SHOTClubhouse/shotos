@@ -18,18 +18,20 @@
 | Total for the planned count | | |
 
 ## Pilot of three
-| Item | Route | Time | Edits before acceptance | Accepted by owner? |
-|---|---|---|---|---|
-| 1 | direct | | | |
-| 1 | factory | | | |
-| 2 | direct | | | |
-| 2 | factory | | | |
-| 3 | direct | | | |
-| 3 | factory | | | |
+| Item | Route | Time | Edits before acceptance | Accepted by owner? | Accepted output and revision |
+|---|---|---|---|---|---|
+| 1 | direct | | | | |
+| 1 | factory | | | | |
+| 2 | direct | | | | |
+| 2 | factory | | | | |
+| 3 | direct | | | | |
+| 3 | factory | | | | |
 
 ## Decision
 **Author directly or build the factory:** 
 **Because:** 
+**If direct:** stop here; no rerun until the owner reopens the decision with new evidence.
+**If factory:** the next skill reuses these three items and their accepted outputs; it does not run a second pilot.
 
 ## What would change this
 - 

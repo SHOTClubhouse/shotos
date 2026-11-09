@@ -15,6 +15,8 @@ Read the reader’s task, decision and terms they already use. Preserve legally 
 
 Use `claims-audit` if a proposed edit changes meaning. Record the edited text in the original document.
 
+Cite the approved source brief or draft revision so fixes can be compared with it. If `.work/capabilities.md` exists, read the section for this runtime. If a file or diff tool is missing, say so first, report the edit in chat beside the original text and mark the check pending.
+
 ## When not to use this
 
 Do not use it on legal wording, quoted text, regulated notices or anything that must stay word for word. Flag the problems and leave the text alone there. Do not use it to shorten a draft whose length the owner has fixed.
@@ -44,3 +46,4 @@ The fixed text, then a short change report: reader and spelling used, target len
 - Any requested change to terms is a separate marked edit, with the original terms shown, awaiting the owner's confirmation.
 - The spelling matches the owner's choice throughout.
 - The original text is still available.
+- Reviewer check: pick one sentence containing a number or date and confirm it matches the original word for word.

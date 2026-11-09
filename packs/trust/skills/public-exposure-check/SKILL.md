@@ -21,7 +21,7 @@ Skip things that will stay private. This is not a penetration test and not a rev
 
 ## Steps
 
-1. **Fix the target and the audience.** Name what will be shared (repository, folder, site, document), who will see it, and who owns it. Ask if either is unclear.
+1. **Fix the target and the audience.** Name what will be shared (repository, folder, site, document), who will see it, and who owns it. Record the exact revision checked (commit hash, document revision or folder snapshot date) so the go or hold applies to that revision only. Ask if either is unclear.
 2. **Search for secrets.** Look for API keys, tokens, passwords, private keys, connection strings, `.env` files and credentials in config, scripts, notebooks and examples. For a repository, search the history as well as the current files. Record each as a finding with file and line (or commit), but never copy the secret value into your report; show the first four characters at most.
 3. **Search for personal data.** Look for names with emails, phone numbers, addresses, dates of birth, account numbers, health or children's details, photos of people, and exported spreadsheets. Note the file, the type of data and a rough size. Do not reproduce it.
 4. **Search for internal detail.** Look for local file paths, internal server names, private URLs, customer or client names, staff names where not intended, internal notes, comments such as "do not share", and metadata such as author fields or tracked changes.
@@ -40,4 +40,6 @@ Use [template.md](template.md): a findings table, an urgent rotation list and a 
 - No secret value or personal record is reproduced in the report.
 - Every finding has a location and a suggested action.
 - Anything that may need rotating is stated first.
+- The report names the revision checked, and says the result must be repeated if the content changes before release.
+- Each finding has a stable number, so the owner can answer yes, no or accepted against it.
 - Nothing was changed, and a go or hold recommendation is given.

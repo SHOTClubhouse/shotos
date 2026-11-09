@@ -11,6 +11,10 @@ description: "Qualify and draft a response to an issued tender or RFP. Trace man
 
 Read the official tender, response instructions, clarifications, amendments, draft contract and approved supplier evidence. Use `research-and-assemble` for disputed claims and `contextual-proposal` if the buyer has invited a free-form proposal. Use `rfp-authoring` when the team is the buyer. Keep the tender reference and exact submitted revision with the deal so the eventual delivery team can trace what was offered.
 
+## Start here
+
+If there is no official tender pack or response instructions (only a summary or a forwarded link), stop and ask the bid owner for the source. Do not draft from a summary.
+
 ## When not to use this
 
 Skip for writing an RFP, a general pitch, or submitting an already-approved response.
@@ -18,11 +22,11 @@ Skip for writing an RFP, a general pitch, or submitting an already-approved resp
 ## Steps
 
 1. **Freeze the tender version.** Record the issuing channel, reference, latest amendment, deadline and time zone, format, limits and submission channel. If versions conflict, mark the governing source unresolved and keep the package on hold.
-2. **Recommend bid, hold or no bid.** Extract pass/fail requirements separately from scored questions. Record evidence, owner and latest safe review time for each material gap. Check validity at the date the tender specifies. Route ambiguity to the bid owner for the official clarification process. Set an internal review cutoff with the bid owner that leaves time for final checks. Hold missing evidence while there is a credible path to resolve it by that cutoff. Recommend no bid as soon as a mandatory condition cannot be met in time.
+2. **Recommend bid, hold or no bid.** Extract pass/fail requirements separately from scored questions. Record evidence, owner and latest safe review time for each material gap. Check validity at the date the tender specifies. Route ambiguity to the bid owner for the official clarification process. Set an internal review cutoff with the bid owner that leaves time for final checks. Hold missing evidence while there is a credible path to resolve it by that cutoff. Recommend no bid as soon as a mandatory condition cannot be met in time. The bid owner decides bid, hold or no bid; record who decided and when.
 3. **Map requirements to answers.** Use one row per requirement: ID and source, pass/fail or score, word limit, response owner, approved evidence, draft location, status and next action. Preserve the buyer's numbering. Explain the benefit and proof where scored. Answer each mandatory question explicitly.
 4. **Reconcile commitments.** Check prices, inclusions, dependencies, exceptions, service levels, references and security statements against the approved commercial and delivery records. Keep unapproved terms in the internal sheet. Raise contract or compliance questions to the qualified owner.
-5. **Read back the package.** Open the exact revision. Check every mandatory row, attachment, limit and signature request, and flag what could not be verified. Separate reviewer acceptance, submission authorisation and the eventual receipt. The named submission owner resolves readiness and authority. A sales request cannot replace mandatory evidence. The agent prepares a package for review.
+5. **Read back the package.** Open the exact revision. Check every mandatory row, attachment, limit and signature request, and flag what could not be verified. Separate reviewer acceptance, submission authorisation and the eventual receipt. The named submission owner resolves readiness and authority. A sales request cannot replace mandatory evidence. The agent prepares a package for review and stops there.
 
 ## Output and checks
 
-Use the [bid record](template.md) for the recommendation, compliance matrix and submission checklist. Link the exact draft separately. After award, compare the submitted revision and clarifications with the controlling agreement before preparing `success-handoff`. Carry delivery commitments and exclusions, surface conflicts with an owner, and keep transfer status separate from commercial acceptance. See the [worked award example](award-handoff.md). No row becomes compliant because a draft says so. An unresolved mandatory item blocks readiness.
+Use the [bid record](template.md) for the recommendation, compliance matrix and submission checklist. Link the exact draft separately. After award, compare the submitted revision and clarifications with the controlling agreement before preparing `success-handoff`. Carry delivery commitments and exclusions, surface conflicts with an owner, and keep transfer status separate from commercial acceptance. See the [worked award example](award-handoff.md). Stop after award at a prepared handoff; the current account owner offers it and the named receiver accepts it. No row becomes compliant because a draft says so. An unresolved mandatory item blocks readiness.

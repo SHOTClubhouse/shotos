@@ -11,9 +11,11 @@ An idea says what to do. A hypothesis says what you expect to happen and how you
 
 ## Context and handoff
 
-Read the problem, baseline and strongest competing explanation. State what observation would falsify the bet and who decides.
-
-Use `experiment-plan` once the test is worth running. Link the card from the programme record.
+- **Business question:** what small bet are we making, and what result would make us stop?
+- **Use this when** someone says "this will help" and no number, group or deadline is attached. If the before figure is missing, run `baseline` first; if the bet is already written, go to `experiment-plan`.
+- **Minimum context:** the confirmed problem, the baseline (or "not measured"), the strongest competing explanation, and who decides after the time box.
+- **Decision boundary:** the agent proposes the target and stop line; the owner sets them. The card authorises no spend, outside contact or live change.
+- **Next step:** `experiment-plan` designs the cheapest test once the bet is worth running. Link the card from the programme record.
 
 ## When not to use this
 

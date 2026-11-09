@@ -34,6 +34,7 @@ Needs another person's yes (privacy, boundary, shared standard)?
 ## 6. Promotion record
 - Rule as promoted:
 - Supersedes (earlier rule or text, with pointer):
+- Withdraw early if (signal) and who can remove it:
 - Review date:
 - Where the eval cases now live:
 

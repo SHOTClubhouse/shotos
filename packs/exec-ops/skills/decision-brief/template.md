@@ -2,6 +2,12 @@
 
 **Decision maker:** <named person or formally authorised body, with authority source>. **Brief owner, if different:** <named person>. **Needed by:** <date>. **If late:** <consequence>.
 
+## Recommendation (the agent's view, not a decision)
+Option <X>, because <reasons>. Confidence: <low | medium | high>, resting on <what>.
+
+**What would change this:**
+- <fact or result>, seen first by <person>.
+
 ## Facts (with sources)
 | Fact | Source | Date | Single source? |
 |---|---|---|---|
@@ -21,14 +27,11 @@
 
 ### C. Wait or do nothing (if real)
 
-## Recommendation (the agent's view, not a decision)
-Option <X>, because <reasons>. Confidence: <low | medium | high>, resting on <what>.
-
-## What would change this
-- <fact or result>, seen first by <person>.
-
 ## Who is affected and who to consult
 -
 
 ## Questions for the advisory group (if used)
 -
+
+## Decision requested
+<The exact decision>, from <decision maker>, by <date>. Record the decision in <owning record>.

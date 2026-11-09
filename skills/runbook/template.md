@@ -24,8 +24,11 @@ Roles or accounts (not secrets), and who can grant them.
 | Symptom | Likely cause | Try first | Escalate when |
 |---|---|---|---|
 
-## Rollback
-How to undo or stop. What cannot be undone. Who must say yes before an irreversible step.
+## Rollback and stop point
+When to stop mid-run and the safe state to leave things in. How to undo or stop. What cannot be undone. Who must say yes before an irreversible step.
+
+## Next cycle
+Operator, date, builder role (reachable to stop only), result:
 
 ## Who to call
 | Order | Role or name | When | How (point to the contact sheet) |

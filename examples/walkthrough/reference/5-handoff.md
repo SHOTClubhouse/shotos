@@ -10,12 +10,15 @@
 ## Evidence
 - Drafts: `.work/updates/`
 - Acceptance card: `3-acceptance.md`
+- Report on the drafts: `4-report.md`
 - Findings behind the change: `2-findings.md`
+- Baseline: 7 repeat repair emails out of 12. The target of 40% or fewer is proposed until the operations lead agrees it.
 
 ## Open decisions
 | Decision | Who decides | By when |
 |---|---|---|
-| Send the five drafts this week? | Operations lead | Friday |
+| Send the four complete drafts this week? | Operations lead | Friday |
+| Who gets a next date for the lock repair (T-618) from the locksmith? | Operations lead to name a person | Friday |
 | Run this weekly, and measure chasers again in a month? | Operations lead and managing director | End of October |
 
 ## Next step

@@ -41,7 +41,7 @@ If the request names no owner, ask who accepts it before writing anything else.
 7. If the output varies between runs (written text, summaries, classifications), add three to ten example inputs with what a good answer must contain and must not contain.
 8. List the boundaries: nothing external is sent, posted, bought, deleted, deployed or published, and nobody else's work is changed, without the owner's yes.
 9. List open questions in priority order. Mark which ones block a start.
-10. Save the card with the work, for example `.work/<task>/acceptance.md`, using `templates/acceptance.md` if the repo has it. Show it to the owner and wait for a yes or for changes.
+10. Save the card with the work, for example `.work/<task>/acceptance.md`, using `templates/acceptance.md` if the repo has it. For large, risky or unclear work, show it to the owner and wait for a yes or for changes. When the request already says what done looks like and nothing crosses a boundary, write the card from the request, name your assumptions on it and let the owner correct it while work proceeds.
 
 ## Skill route and handoff
 
@@ -54,7 +54,7 @@ An acceptance card with these headings: Owner, Outcome, In scope, Out of scope, 
 ## The four rules
 
 1. Stop at the boundaries: you only write the card; anything external waits for the owner.
-2. Agree acceptance first: this is your whole job, and the card is not final until the owner says yes.
+2. Agree acceptance first: this is your whole job, and the card is final only when the owner says yes or, for small clear work, when the owner has been shown the assumptions and has not corrected them.
 3. Read back the real result: open the saved card and confirm it says what you meant.
 4. Claim only what you can show: say what you wrote and what you did not check.
 

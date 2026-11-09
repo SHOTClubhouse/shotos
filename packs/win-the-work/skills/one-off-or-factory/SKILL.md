@@ -21,13 +21,13 @@ Skip it when only one item is needed, or when the process already exists and has
 
 ## Steps
 
-1. **Count and name the work.** How many items, how alike, by when, who accepts them, how much each differs by reader. If fewer than five, or if they differ in substance, author directly and record why.
+1. **Count and name the work.** How many items, how alike, by when, who accepts them, how much each differs by reader. If fewer than five, or if they differ in substance, author directly, record why in the template's decision line and stop; no pilot is needed.
 2. **Define accepted.** Write the acceptance for one item (see `agree-acceptance`): what a person would accept without editing. This is the yardstick for both routes.
 3. **Estimate both routes in the same units.** Direct: minutes per item to author and check, times the count. Factory: time to build, time per item to run and check, expected rework rate. Mark every figure as measured, estimated or guessed.
 4. **Run a pilot of three.** Produce three items by direct authoring and three by the factory (or use the same three readers in both). Use three real, varied items, including the hardest. Time each, record what was edited before acceptance, and have the owner accept or reject each.
 5. **Compare.** Per route: items accepted unedited, items accepted after edits (with the edits), items rejected, total time including building and rework. Quality counts first; cost second.
 6. **Decide by the rule.** Build the factory only if it gives better accepted quality, or lower total cost including rework and build time, across the whole planned count. If the pilot is a draw or the sample is too small to tell, author directly and say so.
-7. **Write the decision record** using [template.md](template.md). If the decision is factory, the next step is `proposal-factory` or the relevant production method, which must start with the same pilot items.
+7. **Write the decision record** using [template.md](template.md) and stop. The owner accepts the decision; do not start the factory in the same pass. If the decision is factory, the next step is `proposal-factory` or the relevant production method, which must reuse the same three pilot items and their accepted outputs rather than run a second pilot. Record in the decision record the master or output revision the owner accepted for each pilot item, so the next skill can match against it. If the decision is to author directly, that is a stop: do not rerun the pilot or the estimates until the factory wins.
 
 ## Output
 
@@ -39,4 +39,5 @@ A one-page decision record: the work, acceptance, both routes with figures and t
 - Every figure is labelled measured, estimated or guessed.
 - The pilot used three real items and the owner accepted or rejected each.
 - The decision follows the rule and names the figures it rests on.
-- Authoring directly is the default when the evidence is thin.
+- Authoring directly is the default when the evidence is thin, and a direct decision is final until the owner reopens it with new evidence.
+- For a factory decision, the accepted revision of each pilot item is recorded.

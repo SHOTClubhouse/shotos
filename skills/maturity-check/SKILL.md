@@ -35,6 +35,7 @@ Skip it when the person has already said what they want to do and the route is c
 4. **Name the gap.** The usual trouble is a person high on the first map and an organisation low on the second. Say which side is ahead and what could go wrong.
 5. **Recommend where to start.** Use the table below as a default and adjust to the answers. Name the SHOTos stage and two or three skills, and explain why they come first.
 6. **Say what the check cannot tell you.** It rests on self-report. List which answers had no example behind them.
+7. **Set the next check.** Name one observable step that would move a placement (for example, a second person reading agent output before use), who will look and a re-check date. Treat the placement as a starting point only. It does not grant autonomy; that needs the owner's yes and evidence from real runs.
 
 | Placement | Start at | First skills |
 |---|---|---|
@@ -53,3 +54,4 @@ Use [template.md](template.md).
 - The two maps are not collapsed into one number.
 - The recommendation names a stage and specific skills.
 - Gaps in the evidence are listed.
+- One observable next step, its owner and a re-check date are named.

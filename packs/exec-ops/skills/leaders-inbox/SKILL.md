@@ -15,6 +15,10 @@ Check the leader’s current priorities, deadlines, delegated owners and existin
 
 Use `decision-brief` when a decision needs options. Update the existing task or decision log rather than duplicating it.
 
+## Start here
+
+**Minimum to start:** the pasted batch and the leader's current priorities. If priorities are unknown, route anyway and mark each task "needs detail". **First output:** the recommendations table, one row per item, before any reasoning. **Uncertain:** unverified items stay labelled hypothesis or target, and unmatched records are "no match found in the sources checked". **Handoff:** list the decisions only the leader can make first, each with the question and who decides.
+
 ## When not to use this
 
 Skip it for a single, already-clear task (just do it or file it), for a finished decision that only needs recording, or when the leader wants a brainstorm rather than routing.

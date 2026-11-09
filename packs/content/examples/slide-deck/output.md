@@ -1,5 +1,7 @@
 # Repairs backlog board update · worked storyboard
 
+**Source brief:** `input.md` in this folder (Mei Tan's request and the repairs-october.csv summary). Owner: Mei Tan. Revision: as supplied, none stated.
+
 Fictional example. The brief below is a storyboard for review. The skill README includes a preview of slide 4.
 
 **Reader and setting:** Harbourside Lettings board, presented by Mei on Thursday.
@@ -38,5 +40,6 @@ Read as headlines, slides 1 to 10 make the case without the bodies.
 ## Review and render
 
 - In the slide 4 preview, the measure is urgent repairs completed within 24 hours. The bar shows 81%, the target is marked at 95%, and the gap is 14 percentage points.
+- **Review check (reviewer):** open slide 4 and confirm that 81% and the 95% target match the repairs-october.csv line in the source brief. Then add £2,950 x 8 and confirm it gives £23,600, under the £24,000 cap.
 - Check the storyboard against the brief before building the deck. Confirm with Mei what can be said about the cause and how the pilot will be reviewed.
 - **Deck revision and renderer:** pending creation in the approved Google Slides template. Inspect all ten slides after the final revision, checking the cap and quote separately wherever they appear.
