@@ -21,8 +21,8 @@ Do not use it to imitate a real person's voice without their written consent, to
 
 ## Steps
 
-1. **Check the tools first.** If `.work/capabilities.md` exists, read it. If the tool this skill needs (a speech model or a transcription tool) is missing, say so at the start, do the steps that need no tool, and say how to connect it (see the connect-your-tools guide at `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` where SHOTos is installed).
-2. **Agree the job.** Where it will be heard (video, website, phone line, podcast), the length, the tone, the language and accent, and who accepts it.
+1. **Check the tools first.** If `.work/capabilities.md` exists, read it. If the tool this skill needs (a speech model or a transcription tool) is missing, say so at the start, do the steps that need no tool (the locked script, pronunciation sheet and a recording brief for a human reader), mark the audio as not made, and where only transcription is missing ask a person to listen with the script in hand and log every difference, and say how to connect it (see the connect-your-tools guide at `docs/connect-your-tools.md` in the SHOTos repository, or `.shotos/docs/connect-your-tools.md` where SHOTos is installed).
+2. **Agree the job.** Where it will be heard (video, website, phone line, podcast), the file format, loudness and length that channel needs (check its current specification), the length, the tone, the language and accent, and who accepts it.
 3. **Lock the script.** Get the final words before generating. Mark names, numbers, brand words and anything easy to mispronounce, with a phonetic spelling for each.
 4. **Check consent for the voice.** A stock synthetic voice from the model's library needs nothing more. A cloned or custom voice of a real person needs that person's written consent for this use. If consent is missing, stop and ask the owner.
 5. **Generate.** Use the speech model the owner chooses. Generate two takes if the model allows it. Keep the model name, voice, settings and script version with the work.
