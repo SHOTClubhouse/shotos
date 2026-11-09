@@ -16,8 +16,6 @@ Use [the meaning-based judge](judge_paired.py) on raw results JSON files when ph
 
 The [outcome runner](run_outcomes.py) grades the files and checks left behind by longer tasks. If the runtime or a grader cannot return a score, the runner saves the evidence, marks the run unavailable and exits with status 2. Use only complete pairs for with-and-without comparisons.
 
-## Results
+## Test fixtures
 
 Secret-shaped strings such as `sk_live_...` in the cases and results are invented test fixtures, not real credentials.
-
-Historical Claude outputs are in [results/](results/), with run notes in the [v1.11.0 test record](https://github.com/SHOTClubhouse/shotos/blob/v1.11.0/docs/evidence.md).

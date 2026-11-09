@@ -69,8 +69,6 @@ The current artefact and its revision, approved links to its evidence, and the n
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal: a payroll comparison, a website copy rewrite and an onboarding checklist. Two are contrary: the agent should not mark everything accepted because a client nodded, and should not invent a migration status it cannot see.
 
-The caveat: "One run per case per condition, on one model. Agent output varies between runs." The grader checks for key words, some of which match the skills' own wording.
-
 ## Tips and common mistakes
 
 - Never write accepted without a record. A nod in a meeting is not one.
@@ -83,7 +81,5 @@ The caveat: "One run per case per condition, on one model. Agent output varies b
 
 - A handoff is only as good as the state it records. If the agent cannot see the files, it must say so and mark what it cannot confirm.
 - It does not make a person read it.
-- It cost more than a loose summary in the paired run.
-- One model, one run per case. Codex has not been tested.
 
 Files: [SKILL.md](SKILL.md) (for the agent), [template.md](template.md), [example input](../../examples/evidence-handoff/input.md) and [output](../../examples/evidence-handoff/output.md).

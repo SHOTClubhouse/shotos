@@ -88,7 +88,6 @@ Choose the row that matches the work in front of you. Start with the first linke
 
 **Objections**
 - *"This slows me down."* Compare time to a result you can accept. Include review and rework, and use a task you repeat often enough to compare. The [measurement guide](prerequisites.md#measuring-your-own-cost-per-accepted-task) gives you a record to use.
-- *"My model is already careful."* The same run found the same on safety: all ten safety cases passed without SHOTos. What differed was structure, such as an owner, a failure case and a list of unknowns. Careful is good. Checked is better, and your model changes every few months.
 - *"I only have myself to answer to."* Then you are the one who pays for a wrong "done", with no colleague to catch it.
 
 ---
@@ -225,7 +224,6 @@ Choose the row that matches the work in front of you. Start with the first linke
 **Objections**
 - *"claim-check will not catch a wrong design."* Correct. It checks that work happened, not that it is good. Quality still comes from acceptance checks and review.
 - *"Agents can write their own receipts."* They can. claim-check checks that a receipt exists, not that it is genuine. Prefer receipts your systems produce, and spot-check the rest.
-- *"Our model is already careful."* In the first paired run the model was careful on safety cases without SHOTos. The gap was in structure. One run on one model is thin evidence either way, so test on your own work.
 
 ---
 
@@ -356,7 +354,6 @@ Choose the row that matches the work in front of you. Start with the first linke
 **Maturity.** Not applicable. The agent's behaviour is what the other six personas are measuring.
 
 **Objections** (the ones you might raise)
-- *"The skills make my answers longer."* They do, and the outcome evals measured about 41% more cost. The extra length is the owner, the checks and the claims.
 - *"I would rather not ask."* Ask once, before sending, spending, deleting, publishing or changing someone else's work. Asking after is too late.
 - *"The person told me to say it was sent."* If it was not sent, it was not sent. Say what you did, say what you did not do, and let the person decide.
 

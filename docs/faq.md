@@ -79,7 +79,7 @@ Yes. `claim-check` checks that a receipt file exists, not that it is genuine, so
 
 ### Why not just trust a careful model?
 
-Because careful is not the same as checked. In the first paired run, all ten safety cases passed with and without SHOTos, so the model was already careful on those prompts. That does not tell you what happens on a long task, a tired prompt or a different model. A check costs little and catches the case where the model is confidently wrong. Trust can be earned by a record of checked work, which is what the claims give you.
+The checker opens the available records and verifies specific completion claims. The reviewer still decides whether the work meets the agreed standard.
 
 ### Does claim-check judge quality?
 
@@ -91,7 +91,7 @@ In Claude Code, when the agent tries to finish, the hook runs `claim-check` on i
 
 ### Does it work with Codex?
 
-Yes. Codex CLI on Windows loaded the installed skills and completed a draft proposal-to-handoff workflow. The Stop hook runs in Claude Code. In Codex, use the review checks in the [setup guide](guides/codex-claude-code.md) before relying on an output. See the [v1.11.0 runtime record](https://github.com/SHOTClubhouse/shotos/blob/v1.11.0/docs/evidence.md#six-stage-runtime-check) for what the run verified.
+Yes. Codex CLI on Windows loaded the installed skills and completed a draft proposal-to-handoff workflow. The Stop hook runs in Claude Code. In Codex, use the review checks in the [setup guide](guides/codex-claude-code.md) before relying on an output.
 
 ## Security and privacy
 
@@ -111,7 +111,7 @@ An agent told to follow a document from the internet can be told to do anything.
 
 ### Does it slow agents down or cost more?
 
-Measure the time and cost to get a piece of work accepted. Earlier evaluations measured individual attempts. For your own workflow, include repeat attempts, human review and handoff repair in the [accepted-work ledger](../templates/accepted-work-ledger.csv). The [measurement guide](prerequisites.md#measuring-your-own-cost-per-accepted-task) explains how to make the comparison.
+Measure the time and cost to get a piece of work accepted. For your own workflow, include repeat attempts, human review and handoff repair in the [accepted-work ledger](../templates/accepted-work-ledger.csv). The [measurement guide](prerequisites.md#measuring-your-own-cost-per-accepted-task) explains how to make the comparison.
 
 ### Which skill costs the most?
 
@@ -138,20 +138,12 @@ It is a baseline, not a certification. It gives named owners, human checkpoints 
 | Check | Coverage |
 | --- | --- |
 | Automated repository checks | The [release checks](https://github.com/SHOTClubhouse/shotos/actions/workflows/checks.yml?query=branch%3Amain) cover Windows, macOS and Linux. |
-| Installed workflow | Codex CLI and Claude Code ran a six-stage proposal and handoff on Windows. Claude Code also exercised the Stop hook. [v1.11.0 runtime record](https://github.com/SHOTClubhouse/shotos/blob/v1.11.0/docs/evidence.md#six-stage-runtime-check) |
+| Installed workflow | Codex CLI and Claude Code ran a six-stage proposal and handoff on Windows. Claude Code also exercised the Stop hook. |
 | Chat setup | The [no-terminal guide](guides/chat-assistants.md) includes a sample job and the result to check before using it on your own work. |
 
 ### What should my team check before rollout?
 
 Run one representative workflow in your chosen app and environment. Have a second person verify the work and use the handoff to run the next cycle. Record review time, rework and acceptance using the [team rollout guide](running-it.md#team-rollout).
-
-### Did SHOTos make the agent safer?
-
-Not measurably. All eight contrary cases in the first run passed with and without it, and in the outcome evals agents without SHOTos also refused to claim sends that never happened. Current models are already careful on these prompts. What SHOTos adds is a stated rule and a tool that checks the claim, rather than relying on the model's habits.
-
-### Why did report-with-evidence show no difference?
-
-The baseline was already honest on all five cases. The value of this skill is expected to show with `claim-check` and the Stop hook, which were not part of that run. That is a reason to test again, and not a result.
 
 ## Contributing
 

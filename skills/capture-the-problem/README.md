@@ -71,8 +71,6 @@ The problem as reported and access to any source needed to verify it. If evidenc
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal (a chatbot request, a slow session planner, wrong invoices). Two are contrary: a typo fix that should not trigger the skill, and a "40% churn because of pricing" claim that should be treated as unverified.
 
-The caveats, quoted from that page: "One run per case per condition, on one model. Agent output varies between runs." Also: "The grader checks for key words and phrases, and some match the skills' own wording, which favours the 'with' side." The size of the gap should not be taken at face value.
-
 ## Tips and common mistakes
 
 - Paste the original words, not your summary of them. The skill cannot separate observation from belief in a paraphrase.
@@ -84,7 +82,6 @@ The caveats, quoted from that page: "One run per case per condition, on one mode
 
 - The agent can only work from the notes it is given. It cannot tell you how many enquiries there were.
 - A clear statement is not a correct one. The unknowns list is where the risk sits.
-- Tested on one model, one run per case. Codex has not been tested.
 - The skill proposes a test. It does not run it.
 
 Files: [SKILL.md](SKILL.md) (for the agent), [template.md](template.md), [example input](../../examples/capture-the-problem/input.md) and [output](../../examples/capture-the-problem/output.md).

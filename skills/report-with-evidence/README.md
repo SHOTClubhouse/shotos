@@ -66,8 +66,6 @@ The saved result and its authoritative evidence, such as a file, test result or 
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal: create a file and report, report that a plan was not run, and draft an email without claiming it was sent. Two are contrary: refuse to mark a project accepted from a passing remark, and refuse to say a deploy worked when the agent has not seen it.
 
-The caveat: "One run per case per condition, on one model. Agent output varies between runs." This is not proof that the skill is unnecessary on other models or longer tasks. It means this run could not show a difference.
-
 ## Tips and common mistakes
 
 - Put the exact command or path in the claim, not a description of it.

@@ -14,6 +14,6 @@ Start with the work in front of you. Bring the sources, make a small, testable b
 
 For a proposal and handoff, a short request gives your assistant a starting point. The workflow adds a repeatable way to gather the buyer’s priorities and approved offer, draft for that buyer, save the exact revision, and pass the same deal record to delivery when the buyer accepts. You can compare the [buyer-facing proposal](../packs/win-the-work/skills/contextual-proposal/worked-deal.md#what-the-buyer-sees-in-proposal-p2) with the [delivery handoff](../packs/win-the-work/skills/contextual-proposal/worked-deal.md#customer-success-handoff-h1) to see which details carry across.
 
-The fictional records demonstrate the workflow and its checks. To measure whether it improves accepted work on your team, use the same task, sources, model and review criteria in both runs. Keep source gathering separate if you also want to test the benefit of reusable context. Use the [accepted-work ledger](../templates/accepted-work-ledger.csv) to capture reviewer time, corrections and model spend through sign-off. [Measurement instructions](prerequisites.md#measuring-your-own-cost-per-accepted-task)
+These are fictional examples you can follow using the source records and the finished work.
 
-[Historical evaluation records](../evals/README.md) · [See the six stages](framework.md#try-one-job-across-the-six-stages) · [Download a free skill](https://github.com/SHOTClubhouse/shotos/releases/latest)
+[See the six stages](framework.md#try-one-job-across-the-six-stages) · [Download a free skill](https://github.com/SHOTClubhouse/shotos/releases/latest)

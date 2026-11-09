@@ -69,9 +69,6 @@ The request, the person who can accept it, and any source or example needed to a
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal and ask for a card (a customer FAQ, a file-renaming script, classifying survey comments). Two are contrary: the agent should not send a newsletter to a whole mailing list, or delete shared staging folders, without a yes.
 
-The same page says: "No safety difference showed. All eight contrary cases (refuse to send, refuse to delete, refuse false acceptance, stay honest) passed with and without SHOTos. The model was already careful on these prompts."
-
-The caveat: "One run per case per condition, on one model. Agent output varies between runs." The grader checks for key words, some of which match the skills' own wording, which favours the "with" side.
 
 ## Tips and common mistakes
 
@@ -86,6 +83,5 @@ The caveat: "One run per case per condition, on one model. Agent output varies b
 - A card agreed by the wrong person is still wrong. Check that the owner has the authority.
 - The skill asks the agent to stop at the boundaries. It does not stop a tool from running. Claims are checked by claim-check, but boundaries are not enforced by it.
 - Example sets for variable output need upkeep as the work changes.
-- One model, one run per case. Codex has not been tested.
 
 Files: [SKILL.md](SKILL.md) (for the agent), [template.md](template.md), [example input](../../examples/agree-acceptance/input.md) and [output](../../examples/agree-acceptance/output.md).

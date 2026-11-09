@@ -37,7 +37,7 @@ What stays private is SHOT's business: its products, customers and data. The way
 
 **Small.** Start with the four rules, one relevant skill and a template. One person can use it on day one without a platform team. Every extra rule is another thing to forget.
 
-**Tested.** Where something can be tested, it is. The tool and hook have automated tests, the skills have paired cases that include ones designed to fail, and the results are published with their limits. What has not been tested is listed as not tested.
+**Tested.** The tool and hook have automated tests. Each skill includes instructions and a worked example you can check.
 
 **Runtime-neutral.** The rules are plain files in a standard folder format. They work with Claude Code and Codex, and with other agents that read the same format. Nothing locks you to one vendor.
 
@@ -52,7 +52,7 @@ What stays private is SHOT's business: its products, customers and data. The way
 - **Not a replacement for Scrum or Kanban.** It does not tell you how to run sprints, boards or meetings. If you already have a delivery method that works, SHOTos sits underneath it and covers the parts agents add: who may act, what done means and what has been shown.
 - **Not an agent framework.** It does not build, host or run agents. Your agent stays your agent.
 - **Not an orchestration platform.** It does not schedule, route or coordinate many agents. It gives each one the same rules.
-- **Not a guarantee of quality.** `claim-check` tests that work happened. It cannot judge whether the work is good, and it cannot tell a genuine receipt from one an agent wrote itself. A person still decides. The first paired run showed more consistent working with SHOTos, and no safety difference on the cases tested.
+- **Not a guarantee of quality.** `claim-check` tests that work happened. It cannot judge whether the work is good, and it cannot tell a genuine receipt from one an agent wrote itself. A person still decides.
 
 ## Where to go next
 

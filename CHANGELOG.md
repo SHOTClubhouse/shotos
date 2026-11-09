@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.13.1 (9 November 2026)
+
+Start with the work in front of you. Bring your context, make a small, testable bet and use the AI assistant you already have.
+
+![Scope. Start with a real task, its sources and the person who will review it.](docs/images/stage-01-scope.png)
+- **Find the work you want to do.** The six-stage guide links directly to the illustrations, with examples for a campaign, proposal and handoff.
+- **See the skills in action.** Start with the source material, open the worked result and check what carries forward.
+- **Download one skill for free.** All 88 ZIPs include the current guides.
+
+[See how it works](docs/framework.md#try-one-job-across-the-six-stages) · [Open the worked examples](docs/framework.md#open-the-worked-outputs) · [Choose a free skill](docs/running-it.md#choose-your-first-job)
+
 ## 1.13.0 (9 November 2026)
 
 - **Start with one task.** The README leads to a fictional founder exercise you can paste into your AI assistant. The setup guides show where to save skills in a fresh Codex project and how to try a single skill in a chat.
@@ -19,19 +30,14 @@
 ## 1.11.0 (9 November 2026)
 
 - **Weekly Executive Brief.** Three plain-language Claude Code requests picked up the skill automatically. The two briefs with missing sources showed partial coverage and kept disputed claims under Unverified. The complete-source case showed complete coverage.
-- **SHOTos evidence.** See what the six-stage exercises, runtime checks, historical skill comparisons and task outcomes actually showed. Try the workflows and use the accepted-work ledger to compare your own results.
 
-[v1.11.0 test record](https://github.com/SHOTClubhouse/shotos/blob/v1.11.0/docs/evidence.md) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
+[Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
 
 ## 1.10.0 (9 November 2026)
 
-**Aim.** An ordinary weekly leadership request should pick up the installed Weekly Executive Brief skill and keep unsupported claims unverified inside the draft.
+- **Weekly Executive Brief.** Route ordinary leadership requests to the weekly brief and keep unsupported claims under Unverified.
 
-**Experiment.** In fresh Claude Code projects with Executive Ops installed, two baseline weekly requests skipped the skill. After the fix, three plain-language weekly requests invoked it automatically. Neither the prompts nor the operator selected a skill.
-
-**Conclusion.** Both revised drafts with unsupported claims labelled them unverified in the brief and asked for the missing evidence. A standalone decision request still picked Decision Brief. A refreshed install kept the claims unverified and omitted the explicit partial-coverage label. A release rerun also listed the labelled claims under Changes. These checks cover the fictional requests on this setup.
-
-[v1.10.0 routing record](https://github.com/SHOTClubhouse/shotos/blob/v1.10.0/docs/evidence.md#weekly-brief-routing-after-v190) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
+[Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
 
 ## 1.9.0 (8 November 2026)
 
@@ -125,16 +131,15 @@ The full method, not only the rules.
   - Multi-agent patterns: one agent does and another checks, one researches while another holds context, and factories.
   - A comparison with other frameworks.
   - Four diagrams.
-- **Outcome evals:** ten real tasks graded on the files, tests, git state and report each run produced. They are run with and without SHOTos on Haiku, Sonnet and Opus, with a paired sign test. These replace the keyword-graded pilot as the headline evidence.
-- **Skill evals:** all 212 skill cases run with and without SHOTos on Haiku, Sonnet and Opus, graded by meaning with a model judge that is blind to the condition (`evals/judge_paired.py`). The runner installs the skill's own pack, stops after repeated timeouts and records runtime refusals.
+- **Outcome evals.** Added reusable checks for finished work and handoffs.
+- **Skill evals.** Added reusable checks for normal requests and exceptions.
 - **More runtimes:** the installer adds `--runtime gemini`, `--runtime antigravity` and `--runtime all` (one command for Claude Code, Codex, Gemini CLI and Antigravity, with one `AGENTS.md`). Both put the skills where the runtime looks for them and add `@AGENTS.md` to `GEMINI.md`, so Claude Code, Codex, Gemini CLI and Antigravity all load the same four rules from one `AGENTS.md`. Install paths follow each tool's documentation; neither has had a live run yet.
 - **Working agreement:** `AGENTS.md` tells the agent to open the matching skill even when the request does not name it, and lists common corners to decline while still doing the work.
 - **Tests:** the package tests cover every pack skill, pack manifest, role agent and eval case.
 - **Claim evidence:** `[git] committed` requires a starting commit and a newer descendant; a clean checkout alone no longer passes.
 - **Stop hook:** checks all assistant text in the turn and refuses a completed-work report backed only by `[unverified]`.
-- **Codex:** two local runtime smoke checks opened installed skills, one by explicit name and one by matching the task; no paired Codex outcome eval yet.
+- **Codex.** Added a setup route that opens installed skills by name or by task.
 - **Skill archives:** every Claude-app zip now includes the licence and creator attribution notices.
-- **Evidence:** a blind semantic re-judge of the same skill outputs is published alongside the original results; individual verdict variability is disclosed.
 
 ## 0.1.0 (internal development milestone; not publicly released)
 
@@ -164,5 +169,4 @@ The initial 0.1.0 development baseline included:
 - Project installs add `.work/` to `.gitignore` (and remove it on uninstall), so the drafting folder the rules mention really is ignored.
 - `AGENTS.md` points to where the Claims format is actually installed. Found by running the walkthrough live.
 - Self-check, docs index, governance, support, releasing and issue templates.
-- Paired-eval harness and first results on Claude Code: 20 of 20 cases passed with SHOTos, 13 of 20 without.
 - Each skill now carries its own template, after the first eval run showed the handoff skill could not find a template stored outside its folder.
