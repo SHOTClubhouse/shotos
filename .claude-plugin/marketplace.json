@@ -18,7 +18,7 @@
     {
       "name": "shotos-content",
       "source": "./packs/content",
-      "description": "Six skills for papers, slide decks, explainers, press releases, demo videos and creator edits. Every fact is sourced and nothing is published without a yes."
+      "description": "Eight skills for papers, slide decks, explainers, press releases, demo videos, creator edits, campaign websites and small websites. Every fact is sourced and nothing is published without a yes."
     },
     {
       "name": "shotos-customer-success",
@@ -48,7 +48,7 @@
     {
       "name": "shotos-setup",
       "source": "./packs/setup",
-      "description": "Run SHOTos itself: check which tools are connected, keep configuration as code with a drift check, right-size the effort for a task and audit a skill collection."
+      "description": "Run SHOTos itself: check which tools are connected, keep configuration as code with a drift check, right-size the effort for a task, audit a skill collection and verify a live release."
     },
     {
       "name": "shotos-social",

@@ -11,7 +11,7 @@ Stage: Operate. Rules served: 1 Stop at the boundaries, 4 Claim only what you ca
 
 Read group rules, audience fit, source post and permission. Check whether the same material has already been shared.
 
-Use `publish-with-manifest` for approved batches. Keep group, proposed wording and evidence together.
+Use `publish-with-manifest` only for the account's own posts; group shares are always posted by a person. Keep group, proposed wording and evidence together.
 
 ## When not to use this
 

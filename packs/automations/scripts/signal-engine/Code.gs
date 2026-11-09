@@ -757,7 +757,7 @@ function appendRows_(sheet, rows) {
 function literalSheetValues_(rows) {
   return rows.map(function (row) {
     return row.map(function (value) {
-      return typeof value === 'string' && /^[=']/.test(value) ? "'" + value : value;
+      return typeof value === 'string' && /^[=+\-@']/.test(value) ? "'" + value : value;
     });
   });
 }

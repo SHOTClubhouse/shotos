@@ -24,7 +24,7 @@ The [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) li
 
 **Founders.** [Choose a founder skill](docs/guides/startup-founder.md#try-one-task) for the problem, prospect or delivery handoff in front of you. [Try a fictional discovery brief](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise) in one chat message.
 
-**Enterprise leaders.** [Choose an enterprise skill](docs/guides/enterprise-operations.md#choose-the-work-in-front-of-you) for a decision, operating review, pilot or handoff. [Try a fictional leadership brief](docs/guides/enterprise-operations.md#try-a-decision-in-one-chat) using three short records.
+**Enterprise leaders.** [Choose an enterprise skill](docs/guides/enterprise-operations.md#choose-the-work-in-front-of-you) for a decision, operating review, pilot or handoff. [Try a fictional leadership brief](docs/guides/enterprise-operations.md#try-a-decision-in-one-chat) using three short records. Evaluating risk? Start with [Review one AI-assisted workflow](docs/guides/enterprise-risk-review.md).
 
 Choose the role that fits the work in front of you. Try it on one real task and use the check to decide whether to keep it.
 
@@ -33,6 +33,7 @@ Choose the role that fits the work in front of you. Try it on one real task and 
 | **Business leader** | Use [Executive Decision Review](packs/exec-ops/skills/decision-brief/review-cycle.md#try-a-worked-scenario) to turn a recurring choice into a brief, a recorded decision and a handoff. | The decider can choose an option or name the evidence they still need. |
 | **Founder** | Turn customer notes into a [problem brief and a small test](docs/guides/start-by-role.md#founder). | You have a decision to make and a way to learn before building. |
 | **Commercial lead** | Turn buyer notes into an [offer and customer handoff](docs/guides/start-by-role.md#commercial-lead). | Delivery can see the accepted terms and who owns the next action. |
+| **Small business owner** | Start with the [small business guide](docs/guides/small-business.md) and pick one admin task to try. | You can check the result against your own records before a customer sees it. |
 | **Marketing manager** | Turn a B2B or direct-to-consumer brief into a [campaign page people can try](docs/guides/start-by-role.md#marketing-manager). | A reviewer can follow the main visitor action and trace the offer to approved copy. |
 | **Social content creator** | Turn dates and available assets into [a week of ready-to-review posts](docs/guides/start-by-role.md#social-content-creator). | Each slot has a clear purpose, an asset and a named reviewer. |
 | **Analyst** | Use the [evidence pack](skills/evidence-pack/README.md) to compare a pilot with its baseline. | A sponsor can see the sample, the result and the gaps before deciding. |
@@ -112,7 +113,7 @@ The installer needs Python 3.9 or later. Clone SHOTos with Git next to the proje
 git clone https://github.com/SHOTClubhouse/shotos.git
 ```
 
-From your project folder:
+From your project folder. Claude Code: use `--runtime claude`. Codex and other agents: `--runtime agents`. The example below uses `agents`.
 
 ```sh
 python ../shotos/install.py --runtime agents --scope project --pack win-the-work --pack customer-success --pack setup --dry-run

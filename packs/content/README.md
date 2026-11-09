@@ -1,10 +1,8 @@
 # content pack
 
-**Six skills for writing, presenting, explaining, announcing and demonstrating: every fact sourced, every quote approved, every publish step waiting for a yes.**
+**Eight skills for writing, presenting, explaining, announcing, demonstrating and building websites: every fact sourced, every quote approved, every publish step waiting for a yes.**
 
-The six skills cover the content a team puts in front of outsiders. Each one drafts and checks. None publishes, posts or sends. Each has a fixed gate, a separate record of evidence or approvals, and a named person whose yes comes before anything leaves the project.
-
-Use [campaign website](skills/campaign-website/README.md) for a preview with one primary action.
+The eight skills cover the content a team puts in front of outsiders. Each one drafts and checks. None publishes, posts or sends. Each has a fixed gate, a separate record of evidence or approvals, and a named person whose yes comes before anything leaves the project.
 
 ## Who it is for
 
@@ -22,12 +20,15 @@ Use [campaign website](skills/campaign-website/README.md) for a preview with one
 | [product-demo-video](skills/product-demo-video/README.md) | Operate | Scripts a walkthrough, captures real interactions on test data in the browser, adds chapters and subtitles, inspects the final render and checks that no real personal data appears. |
 | [creator-edit](skills/creator-edit/README.md) | Operate | Edits a creator's draft while keeping 85 to 95 per cent of their own wording, checks facts, consistency and risk, packages per channel, and leaves final approval to the creator. |
 | [slide-deck](skills/slide-deck/README.md) | Operate | Agrees the reader and the ask, writes one message per slide before designing, builds an editable deck, sources every number, and renders and looks at every slide before calling it ready. |
+| [campaign-website](skills/campaign-website/README.md) | Operate | Plans and builds a campaign landing page preview from an approved audience, offer and one primary action, checks claims, mobile layout, accessibility and conversion behaviour, and leaves publishing to a separate yes. |
+| [build-small-website](skills/build-small-website/README.md) | Operate | Plans and builds a small multi-page site for a club, charity or service, with shared navigation and checked visitor journeys, and leaves publishing to a separate yes. |
 
 ## Needs
 
 - Nothing beyond the agent for drafting and checking.
 - Playwright (or another browser automation tool that records video) for product-demo-video.
 - Editing tools to trim a video, add chapters and attach subtitles, for product-demo-video.
+- A browser to preview and check pages, for campaign-website and build-small-website.
 - An image model of your choice, if an explainer needs an illustration.
 - Optional: a document or file connector to read sources and file the result. Publishing tools are used only after the owner's yes.
 

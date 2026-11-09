@@ -3,7 +3,7 @@
 **Work reviewed:** rents for 64 tenancies (`rents-2026.xlsx`) and the tenant letter (`letter-draft.docx`)
 **Owner (decides):** the owner of Harbourside Lettings
 **Date:** not recorded
-**Why a review is needed:** the letters go to 64 tenants outside the team, and a rent above a contractual cap is a breach. Tags: `money`, `external`, `legal`, `personal-data`. Route: lead agent plus an independent reviewer
+**Why a review is needed:** the letters go to 64 tenants outside the team, and a rent above a contractual cap is a breach. Tags: `money`, `external`, `consequential`, `personal-data`. Route: lead agent plus an independent reviewer
 
 ## Who did what
 | Role | Model or runtime | Access |

@@ -7,7 +7,7 @@
 |---|---|---|---|
 | Python and git | works | Python 3.12, git 2.47 | `python --version` and `git --version` returned versions |
 | Local slides (python-pptx, LibreOffice render) | missing | none | `import pptx` failed; `soffice` not found |
-| Google Slides, Docs, Sheets, Drive | works (Drive, Docs); Slides not tested | Google Drive connector | Listed the top 5 files in My Drive. No Slides tool is exposed by this connector |
+| Google Slides, Docs, Sheets, Drive | connected, not tested | Google Drive connector | No approved test target was named, so no call was made. No Slides tool is exposed by this connector |
 | Mail (drafts only) | missing | none | No mail tool available |
 | Calendar (read) | missing | none | No calendar tool available |
 | Speech (text to speech) | missing | none | No speech tool available |

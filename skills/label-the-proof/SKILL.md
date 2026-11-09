@@ -11,7 +11,7 @@ A reader cannot tell a real figure from a made-up one unless the page says. Labe
 
 ## Context and handoff
 
-Outcome: a reader can tell what was observed, inferred or made up. Acceptance: each claim carries a label and pointer, and the saved file was read back. Read the actual result and evidence sources. Label each claim according to whether it was observed, reported, inferred or remains unknown.
+Outcome: a reader can tell what was observed, inferred or made up. Acceptance: each claim carries a label and pointer, and the saved file was read back. Read the actual result and evidence sources. Label each claim literal, inferred or illustrative; unverified items go in the not-checked list.
 
 Use `report-with-evidence` for the final Claims block. Keep labels beside the source links.
 

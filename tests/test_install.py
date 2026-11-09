@@ -1,7 +1,9 @@
 import hashlib
 import json
 import re
+import os
 import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -363,6 +365,18 @@ class InstallTests(unittest.TestCase):
                     result = run("--runtime", runtime, "--scope", "user", "--target", tmp)
                     self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
                     self.assertTrue((Path(tmp) / skills / "report-with-evidence" / "SKILL.md").is_file())
+
+    def test_uninstall_completes_past_a_read_only_managed_file(self):
+        self.install("--with-hook")
+        manifest = self.root / installer.MANIFEST
+        rel = next(r for r in json.loads(manifest.read_text(encoding="utf-8"))["files"] if r.endswith("SKILL.md"))
+        target = self.root / rel
+        os.chmod(target, stat.S_IREAD)
+        self.addCleanup(lambda: os.path.exists(target) and os.chmod(target, stat.S_IWRITE))
+        result = self.uninstall()
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertFalse(target.exists())
+        self.assertFalse(manifest.exists())
 
     def test_uninstall_restores_existing_files_byte_for_byte(self):
         gitignore = self.root / ".gitignore"

@@ -6,7 +6,7 @@
 **Date:**
 
 ## State
-Prepared / Executed / Accepted (delete two). Which acceptance checks passed, and which did not.
+Installed / Executed / Accepted (delete two). Which acceptance checks passed, and which did not.
 
 ## Evidence
 - Output revision this handoff covers (commit, version or saved date):

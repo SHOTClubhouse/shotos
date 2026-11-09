@@ -181,7 +181,7 @@ Reports blur three different things: the work is present, the work was run and c
 - **The [Claims block](claims.md)** gives each claim a type (`[file]`, `[command]`, `[git]`, `[external]`, `[accepted]`, `[unverified]`).
 - **claim-check** returns SUPPORTED, UNSUPPORTED, NO EVIDENCE or DECLARED for each line. A report passes when every claim is SUPPORTED or DECLARED.
 - **report-with-evidence** teaches the format and the honest gap.
-- **evidence-handoff** carries the state (prepared, executed or accepted) to the next person.
+- **evidence-handoff** carries the state (installed, executed or accepted) to the next person.
 - **The Stop hook** runs the check on the agent's final message and never blocks twice in a turn.
 
 ### How to adopt it

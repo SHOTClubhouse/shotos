@@ -17,7 +17,7 @@ Use `decision-brief` if an answer depends on an unresolved internal choice. Keep
 
 ## When not to use this
 
-Skip it for a first message to someone who does not know the sender (use `outbound-prospecting`), for a bulk reply to many people, and for any message that commits money, legal terms or a safeguarding matter without the owner's explicit view; for those, draft options and ask.
+Skip it for a first message to someone who does not know the sender (use `outbound-prospecting`), for a bulk reply to many people, and for any message that commits money, legal terms or a safeguarding matter without the owner's explicit view, unless the owner has already approved that exact figure or term in the record; for those, draft options and ask.
 
 ## Steps
 

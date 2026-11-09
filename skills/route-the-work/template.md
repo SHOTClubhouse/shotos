@@ -7,7 +7,7 @@
 |---|---|---|
 | | | |
 
-Tags: personal-data, money, external, irreversible, legal.
+Tags: personal-data, money, external, irreversible, consequential.
 
 ## Why this route, and what would make me move to a heavier one
 

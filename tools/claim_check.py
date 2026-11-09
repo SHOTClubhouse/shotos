@@ -50,7 +50,7 @@ STATUS_RECEIPTS = {
 COMPLETED_VERB = r"(?:done|completed?|finished|fixed|sent|emailed|deployed|published|pushed|merged)"
 COMPLETION = re.compile(rf"\b(?:{COMPLETED_VERB}|tests? pass(?:es|ed)?|all green|works now)\b", re.I)
 NEGATED_COMPLETION = re.compile(
-    r"\b(?:(?:not|never)\s+(?:yet\s+)?"
+    r"\b(?:(?:not|never)\s+(?:yet\s+)?(?:been\s+)?"
     r"|(?:nothing|no (?:e-?mails?|messages?|files?|changes?|outreach|pull requests?))\s+"
     r"(?:(?:was|were|is|are|has been|have been)\s+)?"
     r"|(?:hasn|haven|hadn|wasn|weren|isn|aren)['’]t\s+(?:been\s+)?)"

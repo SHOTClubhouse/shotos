@@ -22,7 +22,7 @@ Skip it when the same owner continues tomorrow (use `resume-pack`) or when the t
 
 ## Steps
 
-1. **State where the work is.** Pick one: *prepared* (drafted, not run or checked), *executed* (done and checked against the acceptance checks) or *accepted* (the owner said yes, with the record). Say which checks passed and which did not.
+1. **State where the work is.** Pick one: *installed* (in place where it will run, not yet run or checked), *executed* (done and checked against the acceptance checks) or *accepted* (the owner said yes, with the record). Say which checks passed and which did not.
 2. **Point to the evidence.** List where the work and its proof live. Give paths or links and the revision or date each check or acceptance applies to. If the current revision differs, say which checks or acceptance need to be confirmed again.
 3. **List open decisions.** Say what needs a person's decision, who that person is and by when, if a date exists.
 4. **List what is not done or not checked.** Include known risks and anything you assumed.
@@ -37,5 +37,5 @@ Use [template.md](template.md) in this skill's folder. Save it beside the work, 
 ## Checks
 
 - Someone new could take the next step without asking a question.
-- The state is one of prepared, executed or accepted, and "accepted" has a record.
+- The state is one of installed, executed or accepted, and "accepted" has a record.
 - Every claim of progress points to evidence.

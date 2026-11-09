@@ -42,6 +42,17 @@ class StopHookTests(unittest.TestCase):
             return subprocess.run(command or [sys.executable, str(HOOK)], input=json.dumps(event),
                                   capture_output=True, text=True, env=env)
 
+    def test_utf8_payload_with_non_ascii_cwd_is_processed(self):
+        with tempfile.TemporaryDirectory() as base, tempfile.TemporaryDirectory() as home:
+            tmp = Path(base) / "projet-é"
+            (tmp / ".shotos").mkdir(parents=True)
+            text = "Done.\n\n## Claims\n- [file] created: absent.md"
+            event = {"transcript_path": str(transcript(tmp, text)), "cwd": str(tmp), "stop_hook_active": False}
+            payload = json.dumps(event, ensure_ascii=False).encode("utf-8")
+            env = {**os.environ, "HOME": home, "USERPROFILE": home}
+            run = subprocess.run([sys.executable, str(HOOK)], input=payload, capture_output=True, env=env)
+            self.assertEqual(run.returncode, 2, run.stderr.decode("utf-8", "replace"))
+
     def test_never_blocks_a_project_that_has_not_set_up_claim_check(self):
         run = self.run_hook("Done.\n\n## Claims\n- [file] created: plan.md\n", opted_in=False)
         self.assertEqual(run.returncode, 0, run.stderr)

@@ -10,7 +10,7 @@ It serves the Hypothesise stage. Rules: 2 Agree acceptance first, 4 Claim only w
 
 The owner of Northgate Cycles must decide whether to open a second shop in March. The accountant says the numbers work, the manager says the first shop is stretched, and a supplier says the lease is going fast. Everyone has a view and nobody has said which figures are known and which are hoped for.
 
-With the skill, the paper shows the lease cost and current margin as sourced facts, "demand in the new area matches the first shop" as an untested assumption with a cheap check, three options including waiting, a recommendation to wait and run a four-week pop-up, and the result that would change that.
+With the skill, the paper shows the lease cost and current margin as sourced facts, "demand in the new area matches the first shop" as an untested assumption with a cheap check, three options including waiting, a recommendation to negotiate a short option on the lease and then test demand with a four-week pop-up, and the result that would change that.
 
 ## When to use it, and when not to
 

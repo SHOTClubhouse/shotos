@@ -17,7 +17,7 @@ Use `explainer` if the image must teach a sequence. For a campaign graphic, agre
 
 ## When not to use this
 
-Do not use it for photographs presented as real events, for images of real people, or for copying another creator's style or characters. Do not use it for a quick throwaway sketch where nobody will rely on the result.
+Do not use it for photographs presented as real events, for images of real people without recorded written consent, or for copying another creator's style or characters. Do not use it for a quick throwaway sketch where nobody will rely on the result.
 
 ## Steps
 

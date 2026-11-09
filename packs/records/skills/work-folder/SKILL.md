@@ -31,7 +31,7 @@ Skip it for a quick answer or a single small edit with no working files. Finishe
    - `outputs/`: files meant to leave the folder.
 5. **Keep secrets out.** Never write a password, key, token or full personal record into any file here. Record that a credential is needed and where the owner keeps it. If you find one already present, report its file and line and do not copy it anywhere. Say it should be rotated if it was ever committed or shared.
 6. **Keep one task per folder.** If new work does not belong to an open task, open another folder rather than adding to the old one.
-7. **Close out when finished.** List three groups: files that move to a named permanent location (with the destination), files to archive, and files to delete (scratch only). Show the list. If the request already asked for the close-out or the move, that is the yes for it; otherwise move or delete only after the owner says yes. Never delete anything in `outputs/` unless the request named that file or the owner says yes for it.
+7. **Close out when finished.** List three groups: files that move to a named permanent location (with the destination), files to archive, and files to delete (scratch only). Show the list. If the request already asked for the close-out or the move, that is the yes for it; otherwise move or delete only after the owner says yes. Any delete outside `scratch/` needs the owner's yes. Never delete anything in `outputs/` unless the request named that file or the owner says yes for it.
 8. **Keep the state recoverable.** At each stopping point, update `notes.md` with what is done, what is in flight, the single next action and the owner, so someone else can resume from the file alone.
 9. **Leave a closing line in `notes.md`.** State the date, who accepted the work and where the outputs went.
 
@@ -45,4 +45,4 @@ A `.work/<task>/` folder using [template.md](template.md), then at the end a clo
 - Every task folder has an `acceptance.md` that names an owner.
 - `notes.md` ends with a current Next action and owner, or a closing line.
 - No file in the folder contains a credential or a full personal record.
-- The close-out list was shown, and no move or deletion happened beyond what the request named or the owner approved.
+- The close-out list was shown, and no move or deletion happened beyond what the request named or the owner approved, and any delete outside `scratch/` had the owner's yes.

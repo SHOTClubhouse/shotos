@@ -7,7 +7,7 @@ Answer yes or no for how you work with agents today. Start with the first "no". 
 | 1 | Before an agent starts a task someone will rely on, do you write down what done looks like? | [agree-acceptance](../skills/agree-acceptance/SKILL.md) |
 | 2 | Does the agent know what it must never do without asking (send, spend, delete, publish)? | Control 1 in [templates/AGENTS.md](../templates/AGENTS.md) |
 | 3 | When an agent says "done", do you check the result where it lives, not just the summary? | [report-with-evidence](../skills/report-with-evidence/SKILL.md) and claim-check |
-| 4 | Can you tell, for any piece of agent work, whether it is prepared, executed or accepted, and by whom? | [docs/claims.md](claims.md) |
+| 4 | Can you tell, for any piece of agent work, whether it is installed, executed or accepted, and by whom? | [docs/claims.md](claims.md) |
 | 5 | Before asking for a solution, do you write down the problem, who has it and what it costs? | [capture-the-problem](../skills/capture-the-problem/SKILL.md) |
 | 6 | When work pauses or changes hands, can someone else pick it up without asking you anything? | [evidence-handoff](../skills/evidence-handoff/SKILL.md) |
 | 7 | Do all the agents on your team follow the same written rules? | One shared [AGENTS.md](../templates/AGENTS.md) in every repository |

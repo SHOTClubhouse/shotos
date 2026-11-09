@@ -8,7 +8,7 @@
 | git | claim-check reads git state to test claims about commits and changes |
 | An agent runtime (optional) | Claude Code, Codex or any agent that reads `SKILL.md` folders. The templates also work on paper |
 
-No accounts, API keys or connectors are needed. Nothing is sent over the network.
+No accounts, API keys or connectors are needed. The installer and claim-check send nothing. Your agent runtime still sends what you give it to its provider. The automations pack can send a digest or call a model endpoint only if you enable it.
 
 ## Setup checklist by runtime
 
@@ -35,7 +35,7 @@ Run the installer with `--dry-run` first. It lists every file it would copy and 
 - [ ] Check that the installed skill folders appear where your Codex install reads skills.
 - [ ] Copy the [AGENTS.md template](../templates/AGENTS.md) into each project by hand.
 - [ ] The Stop hook is for Claude Code only. In Codex, run `claim-check` yourself on the agent's report.
-- [ ] Codex has not yet been tested with the paired cases. Treat results as unproven until you have checked a few of your own.
+- [ ] Codex ran the proposal-and-handoff workflow on Windows. The paired eval cases have not been run in Codex, so treat results as unproven until you have checked a few of your own.
 
 ### Other agents
 

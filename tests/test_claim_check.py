@@ -78,6 +78,13 @@ class ParsingTests(unittest.TestCase):
                 self.assertTrue(claim_check.check_report(report).ok)
                 self.assertFalse(claim_check.check_report(report + " I published the preview.").ok)
 
+    def test_not_been_sent_is_negated_completion(self):
+        for report in ("The email has not been sent yet.", "The email has not yet been sent.",
+                       "The email has never been sent."):
+            with self.subTest(report=report):
+                self.assertTrue(claim_check.check_report(report).ok)
+        self.assertFalse(claim_check.check_report("The email has been sent.").ok)
+
     def test_parse_real_claims_after_a_fenced_example(self):
         report = "~~~~\n~~~\n## Claims\n- [file] created: example.md\n~~~~\n## Claims\n- [file] created: real.md"
         self.assertEqual([c.target for c in claim_check.parse_claims(report)], ["real.md"])

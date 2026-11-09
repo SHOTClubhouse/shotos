@@ -8,7 +8,7 @@
 
 **Northgate Cycles pilots cycling sessions with Millbrook Rovers youth club**
 
-Northgate Cycles has started a one-term trial of weekly cycling sessions with Millbrook Rovers youth club, beginning in September. The sessions are open to club members and are led by qualified coaches.
+Northgate Cycles has started a one-term trial of cycling sessions [owner to confirm frequency] with Millbrook Rovers youth club, beginning in September. [Owner to confirm who can attend and who leads the sessions.]
 
 The trial runs for one term. Both organisations will decide afterwards whether to extend it.
 
@@ -27,6 +27,7 @@ The photo shows eight identifiable children. **Held.** Needs: written consent fr
 | Relationship | Trial agreement, 10 September | Proven |
 | Start in September, one term | Trial agreement | Proven |
 | "Led by qualified coaches" | Not in the documents | Owner to confirm |
+| Weekly frequency, open to club members | Not in the documents | Owner to confirm |
 | Quote | None | Not approved |
 | Photo | None | Not consented |
 

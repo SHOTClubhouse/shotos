@@ -126,7 +126,7 @@ Choose the row that matches the work in front of you. Start with the first linke
 - Pull requests carry an acceptance card and a Claims block as normal.
 - Review comments are about the work, not about whether the description is true.
 - A new starter's agent behaves like everyone else's on day one.
-- Handoffs have a state (prepared, executed or accepted) and nobody asks "where were you up to?".
+- Handoffs have a state (installed, executed or accepted) and nobody asks "where were you up to?".
 
 **Maturity.** People sit at different Yegge levels, and the organisation is typically at level 1 (pilots and individual use that are not coordinated). The next step is one shared way of working, which is the whole point of the shared `AGENTS.md`.
 
@@ -171,7 +171,7 @@ Choose the row that matches the work in front of you. Start with the first linke
 - Requests arrive as problem statements, and some are dropped after the first test, which is a good outcome.
 - The team asks fewer clarifying questions because the card already answers them.
 - Rework shrinks because the misunderstanding surfaced on the card, not in the build.
-- You can say for each item whether it is prepared, executed or accepted.
+- You can say for each item whether it is installed, executed or accepted.
 
 **Maturity.** Typically not running coding agents, so the Yegge levels apply to your team, not you. Your lever is the quality of the specification. The next step is writing acceptance that lets the team's agents run on their own safely.
 
@@ -248,7 +248,7 @@ Choose the row that matches the work in front of you. Start with the first linke
 - **Rule 1 as the baseline policy.** External, costly, destructive and public actions need a named person's yes. The four rules fit on one page of policy.
 - **Named owners.** Every acceptance card names the person who accepts. Every handoff names who decides what is open.
 - **An audit trail.** Acceptance cards and Claims blocks kept with the work show what was agreed, what was checked and who accepted it.
-- **Honest states.** Prepared, executed and accepted are different, and the reports say which.
+- **Honest states.** Installed, executed and accepted are different, and the reports say which.
 - **A starting point for risk review.** The [enterprise risk guide](guides/enterprise-risk-review.md) groups the workflow evidence under the four NIST AI RMF functions for an existing review.
 
 **First week**

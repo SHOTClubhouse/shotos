@@ -25,7 +25,7 @@ Do not use it to disguise authorship or to get past a rule that requires disclos
 
 1. **Number the lines.** Work on a numbered copy so each finding can be located. Keep the original untouched.
 2. **Scan for the patterns.** Check each of the seven below and record the line number and the exact words found.
-3. **Em dash as a tic.** Any em dash used where a comma, full stop, colon or semicolon would do. One in a long text may be fine; a pattern of them is the finding. In this repository the character is banned from prose, so use the owner's rule.
+3. **Em dash as a tic.** Any em dash used where a comma, full stop, colon or semicolon would do. One in a long text may be fine; a pattern of them is the finding. Follow the owner's rule on em dashes; if there is none, flag only repeated use.
 4. **Stacked threes.** Three parallel adjectives, nouns or clauses in a row, such as "fast, simple and reliable". Also lists of fragments standing in for a sentence.
 5. **Empty intensifiers and openers.** Words like "truly", "incredibly", "genuinely", "really" and "very" that add no information, and openers such as "In today's fast-moving world".
 6. **Standalone declaratives.** A one-line paragraph or sentence added only for weight, such as "That matters." or "This changes everything."
@@ -43,6 +43,7 @@ A findings table (line, pattern, found, fix), the fixed draft saved beside the o
 
 - Each finding names a line and quotes the words found.
 - Every fix keeps all facts, numbers, names and dates unchanged.
+- No new factual claim is introduced; a replacement that needs one is a placeholder.
 - No fix introduces a new stacked three, intensifier or standalone declarative.
 - The original is kept and the fixed version is a separate file.
 - The report does not claim the text is now undetectable or certified human.
