@@ -105,6 +105,20 @@ class InstallTests(unittest.TestCase):
         self.assertEqual(manifest.read_bytes(), original_manifest)
         self.assertFalse((self.root / ".claude/skills/daily-brief").exists())
 
+    def test_interrupted_pack_add_restores_relinked_guides_and_manifest(self):
+        self.install()
+        guide = self.root / ".shotos/docs/connect-your-tools.md"
+        original = guide.read_bytes()
+        manifest = self.root / installer.MANIFEST
+        original_manifest = manifest.read_bytes()
+        with patch.object(installer, "write_manifest", side_effect=KeyboardInterrupt):
+            with self.assertRaises(KeyboardInterrupt):
+                installer.main(["--runtime", "claude", "--scope", "project", "--target", str(self.root), "--pack", "exec-ops"])
+        self.assertEqual(guide.read_bytes(), original)
+        self.assertEqual(manifest.read_bytes(), original_manifest)
+        self.assertFalse((self.root / ".claude/skills/daily-brief").exists())
+        self.assertFalse((self.root / ".shotos-install.lock").exists())
+
     def test_status_reports_changed_and_missing_files_without_mutation(self):
         self.install("--pack", "customer-success")
         changed = self.root / ".claude/skills/success-handoff/SKILL.md"

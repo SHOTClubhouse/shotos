@@ -494,7 +494,7 @@ def install(runtime: str, scope: str, root: Path, with_hook: bool, dry_run: bool
                 "dirs": list(dict.fromkeys(previous["dirs"] + manifest["dirs"])),
             }
             write_manifest(manifest_path, combined)
-    except Exception:
+    except BaseException:
         print("\nInstall failed part-way; rolling back.")
         for path, original in reversed(originals):
             path.write_bytes(original)
