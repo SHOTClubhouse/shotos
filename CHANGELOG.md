@@ -1,9 +1,11 @@
 # Changelog
 
-## Unreleased
+## 1.11.0 (9 November 2026)
 
-- Weekly Executive Brief puts unsupported claims only under Unverified and shows an explicit partial-coverage line when required sources are missing.
-- The evidence page starts with tested workflows, exercises and checks readers can use. Detailed earlier evaluations are linked by release.
+- **Weekly Executive Brief.** Three plain-language Claude Code requests picked up the skill automatically. The two briefs with missing sources showed partial coverage and kept disputed claims under Unverified. The complete-source case showed complete coverage.
+- **SHOTos evidence.** See what the six-stage exercises, runtime checks, historical skill comparisons and task outcomes actually showed. Try the workflows and use the accepted-work ledger to compare your own results.
+
+[SHOTos evidence](docs/evidence.md) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
 
 ## 1.10.0 (9 November 2026)
 
