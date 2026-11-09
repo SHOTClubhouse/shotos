@@ -82,8 +82,8 @@ def main() -> int:
     if hasattr(sys.stderr, "reconfigure"):
         sys.stderr.reconfigure(errors="replace")
     try:
-        event = json.load(sys.stdin)
-    except json.JSONDecodeError:
+        event = json.loads(sys.stdin.buffer.read().decode("utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError):
         return 0
     if event.get("stop_hook_active"):
         return 0
