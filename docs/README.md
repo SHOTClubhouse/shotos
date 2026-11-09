@@ -11,7 +11,7 @@ Start with one real job. Use your context to make a small, testable bet, then ke
 | Start from your situation | [Enterprise operations](guides/enterprise-operations.md), [small business](guides/small-business.md) or [startup founder](guides/startup-founder.md) |
 | Learn by doing | [Harbourside walkthrough](walkthrough.md): six stages, with a runnable draft pilot and illustrated decisions |
 | Practise a job with fictional records | [Practice exercises](../examples/README.md#practise-with-fictional-work) for discovery, delivery, operations and buying |
-| Find your starting point | [Self-check](self-check.md) and [personas](personas.md) |
+| Find your starting point | [Start by role](guides/start-by-role.md), the [self-check](self-check.md) and [personas](personas.md) |
 | Review a recurring leadership decision | [Executive Decision Review](../packs/exec-ops/skills/decision-brief/review-cycle.md) |
 | Run a review across several teams | [Executive operating review](../packs/exec-ops/skills/weekly-exec-brief/operating-review.md): turn updates into decisions and route each action back to its owner |
 | Run a pilot with a partner | [Partner pilot](guides/partner-pilot.md): use one record from the accepted deal through launch, review and ownership |

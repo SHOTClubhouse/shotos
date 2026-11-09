@@ -11,13 +11,13 @@ Pick the route that suits you. You do not need both.
 **Route 1: the Claude app, no terminal.**
 1. Install the Claude desktop app, or use claude.ai in your browser, and sign in.
 2. Download individual skill ZIPs from [GitHub Releases](https://github.com/SHOTClubhouse/shotos/releases/latest). Start with `agree-acceptance`, `capture-the-problem`, `report-with-evidence` and the [social](../../packs/social/README.md) and [writing](../../packs/writing/README.md) skills.
-3. In the app, open Settings, then Capabilities, then Skills, and upload each zip.
+3. Upload each ZIP as a skill using the [Claude steps](chat-assistants.md#claude-with-skills-enabled). If skills are not available in your workspace, attach the files to a chat instead.
 4. Create a Project for your business. Paste the four rules from the [working agreement](../../templates/AGENTS.md) into the Project's instructions, and add your price list and recipe cards as Project files.
 5. Connect Google Drive or Gmail from the app's connector settings only if you want the assistant to read them. Read-only is enough to start.
 
 **Route 2: Claude Code, if someone can help you install it once.**
 1. Install Claude Code (the VS Code extension or the desktop app).
-2. Make a folder for your business admin and open it.
+2. Make a folder for your business admin and open it. Download and extract the source archive from the [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) next to it. That extracted folder is your local checkout.
 3. Ask the assistant: "Use the SHOTos installer in my local checkout. Preview a project install with the social, writing, records, trust and setup packs, and show me what it will change first."
 4. Ask it to run [connect-tools](../../packs/setup/skills/connect-tools/README.md), which lists what works today and what to connect next.
 

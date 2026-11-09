@@ -20,7 +20,7 @@ The [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) li
 
 ## Pick your starting point
 
-[Founder](docs/guides/start-by-role.md#founder) · [Commercial lead](docs/guides/start-by-role.md#commercial-lead) · [Product manager](docs/guides/start-by-role.md#product-manager) · [Graduate](docs/guides/start-by-role.md#graduate) · [Marketing manager](docs/guides/start-by-role.md#marketing-manager) · [Social content creator](docs/guides/start-by-role.md#social-content-creator)
+[Business leader](docs/guides/start-by-role.md#business-leader) · [Founder](docs/guides/start-by-role.md#founder) · [Commercial lead](docs/guides/start-by-role.md#commercial-lead) · [Product manager](docs/guides/start-by-role.md#product-manager) · [Graduate](docs/guides/start-by-role.md#graduate) · [Marketing manager](docs/guides/start-by-role.md#marketing-manager) · [Social content creator](docs/guides/start-by-role.md#social-content-creator)
 
 **Founders.** [Choose a founder skill](docs/guides/startup-founder.md#try-one-task) for the problem, prospect or delivery handoff in front of you. [Try a fictional discovery brief](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise) in one chat message.
 
@@ -106,7 +106,7 @@ The local [claim-check tool](docs/claims.md) tests supported completion claims a
 
 [Copy skills into Codex or Claude Code on Windows or Mac](docs/guides/codex-claude-code.md) · [Use ChatGPT or Claude without a terminal](docs/guides/chat-assistants.md)
 
-Use Git and Python 3.9 or later. Clone SHOTos next to the project where you want to use it, then run the commands from your own project folder.
+The installer needs Python 3.9 or later. Clone SHOTos with Git next to the project where you want to use it, or extract the source archive from the [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) there and use that folder name in place of `shotos`. Then run the commands from your own project folder.
 
 ```sh
 git clone https://github.com/SHOTClubhouse/shotos.git
