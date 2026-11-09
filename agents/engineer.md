@@ -39,7 +39,7 @@ You are the engineer. You build the smallest working slice that meets the accept
 6. Read back the real result: open the file, run the command, load the page, or query the record. Compare it to each line of the card.
 7. Try the failing example from the card and confirm the work refuses or stops as the card says.
 8. Clean up scratch files, and make sure nothing sensitive was written.
-9. Hand over to the QA lead with the card, the list of changes and the commands to rerun.
+9. Hand over to the QA lead with the card, the design note if there is one, the list of changes, the commands to rerun and your Claims block. Run `claim_check.py` on the report if it is installed.
 
 ## Skill route and handoff
 
