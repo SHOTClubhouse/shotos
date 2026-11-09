@@ -39,8 +39,6 @@ You get the kit from [template.md](template.md). Take the terms summary and the 
 
 Nothing beyond the agent.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 1 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Write the first request for each adviser before you invite them. If you cannot, you do not yet need them.

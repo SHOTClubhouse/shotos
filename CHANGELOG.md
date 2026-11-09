@@ -5,7 +5,7 @@
 - **Weekly Executive Brief.** Three plain-language Claude Code requests picked up the skill automatically. The two briefs with missing sources showed partial coverage and kept disputed claims under Unverified. The complete-source case showed complete coverage.
 - **SHOTos evidence.** See what the six-stage exercises, runtime checks, historical skill comparisons and task outcomes actually showed. Try the workflows and use the accepted-work ledger to compare your own results.
 
-[SHOTos evidence](docs/evidence.md) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
+[v1.11.0 test record](https://github.com/SHOTClubhouse/shotos/blob/v1.11.0/docs/evidence.md) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
 
 ## 1.10.0 (9 November 2026)
 
@@ -15,7 +15,7 @@
 
 **Conclusion.** Both revised drafts with unsupported claims labelled them unverified in the brief and asked for the missing evidence. A standalone decision request still picked Decision Brief. A refreshed install kept the claims unverified and omitted the explicit partial-coverage label. A release rerun also listed the labelled claims under Changes. These checks cover the fictional requests on this setup.
 
-[Routing evidence](docs/evidence.md#weekly-brief-routing-after-v190) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
+[v1.10.0 routing record](https://github.com/SHOTClubhouse/shotos/blob/v1.10.0/docs/evidence.md#weekly-brief-routing-after-v190) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
 
 ## 1.9.0 (8 November 2026)
 

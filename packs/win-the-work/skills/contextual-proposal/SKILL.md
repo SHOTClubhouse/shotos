@@ -1,6 +1,6 @@
 ---
 name: contextual-proposal
-description: Researches a named organisation and drafts a tailored proposal or pitch, with a claim ledger, asset register and format checks. Use for a negotiated offer to a specific buyer. Routes formal tenders, buyer RFPs and repeat batches to their dedicated skills.
+description: Turns an organisation name, short request or existing brief into a researched proposal for a specific buyer. Use to find the buyer and approved offer, draft the proposal and prepare the deal record for handoff. Routes tenders, buyer RFPs and repeat batches to dedicated skills.
 ---
 
 # Contextual proposal
@@ -11,7 +11,9 @@ Stage: Operate. Rules served: 3 (read back the real result) and 4 (claim only wh
 
 ## Context and handoff
 
-Read the buyer’s own words, organisation type, current constraints, approved offer and relevant prior proposal. Verify buyer-specific claims against current sources. Select the nearest relevant proposal by buyer type and buying route. Reuse its structure where it fits, and verify the new buyer’s needs, terms, rights and decision process independently.
+An organisation name and an offer description are enough to start. Search the permitted account or deal record, meeting notes and project files for the buyer's priorities. Find the current approved offer, closest proposal template and reusable assets in the supplier's own files. Follow attachments or links only when they answer a missing point. Use the buyer's official sources to verify identity and public facts. If two organisations plausibly match, ask which one before writing buyer-specific copy.
+
+Reuse the closest proposal's structure and approved assets. Verify the new buyer's needs, terms, rights and decision process independently. If a source is inaccessible, record which one. Ask one focused question if the answer would change the scope, terms or buyer decision. Otherwise draft the supported parts and keep the open items in the working sheet.
 
 Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitments in the deal working sheet. If leadership needs to decide whether to proceed, link the exact draft and the private working sheet from the decision brief. Distinguish proposal readiness, authority to send, buyer response and delivery handoff.
 
@@ -44,7 +46,7 @@ Skip it when the reader is unknown and a generic one-pager will do, or when many
 
 A proposal file and a private [working sheet](template.md). Save both with the deal. Keep the ledger, asset register and draft terms in the working sheet so the buyer-facing proposal can be reviewed on its own.
 
-When buyer acceptance is evidenced, update **Delivery handoff** in the existing deal record or working sheet and give `success-handoff` that reference with permitted access. Carry the accepted revision, source-backed commitments, open decisions, current owner, proposed receiver and dated first action. If acceptance is pending, carry the gap explicitly. Buyer acceptance and receiver acceptance require their own evidence. See the [worked fictional deal](worked-deal.md).
+Keep **Delivery handoff** in the existing deal record, or in the working sheet until a deal record exists. Give `success-handoff` that one reference with permitted access. Carry the exact proposal revision, source-backed commitments, open decisions, current owner, proposed receiver and first-action date if agreed. If the proposal has yet to be accepted, label the revision as a draft and the commitments as proposed. Buyer acceptance and receiver acceptance require their own evidence. See the [worked fictional deal](worked-deal.md).
 
 ## Checks
 

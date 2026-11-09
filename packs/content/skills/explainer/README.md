@@ -45,8 +45,6 @@ Use the [visual brief example](visual-brief.md) when the reader needs to see a d
 
 Nothing beyond the agent. Optional: a folder or repository for filing explainers, an image model for illustrations, and a diagram tool.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 2 of 3, Sonnet 2 of 3, Opus 2 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Pick the class first. It decides what you can include.

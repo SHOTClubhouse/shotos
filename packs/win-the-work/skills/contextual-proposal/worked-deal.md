@@ -2,6 +2,10 @@
 
 All names, dates, terms and receipts in this example are fictional. Read the [club proposal template](organisation-templates.md#independent-club) to see the structure used below.
 
+Start with “Draft a proposal for North Quay Community Club for our attendance service.” Use the account name to find NQC-014. The discovery note gives you the buyer's goal and starting numbers. The offer record gives you the approved scope and terms. If you only have the discovery note, draft the buyer's need and leave the offer terms for approval.
+
+Once the proposal is saved, “Prepare the North Quay handoff” is enough to start from the same deal record. Use the accepted revision if there is one. While buyer acceptance is pending, prepare the brief with the proposal marked as a draft and leave ownership with the current lead.
+
 ## Deal record NQC-014
 
 This record stays with the account. Sales adds the proposal and approval evidence. Customer success uses the same record, then adds the handoff status and receipt.

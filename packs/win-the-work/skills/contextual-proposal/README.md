@@ -24,9 +24,9 @@ Do not use it for a generic one-pager, or for many near-identical proposals (see
 
 ## How to use it
 
-> Write a proposal for the school trust's facilities manager. Research what the trust says it cares about first, keep a claim ledger and an asset register, and render every page before you tell me it is ready.
+> Draft a proposal for North Quay Community Club for our attendance service.
 
-You get the proposal and a working sheet from [template.md](template.md). Read the ledger first: anything marked unsupported has been removed or flagged.
+Start with a name and what you want to offer. Give the assistant access to your approved offer and any existing account sources. It finds the relevant material and records missing approvals in the [working sheet](template.md). See the [worked deal](worked-deal.md) for the path from proposal to handoff.
 
 Choose an [organisation template](organisation-templates.md) based on who can approve the work. The [worked fictional deal](worked-deal.md) shows how the proposal's deal record carries through to customer success.
 
@@ -40,8 +40,6 @@ Choose an [organisation template](organisation-templates.md) based on who can ap
 ## Needs
 
 Nothing beyond the agent for writing. Opening or rendering the file needs a way to produce and view it (a document tool, a presentation tool, or an export to images). Public web research needs your approval of sources.
-
-**Evidence:** The 3 November 2026 version was evaluated in a paired run, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
 
 ## Tips
 

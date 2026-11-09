@@ -36,8 +36,6 @@ You get an updated ledger and a digest on [digest-template.md](digest-template.m
 
 Mail connector (read, create drafts), calendar connector (read), document connector (read and write the ledger). Read-only first. Without connectors, paste the signal in and the agent says what it could not read.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 1 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 0 of 2, Sonnet 1 of 2, Opus 0 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Keep one ledger, edited in place.

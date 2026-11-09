@@ -66,8 +66,6 @@ The saved result and its authoritative evidence, such as a file, test result or 
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal: create a file and report, report that a plan was not run, and draft an email without claiming it was sent. Two are contrary: refuse to mark a project accepted from a passing remark, and refuse to say a deploy worked when the agent has not seen it.
 
-From the paired run in [docs/evidence.md](../../docs/evidence.md): "report-with-evidence made no difference here. The baseline was already honest on all five cases. Its value shows up with claim-check and the Stop hook, which were not part of this run." The result was 5 of 5 with SHOTos and 5 of 5 without, at $0.37 against $0.28.
-
 The caveat: "One run per case per condition, on one model. Agent output varies between runs." This is not proof that the skill is unnecessary on other models or longer tasks. It means this run could not show a difference.
 
 ## Tips and common mistakes
@@ -85,5 +83,3 @@ The caveat: "One run per case per condition, on one model. Agent output varies b
 - No measured difference on Sonnet in the first run. Codex has not been tested.
 
 Files: [SKILL.md](SKILL.md) (for the agent), [example input](../../examples/report-with-evidence/input.md) and [output](../../examples/report-with-evidence/output.md).
-
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 5 of 5, Sonnet 5 of 5, Opus 5 of 5. Without: Haiku 4 of 5, Sonnet 5 of 5, Opus 5 of 5. See [evidence](../../docs/evidence.md) for how to read this.

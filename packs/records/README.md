@@ -40,5 +40,3 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 ## How it connects
 
 Each skill follows the four rules in [docs/controls.md](../../docs/controls.md): changes stop at the owner's yes, and results are read back. Quarantined files that hold personal data lead to [sensitive-data-check](../trust/skills/sensitive-data-check/README.md) in the trust pack. The stages are described in [docs/framework.md](../../docs/framework.md).
-
-**Evidence:** Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). Eval cases are in [evals/packs/records.json](../../evals/packs/records.json).

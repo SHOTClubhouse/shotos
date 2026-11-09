@@ -3,7 +3,8 @@
 **Giver:** . **Receiver:** (proposed | confirmed) . **Date prepared:** .
 **Handoff brief revision:**
 **Linked deal or account record and permitted access:**
-**Accepted offer or controlling agreement, revision, date and evidence (if applicable):**
+**Proposal revision and link:**
+**Buyer acceptance or controlling agreement, revision, date and evidence (or pending):**
 
 ## Status (three separate fields)
 - **Lifecycle stage:** <pre-start | onboarding | live | renewal due | other>, because <evidence>.

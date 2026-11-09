@@ -1,6 +1,6 @@
 ---
 name: success-handoff
-description: Writes the brief for moving a customer account to whoever will deliver, with sourced facts and an acceptance record; a brief is not a transfer. Use when an account moves between sales, delivery, success or founder.
+description: Finds the existing account or deal and prepares a sourced customer handoff with next actions and an acceptance record. Use for a short request to hand over an account, a proposal moving into delivery or stalled onboarding.
 ---
 
 # Success handoff
@@ -11,9 +11,9 @@ Stage: Own. Rules: 1 Stop at the boundaries, 4 Claim only what you can show.
 
 ## Context and handoff
 
-Read the account record, commitments, last interaction and access restrictions. Resolve conflicts between CRM labels and observed customer behaviour.
+Start from the account name or proposal reference. Find the permitted account record and follow its existing source links for commitments, last interaction and access restrictions. If more than one account or proposal matches and the choice changes the handoff, ask which one. An existing account record is enough to start. Use the available evidence to prepare a brief and record any missing information or access.
 
-For a sales-to-delivery handoff, start with the linked deal record and its **Delivery handoff** section when available. Verify the accepted revision or controlling agreement and each commitment against the cited evidence. Use the latest authoritative agreement to resolve discrepancies. Carry unresolved conflicts and missing approval as open items with an owner. Use mail or notes to resolve a specific gap. Buyer acceptance confirms the commercial agreement. Transfer status follows the separate receiving lead evidence below.
+Use the existing **Delivery handoff** section as the shared record. Verify the accepted revision or controlling agreement and each commitment against the cited evidence. When only a draft is available, carry its revision and proposed scope, record acceptance as pending and keep the account with its current owner. Resolve discrepancies using the latest authoritative agreement or observed account activity. Open mail or notes only to resolve a specific gap. Carry unresolved conflicts, access gaps and missing approvals into the brief with the person who can resolve them, or record that this person still needs to be named.
 
 Use `enablement-plan` if the receiving team must prove an independent cycle. Keep acknowledgement and first action with the account.
 
@@ -23,7 +23,7 @@ Skip it for a quick note about one conversation, or for an account that is stayi
 
 ## Steps
 
-1. **Name the account, the giver and the receiver.** The receiver is a named person. If the proposed owner is not confirmed, write "proposed" and do not describe the transfer as made.
+1. **Name the account, the giver and the receiver.** Record the giver from the account record. Use the proposed receiver's name if known, otherwise record the role or leave it unassigned. A prepared brief can have an unassigned receiver. Offering or accepting a transfer requires a named person.
 2. **Gather the facts, with sources.** Record each promise, contact role, delivery result and open issue once with its source and date. For an open issue, distinguish when it was raised from its agreed due date. Call it overdue only when the evidence gives a deadline that has passed. Keep dates in the form supplied until the year or calendar context is known. Open mail, notes or transcripts to close specific gaps. Link restricted records and include contact details only when the receiver needs them and is permitted to see them.
 3. **Keep three fields separate** and never merge them:
    - **Lifecycle stage:** where the account is in its relationship (for example: pre-start, onboarding, live, renewal due). Based on what has happened.

@@ -38,8 +38,6 @@ You get the record from [template.md](template.md) with the pilot plan. After th
 
 Nothing beyond the agent.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 1 of 2, Sonnet 2 of 2, Opus 1 of 2. Without: Haiku 1 of 2, Sonnet 0 of 2, Opus 1 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Pick the hardest item for the pilot, not the easiest.

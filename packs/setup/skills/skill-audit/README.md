@@ -40,8 +40,6 @@ You get a table of skills against checks, a list of collisions with the requests
 
 Nothing beyond the agent, plus read access to the skills folder and its eval file. Optionally a short script to check links, which the agent can write.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Run it after every rename.

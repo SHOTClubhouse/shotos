@@ -40,8 +40,6 @@ For a restart, use the [worked revision check](restart-example.md). It shows whi
 
 Nothing beyond the agent. A spreadsheet or CSV of readers helps. Rendering needs a way to produce and view the file.
 
-**Evidence:** The 3 November version ran once per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 1 of 2. The current example covers a batch restart. See [evidence](../../../../docs/evidence.md) for the evaluation history.
-
 ## Tips
 
 - Leave a value blank rather than inventing it. A blank gets fixed; an invention gets sent.

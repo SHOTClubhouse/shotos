@@ -71,8 +71,6 @@ The problem as reported and access to any source needed to verify it. If evidenc
 
 The skill has five cases in [evals/cases.json](../../evals/cases.json). Three are normal (a chatbot request, a slow session planner, wrong invoices). Two are contrary: a typo fix that should not trigger the skill, and a "40% churn because of pricing" claim that should be treated as unverified.
 
-From the paired run in [docs/evidence.md](../../docs/evidence.md): capture-the-problem passed 5 of 5 cases with SHOTos and 2 without, at $0.39 against $0.29.
-
 The caveats, quoted from that page: "One run per case per condition, on one model. Agent output varies between runs." Also: "The grader checks for key words and phrases, and some match the skills' own wording, which favours the 'with' side." The size of the gap should not be taken at face value.
 
 ## Tips and common mistakes
@@ -90,5 +88,3 @@ The caveats, quoted from that page: "One run per case per condition, on one mode
 - The skill proposes a test. It does not run it.
 
 Files: [SKILL.md](SKILL.md) (for the agent), [template.md](template.md), [example input](../../examples/capture-the-problem/input.md) and [output](../../examples/capture-the-problem/output.md).
-
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 5 of 5, Sonnet 5 of 5, Opus 5 of 5. Without: Haiku 4 of 5, Sonnet 4 of 5, Opus 5 of 5. See [evidence](../../docs/evidence.md) for how to read this.

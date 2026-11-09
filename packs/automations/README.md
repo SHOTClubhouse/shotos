@@ -68,8 +68,4 @@ Use `--runtime codex` or `--runtime agents` for other agents, and repeat `--pack
 
 Using the Claude app, ChatGPT or another chat assistant instead? See [where to run SHOTos](../../docs/running-it.md).
 
-## Evidence
-
-Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). The current source has automated Node.js checks for factory preflight, output receipts, interrupted digest sends, dry-run scoring and literal sheet writes. The checks use simulated Google services. Use a dry run and an approved small pilot to verify behaviour in your own account.
-
 Cases: [evals/packs/automations.json](../../evals/packs/automations.json).

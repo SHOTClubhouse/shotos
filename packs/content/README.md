@@ -47,5 +47,3 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 ## How it connects
 
 The skills follow the four rules in [docs/controls.md](../../docs/controls.md). Anything that publishes, sends or posts stops for the owner's yes under [rules/04-stop-boundaries.md](../../rules/04-stop-boundaries.md). The stages are described in [docs/framework.md](../../docs/framework.md).
-
-**Evidence:** Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). Eval cases are in [evals/packs/content.json](../../evals/packs/content.json).

@@ -38,8 +38,6 @@ Read the label table, and check a literal item against its source.
 
 **Needs:** Nothing beyond the agent. Editing a file in place needs write access to that file.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 1 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Mark illustrative material where the reader will see it, not in a footnote.

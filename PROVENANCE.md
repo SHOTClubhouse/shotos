@@ -8,7 +8,7 @@ The 82 release skills are new SHOTos treatments of Liam's working methods and SH
 |---|---|
 | `rules/`, `ways-of-working/`, `skills/`, `packs/`, `agents/`, `lenses/` | SHOTos instructions and examples written for this repository. Public ideas such as PDCA, specification by example and DORA are credited in [sources](docs/sources.md); their wording and diagrams were not copied. |
 | `tools/`, `hooks/`, `install.py`, evaluation runners and fixtures, automation scripts | Implementation written for this repository. External platforms and their APIs remain their owners' property. |
-| `templates/`, examples and eval cases | Synthetic examples and evaluation fixtures, with no real customer or personal records intended for publication. Test results and limits are in [evidence](docs/evidence.md). |
+| `templates/`, examples and eval cases | Synthetic examples and evaluation fixtures. Historical evaluation records are in [evals](evals/README.md). |
 | `docs/`, root guides and diagrams | Explanatory material written for this repository. Outbound links identify sources rather than transferring their licences to SHOTos. |
 
 Code is licensed under [MIT](LICENSE). Documentation, skills, templates and examples are licensed under [CC BY 4.0](LICENSE-docs.md). Brand names and logos are excluded from both grants. Report a suspected rights or attribution issue privately to [liam@shotclubhouse.com](mailto:liam@shotclubhouse.com).

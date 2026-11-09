@@ -36,8 +36,6 @@ Output uses [template.md](template.md). Worked example: [input](../../examples/l
 
 Read access to the task list, decision log or project notes you want matched. Write access only to the project notes you name. Without any, paste the existing records in.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Say so when you want something remembered. The default is that nothing goes to long-term memory.

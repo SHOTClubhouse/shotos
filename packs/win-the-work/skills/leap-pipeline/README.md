@@ -39,8 +39,6 @@ You get a table, a short review and, for any verified agreement, a handover pack
 
 Nothing beyond the agent. Read access to a CRM export or spreadsheet helps. The skill does not write to it.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 1 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Set the stalled threshold yourself; 14 days suits some sales cycles and not others.

@@ -40,8 +40,6 @@ You get a table of claims with source, status and proposed fix, a short list of 
 
 Nothing beyond the agent. It reads the document and any evidence you provide. If a claim needs a live figure, such as a user count, the owner or a connector must supply it with a date.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Give the agent the sources you already have; it should not guess where a figure came from.

@@ -41,8 +41,6 @@ Check each status against what you know, then post it yourself.
 
 Read access to meeting notes, documents, the repository and the release log. The skill drafts; a person posts.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Look at the real home before calling something live.

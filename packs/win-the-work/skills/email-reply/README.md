@@ -40,8 +40,6 @@ Try the [old offer exercise](changed-terms.md) to compare forwarded terms with t
 
 Read access to the thread (pasted text or a mailbox connection) and permission to save a draft. No permission to send is needed or wanted.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Paste two or three of your own past replies so the voice is right.

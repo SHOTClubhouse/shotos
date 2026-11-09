@@ -45,5 +45,3 @@ Using the Claude app, ChatGPT or another chat assistant instead? See [where to r
 ## How it connects
 
 Both skills apply the four rules in [docs/controls.md](../../docs/controls.md). The handoff follows the same idea as [evidence-handoff](../../skills/evidence-handoff/README.md): say what is known, from where, and what is not. The stages are in [docs/framework.md](../../docs/framework.md). In the win-the-work pipeline, LEAP's Plan sends the approved deal context to the delivery team. The account transfer uses the Own checks.
-
-**Evidence:** Earlier skill versions were tested in paired runs. See the [evidence by build](../../docs/evidence.md). Eval cases are in [evals/packs/customer-success.json](../../evals/packs/customer-success.json).

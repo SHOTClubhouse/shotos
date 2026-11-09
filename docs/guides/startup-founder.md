@@ -82,4 +82,3 @@ A founder is launching a coaching business for first-time managers.
 - Start with one relevant skill or install the [core](../../README.md#install). In Claude Code, the optional Stop hook can challenge an unchecked completion claim. In any tool, open the result and verify it against the agreed checks.
 - Keep a `.work/` folder for drafts and notes ([work-folder](../../packs/records/skills/work-folder/README.md)).
 - Use the [graduation ladder](../../rules/12-graduation.md) before letting any task run without you: earn autonomy with a record of accepted drafts.
-- Read [what we can prove](../evidence.md), and test on your own work before trusting any claim, including ours.

@@ -40,8 +40,6 @@ You get one page on [template.md](template.md) with sources, counts and gaps.
 
 Read access to the repository, deploy log, incident notes and (for AI features) eval results and usage export. Nothing beyond the agent otherwise.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 1 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Write down what counts as a deploy and a failure before counting.

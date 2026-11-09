@@ -294,7 +294,7 @@ Choose the row that matches the work in front of you. Start with the first linke
 - **The walkthrough.** A fictional company and real data, so the team learns on something harmless.
 - **The self-check.** The [two-minute self-check](self-check.md) tells you where to start with a client.
 - **Files that stay.** The installer, `AGENTS.md`, acceptance cards and templates remain in the client's repository after you leave.
-- **Evidence habits.** The [evidence page](evidence.md) shows how to report results, including a disappointing one, with the limits stated.
+- **Evidence habits.** The [worked deal](../packs/win-the-work/skills/contextual-proposal/worked-deal.md) shows how to trace a decision to the record that supports it.
 
 **First week** (with a new client)
 1. Day 1: run the self-check with the sponsor and the team. Find the first "no".
@@ -313,7 +313,7 @@ Choose the row that matches the work in front of you. Start with the first linke
 
 **Objections**
 - *"My clients already have a method."* Fit the four rules inside it. They are controls, not a methodology.
-- *"I cannot promise results."* Do not. Promise a practice, a record and an honest look at what it did. The [evidence page](evidence.md) models that tone.
+- *"I cannot promise results."* Do not. Promise a practice, a record and an honest look at what it did.
 - *"If I teach it well, they will not need me."* That is the aim. Capability that stays with the client is the reason to be asked back.
 
 ---

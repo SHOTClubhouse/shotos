@@ -36,8 +36,6 @@ Use it for medium and high risk work and for anything that goes outside the team
 
 **Needs:** A second agent on a different model or runtime, for example a second tool installed beside the first. If only one is available, the skill says so and uses a fresh session with a weaker-check note.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 1 of 2, Sonnet 1 of 2, Opus 1 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Do not tell the reviewer what you think the answer is.

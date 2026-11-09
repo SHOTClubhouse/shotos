@@ -38,8 +38,6 @@ You get the report from [template.md](template.md). Make the changes yourself or
 
 Read access to the folder or an export of the file list with sharing settings. No permission to change sharing, move or delete.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips
 
 - Give the agent your "allowed in" list first. The check depends on it.

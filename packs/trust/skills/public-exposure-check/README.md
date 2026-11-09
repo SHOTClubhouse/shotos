@@ -40,8 +40,6 @@ You get a findings table with severity, location and what to do, an urgent list 
 
 Nothing beyond the agent, plus read access to the item being checked. For a repository, read access to history helps. For shared documents, a way to read sharing settings, or a list from the owner.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 3 of 3, Sonnet 3 of 3, Opus 3 of 3. Without: Haiku 2 of 3, Sonnet 3 of 3, Opus 2 of 3. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Check the history, not just the current files; a deleted secret is still in history.

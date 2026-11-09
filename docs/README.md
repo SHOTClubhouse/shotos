@@ -26,7 +26,7 @@ Pick a [founder task](guides/startup-founder.md#try-one-task), an [enterprise ta
 | Connect slides, speech, images, mail and the browser | [Connect your tools](connect-your-tools.md) |
 | See what is and is not covered | [Coverage](coverage.md) |
 | Plan tools, connections and cost | [Prerequisites](prerequisites.md) |
-| Compare time, cost and quality | [With and without SHOTos](evidence.md) |
+| See a proposal through to handoff | [Worked deal](../packs/win-the-work/skills/contextual-proposal/worked-deal.md) |
 | Know why it exists | [Why SHOTos](why.md) and [the manifesto](../MANIFESTO.md) |
 | Get a quick answer | [FAQ](faq.md) |
 | See what is next | [Roadmap](roadmap.md) and [sources](sources.md) |

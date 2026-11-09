@@ -44,8 +44,6 @@ For task-specific account, source and output approval, use the [task data access
 
 Nothing beyond the agent. It checks for everything else.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Rerun it after connecting anything new; the file is only as current as its date.

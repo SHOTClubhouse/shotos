@@ -38,8 +38,6 @@ Output uses [template.md](template.md). Worked example: [input](../../examples/d
 
 Nothing beyond the agent for pasted material. A document connector helps to read finance sheets, contracts or notes you name, read-only.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 1 of 2. See [evidence](../../../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Write the question as a choice with a date.

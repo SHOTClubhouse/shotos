@@ -43,8 +43,6 @@ Read the pack, check the could-not-measure list, and give the decision yourself 
 
 Read access to the systems that hold the figures (exports, logs, repository). Nothing is sent or published by the skill.
 
-**Evidence:** Tested in a paired run on 3 November 2026, one run per case, graded by meaning. Cases passed with SHOTos: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. Without: Haiku 2 of 2, Sonnet 2 of 2, Opus 2 of 2. See [evidence](../../docs/evidence.md) for how to read this.
-
 ## Tips and common mistakes
 
 - Copy the baseline word for word. Do not restate it from memory.
