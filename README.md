@@ -68,7 +68,7 @@ Explore the [Northbank fictional club website](https://shotclubhouse.github.io/s
 
 > Use this card for the task. Show me the saved result and what you checked. Leave anything you could not verify open for review.
 
-**Open two worked outputs.** See a [campaign page and a proposal-to-handoff example](docs/framework.md#open-the-worked-outputs), then follow the sources and checks behind them. The [local checker guide](docs/claims.md) explains the checks in detail.
+**Open two worked outputs.** See a [campaign page and a proposal-to-handoff example](docs/framework.md#open-the-worked-outputs), then follow the sources and checks behind them. [See what you can verify](docs/evidence.md) against the original records and worked outputs.
 
 ![Six stages from Scope to Sustain and Scale. Track can continue to Own, return to Hypothesise, stop or hold for evidence. Scaling starts the next team at Scope.](docs/images/six-stages.svg)
 

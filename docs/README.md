@@ -28,6 +28,7 @@ Start with one real job. Use your context to make a small, testable bet, then ke
 | Connect slides, speech, images, mail and the browser | [Connect your tools](connect-your-tools.md) |
 | See what is and is not covered | [Coverage](coverage.md) |
 | Plan tools, connections and cost | [Prerequisites](prerequisites.md) |
+| Check the evidence behind a worked example | [Sources, outputs and checks](evidence.md) |
 | See a proposal through to handoff | [Worked deal](../packs/win-the-work/skills/contextual-proposal/worked-deal.md) |
 | Know why it exists | [Why SHOTos](why.md) and [the manifesto](../MANIFESTO.md) |
 | Get a quick answer | [FAQ](faq.md) |
