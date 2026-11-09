@@ -51,11 +51,11 @@ Executive Ops adds seven skills and no hooks. The separate Core plugin adds the 
 Download and extract the source archive from the [release](https://github.com/SHOTClubhouse/shotos/releases/latest), or clone the repository. This route needs Git for cloning and Python 3.9 or later to run the installer. From your project folder, replace `PATH_TO_SHOTOS` with the location of the extracted source.
 
 ```sh
-python "PATH_TO_SHOTOS/install.py" --runtime codex --scope project --pack exec-ops --dry-run
-python "PATH_TO_SHOTOS/install.py" --runtime codex --scope project --pack exec-ops
+python "PATH_TO_SHOTOS/install.py" --runtime agents --scope project --pack exec-ops --dry-run
+python "PATH_TO_SHOTOS/install.py" --runtime agents --scope project --pack exec-ops
 ```
 
-Use `python3` if that is how Python runs on your Mac. For Claude Code change the runtime to `claude`. Add `--with-hook` if you have reviewed and want the optional Claude Code Stop hook. Add `--with-agents` if you want its role subagents. If your Codex client uses the documented shared skill folder only, choose `--runtime agents` for a fresh project install. Avoid installing both runtime variants into the same project.
+Use `python3` if that is how Python runs on your Mac. For Claude Code change the runtime to `claude`. Add `--with-hook` if you have reviewed and want the optional Claude Code Stop hook. Add `--with-agents` if you want its role subagents. For an existing installer-managed Codex project, use the refresh steps below to keep its recorded runtime and skill folder.
 
 Review the dry run before installing. If it lists an existing skill in the other Codex folder, review that copy and choose one path before trying again. Confirm skill loading in a fresh session before relying on it. The installer adds the portable tools and records. The manual route is useful when you only need a few skills. [Full pack and role setup](../full-pack.md)
 

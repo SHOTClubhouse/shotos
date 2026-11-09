@@ -54,7 +54,7 @@ For a risk review, use [Review one AI-assisted workflow](enterprise-risk-review.
 
 - **One way of working that business and technical teams share.** The six stages ([framework](../framework.md)) work for a process change in stores, a new system in head office, or both at once.
 - **Controls a risk function can read.** The [twelve agent controls](../../rules/README.md) and six [guardrails](../../rules/guardrails/README.md) state who decides, what agents may do alone and what evidence each piece of work leaves behind.
-- **Evidence instead of anecdotes.** Every agent task ends with claims a tool can check. Track produces an evidence pack against a baseline, so a pilot ends with a decision to move to Own, pivot, stop or hold for evidence rather than a slide saying it went well.
+- **Evidence for decisions.** For work that changes something, ask for the saved result and the checks the assistant ran. Claim-check can test supported completion claims. Compare the pilot with its baseline before deciding whether to hand it over, change it, stop or wait for more information.
 - **Ownership before scale.** The Own stage makes the team that runs a result self-sufficient before it is copied to the next region or function.
 
 ## A first 90 days

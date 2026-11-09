@@ -13,7 +13,7 @@ Decide how the work will be done before doing it. A one-line route stops small j
 
 Read the requested outcome, actual asset, risk, owner and what proof is needed. Choose the shortest route with sufficient evidence.
 
-Use `agree-acceptance` for material work. Record the route in the owning task so the next session can use it.
+Use `agree-acceptance` for material work. With only this skill installed, use the steps and template below and record any missing review capability. Record the route in the owning task so the next session can use it.
 
 ## When not to use this
 
@@ -35,7 +35,7 @@ Skip it for a quick factual answer or a trivial edit the person will see at once
    - **Direct:** the agent does it and shows the result. For low-risk, easily reversed work with one reader who will see it.
    - **A skill:** use the matching skill when one exists, for example `agree-acceptance` before building or `eval-set` for varying output.
    - **A role agent:** a separate agent with a narrow job and limited access, for work that needs a distinct role, such as testing or security review.
-   - **An independent reviewer:** a second agent from a different model or runtime, for medium and high risk. See `cross-agent-review`.
+   - **An independent reviewer:** a qualified person who did not produce the work, or a second agent on a different model or runtime for the checks it can perform. Where independent review is required and unavailable, leave acceptance or the dependent action pending. See `cross-agent-review`.
    - When two routes fit, take the lighter one and say what would make you move to the heavier one.
 3. **Add a risk tag only when evidence triggers it.** Look at the asset, the data and the action. Add a tag when you can point to the evidence: `personal-data` (the files contain names, health or children's records), `money` (the action spends, refunds or invoices), `external` (it goes to people outside the team), `irreversible` (it deletes, overwrites or publishes), `legal` (a contract, a regulatory claim). Write the evidence beside the tag. Do not add a tag because the topic sounds serious.
 4. **Raise the route when a tag appears.** One tag usually needs a named human decision before the action; two or more, or `irreversible` with `external`, need an independent reviewer as well.

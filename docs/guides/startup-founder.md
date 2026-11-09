@@ -10,16 +10,16 @@ Pick the row whose input you have. Start with one skill, one source set and one 
 | --- | --- | --- |
 | Customer notes and a proposed feature | [Capture the Problem](../../skills/capture-the-problem/README.md) | A one-page problem brief that separates what customers reported from the proposed fix. |
 | A promising conversation with budget or buying authority still unclear | [NUDGE Qualification](../../packs/win-the-work/skills/nudge-qualify/README.md) | A go, pause or walk-away recommendation with one question for a named person. |
-| A named buyer, their brief and an approved offer | [Contextual Proposal](../../packs/win-the-work/skills/contextual-proposal/README.md) | A buyer-facing draft and a private evidence sheet. Check approved terms against the source. |
+| A named buyer and an offer you want to discuss | [Contextual Proposal](../../packs/win-the-work/skills/contextual-proposal/README.md) | A buyer-facing draft and a private working sheet. Check which terms are approved and which still need a decision. |
 | A signed or otherwise evidenced agreement ready for delivery | [Success Handoff](../../packs/customer-success/skills/success-handoff/README.md) | A record with the accepted revision, the first action and the receiving lead's status. |
 | A proposed joint trial and a named partner | [Partner pilot](partner-pilot.md) | A launch recommendation with named owners, a measure and any permissions still pending. |
 | A defined audience and a short list of things visitors need to do | [Build a Small Website](../../packs/content/skills/build-small-website/README.md) | A preview with the main visitor journeys checked on a narrow and wide screen. |
 
 For a proposal, use [Bid Response](../../packs/win-the-work/skills/bid-response/README.md) when the buyer has issued a tender with required questions, evidence or submission rules.
 
-For a proposal, start a fresh chat with the buyer's brief, the approved offer and any source you want the assistant to use.
+For a proposal, start a fresh chat with the buyer's name and what you want to offer. Give the assistant access to the approved offer and existing account sources, or attach the relevant files in a chat that cannot read them.
 
-> Draft a tailored proposal from these sources. Use the organisation template that fits the buyer. Save the draft and private working sheet separately. Show which claims are ready for my review, what still needs a decision and where the record should live. Leave dispatch with me.
+> Draft a proposal for North Quay Community Club for our attendance service.
 
 Review the proposed terms and evidence together. If the buyer later accepts, pass the same record to the delivery lead and record their acceptance separately. Follow [one fictional deal](../../packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see what travels.
 

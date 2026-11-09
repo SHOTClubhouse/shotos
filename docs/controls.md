@@ -41,7 +41,7 @@ The same applies to a file deleted to make room, a branch force-pushed to tidy h
 - **claim-check** fails an `[external]` claim that has no receipt. If a report says something was sent and no receipt exists, the claim is NO EVIDENCE.
 - **The Stop hook** runs that check before the agent can finish in Claude Code.
 
-claim-check does not stop an agent from sending. It stops the agent from claiming it did, or from claiming it did when it did not. Real prevention comes from the permissions you give the agent. Give it less access than you would give a new starter.
+Claim-check flags supported claim types when the expected project evidence is missing. The optional Stop hook can challenge such a report once in a turn. App and connector permissions control whether the agent can send. A reviewer decides whether the receipt supports the claim.
 
 ### How to adopt it
 

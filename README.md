@@ -1,8 +1,10 @@
 # SHOTos
 
-**Give your AI agent a clear job, get work you can check, and hand it over with the evidence.**
+**Open-source workflows for AI work you can check.**
 
-SHOTos is an open-source delivery method for people and AI agents. Founders, operators, product teams and engineers can use it for one task or for a change another team needs to run. It gives you a way to agree what good looks like, check the work where it happened and make the next decision with evidence.
+SHOTos gives founders and teams reusable AI skills for work like proposals, leadership decisions and customer handoffs. Each skill helps you find the right inputs, check the result and give the next person enough context to continue.
+
+**Try one job in your usual chat.** Copy the [one-message founder exercise](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise), then compare the reply with the checks below it. To see what two connected skills produce, follow the [fictional proposal and handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md).
 
 **Six-stage edition · 88 skills, 12 optional packs in this repository**
 
@@ -33,8 +35,6 @@ Choose the role that fits the work in front of you. Try it on one real task and 
 [Download one skill and try its example](docs/running-it.md#choose-your-first-job). The guide gives you the file to use and a concrete check for the result.
 
 See a [worked customer handoff](packs/customer-success/skills/success-handoff/README.md) or [follow a change across all six stages](docs/walkthrough.md).
-
-Follow [one fictional deal from proposal to accepted handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see how the buyer's agreement and the receiving lead's acceptance stay with the same record.
 
 ## Make it your team
 
@@ -109,8 +109,8 @@ git clone https://github.com/SHOTClubhouse/shotos.git
 From your project folder:
 
 ```sh
-python ../shotos/install.py --runtime codex --scope project --pack win-the-work --pack customer-success --pack setup --dry-run
-python ../shotos/install.py --runtime codex --scope project --pack win-the-work --pack customer-success --pack setup
+python ../shotos/install.py --runtime agents --scope project --pack win-the-work --pack customer-success --pack setup --dry-run
+python ../shotos/install.py --runtime agents --scope project --pack win-the-work --pack customer-success --pack setup
 ```
 
 Open a fresh session in that project and ask:

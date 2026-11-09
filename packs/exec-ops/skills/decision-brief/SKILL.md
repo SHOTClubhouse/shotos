@@ -5,7 +5,7 @@ description: "Prepares a decision brief: question, sourced facts, assumptions, o
 
 # Decision brief
 
-Give the decision maker everything needed to choose in about two pages, and show how firm each part is.
+Give the decision maker what they need to choose. Use the requested length. If none is given, aim for one or two pages and move supporting detail to the source record.
 
 Stage: Hypothesise. Rules: 2 Agree acceptance first, 4 Claim only what you can show.
 

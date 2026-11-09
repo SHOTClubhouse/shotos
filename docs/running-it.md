@@ -59,7 +59,7 @@ Use the [full-pack guide](full-pack.md) when you want all 88 skills and the role
 | Runtime | Setup | What it gives you |
 |---|---|---|
 | **Claude Code** | `--runtime claude --scope project` | Skills and project rules. Add `--with-hook` for the Stop hook and `--with-agents` for role agents. |
-| **Codex** | `--runtime codex --scope project` | Skills in `.codex/skills` and rules in `AGENTS.md`. Run claim-check from a terminal. |
+| **Codex** | `--runtime agents --scope project` for a fresh install | Skills in `.agents/skills` and rules in `AGENTS.md`. If your project already uses the `codex` installer route, use refresh to keep its existing `.codex/skills` location. |
 | **Gemini CLI** | `--runtime gemini --scope project` | Skills in `.gemini/skills` and an import of `AGENTS.md` in `GEMINI.md`. Verify skill loading in your runtime before adoption. |
 | **Antigravity** | `--runtime antigravity --scope project` | Skills in `.agents/skills` and an import of `AGENTS.md` in `GEMINI.md`. Verify skill loading in your runtime before adoption. |
 | **Several local runtimes** | `--runtime all --scope project` | Shared project rules and skills in the relevant runtime folders. Review the install plan for each tool your team uses. |

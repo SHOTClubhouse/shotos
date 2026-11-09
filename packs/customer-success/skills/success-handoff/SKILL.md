@@ -1,6 +1,6 @@
 ---
 name: success-handoff
-description: Finds the existing account or deal and prepares a sourced customer handoff with next actions and an acceptance record. Use for a short request to hand over an account, a proposal moving into delivery or stalled onboarding.
+description: Finds the existing account or deal and prepares a sourced customer handoff with next actions and an acceptance record. Use when someone else needs to take over a customer account or a proposal is moving into delivery.
 ---
 
 # Success handoff
@@ -19,7 +19,7 @@ Use `enablement-plan` if the receiving team must prove an independent cycle. Kee
 
 ## When not to use this
 
-Skip it for a quick note about one conversation, or for an account that is staying with the same person. Draft a brief while a receiver is being confirmed. A live transfer needs the current owner's authority and the receiver's acceptance.
+Use `onboarding-recovery` when onboarding has stalled and the current owner needs to restart it. Use this skill when responsibility needs to move. Draft a brief while a receiver is being confirmed. A live transfer needs the current owner's authority and the receiver's acceptance.
 
 ## Steps
 

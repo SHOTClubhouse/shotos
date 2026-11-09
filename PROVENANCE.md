@@ -2,7 +2,7 @@
 
 SHOTos was created by Liam McDowell and is published by SHOT Clubhouse Limited. The repository contains AI-assisted drafting and implementation reviewed as part of this project. Copyright ownership and the right to publish are held by SHOT Clubhouse Limited.
 
-The 82 release skills are new SHOTos treatments of Liam's working methods and SHOT's workflows. Skills, scripts, illustrations and private records created by other contributors in neighbouring projects are outside this release. Where a skill uses a public framework, the framework is identified as an external source; SHOTos does not claim to have invented it.
+The SHOTos skills are new treatments of Liam's working methods and SHOT's workflows. Skills, scripts, illustrations and private records created by other contributors in neighbouring projects are outside this release. Where a skill uses a public framework, the framework is identified as an external source; SHOTos does not claim to have invented it.
 
 | Area | Source and treatment |
 |---|---|
