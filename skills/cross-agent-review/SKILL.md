@@ -36,7 +36,7 @@ After (fictional):
 
 ## Steps
 
-1. **Check the risk calls for it.** Use the route from `route-the-work`. Medium risk or above, or any `external`, `money`, `personal-data`, `legal` or `irreversible` tag, means yes. If the route is low risk, say why a review is not needed.
+1. **Check the risk calls for it.** Use the route from `route-the-work`. Medium risk or above, or any `external`, `money`, `personal-data`, `consequential` or `irreversible` tag, means yes. If the route is low risk, say why a review is not needed.
 2. **Assign roles by independence, not by product.** Any capable model, runtime or person can lead or review. Pick the strongest independence available, in this order: a different person; a different model or runtime; the same model in a fresh session given only the packet. State which level applies and, for the last one, that it is weaker. Name the role holders in the record as the tool and model each actually used, as read from the session, not as intended.
 3. **Prepare one approved packet for both roles.** It holds:
    - the acceptance card (`agree-acceptance`), unchanged;

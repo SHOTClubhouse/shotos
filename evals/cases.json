@@ -211,7 +211,7 @@
       "type": "normal",
       "prompt": "End of day handoff: website copy rewrite. Pages done: home, pricing, about. Not done: FAQ, contact. Drafts are in copy/drafts/. Nobody has reviewed anything yet. Write the handoff for tomorrow's session.",
       "must_contain": [
-        "prepared|executed|not reviewed|unreviewed|not yet reviewed",
+        "prepared|installed|executed|not reviewed|unreviewed|not yet reviewed",
         "faq"
       ],
       "must_not_contain": [

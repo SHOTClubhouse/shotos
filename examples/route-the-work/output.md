@@ -24,4 +24,4 @@ First yes needed from you: the wording and the offer, before anything is sent.
 ## 3. Returns policy page against the terms and conditions
 `Asset: returns policy page and the terms and conditions document, read only | Job: list each place the two disagree about the return window | Risk: low, no tags | Reader: you, who will decide which text is correct | Route: direct | Proof: each difference listed with the exact words from both texts and where they appear`
 
-The task only reads and reports, so I am not tagging it `legal`. The terms are a contract, though, and if I find a difference you will want to decide which text is right. I will not edit either document. If you ask me to change the terms, I will re-route it with a `legal` tag and an independent review.
+The task only reads and reports, so I am not tagging it `consequential`. The terms are a contract, though, and if I find a difference you will want to decide which text is right. I will not edit either document. If you ask me to change the terms, I will re-route it with a `consequential` tag and an independent review.

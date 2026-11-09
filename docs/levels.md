@@ -85,7 +85,7 @@ Each persona below shows a typical start, a sensible target, how SHOTos helps, t
 **Signs you have arrived.**
 - You leave a task running and trust the report enough to act on it.
 - When a report is wrong, the check catches it before you do.
-- You can say, for any piece of work, whether it is prepared, executed or accepted.
+- You can say, for any piece of work, whether it is installed, executed or accepted.
 
 **Why not climb further.** Running many agents in parallel or building an orchestrator adds supervision work, and for one person that work is the thing you lack. A founder with one dependable agent and a clear card usually gets more done than one juggling six.
 

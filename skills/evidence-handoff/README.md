@@ -2,7 +2,7 @@
 
 **Pass work on so the next person can continue in minutes without asking you anything.**
 
-This skill writes a one-page handoff. It states whether the work is prepared, executed or accepted, points to the evidence, lists open decisions and what was not checked, gives one concrete next step and adds a resume prompt to paste into the next session.
+This skill writes a one-page handoff. It states whether the work is installed, executed or accepted, points to the evidence, lists open decisions and what was not checked, gives one concrete next step and adds a resume prompt to paste into the next session.
 
 It supports the Own stage, where a team becomes able to carry the work on. It serves rule 4, Claim only what you can show, and rule 2, Agree acceptance first, because the handoff says which acceptance checks passed.
 
@@ -53,7 +53,7 @@ Install SHOTos as described in the [main README](../../README.md#install). Then 
 
 You get a page on [template.md](template.md), saved beside the work, for example `.work/<task>/HANDOFF.md`.
 
-On paper: print the template and fill in the state first. Choose one of prepared, executed or accepted and delete the other two. If you pick accepted, write down where the record is.
+On paper: print the template and fill in the state first. Choose one of installed, executed or accepted and delete the other two. If you pick accepted, write down where the record is.
 
 ## How it connects
 
