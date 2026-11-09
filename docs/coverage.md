@@ -2,6 +2,17 @@
 
 A plain map of where SHOTos is strong, where it is thin, and what it leaves out on purpose. It is updated with each release.
 
+## What you need to start
+
+| You have | You can use | You still need |
+|---|---|---|
+| Only files, in a browser chat app | One skill's instructions, templates and examples, with the assistant drafting in the reply | A workspace that lets you upload or attach files. See the [chat guide](guides/chat-assistants.md) |
+| Files and a local agent | The same skills, installed by copying a folder, with results saved in your project | A fresh session at the project root. See the [Codex and Claude Code guide](guides/codex-claude-code.md) |
+| The installer | Packs, shared tools and optionally the role agents and Stop hook | Python 3.9 or later. Use `--dry-run` first |
+| A connector or local program | Steps that touch mail, slides, speech, images, video or a browser | Connect it yourself, then run the read-only check in [connect your tools](connect-your-tools.md#checks-that-change-nothing) |
+
+The table says what can run, not how well it will perform for you. Try one fictional job first.
+
 ## Covered well
 
 | Area | What you get |

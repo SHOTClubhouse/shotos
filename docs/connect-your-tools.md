@@ -12,6 +12,15 @@ Most of SHOTos needs nothing beyond the agent, Python and git:
 
 Some skills need a tool for one of their steps. Without it, the agent still does the method and stops at the step it cannot do. For example, it writes and checks the voiceover script, then tells you it has no voice tool. It does not pretend.
 
+## Which route do you have?
+
+| Where you work | What works with files alone | What needs more |
+|---|---|---|
+| **A browser chat app** (ChatGPT or Claude, no terminal) | Skills you upload or attach as files: the method, templates and examples. Drafts come back in the reply | Anything that reads or writes your accounts, runs a command or makes a file on your machine depends on the connectors, tools and settings your workspace offers. A file upload does not add them |
+| **A local agent** (Codex or Claude Code) | Copying one skill folder in with your file manager | The installer, for packs, shared tools, the role agents and the optional Stop hook. Python 3.9 or later and git. Connectors and local programs such as LibreOffice or `ffmpeg` are separate again |
+
+If you are unsure which row is yours, ask the assistant what it can open and run in this session, then compare its answer with the check below.
+
 ## Connect what you need
 
 Connect only what your work needs, read-only first. Every option below uses your own account and credentials. Before the first live read, use the [task data access card](../templates/data-access.md) to agree which account, sources, fields and destinations are allowed for the task. Test the smallest approved read against a sample or test folder first.
@@ -38,6 +47,19 @@ After connecting, ask your agent to run the [connect-tools](../packs/setup/skill
 > Check which tools you can reach for SHOTos and write the capability list.
 
 It checks connected tools with approved read-only calls and records what works, what is missing and which skills are affected in `.work/capabilities.md`. Keep dated sections for each runtime and workspace so a check in one environment does not stand in for another.
+
+## Checks that change nothing
+
+Each of these shows access without making a live change. Run the one that matches your route.
+
+| Route | Check | What a pass shows |
+|---|---|---|
+| Browser chat app | Ask the assistant to name the files it can open, then to quote one heading from `SKILL.md` | The skill files are visible in this chat |
+| Local agent, manual copy | Start a fresh session at the project root and ask it to open the installed `SKILL.md` | The skill sits in the right folder and loads |
+| Local agent, installer | `python install.py --runtime agents --scope project --dry-run`, then after installing `--status --scope project` | The dry run lists what it would write and writes nothing. Status reports what is installed |
+| Any connector or local program | The [connect-tools](../packs/setup/skills/connect-tools/README.md) skill | A dated line per capability: works, connected not tested, or missing |
+
+A pass means that route reached that thing today. It does not show a connector is safe to write to, or that a result is correct. Treat "connected, not tested" as unproven.
 
 ## The safe way to connect anything
 
