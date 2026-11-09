@@ -23,4 +23,4 @@ The office spends a large part of each day answering tenants who are chasing iss
 - Whether repeats come from slow repairs or from tenants not being told what is happening.
 
 ## Cheapest first test
-Count three weeks of enquiries by category and by repeat contact (data/enquiries.csv, about an hour). If repeats are a small share, a chatbot will not help much.
+Count the 1 to 17 September enquiries by category and by repeat contact (data/enquiries.csv, about an hour). If repeats are a small share, a chatbot will not help much.
