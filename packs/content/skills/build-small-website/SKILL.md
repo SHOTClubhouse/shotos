@@ -11,6 +11,8 @@ description: Plans and builds a small public website with several pages, shared 
 
 Start with the owner, audience, existing site, approved source material and a destination you can verify. Keep design, hosting and publishing decisions with the same site brief. Give a campaign with one conversion action to `campaign-website`. Use `verify-live-release` after an authorised publication.
 
+Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a browser or local server is missing, say so first, build static pages and a manual journey script and mark the check pending.
+
 ## When not to use this
 
 Use a smaller task for an existing site's isolated fix. For a site requiring new accounts, payments or sensitive forms, agree the relevant permissions and delivery route before building the integration. A local demonstration can still show the journey.
@@ -25,3 +27,5 @@ Use a smaller task for an existing site's isolated fix. For a site requiring new
 ## Output and checks
 
 Use the [site brief](template.md). Record what the visitor can do, where each check ran and what is still open. A preview can pass its own checks while publication and public read-back remain pending.
+
+**Reviewer check:** open the page map, pick one agreed journey and follow it from a direct URL to its stated outcome. Confirm each page claim appears in the cited brief.

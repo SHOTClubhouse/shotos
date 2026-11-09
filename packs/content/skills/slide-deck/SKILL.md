@@ -15,6 +15,8 @@ Read the decision brief and one approved visual reference. Choose the narrative 
 
 Use `claims-audit` for unsupported promises. Keep the editable deck, source notes and render check together.
 
+Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If the editor or renderer is missing, say so first, deliver the storyline, as in step 1, and mark the check pending.
+
 ## When not to use this
 
 Do not use it for a long document that nobody will present; write a document instead. For many decks tailored from one master, use the `proposal-factory` skill. For a reader-specific sales proposal, start with the `contextual-proposal` skill.
@@ -44,3 +46,4 @@ An editable deck, a storyline (one line per slide), a source list for every numb
 - No text overflows, no placeholder is left empty, and figures agree across slides.
 - The deck is in an editable native format.
 - Nothing was shared or sent without the owner's yes.
+- Reviewer check: open the deck at a slide with a number and confirm the source line and the cited brief agree.

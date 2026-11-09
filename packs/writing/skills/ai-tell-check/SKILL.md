@@ -15,6 +15,8 @@ Read the intended audience, approved voice sample and source draft. Distinguish 
 
 Use `plain-english-check` if clarity is the issue. Save edits in the owning draft without changing meaning.
 
+Cite the approved source brief or draft revision so fixes can be compared with it. If `.work/capabilities.md` exists, read the section for this runtime. If a file or diff tool is missing, say so first, report findings in chat with line numbers and mark the check pending.
+
 ## When not to use this
 
 Do not use it to disguise authorship or to get past a rule that requires disclosure of AI use. Do not use it on quotations, legal text or text the owner has said must stay as written. Do not run it as the only check: a text can be free of these patterns and still be wrong.
@@ -44,3 +46,4 @@ A findings table (line, pattern, found, fix), the fixed draft saved beside the o
 - No fix introduces a new stacked three, intensifier or standalone declarative.
 - The original is kept and the fixed version is a separate file.
 - The report does not claim the text is now undetectable or certified human.
+- Reviewer check: pick one finding by line number and confirm the original words, the fix and unchanged facts against the source draft.

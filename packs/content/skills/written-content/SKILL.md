@@ -15,6 +15,8 @@ Read the publication brief, reader question, approved voice sample and strongest
 
 Use `plain-english-check` for a review pass if needed. Keep the draft and evidence with the publication record.
 
+Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a link or document tool is missing, say so first, write plain text and list links as unchecked and mark the check pending.
+
 ## When not to use this
 
 Do not use it for emails, replies or short messages, for legal or regulated text, or for a piece whose argument the owner has not decided. Use `explainer` when the task is to explain how something works to a named audience.
@@ -43,3 +45,4 @@ The draft, a source table (fact, source, status), the QA gate result with pass o
 - No real person is named without recorded consent.
 - The QA gate was run and the result is shown.
 - Nothing was published, posted or sent.
+- Reviewer check: pick any three figures in the draft and find each in the source table with its status.

@@ -15,6 +15,8 @@ Start from the audience’s real question, source behaviour and the action they 
 
 Use `image-create` only when a visual clarifies the sequence. Keep the source and reviewed explainer together.
 
+Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If an image or link-check tool is missing, say so first, use a text diagram, check links by hand and list them as unchecked and mark the check pending.
+
 ## When not to use this
 
 Do not use it for an argued opinion piece (use written-content), a press announcement (use press-release), or a quick chat answer. Do not use it when the subject is not understood yet; learn the facts first.
@@ -42,3 +44,4 @@ The explainer, the five-part QA gate result, the source list, and a filing note 
 - Each visual makes a specific part of the mechanism easier to understand. The text carries the essential meaning independently of the visual.
 - The five-part QA gate was run and shown.
 - The explainer was filed and nothing was shared or published without a yes.
+- Reviewer check: re-run one worked example from the source list and confirm the same result appears in the text.

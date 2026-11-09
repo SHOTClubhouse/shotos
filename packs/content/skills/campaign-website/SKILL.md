@@ -11,6 +11,8 @@ description: "Plans and builds a campaign landing page or website preview from a
 
 Read the campaign hypothesis, audience, approved offer and proof, primary action, current site or builder, approved destination and asset rights. Use `research-and-assemble` to support claims, `image-create` for a graphic and `claims-audit` before external review.
 
+Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a browser tool is missing, say so first, build the static preview and write the phone, desktop and keyboard checks as a manual script and mark the check pending.
+
 ## When not to use this
 
 Skip for redesigning an entire product, configuring downstream lead automation, or deploying an already approved site.
@@ -26,3 +28,5 @@ Skip for redesigning an entire product, configuring downstream lead automation, 
 ## Output and checks
 
 Deliver a preview, an asset and claim record, and an observed test result. A generated page is only a draft until the owner approves the release and the primary action is verified in the intended environment.
+
+**Reviewer check:** open the preview at phone width, press the primary action and confirm it does what the handover says. Pick one claim and find it in the cited brief.

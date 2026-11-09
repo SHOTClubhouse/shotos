@@ -15,6 +15,8 @@ Read the signed announcement facts, names, dates, quote permissions and embargo.
 
 Use `claims-audit` before review. Keep the public copy and approval evidence separately in the announcement record.
 
+Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a document tool is missing, say so first, draft in plain text and list approvals still to be obtained and mark the check pending.
+
 ## When not to use this
 
 Do not use it to announce something not yet agreed, to invent endorsement, or for a crisis statement that needs legal review. Do not use it to publicise a conversation: a conversation is not news.
@@ -43,3 +45,4 @@ Three parts, kept apart: the release draft, a block of proposed quotes marked no
 - The release contains no evidence log or consent detail.
 - Anything involving children has a consent record and a safeguarding sign-off, or has been removed.
 - Nothing was sent to press or published.
+- Reviewer check: pick the headline and confirm the relationship document in the record supports its wording; confirm no quote is unmarked.

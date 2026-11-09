@@ -15,6 +15,8 @@ Read the source, locale, glossary and any names or numbers that must survive unc
 
 Use `plain-english-check` for a separate readability review. Keep source and translated version linked with reviewer notes.
 
+Cite the approved source text revision; the translation covers only that text. If `.work/capabilities.md` exists, read the section for this runtime. If a file or transcript tool is missing, say so first, translate pasted text and list files as unread and mark the check pending.
+
 ## When not to use this
 
 Do not use it as the only check for contracts, medical or safety instructions, safeguarding material or anything with legal effect: a qualified human translator signs those off. Do not translate private messages or personal data without a reason the owner can state.
@@ -42,3 +44,4 @@ The translated text in the same structure as the source, the glossary, a numbers
 - Unclear transcript words are marked, not guessed.
 - Public, legal, medical, safety and children's material is flagged for a fluent reviewer.
 - Nothing was published or sent without the owner's yes.
+- Reviewer check: pick one price or date and confirm it matches the source; read the back-translation of the main ask.
