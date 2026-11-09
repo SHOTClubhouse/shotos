@@ -11,9 +11,9 @@ Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show
 
 ## Context and handoff
 
-Read source events, periods, exclusions and metric definitions. Compare like periods and verify counts against representative events.
+Outcome: the team can see, from existing records, how delivery is trending and what to ask next. Acceptance: each figure traces to a source and count, and the owner of the system has read the definitions. Read source events, periods, exclusions and metric definitions. Compare like periods and verify counts against representative events.
 
-Use `evidence-pack` when deciding from a change in trend. Keep the query and definition with the metric record.
+If the owner disputes a figure, correct the definition or source in the record and recompute; do not defend the first number. Use `evidence-pack` when deciding from a change in trend. Keep the query and definition with the metric record.
 
 ## When not to use this
 
@@ -40,7 +40,7 @@ Skip it for a team with no deploys and no repository history yet; say there is n
 
 ## Output
 
-Use [template.md](template.md). Save as `.work/<task>/delivery-metrics.md`. Keep it to one page and a table of sources.
+Use [template.md](template.md). Save as `.work/<task>/delivery-metrics.md`. Keep it to one page and a table of sources. That page is the receipt: figures with counts, gaps, who read the definitions, and the next measure to record.
 
 ## Checks
 

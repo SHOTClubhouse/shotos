@@ -11,7 +11,7 @@ A reader cannot tell a real figure from a made-up one unless the page says. Labe
 
 ## Context and handoff
 
-Read the actual result and evidence sources. Label each claim according to whether it was observed, reported, inferred or remains unknown.
+Outcome: a reader can tell what was observed, inferred or made up. Acceptance: each claim carries a label and pointer, and the saved file was read back. Read the actual result and evidence sources. Label each claim according to whether it was observed, reported, inferred or remains unknown.
 
 Use `report-with-evidence` for the final Claims block. Keep labels beside the source links.
 
@@ -31,11 +31,11 @@ Skip it for short chat answers and for text with no figures or factual claims. D
 5. **Keep "installed", "run" and "accepted" apart.** If the artefact says something is installed, say whether it has been executed, and whether the owner has accepted the result. Each is a separate claim that needs its own proof.
 6. **Say what you did not check.** Add a short list of items that are neither literal nor inferred because they could not be verified.
 7. **Edit the canonical file in place.** Find the one file that owns the artefact (the report, the deck, the page) and change it there. Do not make `report-v2`, `report-final` or `report-copy`. If a snapshot is needed, use the version history of the tool or a dated archive, and say where it is. If asked to save under a new name so the old file stays untouched, say that version history does that job and edit the one canonical file. When you edit, update the labels in the same change.
-8. **Read it back.** Open the saved file where it lives, not the draft in the chat, and confirm every label is present and each literal part matches its source.
+8. **Read it back.** Open the saved file where it lives, not the draft in the chat, and confirm every label is present and each literal part matches its source. If a literal part does not match, fix the figure or relabel it as inferred or unverified in the same file, then read it back again.
 
 ## Output
 
-The labelled artefact itself, with a short label key at the top and a "not checked" list at the end. [template.md](template.md) has the key and a label table for artefacts that cannot carry inline labels.
+The labelled artefact itself, with a short label key at the top and a "not checked" list at the end. The "not checked" list is the receipt. [template.md](template.md) has the key and a label table for artefacts that cannot carry inline labels.
 
 ## Checks
 

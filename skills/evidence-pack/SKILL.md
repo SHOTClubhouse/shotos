@@ -11,7 +11,7 @@ Stage: Track. Rules: 3 Read back the real result, 4 Claim only what you can show
 
 ## Context and handoff
 
-Read the baseline, observed outcomes and original success criteria. Check matching periods, denominators and exceptions before recommending a decision.
+Outcome: a named owner can decide to proceed, pivot or stop from sourced figures. Acceptance: every number traces to the evidence table and gaps are listed. Read the baseline, observed outcomes and original success criteria. Check matching periods, denominators and exceptions before recommending a decision.
 
 Use `decision-record` for the owner’s decision. Leave missing outcomes open in the programme record.
 
@@ -29,7 +29,7 @@ Skip it for a result that is still being built (use `report-with-evidence`) or a
 6. **List other explanations.** Write at least two reasons the change might not be due to the work (seasonality, a pricing change, a one-off event, selection of who was included). Say what you checked and what you could not.
 7. **Add cost and side effects.** Include time and money spent, rework, complaints, defects after release and anything that got worse. A pack with only good news is not finished.
 8. **Draft the decision.** Propose proceeding to Own, pivoting to Hypothesise or stopping, with reasons tied to the figures. Hold if outcome evidence or an essential guard check is missing. If a stop condition was met, surface it first and follow the agreed stop route even when the primary measure hit its target. Name the decision owner and leave the decision line open for their decision, role and date. Wider rollout requires an accepted independent cycle and its own approval.
-9. **Check every claim.** Each sentence with a number must trace to a row in the evidence table. Run claim-check or read each row back against its source.
+9. **Check every claim.** Each sentence with a number must trace to a row in the evidence table. Run claim-check or read each row back against its source. Have someone other than the author, or a fresh session given only the pack and sources, re-derive at least the primary figure and say which of these was done. Correct any mismatch in the pack, then re-check the changed rows.
 
 ## Output
 
