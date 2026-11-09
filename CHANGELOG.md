@@ -1,8 +1,14 @@
 # Changelog
 
-## Unreleased
+## 1.10.0 (9 November 2026)
 
-- Route ordinary weekly leadership updates to Weekly Executive Brief when Executive Ops is installed. Keep unsupported figures and confirmations visibly unverified inside the brief.
+**Aim.** An ordinary weekly leadership request should pick up the installed Weekly Executive Brief skill and keep unsupported claims unverified inside the draft.
+
+**Experiment.** In fresh Claude Code projects with Executive Ops installed, two baseline weekly requests skipped the skill. After the fix, three plain-language weekly requests invoked it automatically. Neither the prompts nor the operator selected a skill.
+
+**Conclusion.** Both revised drafts with unsupported claims labelled them unverified in the brief and asked for the missing evidence. A standalone decision request still picked Decision Brief. A refreshed install kept the claims unverified and omitted the explicit partial-coverage label. These checks cover the fictional requests on this setup.
+
+[Routing evidence](docs/evidence.md#weekly-brief-routing-after-v190) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
 
 ## 1.9.0 (8 November 2026)
 
