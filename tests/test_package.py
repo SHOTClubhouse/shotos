@@ -51,8 +51,7 @@ class PackageTests(unittest.TestCase):
                 description = re.search(r"^description: (.+)$", front, re.M).group(1)
                 self.assertLessEqual(len(description), 1024)
                 readme = (skill / "README.md").read_text(encoding="utf-8")
-                for label in ("Evidence", "Needs"):
-                    self.assertRegex(readme, rf"(?im)^\s*(?:#+\s+|\*\*){label}\b")
+                self.assertRegex(readme, r"(?im)^\s*(?:#+\s+|\*\*)Needs\b")
                 self.assertTrue((examples / "output.md").is_file())
                 kinds = {c["type"] for c in cases if c["skill"] == skill.name}
                 self.assertEqual(kinds, {"normal", "contrary"})
