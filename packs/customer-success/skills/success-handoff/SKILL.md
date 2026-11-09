@@ -17,6 +17,16 @@ If the record already holds a brief or acceptance record for this account, conti
 
 Use `enablement-plan` if the receiving team must prove an independent cycle. Keep acknowledgement and first action with the account.
 
+## If used on its own
+
+Without a CRM, account record or companion skills, work from the notes, mail or agreement the person gives you.
+
+- Mark each fact with the piece it came from, and list what you could not open as "source not available".
+- With no controlling agreement or proposal, do not invent scope. Say the commitments are unknown and ask for the agreement, or point to `contextual-proposal` (or `bid-response` for a tender) first.
+- You cannot see whether a brief or acceptance already exists, so write "existing handoff not checked" in the brief. Transfer status stays **Prepared**, with the receiver unnamed or marked unconfirmed, unless the person pastes the dispatch receipt or the receiver's written acceptance.
+- Do not say the customer was told, access was granted or ownership changed. Those need evidence from the system of record.
+- If `enablement-plan` or `email-reply` is missing, record the follow-up as an open action with its owner.
+
 ## When not to use this
 
 Use `onboarding-recovery` when onboarding has stalled and the current owner needs to restart it. Use this skill when responsibility needs to move. Draft a brief while a receiver is being confirmed. A live transfer needs the current owner's authority and the receiver's acceptance.

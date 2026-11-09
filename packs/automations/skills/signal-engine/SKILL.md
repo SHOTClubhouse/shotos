@@ -13,6 +13,15 @@ Confirm the source labels, allowlisted senders, destination and replay window. C
 
 Use `mode-ladder` before enabling a scheduled run. Keep the processed-ID record and failure log with the approved automation. Rehearse with a test label and a fixture sheet before the real label; real mail content never goes into the repo, this record or the chat.
 
+## If used on its own
+
+If `Code.gs`, its README or `mode-ladder` is not in the project, do not write the script from memory or describe steps as if it were installed.
+
+- Give the person a small request: owner, label, allowlisted senders, digest recipient, what a good digest looks like and who can open the sheet. Add that the engine starts as a dry run, then a pilot of three messages, and nothing is scheduled without the owner's yes.
+- You cannot paste into Apps Script, approve permissions or open their mailbox. Report "not installed", "dry run done" or "pilot done" only on evidence they paste, such as the Log tab or the Sent-mail digest reference.
+- If they ask for replies, forwards, deletion or a digest to several people, say this engine does not do that and stop.
+- API keys go in Script Properties, set by the person. Never ask for one in chat.
+
 ## When not to use this
 
 - The person wants replies, forwards, auto-labelling or deletion of mail. The script does none of that and this skill will not add it.

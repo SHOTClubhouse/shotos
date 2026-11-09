@@ -17,6 +17,15 @@ Reuse the closest proposal's structure and approved assets. Verify the new buyer
 
 Before drafting, check the deal record for an existing proposal revision, approval, dispatch receipt or buyer acceptance. If the buyer has accepted a revision, do not redraft it: report it as the controlling revision and make any change a new revision with its own approval. Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitments in the deal working sheet. If leadership needs to decide whether to proceed, link the exact draft and the private working sheet from the decision brief. Distinguish proposal readiness, authority to send, buyer response and delivery handoff.
 
+## If used on its own
+
+Without a deal record or the companion skills, work from what the person pastes or attaches.
+
+- No deal record: ask for the buyer, the approved offer and any earlier proposal. Write "existing revisions, approvals and acceptance not checked" at the top of the working sheet. Absence of a record is not proof that none exists.
+- Missing companion skill: still name the route from the table below. For a tender, buyer RFP or batch, say which skill it needs and give only a short outline of the buyer's questions, not a full draft. For a weak signal or unknown decider, list what is unknown and the one question that would settle it.
+- No template files: use the headings in the first paragraph of Output. The buyer draft and the private working sheet stay in two separate files, never one file with private notes in it.
+- Handoff: you cannot run `success-handoff` or write to a deal record. Put a **Delivery handoff** block in the working sheet with the revision, proposed commitments, open decisions, proposed receiver and "not accepted, not sent". Offer it as a request the person can paste into `success-handoff` later.
+
 ## Choose the proposal route
 
 | Request | Skill to use |

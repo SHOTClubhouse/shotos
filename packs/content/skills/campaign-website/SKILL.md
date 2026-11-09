@@ -13,6 +13,15 @@ Read the campaign hypothesis, audience, approved offer and proof, primary action
 
 Record the approved source brief (file, revision and owner) at the top of the working record or handover, never in the public or buyer-facing copy. If there is no brief yet, the brief step creates it. Every claim traces to the brief or to this skill's own source list; anything else is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If a browser tool is missing, say so first, build the static preview and write the phone, desktop and keyboard checks as a manual script and mark the check pending.
 
+## If used on its own
+
+If the companion skills, a site builder or a browser tool is missing, build from the brief the person gives you.
+
+- No approved brief: ask for the audience, offer, proof, primary action and destination before writing any claim. Proof you cannot trace goes in as a placeholder labelled "needs source", not as page copy.
+- Without `research-and-assemble`, `image-create` or `claims-audit`, use only claims and graphics the person supplies, list each with its source and rights, and mark the claim check "not run".
+- Build one self-contained local `index.html` preview with a labelled placeholder action and no tracking. Without a browser, mark the phone, desktop and keyboard checks **pending** and give the person the manual steps from step 4.
+- Do not say the page is published, the form delivers or launch is approved.
+
 ## When not to use this
 
 Skip for redesigning an entire product, configuring downstream lead automation, or deploying an already approved site.

@@ -26,6 +26,16 @@ Use `progress-wrap-up` for delivery claims. File one dated brief and link to the
 
 **Minimum to start:** the reader, reporting window and the last accepted brief or agreed baseline. If sources are missing, still produce the one-page brief in the template with Coverage: partial and the gaps named. **First output:** the Coverage line and Decisions needed come first, so the reader sees what to decide and how far it is proven. **Handoff:** each decision row names the decider and date, or says what would confirm them.
 
+## If used on its own
+
+With no records, tools or earlier brief, still write the template brief from what the person gives you in chat.
+
+- Put **Coverage: partial.** first and name each source you could not check, such as the task tracker, the last brief or the figures. List every number or status the person asserted under **Unverified** with the evidence needed, and nowhere else.
+- With no earlier brief, write "first brief, baseline is what was supplied" and use the stated window.
+- Give each decision its decider and date if supplied. Otherwise write "unconfirmed" and what would settle it.
+- If `decision-brief` or `progress-wrap-up` is missing, list the question or delivery claim with its owner in the brief. Do not draft options here.
+- Mark a commitment as agreed only when the person shows who agreed to it and by when.
+
 ## When not to use this
 
 Use a one-line "no material change verified" note when the checked records show no material change and coverage is complete. Use the recipient's reporting format for an investor or board report. Route a decision that needs options to `decision-brief`.
