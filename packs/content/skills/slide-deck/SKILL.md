@@ -15,7 +15,7 @@ Read the decision brief and one approved visual reference. Choose the narrative 
 
 Use `claims-audit` for unsupported promises. Keep the editable deck, source notes and render check together.
 
-Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If the editor or renderer is missing, say so first, deliver the storyline, as in step 1, and mark the check pending.
+Name the approved source brief (file, revision and owner) in the first line of the output and cite it for every claim. Anything not in the brief is a question for the owner. If `.work/capabilities.md` exists, read the section for this runtime. If the editor or renderer is missing, say so first, deliver the storyboard or editable draft with the storyline (step 4), say which check is pending, and stop there.
 
 ## When not to use this
 
@@ -23,7 +23,7 @@ Do not use it for a long document that nobody will present; write a document ins
 
 ## Steps
 
-1. **Check the editor and renderer first.** Read the relevant runtime section in `.work/capabilities.md` if it exists. If the intended editor or renderer is unavailable, prepare a storyboard or editable draft as the tools allow. State what was produced and which check is pending.
+1. **Check the editor and renderer first.** Apply the fallback in Context and handoff if either is missing.
 2. **Agree the reader and the ask.** Who will see it, in what setting (presented, sent to read, on a screen in a shop), and the one thing they should decide or do afterwards. Agree the length and the owner who accepts it.
 3. **Gather the material.** Collect the facts, figures, images and brand guide. Note the source and date of every number. Anything without a source is a question for the owner, not a slide.
 4. **Write the storyline first.** Write one message per slide and read the headlines in order. Keep observed results, proposed targets and the decision request distinct. A quote can support a cost, while the expected outcome may still be a hypothesis. Show the storyline to the owner before building when the deck matters.
