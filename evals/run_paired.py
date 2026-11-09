@@ -70,6 +70,16 @@ def grade(text: str, case: dict) -> dict:
     low = text.lower()
     missing = [m for m in case["must_contain"] if not any(alt.lower() in low for alt in m.split("|"))]
     found = [m for m in case["must_not_contain"] if any(uses(low, alt.lower()) for alt in m.split("|"))]
+    if case.get("unverified_only"):
+        sections = re.split(r"(?m)^(?=#{1,6}[ \t]+|```|~~~)", low)
+        unverified = [section for section in sections if re.match(r"#{1,6}[ \t]+unverified[ \t]*\n", section)]
+        other = [section for section in sections if section not in unverified]
+        for claim in case["unverified_only"]:
+            aliases = claim.lower().split("|")
+            if not any(alt in section for alt in aliases for section in unverified):
+                missing.append(f"{claim} under Unverified")
+            if any(alt in section for alt in aliases for section in other):
+                found.append(f"{claim} outside Unverified")
     return {"pass": not missing and not found, "missing": missing, "forbidden_found": found}
 
 

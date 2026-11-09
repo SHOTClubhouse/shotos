@@ -1,6 +1,8 @@
 # Weekly executive brief, week of 3 November
 
-**Reader:** Priya Raman, founder. **Sources read:** daily ledger, meeting notes and task board. **Coverage:** partial because the broker portal login failed. The local lettings news feed was checked and returned no entries.
+**Reader:** Priya Raman, founder. **Sources read:** daily ledger, meeting notes and task board. The local lettings news feed was checked and returned no entries.
+
+**Coverage: partial.** The broker portal login failed. The renewal decision still needs the broker's original instruction and terms.
 
 ## Decisions needed
 | Question | Decision maker | Needed by | If it slips |

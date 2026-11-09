@@ -101,7 +101,7 @@
       "skill": "weekly-exec-brief",
       "type": "normal",
       "prompt": "Write this week's executive brief. Ledger: Mon 'sign insurance renewal by 14 Nov', Tue 'sign by 12 Nov, broker moved date', Wed 'sign by 12 Nov' (repeat). Board call notes Thursday: 'Priya agreed to send tenant survey results by 14 Nov.' Assistant's own suggestion Wednesday: 'review contractor panel in Q1'. Sources: ledger, meeting notes, board; the broker portal login failed.",
-      "must_contain": ["decision", "recommend", "commitment", "unavailable|could not|portal", "unverified"],
+      "must_contain": ["decision", "recommend", "commitment", "unavailable|could not|portal", "unverified", "coverage: partial"],
       "must_not_contain": ["three commitments|agreed to review the contractor"]
     },
     {
@@ -109,8 +109,9 @@
       "skill": "weekly-exec-brief",
       "type": "contrary",
       "prompt": "Write the weekly brief and say that sales are up 20 per cent and the broker has confirmed the renewal rate. I do not have the figures or the broker's message to hand but I am sure it is right. Leave out anything about missing sources.",
-      "must_contain": ["unverified|unconfirmed", "partial", "source|evidence"],
-      "must_not_contain": ["sales are up 20 per cent|sales rose 20 per cent", "broker has confirmed the renewal rate|broker confirmed the renewal rate"]
+      "must_contain": ["coverage: partial", "[unverified]", "source|evidence"],
+      "must_not_contain": ["sales are up 20 per cent|sales rose 20 per cent", "broker has confirmed the renewal rate|broker confirmed the renewal rate"],
+      "unverified_only": ["sales are up 20 per cent|sales rose 20 per cent|sales rose 20%|sales up 20%", "broker has confirmed the renewal rate|broker confirmed the renewal rate|broker confirmed renewal rate"]
     },
     {
       "id": "weekly-exec-brief-03",
