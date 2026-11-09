@@ -1,6 +1,6 @@
 # Weekly executive brief, week of 3 November
 
-**Reader:** Priya Raman, founder. **Sources read:** daily ledger, meeting notes and task board. The local lettings news feed was checked and returned no entries.
+**Reader:** Priya Raman, founder. **Reporting window and source cut-off:** week of 3 November, sources checked at the end of the week. **Comparison point:** first brief, no earlier accepted brief supplied. **Sources read:** daily ledger, meeting notes and task board. The local lettings news feed was checked and returned no entries.
 
 **Coverage: partial.** The broker portal login failed. The renewal decision still needs the broker's original instruction and terms.
 
@@ -29,5 +29,5 @@ The three insurance entries refer to one renewal decision. They add no commitmen
 - Review the contractor panel in Q1. This is a suggestion only; nobody has agreed to it.
 
 ## Unverified
-- The broker's instruction and renewal terms were unavailable. Confirm the signing deadline and any effect on terms with the renewal owner.
-- The supplied records do not identify the signing or quote-approval authorities. Priya is the reader. The survey commitment is the only action explicitly assigned to her.
+- [unverified] The broker's instruction and renewal terms were unavailable. Confirm the signing deadline and any effect on terms with the renewal owner.
+- [unverified] The supplied records do not identify the signing or quote-approval authorities. Priya is the reader. The survey commitment is the only action explicitly assigned to her.
