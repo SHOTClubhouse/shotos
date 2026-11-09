@@ -25,8 +25,8 @@ What went well, and what was luck:
 
 ## What we change
 Five at most.
-| Change | Answers which cause | How we will know it worked | Owner (one name) | Date |
-|---|---|---|---|---|
+| Change | Answers which cause | How we will know it worked | Stop early and go back if | Owner (one name) | Date |
+|---|---|---|---|---|---|
 
 Accept and watch (no change, and why):
 

@@ -17,7 +17,7 @@ Use `runbook` for gaps and `rollout-plan` after the lead accepts the cycle. Reco
 
 ## When not to use this
 
-Skip it when the result is a one-off with no repeat, or when a vendor will run it permanently by contract (then plan the handover of requirements instead). Do not use training attendance as proof of ability.
+Skip it when the result is a one-off with no repeat, or when one person will run it and the runbook alone is enough (a founder's weekly report, say), or when a vendor will run it permanently by contract (then plan the handover of requirements instead). Do not use training attendance as proof of ability.
 
 ## Steps
 
@@ -29,8 +29,9 @@ Skip it when the result is a one-off with no repeat, or when a vendor will run i
 6. **Plan train-the-trainer.** Choose one or two people per capability who will teach others, give them the teaching material (the `runbook` and worked examples), and have them teach once while the builder watches. Leave a written guide so new joiners do not depend on a person.
 7. **Write the exit criterion first.** Agree it before training starts: the team runs one full cycle of the process end to end, including a check and a handled fault, with the builders present only as observers and answering no questions unless asked to stop. Name the cycle, the date window, and what counts as a pass.
 8. **Plan the fault drill.** Introduce one safe, known fault (a bad input in a test copy, a missing value) and see whether the team finds and handles it using the runbook.
-9. **Set support after exit.** The builders' reduced role: a named contact for a set period, and the date it ends. Decide what is escalated to whom afterwards.
-10. **Record the result.** After the exit run, update the matrix with observed levels, list what was needed from the builders, and mark the exit as passed, passed with conditions or not yet. A named person accepts it.
+9. **Set an early stop.** Name what pauses training before the window ends: a pairing round where the learner still needs the builder at every step, a person who leaves, or no time given for two weeks running. On a stop, keep the builder as the named operator, record who runs it meanwhile, and re-plan with the sponsor instead of extending silently.
+10. **Set support after exit.** The builders' reduced role: a named contact for a set period, and the date it ends. Decide what is escalated to whom afterwards.
+11. **Record the result.** After the exit run, update the matrix with observed levels, list what was needed from the builders, and mark the exit as passed, passed with conditions or not yet. A named person accepts it. Only a passed exit, or a pass with conditions the sponsor accepts, lets `rollout-plan` start; "not yet" schedules a second independent cycle with a fresh fault.
 
 ## Output
 
@@ -41,5 +42,6 @@ Use [template.md](template.md). Save as `.work/<task>/enablement-plan.md` and up
 - Each capability has at least two people planned to reach level 2.
 - Levels come from observation.
 - The exit criterion is written before training starts and requires builders to observe only.
-- A fault drill and a post-exit support end date are in the plan.
+- A fault drill, an early-stop trigger and a post-exit support end date are in the plan.
+- The result states whether the next cycle was run without the builders, or that it is still to do.
 - A named person accepts the exit result.

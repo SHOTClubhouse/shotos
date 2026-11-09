@@ -32,6 +32,9 @@
 > Done means:
 > Do not do without the owner's yes:
 
+## Way back
+Last known good point (commit, copy or backup) and how to return to it. Stop and ask if:
+
 ## Learnings
 - What worked:
 - What failed and why:

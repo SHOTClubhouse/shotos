@@ -26,3 +26,6 @@ Stage:
 Skills, in order, with the reason for each:
 
 ## What this check cannot tell you
+
+## Next check
+One observable step, who looks, re-check date. This placement does not grant autonomy:

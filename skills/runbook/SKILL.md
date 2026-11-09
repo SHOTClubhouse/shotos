@@ -17,7 +17,7 @@ Use `enablement-plan` if they need training or a supervised exit. Save the runbo
 
 ## When not to use this
 
-Skip it for a one-off task that will never repeat. Do not write a runbook for a process nobody has run successfully; run it first, or say the runbook is a draft from the design and mark every step "not yet run".
+Skip it for a one-off task that will never repeat. For a small, low-risk process, write the short version: purpose, owner, steps with expected results, one rollback line and a review date. Do not write a runbook for a process nobody has run successfully; run it first, or say the runbook is a draft from the design and mark every step "not yet run".
 
 ## Steps
 
@@ -27,10 +27,11 @@ Skip it for a one-off task that will never repeat. Do not write a runbook for a 
 4. **Write the steps.** Numbered, one action each, in the order done. Give the exact command, button or page, the account or role needed (never the secret itself), and the expected result after each step. Replace "check it looks right" with what right looks like.
 5. **Write the checks.** After the run: what to look at, where, and what a good result and a bad result look like. Include a way to confirm that the effect reached the real place (the live page, the sent file, the database count).
 6. **Write the failure section.** For each failure seen or foreseeable: symptom, likely cause, what to try first, when to stop and escalate. Use failures from the incident notes before inventing any.
-7. **Write the rollback.** How to undo or stop safely, what cannot be undone, and who must say yes before an irreversible step (sending, spending, deleting, deploying, publishing).
+7. **Write the rollback and the stop point.** Say when to stop mid-run (for example, a check fails twice or a total is off by more than the agreed tolerance) and leave things in a known state. Give how to undo or stop safely, what cannot be undone, and who must say yes before an irreversible step (sending, spending, deleting, deploying, publishing).
 8. **Say who to call.** Names or roles, how to reach them, and when. Escalation order. No personal contact details in a public repository; point to the team contact sheet.
 9. **Test it with someone new.** Ask a person who did not build it to follow the runbook, with the builder only observing. Record where they stopped or guessed and fix those lines. Record which steps were tried, what the operator needed from the builder and what remains untested. Mark independent operation verified only for a complete, checked cycle with no help. An assisted run can improve the runbook. Test the affected steps again after a change to the runbook, tools, access or process. See the [handover exercise](handover-exercise.md).
-10. **Set a review date** and say what changes trigger an update.
+10. **Plan the next cycle without the builder.** Name who runs the next real cycle, with the builder reachable only to stop it. Record the result on the same page; a second clean cycle on a changed runbook is the evidence that it has stuck.
+11. **Set a review date** and say what changes trigger an update.
 
 ## Output
 
@@ -40,6 +41,6 @@ Use [template.md](template.md). Save with the process, for example `runbooks/wee
 
 - Every step is marked seen, told or from design.
 - Steps give the expected result, not just the action.
-- Failures, rollback and an escalation list are present.
+- Failures, rollback, a stop point and an escalation list are present.
 - No secrets appear in the text, and none is repeated in the reply.
 - The run record names the operator, revision, environment, assistance and observed outcome. The status matches those facts.
