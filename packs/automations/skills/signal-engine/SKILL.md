@@ -11,7 +11,7 @@ Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real res
 
 Confirm the source labels, allowlisted senders, destination and replay window. Check the same message ID twice before relying on a schedule.
 
-Use `mode-ladder` before enabling a scheduled run. Keep the cursor and failure log with the approved automation.
+Use `mode-ladder` before enabling a scheduled run. Keep the processed-ID record and failure log with the approved automation. Rehearse with a test label and a fixture sheet before the real label; real mail content never goes into the repo, this record or the chat.
 
 ## When not to use this
 
@@ -31,11 +31,12 @@ Use `mode-ladder` before enabling a scheduled run. Keep the cursor and failure l
 8. **Optional AI scoring.** Only if the owner wants it. The key goes in Script Properties by the person; never ask for it in chat, never write it in a file. Compare ten items with and without AI and let the owner decide whether it earns its place.
 9. **Owner accepts.** Show the pilot evidence. Wait for a yes.
 10. **Schedule.** Only after the yes: `disablePilotMode`, then `installTriggers`. Confirm the trigger list and the mode, and record the date, the owner and how to switch off (`removeTriggers`, `enableDryRunMode`).
-11. **First week check.** After a week, review the Log for errors and lock skips, and tune the Priorities with the owner.
+11. **Recover safely.** If a digest run stops or `PENDING_DIGEST` is set, do not resend. Check the owner's inbox to see whether it arrived. If it did, mark its item keys `digested` and clear `PENDING_DIGEST`; if it did not, clear it and rerun. Follow the README steps exactly. After an outage, `collectSignals` can be rerun: processed IDs make it skip finished work. If the Log shows repeated errors or lock skips, `removeTriggers`, `enableDryRunMode` and tell the owner.
+12. **First week check.** After a week, review the Log for errors and lock skips, and tune the Priorities with the owner.
 
 ## Output
 
-A filled [template.md](template.md): acceptance, settings, pilot evidence and the schedule decision. Keep it with the project.
+A filled [template.md](template.md): acceptance, settings, pilot evidence and the schedule decision. Keep it with the project and give its location, the spreadsheet location, the mode, the trigger state and the next owner in the handoff.
 
 ## Checks
 
@@ -43,4 +44,5 @@ A filled [template.md](template.md): acceptance, settings, pilot evidence and th
 - No API key appears in chat, code, sheet or log.
 - The digest goes to one address, the owner's unless the owner sets `DIGEST_TO`; no step sends mail to anyone else.
 - The report separates installed, executed (pilot ran) and accepted (owner said yes).
+- A rerun adds no duplicate Queue rows and no second digest for the same items.
 - If a dry run shows zero messages or obviously wrong items, the skill stops and fixes rather than going live.

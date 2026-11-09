@@ -11,7 +11,7 @@ Stage: Operate. Rules: 1 (stop at the boundaries) and 3 (read back the real resu
 
 Inspect the actual folder and the canonical records. Match duplicates by content and verify which location the owner relies on.
 
-Use `quarantine` for authorised relocation. Save a source-to-destination map and read back the result.
+Use `quarantine` for authorised relocation. Save the plan, source-to-destination map and change log in the owning task folder (see `work-folder`) and name that location in the handoff. Read back the result.
 
 ## When not to use this
 
@@ -26,8 +26,8 @@ Skip folders under a legal hold or audit. Do not tidy a folder that nobody has a
 5. **Choose what to keep.** For each duplicate group, propose the copy to keep by owner and location, and say why. The others are candidates to move.
 6. **Write the plan.** A table with one row per file: current path, action (move, rename, move to quarantine, remove), destination, reason, and the group it belongs to. Prefer a move to an `_archive` or quarantine folder over deletion. Mark any real deletion as needing its own yes.
 7. **Show the plan and stop, unless the request already said yes.** Give the totals: files moved, files removed, space freed. Wait for a yes, and accept a yes for part of the plan. If the owner's request already asked for an action (for example "sort it into folders and delete the duplicates"), that is the yes for exactly that: moves into the agreed structure and removal of byte-identical duplicates confirmed by checksum. Still stop for anything the request did not cover, such as look-alike files that differ.
-8. **Execute the approved rows only.** Move rather than delete. Write a change log with old path, new path, checksum and time for every action so each can be reversed.
-9. **Read back.** Re-run the inventory and confirm counts match the plan: nothing missing, nothing extra, and the log is complete.
+8. **Execute the approved rows only.** Before each move, confirm the source still exists with the planned size and checksum, and that the destination is free. If not, skip the row and report it; never overwrite. Log each row as it is done, so an interrupted run can be resumed from the log: rerun the inventory, skip rows already logged, and re-plan the rest. Move rather than delete. Write a change log with old path, new path, checksum and time for every action so each can be reversed.
+9. **Read back.** Re-run the inventory and confirm counts match the plan: nothing missing, nothing extra, and the log is complete. Hand over with the folder, the plan and log location, rows applied, skipped and still waiting, and the next owner.
 
 ## Output
 
@@ -39,3 +39,4 @@ A structure proposal, a duplicate report, a plan table, and after approval a cha
 - The plan was shown before any change, unless the request already named the action; only approved or requested rows were applied.
 - No file was deleted where a move would do; any deletion was either named in the request or had its own yes.
 - Every change is in the log with enough detail to undo it.
+- A rerun skips logged rows and rechecks size and checksum before moving.

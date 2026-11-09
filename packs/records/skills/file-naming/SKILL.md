@@ -13,7 +13,7 @@ A good name tells a stranger the date, whose file it is, what it is about and wh
 
 Read the team’s naming convention and inspect adjacent files. Check owner, date and version before choosing a name.
 
-Use `filing-and-dedupe` if existing versions conflict. Keep any required rename mapping with the owning record.
+Use `filing-and-dedupe` if existing versions conflict. Keep the rename log with the owning record, not in the chat, and name its location in the handoff. On a rerun, read the log and the folder first: a file already at its planned name is done, not a collision.
 
 ## When not to use this
 
@@ -52,8 +52,8 @@ Use `draft` or `final` sparingly, as a last part before the extension (for examp
 2. **Decide the pattern.** Use the one above unless the project already has a convention; then follow that and say so.
 3. **Build the rename plan.** A table: current name, proposed name, reason, and a flag for any collision (two files proposed the same name) or any link that points at the old name.
 4. **Show the plan.** If the request already asked for the rename (for example "rename these to the standard pattern"), that is the yes for exactly that: apply it, and stop only for collisions, broken links or anything the request did not cover. If the request did not name renaming, or the change reaches beyond what was asked, show the plan and wait for a yes. Offer to apply only part of it.
-5. **Apply once approved.** Rename, do not copy. Write the old and new names to a log so the change can be undone.
-6. **Read back.** List the folder again and confirm the names match the plan and nothing else changed.
+5. **Apply once approved.** Rename, do not copy. Write the old and new names to a log kept beside the plan (for example `rename-log.md` in the owning task folder) so the change can be undone. If the run stops part way, the log shows what was done; resume from the folder as it now is, never from the original plan.
+6. **Read back.** List the folder again and confirm the names match the plan and nothing else changed. Say which links were checked and which were not.
 
 ## Output
 

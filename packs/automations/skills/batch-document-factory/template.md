@@ -33,5 +33,11 @@
 - Continuation trigger removed: yes | no
 - auditDocuments result:
 
+## Recovery and handoff
+- Sheet and output folder (location only, no keys):
+- Open error or receipt-error rows, reason, next owner:
+- Fixture used for testing, or none:
+- To resume: read the Report tab, then `retryFailed`; DONE rows are never redone
+
 ## Claims
 - [unverified] anything not checked in the real documents

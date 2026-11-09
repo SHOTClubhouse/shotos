@@ -11,7 +11,7 @@ Stage: Operate. Rules served: 1 Stop at the boundaries, 3 Read back the real res
 
 Read the approved master, row schema and recipient permissions. Pick a normal row, a boundary row and a missing-field row before producing the batch.
 
-Use `one-off-or-factory` if variation changes the structure. Record every generated or skipped row by source ID.
+Use `one-off-or-factory` if variation changes the structure. Record every generated or skipped row by source ID. Test on a fixture sheet with invented people before pointing the script at real rows; keep the real sheet, folder and template IDs in the owner's Script Properties or sheet, never in the repo or chat.
 
 ## When not to use this
 
@@ -33,7 +33,8 @@ Use `one-off-or-factory` if variation changes the structure. Record every genera
 9. **Owner accepts the sample.** Show the three documents. If any is wrong, fix the template or data, clear `done` on those rows, and repeat the sample. Do not go on.
 10. **Full batch.** Run `runBatch`. Expect it to stop and schedule a continuation if the batch is large. Check afterwards that the continuation trigger is gone (`removeContinuation` if not).
 11. **Reconcile.** Count: rows, DONE, blocked, error. Run `auditDocuments`. Use `retryFailed` for errors, after reading why.
-12. **Record and hand over.** Fill the template with counts and links. Tell the owner the documents exist and nothing has been sent; sending is theirs.
+12. **Recover safely.** Never rerun by clearing `done` on a verified row. DONE rows are skipped on a rerun. For a `receipt-error`, open the logged document and compare it with the row before anything else; see the README. For `error` rows, read the reason, fix the cause, then `retryFailed`; a row at `MAX_ATTEMPTS` waits for it. Stop if the Report and the folder disagree and ask the owner.
+13. **Record and hand over.** Fill the template with counts and links, the sheet and output folder location, any open receipt-error or error rows with their next owner, and how to resume. Tell the owner the documents exist and nothing has been sent; sending is theirs.
 
 ## Output
 
@@ -46,3 +47,4 @@ A filled [template.md](template.md): acceptance, template and data checks, dry-r
 - The agent never sends, shares, moves to the bin or deletes a generated document.
 - Final counts add up: rows = done + blocked + error + not yet processed.
 - The report says what was checked in the real documents and what was not.
+- A rerun creates no second document for a DONE row, and any open error has an owner and a next step.

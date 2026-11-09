@@ -22,4 +22,4 @@ Use the authoritative source, the current target and the exact approved plan if 
 
 ## Output and checks
 
-Produce the review and exception queue with exact counts and next owners. Leave the target unchanged. An execution report needs per-row read-back and a record of any partial or unresolved result.
+Produce the review and exception queue with exact counts and next owners. Save the sheet, receipts and read-back in the owning task folder and name its path in the handoff. Leave the target unchanged. Work on a fixture or copy of the target until the owner approves a live run; never put real credentials or full personal records in the sheet. An execution report needs per-row read-back and a record of any partial or unresolved result.
