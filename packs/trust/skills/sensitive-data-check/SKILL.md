@@ -15,6 +15,10 @@ Read the proposed use, minimum data needed, approved access and relevant consent
 
 Use `public-exposure-check` when distribution is proposed. Store only evidence references in the restricted record.
 
+## Trigger and minimum inputs
+
+Run it at the start of work that collects, stores, shares or publishes health details, other special-category data, anything about children or images of children, and again before release. It needs the plan or design, the data items, and whatever consent records and policies exist. Without a plan, ask for one. Without a named escalation person, record that as a finding. Do not ask for the personal records themselves; references are enough.
+
 ## When not to use this
 
 Skip work that holds no personal data. This is not legal advice. A data protection officer or a designated safeguarding lead decides the hard cases.
@@ -34,7 +38,11 @@ Skip work that holds no personal data. This is not legal advice. A data protecti
 
 ## Output
 
-Use [template.md](template.md): a checklist with evidence, and a decision line.
+Use [template.md](template.md): a checklist with evidence, and a decision line. On stop, include the person to escalate to, the decision they need to make and what resumes once it is made.
+
+## Handoff
+
+When the decision is proceed or proceed after fixes, hand the fix list to the work owner and run `public-exposure-check` before anything is shared. Use `quarantine` for files that may already hold this data.
 
 ## Checks
 

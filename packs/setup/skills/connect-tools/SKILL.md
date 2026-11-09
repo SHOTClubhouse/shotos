@@ -15,6 +15,10 @@ Read the task’s exact data needs, current connector inventory and any existing
 
 Use `mode-ladder` to choose authority. Record verified capabilities and gaps in the project setup notes.
 
+## Trigger and minimum inputs
+
+Run it on first install, after connecting or removing a tool, or when a skill stops on a missing capability. It needs the runtime name, the workspace and one approved read-only test target per connector (a test folder, test calendar or blank page). With none, record "connected, not tested" and carry on. Any runtime can use it, whether Claude Code, Codex or another agent.
+
 ## When not to use this
 
 Do not use it to set up accounts or create credentials; that is the owner's job. Do not use it to test a tool by doing real work with it.
@@ -32,6 +36,10 @@ Do not use it to set up accounts or create credentials; that is the owner's job.
 ## Output
 
 `.work/capabilities.md` holds the runtime and scope, dated checks, affected skills and next connection. Refer to the section for the environment doing the work.
+
+## Blockers and handoff
+
+If a tool needs credentials, account access or spend, stop at that capability and name the owner who must act. Continue with the others. Hand the file to `mode-ladder` for routing and to any skill that listed a gap. State the first skill that can run today and the first that cannot.
 
 ## Checks
 
