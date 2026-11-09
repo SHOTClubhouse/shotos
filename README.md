@@ -132,7 +132,7 @@ For Claude Code, use `--runtime claude` and add `--with-hook` if you want the op
 | Give another team the work and its evidence | [Evidence handoff](skills/evidence-handoff/README.md) |
 | Prove a team can run the workflow and prepare the next wave | [Enablement plan](skills/enablement-plan/README.md) and [rollout plan](skills/rollout-plan/README.md) |
 
-Browse all 88 [skill guides and downloads](docs/skill-catalogue.md), or choose a [task to try](docs/what-you-can-do.md). The [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md) show how the pieces fit. See the [evidence](docs/evidence.md) for recorded checks and their scope.
+Browse all 88 [skill guides and downloads](docs/skill-catalogue.md), or choose a [task to try](docs/what-you-can-do.md). The [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md) show how the pieces fit. See [time, cost and quality with and without SHOTos](docs/evidence.md).
 
 ## What you can use today
 
