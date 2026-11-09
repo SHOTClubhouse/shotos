@@ -1,7 +1,7 @@
 {
   "name": "shotos-setup",
   "version": "1.3.0",
-  "description": "Run SHOTos itself: check which tools are connected, keep configuration as code with a drift check, right-size the effort for a task and audit a skill collection.",
+  "description": "Run SHOTos itself: check which tools are connected, keep configuration as code with a drift check, right-size the effort for a task, audit a skill collection and verify a live release.",
   "author": {
     "name": "Liam McDowell"
   },
