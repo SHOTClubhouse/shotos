@@ -1,5 +1,7 @@
 # Run SHOTos in your project
 
+[See what the six stages give you](framework.md#try-one-job-across-the-six-stages), then choose one job to try.
+
 Choose [Codex or Claude Code on Windows or Mac](guides/codex-claude-code.md), or [ChatGPT or Claude without a terminal](guides/chat-assistants.md). Start with the runtime your team already uses. [Try the method](../README.md#try-shotos) with an acceptance card or run the local demo. The [install guide](../README.md#install) shows how to preview what changes in your project.
 
 ## Choose your first job

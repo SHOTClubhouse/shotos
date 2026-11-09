@@ -2,9 +2,11 @@
 
 <img src="docs/images/shotos-mark.svg" alt="SHOTos mark" width="56" height="56">
 
-**Free, open-source skills for the work you do with AI.**
+**Free AI workflows, from the first brief to a result someone can own.**
 
-SHOTos gives founders and teams reusable AI skills for work like proposals, leadership decisions and customer handoffs. Each skill helps you find the right inputs, check the result and give the next person enough context to continue.
+Use the AI assistant you already have to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start with one of 88 free, open-source skills. Each gives you a way to use your context and check what comes back.
+
+[See the six stages in action](docs/framework.md#try-one-job-across-the-six-stages) · [Choose your role](docs/guides/start-by-role.md) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
 
 **Try one job in your usual chat.** Copy the [one-message founder exercise](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise), then compare the reply with the checks below it. To see what two connected skills produce, follow the [fictional proposal and handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md).
 
@@ -64,13 +66,13 @@ Explore the [Northbank fictional club website](https://shotclubhouse.github.io/s
 
 > Use this card for the task. Show me the saved result and what you checked. Leave anything you could not verify open for review.
 
-**See how the work gets checked.** Open the [worked proposal and handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md) to see the input, finished drafts and the two acceptance decisions. The [local checker guide](docs/claims.md) has the detailed checks.
+**Open two worked outputs.** See a [campaign page and a proposal-to-handoff example](docs/framework.md#open-the-worked-outputs), then follow the sources and checks behind them. The [local checker guide](docs/claims.md) explains the checks in detail.
 
 ![Six stages from Scope to Sustain and Scale. Track can continue to Own, return to Hypothesise, stop or hold for evidence. Scaling starts the next team at Scope.](docs/images/six-stages.svg)
 
 ## The six stages
 
-**Scope · Hypothesise · Operate · Track · Own · Sustain and Scale.** Start with the stage that fits the job in front of you. Bring the stages together when a team needs to take an initiative from its first brief to a repeatable way of working.
+**S**cope, **H**ypothesise, **O**perate, **T**rack, **o**wn and **s**ustain and scale. Start with the stage that fits the job in front of you. Bring all six together when a team needs to take an initiative from its first brief to a repeatable way of working. [See what each stage gives you in your role](docs/framework.md#try-one-job-across-the-six-stages).
 
 | Stage | What you do | What you hand forward |
 |---|---|---|

@@ -1,5 +1,7 @@
 # Use SHOTos in ChatGPT or Claude without a terminal
 
+[See what the six stages give you](../framework.md#try-one-job-across-the-six-stages), then choose one job to try.
+
 Start with one skill and a fictional example. You can download, unpack and add the files with a browser and file manager on Windows or Mac.
 
 The walkthrough below uses Decision Brief. To try a different job, pick its ZIP from the [first-job guide](../running-it.md#choose-your-first-job) and substitute its skill name in the setup steps. For a file-based chat, use its `SKILL.md`, relevant template and example input. Then use the [sample prompt and review checks](../running-it.md#run-the-sample-from-your-zip).

@@ -1,5 +1,7 @@
 # Start with the work you do
 
+[See what the six stages give you](../framework.md#try-one-job-across-the-six-stages), then choose one job to try.
+
 Try SHOTos for free in the AI assistant you already use. Pick one job, give the assistant the relevant sources and check the result against the example. You can start in one chat or [download an individual skill](../running-it.md#choose-your-first-job).
 
 [Founder](#founder) · [Commercial lead](#commercial-lead) · [Product manager](#product-manager) · [Graduate](#graduate) · [Marketing manager](#marketing-manager) · [Social content creator](#social-content-creator)

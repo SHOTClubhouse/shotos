@@ -24,6 +24,30 @@ Two things set the shape:
 
 The stages work for business change, technical change, or both at once. Below, each stage has a business side and a technical side, and in practice most work has both.
 
+## Try one job across the six stages
+
+Start with the job you already need to do. Give your assistant the sources, say who will review the work and agree what the result should look like. The stages show how you can take that result from a first brief to a repeatable workflow. Use one skill today or follow [one fictional team through all six stages](walkthrough.md).
+
+| If you are… | Scope gives you | Hypothesise gives you | An output you can open |
+| --- | --- | --- | --- |
+| A founder | A brief that separates customer observations from the idea you could build. | One test with a measure and a decision owner. | [Repair-workshop test plan](guides/startup-founder.md#try-a-fictional-discovery-exercise) |
+| A commercial lead | A buyer need, account context and the approved offer. | A clear reason to progress the opportunity and the next question for the buyer. | [Proposal and delivery handoff](../packs/win-the-work/skills/contextual-proposal/worked-deal.md) |
+| A product owner | A user need and concrete examples from the request. | A proposed first slice and checks the team can agree on. | [Membership discount examples](../examples/example-mapping/output.md) |
+| A marketing manager | An audience, a B2B or direct-to-consumer offer and an approved source for the claims. | A visitor action to test and a clear review check. | [Campaign page preview](../packs/content/skills/campaign-website/README.md) |
+| A social content creator | The real dates, usable assets and audience for the week. | A proposed mix of posts and who reviews each one. | [Tidewell social calendar](../packs/social/skills/content-calendar/README.md) |
+| A student or graduate | An assignment, sources and a clear reviewer. | A short agreement on what to produce and how to check it. | [Venue comparison exercise](guides/start-by-role.md#graduate) |
+
+[Choose skills by role](guides/start-by-role.md) or [download one skill](https://github.com/SHOTClubhouse/shotos/releases/latest) and use the assistant you already have.
+
+## Open the worked outputs
+
+![A fictional campaign page and the North Quay proposal and handoff record.](images/stage-07-worked-outputs.png)
+
+| Try this | What you would gather and agree | What the skill gives you |
+| --- | --- | --- |
+| [Campaign Website](../packs/content/skills/campaign-website/README.md) | The audience, approved copy and assets, and the one action a visitor should take. | An editable preview with a main action you can try using a mouse or keyboard. |
+| [Proposal to handoff](../packs/win-the-work/skills/contextual-proposal/worked-deal.md) | Buyer notes, the approved offer, the accepted revision and the receiving lead’s confirmation. | A proposal and handoff connected to the same account record, with the next action assigned. |
+
 ## Run a programme
 
 ![Source evidence, acceptance checks and authority feed the programme record. The next person gets the checked result, the gaps and a named decision owner.](images/context-to-decision.svg)
@@ -43,6 +67,8 @@ The current authority sets the boundary for each run. A draft run checks an arte
 
 ## S: Scope. "Know your ground."
 
+![Scope. Product owner · support notes → problem brief](images/stage-01-scope.png)
+
 Understand the situation before changing it. Most wasted effort starts with a solution chosen before anyone wrote down the problem.
 
 | | What you do |
@@ -60,6 +86,8 @@ Understand the situation before changing it. Most wasted effort starts with a so
 **Run this stage.** Use the [problem brief](../templates/problem.md) and [baseline worksheet](../skills/baseline/template.md). Record the source and window for each measure, the people affected, the decision owner and the limits of the first slice. If a baseline is missing, agree who will collect it and by when. Hypothesise can draft a bet while that measurement is open. Operate starts once the comparison baseline and acceptance checks are usable. See the [worked baseline](../examples/baseline/output.md) and [Harbourside findings](../examples/walkthrough/reference/2-findings.md).
 
 ## H: Hypothesise. "Call your shot."
+
+![Hypothesise. Founder · repeat calls → one-week test](images/stage-02-hypothesise.png)
 
 Turn the problem into bets you can test, and agree how you will know before you build anything.
 
@@ -79,6 +107,8 @@ Turn the problem into bets you can test, and agree how you will know before you 
 
 ## O: Operate. "Play it out."
 
+![Operate. Marketer · approved copy and assets → page preview](images/stage-03-operate.png)
+
 Deliver the smallest real piece into real use, working alongside the people who will own it.
 
 | | What you do |
@@ -96,6 +126,8 @@ Deliver the smallest real piece into real use, working alongside the people who 
 **Run this stage.** For a batch, use the [pilot log](../skills/pilot-before-scale/template.md) to select up to three varied items and record preflight, recovery, the stop condition and the result. Read back the output in the tool where it lives and link the proof to each acceptance check. Record drafted, reviewed and executed actions separately. If a required source fact or permission is missing, park that item and record who resolves it. See the [worked pilot](../examples/pilot-before-scale/output.md) and [Harbourside draft report](../examples/walkthrough/reference/4-report.md).
 
 ## T: Track. "Prove it."
+
+![Track. Student · venue quotes and capacity → recommendation](images/stage-04-track.png)
 
 Measure what changed against the baseline, then decide.
 
@@ -115,6 +147,8 @@ Measure what changed against the baseline, then decide.
 
 ## o: Own. "Own it."
 
+![Own. Commercial lead · accepted proposal → delivery handoff](images/stage-05-own.png)
+
 Make the team that will run the result self-sufficient before anyone copies it elsewhere.
 
 | | What you do |
@@ -132,6 +166,8 @@ Make the team that will run the result self-sufficient before anyone copies it e
 **Run this stage.** Give the receiving lead the accepted pilot decision, [handoff](../templates/handoff.md), [runbook](../skills/runbook/template.md) and [capability matrix](../skills/enablement-plan/template.md). Agree what a full cycle and a common exception look like before the exit run. The receiving team runs the cycle using its own access, handles or escalates the exception, and records the output. The receiving lead signs off the evidence. If the builders had to intervene, record what the team needs and repeat the exit run. See the [worked enablement plan](../examples/enablement-plan/output.md) and [worked runbook](../examples/runbook/output.md).
 
 ## s: Sustain and Scale. "Go again, bigger."
+
+![Sustain and Scale. Social creator · approved content week → a reusable calendar](images/stage-06-sustain-scale.png)
 
 Take what worked to the next team, and keep improving.
 
