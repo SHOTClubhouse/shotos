@@ -30,7 +30,7 @@ You get the tables from [template.md](template.md). Correct any label you know t
 
 ## How it connects
 
-- **Feeds:** [nudge-qualify](../nudge-qualify/README.md) (the Gatekeepers question) and [leap-pipeline](../leap-pipeline/README.md) (the Lead stage).
+- **Feeds:** [nudge-qualify](../nudge-qualify/README.md) (the Gatekeepers question) and [leap-pipeline](../leap-pipeline/README.md) (the Lead stage). It reaches [contextual-proposal](../contextual-proposal/README.md) only when a priced proposal is warranted, normally through nudge-qualify.
 - **Drafts after:** [outbound-prospecting](../outbound-prospecting/README.md) and [email-reply](../email-reply/README.md), for a person to send.
 - **Rules:** [docs/controls.md](../../../../docs/controls.md).
 

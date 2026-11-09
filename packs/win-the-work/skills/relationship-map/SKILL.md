@@ -13,7 +13,7 @@ Stage: Scope. Rules served: 4 (claim only what you can show) and 1 (stop at the 
 
 Read existing records, meeting notes and public role evidence. Distinguish observed links from hypotheses and date material relationships.
 
-Use `leap-pipeline` for an evidenced opportunity. Maintain the map beside the existing account or market record.
+Use `leap-pipeline` for an evidenced opportunity. Route to `nudge-qualify` to test one opportunity, and to `contextual-proposal` only when a priced proposal is warranted: a named buyer, a defined need and evidence that an offer is the next step, usually after `nudge-qualify` clears the pricing gate. A map, an unresolved link or a first test is not a reason to draft a proposal. Maintain the map beside the existing account or market record.
 
 ## When not to use this
 

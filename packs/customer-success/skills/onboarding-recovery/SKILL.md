@@ -17,7 +17,7 @@ Use `success-handoff` if ownership changes. Keep the recovery plan and first-val
 
 ## When not to use this
 
-Skip it when the customer has asked to cancel or has a complaint that needs the owner first (escalate to the owner). Skip it for an account that has not started and has no stall. Use `success-handoff` if the problem is who owns the account.
+Skip it when the customer has asked to cancel or has a complaint that needs the owner first (escalate to the owner). Skip it for an account that has not started and has no stall. A signed account that is pre-start with a stalled handoff step before a committed start date is in scope; see the [pre-start example](pre-start-example.md). Use `success-handoff` if the problem is who owns the account.
 
 ## Steps
 
@@ -41,4 +41,4 @@ Use [template.md](template.md): timeline, diagnosis with confidence, next step, 
 - The diagnosis is labelled a hypothesis unless the evidence is direct.
 - There is one named next owner and a date. Any customer step has its prerequisite and proposed or agreed date recorded.
 - The draft quotes the real thread and was not sent.
-- A stall caused by us stays with our owner until the blocker clears. See the [first-value example](first-value-example.md).
+- A stall caused by us stays with our owner until the blocker clears. See the [first-value example](first-value-example.md) and the [pre-start example](pre-start-example.md).

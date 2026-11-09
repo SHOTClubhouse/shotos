@@ -33,7 +33,7 @@ Read the pursuit recommendation and pricing gate separately. Go may mean one pro
 ## How it connects
 
 - **Part of:** [leap-pipeline](../leap-pipeline/README.md) uses the scorecard as an Explore exit criterion.
-- **Next:** [contextual-proposal](../contextual-proposal/README.md) drafts the offer once the pricing gate clears. [Relationship Map](../relationship-map/README.md) helps with the Gatekeepers question.
+- **Next:** [contextual-proposal](../contextual-proposal/README.md) drafts the offer only once the pricing gate is cleared for drafting and a priced proposal is the next step; a blocked gate stays in discovery. [Relationship Map](../relationship-map/README.md) helps with the Gatekeepers question.
 - **Rules:** [docs/controls.md](../../../../docs/controls.md).
 
 ## Needs

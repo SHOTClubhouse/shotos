@@ -13,7 +13,7 @@ Stage: Scope (and used again before committing to a proposal). Rules served: 4 (
 
 Read the buyer’s stated need, commercial evidence, timing and approval path. Separate a plausible budget route from money already authorised.
 
-Use `contextual-proposal` for a priced offer once the pricing gate is cleared. Keep both decisions, scores and uncertainties with the deal.
+Route to `contextual-proposal` only when the pricing gate is **cleared for drafting** and a priced proposal is the evidenced next step. While the gate is blocked, or the next step is discovery, a procurement check or a pause, stay in discovery and do not route. Keep both decisions, scores and uncertainties with the deal.
 
 ## When not to use this
 
