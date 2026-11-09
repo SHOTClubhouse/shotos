@@ -123,6 +123,33 @@ class StopHookTests(unittest.TestCase):
         run = subprocess.run([sys.executable, str(HOOK)], input="not json", capture_output=True, text=True)
         self.assertEqual(run.returncode, 0)
 
+    def test_input_that_is_not_an_object_never_blocks(self):
+        for payload in ("[]", '"text"', "5", "null"):
+            run = subprocess.run([sys.executable, str(HOOK)], input=payload, capture_output=True, text=True)
+            self.assertEqual(run.returncode, 0, run.stderr)
+            self.assertEqual(run.stderr, "")
+
+    def test_a_connector_send_reported_as_done_without_claims_is_blocked(self):
+        run = self.run_hook("Done, I emailed the client.", tools=("mcp__claude_ai_Gmail__send_message",))
+        self.assertEqual(run.returncode, 2, run.stderr)
+
+    def test_a_connector_read_is_not_treated_as_a_change(self):
+        tools = ("mcp__claude_ai_Gmail__search_threads", "mcp__flows__creative_get_flow_run_status")
+        run = self.run_hook("Done. That is what the inbox shows.", tools=tools)
+        self.assertEqual(run.returncode, 0, run.stderr)
+
+    def test_messages_reach_claude_code_as_utf8_on_any_console(self):
+        with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as home:
+            tmp = Path(tmp)
+            (tmp / ".shotos").mkdir()
+            text = "Done.\n\n## Claims\n- [file] created: résumé.md"
+            event = {"transcript_path": str(transcript(tmp, text)), "cwd": str(tmp), "stop_hook_active": False}
+            env = {**os.environ, "HOME": home, "USERPROFILE": home, "PYTHONIOENCODING": "cp1252"}
+            run = subprocess.run([sys.executable, str(HOOK)], input=json.dumps(event).encode(),
+                                 capture_output=True, env=env)
+            self.assertEqual(run.returncode, 2)
+            self.assertIn("résumé.md", run.stderr.decode("utf-8"))
+
     def test_false_claim_blocks_the_stop(self):
         run = self.run_hook("Done.\n\n## Claims\n- [file] created: plan.md\n")
         self.assertEqual(run.returncode, 2)

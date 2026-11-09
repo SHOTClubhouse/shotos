@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Read back a published SHOTos release against a checkout and the built skill ZIPs."""
+"""Read back a published SHOTos release against a checkout and the built skill ZIPs.
+
+Each local ZIP gets the packager's link check again, against the release commit.
+"""
 
 import argparse
 import hashlib
@@ -14,6 +17,7 @@ from pathlib import Path
 from urllib.parse import quote
 from urllib.request import Request, urlopen
 
+from package_skills import link_problems
 from skill_resources import PUBLIC_REPO
 
 REPO = Path(__file__).resolve().parents[1]
@@ -61,13 +65,20 @@ def source_head(source):
                           text=True, check=True, timeout=10).stdout.strip()
 
 
-def verify_archive(name, content, skill):
+def verify_archive(name, content, skill, source_ref=None, source=None):
     with zipfile.ZipFile(BytesIO(content)) as archive:
         if len(archive.namelist()) != len(set(archive.namelist())) or archive.testzip() is not None:
             raise ValueError(f"invalid skill archive: {name}")
         member = f"{skill.parent.name}/SKILL.md"
         if member not in archive.namelist() or archive.read(member) != skill.read_bytes():
             raise ValueError(f"skill instructions do not match the release source: {name}")
+        if source_ref is None:
+            return
+        members = [(entry, archive.read(entry)) for entry in archive.namelist() if not entry.endswith("/")]
+    # The same link check the packager runs, so a ZIP built some other way cannot pass unchecked.
+    problems = link_problems(members, source_ref, source or REPO)
+    if problems:
+        raise ValueError(f"{name} has broken links: " + "; ".join(problems))
 
 
 def verify(tag, source, assets):
@@ -92,7 +103,7 @@ def verify(tag, source, assets):
 
     def verify_zip(name):
         content = (assets / name).read_bytes()
-        verify_archive(name, content, sources[name])
+        verify_archive(name, content, sources[name], head, source)
         asset = published[name]
         if asset.get("state") != "uploaded" or asset["size"] != len(content):
             raise ValueError(f"GitHub metadata differs: {name}")

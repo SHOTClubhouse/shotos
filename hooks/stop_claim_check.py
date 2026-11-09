@@ -16,6 +16,7 @@ The hook only acts where claim-check is set up: a project with a .shotos folder,
 """
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -26,6 +27,29 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import claim_check  # noqa: E402
 
 CHANGING_TOOLS = {"Write", "Edit", "MultiEdit", "NotebookEdit", "Bash", "PowerShell"}
+# An MCP tool (mcp__server__action) changes things when its action names a change, such as
+# send_message, create_draft or notion-update-page, before any read word. Reads such as
+# search_threads or get_run_status do not.
+MCP_CHANGE = re.compile(
+    r"(?:^|(?<=[_-]))(?:send|reply|forward|create|update|delete|remove|trash|archive|post|publish|"
+    r"write|edit|upload|share|move|rename|copy|append|insert|add|set|label|unlabel|submit|"
+    r"approve|merge|push|deploy|schedule|cancel|complete|enable|disable|activate|deactivate|"
+    r"install|invite|book|transfer|pay|refund|run|execute|apply|import|replace|restore|manage)(?=$|[_-])",
+    re.IGNORECASE)
+MCP_READ = re.compile(r"(?:^|(?<=[_-]))(?:get|list|search|read|query|fetch|find|show|describe|count|download|"
+                      r"lookup|validate|check|preview|view)(?=$|[_-])", re.IGNORECASE)
+
+
+def changes_things(tool: str) -> bool:
+    if tool in CHANGING_TOOLS:
+        return True
+    parts = tool.split("__")
+    if len(parts) < 3 or parts[0] != "mcp":
+        return False
+    change = MCP_CHANGE.search(parts[-1])
+    read = MCP_READ.search(parts[-1])
+    # get_flow_run_status reads; send_message and notion-create-pages change.
+    return bool(change) and not (read and read.start() < change.start())
 
 
 def _is_human_turn(content) -> bool:
@@ -80,10 +104,13 @@ def last_turn(transcript: Path):
 
 def main() -> int:
     if hasattr(sys.stderr, "reconfigure"):
-        sys.stderr.reconfigure(errors="replace")
+        # Claude Code reads hook output as UTF-8, whatever the console code page is.
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
     try:
         event = json.loads(sys.stdin.buffer.read().decode("utf-8"))
     except (json.JSONDecodeError, UnicodeDecodeError):
+        return 0
+    if not isinstance(event, dict):
         return 0
     if event.get("stop_hook_active"):
         return 0
@@ -94,9 +121,10 @@ def main() -> int:
     if not transcript.is_file():
         return 0
     report, tools = last_turn(transcript)
-    if not claim_check.has_claims_block(report) and not (tools & CHANGING_TOOLS):
+    changed = any(changes_things(tool) for tool in tools)
+    if not claim_check.has_claims_block(report) and not changed:
         return 0
-    if tools & CHANGING_TOOLS and claim_check.has_completion_language(report):
+    if changed and claim_check.has_completion_language(report):
         claims = claim_check.parse_claims(report)
         if claims and all(c.kind == "unverified" for c in claims):
             print("claim-check needs a checkable claim for reported completed work, not only [unverified].", file=sys.stderr)

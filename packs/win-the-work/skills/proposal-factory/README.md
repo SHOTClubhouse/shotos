@@ -1,8 +1,8 @@
 # proposal-factory
 
-**Produce many tailored proposals from one master, pilot three first, check every item, and send none.**
+**Produce many tailored proposals from one master, reuse the accepted pilot of three, check every item, and send none.**
 
-The agent builds a master proposal with reader variables, fills a reader sheet with sources, pilots three proposals for the owner to accept, runs the rest in groups, checks claims, names and rendering per item, and ends with a batch report.
+The agent builds a master proposal with reader variables, fills a reader sheet with sources, confirms the pilot of three the owner accepted, runs the rest in groups, checks claims, names and rendering per item, and ends with a batch report.
 
 It belongs to **Operate**. It serves rule 3, Read back the real result, rule 4, Claim only what you can show, and rule 1, Stop at the boundaries, and applies [control 9, pilot before scale](../../../../rules/09-pilot-before-scale.md).
 
@@ -53,4 +53,4 @@ Nothing beyond the agent. A spreadsheet or CSV of readers helps. Rendering needs
 - Rendered checks by the writing agent are not independent. Ask a person to read a sample.
 - It never sends, schedules or uploads.
 
-Files: [SKILL.md](SKILL.md), [template.md](template.md), [example input](../../examples/proposal-factory/input.md) and [output](../../examples/proposal-factory/output.md).
+Files: [SKILL.md](SKILL.md), [template.md](template.md), [example input](../../examples/proposal-factory/input.md) and [output](../../examples/proposal-factory/output.md) (the agent stops because the decision record was not supplied).
