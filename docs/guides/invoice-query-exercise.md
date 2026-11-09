@@ -8,7 +8,7 @@ Open a fresh chat in an approved assistant or use the installed skills. Keep the
 
 Give the operator [the brief and initial queue](../../examples/invoice-query-pilot/01-queue.md). Use [Agree Acceptance](../../skills/agree-acceptance/README.md) to record who reviews the result and what they will check.
 
-> Prepare the invoice-query review queue. For each item, give its disposition, source IDs and next owner. Draft a supplier reply for the routine query only. Record missing evidence and keep all external actions pending.
+> Prepare the invoice queries for review. For each one, say what should happen, which records support it and who handles it next. Draft a supplier reply for the routine query only. List any missing information and leave all replies and changes pending.
 
 | Case | Accept when | Return for rework when |
 | --- | --- | --- |
@@ -20,25 +20,25 @@ Give the operator [the brief and initial queue](../../examples/invoice-query-pil
 
 Add [the review, sponsor decision and next case](../../examples/invoice-query-pilot/02-review-and-receiving-lead.md). The fictional pilot's review receipt describes its own draft. Keep the reviewer’s findings on your draft separately. Use [Evidence Handoff](../../skills/evidence-handoff/README.md).
 
-> Update the same work record with the review, sponsor decision and handoff status. As the receiving operator, disposition Q4 from the existing policies and leave it ready for Imani to review.
+> Update the same work record with the review, sponsor decision and who has agreed to take over. Use the existing policies to decide what to do with Q4 and leave it ready for Imani to review.
 
 The expected result routes Q4 to Accounts Payable for a match check, withholds a routine reply and keeps the other supplier's details inside the approved ledger. Tomas authorised another draft-only cycle for the same queue. Ellis accepted the next cycle and Maya remains the process owner. The independent cycle still needs reviewer evidence. B1 and R1 use different timing boundaries and sample sizes. Keep both figures separate.
 
-## 3. Review independence
+## 3. Check whether the next team can run it
 
 Add [the next review and matched measures](../../examples/invoice-query-pilot/03-track-decision.md). Use [Evidence Pack](../../skills/evidence-pack/README.md) and [Enablement Plan](../../skills/enablement-plan/README.md).
 
-> Record the Track decision and the Own status. Name the evidence needed before an expansion decision.
+> Record the sponsor's decision and whether the next team can take over. Say what still needs checking before another site starts.
 
 Tomas accepted the pilot evidence for the original queue. The median was 24 minutes versus a comparable 27-minute baseline. Record the four cycles and scope beside the figures. Imani accepted the disposition. Ellis needed the original operator's help to find the policy, so the independent cycle remains open.
 
-## 4. Prepare a first wave
+## 4. Prepare the next site
 
-![Central proves an independent cycle. The sponsor approves East Yard as the first wave, with its operational start pending local checks.](../images/enterprise-first-wave.svg)
+![Central runs the process on its own. East Yard can prepare, then needs its own checks before starting.](../images/enterprise-first-wave.svg)
 
 Add [the full independent cycle and first-wave conditions](../../examples/invoice-query-pilot/04-first-wave.md). Use the [programme record](../../templates/programme.md) and [Rollout Plan](../../skills/rollout-plan/README.md).
 
-> Update Own and prepare the first-wave plan. Reconcile earlier holds with the new decisions. Say what the next site can reuse, what it needs to establish and who decides whether it can start.
+> Update who runs the original queue. Record what the next site can reuse, what it must check locally and who decides when it can start.
 
 R6 supports closing Own for the original queue. Record Ellis as the operating lead and keep Maya as the process owner. R7 closes the earlier independent-cycle hold and approves first-wave preparation for one site. Keep that site at Scope until it establishes its own baseline, reconciles the policy differences and names a reviewer. Reuse the work record, review routine and draft-only boundary. Tomas decides whether the conditions have been met.
 

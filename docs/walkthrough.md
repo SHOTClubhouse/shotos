@@ -1,24 +1,18 @@
-# Walkthrough: from "we need a chatbot" to a fix that works
+# Walkthrough: can better updates cut repeat repair emails?
 
-Follow one initiative across the [six stages](framework.md) using Harbourside Lettings, a fictional property management firm. You can run the initial draft pilot with the supplied files. Track, Own and Sustain and Scale use labelled scenarios so you can practise the decisions that follow a pilot.
+Harbourside Lettings, a fictional property management firm, wants fewer tenants chasing repair updates. Follow the [six stages](framework.md) to count the problem, try a small change and decide whether another office could use it. The supplied files let you prepare and check drafts. The later results and decisions are examples for practice.
 
-The [walkthrough files](../examples/walkthrough/) include meeting notes, enquiry data, the open repairs list and reference outputs for the draft pilot. Compare your agent's work against the evidence and acceptance checks. Open a [programme record](../templates/programme.md) as you go. With the supplied files, Track is on hold for live outcome evidence. Keep the later scenarios marked as practice.
+## Try it in a chat
 
-## Set up
-
-```
-cp -r examples/walkthrough ~/harbourside && cd ~/harbourside
-git init
-python /path/to/shotos/install.py --runtime claude --scope project --with-hook
-```
+Open a fresh chat in your AI assistant. Attach the relevant [walkthrough files](../examples/walkthrough/data/) as each step calls for them. Save your counts, checks and decisions in one [shared record](../templates/programme.md). Use the linked sample outputs to check your work after each step. To install a skill first, follow the [setup guide](guides/chat-assistants.md).
 
 ## 1. Scope
 
-> Read data/notes.md and capture the problem before we decide anything.
+> Read the attached meeting notes and explain the problem the team needs to solve.
 
-The managing director asked for a chatbot. The skill turns that into a problem statement with no solution in it, marks what is not measured, and proposes the cheapest test: count the enquiries. Compare with [1-problem.md](../examples/walkthrough/reference/1-problem.md).
+The managing director asked for a chatbot. First, find out why people are writing in. Start by counting the enquiries. Compare with the [sample problem statement](../examples/walkthrough/reference/1-problem.md).
 
-> Count data/enquiries.csv by category, and count repeat contacts: an email from a tenant who already wrote about the same category.
+> Use the attached enquiries file to count emails by category. Count an email as a repeat if the tenant has already written about the same category.
 
 The answer is in the data: half of the 20 emails are repeats, and the 12 repair emails cover only 5 repair issues. Tenants are chasing status, not reporting new problems. A chatbot that cannot see repair status would not fix that. Compare with [2-findings.md](../examples/walkthrough/reference/2-findings.md). The numbers in the reference are checked against the data by the test suite.
 
@@ -34,19 +28,19 @@ Use the [reference acceptance card](../examples/walkthrough/reference/3-acceptan
 
 ## 3. Operate
 
-> Draft the updates as agreed.
+> Use the attached open repairs list to draft the agreed updates. Hold back any draft that needs a date someone still has to confirm.
 
-The [reference report](../examples/walkthrough/reference/4-report.md) records five drafts, including one parked because the lock repair has no next date. To rehearse the workflow, inspect all five drafts and record who will resolve the missing date. For a live batch, use the [pilot log](../skills/pilot-before-scale/template.md) to start with up to three varied cases, including the missing-date case. With the hook installed, the agent's Claims block lets claim-check verify supported claims about the drafts. The operations lead reviews the drafts and owns any separate decision to run a live pilot.
+The [sample report](../examples/walkthrough/reference/4-report.md) records five drafts. One is held back because the lock repair has no next date. Check the drafts against the repair list and record who will find the missing date. For a live trial, use the [pilot log](../skills/pilot-before-scale/template.md) to start with up to three different cases, including one with a missing date. The operations lead reviews the drafts and decides whether to run the trial.
 
 ## 4. Track
 
-![Harbourside has a baseline of 7 repeat repair emails out of 12 and five drafts, one parked. Track holds for live evidence.](images/harbourside-track-decision.svg)
+![Seven of twelve repair emails were repeats. Five drafts were prepared and one was held back. The team needs to measure what happens after approved updates go out.](images/harbourside-track-decision.svg)
 
-> Build an evidence pack for the operations lead. Compare the repeat repair email rate against Scope and recommend whether to proceed to Own, pivot, stop or hold for evidence.
+> Tell the operations lead what changed against the starting count. Recommend handing the work over, trying a different idea, waiting for more information or stopping.
 
-For the supplied files, record the draft checks and leave the live result open. The next evidence needed is a comparable enquiry window after approved updates have actually gone out.
+Record the draft checks. To find out whether the updates work, count the repair emails again over a similar period after approved updates go out.
 
-**Illustrative continuation.** Suppose an approved first cycle produced **4 repeat repair emails out of 12**, with zero guard breaches confirmed from the send and exception logs. The rate moves from about 58% to 33%. Record the sample size and any changes in the repair mix. The fictional operations lead could approve an independent exit cycle with the same checks. If repeat emails stayed above the agreed target, revisit the bet in Hypothesise. If a guard failed, stop and investigate before another live run. [Evidence pack](../skills/evidence-pack/template.md) · [Decision record](../skills/decision-record/template.md)
+**Example result.** Suppose the first week produced **4 repeat repair emails out of 12**. The logs show that every send was approved and went to the right tenant. The share of repeat emails falls from about 58% to 33%. Record how many emails you counted and whether the mix of repairs changed. The operations lead could ask the receiving team to run the next week on its own. If repeat emails stay above the target, try a different idea. If an update goes to the wrong tenant or goes out without approval, stop and find out why. [Results worksheet](../skills/evidence-pack/template.md) · [Decision record](../skills/decision-record/template.md)
 
 ## 5. Own
 
@@ -54,10 +48,10 @@ For the supplied files, record the draft checks and leave the live result open. 
 
 Start with the [reference handoff](../examples/walkthrough/reference/5-handoff.md). It records draft work awaiting acceptance. Add the Track decision once it exists. Use the [runbook](../skills/runbook/template.md) and [enablement plan](../skills/enablement-plan/template.md) to agree who gets the repair list, who checks and sends the drafts, who resolves missing dates and who records the chaser counts.
 
-**Illustrative exit run.** The receiving team uses its own access to run the weekly process, parks a draft with a missing date, escalates it to the repair coordinator and records the run. The operations lead reviews the log and accepts ownership after the team completes the full cycle independently. If a builder must step in, update the runbook or training and repeat the exit run.
+**Example handover.** The receiving team runs the weekly process with its own access. It holds back a draft with a missing date, asks the repair coordinator to check and records what happened. The operations lead reviews the log and takes ownership once the team has done a full week on its own. If the team needs help from the person who set it up, improve the instructions or training and try another week.
 
 ## 6. Sustain and Scale
 
-> Plan the next office's first wave using what Harbourside has learnt. Give that office its own owner, baseline and decision points.
+> Plan how the next office would try this. Name its lead, what it will measure first and who decides when it can start.
 
-**Illustrative first wave.** The sponsor approves one office to start at Scope. Reuse the runbook, acceptance checks and measurement definitions. The local lead checks access and repair data, measures its own repeat rate and agrees a pilot before making any live change. Pause the wave for an authority or privacy breach, or if the local team cannot run its own cycle. Review the first office's weekly process on the agreed cadence and log what should change before the next wave. [Rollout plan](../skills/rollout-plan/template.md) · [Learning log](../skills/learning-loop/template.md)
+**Example rollout.** The sponsor approves one office to prepare a trial. Share the instructions, review checklist and way of counting repeat emails. The local lead checks access and repair data, counts its own repeat emails and agrees a trial before sending any updates. Pause if an update goes out without approval, information goes to the wrong person or the local team needs help to run a full week. Keep reviewing the first office's process and record what the next office should do differently. [Rollout plan](../skills/rollout-plan/template.md) · [Learning log](../skills/learning-loop/template.md)
