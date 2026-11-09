@@ -26,6 +26,10 @@ With the skill instructions and templates supplied explicitly, the same weekly-b
 
 The [outcome runner](../evals/run_outcomes.py) ran ten fictional tasks on Claude Haiku once per condition. Both conditions passed **10/10 tasks and 49/50 individual checks**. The baseline proposal covered two of the three required buyer needs. The SHOTos folder-tidy run kept duplicate copies in quarantine. Each missed check was non-critical for its fixture. The results record one attempt per condition and raw responses stay in the local release workspace.
 
+## Weekly brief routing after v1.9.0
+
+Fresh Claude Code projects with Executive Ops installed received plain-language requests. Before the change, neither the routine weekly update nor the unsupported-claims request invoked the installed weekly brief, and the latter stated both unsupported claims in the draft. After the change, the routine update and two variants of the unsupported-claims request invoked Weekly Executive Brief. Both variants kept the claims visibly unverified inside the draft and asked for the missing evidence. A separate Sunday-opening decision invoked Decision Brief. The requests used fictional records and did not name a skill.
+
 ## First-run checks after v1.8.0
 
 - **Try a brief in chat.** The fictional [founder discovery](guides/startup-founder.md#try-a-fictional-discovery-exercise) and [retail decision](guides/enterprise-operations.md#try-a-decision-in-one-chat) prompts were run as text in Claude Haiku. The founder draft separated the app request from the observed problem and kept the test with the manager. The retail draft used both order counts and left the director's decision pending.

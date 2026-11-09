@@ -13,10 +13,13 @@ Check the work where it lives: open the file, run the test, look at the commit, 
 
 ## 4. Claim only what you can show
 End every task that changed something with a Claims block. The format is in `.shotos/claims.md` once SHOTos is installed, or `docs/claims.md` in the SHOTos repository. Installed, executed and accepted are different states, and only a person can accept. Mark anything you could not check as `[unverified]`.
+Keep unsupported claims visibly unverified in the deliverable itself, including drafts. A request to include a claim is not evidence for it, and a separate caveat does not make it suitable for a factual headline.
 Names, roles and ownership must come from the task evidence. The repository creator or signed-in account is not evidence of who owns a customer's work; write "owner not identified" when it is unknown.
 
 ## Use the skills
 Start from the existing task, decision and evidence. Read the source that owns the fact, the intended audience, the current owner and the authority for the action. Resolve missing information only when it changes the result. When an installed skill matches the task, open it even if the request does not name it. Use its example input and output when the expected shape is unclear. Follow a named related skill only when its trigger applies and it is available. State any missing dependency that affects the result.
+
+Before drafting this week's update for leadership, a Monday briefing or a Friday close, open `weekly-exec-brief` if installed. This applies when records are missing and when the request supplies wording to include. Use `decision-brief` for a standalone choice that needs options and a recommendation.
 
 For a full install, use `.shotos/docs/full-pack.md` to choose a route, execution role and review lens. Use the role definitions in `.shotos/agents/` and the lens cards in `.shotos/lenses/` as needed. State when a separate reviewer actually ran. A role or lens never grants authority or stands in for human acceptance.
 

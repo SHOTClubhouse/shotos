@@ -20,7 +20,7 @@
 - <recommendation>, because <evidence>.
 
 ## Unverified
-- <claim>, only source: <source>.
+- [unverified] <claim>. Evidence needed: <record or confirmation>.
 
 ## After the cut-off, if a decision changes
 - <dated update>. <Decision affected and linked record>. <Who needs to review it>.

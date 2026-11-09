@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Route ordinary weekly leadership updates to Weekly Executive Brief when Executive Ops is installed. Keep unsupported figures and confirmations visibly unverified inside the brief.
+
 ## 1.9.0 (8 November 2026)
 
 - **Start with one skill.** The [founder guide](docs/guides/startup-founder.md) and [enterprise guide](docs/guides/enterprise-operations.md) give you a first result to try in chat. Download any of the 88 skills individually. Follow the [Codex or Claude Code setup](docs/guides/codex-claude-code.md) or the [ChatGPT or Claude setup](docs/guides/chat-assistants.md).

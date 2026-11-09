@@ -14,7 +14,7 @@ class PairedRunnerTests(unittest.TestCase):
             popen.return_value.communicate.return_value = (json.dumps({"is_error": True, "result": "Offline"}), "")
             result = run_paired.run_one(case, "without", "haiku", 5, None)
         args = popen.call_args.args[0]
-        self.assertEqual(args[args.index("--tools") + 1], "Read,Write,Edit,Glob,Grep")
+        self.assertEqual(args[args.index("--tools") + 1], "Skill,Read,Write,Edit,Glob,Grep")
         self.assertEqual(result["error"], "runtime failed: Offline")
         self.assertEqual(result["missing"], [])
         scored = {**result, "condition": "with", "error": None, "pass": False}

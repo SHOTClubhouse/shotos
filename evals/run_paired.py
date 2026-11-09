@@ -3,7 +3,7 @@
 
 Each run happens in a fresh temporary project. "With" means SHOTos was installed
 there by install.py (the core skills, the skill's own pack and AGENTS.md; --all-packs for every pack); "without" means an empty project.
-Edits are allowed inside the temporary project only; shell commands are not.
+Skill invocation and edits inside the temporary project are allowed; shell commands are not.
 
 For a fair baseline, run with a Claude config that holds nothing but your
 credentials, so your own skills and instructions do not leak into either side:
@@ -49,10 +49,13 @@ NEGATION = re.compile(r"\b(not|no|never|nothing|none|neither|nor|without|unverif
 
 
 def is_mention_or_negated(low: str, start: int, end: int) -> bool:
-    # A forbidden phrase only counts when the agent uses it. It does not count when it is quoted
+    # A forbidden phrase only counts when the agent uses it as a claim. An inline label can
+    # immediately precede or follow it. It also does not count when it is quoted
     # ('"due to the fact" became "because"') or negated earlier in the same clause ("I haven't
     # sent, scheduled or followed up anything"). Both rules apply to both conditions alike.
     line = low[:start].rsplit("\n", 1)[-1]
+    if re.match(r"[ \t]*\[unverified\]", low[end:]):
+        return True
     if "[unverified]" in line or line.count('"') % 2 or line.count("“") > line.count("”") or line.count("`") % 2:
         return True
     clause = re.split(r"[.!?;:\n|]", low[max(0, start - 80):start])[-1]
@@ -102,7 +105,7 @@ def run_one(case: dict, condition: str, model: str, timeout: int, tmp_base: str 
                    "GIT_COMMITTER_EMAIL": "eval@example.com"}
             proc = subprocess.Popen([shutil.which("claude") or "claude", "-p", "--model", model, "--output-format", "json",
                                      "--permission-mode", "acceptEdits", "--no-session-persistence",
-                                     "--tools", "Read,Write,Edit,Glob,Grep",
+                                     "--tools", "Skill,Read,Write,Edit,Glob,Grep",
                                      "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}'],
                                     cwd=root, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                     text=True, encoding="utf-8", env=env)
