@@ -24,7 +24,7 @@ Do not use it for fewer than five, for proposals that differ in substance, or wi
 
 ## How to use it
 
-> The decision record says factory. Here is our accepted master and the list of 18 businesses. Build the variable list, pilot three, and give me the batch report. Send nothing.
+> The decision record says factory. Here is our accepted master and the list of 18 businesses. Build the variable list, confirm the accepted pilot of three, and give me the batch report. Send nothing.
 
 The decision record already holds a pilot of three that you accepted, with the master revision each was made from. The agent reuses those three accepted proposals if the master revision, the reader data and your acceptance still match, and redoes only an item that changed or has no accepted output. It stops if your signoff is missing or the record says author directly. Read the pilot items, correct the master if needed, and tell the agent to continue. The batch report uses [template.md](template.md).
 

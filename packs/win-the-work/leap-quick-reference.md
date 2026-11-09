@@ -7,7 +7,7 @@
 | **Lead**: warm, cold, target | Identify a person, organisation and route in. | The person agrees to a first conversation and a date is recorded. |
 | **Explore**: meeting, discovery, define | Hear the problem in the buyer's words. Use NUDGE to test whether pursuit is worthwhile. | Meeting held; problem and cost of leaving it recorded; one-paragraph work definition seen by the buyer; NUDGE scored. |
 | **Agree**: proposal, statement of work, gatekeepers | Set scope, price, terms and the approval route. | Proposal read; terms written; gatekeepers named; the signer accepts in writing. |
-| **Plan**: start date, handover, delivery | Transfer the agreed work to its delivery owner. | Start date agreed; handover packet accepted; delivery registered as a SHOTos Brief task. |
+| **Plan**: start date, handover, delivery | Transfer the agreed work to its delivery owner. | Start date agreed; handover packet accepted; delivery registered as a SHOTos Scope task. |
 
 **Weekly review:** flag no contact for 14 days, overdue actions, a stage older than the owner's expected time, or two unanswered messages. Record the last dated touch, the owner and one next action. A stage does not advance on optimism. Parked and lost deals need a reason.
 
