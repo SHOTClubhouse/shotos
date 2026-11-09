@@ -285,7 +285,7 @@ function processRows_(options) {
       receiptReady = true;
       setControl_(table, row, {
         done: CONFIG.DONE_VALUE, status: 'ok', doc_id: docId, doc_url: docUrl,
-        attempts: attempts + 1, last_message: 'created', done_at: new Date(), copy_state: 'complete'
+        attempts: 0, last_message: 'created', done_at: new Date(), copy_state: 'complete'
       });
     } catch (err) {
       var message = String(err && err.message ? err.message : err);
