@@ -6,6 +6,7 @@ This page records what has been tested, how, what it showed and what has not bee
 
 | Build | Evidence |
 | --- | --- |
+| v1.10.0 weekly brief fix | [Aim, experiment and conclusion](#weekly-brief-routing-after-v190) for the routing change at `6283af3`. |
 | v1.9.0 release candidate | [Fresh Haiku skill and outcome checks](#v190-release-candidate-checks) on the code and skills at `3b679be`. |
 | Main after v1.8.0 | [Founder and enterprise first-run checks](#first-run-checks-after-v180). |
 | v1.8.0 release candidate | [Fresh Haiku skill and outcome checks](#v180-release-candidate-checks) on the code and skills at `222c6eb`. |
@@ -28,7 +29,34 @@ The [outcome runner](../evals/run_outcomes.py) ran ten fictional tasks on Claude
 
 ## Weekly brief routing after v1.9.0
 
-Fresh Claude Code projects with Executive Ops installed received plain-language requests. Before the change, neither the routine weekly update nor the unsupported-claims request invoked the installed weekly brief, and the latter stated both unsupported claims in the draft. After the change, the routine update and two variants of the unsupported-claims request invoked Weekly Executive Brief. Both variants kept the claims visibly unverified inside the draft and asked for the missing evidence. A separate Sunday-opening decision invoked Decision Brief. The requests used fictional records and did not name a skill.
+### Aim
+
+Check whether a plain-language weekly leadership request opens the installed Weekly Executive Brief skill automatically, and whether the resulting draft labels unsupported figures and confirmations as unverified in the brief itself.
+
+### Experiment
+
+Run fictional requests in separate Claude Code sessions with Executive Ops installed. Use native skill invocation records to confirm which skill opened. The prompts did not name a skill.
+
+| Setup and request | Observed result |
+| --- | --- |
+| Before the fix, one routine weekly update and one request with unsupported claims | Neither invoked Weekly Executive Brief. The second draft stated both unsupported claims as facts. |
+| After the fix, one routine weekly update and two versions of the unsupported-claims request | All three invoked Weekly Executive Brief. Both contrary drafts labelled both claims unverified inside the brief and asked for the missing evidence. |
+| After the fix, one standalone Sunday-opening choice | The request invoked Decision Brief. |
+| A refreshed v1.9.0 test install, one unsupported-claims request | The request invoked Weekly Executive Brief. The draft labelled both claims unverified and asked for evidence. The explicit partial-coverage label was absent. |
+
+The release candidate at `6283af3` also ran the [paired skill checker](../evals/run_paired.py) on three weekly-brief cases in Claude Haiku. The literal checker scored 2/3 with SHOTos and 1/3 without. It flagged the broker phrase in the installed contrary reply. On inspection, the reply labelled both claims unverified, but repeated them under Changes as well as Unverified. This runner did not record which skill was invoked.
+
+### Conclusion
+
+The revised setup routed these three fresh weekly requests and the refreshed request without manual selection. In the three revised drafts that contained unsupported inputs, the claims stayed visibly unverified. The standalone decision took its own route. The release rerun showed that placement under Unverified alone can still vary. These results apply to the fictional Claude Code requests tested. They do not establish routing reliability across models or a change in cost per accepted brief.
+
+### Separate release regression check
+
+**Aim.** Check for regressions in other workflows after the shared working agreement changed.
+
+**Experiment.** The [outcome runner](../evals/run_outcomes.py) ran ten fictional tasks on Claude Haiku once per condition. SHOTos passed 10/10 tasks and 49/50 individual checks. The baseline passed 9/10 tasks and 48/50 checks. The baseline proposal added an unsupported board-report commitment and addressed two of the three buyer needs. The SHOTos folder-tidy run retained duplicates in quarantine. Reported spend was about $0.18 with SHOTos and $0.13 without, with average times of 55 and 46 seconds.
+
+**Conclusion.** Nine tasks tied. The remaining pair identifies a proposal issue to review. This sample does not establish a general quality or efficiency gain. Raw responses remain in the local release workspace.
 
 ## First-run checks after v1.8.0
 
