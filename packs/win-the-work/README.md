@@ -71,7 +71,13 @@ For a short handout, use the [LEAP quick reference](leap-quick-reference.md) or 
 | [one-off-or-factory](skills/one-off-or-factory/README.md) | Hypothesise | Decides between writing one item directly and building a factory for many. |
 | [proposal-factory](skills/proposal-factory/README.md) | Operate | Produces many tailored proposals from one master after a three-item pilot. Produces drafts and a review queue for authorised senders. |
 | [outbound-prospecting](skills/outbound-prospecting/README.md) | Operate | Plans one testable segment, a batch of five, and drafts one message per contact for a person to send. |
+| [bid-response](skills/bid-response/README.md) | Operate | Qualifies an issued tender, maps each requirement to evidence and prepares the exact response for review. |
+| [rfp-authoring](skills/rfp-authoring/README.md) | Hypothesise | Prepares a buyer's invitation to suppliers with requirements, scoring and approval gates. |
 | [email-reply](skills/email-reply/README.md) | Operate | Drafts a reply to a real thread in the owner's voice from a response map and verified context. |
+
+## From proposal to delivery
+
+Follow one fictional deal, North Quay Community Club, from proposal to accepted handoff in the [worked deal](skills/contextual-proposal/worked-deal.md). Its handoff continues in [success-handoff](../customer-success/skills/success-handoff/README.md).
 
 ## What this pack does not do on its own
 

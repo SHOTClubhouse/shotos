@@ -26,7 +26,7 @@ Customer success leads, account managers, founders and delivery leads.
 
 > Prepare the North Quay handoff.
 
-Output uses [template.md](template.md). Worked example: [input](../../examples/success-handoff/input.md) and [output](../../examples/success-handoff/output.md).
+If the record already holds an accepted handoff, the assistant reports its status and the completion evidence still due instead of preparing a second one. Output uses [template.md](template.md). Worked example: [input](../../examples/success-handoff/input.md) and [output](../../examples/success-handoff/output.md).
 
 Follow one [fictional deal from proposal to accepted handoff](../../../win-the-work/skills/contextual-proposal/worked-deal.md) to see which records the receiving lead uses.
 

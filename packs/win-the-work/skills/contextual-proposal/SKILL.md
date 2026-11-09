@@ -15,7 +15,7 @@ An organisation name and an offer description are enough to start. Search the pe
 
 Reuse the closest proposal's structure and approved assets. Verify the new buyer's needs, terms, rights and decision process independently. If a source is inaccessible, record which one. Ask one focused question if the answer would change the scope, terms or buyer decision. Otherwise draft the supported parts and keep the open items in the working sheet.
 
-Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitments in the deal working sheet. If leadership needs to decide whether to proceed, link the exact draft and the private working sheet from the decision brief. Distinguish proposal readiness, authority to send, buyer response and delivery handoff.
+Before drafting, check the deal record for an existing proposal revision, approval, dispatch receipt or buyer acceptance. If the buyer has accepted a revision, do not redraft it: report it as the controlling revision and make any change a new revision with its own approval. Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitments in the deal working sheet. If leadership needs to decide whether to proceed, link the exact draft and the private working sheet from the decision brief. Distinguish proposal readiness, authority to send, buyer response and delivery handoff.
 
 ## Choose the proposal route
 
@@ -25,6 +25,10 @@ Use `nudge-qualify` for a weak buying signal. Keep approved claims and commitmen
 | Supplier response to an issued tender or RFP | `bid-response`. The buyer's instructions govern the format and submission requirements. |
 | Buyer preparing an invitation for suppliers | `rfp-authoring`. Set requirements, scoring and approval gates. |
 | Repeated proposals for similar buyers | `one-off-or-factory`, then `proposal-factory` if the work qualifies. |
+| Reply to a buyer's message, including a question about changed terms | `email-reply`. |
+| Weak or unclear buying signal, or no map of who decides | `nudge-qualify` or `relationship-map`. |
+| Deal accepted and the account is moving to a delivery lead | `success-handoff`. |
+| Where the deal stands in the pipeline | `leap-pipeline`. |
 
 ## When not to use this
 
@@ -44,7 +48,7 @@ Skip it when the reader is unknown and a generic one-pager will do, or when many
 
 ## Output
 
-A proposal file and a private [working sheet](template.md). Save both with the deal. Keep the ledger, asset register and draft terms in the working sheet so the buyer-facing proposal can be reviewed on its own.
+An editable proposal file (a document or the deck source, not only text in the chat) and a private [working sheet](template.md). Save both with the deal and label the proposal with its revision. Keep the ledger, asset register and draft terms in the working sheet so the buyer-facing proposal can be reviewed on its own.
 
 Keep **Delivery handoff** in the existing deal record, or in the working sheet until a deal record exists. Give `success-handoff` that one reference with permitted access. Carry the exact proposal revision, source-backed commitments, open decisions, current owner, proposed receiver and first-action date if agreed. If the proposal has yet to be accepted, label the revision as a draft and the commitments as proposed. Buyer acceptance and receiver acceptance require their own evidence. See the [worked fictional deal](worked-deal.md).
 
