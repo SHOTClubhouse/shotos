@@ -66,6 +66,45 @@ class InstallTests(unittest.TestCase):
         self.assertFalse(added.exists())
         self.assertEqual(existing.read_text(encoding="utf-8"), "local edit")
 
+    def test_added_pack_relinks_unchanged_installed_guides_to_its_local_skills(self):
+        self.install()
+        guide = self.root / ".shotos/docs/connect-your-tools.md"
+        local = "../../.claude/skills/daily-brief/README.md"
+        self.assertNotIn(local, guide.read_text(encoding="utf-8"))
+        preview = self.install("--pack", "exec-ops", "--dry-run")
+        self.assertIn("would relink  .shotos/docs/connect-your-tools.md", preview.stdout)
+        self.assertNotIn(local, guide.read_text(encoding="utf-8"))
+        self.install("--pack", "exec-ops")
+        self.assertIn(local, guide.read_text(encoding="utf-8"))
+        self.assertNotIn("would update", run("--refresh", "--target", str(self.root), "--dry-run").stdout)
+        self.assertNotIn("Changed:", run("--status", "--target", str(self.root)).stdout)
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertFalse(guide.exists())
+
+    def test_added_pack_keeps_a_locally_edited_guide(self):
+        self.install()
+        guide = self.root / ".shotos/docs/connect-your-tools.md"
+        guide.write_bytes(guide.read_bytes() + b"\nlocal note\n")
+        edited = guide.read_bytes()
+        result = self.install("--pack", "exec-ops")
+        self.assertNotIn("relink", result.stdout)
+        self.assertEqual(guide.read_bytes(), edited)
+        self.assertEqual(self.uninstall().returncode, 0)
+        self.assertEqual(guide.read_bytes(), edited)
+
+    def test_failed_pack_add_restores_relinked_guides(self):
+        self.install()
+        guide = self.root / ".shotos/docs/connect-your-tools.md"
+        original = guide.read_bytes()
+        manifest = self.root / installer.MANIFEST
+        original_manifest = manifest.read_bytes()
+        with patch.object(installer, "write_manifest", side_effect=OSError("simulated manifest write failure")):
+            with self.assertRaisesRegex(OSError, "simulated manifest write failure"):
+                installer.install("claude", "project", self.root, False, False, ["exec-ops"])
+        self.assertEqual(guide.read_bytes(), original)
+        self.assertEqual(manifest.read_bytes(), original_manifest)
+        self.assertFalse((self.root / ".claude/skills/daily-brief").exists())
+
     def test_status_reports_changed_and_missing_files_without_mutation(self):
         self.install("--pack", "customer-success")
         changed = self.root / ".claude/skills/success-handoff/SKILL.md"
