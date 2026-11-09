@@ -16,6 +16,7 @@ The hook only acts where claim-check is set up: a project with a .shotos folder,
 """
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -26,6 +27,34 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
 import claim_check  # noqa: E402
 
 CHANGING_TOOLS = {"Write", "Edit", "MultiEdit", "NotebookEdit", "Bash", "PowerShell"}
+# An MCP tool (mcp__server__action) changes things when its action names a change, such as
+# send_message, create_draft, untrash_message or notion-update-page, before any read word.
+# Reads such as search_threads, get_run_status or email_send_status do not.
+MCP_CHANGE = re.compile(
+    r"(?:^|(?<=[_-]))(?:un)?(?:send|reply|respond|forward|create|generate|duplicate|update|delete|remove|"
+    r"trash|archive|clear|post|publish|write|edit|save|upload|share|move|rename|copy|append|insert|add|"
+    r"set|label|mark|submit|request|approve|resolve|merge|rebase|push|deploy|schedule|cancel|stop|"
+    r"complete|enable|disable|activate|deactivate|install|invite|assign|grant|revoke|reset|link|"
+    r"connect|disconnect|convert|spawn|book|transfer|pay|refund|run|exec|execute|apply|import|"
+    r"replace|restore|manage|enrich)(?=$|[_-])",
+    re.IGNORECASE)
+MCP_READ = re.compile(r"(?:^|(?<=[_-]))(?:get|list|search|read|query|fetch|find|show|describe|count|download|"
+                      r"lookup|validate|check|preview)(?=$|[_-])", re.IGNORECASE)
+MCP_READ_SUFFIX = re.compile(r"[_-](?:status|preview)$", re.IGNORECASE)
+
+
+def changes_things(tool: str) -> bool:
+    if tool in CHANGING_TOOLS:
+        return True
+    parts = tool.split("__")
+    if len(parts) < 3 or parts[0] != "mcp":
+        return False
+    action = parts[-1]
+    change = MCP_CHANGE.search(action)
+    read = MCP_READ.search(action)
+    if not change or MCP_READ_SUFFIX.search(action):
+        return False
+    return not (read and read.start() < change.start())
 
 
 def _is_human_turn(content) -> bool:
@@ -80,23 +109,28 @@ def last_turn(transcript: Path):
 
 def main() -> int:
     if hasattr(sys.stderr, "reconfigure"):
-        sys.stderr.reconfigure(errors="replace")
+        # Claude Code reads hook output as UTF-8, whatever the console code page is.
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
     try:
         event = json.loads(sys.stdin.buffer.read().decode("utf-8"))
     except (json.JSONDecodeError, UnicodeDecodeError):
         return 0
+    if not isinstance(event, dict):
+        return 0
     if event.get("stop_hook_active"):
         return 0
-    cwd = Path(event.get("cwd") or ".")
+    cwd = Path(event["cwd"]) if isinstance(event.get("cwd"), str) and event["cwd"] else Path(".")
     if not (cwd / ".shotos").is_dir() and not claim_check.USER_CONFIG.is_file():
         return 0  # not opted in: neither this project nor the user has set up claim-check
-    transcript = Path(event.get("transcript_path", ""))
-    if not transcript.is_file():
+    transcript = event.get("transcript_path")
+    if not isinstance(transcript, str) or not transcript or not Path(transcript).is_file():
         return 0
+    transcript = Path(transcript)
     report, tools = last_turn(transcript)
-    if not claim_check.has_claims_block(report) and not (tools & CHANGING_TOOLS):
+    changed = any(changes_things(tool) for tool in tools)
+    if not claim_check.has_claims_block(report) and not changed:
         return 0
-    if tools & CHANGING_TOOLS and claim_check.has_completion_language(report):
+    if changed and claim_check.has_completion_language(report):
         claims = claim_check.parse_claims(report)
         if claims and all(c.kind == "unverified" for c in claims):
             print("claim-check needs a checkable claim for reported completed work, not only [unverified].", file=sys.stderr)

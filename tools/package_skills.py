@@ -45,7 +45,7 @@ def skill_folders(packs) -> list:
     return found
 
 
-def link_problems(members, source_ref: str) -> list:
+def link_problems(members, source_ref: str, repo: Path = REPO) -> list:
     """List Markdown links in a ZIP that a reader could not follow."""
     names = {name for name, _ in members}
     problems = []
@@ -70,7 +70,7 @@ def link_problems(members, source_ref: str) -> list:
                 if source:
                     if source[1] != source_ref:
                         problems.append(f"{name} links to {source[1]} instead of {source_ref}: {link}")
-                    elif not (REPO / unquote(source[2])).exists():
+                    elif not (repo / unquote(source[2])).exists():
                         problems.append(f"{name} links to a missing repository file: {link}")
                 elif not (parts.scheme or parts.netloc) and parts.path:
                     target = posixpath.normpath(posixpath.join(posixpath.dirname(name), unquote(parts.path)))
