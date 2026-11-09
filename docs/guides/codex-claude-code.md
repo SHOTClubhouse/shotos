@@ -2,6 +2,8 @@
 
 Start with one skill in the folder that owns your work. On Windows or Mac, you can copy it with the file manager. Use the installer when you want a pack, shared tools or the full setup. The steps below use Decision Brief. For another job, choose a ZIP from the [first-job guide](../running-it.md#choose-your-first-job), substitute its folder and skill name, and [run its sample](../running-it.md#run-the-sample-from-your-zip).
 
+For a proposal and handoff, add both Contextual Proposal and Success Handoff to the same project. Follow the two short requests in the [fictional worked deal](../../packs/win-the-work/skills/contextual-proposal/worked-deal.md) and keep both outputs with the same account record.
+
 ## Copy one skill without a terminal
 
 1. [Download `decision-brief.zip`](https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip). On Windows, right-click and choose **Extract All**. On Mac, double-click the ZIP in Finder.

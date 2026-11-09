@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.12.0 (9 November 2026)
+
+- **Contextual Proposal.** Start with an organisation name and the service you want to offer. Find the buyer's priorities, current offer and relevant template before drafting. Record source gaps and ask for information that changes the decision.
+- **Success Handoff.** Start with the same account record. Carry the exact proposal revision and distinguish proposed terms, buyer acceptance and receiving lead acceptance.
+- **Guides.** Follow one fictional deal from the first request to a prepared brief and an accepted handoff. The current skill guides focus on the work and how to check it.
+
+[Fictional worked deal](packs/win-the-work/skills/contextual-proposal/worked-deal.md) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md)
+
 ## 1.11.0 (9 November 2026)
 
 - **Weekly Executive Brief.** Three plain-language Claude Code requests picked up the skill automatically. The two briefs with missing sources showed partial coverage and kept disputed claims under Unverified. The complete-source case showed complete coverage.

@@ -4,6 +4,8 @@ Start with one skill and a fictional example. You can download, unpack and add t
 
 The walkthrough below uses Decision Brief. To try a different job, pick its ZIP from the [first-job guide](../running-it.md#choose-your-first-job) and substitute its skill name in the setup steps. For a file-based chat, use its `SKILL.md`, relevant template and example input. Then use the [sample prompt and review checks](../running-it.md#run-the-sample-from-your-zip).
 
+To try a proposal and handoff, use Contextual Proposal and Success Handoff in one project or chat. Give the assistant the account sources it can use, then follow the two short requests in the [fictional worked deal](../../packs/win-the-work/skills/contextual-proposal/worked-deal.md).
+
 ## Claude with Skills enabled
 
 1. [Download `decision-brief.zip`](https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip). Keep the ZIP intact for this route.
