@@ -11,9 +11,11 @@ The question is not "how do we build this" but "what is the cheapest thing we ca
 
 ## Context and handoff
 
-Read the hypothesis, measured baseline, guardrails and authorised population. Choose the smallest test that could change the decision.
-
-Use `pilot-before-scale` for live actions. Save expected evidence, stop conditions and owner with the plan.
+- **Business question:** what is the cheapest test that could show this bet is wrong?
+- **Use this when** a hypothesis card exists and someone is about to build, buy or roll out. If there is no card, write one with `hypothesis-card`; if a lookup or short chat answers it, skip this.
+- **Minimum context:** the card's belief, measured baseline, guard measure, the authorised population and the owner's limits on spend and contact.
+- **Decision boundary:** the plan is agreed before the test runs and its criteria do not change afterwards. Money, outside contact and live systems need the owner's yes.
+- **Next step:** `pilot-before-scale` when the test is a limited live run; otherwise run it and read the result back against the criteria, then the decider continues, changes or stops. Save expected evidence, stop conditions and owner with the plan.
 
 ## When not to use this
 

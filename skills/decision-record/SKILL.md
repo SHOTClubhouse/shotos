@@ -11,9 +11,11 @@ Stage: any, most often Track. Rules: 4 Claim only what you can show, 1 Stop at t
 
 ## Context and handoff
 
-Read the original decision, options, constraints and who had authority. Record the decision date and what would reopen it.
-
-Use `progress-wrap-up` when communicating impact. Keep the decision in the existing project log and link to the evidence.
+- **Business question:** what did we decide, who decided, and what would reopen it?
+- **Use this when** a supplier, design, policy or scale-pivot-stop call needs recording, or someone asks "why did we do this?". It records a call made; it does not make it, and it is not an experiment result (`experiment-plan`) or a route (`route-the-work`).
+- **Minimum context:** the original decision or the options, constraints, who had authority, the decision date and the evidence.
+- **Decision boundary:** only the authorised person or body decides. A draft, recommendation or discussion note confers no authority.
+- **Next step:** the named follow-up owner acts; `progress-wrap-up` communicates impact when needed. Keep the record in the existing project log and link to the evidence.
 
 ## When not to use this
 

@@ -11,9 +11,11 @@ Decide how the work will be done before doing it. A one-line route stops small j
 
 ## Context and handoff
 
-Read the requested outcome, actual asset, risk, owner and what proof is needed. Choose the shortest route with sufficient evidence.
-
-Use `agree-acceptance` for material work. With only this skill installed, use the steps and template below and record any missing review capability. Record the route in the owning task so the next session can use it.
+- **Business question:** how much care does this task need, and who should do and check it?
+- **Use this when** starting any task others will rely on. It chooses the way of working; it does not define acceptance (`agree-acceptance`) or the behaviour (`example-mapping`).
+- **Minimum context:** the requested outcome, the actual asset, the owner, the reader and the proof needed. Choose the shortest route with sufficient evidence.
+- **Decision boundary:** the owner decides at the first send, spend, delete, deploy or publish. Authorised independent work carries on while a decision is pending.
+- **Next step:** `agree-acceptance` for material work. With only this skill installed, use the steps and template below and record any missing review capability. Record the route in the owning task so the next session can use it.
 
 ## When not to use this
 
