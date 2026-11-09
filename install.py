@@ -32,6 +32,7 @@ import json
 import os
 import re
 import shutil
+import stat
 import sys
 import tempfile
 from contextlib import contextmanager, redirect_stdout
@@ -614,6 +615,22 @@ def remove_generated_bytecode(module: Path) -> None:
         pass
 
 
+def _unlink_owned(path: Path) -> bool:
+    """Remove a file the checksum proved is ours; clear a read-only bit once if needed."""
+    try:
+        path.unlink()
+        return True
+    except PermissionError:
+        try:
+            os.chmod(path, stat.S_IWRITE)
+            path.unlink()
+            return True
+        except OSError:
+            return False
+    except OSError:
+        return False
+
+
 def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
     kept = []
     edits = manifest.get("edits", {})
@@ -630,7 +647,10 @@ def _reverse(root: Path, manifest: dict, dry_run=False) -> list:
             continue
         print(f"{'would remove' if dry_run else 'remove'}  {rel}")
         if not dry_run:
-            path.unlink()
+            if not _unlink_owned(path):
+                kept.append(rel)
+                print(f"keep  {rel} (could not be removed; remove it yourself)")
+                continue
             if rel.startswith(".shotos/") and path.suffix == ".py":
                 remove_generated_bytecode(path)
     if manifest.get("hook"):
@@ -668,7 +688,7 @@ def uninstall(root: Path, dry_run: bool) -> int:
     if not dry_run:
         manifest_path.unlink()
     if kept:
-        print(f"\nKept {len(kept)} file(s) you changed after install. Remove them yourself if you want them gone.")
+        print(f"\nKept {len(kept)} file(s) you changed after install or that could not be removed. Remove them yourself if you want them gone.")
     print("\nDry run: nothing was changed." if dry_run else "\nUninstalled.")
     return 0
 
