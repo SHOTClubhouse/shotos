@@ -1,6 +1,6 @@
 {
   "name": "shotos-records",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Keep files findable and safe, for people and agents: a work folder, file naming, filing with de-duplication, and a quarantine for doubtful files.",
   "author": {
     "name": "Liam McDowell"
