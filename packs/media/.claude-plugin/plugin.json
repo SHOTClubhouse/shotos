@@ -1,6 +1,6 @@
 {
   "name": "shotos-media",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Three skills for images, short videos and voiceovers: the agent looks at or listens back to what it made, clears rights and consent, and asks before anything is published.",
   "author": {
     "name": "Liam McDowell"

@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.15.0 (10 November 2026)
+
+Fixes from a full review of v1.14.0. Skills now match the rules they cite, and the claim check catches more unsupported reports.
+
+- **Skills match their rules.** Route the Work uses the eight risk tags from rule 2, and Pilot before Scale matches rule 9. Reports keep installed, executed and accepted apart throughout. Examples that broke their own skill's rules are corrected, including Weekly Exec Brief, Proposal Factory, the press release and group sharing.
+- **Safer handling of people's data.** Media consent for children now matches the press release standard. The records pack's Quarantine skill checks who can open a folder before moving personal data into it.
+- **Signal engine.** The formula guard also blocks values starting with `+`, `-` or `@`. The skill no longer promises a sender allowlist: the Gmail filter on the label decides which senders are read. Batch Document Factory no longer skips a regenerated row.
+- **Claim check and Stop hook.** "Has not been sent" no longer counts as a completion claim. The hook counts connector actions that send or change something, such as sending an email, as changes. It reads non-ASCII project paths, ignores malformed input and writes its messages as UTF-8 on any console.
+- **Installer.** Uninstall now finishes on Windows when an installed file is read-only, and reports any file it had to keep.
+- **Release checks.** The release readback runs the ZIP link check again against the release commit. All 88 ZIPs are rebuilt for this release.
+- **Docs.** The README routes small-business owners and risk reviewers to their guides. Skill counts are corrected, and the network and Codex statements in the prerequisites agree.
+
+[Start by role](docs/guides/start-by-role.md) · [Codex or Claude Code setup](docs/guides/codex-claude-code.md) · [ChatGPT or Claude setup](docs/guides/chat-assistants.md) · [Connect your tools](docs/connect-your-tools.md)
+
 ## 1.14.0 (9 November 2026)
 
 Updated skills across Core and 12 optional packs, with clearer guidance for using a skill on its own in a chat.
