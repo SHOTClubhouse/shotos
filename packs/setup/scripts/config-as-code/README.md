@@ -38,7 +38,7 @@ ONLY IN REPO:       skills/intake/SKILL.md
 |---|---|
 | 0 | No drift in the files compared. |
 | 1 | Drift found. Each difference is listed. |
-| 2 | A folder is missing or a file could not be read. This is never a clean result. |
+| 2 | A folder is missing or could not be listed, or a file could not be read. This is never a clean result. |
 
 - Contents are compared by SHA-256. A file that was touched but not changed is not drift.
 - "repo newer" or "installed newer" comes from file times. It is a hint, not a verdict on which side is right.

@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "packs/setup/scripts/config-as-code"))
@@ -105,6 +106,21 @@ class TestDrift(DriftCase):
         code, out = self.run_cli("--map", "rules=rules", "--json")
         self.assertEqual(code, 1)
         self.assertEqual(json.loads(out)["findings"], [{"kind": "only-in-repo", "path": "rules/"}])
+
+    def test_a_folder_that_cannot_be_listed_is_an_error_not_a_clean_result(self):
+        put(self.repo, "private/a.md", "one")
+        put(self.installed, "private/a.md", "two")
+        real = os.scandir
+
+        def scandir(path="."):
+            if Path(path).name == "private":
+                raise PermissionError(13, "Permission denied", str(path))
+            return real(path)
+
+        with patch.object(os, "scandir", scandir):
+            code, out = self.run_cli()
+        self.assertEqual(code, 2)
+        self.assertNotIn("No drift", out)
 
     def test_missing_folders_are_an_error_not_a_clean_result(self):
         self.installed.rmdir()

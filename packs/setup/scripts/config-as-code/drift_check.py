@@ -26,7 +26,10 @@ Logs, caches and byte-code are ignored by default, at any depth. Add --ignore
 Links and junctions are not followed. Nothing is written, copied or deleted.
 Standard library only, Python 3.9 or later.
 
-Exit codes: 0 no drift, 1 drift found, 2 a folder is missing or a file could not be read.
+A folder that cannot be listed, even an ignored one, stops the check with exit 2
+rather than being left out of the report.
+
+Exit codes: 0 no drift, 1 drift found, 2 a folder is missing or could not be listed, or a file could not be read.
 """
 
 from __future__ import annotations
@@ -53,10 +56,15 @@ def ignored(rel: str, patterns) -> bool:
     return any(fnmatch.fnmatchcase(rel, p) or fnmatch.fnmatchcase(rel, "*/" + p) for p in patterns)
 
 
+def fail(error: OSError) -> None:
+    # os.walk skips a folder it cannot list unless told otherwise, which would hide its files from the report.
+    raise error
+
+
 def collect(root: Path, patterns) -> dict:
     """Forward-slash relative path to full path, leaving out ignored files and links."""
     files = {}
-    for folder, dirs, names in os.walk(root, followlinks=False):
+    for folder, dirs, names in os.walk(root, onerror=fail, followlinks=False):
         dirs[:] = sorted(d for d in dirs if not is_link(os.path.join(folder, d)))
         for name in names:
             full = os.path.join(folder, name)
