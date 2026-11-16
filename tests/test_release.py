@@ -51,7 +51,7 @@ class FictionalRepo:
         self.write("rules/04-fictional-control.md", "# Control 4\n\nThe agent stops before it sends.\n")
         self.write("install.py", "HOOK_COMMAND = 'sh \"$CLAUDE_PROJECT_DIR/.shotos/hooks/run_hook.sh\"'\n")
         (self.root / "tools").mkdir()
-        for name in ("claim_check.py", "check_release_versions.py"):
+        for name in ("claim_check.py", "check_release_versions.py", "launch.py"):
             shutil.copy(ROOT / "tools" / name, self.root / "tools" / name)
         (self.root / "hooks").mkdir()
         for name in ("hooks.json", "run_hook.sh", "stop_claim_check.py"):
@@ -307,9 +307,11 @@ class ReleaseRepoTests(unittest.TestCase):
             (out / "sample.zip").write_bytes(b"fictional")
             return 1
 
+        real_which = shutil.which
         env = {**os.environ, "SHOTOS_DENYLIST": str(ROOT / "tests" / "fixtures" / "leak-denylist.txt")}
         with patch.object(release, "run", fake_run), patch.object(release, "build_zips", fake_zips), \
-                patch.dict(os.environ, env), patch("shutil.which", return_value=None), patch("sys.stdout"), \
+                patch.dict(os.environ, env), patch("sys.stdout"), \
+                patch("shutil.which", lambda name, *a, **k: None if name == "claude" else real_which(name, *a, **k)), \
                 patch("sys.stderr", new_callable=io.StringIO) as err:
             code = release.main(["--publish", "--review", "Fictional Reviewer, PR #1", *args])
         return code, calls, err.getvalue()

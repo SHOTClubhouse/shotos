@@ -8,13 +8,16 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch import launchable  # noqa: E402
+
 REPO = Path(__file__).resolve().parents[1]
 CORE = ".claude-plugin/plugin.json"
 VERSION = r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)"
 
 
 def git(*args):
-    return subprocess.run(["git", "-C", str(REPO), *args], capture_output=True, text=True,
+    return subprocess.run(launchable(["git", "-C", str(REPO), *args]), capture_output=True, text=True,
                           encoding="utf-8", check=True, timeout=30).stdout
 
 

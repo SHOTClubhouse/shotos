@@ -27,6 +27,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch import launchable  # noqa: E402
+
 REPO = Path(__file__).resolve().parents[1]
 MARKER = "# Installed by SHOTos tools/install_hooks.py"
 BEGIN = f"{MARKER}: start of the SHOTos block. Add your own checks outside it."
@@ -36,7 +39,7 @@ SHEBANG = "#!/bin/sh\n"
 
 
 def hooks_dir(repo: Path = REPO) -> Path:
-    found = subprocess.run(["git", "-C", str(repo), "rev-parse", "--git-path", "hooks"], capture_output=True,
+    found = subprocess.run(launchable(["git", "-C", str(repo), "rev-parse", "--git-path", "hooks"]), capture_output=True,
                            text=True, check=True, timeout=30).stdout.strip()
     path = Path(found)
     return path if path.is_absolute() else repo / path

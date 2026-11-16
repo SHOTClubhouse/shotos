@@ -45,6 +45,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import leak_scan  # noqa: E402
+from launch import launchable  # noqa: E402
 from local_gate import card_path  # noqa: E402
 
 REPO = Path(__file__).resolve().parents[1]
@@ -89,7 +90,7 @@ class Plan:
 
 
 def run(*command, cwd=None, check=True, input=None, env=None) -> str:
-    done = subprocess.run(command, cwd=cwd or REPO, capture_output=True, text=True, encoding="utf-8",
+    done = subprocess.run(launchable(command), cwd=cwd or REPO, capture_output=True, text=True, encoding="utf-8",
                           errors="replace", input=input, env=env, timeout=1800)
     if check and done.returncode != 0:
         raise Refused(f"`{' '.join(command[:3])}` failed: {(done.stderr or done.stdout).strip()[-600:]}")
@@ -287,7 +288,7 @@ def claims_contract(script: Path) -> dict:
             path = root / f"{name}.md"
             if report is not None:
                 path.write_text(report, encoding="utf-8", newline="\n")
-            done = subprocess.run([sys.executable, "-I", str(script), str(path), "--cwd", str(work), "--json"],
+            done = subprocess.run(launchable([sys.executable, "-I", str(script), str(path), "--cwd", str(work), "--json"]),
                                   capture_output=True, text=True, encoding="utf-8", env=env, timeout=120)
             try:
                 data = json.loads(done.stdout)

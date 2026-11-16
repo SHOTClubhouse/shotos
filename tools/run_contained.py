@@ -62,6 +62,9 @@ import threading
 import time
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch import launchable  # noqa: E402
+
 BASE_ENV = ("PATH", "HOME", "USERPROFILE", "SYSTEMROOT", "TEMP", "TMP", "LANG")
 MAX_OUTPUT = 1_000_000
 WINDOWS = os.name == "nt"
@@ -129,7 +132,8 @@ def stop(process: subprocess.Popen, job=None) -> None:
         if job and KERNEL32.TerminateJobObject(job, 124):
             pass
         elif WINDOWS:
-            subprocess.run(["taskkill", "/F", "/T", "/PID", str(process.pid)], capture_output=True, timeout=30)
+            subprocess.run(launchable(["taskkill", "/F", "/T", "/PID", str(process.pid)]),
+                           capture_output=True, timeout=30)
         else:
             os.killpg(process.pid, signal.SIGKILL)
     except (OSError, subprocess.SubprocessError):
@@ -150,8 +154,8 @@ def run(command: list, packet: bytes, env: dict, timeout: int) -> tuple:
     deadline = time.monotonic() + timeout
     with tempfile.TemporaryDirectory(prefix="review-") as work:
         options = {"creationflags": NEW_PROCESS_GROUP | SUSPENDED} if WINDOWS else {"start_new_session": True}
-        process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                   cwd=work, env=env, **options)
+        process = subprocess.Popen(launchable(command), stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+                                   stderr=subprocess.STDOUT, cwd=work, env=env, **options)
         job = contain(process) if WINDOWS else None
 
         def read():

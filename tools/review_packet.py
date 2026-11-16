@@ -56,6 +56,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch import launchable  # noqa: E402
+
 MAX_BYTES = 128 * 1024
 SECRET_NAME = re.compile(r"(^|[\\/])(\.env.*|.*\.(pem|key|pfx|p12)|id_rsa.*|.*credential.*|.*secret.*)$", re.I)
 SECRET_TEXT = re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----|(api[_-]?key|secret|token|password)\s*[:=]\s*\S{8,}",
@@ -121,8 +124,8 @@ def root_commit(scope: Path):
     With more than one root, the lowest hash is used, so the answer does not depend on history order."""
     env = {name: value for name, value in os.environ.items() if not name.startswith("GIT_")}
     try:
-        result = subprocess.run(["git", "-C", str(scope), "-c", "core.fsmonitor=false", "rev-list", "--max-parents=0",
-                                 "HEAD"], capture_output=True, text=True, env=env, timeout=30)
+        result = subprocess.run(launchable(["git", "-C", str(scope), "-c", "core.fsmonitor=false", "rev-list", "--max-parents=0",
+                                            "HEAD"]), capture_output=True, text=True, env=env, timeout=30)
     except (OSError, subprocess.SubprocessError):
         return None
     roots = sorted(result.stdout.split()) if result.returncode == 0 else []

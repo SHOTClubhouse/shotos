@@ -25,6 +25,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch import launchable  # noqa: E402
+
 REPO = Path(__file__).resolve().parents[1]
 SITE = "examples/northbank-club/site"
 BRANCH = "gh-pages"
@@ -37,7 +40,7 @@ class Stopped(Exception):
 
 def git(*args, repo: Path = REPO, input=None, env=None, check=True) -> str:
     # Bytes in and out, so Windows cannot turn the newlines Git reads into CRLF.
-    done = subprocess.run(["git", "-C", str(repo), *args], capture_output=True,
+    done = subprocess.run(launchable(["git", "-C", str(repo), *args]), capture_output=True,
                           input=None if input is None else input.encode("utf-8"), env=env, timeout=120)
     if check and done.returncode != 0:
         raise Stopped(f"git {args[0]} failed: {done.stderr.decode('utf-8', 'replace').strip()}")
@@ -72,7 +75,7 @@ def build(commit: str, out: Path = BUILD, repo: Path = REPO) -> list:
     for _, blob, path in site_files(commit, repo):
         target = out / path
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(subprocess.run(["git", "-C", str(repo), "cat-file", "blob", blob],
+        target.write_bytes(subprocess.run(launchable(["git", "-C", str(repo), "cat-file", "blob", blob]),
                                           capture_output=True, check=True, timeout=60).stdout)
         paths.append(path)
     (out / "release.json").write_text(marker(commit), encoding="utf-8", newline="\n")

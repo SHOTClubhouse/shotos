@@ -33,6 +33,9 @@ from dataclasses import dataclass
 from functools import cached_property
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch import launchable  # noqa: E402
+
 REPO = Path(__file__).resolve().parents[1]
 ALLOWLIST = "tools/leak-allowlist.txt"
 
@@ -184,7 +187,7 @@ def decode(content: bytes):
 
 
 def git(repo: Path, *args, input=None) -> bytes:
-    return subprocess.run(["git", "-C", str(repo), *args], input=input, capture_output=True,
+    return subprocess.run(launchable(["git", "-C", str(repo), *args]), input=input, capture_output=True,
                           check=True, timeout=120).stdout
 
 

@@ -38,6 +38,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import leak_scan  # noqa: E402
+from launch import launchable  # noqa: E402
 
 REPO = Path(__file__).resolve().parents[1]
 CARDS = REPO / ".work" / "gate"
@@ -72,7 +73,7 @@ class Context:
 
 
 def git(*args, repo: Path = REPO, check=True) -> str:
-    return subprocess.run(["git", "-C", str(repo), *args], capture_output=True, text=True,
+    return subprocess.run(launchable(["git", "-C", str(repo), *args]), capture_output=True, text=True,
                           encoding="utf-8", errors="replace", check=check, timeout=60).stdout.rstrip()
 
 
@@ -85,8 +86,8 @@ def card_path(head: str, fast: bool = False, cards: Path = CARDS) -> Path:
 
 
 def resolve(ref: str, repo: Path = REPO):
-    found = subprocess.run(["git", "-C", str(repo), "rev-parse", "--verify", "--quiet", "--end-of-options",
-                            f"{ref}^{{commit}}"], capture_output=True, text=True, timeout=30)
+    found = subprocess.run(launchable(["git", "-C", str(repo), "rev-parse", "--verify", "--quiet", "--end-of-options",
+                                       f"{ref}^{{commit}}"]), capture_output=True, text=True, timeout=30)
     return found.stdout.strip() if found.returncode == 0 else None
 
 
@@ -163,7 +164,7 @@ def read_context(base=None, fast=False, release=False, denylist=None, push_lines
 def run_command(name, command, ok_line, timeout=1800) -> Check:
     started = time.monotonic()
     try:
-        done = subprocess.run(command, cwd=REPO, capture_output=True, text=True, encoding="utf-8",
+        done = subprocess.run(launchable(command), cwd=REPO, capture_output=True, text=True, encoding="utf-8",
                               errors="replace", timeout=timeout)
     except (OSError, subprocess.SubprocessError) as error:
         return Check(name, "fail", f"Could not run: {error}.")

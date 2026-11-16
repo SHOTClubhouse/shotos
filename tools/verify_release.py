@@ -20,6 +20,9 @@ from urllib.request import Request, urlopen
 from package_skills import link_problems
 from skill_resources import PUBLIC_REPO
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from launch import launchable  # noqa: E402
+
 REPO = Path(__file__).resolve().parents[1]
 SLUG = PUBLIC_REPO.removeprefix("https://github.com/")
 
@@ -37,7 +40,7 @@ def fetch(url, expected_size=None):
 
 def tag_commit(tag):
     ref = f"refs/tags/{tag}"
-    run = subprocess.run(["git", "ls-remote", PUBLIC_REPO, ref, ref + "^{}"],
+    run = subprocess.run(launchable(["git", "ls-remote", PUBLIC_REPO, ref, ref + "^{}"]),
                          capture_output=True, text=True, check=True, timeout=30)
     refs = {name: commit for commit, name in (line.split() for line in run.stdout.splitlines())}
     return refs.get(ref + "^{}", refs.get(ref))
@@ -53,15 +56,15 @@ def check_inventory(label, actual, expected):
 
 def source_head(source):
     command = ["git", "--no-optional-locks", "-c", "core.fsmonitor=false", "-C", str(source)]
-    root = subprocess.run([*command, "rev-parse", "--show-toplevel"], capture_output=True,
+    root = subprocess.run(launchable([*command, "rev-parse", "--show-toplevel"]), capture_output=True,
                           text=True, check=True, timeout=10).stdout.strip()
     if Path(root).resolve() != source:
         raise ValueError("source must be the root of the release checkout")
-    status = subprocess.run([*command, "status", "--porcelain", "--untracked-files=all"], capture_output=True,
+    status = subprocess.run(launchable([*command, "status", "--porcelain", "--untracked-files=all"]), capture_output=True,
                             text=True, check=True, timeout=10).stdout.strip()
     if status:
         raise ValueError("source checkout has uncommitted changes")
-    return subprocess.run([*command, "rev-parse", "HEAD"], capture_output=True,
+    return subprocess.run(launchable([*command, "rev-parse", "HEAD"]), capture_output=True,
                           text=True, check=True, timeout=10).stdout.strip()
 
 
