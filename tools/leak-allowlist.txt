@@ -1,0 +1,3 @@
+# Deliberate public uses of a denylist term, for tools/leak_scan.py.
+# One per line: a tracked file path, a space, then the denylist line number.
+# Never write the term itself here. Example: MAINTAINERS.md 12

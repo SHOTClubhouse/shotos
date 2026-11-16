@@ -1,0 +1,6 @@
+# Fictional denylist for the leak scan tests. None of these is a real private term.
+Quillbury
+i:marrow lane
+path:/home/fictional-owner/
+
+Zentrix Ltd
