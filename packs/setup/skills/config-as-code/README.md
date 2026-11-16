@@ -30,6 +30,18 @@ Install SHOTos as described in the [main README](../../../../README.md#install).
 
 You get a drift report listing files only in the repository, only installed and changed in both, with the difference for each. For each one you choose install, propose back, or keep local. Only then does anything change.
 
+### Check for drift
+
+The [drift check script](../../scripts/config-as-code/README.md) produces the report without changing either side. For example (fictional):
+
+```
+DIFFERS:            rules/review.md (installed newer)
+ONLY IN REPO:       skills/intake/SKILL.md
+2 difference(s). Nothing was changed.
+```
+
+The agent runs it again after any install and quotes the result.
+
 ## How it connects
 
 - **Related:** [skill-audit](../skill-audit/README.md) checks the skills in the repository for wiring.
@@ -38,7 +50,7 @@ You get a drift report listing files only in the repository, only installed and 
 
 ## Needs
 
-Nothing beyond the agent, plus read access to the repository and the installed location, and write access only for the step the owner approves. Git is assumed for the repository.
+Nothing beyond the agent, plus read access to the repository and the installed location, and write access only for the step the owner approves. Git is assumed for the repository. The drift check script needs Python 3.9 or later; without it the agent compares the files itself and says so.
 
 ## Tips and common mistakes
 

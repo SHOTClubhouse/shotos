@@ -22,7 +22,7 @@ The pack looks after the working set-up rather than any one piece of work. It ke
 
 ## Needs
 
-Read access to the source repository, the runtime folder and the skills folder. Write access only for steps the owner approves. Git is assumed for the source. No connectors are needed, except for verify-live-release, which needs a browser or fetch tool.
+Read access to the source repository, the runtime folder and the skills folder. Write access only for steps the owner approves. Git is assumed for the source. The config-as-code drift check in [scripts/config-as-code](scripts/config-as-code/README.md) needs Python 3.9 or later. No connectors are needed, except for verify-live-release, which needs a browser or fetch tool.
 
 ## Install
 
