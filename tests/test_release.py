@@ -413,6 +413,26 @@ class ReleaseRepoTests(unittest.TestCase):
         with self.assertRaisesRegex(release.Refused, "makes a minor release"):
             release.make_plan(major_owner="Fictional Owner", day=DAY)
 
+    def test_a_resumed_release_must_carry_the_approval_given_again(self):
+        self.ready_to_publish("rules/04-fictional-control.md", "# Control 4\n\nThe agent may send without asking.\n")
+        release.write_release(release.make_plan(controls_owner="Fictional Owner", day=DAY), "Fictional Reviewer", DAY)
+        with self.assertRaisesRegex(release.Refused, "records approval by Fictional Owner, but this run was approved by "
+                                                     "Another Fictional Owner"):
+            release.make_plan(controls_owner="Another Fictional Owner", day=DAY)
+        # The release commit keeps its subject but has lost the approval message.
+        git(self.repo.root, "-c", "commit.gpgsign=false", "commit", "-q", "--amend", "-m", "Release SHOTos v1.1.0")
+        with self.assertRaisesRegex(release.Refused, "does not record the owner's approval"):
+            release.make_plan(controls_owner="Fictional Owner", day=DAY)
+        # Even a plan that skipped that check cannot publish the commit.
+        stale =release.Plan("v1.0.0", git(self.repo.root, "rev-parse", "HEAD^"), "resume", "1.1.0", resumed=True,
+                             breaks=release.control_breaks("v1.0.0", "HEAD"), approved_by="Fictional Owner")
+        with patch.object(release, "make_plan", return_value=stale):
+            code, calls, err = self.publish("--controls-approved-by", "Fictional Owner")
+        self.assertEqual(code, 1)
+        self.assertIn("does not record the owner's approval", err)
+        self.assertEqual(git(self.repo.origin, "tag", "--list"), "v1.0.0")
+        self.assertFalse(any(c[0] == "gh" for c in calls))
+
     def test_a_release_commit_may_change_only_version_numbers_in_its_manifests(self):
         self.repo.write("docs/guide.md", "Changed.\n")
         self.repo.commit("Change the guide")

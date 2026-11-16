@@ -479,6 +479,24 @@ def approve(plan: Plan, breaks, major_owner=None, controls_owner=None) -> None:
                           "breaking nothing: " + " ".join(breaks))
 
 
+APPROVAL = "Control changes approved by the owner: "
+
+
+def check_recorded_approval(plan: Plan, release: str = "HEAD") -> None:
+    """Refuse a release commit with control changes unless its message records the approval this run was given."""
+    if not plan.breaks:
+        return
+    message = git("log", "-1", "--format=%B", release)
+    recorded = [line[len(APPROVAL):].strip() for line in message.splitlines() if line.startswith(APPROVAL)]
+    redo = "remove the release commit with `git reset --hard HEAD^` and run again, so the approval is recorded."
+    if not recorded:
+        raise Refused(f"the release commit {release[:12]} changes the controls but does not record the owner's "
+                      f"approval. Nothing was pushed. To carry on, {redo}")
+    if recorded != [plan.approved_by]:
+        raise Refused(f"the release commit records approval by {', '.join(recorded)}, but this run was approved by "
+                      f"{plan.approved_by}. Nothing was pushed. Carry on with the approval it records, or {redo}")
+
+
 def make_plan(level=None, major_owner=None, notes_file=None, day=None, controls_owner=None) -> Plan:
     version = release_commit()
     if version:
@@ -495,6 +513,7 @@ def make_plan(level=None, major_owner=None, notes_file=None, day=None, controls_
         # Carrying on never skips the control check: the commit about to be published is checked again.
         breaks = control_breaks(previous, "HEAD")
         approve(plan, breaks, major_owner, controls_owner)
+        check_recorded_approval(plan)
         made, needed = level_between(core_version(previous), version), "major" if major_owner else "minor"
         if breaks and LEVELS.index(made) < LEVELS.index(needed):
             raise Refused(f"the release commit makes a {made} release, v{version}, but the approval given needs a "
@@ -552,7 +571,7 @@ def write_release(plan: Plan, review: str, day: date) -> None:
         path.write_text(set_json_version(path.read_text(encoding="utf-8"), old, new), encoding="utf-8",
                         newline="\n")
     git("add", "--", CORE, CITATION, CHANGELOG, *plan.packs)
-    approval = f"\nControl changes approved by the owner: {plan.approved_by}" if plan.approved_by else ""
+    approval = f"\n{APPROVAL}{plan.approved_by}" if plan.approved_by else ""
     git("commit", "-q", "-s", "-m", SUBJECT.format(plan.version), "-m",
         f"Independent review: {review}\nGate card: {plan.candidate[:12]} GO{approval}")
 
@@ -581,6 +600,7 @@ def check_release_commit(plan: Plan, release: str = "HEAD") -> None:
     breaks = control_breaks(plan.previous, release)
     if breaks and (not plan.approved_by or breaks != plan.breaks):
         raise needs_owner(breaks)
+    check_recorded_approval(plan, release)
 
 
 def gate_release_commit(plan: Plan, release: str) -> None:
