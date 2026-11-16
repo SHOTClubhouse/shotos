@@ -241,6 +241,7 @@ class InstallTests(unittest.TestCase):
         self.install("--with-hook")
         self.assertTrue((self.root / ".claude/skills/report-with-evidence/SKILL.md").is_file())
         self.assertTrue((self.root / ".shotos/tools/claim_check.py").is_file())
+        self.assertTrue((self.root / ".shotos/tools/production_preflight.py").is_file())
         self.assertIn("run_hook.sh", settings.read_text(encoding="utf-8"))
         self.assertEqual((self.root / "CLAUDE.md").read_text(encoding="utf-8"), "@AGENTS.md\n")
         self.assertEqual(self.uninstall().returncode, 0)

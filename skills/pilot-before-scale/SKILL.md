@@ -13,7 +13,7 @@ Mistakes multiply with the size of the run. A pilot of three items finds most of
 
 Read the exact target list, authority, recovery route and change limits. Select varied items that include a failure or edge case.
 
-Use `evidence-pack` to decide from the pilot results. Keep batch receipts and rollback proof together.
+Use `evidence-pack` to decide from the pilot results. Keep batch receipts and rollback proof together. If the units go to separate agents, also follow [delegated-run.md](delegated-run.md) and check the production manifest before any worker starts.
 
 ## When not to use this
 
@@ -48,3 +48,4 @@ Use [template.md](template.md). Save it with the work, for example `.work/<task>
 - The preflight lists inputs, targets, rollback, budget and stop condition.
 - Anything that goes outside the team waited for the owner's yes.
 - The final report gives counts and a sample check.
+- A run delegated to workers had a manifest that passed `check` before the first launch, and its ledger shows no repeated unit and no launch over budget.

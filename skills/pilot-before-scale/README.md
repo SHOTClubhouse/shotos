@@ -36,7 +36,7 @@ Read the pilot results yourself in the sheet. Give the yes for the full run only
 - **After:** [report-with-evidence](../report-with-evidence/README.md) reports the run, and [cross-agent-review](../cross-agent-review/README.md) reviews it when the risk calls for it.
 - **Rules:** [docs/controls.md](../../docs/controls.md).
 
-**Needs:** Nothing beyond the agent. The agent needs write access to a copy of the data for a pilot.
+**Needs:** Nothing beyond the agent. The agent needs write access to a copy of the data for a pilot. A run handed to several agents also uses `tools/production_preflight.py` (installed as `.shotos/tools/production_preflight.py`) and Python 3.9 or later; see [delegated-run.md](delegated-run.md).
 
 ## Tips
 
@@ -50,4 +50,4 @@ Read the pilot results yourself in the sheet. Give the yes for the full run only
 - The rollback is only as good as its test. "We can restore from backup" is not a rollback until someone has restored.
 - The skill asks the agent to stop. It does not stop a tool that is already running.
 
-Files: [SKILL.md](SKILL.md), [template.md](template.md), [example input](../../examples/pilot-before-scale/input.md) and [output](../../examples/pilot-before-scale/output.md).
+Files: [SKILL.md](SKILL.md), [template.md](template.md), [delegated-run.md](delegated-run.md), [example input](../../examples/pilot-before-scale/input.md) and [output](../../examples/pilot-before-scale/output.md).
