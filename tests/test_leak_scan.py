@@ -131,6 +131,39 @@ class LeakScanTests(unittest.TestCase):
         self.assertTrue(any(line.endswith("message line 1: denylist line 2") for line in found), found)
         self.assertEqual(leak_scan.scan(self.repo, self.entries)["hits"], [])
 
+    def test_history_checks_every_name_a_shared_file_version_was_given(self):
+        self.write("README.md", "Start.\n")
+        base = self.commit()
+        self.write("a-safe.md", "Same text.\n")
+        self.write("people/Zentrix Ltd.md", "Same text.\n")
+        same_commit = self.commit()
+        (self.repo / "people" / "Zentrix Ltd.md").unlink()
+        self.commit()
+        found = [h.describe() for h in leak_scan.scan(self.repo, self.entries, history=[[f"{base}..HEAD"]])["hits"]]
+        self.assertIn(f"commit {same_commit[:12]} people/[withheld: denylist line 6] (file name): denylist line 6",
+                      found)
+
+    def test_history_checks_a_name_whose_file_version_a_later_commit_reused(self):
+        self.write("README.md", "Start.\n")
+        base = self.commit()
+        self.write("people/Zentrix Ltd.md", "Same text.\n")
+        named = self.commit()
+        (self.repo / "people" / "Zentrix Ltd.md").replace(self.repo / "safe.md")
+        self.commit()
+        found = [h.describe() for h in leak_scan.scan(self.repo, self.entries, history=[[f"{base}..HEAD"]])["hits"]]
+        self.assertIn(f"commit {named[:12]} people/[withheld: denylist line 6] (file name): denylist line 6", found)
+
+    def test_an_allowlisted_path_does_not_hide_the_same_text_at_another_path(self):
+        self.write("README.md", "Start.\n")
+        base = self.commit()
+        self.write("MAINTAINERS.md", "Quillbury\n")
+        self.write("notes/copy.md", "Quillbury\n")
+        added = self.commit("Add the maintainers")
+        (self.repo / "notes" / "copy.md").unlink()
+        self.commit("Remove the copy")
+        result = leak_scan.scan(self.repo, self.entries, {("MAINTAINERS.md", 2)}, [[f"{base}..HEAD"]])
+        self.assertEqual([h.describe() for h in result["hits"]], [f"commit {added[:12]} notes/copy.md:1: denylist line 2"])
+
     def test_allowlist_names_a_file_and_a_denylist_line_only(self):
         self.write("MAINTAINERS.md", "Quillbury\nmarrow lane\n")
         self.write("tools/leak-allowlist.txt", "# Deliberate public uses\nMAINTAINERS.md 2\nREADME.md 6\n")

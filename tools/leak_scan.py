@@ -208,36 +208,36 @@ def scan_tree(repo: Path, entries) -> tuple:
 
 
 def scan_history(repo: Path, revisions, entries) -> list:
-    """Scan every file version and commit message added by the commits in `revisions`."""
+    """Scan every file name, file version and commit message added by the commits in `revisions`."""
     commits = git(repo, "rev-list", *revisions).decode().split()
+    # Every (commit, path) a file version was added at. One version can sit at a safe name and a denied
+    # one, or at an allowlisted path and another, so each name is checked and each place is reported.
     hits, blobs = [], {}
     for commit in commits:
         changes = git(repo, "diff-tree", "-r", "-z", "-m", "--root", "--no-commit-id", "--no-renames",
-                      "--diff-filter=AM", commit).decode("utf-8").split("\0")
+                      "--diff-filter=AMT", commit).decode("utf-8").split("\0")
         for meta, path in zip(changes[0::2], changes[1::2]):
             _, mode, _, blob, _ = meta.split()
+            hits += [Hit(path, 0, entry.line, commit, "name", redact_path(path, entries))
+                     for entry in entries if entry.found(path)]
             if mode != "160000":  # a submodule commit is not a file version
-                blobs.setdefault(blob, (commit, path))
+                places = blobs.setdefault(blob, [])
+                if (commit, path) not in places:
+                    places.append((commit, path))
         message = git(repo, "log", "-1", "--format=%B", commit).decode("utf-8", errors="replace")
         hits += [Hit("", line, entry, commit, "message") for line, entry in text_hits(message, entries)]
-    names = {}
-    for commit, path in blobs.values():
-        names.setdefault(path, commit)
-    for path, commit in names.items():
-        hits += [Hit(path, 0, entry.line, commit, "name", redact_path(path, entries))
-                 for entry in entries if entry.found(path)]
     if blobs:
         batch = git(repo, "cat-file", "--batch", input="".join(f"{blob}\n" for blob in blobs).encode())
         offset = 0
-        for blob, (commit, path) in blobs.items():
+        for blob, places in blobs.items():
             header_end = batch.index(b"\n", offset)
             size = int(batch[offset:header_end].split()[2])
             content = batch[header_end + 1:header_end + 1 + size]
             offset = header_end + 1 + size + 1
             text = decode(content)
-            if text is not None:
-                hits += [Hit(path, line, entry, commit, shown=redact_path(path, entries))
-                         for line, entry in text_hits(text, entries)]
+            found = text_hits(text, entries) if text is not None else []
+            hits += [Hit(path, line, entry, commit, shown=redact_path(path, entries))
+                     for commit, path in places for line, entry in found]
     return hits
 
 
