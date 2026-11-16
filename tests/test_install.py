@@ -244,6 +244,11 @@ class InstallTests(unittest.TestCase):
         self.assertTrue((self.root / ".shotos/tools/production_preflight.py").is_file())
         self.assertTrue((self.root / ".shotos/tools/review_packet.py").is_file())
         self.assertTrue((self.root / ".shotos/tools/run_contained.py").is_file())
+        self.assertTrue((self.root / ".shotos/tools/launch.py").is_file())
+        # The installed runner must import from its installed folder, not from this checkout.
+        r = subprocess.run([sys.executable, "-I", str(self.root / ".shotos/tools/run_contained.py"), "--help"],
+                           capture_output=True, text=True, cwd=str(self.root))
+        self.assertEqual(r.returncode, 0, r.stderr)
         self.assertIn("run_hook.sh", settings.read_text(encoding="utf-8"))
         self.assertEqual((self.root / "CLAUDE.md").read_text(encoding="utf-8"), "@AGENTS.md\n")
         self.assertEqual(self.uninstall().returncode, 0)

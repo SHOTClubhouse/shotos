@@ -131,6 +131,7 @@ def plan(runtime: str, scope: str, root: Path, with_hook: bool, packs=(), with_a
             (REPO / "tools" / "production_preflight.py", root / ".shotos" / "tools" / "production_preflight.py"),
             (REPO / "tools" / "review_packet.py", root / ".shotos" / "tools" / "review_packet.py"),
             (REPO / "tools" / "run_contained.py", root / ".shotos" / "tools" / "run_contained.py"),
+            (REPO / "tools" / "launch.py", root / ".shotos" / "tools" / "launch.py"),
             (REPO / "tools" / "summarise_accepted_work.py", root / ".shotos" / "tools" / "summarise_accepted_work.py"),
             (REPO / "rules", root / ".shotos" / "rules"),
             (REPO / "agents", root / ".shotos" / "agents"),
