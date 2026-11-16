@@ -65,4 +65,6 @@ Nothing beyond the agent, plus read access to the repository and the installed l
 - It does not merge conflicting edits; the owner decides line by line.
 - Installed locations differ between agents; the owner must name the correct one.
 
+**Evidence:** Cases written, not yet run. The drift check script has unit tests (`tests/test_drift_check.py`); they check the script, not how the skill changes an agent's work.
+
 Files: [SKILL.md](SKILL.md) (for the agent), [template.md](template.md), [example input](../../examples/config-as-code/input.md) and [output](../../examples/config-as-code/output.md).

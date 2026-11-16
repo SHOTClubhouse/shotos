@@ -49,4 +49,6 @@ Use it for medium and high risk work and for anything that goes outside the team
 - The reviewer has read-only access by default. The skill relies on that being set; it does not enforce it.
 - The runner keeps the reviewer out of the project folder and your shell's tokens, but it is not a sandbox. It does not block the network or reads by absolute path, so it only shows what it would launch until it is given `--allow-network`.
 
+**Evidence:** Cases written, not yet run. The packet builder and runner have unit tests (`tests/test_review_tools.py`); they check the tools, not how the skill changes an agent's work.
+
 Files: [SKILL.md](SKILL.md), [template.md](template.md), [packet-tools.md](packet-tools.md), [example input](../../examples/cross-agent-review/input.md) and [output](../../examples/cross-agent-review/output.md).

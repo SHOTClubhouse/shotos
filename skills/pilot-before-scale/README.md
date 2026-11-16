@@ -50,4 +50,6 @@ Read the pilot results yourself in the sheet. Give the yes for the full run only
 - The rollback is only as good as its test. "We can restore from backup" is not a rollback until someone has restored.
 - The skill asks the agent to stop. It does not stop a tool that is already running.
 
+**Evidence:** Cases written, not yet run. The production preflight script has unit tests (`tests/test_production_preflight.py`); they check the script, not how the skill changes an agent's work.
+
 Files: [SKILL.md](SKILL.md), [template.md](template.md), [delegated-run.md](delegated-run.md), [example input](../../examples/pilot-before-scale/input.md) and [output](../../examples/pilot-before-scale/output.md).
