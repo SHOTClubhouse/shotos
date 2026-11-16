@@ -13,9 +13,10 @@ The SHOTos lines sit in a marked block. Installing again replaces only that
 block, and uninstalling removes only that block, so checks you add before or
 after it are kept. Checks after the block can still read the pushed refs.
 
-An existing pre-push hook that this script did not write, or a hook from an
-earlier version of this script that was changed by hand, is left alone unless
-you pass --force, which keeps a copy as pre-push.before-shotos.
+An existing pre-push hook that this script did not write, a SHOTos block with
+lines added or changed inside it, or a hook from an earlier version of this
+script that was changed by hand, is left alone unless you pass --force, which
+keeps a copy as pre-push.before-shotos. Uninstalling leaves all of these alone.
 """
 
 from __future__ import annotations
@@ -42,7 +43,10 @@ def hooks_dir(repo: Path = REPO) -> Path:
 
 
 def block(python: str = sys.executable) -> str:
-    python = Path(python).as_posix()
+    return _block(Path(python).as_posix())
+
+
+def _block(python: str) -> str:
     return f"""{BEGIN}
 # Runs the SHOTos gate in fast mode before each push. Git passes the refs being pushed on standard input;
 # they are kept so that checks after this block can read them too.
@@ -86,15 +90,27 @@ def is_legacy(text: str) -> bool:
     return bool(LEGACY.fullmatch(text))
 
 
+# The SHOTos block this script writes, with whichever Python it named.
+BLOCK = re.compile(r'[^"\n]*'.join(re.escape(part) for part in _block("\0").split("\0")))
+
+
+def is_ours(middle: str) -> bool:
+    """True when the block is exactly as this script wrote it, so replacing it removes nobody's check."""
+    return bool(BLOCK.fullmatch(middle.replace("\r\n", "\n")))
+
+
 def split_block(text: str):
-    """(before, after) around the one SHOTos block, or None when there is not exactly one whole block."""
+    """(before, block, after) for the one SHOTos block, or None when there is not exactly one whole block."""
     lines = text.splitlines(keepends=True)
     starts = [n for n, line in enumerate(lines) if line.rstrip("\r\n") == BEGIN]
     ends = [n for n, line in enumerate(lines) if line.rstrip("\r\n") == END]
     if len(starts) != 1 or len(ends) != 1 or ends[0] < starts[0]:
         return None
     before = "".join(lines[:starts[0]])
-    return before + ("" if not before or before.endswith("\n") else "\n"), "".join(lines[ends[0] + 1:])
+    middle = "".join(lines[starts[0]:ends[0] + 1])
+    middle += "" if middle.endswith("\n") else "\n"
+    return (before + ("" if not before or before.endswith("\n") else "\n"), middle,
+            "".join(lines[ends[0] + 1:]))
 
 
 def refuse(hook: Path, text: str, action: str):
@@ -111,8 +127,8 @@ def install(repo: Path = REPO, force: bool = False, python: str = sys.executable
     parts = split_block(text) if text is not None else None
     if text is None or is_legacy(text):
         new, done = hook_text(python), f"Installed the pre-push hook at {hook}."
-    elif parts is not None:
-        new, done = parts[0] + block(python) + parts[1], f"Updated the SHOTos block in {hook}; the rest was kept."
+    elif parts is not None and is_ours(parts[1]):
+        new, done = parts[0] + block(python) + parts[2], f"Updated the SHOTos block in {hook}; the rest was kept."
     else:
         if not force:
             raise SystemExit(refuse(hook, text, "it was left alone") + " Run again with --force to replace it; "
@@ -120,8 +136,15 @@ def install(repo: Path = REPO, force: bool = False, python: str = sys.executable
         backup = hook.with_name(BACKUP)
         if backup.exists():
             raise SystemExit(f"{backup} already exists. Move it somewhere safe first, so it is not overwritten.")
-        hook.replace(backup)
-        new, done = hook_text(python), f"Installed the pre-push hook at {hook}. The earlier hook is in {backup}."
+        if parts is not None:
+            # Only the block was changed by hand: keep a copy of the whole hook, then replace just the block.
+            backup.write_bytes(hook.read_bytes())
+            new, done = parts[0] + block(python) + parts[2], \
+                f"Replaced the SHOTos block in {hook}, which was changed by hand; the rest was kept. " \
+                f"The earlier hook is in {backup}."
+        else:
+            hook.replace(backup)
+            new, done = hook_text(python), f"Installed the pre-push hook at {hook}. The earlier hook is in {backup}."
     hook.write_text(new, encoding="utf-8", newline="\n")
     hook.chmod(0o755)
     return done
@@ -133,8 +156,10 @@ def uninstall(repo: Path = REPO) -> str:
         return "There is no pre-push hook to remove."
     text = hook.read_text(encoding="utf-8", errors="replace")
     parts = split_block(text)
-    if parts is not None and (parts[0] + parts[1]).strip() not in ("", SHEBANG.strip()):
-        hook.write_text(parts[0] + parts[1], encoding="utf-8", newline="\n")
+    if parts is not None and not is_ours(parts[1]):
+        raise SystemExit(refuse(hook, text, "it was left alone"))
+    if parts is not None and (parts[0] + parts[2]).strip() not in ("", SHEBANG.strip()):
+        hook.write_text(parts[0] + parts[2], encoding="utf-8", newline="\n")
         return "Removed the SHOTos block from the pre-push hook and kept the rest."
     if parts is None and not is_legacy(text):
         raise SystemExit(refuse(hook, text, "it was left alone"))

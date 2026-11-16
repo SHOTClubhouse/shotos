@@ -61,6 +61,26 @@ class InstallHooksTests(unittest.TestCase):
         text = self.hook.read_text(encoding="utf-8")
         self.assertEqual(text, "#!/bin/sh\necho fictional extra check\n")
 
+    def test_a_check_added_inside_the_block_is_never_removed_silently(self):
+        install_hooks.install(self.repo, python="/fictional/old/python")
+        text = self.hook.read_text(encoding="utf-8")
+        changed = text.replace(install_hooks.END, "mandatory_extra_check || exit 1\n" + install_hooks.END)
+        self.hook.write_text(changed, encoding="utf-8", newline="\n")
+        with self.assertRaises(SystemExit) as refused:
+            install_hooks.install(self.repo, python="/fictional/new/python")
+        self.assertIn("changed by hand", str(refused.exception))
+        with self.assertRaises(SystemExit):
+            install_hooks.uninstall(self.repo)
+        self.assertEqual(self.hook.read_text(encoding="utf-8"), changed)
+        install_hooks.install(self.repo, force=True, python="/fictional/new/python")
+        self.assertEqual(self.hook.with_name("pre-push.before-shotos").read_text(encoding="utf-8"), changed)
+        self.assertNotIn("mandatory_extra_check", self.hook.read_text(encoding="utf-8"))
+        self.assertIn("/fictional/new/python", self.hook.read_text(encoding="utf-8"))
+        # A block saved with Windows line endings is still recognised as unchanged.
+        crlf = self.hook.read_text(encoding="utf-8").replace("\n", "\r\n")
+        self.hook.write_bytes(crlf.encode("utf-8"))
+        self.assertIn("Updated the SHOTos block", install_hooks.install(self.repo))
+
     def test_a_hook_from_the_earlier_installer_is_updated_only_when_unchanged(self):
         self.hook.parent.mkdir(parents=True, exist_ok=True)
         legacy = ("#!/bin/sh\n" + install_hooks.MARKER + "\n# Runs the SHOTos gate in fast mode before each push. "
