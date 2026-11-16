@@ -13,7 +13,7 @@ The scan reads every tracked text file, every tracked file name and, with
 --history, every file version and commit message in a range of commits.
 Reports name the file, the line and the denylist line number. They never
 print the term or the matching text: a path segment that matches is shown as
-[withheld: denylist line N].
+[withheld: denylist line N]. An error that stops the scan is shown the same way.
 
 A deliberate public use can be listed in tools/leak-allowlist.txt as a file
 path and a denylist line number, for example `MAINTAINERS.md 12`. The
@@ -258,6 +258,21 @@ def scan(repo: Path, entries, allowed=frozenset(), history=()) -> dict:
             "stale": sorted(allowed - used)}
 
 
+def describe_error(error: Exception, entries) -> str:
+    """The error for printing. An error can quote a tracked path, so anything that matches is withheld."""
+    if not entries:
+        if type(error) is ValueError:
+            return str(error)  # load_denylist's own message, which quotes nothing
+        # Without the denylist nothing can be checked, so no path or message is shown.
+        return f"{type(error).__name__} ({getattr(error, 'strerror', None) or 'details withheld'})"
+    if isinstance(error, OSError) and error.filename is not None:
+        shown = redact_path(str(error.filename).replace("\\", "/"), entries)
+        message = f"{error.strerror or type(error).__name__}: {shown}"
+    else:
+        message = str(error)
+    return " ".join(redact(line, entries) for line in message.splitlines()) or type(error).__name__
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--denylist", help="denylist file (default: the SHOTOS_DENYLIST environment variable)")
@@ -271,12 +286,13 @@ def main(argv=None) -> int:
         print("Leak scan could not run: no denylist. Set SHOTOS_DENYLIST to the private denylist file.",
               file=sys.stderr)
         return 2
+    entries = []
     try:
         entries = load_denylist(denylist)
         allowed = load_allowlist(Path(args.allowlist) if args.allowlist else args.repo / ALLOWLIST)
         result = scan(args.repo, entries, allowed, [r.split() for r in args.history])
     except (OSError, ValueError, subprocess.SubprocessError) as error:
-        print(f"Leak scan could not run: {error}", file=sys.stderr)
+        print(f"Leak scan could not run: {describe_error(error, entries)}", file=sys.stderr)
         return 2
     for hit in result["hits"]:
         print(hit.describe())

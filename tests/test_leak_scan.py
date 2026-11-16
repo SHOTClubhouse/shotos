@@ -1,9 +1,11 @@
+import io
 import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -181,6 +183,17 @@ class LeakScanTests(unittest.TestCase):
         run = self.cli("--denylist", str(FIXTURE), "--allowlist", str(self.repo / "allow.txt"))
         self.assertEqual(run.returncode, 2)
         self.assertNotIn("Quillbury", run.stdout + run.stderr)
+
+    def test_an_error_naming_a_denied_path_is_withheld(self):
+        denied = str(self.repo / "suppliers" / "Zentrix Ltd" / "home" / "fictional-owner" / "notes.md")
+        for error in (PermissionError(13, "Permission denied", denied), OSError(f"could not read {denied}")):
+            with self.subTest(error=type(error).__name__), patch.object(leak_scan, "scan_tree", side_effect=error), \
+                    patch("sys.stderr", new_callable=io.StringIO) as err, patch("sys.stdout", new_callable=io.StringIO):
+                self.assertEqual(leak_scan.main(["--denylist", str(FIXTURE), "--repo", str(self.repo)]), 2)
+                self.assertIn("Leak scan could not run", err.getvalue())
+                self.assertIn("withheld", err.getvalue())
+                for term in TERMS:
+                    self.assertNotIn(term, err.getvalue())
 
     def test_no_denylist_means_the_scan_cannot_run(self):
         run = self.cli()
