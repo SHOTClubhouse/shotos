@@ -34,7 +34,7 @@ Use it for medium and high risk work and for anything that goes outside the team
 - **After:** [report-with-evidence](../report-with-evidence/README.md) and [evidence-handoff](../evidence-handoff/README.md).
 - **Rules:** [docs/controls.md](../../docs/controls.md).
 
-**Needs:** A second agent on a different model or runtime, for example a second tool installed beside the first. If only one is available, the skill says so and uses a fresh session with a weaker-check note.
+**Needs:** A second agent on a different model or runtime, for example a second tool installed beside the first. If only one is available, the skill says so and uses a fresh session with a weaker-check note. The optional packet builder and runner (`tools/review_packet.py` and `tools/run_contained.py`, installed in `.shotos/tools/`) need Python 3.9 or later; see [packet-tools.md](packet-tools.md).
 
 ## Tips
 
@@ -47,5 +47,6 @@ Use it for medium and high risk work and for anything that goes outside the team
 - Two models can be wrong in the same way. Review reduces risk; it does not remove it.
 - It costs a second run. Use it where the risk repays that.
 - The reviewer has read-only access by default. The skill relies on that being set; it does not enforce it.
+- The runner keeps the reviewer out of the project folder and your shell's tokens, but it is not a sandbox. It does not block the network or reads by absolute path.
 
-Files: [SKILL.md](SKILL.md), [template.md](template.md), [example input](../../examples/cross-agent-review/input.md) and [output](../../examples/cross-agent-review/output.md).
+Files: [SKILL.md](SKILL.md), [template.md](template.md), [packet-tools.md](packet-tools.md), [example input](../../examples/cross-agent-review/input.md) and [output](../../examples/cross-agent-review/output.md).

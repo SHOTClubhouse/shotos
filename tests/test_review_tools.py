@@ -1,0 +1,162 @@
+import contextlib
+import io
+import json
+import os
+import subprocess
+import sys
+import tempfile
+import time
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+
+import review_packet  # noqa: E402
+
+RUNNER = ROOT / "tools" / "run_contained.py"
+
+
+class ReviewCase(unittest.TestCase):
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.base = Path(tmp.name)
+        self.scope = self.base / "spring-fair"
+        self.scope.mkdir()
+        (self.scope / "rota.md").write_text("Sam: 4 shifts\nPriya: 2 shifts\n", encoding="utf-8")
+        self.spec = {"request": "Check the volunteer rota against the rule card.",
+                     "acceptance": ["No one has more than 3 shifts."], "sources": ["rota.md"],
+                     "evidence": [{"source": "rule card", "text": "Maximum 3 shifts each."}],
+                     "limitations": ["The availability list was not supplied."]}
+
+    def packet_cli(self, *args):
+        err = io.StringIO()
+        with contextlib.redirect_stdout(io.StringIO()) as out, contextlib.redirect_stderr(err):
+            code = review_packet.main([str(a) for a in args])
+        return code, out.getvalue(), err.getvalue()
+
+    def build(self, spec=None, *extra):
+        path = self.base / "spec.json"
+        path.write_text(json.dumps(self.spec if spec is None else spec), encoding="utf-8")
+        return self.packet_cli("build", path, "--scope", self.scope, *extra)
+
+    def packet(self) -> Path:
+        out = self.base / "work" / "packet.json"
+        code, _, err = self.build(None, "--revision", "r1", "--out", out)
+        self.assertEqual(code, 0, err)
+        return out
+
+
+class TestPacket(ReviewCase):
+    def test_build_then_validate_gives_the_same_hash(self):
+        out = self.packet()
+        built = json.loads(self.packet_cli("validate", out, "--scope", self.scope)[1])
+        self.assertEqual(built["status"], "valid")
+        self.assertEqual(built["sha256"], json.loads(self.build(None, "--revision", "r1", "--out", out)[2])["sha256"])
+        packet = json.loads(out.read_text(encoding="utf-8"))
+        self.assertEqual(packet["sources"], [{"path": "rota.md", "revision": "r1",
+                                              "text": "Sam: 4 shifts\nPriya: 2 shifts\n"}])
+
+    def test_a_packet_used_with_a_different_folder_is_refused(self):
+        out = self.packet()
+        other = self.base / "another-project"
+        other.mkdir()
+        code, _, err = self.packet_cli("validate", out, "--scope", other)
+        self.assertEqual(code, 2)
+        self.assertIn("built for spring-fair", err)
+
+    def test_a_tampered_source_revision_is_refused(self):
+        out = self.packet()
+        packet = json.loads(out.read_text(encoding="utf-8"))
+        packet["sources"][0]["revision"] = "r0"
+        out.write_text(json.dumps(packet), encoding="utf-8")
+        self.assertEqual(self.packet_cli("validate", out, "--scope", self.scope)[0], 2)
+
+    def test_contrary_secrets_and_paths_outside_the_scope_are_refused(self):
+        (self.scope / ".env").write_text("X=1", encoding="utf-8")
+        (self.scope / "notes.md").write_text("api_key = abcdefgh12345678", encoding="utf-8")
+        (self.base / "outside.md").write_text("outside", encoding="utf-8")
+        for bad in (".env", "notes.md", "../outside.md", str(self.base / "outside.md"), "missing.md"):
+            with self.subTest(source=bad):
+                code, _, err = self.build(dict(self.spec, sources=[bad]), "--revision", "r1")
+                self.assertEqual(code, 2)
+                self.assertEqual(json.loads(err)["status"], "refused")
+
+    def test_a_source_through_a_link_is_refused(self):
+        target = self.base / "elsewhere"
+        target.mkdir()
+        (target / "plan.md").write_text("plan", encoding="utf-8")
+        try:
+            (self.scope / "linked").symlink_to(target, target_is_directory=True)
+        except (OSError, NotImplementedError):
+            self.skipTest("this system does not allow symbolic links here")
+        code, _, err = self.build(dict(self.spec, sources=["linked/plan.md"]), "--revision", "r1")
+        self.assertEqual(code, 2)
+        self.assertIn("link", err)
+
+    def test_the_revision_is_required(self):
+        code, _, err = self.build()
+        self.assertEqual(code, 2)
+        self.assertIn("--revision", err)
+
+    def test_an_oversized_packet_is_refused(self):
+        spec = dict(self.spec, evidence=[{"source": f"note {i}", "text": "x" * 15000} for i in range(10)])
+        code, _, err = self.build(spec, "--revision", "r1")
+        self.assertEqual(code, 2)
+        self.assertIn("limit", err)
+
+
+class TestRunner(ReviewCase):
+    def run_tool(self, *args, env=None):
+        return subprocess.run([sys.executable, str(RUNNER), *map(str, args)], capture_output=True, text=True,
+                              env=env, timeout=120)
+
+    def test_the_packet_reaches_the_command_and_the_receipt_holds_no_content(self):
+        receipt = self.base / "work" / "receipt.json"
+        result = self.run_tool("--packet", self.packet(), "--receipt", receipt, "--", sys.executable, "-c",
+                               "import sys, json; print(json.load(sys.stdin)['revision'])")
+        self.assertEqual((result.returncode, result.stdout.strip()), (0, "r1"))
+        data = json.loads(receipt.read_text(encoding="utf-8"))
+        self.assertFalse(data["sandboxed"])
+        self.assertEqual(data["argument_count"], 2)
+        self.assertNotIn("Sam", receipt.read_text(encoding="utf-8"))
+        self.assertNotIn("revision", json.dumps(data["command"]))
+
+    def test_the_command_runs_outside_the_project_folder(self):
+        receipt = self.base / "receipt.json"
+        result = self.run_tool("--packet", self.packet(), "--receipt", receipt, "--", sys.executable, "-c",
+                               "import os; print(sorted(os.listdir('.')))")
+        self.assertEqual(result.stdout.strip(), "[]")
+
+    def test_an_environment_variable_that_was_not_allowed_is_absent(self):
+        receipt = self.base / "receipt.json"
+        script = "import os; print(os.environ.get('REVIEW_TOKEN', 'absent'))"
+        env = dict(os.environ, REVIEW_TOKEN="leak")
+        result = self.run_tool("--packet", self.packet(), "--receipt", receipt, "--", sys.executable, "-c", script,
+                               env=env)
+        self.assertEqual(result.stdout.strip(), "absent")
+        allowed = self.run_tool("--packet", self.packet(), "--receipt", receipt, "--allow-env", "REVIEW_TOKEN", "--",
+                                sys.executable, "-c", script, env=env)
+        self.assertEqual(allowed.stdout.strip(), "leak")
+
+    def test_the_time_limit_stops_the_command_and_its_children(self):
+        receipt = self.base / "receipt.json"
+        child = "import subprocess, sys, time; subprocess.Popen([sys.executable, '-c', 'import time; time.sleep(60)']); time.sleep(60)"
+        started = time.monotonic()
+        result = self.run_tool("--packet", self.packet(), "--timeout", "2", "--receipt", receipt, "--",
+                               sys.executable, "-c", child)
+        self.assertEqual(result.returncode, 124)
+        self.assertLess(time.monotonic() - started, 40)
+        self.assertTrue(json.loads(receipt.read_text(encoding="utf-8"))["timed_out"])
+
+    def test_a_missing_packet_or_command_is_refused(self):
+        receipt = self.base / "receipt.json"
+        self.assertEqual(self.run_tool("--packet", self.base / "none.json", "--receipt", receipt, "--",
+                                       sys.executable, "-c", "pass").returncode, 125)
+        self.assertEqual(self.run_tool("--packet", self.packet(), "--receipt", receipt).returncode, 125)
+        self.assertFalse(receipt.exists())
+
+
+if __name__ == "__main__":
+    unittest.main()

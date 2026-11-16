@@ -42,7 +42,9 @@ After (fictional):
    - the acceptance card (`agree-acceptance`), unchanged;
    - the evidence: the exact output revision, the relevant input slices, results and source references. If an approved extract or aggregate leaves a check unverified, record the gap and route it to a reviewer who already has the necessary access;
    - the boundaries: what neither agent may do (no sending, spending, deleting, deploying or publishing).
-4. **Keep the reviewer independent.** Do not tell the reviewer the lead's conclusion, or which parts the lead is unsure about, until its first report is in. Give the reviewer read-only access unless the owner has agreed otherwise.
+
+   To build and check the packet with a tool, see [packet-tools.md](packet-tools.md). Record the packet hash it prints.
+4. **Keep the reviewer independent.** Do not tell the reviewer the lead's conclusion, or which parts the lead is unsure about, until its first report is in. Give the reviewer read-only access unless the owner has agreed otherwise. A command-line reviewer can be run with a time limit, a clean environment and a receipt ([packet-tools.md](packet-tools.md)); that runner is not a sandbox, so use the reviewer tool's own read-only mode as well.
 5. **Ask the reviewer for findings with evidence.** Each finding has: what is wrong, where (file, line, record, quote), the check it fails, and how to verify it. A feeling that something looks off is a question, not a finding. The reviewer also lists what it checked and found fine, and what it could not check.
 6. **The lead responds to each finding:** accept and fix, dispute with evidence, or pass to the owner. The lead does not delete findings. Disputes go to the owner with both sides.
 7. **Close the correction loop.** Every finding ends accepted and fixed, disputed with evidence, or passed to the owner; none stays open without a name. Read back after fixes. Re-check the fixed items in their real home. The reviewer looks again at the changed revision and the checks it affects. Record which revision each result covers.
@@ -60,3 +62,4 @@ A review record on [template.md](template.md).
 - Each finding has evidence and a way to verify it.
 - Disagreements are reported, not smoothed.
 - The record says what was not checked, and the owner's decision is written down.
+- If a packet tool was used, the record names the packet hash and states that the runner is not a sandbox.
