@@ -73,17 +73,28 @@ class Refused(Exception):
 ABSOLUTE = r"(?:[A-Za-z]:[\\/]|\\\\|/)"
 QUOTED_PATH = re.compile(r"(['\"])(" + ABSOLUTE + r".*?)\1")
 BARE_PATH = re.compile(r"(?<![\w.~])" + ABSOLUTE + r"[^\s'\"]*")
+WHOLE_PATH = re.compile(ABSOLUTE + r"[^\r\n]*")
 
 
 def redact(message: str) -> str:
-    """The message with a path under the home folder shown as ~ and any other absolute path as <path>."""
+    """The message with a path under the home folder shown as ~ and any other absolute path as <path>.
+
+    A value that is itself one absolute path, spaces and all, is redacted whole, so callers redact each path
+    value before putting it into a message; the patterns below are the second safety net for the finished message."""
+    message = _home_as_tilde(message)
+    if WHOLE_PATH.fullmatch(message):
+        return message if message.startswith("~") else "<path>"
+    message = QUOTED_PATH.sub(lambda m: m.group(1) + "<path>" + m.group(1), message)
+    return BARE_PATH.sub("<path>", message)
+
+
+def _home_as_tilde(message: str) -> str:
     homes = set()
     for home in {str(Path.home()), str(Path.home().resolve())}:
         homes.update((home, home.replace("\\", "\\\\"), home.replace("\\", "/")))
     for home in sorted(homes, key=len, reverse=True):
         message = re.sub(re.escape(home) + r"(?=[\\/'\"\s]|$)", "~", message, flags=re.I if os.name == "nt" else 0)
-    message = QUOTED_PATH.sub(lambda m: m.group(1) + "<path>" + m.group(1), message)
-    return BARE_PATH.sub("<path>", message)
+    return message
 
 
 def is_link(path: Path) -> bool:
@@ -133,22 +144,22 @@ def read_source(scope: Path, rel: str) -> str:
         raise Refused("each source must be a relative path")
     parts = Path(rel).parts
     if Path(rel).is_absolute() or Path(rel).drive or ".." in parts:
-        raise Refused(f"source must be a relative path inside the scope: {rel}")
+        raise Refused(f"source must be a relative path inside the scope: {redact(rel)}")
     current = scope
     for part in parts:
         current = current / part
         if os.path.lexists(current) and is_link(current):
-            raise Refused(f"source passes through a link: {rel}")
+            raise Refused(f"source passes through a link: {redact(rel)}")
     if not current.is_file():
-        raise Refused(f"source not found: {rel}")
+        raise Refused(f"source not found: {redact(rel)}")
     if SECRET_NAME.search(rel):
-        raise Refused(f"source name looks like a secret: {rel}")
+        raise Refused(f"source name looks like a secret: {redact(rel)}")
     try:
         body = current.read_text(encoding="utf-8")
     except UnicodeDecodeError:
-        raise Refused(f"source is not UTF-8 text: {rel}") from None
+        raise Refused(f"source is not UTF-8 text: {redact(rel)}") from None
     if SECRET_TEXT.search(body):
-        raise Refused(f"source looks like it contains a secret: {rel}")
+        raise Refused(f"source looks like it contains a secret: {redact(rel)}")
     return body
 
 
@@ -205,13 +216,13 @@ def validate(packet, scope: Path) -> str:
         if not isinstance(source, dict) or set(source) != {"path", "revision", "text"}:
             raise Refused("each source needs exactly a path, a revision and a text")
         if source["revision"] != packet["revision"]:
-            raise Refused(f"source {source['path']} was read at a different revision")
+            raise Refused(f"source {redact(str(source['path']))} was read at a different revision")
     spec = {name: packet[name] for name in ("request", "acceptance", "evidence", "limitations")}
     rebuilt = build(dict(spec, sources=[source["path"] for source in sources]), scope, packet["revision"])
     rebuilt["scope"] = recorded
     for source, fresh in zip(sources, rebuilt["sources"]):
         if source["text"] != fresh["text"]:
-            raise Refused(f"source {source['path']} does not match the file in {scope.name}: the packet was built "
+            raise Refused(f"source {redact(str(source['path']))} does not match the file in {scope.name}: the packet was built "
                           "from another folder, or the file has changed since")
     if rebuilt != packet:
         raise Refused("packet fields are not as build writes them")

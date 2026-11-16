@@ -225,6 +225,16 @@ class TestPacket(ReviewCase):
         self.assertIn("<path>", json.loads(cases[1].splitlines()[-1])["reason"])
         self.assertIn("<path>", json.loads(cases[2].splitlines()[-1])["reason"])
 
+    def test_a_path_with_spaces_is_redacted_whole(self):
+        spaced = "D:/client records/alice/report.md"
+        self.assertEqual(review_packet.redact(spaced), "<path>")
+        err = self.build(dict(self.spec, sources=[spaced]), "--revision", "r1")[2]
+        reason = json.loads(err.splitlines()[-1])["reason"]
+        self.assertEqual(reason, "source must be a relative path inside the scope: <path>")
+        with self.assertRaises(review_packet.Refused) as raised:
+            review_packet.read_source(self.scope, spaced)
+        self.assertEqual(str(raised.exception), "source must be a relative path inside the scope: <path>")
+
     def test_redact_leaves_relative_paths_alone(self):
         self.assertEqual(review_packet.redact("source not found: notes/rota.md"), "source not found: notes/rota.md")
 
