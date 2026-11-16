@@ -20,8 +20,12 @@ USERPROFILE, SYSTEMROOT, TEMP, TMP and LANG, plus any name given with
 --allow-env NAME (repeatable). It cannot inherit a token from your shell by
 accident, and it does not start inside your project folder. Output is capped at
 1 MB while it is read: the first 1 MB is kept and the rest is read and dropped,
-so a noisy command cannot fill memory. At the time limit the command and
-anything it started are stopped.
+so a noisy command cannot fill memory. The time limit covers the output as
+well as the command: if the command exits while something it started still
+holds its output open, the run is not over until that output ends. At the
+time limit the command and anything it started are stopped, through a job
+object on Windows and a process group elsewhere, even if the command itself
+has already exited.
 
 This is process hygiene, not a sandbox. It does not block network access, and
 it does not stop a command that reads files by absolute path or from the home
@@ -31,8 +35,8 @@ record which controls were actually applied.
 
 The receipt records the command name (not its path or arguments), the number of
 arguments, the packet's SHA-256, the exit code, whether it timed out, the time
-taken, the output size kept, whether output was cut at the cap
-("output_truncated"), the environment names passed, "network_allowed": true
+taken, the output size kept, whether output was cut, at the cap or by the
+time limit ("output_truncated"), the environment names passed, "network_allowed": true
 and "sandboxed": false. It never stores the packet or the output text. Standard
 library only, Python 3.9 or later.
 
@@ -43,6 +47,7 @@ stopped it; 125 when it was refused or could not be started.
 from __future__ import annotations
 
 import argparse
+import ctypes
 import hashlib
 import json
 import os
@@ -59,12 +64,43 @@ BASE_ENV = ("PATH", "HOME", "USERPROFILE", "SYSTEMROOT", "TEMP", "TMP", "LANG")
 MAX_OUTPUT = 1_000_000
 WINDOWS = os.name == "nt"
 NEW_PROCESS_GROUP = 0x200  # subprocess.CREATE_NEW_PROCESS_GROUP on Windows
+SUSPENDED = 0x4  # CREATE_SUSPENDED on Windows
+GRACE = 10  # seconds to wait for the output to end once everything has been stopped
+
+if WINDOWS:
+    from ctypes import wintypes
+    KERNEL32, NTDLL = ctypes.WinDLL("kernel32", use_last_error=True), ctypes.WinDLL("ntdll")
+    KERNEL32.CreateJobObjectW.restype = wintypes.HANDLE
+    KERNEL32.CreateJobObjectW.argtypes = (wintypes.LPVOID, wintypes.LPCWSTR)
+    KERNEL32.AssignProcessToJobObject.argtypes = (wintypes.HANDLE, wintypes.HANDLE)
+    KERNEL32.TerminateJobObject.argtypes = (wintypes.HANDLE, wintypes.UINT)
+    KERNEL32.CloseHandle.argtypes = (wintypes.HANDLE,)
+    NTDLL.NtResumeProcess.argtypes = (wintypes.HANDLE,)
 
 
-def stop(process: subprocess.Popen) -> None:
-    """Stop the command and anything it started."""
+def contain(process: subprocess.Popen):
+    """Put the command, started suspended, in a new Windows job object, then let it run.
+
+    Everything it starts joins the job, so the whole tree can be stopped even after the command itself has
+    exited. Returns the job handle, or None if no job could be made (stop then falls back to taskkill)."""
+    job = None
     try:
-        if WINDOWS:
+        job = KERNEL32.CreateJobObjectW(None, None)
+        if job and not KERNEL32.AssignProcessToJobObject(job, int(process._handle)):
+            KERNEL32.CloseHandle(job)
+            job = None
+    finally:
+        if NTDLL.NtResumeProcess(int(process._handle)) != 0:
+            process.kill()
+    return job
+
+
+def stop(process: subprocess.Popen, job=None) -> None:
+    """Stop the command and anything it started, even if the command itself has already exited."""
+    try:
+        if job and KERNEL32.TerminateJobObject(job, 124):
+            pass
+        elif WINDOWS:
             subprocess.run(["taskkill", "/F", "/T", "/PID", str(process.pid)], capture_output=True, timeout=30)
         else:
             os.killpg(process.pid, signal.SIGKILL)
@@ -78,12 +114,17 @@ def run(command: list, packet: bytes, env: dict, timeout: int) -> tuple:
     """(exit code, timed out, output, truncated) for the command run in an empty temporary folder.
 
     Output is read in chunks and only the first MAX_OUTPUT bytes are kept, so a noisy command cannot fill
-    memory. The rest is read and dropped, so the command is never blocked on a full pipe."""
+    memory. The rest is read and dropped, so the command is never blocked on a full pipe. The run lasts until
+    the command has exited and its output has ended, whichever is later, and the time limit applies to both:
+    a child that keeps the output open after the command exits is stopped with it. Output is truncated when
+    it passed the cap or the time limit cut it short."""
     cap, kept, seen = MAX_OUTPUT, bytearray(), [0]
+    deadline = time.monotonic() + timeout
     with tempfile.TemporaryDirectory(prefix="review-") as work:
-        options = {"creationflags": NEW_PROCESS_GROUP} if WINDOWS else {"start_new_session": True}
+        options = {"creationflags": NEW_PROCESS_GROUP | SUSPENDED} if WINDOWS else {"start_new_session": True}
         process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                    cwd=work, env=env, **options)
+        job = contain(process) if WINDOWS else None
 
         def read():
             try:
@@ -104,15 +145,22 @@ def run(command: list, packet: bytes, env: dict, timeout: int) -> tuple:
         reader.start()
         writer.start()
         try:
-            process.wait(timeout=timeout)
-            code, timed_out = process.returncode, False
-        except subprocess.TimeoutExpired:
-            stop(process)
-            code, timed_out = 124, True
-        reader.join(10)
-        if not reader.is_alive():
-            process.stdout.close()
-        return code, timed_out, bytes(kept), seen[0] > cap
+            try:
+                process.wait(timeout=max(0.0, deadline - time.monotonic()))
+                reader.join(max(0.0, deadline - time.monotonic()))
+                timed_out = reader.is_alive()
+            except subprocess.TimeoutExpired:
+                timed_out = True
+            if timed_out:
+                stop(process, job)
+                reader.join(GRACE)
+            if not reader.is_alive():
+                process.stdout.close()
+            code = 124 if timed_out else process.returncode
+            return code, timed_out, bytes(kept), timed_out or seen[0] > cap
+        finally:
+            if job:
+                KERNEL32.CloseHandle(job)
 
 
 def main(argv=None) -> int:

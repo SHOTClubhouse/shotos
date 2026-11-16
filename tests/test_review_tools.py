@@ -246,6 +246,25 @@ class TestRunner(ReviewCase):
         self.assertLess(time.monotonic() - started, 40)
         self.assertTrue(json.loads(receipt.read_text(encoding="utf-8"))["timed_out"])
 
+    def test_the_time_limit_holds_after_the_command_exits_while_a_child_still_has_its_output(self):
+        marker = self.base / "late.txt"
+        child = f"import time; time.sleep(6); print('late', flush=True); open({str(marker)!r}, 'w').write('late')"
+        parent = f"import subprocess, sys; subprocess.Popen([sys.executable, '-c', {child!r}]); print('early', flush=True)"
+        started = time.monotonic()
+        code, timed_out, output, truncated = run_contained.run([sys.executable, "-c", parent], b"{}", dict(os.environ), 2)
+        self.assertEqual((code, timed_out, truncated), (124, True, True))
+        self.assertLess(time.monotonic() - started, 5)
+        self.assertIn(b"early", output)
+        self.assertNotIn(b"late", output)
+        receipt = self.base / "receipt.json"
+        result = self.run_tool("--packet", self.packet(), "--timeout", "2", "--receipt", receipt, "--",
+                               sys.executable, "-c", parent)
+        self.assertEqual(result.returncode, 124)
+        data = json.loads(receipt.read_text(encoding="utf-8"))
+        self.assertEqual((data["exit_code"], data["timed_out"], data["output_truncated"]), (124, True, True))
+        time.sleep(max(0.0, started + 9 - time.monotonic()))
+        self.assertFalse(marker.exists(), "the child outlived the time limit")
+
     def test_output_is_capped_while_it_is_read_and_the_cut_is_recorded(self):
         noisy = [sys.executable, "-c", "import sys\nfor _ in range(200): sys.stdout.write('x' * 10000)"]
         with patch.object(run_contained, "MAX_OUTPUT", 1000):
