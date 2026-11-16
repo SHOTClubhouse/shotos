@@ -61,7 +61,7 @@ These are common needs SHOTos does not have a skill for. The core skills and the
 
 - **Other runtimes.** Codex, Gemini, Antigravity, ChatGPT and the Claude app upload need the same outcome runs as Claude Code.
 - **Live automation runs.** The two Apps Script automations need a recorded end-to-end run.
-- **macOS and Linux.** [Release CI](https://github.com/SHOTClubhouse/shotos/commit/69b752f1f4087e049ef7b0bdf34feec28759809c/checks) covers Windows, macOS and Linux.
+- **macOS and Linux.** Checks now run on a maintainer's machine through the [local gate](../CONTRIBUTING.md#run-the-local-gate), mostly on Windows. Each gate card names the system it ran on. Regular runs on macOS and Linux are needed.
 - **Rule 1 in practice.** The first outcome runs showed an agent asking permission for something the owner had already asked for. Rule 1 now says a clear request is the yes for what it names. The next runs check that the fix holds without losing caution where it matters.
 
 Suggest a gap, or a skill to fill one, through [CONTRIBUTING.md](../CONTRIBUTING.md).

@@ -137,7 +137,7 @@ It is a baseline, not a certification. It gives named owners, human checkpoints 
 
 | Check | Coverage |
 | --- | --- |
-| Automated repository checks | The [release checks](https://github.com/SHOTClubhouse/shotos/actions/workflows/checks.yml?query=branch%3Amain) cover Windows, macOS and Linux. |
+| Repository checks | Every change and release goes through the [local gate](../CONTRIBUTING.md#run-the-local-gate) on a maintainer's machine. Its card names the Python version and system it ran on. |
 | Installed workflow | Codex CLI and Claude Code ran a six-stage proposal and handoff on Windows. Claude Code also exercised the Stop hook. |
 | Chat setup | The [no-terminal guide](guides/chat-assistants.md) includes a sample job and the result to check before using it on your own work. |
 
