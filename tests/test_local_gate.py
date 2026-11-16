@@ -58,7 +58,7 @@ class GateDecisionTests(unittest.TestCase):
 
     def test_a_changed_control_file_is_flagged_for_a_person(self):
         items = gate.look_at(context(changes=[("M", "tools/claim_check.py")]), passing())
-        self.assertTrue(any("major release and needs the owner" in item for item in items))
+        self.assertTrue(any("stop until the owner approves it" in item for item in items))
 
     def test_the_card_never_carries_a_denylist_term(self):
         ctx = context(commits=["abc1234 Move the Quillbury notes"])

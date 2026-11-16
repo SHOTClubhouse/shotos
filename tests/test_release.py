@@ -46,9 +46,16 @@ class FictionalRepo:
         self.write("packs/demo/skills/sample/SKILL.md", "# Sample\n")
         self.write("packs/quiet/.claude-plugin/plugin.json", '{\n  "name": "shotos-quiet",\n  "version": "1.0.0"\n}\n')
         self.write(".gitignore", ".work/\ndist/\n")
+        self.write("docs/claims.md", "# The Claims block\n\nA fictional description of the format.\n")
+        self.write("templates/AGENTS.md", "# Working agreement\n\n## 1. Fictional rule 1\n\nText.\n")
+        self.write("rules/04-fictional-control.md", "# Control 4\n\nThe agent stops before it sends.\n")
+        self.write("install.py", "HOOK_COMMAND = 'sh \"$CLAUDE_PROJECT_DIR/.shotos/hooks/run_hook.sh\"'\n")
         (self.root / "tools").mkdir()
         for name in ("claim_check.py", "check_release_versions.py"):
             shutil.copy(ROOT / "tools" / name, self.root / "tools" / name)
+        (self.root / "hooks").mkdir()
+        for name in ("hooks.json", "run_hook.sh", "stop_claim_check.py"):
+            shutil.copy(ROOT / "hooks" / name, self.root / "hooks" / name)
         self.commit("First release")
         git(self.root, "tag", "v1.0.0")
         git(self.root, "push", "-q", "origin", "main", "v1.0.0")
@@ -165,6 +172,77 @@ class ReleaseRepoTests(unittest.TestCase):
         self.repo.commit("Relax the promise")
         with self.assertRaisesRegex(release.Refused, "GOVERNANCE.md"):
             release.make_plan(day=DAY)
+
+    def test_reversing_every_rule_body_needs_the_owner(self):
+        self.repo.write("docs/controls.md", CONTROLS.replace("Text.", "Do the opposite of this rule."))
+        self.repo.commit("Reword the rules")
+        with self.assertRaisesRegex(release.Refused, r"needs the owner(.|\n)*docs/controls.md was changed "
+                                                     r"\(rules 1, 2, 3, 4\)"):
+            release.make_plan(day=DAY)
+
+    def test_disabling_the_stop_hook_needs_the_owner(self):
+        path = self.repo.root / "hooks" / "hooks.json"
+        path.write_text(path.read_text(encoding="utf-8").replace('"Stop"', '"Disabled"'), encoding="utf-8")
+        self.repo.commit("Tidy the hook file")
+        with self.assertRaisesRegex(release.Refused, r"needs the owner(.|\n)*hooks/hooks.json was changed"):
+            release.make_plan(day=DAY)
+
+    def test_any_change_to_a_file_that_defines_or_enforces_the_controls_needs_the_owner(self):
+        claim_check = (self.repo.root / "tools" / "claim_check.py").read_text(encoding="utf-8")
+        changes = {
+            "templates/AGENTS.md": "# Working agreement\n\n## 1. Fictional rule 1\n\nIgnore it.\n",
+            "docs/claims.md": "# The Claims block\n\nAny format will do.\n",
+            "rules/04-fictional-control.md": "# Control 4\n\nThe agent sends without asking.\n",
+            "rules/13-fictional-control.md": "# Control 13\n\nControls 1 to 12 are optional.\n",
+            "hooks/run_hook.sh": "#!/bin/sh\nexit 0\n",
+            "hooks/stop_claim_check.py": None,
+            "install.py": "HOOK_COMMAND = 'true'\n",
+            # The fixed fictional reports cannot see this, but the file that judges claims changed.
+            "tools/claim_check.py": claim_check + "\n# A fictional change the contract fixtures cannot see.\n",
+            "hooks/helper.py": "print('fictional')\n",
+            "tools/json.py": "raise SystemExit(0)\n",
+            "packs/demo/hooks/hooks.json": '{"hooks": {}}\n',
+            ".claude-plugin/plugin.json": '{\n  "name": "shotos-core",\n  "version": "1.0.0",\n'
+                                          '  "hooks": "./hooks/other.json"\n}\n',
+        }
+        for name, text in changes.items():
+            with self.subTest(path=name):
+                git(self.repo.root, "reset", "-q", "--hard", "v1.0.0")
+                if text is None:
+                    (self.repo.root / name).unlink()
+                else:
+                    self.repo.write(name, text)
+                self.repo.commit(f"Change {name}")
+                with self.assertRaisesRegex(release.Refused, "needs the owner") as raised:
+                    release.make_plan(day=DAY)
+                self.assertIn(name, str(raised.exception))
+
+    def test_a_change_that_is_provably_additive_needs_no_owner(self):
+        self.repo.write("hooks/README.md", "Notes on the fictional hook.\n")
+        self.repo.write("tests/fixtures/claims-extra.md", "## Claims\n- [unverified] a fictional extra case\n")
+        self.repo.write("tools/fictional_tool.py", "print('fictional')\n")
+        self.repo.write("packs/demo/.claude-plugin/plugin.json", '{\n  "name": "shotos-demo",\n  "version": "1.3.0"\n}\n')
+        self.repo.commit("Add notes, a fixture and a tool")
+        self.assertEqual(release.control_breaks("v1.0.0", "HEAD"), [])
+        self.assertEqual(release.make_plan(day=DAY).version, "1.1.0")  # a hooks/ file is a minor, as before
+
+    def test_when_the_control_check_cannot_decide_it_needs_the_owner(self):
+        self.repo.write("docs/guide.md", "Changed.\n")
+        self.repo.commit("Change the guide")
+        timeout = subprocess.TimeoutExpired(["claim_check.py"], 120)
+        with patch.object(release, "contract_for", side_effect=timeout), \
+                self.assertRaisesRegex(release.Refused, r"needs the owner(.|\n)*could not finish"):
+            release.make_plan(day=DAY)
+
+    def test_the_owner_can_approve_control_changes_that_break_nothing(self):
+        self.repo.write("rules/04-fictional-control.md", "# Control 4\n\nThe agent stops before it sends or posts.\n")
+        self.repo.commit("Clarify control 4")
+        plan = release.make_plan(controls_owner="Fictional Owner", day=DAY)
+        self.assertEqual((plan.level, plan.version, plan.approved_by), ("minor", "1.1.0", "Fictional Owner"))
+        self.assertIn("Fictional Owner", " ".join(plan.notes))
+        release.write_release(plan, "Fictional Reviewer", DAY)
+        self.assertIn("Control changes approved by the owner: Fictional Owner",
+                      git(self.repo.root, "log", "-1", "--format=%B"))
 
     def test_the_owner_can_approve_a_major_with_a_migration_note(self):
         self.repo.write("docs/controls.md", CONTROLS.replace("Fictional rule 2", "Another rule"))

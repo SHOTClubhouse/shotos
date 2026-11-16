@@ -43,7 +43,7 @@ REPO = Path(__file__).resolve().parents[1]
 CARDS = REPO / ".work" / "gate"
 ZERO = "0" * 40
 CONTROL_FILES = ("docs/controls.md", "docs/claims.md", "rules/", "hooks/", "tools/claim_check.py",
-                 "templates/AGENTS.md")
+                 "templates/AGENTS.md", "install.py")
 
 
 @dataclass
@@ -418,8 +418,9 @@ def look_at(context: Context, checks) -> list:
         items.append(f"{skill.name} changed. A person runs the skill quality gate scenarios on it (normal, "
                      "conflicting source, authority boundary) and records who decided.")
     if any(path.startswith(CONTROL_FILES) for _, path in context.changes):
-        items.append("A file that defines the four controls, the Claims block or the Stop hook changed. Check it "
-                     "does not break them; if it does, it is a major release and needs the owner.")
+        items.append("A file that defines or enforces the four controls, the Claims block or the Stop hook "
+                     "changed. The release script will stop until the owner approves it, as a major release if "
+                     "it breaks them.")
     if not context.fast:
         try:
             import yaml  # noqa: F401

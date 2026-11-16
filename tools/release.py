@@ -15,13 +15,21 @@ GitHub release with the ZIPs through the gh CLI and reads the release back
 with tools/verify_release.py.
 
 A change that breaks the four controls, the Claims block format or the
-claim-check exit codes is a major release. The script refuses it and says it
-needs the owner, as GOVERNANCE.md requires.
+claim-check exit codes is a major release. The script cannot tell a harmless
+change to those from a breaking one, so it refuses any change to a file that
+defines or enforces them (the rule text, the Claims block, the Stop hook and
+where it is registered, the installer and claim-check) unless the change is
+provably additive, such as a new note or fixture beside the hook. It says the
+release needs the owner, as GOVERNANCE.md requires. If the check itself cannot
+finish, it says the same. The owner then approves a major release with
+--major-approved-by, or a change that breaks nothing with
+--controls-approved-by.
 """
 
 from __future__ import annotations
 
 import argparse
+import ast
 import json
 import os
 import re
@@ -75,6 +83,8 @@ class Plan:
     section: str = ""
     resumed: bool = False
     notes: list = field(default_factory=list)
+    breaks: list = field(default_factory=list)  # what control_breaks found, which the owner approved
+    approved_by: str = ""
 
 
 def run(*command, cwd=None, check=True, input=None, env=None) -> str:
@@ -158,6 +168,100 @@ def pack_bumps(previous: str, candidate: str, paths) -> dict:
 
 # The four controls, the Claims block and the exit codes.
 
+# Files that define or enforce them: the rule text, the Claims block format, the Stop hook, the code that
+# registers it and claim-check itself. Any change to one needs the owner unless it is provably additive.
+CONTROL_FILES = ("docs/controls.md", "docs/claims.md", "templates/AGENTS.md", "tools/claim_check.py", "install.py")
+CONTROL_TREES = re.compile(r"(?:rules|hooks|packs/[^/]+/hooks)/")
+MANIFEST = re.compile(r"(?:packs/[^/]+/)?\.claude-plugin/(?:plugin|marketplace)\.json")
+# Fields in a plugin manifest or marketplace entry that say where hooks come from or whether they load.
+HOOK_FIELDS = ("hooks", "strict")
+
+
+def is_control_file(path: str) -> bool:
+    return path in CONTROL_FILES or bool(CONTROL_TREES.match(path))
+
+
+def is_inert(path: str) -> bool:
+    """True for a new file beside the hooks that nothing loads: a note, or a fixture that is not code.
+
+    Claude Code reads only hooks/hooks.json there, and Python only imports code, so these cannot change
+    what the hook does. Every new rule card or template is read by agents, so none of those is inert."""
+    if not re.match(r"(?:packs/[^/]+/)?hooks/", path) or path.endswith(".py"):
+        return False
+    return path.endswith((".md", ".txt")) or "/fixtures/" in path
+
+
+def imported_names(candidate: str) -> set:
+    """Top-level modules claim-check and the Stop hook import, which a new file in tools/ could replace."""
+    names = {"claim_check", "stop_claim_check"} | set(getattr(sys, "stdlib_module_names", ()))
+    for path in ("tools/claim_check.py", "hooks/stop_claim_check.py"):
+        text = show(candidate, path)
+        if not text:
+            continue
+        for node in ast.walk(ast.parse(text)):
+            if isinstance(node, ast.Import):
+                names |= {alias.name.split(".")[0] for alias in node.names}
+            elif isinstance(node, ast.ImportFrom) and not node.level and node.module:
+                names.add(node.module.split(".")[0])
+    return names
+
+
+def shadows(path: str, names: set) -> bool:
+    """True when a new file in tools/ could be imported by claim-check in place of a module it uses."""
+    match = re.match(r"tools/([^/]+)", path)
+    if not match:
+        return False
+    if not hasattr(sys, "stdlib_module_names"):
+        return True  # this Python cannot list its own modules, so the file may hide one of them
+    return match[1].split(".")[0] in names
+
+
+def hook_registration(text: str, core: str) -> dict:
+    """The parts of a plugin manifest or marketplace file that register hooks or locate the core plugin."""
+    data = json.loads(text) if text else {}
+    found = {field: data.get(field) for field in HOOK_FIELDS if field in data}
+    for entry in data.get("plugins", []):
+        keep = HOOK_FIELDS + (("source",) if entry["name"] == core else ())
+        found[f"plugin {entry['name']}"] = {field: entry[field] for field in keep if field in entry}
+    return found
+
+
+def rule_sections(ref: str) -> dict:
+    text = show(ref, "docs/controls.md")
+    return {match[1]: match[0].strip() for match in
+            re.finditer(r"^## Rule (\d+):.*?(?=^## |\Z)", text, re.M | re.S)}
+
+
+def control_file_changes(previous: str, candidate: str) -> list:
+    """A reason for every change to a file that defines or enforces the controls that is not provably additive."""
+    reasons = []
+    fields = git("diff", "--name-status", "--no-renames", "-z", previous, candidate).split("\0")
+    rows = [(status, path) for status, path in zip(fields[0::2], fields[1::2]) if path]
+    core = json.loads(show(candidate, CORE) or show(previous, CORE))["name"]
+    names = None
+    for status, path in rows:
+        verb = {"A": "added", "D": "removed"}.get(status[:1], "changed")
+        if is_control_file(path):
+            if status == "A" and is_inert(path):
+                continue
+            detail = ""
+            if path == "docs/controls.md":
+                before, after = rule_sections(previous), rule_sections(candidate)
+                changed = [n for n in sorted(set(before) | set(after), key=int) if before.get(n) != after.get(n)]
+                detail = (f" (rule{'s' if len(changed) > 1 else ''} {', '.join(changed)})" if changed
+                          else " (outside the rule sections)")
+            reasons.append(f"{path} was {verb}{detail}. It defines or enforces the controls, so only the owner "
+                           "can say it breaks nothing.")
+        elif MANIFEST.fullmatch(path):
+            if hook_registration(show(previous, path), core) != hook_registration(show(candidate, path), core):
+                reasons.append(f"{path} changed how hooks are registered or where the core plugin loads from.")
+        elif status == "A":
+            names = imported_names(candidate) if names is None else names
+            if shadows(path, names):
+                reasons.append(f"{path} was added where claim-check could import it in place of a module it uses.")
+    return reasons
+
+
 def rule_headings(ref: str) -> list:
     return re.findall(r"^## Rule (\d+): (.+?)\s*$", show(ref, "docs/controls.md"), re.M)
 
@@ -202,14 +306,27 @@ def contract_for(text: str) -> dict:
 
 
 def control_breaks(previous: str, candidate: str) -> list:
-    """Reasons this change breaks a promise GOVERNANCE.md says needs a major release."""
+    """Reasons this change may break a promise GOVERNANCE.md says needs a major release, for the owner to judge.
+
+    Anything this check cannot finish is a reason too: it never passes a change it could not read."""
+    try:
+        return _control_breaks(previous, candidate)
+    except Exception as error:  # noqa: BLE001 - whatever went wrong, the answer is "ask the owner"
+        return [f"The control check could not finish ({type(error).__name__}: {error}), so it cannot show "
+                "that nothing broke."]
+
+
+def _control_breaks(previous: str, candidate: str) -> list:
     reasons = []
     before, after = rule_headings(previous), rule_headings(candidate)
     if len(after) != 4:
         reasons.append(f"docs/controls.md now has {len(after)} rules instead of four.")
-    elif before and before != after:
+    elif before != after:
         reasons.append("A rule in docs/controls.md was renamed, removed or reordered.")
-    if governance_promise(previous) != governance_promise(candidate):
+    reasons += control_file_changes(previous, candidate)
+    if not governance_promise(candidate):
+        reasons.append("GOVERNANCE.md no longer says what may not change without a major version.")
+    elif governance_promise(previous) != governance_promise(candidate):
         reasons.append("GOVERNANCE.md changed what may not change without a major version.")
     texts = {label: show(ref, "tools/claim_check.py") for label, ref in (("previous", previous),
                                                                          ("candidate", candidate))}
@@ -308,7 +425,29 @@ def set_citation_version(text: str, new: str) -> str:
 
 # Planning and doing.
 
-def make_plan(level=None, major_owner=None, notes_file=None, day=None) -> Plan:
+def needs_owner(breaks) -> Refused:
+    return Refused("this needs the owner. It changes what defines or enforces the controls:\n  - "
+                   + "\n  - ".join(breaks)
+                   + "\nIf it breaks a control, that is a major release: the owner approves it with "
+                     "--major-approved-by and a migration note in the changelog. If the owner checked that it "
+                     "breaks nothing, they approve it with --controls-approved-by.")
+
+
+def approve(plan: Plan, breaks, major_owner=None, controls_owner=None) -> None:
+    """Record the owner's approval of the control changes, or refuse when there is none."""
+    if not breaks:
+        return
+    if not (major_owner or controls_owner):
+        raise needs_owner(breaks)
+    plan.breaks, plan.approved_by = list(breaks), major_owner or controls_owner
+    if major_owner:
+        plan.notes.append(f"Major release approved by {major_owner}: " + " ".join(breaks))
+    else:
+        plan.notes.append(f"The owner, {controls_owner}, checked these control changes and approved them as "
+                          "breaking nothing: " + " ".join(breaks))
+
+
+def make_plan(level=None, major_owner=None, notes_file=None, day=None, controls_owner=None) -> Plan:
     version = release_commit()
     if version:
         # Carry on after a failed step. Each publishing step can safely run again.
@@ -333,12 +472,12 @@ def make_plan(level=None, major_owner=None, notes_file=None, day=None) -> Plan:
     if level == "minor" and chosen == "patch":
         chosen = "minor"
     breaks = control_breaks(previous, candidate)
-    if breaks and not major_owner:
-        raise Refused("this needs the owner. It breaks a promise that only a major release may break:\n  - "
-                      + "\n  - ".join(breaks)
-                      + "\nA major release is the owner's decision and needs a migration note in the changelog.")
+    if breaks and not (major_owner or controls_owner):
+        raise needs_owner(breaks)
     if major_owner:
         chosen = "major"
+    elif breaks:
+        chosen = "minor"  # the owner approved a change to what a rule asks of the agent: a minor at least
     version = bump(core_version(previous), chosen)
     if parse(core_version(candidate)) > parse(version):
         raise Refused(f"{CORE} already names {core_version(candidate)}, ahead of the planned {version}")
@@ -351,8 +490,7 @@ def make_plan(level=None, major_owner=None, notes_file=None, day=None) -> Plan:
     if chosen == "major" and "migration" not in section.lower():
         raise Refused("a major release needs a migration note in its changelog section")
     plan = Plan(previous, candidate, chosen, version, pack_bumps(previous, candidate, paths), section)
-    if breaks:
-        plan.notes.append(f"Major release approved by {major_owner}: " + " ".join(breaks))
+    approve(plan, breaks, major_owner, controls_owner)
     if any(path.startswith(("rules/", "install.py", "skills/")) for path in paths):
         plan.notes.append("Rules, a core skill or the installer changed. RELEASING.md asks for an outcome eval "
                           "run on at least one model; keep the result with the review.")
@@ -376,8 +514,9 @@ def write_release(plan: Plan, review: str, day: date) -> None:
         path.write_text(set_json_version(path.read_text(encoding="utf-8"), old, new), encoding="utf-8",
                         newline="\n")
     git("add", "--", CORE, CITATION, CHANGELOG, *plan.packs)
+    approval = f"\nControl changes approved by the owner: {plan.approved_by}" if plan.approved_by else ""
     git("commit", "-q", "-s", "-m", SUBJECT.format(plan.version), "-m",
-        f"Independent review: {review}\nGate card: {plan.candidate[:12]} GO")
+        f"Independent review: {review}\nGate card: {plan.candidate[:12]} GO{approval}")
 
 
 def build_zips(out: Path, commit: str) -> int:
@@ -477,12 +616,18 @@ def main(argv=None) -> int:
     parser.add_argument("--notes", help="file with the changelog text (default: one line per commit)")
     parser.add_argument("--major-approved-by", metavar="OWNER",
                         help="for the owner only: allow a major release that breaks the controls")
+    parser.add_argument("--controls-approved-by", metavar="OWNER",
+                        help="for the owner only: the control changes were checked and break nothing, so "
+                             "release them as a minor")
     args = parser.parse_args(argv)
     if args.publish and not (args.review or "").strip():
         parser.error("--publish needs --review: name who did the independent review, or link to it")
+    if args.major_approved_by and args.controls_approved_by:
+        parser.error("pass --major-approved-by or --controls-approved-by, not both")
     day = date.today()
     try:
-        plan = make_plan("minor" if args.minor else None, args.major_approved_by, args.notes, day)
+        plan = make_plan("minor" if args.minor else None, args.major_approved_by, args.notes, day,
+                         args.controls_approved_by)
         problem = card_problem(plan.candidate) or tree_problem()
         if problem:
             raise Refused(problem)
