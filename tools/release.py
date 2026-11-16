@@ -592,6 +592,28 @@ def gate_release_commit(plan: Plan, release: str) -> None:
         raise Refused(f"the release commit {release[:12]} did not pass the gate: {problem} It has not been pushed.")
 
 
+def check_tag(tag: str, release: str) -> bool:
+    """True when the tag already points at the release commit, False when it does not exist anywhere yet.
+
+    A tag here or on origin that points anywhere else stops the release, before anything is pushed."""
+    remote = {}
+    for line in git("ls-remote", "--tags", "origin", f"refs/tags/{tag}", f"refs/tags/{tag}^{{}}").splitlines():
+        sha, _, ref = line.partition("\t")
+        remote[ref] = sha
+    on_origin = remote.get(f"refs/tags/{tag}^{{}}", remote.get(f"refs/tags/{tag}"))
+    if on_origin and on_origin != release:
+        raise Refused(f"the tag {tag} already exists on origin and points at {on_origin[:12]}, not the release "
+                      f"commit {release[:12]}. Nothing was pushed. Find out why before releasing.")
+    if not git("tag", "--list", tag):
+        return False
+    here = git("rev-parse", "--verify", "--quiet", f"refs/tags/{tag}^{{commit}}", check=False)
+    if here != release:
+        raise Refused(f"the tag {tag} already exists here and points at {here[:12] or 'something that is not a '
+                      f'commit'}, not the release commit {release[:12]}. Nothing was pushed. Find out why, and "
+                      f"delete the tag with `git tag -d {tag}` only if it is a mistake.")
+    return True
+
+
 def publish(plan: Plan, review: str, day: date) -> list:
     done = []
     git("fetch", "-q", "origin")
@@ -606,6 +628,8 @@ def publish(plan: Plan, review: str, day: date) -> list:
                 "only the version files and changelog, and checked the controls again.")
     gate_release_commit(plan, release)
     done.append(f"The full gate card for the release commit {release[:12]} is GO.")
+    tag = f"v{plan.version}"
+    tagged = check_tag(tag, release)
     assets = REPO / "dist" / f"v{plan.version}"
     count = build_zips(assets, release)
     done.append(f"Built {count} skill ZIPs in dist/v{plan.version}.")
@@ -614,10 +638,9 @@ def publish(plan: Plan, review: str, day: date) -> list:
         done.append("`claude plugin validate .` passed.")
     else:
         done.append("Skipped `claude plugin validate .`: the claude CLI is not installed.")
-    tag = f"v{plan.version}"
-    git("push", "origin", "HEAD:refs/heads/main")
-    if not git("tag", "--list", tag):
-        git("tag", tag)
+    git("push", "origin", f"{release}:refs/heads/main")
+    if not tagged:
+        git("tag", tag, release)
     git("push", "origin", f"refs/tags/{tag}")
     done.append(f"Pushed main and the tag {tag}.")
     notes = REPO / ".work" / "release" / f"notes-{tag}.md"

@@ -355,6 +355,43 @@ class ReleaseRepoTests(unittest.TestCase):
         self.assertEqual(git(self.repo.origin, "tag", "--list"), "v1.0.0")
         self.assertFalse(any(c[0] == "gh" for c in calls))
 
+    def assert_nothing_published(self, candidate, calls):
+        self.assertEqual(git(self.repo.origin, "rev-parse", "main"), candidate)
+        self.assertFalse(any(c[0] == "gh" for c in calls))
+
+    def side_commit(self):
+        """A fictional commit outside main's history, for a tag that points somewhere else."""
+        return git(self.repo.root, "commit-tree", "HEAD^{tree}", "-p", "HEAD", "-m", "Fictional side commit")
+
+    def test_a_tag_that_points_elsewhere_stops_the_publish(self):
+        candidate = self.ready_to_publish()
+        git(self.repo.root, "tag", "v1.1.0", self.side_commit())
+        code, calls, err = self.publish()
+        self.assertEqual(code, 1)
+        self.assertIn("v1.1.0 already exists here", err)
+        self.assert_nothing_published(candidate, calls)
+        self.assertEqual(git(self.repo.origin, "tag", "--list"), "v1.0.0")
+
+    def test_a_tag_on_github_that_points_elsewhere_stops_the_publish(self):
+        candidate = self.ready_to_publish()
+        side = self.side_commit()
+        git(self.repo.root, "tag", "-a", "-m", "Fictional tag", "v1.1.0", side)
+        git(self.repo.root, "push", "-q", "origin", "v1.1.0")
+        git(self.repo.root, "tag", "-d", "v1.1.0")
+        code, calls, err = self.publish()
+        self.assertEqual(code, 1)
+        self.assertIn("v1.1.0 already exists on origin", err)
+        self.assert_nothing_published(candidate, calls)
+        self.assertEqual(git(self.repo.origin, "rev-parse", "v1.1.0^{commit}"), side)
+
+    def test_a_tag_already_on_the_release_commit_is_used(self):
+        self.ready_to_publish()
+        release.write_release(release.make_plan(day=DAY), "Fictional Reviewer", DAY)
+        git(self.repo.root, "tag", "v1.1.0")
+        code, calls, err = self.publish()
+        self.assertEqual(code, 0, err)
+        self.assertEqual(git(self.repo.origin, "rev-parse", "v1.1.0^{commit}"), git(self.repo.root, "rev-parse", "HEAD"))
+
     def test_publish_checks_the_controls_on_the_release_commit(self):
         self.ready_to_publish("rules/04-fictional-control.md", "# Control 4\n\nThe agent may send without asking.\n")
         plan = release.make_plan(controls_owner="Fictional Owner", day=DAY)
