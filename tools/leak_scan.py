@@ -12,7 +12,8 @@ the SHOTOS_DENYLIST environment variable. Each line is one entry:
 The scan reads every tracked text file, every tracked file name and, with
 --history, every file version and commit message in a range of commits.
 Reports name the file, the line and the denylist line number. They never
-print the term or the matching text.
+print the term or the matching text: a path segment that matches is shown as
+[withheld: denylist line N].
 
 A deliberate public use can be listed in tools/leak-allowlist.txt as a file
 path and a denylist line number, for example `MAINTAINERS.md 12`. The
@@ -52,6 +53,18 @@ class Entry:
             return False
         return bool(self.pattern.search(text))
 
+    def spans(self, text: str) -> list:
+        """(start, end) of each match in `text`. A path entry is looked for as written and with / slashes."""
+        if self.kind != "path":
+            return [match.span() for match in self.pattern.finditer(text)]
+        found = []
+        for needle in {self.text, _slashes(self.text)}:
+            start = text.find(needle)
+            while needle and start != -1:
+                found.append((start, start + len(needle)))
+                start = text.find(needle, start + 1)
+        return found
+
     @cached_property
     def pattern(self):
         flags = re.IGNORECASE if self.kind == "iword" else 0
@@ -65,19 +78,40 @@ class Hit:
     entry: int
     commit: str = ""
     where: str = "file"  # "file", "name" or "message"
+    shown: str = ""  # the path as reports may print it, from redact_path
 
     def describe(self) -> str:
         prefix = f"commit {self.commit[:12]} " if self.commit else ""
+        # Never fall back to the raw path: it may be the very thing the denylist withholds.
+        path = self.shown or ("[path withheld]" if self.path else "")
         if self.where == "name":
-            return f"{prefix}{self.path} (file name): denylist line {self.entry}"
+            return f"{prefix}{path} (file name): denylist line {self.entry}"
         if self.where == "message":
             return f"{prefix}message line {self.line}: denylist line {self.entry}"
-        return f"{prefix}{self.path}:{self.line}: denylist line {self.entry}"
+        return f"{prefix}{path}:{self.line}: denylist line {self.entry}"
 
 
 def _slashes(text: str) -> str:
     # Match a path however it is written: C:\x, C:/x or the JSON-escaped C:\\x.
     return text.replace("\\\\", "/").replace("\\", "/")
+
+
+def redact_path(path: str, entries) -> str:
+    """The path with every segment that is, or is part of, a denylist match replaced, for printing."""
+    entries = [entry for entry in entries if entry.found(path)]
+    if not entries:
+        return path
+    spans = [(start, end, entry.line) for entry in entries for start, end in entry.spans(path)]
+    segments, offset = [], 0
+    for segment in path.split("/"):
+        end = offset + len(segment)
+        matched = [line for start, stop, line in spans if start < end and stop > offset]
+        segments.append(f"[withheld: denylist line {matched[0]}]" if matched else segment)
+        offset = end + 1
+    shown = "/".join(segments)
+    # A match the segments cannot place, such as one written with other slashes, withholds the whole path.
+    return shown if not any(entry.found(shown) for entry in entries) and spans \
+        else f"[withheld: denylist line {entries[0].line}]"
 
 
 def denylist_path(explicit=None):
@@ -160,7 +194,8 @@ def scan_tree(repo: Path, entries) -> tuple:
     for path in git(repo, "ls-files", "-z").decode("utf-8").split("\0"):
         if not path:
             continue
-        hits += [Hit(path, 0, entry.line, where="name") for entry in entries if entry.found(path)]
+        shown = redact_path(path, entries)
+        hits += [Hit(path, 0, entry.line, where="name", shown=shown) for entry in entries if entry.found(path)]
         file = repo / path
         if not file.is_file():
             continue
@@ -168,7 +203,7 @@ def scan_tree(repo: Path, entries) -> tuple:
         if text is None:
             binary += 1
             continue
-        hits += [Hit(path, line, entry) for line, entry in text_hits(text, entries)]
+        hits += [Hit(path, line, entry, shown=shown) for line, entry in text_hits(text, entries)]
     return hits, binary
 
 
@@ -189,7 +224,8 @@ def scan_history(repo: Path, revisions, entries) -> list:
     for commit, path in blobs.values():
         names.setdefault(path, commit)
     for path, commit in names.items():
-        hits += [Hit(path, 0, entry.line, commit, "name") for entry in entries if entry.found(path)]
+        hits += [Hit(path, 0, entry.line, commit, "name", redact_path(path, entries))
+                 for entry in entries if entry.found(path)]
     if blobs:
         batch = git(repo, "cat-file", "--batch", input="".join(f"{blob}\n" for blob in blobs).encode())
         offset = 0
@@ -200,7 +236,8 @@ def scan_history(repo: Path, revisions, entries) -> list:
             offset = header_end + 1 + size + 1
             text = decode(content)
             if text is not None:
-                hits += [Hit(path, line, entry, commit) for line, entry in text_hits(text, entries)]
+                hits += [Hit(path, line, entry, commit, shown=redact_path(path, entries))
+                         for line, entry in text_hits(text, entries)]
     return hits
 
 
@@ -211,7 +248,8 @@ def scan(repo: Path, entries, allowed=frozenset(), history=()) -> dict:
     kept = [hit for hit in hits if hit.where == "message" or (hit.path, hit.entry) not in allowed]
     seen, unique = set(), []
     for hit in kept:
-        key = hit.describe()
+        # Not describe(): two paths that differ only in a withheld segment are still two hits.
+        key = (hit.where, hit.commit, hit.path, hit.line, hit.entry)
         if key not in seen:
             seen.add(key)
             unique.append(hit)
@@ -243,7 +281,7 @@ def main(argv=None) -> int:
     for hit in result["hits"]:
         print(hit.describe())
     for path, entry in result["stale"]:
-        print(f"note: allowlist entry {path} {entry} no longer matches anything")
+        print(f"note: allowlist entry {redact_path(path, entries)} {entry} no longer matches anything")
     print(f"{len(result['hits'])} hit(s). {result['allowed']} allowed by the allowlist. "
           f"{result['binary']} binary file(s) not read.")
     return 1 if result["hits"] else 0

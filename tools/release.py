@@ -432,7 +432,7 @@ def publish(plan: Plan, review: str, day: date) -> list:
         run("gh", "release", "create", tag, "--verify-tag", "--title", f"SHOTos {tag}", "--notes-file", str(notes),
             *sorted(str(path) for path in assets.glob("*.zip")))
         done.append(f"Created the GitHub release {tag} with {count} ZIPs.")
-    print(run(sys.executable, "tools/verify_release.py", tag, "--assets", str(assets)))
+    print(withheld(run(sys.executable, "tools/verify_release.py", tag, "--assets", str(assets))))
     done.append("Read the release back with tools/verify_release.py.")
     return done
 
@@ -452,10 +452,24 @@ def summary(plan: Plan) -> list:
     return lines
 
 
+def withheld(text: str) -> str:
+    """The text with each line that holds a private term withheld, when the denylist is set.
+
+    Errors can quote git output, such as the paths in a refused release commit."""
+    denylist = leak_scan.denylist_path()
+    if denylist is None:
+        return text
+    try:
+        return leak_scan.redact(text, leak_scan.load_denylist(denylist))
+    except (OSError, ValueError):
+        return text
+
+
 def main(argv=None) -> int:
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8", errors="replace")
+    say = lambda text, **kwargs: print(withheld(str(text)), **kwargs)  # noqa: E731
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--publish", action="store_true", help="cut and publish the release (default: dry run)")
     parser.add_argument("--review", help="who did the independent review, or a link to it (needed to publish)")
@@ -473,19 +487,19 @@ def main(argv=None) -> int:
         if problem:
             raise Refused(problem)
         for line in summary(plan):
-            print(line)
-        print("\n" + plan.section)
+            say(line)
+        say("\n" + plan.section)
         if not args.publish:
-            print(rehearse(plan))
-            print("\nDry run: nothing was changed. Run again with --publish --review \"...\" to release.")
+            say(rehearse(plan))
+            say("\nDry run: nothing was changed. Run again with --publish --review \"...\" to release.")
             return 0
         for line in publish(plan, args.review.strip(), day):
-            print(line)
+            say(line)
     except Refused as error:
-        print(f"Release stopped: {error}", file=sys.stderr)
+        say(f"Release stopped: {error}", file=sys.stderr)
         return 1
     except (OSError, ValueError, KeyError, subprocess.SubprocessError) as error:
-        print(f"Release stopped: {error}", file=sys.stderr)
+        say(f"Release stopped: {error}", file=sys.stderr)
         return 2
     print(f"\nReleased v{plan.version}.")
     return 0

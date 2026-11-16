@@ -95,7 +95,28 @@ class LeakScanTests(unittest.TestCase):
         self.write("suppliers/Zentrix Ltd.md", "Fictional.\n")
         self.commit()
         hits, _ = leak_scan.scan_tree(self.repo, self.entries)
-        self.assertEqual([h.describe() for h in hits], ["suppliers/Zentrix Ltd.md (file name): denylist line 6"])
+        self.assertEqual([h.describe() for h in hits],
+                         ["suppliers/[withheld: denylist line 6] (file name): denylist line 6"])
+
+    def test_a_file_name_holding_a_term_is_withheld_from_every_report(self):
+        self.write("suppliers/Zentrix Ltd/notes.md", "The Quillbury office.\n")
+        self.write("docs/home/fictional-owner/plan.md", "Fictional.\n")
+        self.commit()
+        run = self.cli("--denylist", str(FIXTURE))
+        self.assertEqual(run.returncode, 1, run.stderr)
+        self.assertIn("suppliers/[withheld: denylist line 6]/notes.md:1: denylist line 2", run.stdout)
+        self.assertIn("docs/[withheld: denylist line 4]/[withheld: denylist line 4]/plan.md (file name)", run.stdout)
+        for term in TERMS:
+            self.assertNotIn(term, run.stdout + run.stderr)
+        self.assertEqual(leak_scan.redact_path("docs/guide.md", self.entries), "docs/guide.md")
+
+    def test_a_stale_allowlist_path_holding_a_term_is_withheld(self):
+        self.write("README.md", "Nothing private here.\n")
+        self.write("tools/leak-allowlist.txt", "people/Quillbury.md 2\n")
+        self.commit()
+        run = self.cli("--denylist", str(FIXTURE), "--allowlist", str(self.repo / "tools/leak-allowlist.txt"))
+        self.assertIn("allowlist entry people/[withheld: denylist line 2] 2 no longer matches", run.stdout)
+        self.assertNotIn("Quillbury", run.stdout + run.stderr)
 
     def test_history_finds_a_term_that_a_later_commit_removed(self):
         self.write("README.md", "Start.\n")

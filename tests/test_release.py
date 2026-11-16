@@ -1,3 +1,4 @@
+import io
 import json
 import os
 import shutil
@@ -261,6 +262,31 @@ class ReleaseRepoTests(unittest.TestCase):
         self.assertIsNone(release.card_problem(resumed.candidate))
         git(self.repo.root, "tag", "v1.0.1")  # tagged locally, then the push failed
         self.assertEqual(release.make_plan(day=DAY).previous, "v1.0.0")
+
+    def test_a_private_term_in_a_file_name_is_withheld_from_the_release_error(self):
+        self.repo.write("docs/Zentrix Ltd.md", "Fictional.\n")
+        self.repo.commit("Add a fictional note")
+        plan = release.Plan("v1.0.0", git(self.repo.root, "rev-parse", "HEAD^"), "patch", "1.0.1")
+        env = {**os.environ, "SHOTOS_DENYLIST": str(ROOT / "tests" / "fixtures" / "leak-denylist.txt")}
+        with patch.object(release, "run", return_value=""), patch.dict(os.environ, env), \
+                self.assertRaises(release.Refused) as raised:
+            release.check_release_commit(plan)
+        self.assertIn("docs/[withheld: denylist line 6] (file name)", str(raised.exception))
+        self.assertNotIn("Zentrix", str(raised.exception))
+
+    def test_a_private_term_in_a_path_is_withheld_from_what_the_script_prints(self):
+        self.repo.write("docs/guide.md", "Changed.\n")
+        self.repo.commit("Change the guide")
+        release.write_release(release.make_plan(day=DAY), "Fictional Reviewer", DAY)
+        self.repo.write("docs/Zentrix Ltd.md", "Fictional.\n")
+        git(self.repo.root, "add", "-A")
+        git(self.repo.root, "-c", "commit.gpgsign=false", "commit", "-q", "--amend", "--no-edit")
+        env = {**os.environ, "SHOTOS_DENYLIST": str(ROOT / "tests" / "fixtures" / "leak-denylist.txt")}
+        with patch.dict(os.environ, env), patch("sys.stderr", new_callable=io.StringIO) as err, \
+                patch("sys.stdout", new_callable=io.StringIO):
+            self.assertEqual(release.main([]), 1)
+        self.assertIn("[withheld: matches denylist line 6]", err.getvalue())
+        self.assertNotIn("Zentrix", err.getvalue())
 
     def test_a_release_commit_holding_other_changes_is_refused(self):
         self.repo.write("docs/guide.md", "Changed.\n")

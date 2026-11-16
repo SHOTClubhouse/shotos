@@ -217,7 +217,8 @@ def leak_check(context: Context) -> Check:
                                           "before pushing.", [hit.describe() for hit in result["hits"][:20]])
     allowed_note = f" {result['allowed']} deliberate use(s) are on the allowlist." if result["allowed"] else ""
     return Check("Leak scan", "pass", f"No private terms in {scope}.{allowed_note}",
-                 [f"Allowlist entry {path} {entry} no longer matches anything." for path, entry in result["stale"]])
+                 [f"Allowlist entry {leak_scan.redact_path(path, entries)} {entry} no longer matches anything."
+                  for path, entry in result["stale"]])
 
 
 def skill_folders() -> list:
