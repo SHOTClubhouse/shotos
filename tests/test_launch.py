@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -27,7 +28,7 @@ class LaunchableTests(unittest.TestCase):
 
     def test_an_argument_cmd_would_read_as_syntax_is_refused_for_a_shim(self):
         with patch("shutil.which", return_value=SHIM), patch.object(launch, "WINDOWS", True):
-            for bad in ("a&calc", "%PATH%", "x|y", 'say "hi"', "a\nb", "^x", "a>b"):
+            for bad in ("a&calc", "%PATH%", "x|y", 'say "hi"', "a\nb", "^x", "a>b", "f(x)", "(", ")"):
                 with self.subTest(bad=bad), self.assertRaises(launch.UnsafeArgument):
                     launch.launchable(["claude", bad])
 
@@ -55,6 +56,29 @@ class ReleaseRunTests(unittest.TestCase):
             self.assertEqual(release.run("claude", "plugin", "validate", "."), "ok")
         self.assertEqual(run.call_args.args[0], f'cmd.exe /d /s /c "{SHIM} plugin validate ."')
         self.assertNotIn("shell", run.call_args.kwargs)
+
+    def test_a_resolved_shim_path_cmd_would_read_as_syntax_is_refused_and_never_runs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            marker = Path(tmp) / "ran.txt"
+            paths = (r"C:\missing&ver&rem\gh.cmd", r"C:\%TEMP%\gh.cmd",
+                     r"C:\x&echo.>" + str(marker) + r"&rem\gh.cmd")
+            for path in paths:
+                with self.subTest(path=path), patch("shutil.which", return_value=path), \
+                        patch.object(launch, "WINDOWS", True), self.assertRaises(launch.UnsafeArgument) as caught:
+                    release.run("gh", "release", "view")
+                self.assertIn("so it was not run", str(caught.exception))
+            self.assertFalse(marker.exists())
+
+    def test_an_argument_with_parentheses_is_refused_and_never_runs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            marker = Path(tmp) / "ran.txt"
+            shim = Path(tmp) / "tool.cmd"
+            shim.write_text(f'@echo ran> "{marker}"\r\n', encoding="utf-8")
+            with patch("shutil.which", return_value=str(shim)), patch.object(launch, "WINDOWS", True):
+                for bad in ("(echo hi)", "a)b", "(x"):
+                    with self.subTest(bad=bad), self.assertRaises(launch.UnsafeArgument):
+                        release.run("tool", bad)
+            self.assertFalse(marker.exists())
 
     def test_release_run_names_a_missing_tool_instead_of_winerror_2(self):
         with patch("shutil.which", return_value=None), patch("subprocess.run") as run:

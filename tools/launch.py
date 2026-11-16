@@ -16,7 +16,7 @@ import subprocess
 WINDOWS = os.name == "nt"
 SHIMS = (".cmd", ".bat")
 # cmd.exe reads these inside a quoted argument as well: expansion, escapes, redirection, pipes, quotes, line ends.
-UNSAFE = set('"%^&|<>!\r\n\0')
+UNSAFE = set('"%^&|<>!()\r\n\0')
 
 
 class LaunchError(OSError):
@@ -38,10 +38,13 @@ def launchable(command):
     if not found:
         raise MissingTool(f"`{name}` is not installed or is not on PATH, so it could not be run.")
     if WINDOWS and found.lower().endswith(SHIMS):
+        if UNSAFE & set(found):
+            raise UnsafeArgument(f"`{name}` resolved to a Windows .cmd shim whose path contains a character that "
+                                 f"cmd.exe would read as syntax, so it was not run: {found[:60]!r}.")
         args = [str(arg) for arg in args]
         bad = [arg for arg in args if UNSAFE & set(arg)]
         if bad:
             raise UnsafeArgument(f"`{name}` is a Windows .cmd shim, which cannot be given an argument containing "
-                                 f"any of  \" % ^ & | < > !  or a line break: {bad[0][:60]!r}.")
+                                 f"any of  \" % ^ & | < > ! ( )  or a line break: {bad[0][:60]!r}.")
         return f'cmd.exe /d /s /c "{subprocess.list2cmdline([found, *args])}"'
     return [found, *args]
