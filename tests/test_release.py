@@ -287,15 +287,16 @@ class ReleaseRepoTests(unittest.TestCase):
         with patch("sys.stderr"), self.assertRaises(SystemExit):
             release.main(["--publish"])
 
-    def test_publish_commits_tags_releases_and_reads_back(self):
-        self.repo.write("packs/demo/skills/sample/SKILL.md", "# Sample\n\nA new step.\n")
-        self.repo.commit("Add a step to the sample skill")
-        git(self.repo.root, "push", "-q", "origin", "main")
-        self.repo.card()
+    def publish(self, *args, gate="GO"):
+        """Run --publish with the gate, GitHub and the ZIP build faked. Returns (exit code, calls, stderr)."""
         calls = []
         real_run = release.run
 
         def fake_run(*command, **kwargs):
+            if "tools/local_gate.py" in command:  # a fictional gate: it writes a card for the commit it ran on
+                calls.append(command)
+                self.repo.card(gate, "yes" if gate == "GO" else "no, because the verdict is NO-GO")
+                return ""
             if command[0] in {"gh", "claude"} or "tools/verify_release.py" in command:
                 calls.append(command)
                 return ""
@@ -308,10 +309,28 @@ class ReleaseRepoTests(unittest.TestCase):
 
         env = {**os.environ, "SHOTOS_DENYLIST": str(ROOT / "tests" / "fixtures" / "leak-denylist.txt")}
         with patch.object(release, "run", fake_run), patch.object(release, "build_zips", fake_zips), \
-                patch.dict(os.environ, env), patch("shutil.which", return_value=None), patch("sys.stdout"):
-            self.assertEqual(release.main(["--publish", "--review", "Fictional Reviewer, PR #1"]), 0)
+                patch.dict(os.environ, env), patch("shutil.which", return_value=None), patch("sys.stdout"), \
+                patch("sys.stderr", new_callable=io.StringIO) as err:
+            code = release.main(["--publish", "--review", "Fictional Reviewer, PR #1", *args])
+        return code, calls, err.getvalue()
+
+    def ready_to_publish(self, path="packs/demo/skills/sample/SKILL.md", text="# Sample\n\nA new step.\n"):
+        self.repo.write(path, text)
+        candidate = self.repo.commit("Add a step to the sample skill")
+        git(self.repo.root, "push", "-q", "origin", "main")
+        self.repo.card()
+        return candidate
+
+    def test_publish_commits_tags_releases_and_reads_back(self):
+        candidate = self.ready_to_publish()
+        code, calls, err = self.publish()
+        self.assertEqual(code, 0, err)
 
         root = self.repo.root
+        gate = next(c for c in calls if "tools/local_gate.py" in c)
+        self.assertEqual(gate[-3:], ("--release", "--base", "v1.0.0"))
+        self.assertEqual(git(root, "rev-parse", "HEAD^"), candidate)
+        self.assertIsNone(release.card_problem(git(root, "rev-parse", "HEAD")))
         self.assertEqual(git(root, "log", "-1", "--format=%s"), "Release SHOTos v1.1.0")
         self.assertIn("Independent review: Fictional Reviewer, PR #1", git(root, "log", "-1", "--format=%B"))
         self.assertIn('"version": "1.1.0"', (root / ".claude-plugin/plugin.json").read_text(encoding="utf-8"))
@@ -326,6 +345,47 @@ class ReleaseRepoTests(unittest.TestCase):
         self.assertIn("--verify-tag", create)
         self.assertTrue(create[-1].endswith("sample.zip"))
         self.assertTrue(any("tools/verify_release.py" in c for c in calls))
+
+    def test_the_release_commit_itself_must_pass_the_gate(self):
+        candidate = self.ready_to_publish()
+        code, calls, err = self.publish(gate="NO-GO")
+        self.assertEqual(code, 1)
+        self.assertIn("did not pass the gate", err)
+        self.assertEqual(git(self.repo.origin, "rev-parse", "main"), candidate)
+        self.assertEqual(git(self.repo.origin, "tag", "--list"), "v1.0.0")
+        self.assertFalse(any(c[0] == "gh" for c in calls))
+
+    def test_publish_checks_the_controls_on_the_release_commit(self):
+        self.ready_to_publish("rules/04-fictional-control.md", "# Control 4\n\nThe agent may send without asking.\n")
+        plan = release.make_plan(controls_owner="Fictional Owner", day=DAY)
+        plan.breaks, plan.approved_by = [], ""  # as if the plan had been made without the control check
+        with patch.object(release, "make_plan", return_value=plan):
+            code, calls, err = self.publish()
+        self.assertEqual(code, 1)
+        self.assertIn("needs the owner", err)
+        self.assertEqual(git(self.repo.origin, "tag", "--list"), "v1.0.0")
+        self.assertFalse(any(c[0] == "gh" for c in calls))
+
+    def test_a_resumed_release_still_needs_the_owner_for_control_changes(self):
+        self.ready_to_publish("rules/04-fictional-control.md", "# Control 4\n\nThe agent may send without asking.\n")
+        release.write_release(release.make_plan(controls_owner="Fictional Owner", day=DAY), "Fictional Reviewer", DAY)
+        with self.assertRaisesRegex(release.Refused, "needs the owner"):
+            release.make_plan(day=DAY)
+        resumed = release.make_plan(controls_owner="Fictional Owner", day=DAY)
+        self.assertEqual((resumed.resumed, resumed.version, resumed.approved_by), (True, "1.1.0", "Fictional Owner"))
+        with self.assertRaisesRegex(release.Refused, "makes a minor release"):
+            release.make_plan(major_owner="Fictional Owner", day=DAY)
+
+    def test_a_release_commit_may_change_only_version_numbers_in_its_manifests(self):
+        self.repo.write("docs/guide.md", "Changed.\n")
+        self.repo.commit("Change the guide")
+        release.write_release(release.make_plan(day=DAY), "Fictional Reviewer", DAY)
+        self.repo.write(".claude-plugin/plugin.json", '{\n  "name": "shotos-core",\n  "version": "1.0.1",\n'
+                                                      '  "description": "Changed in the release commit."\n}\n')
+        git(self.repo.root, "add", "-A")
+        git(self.repo.root, "-c", "commit.gpgsign=false", "commit", "-q", "--amend", "--no-edit")
+        with self.assertRaisesRegex(release.Refused, r"more than the version files(.|\n)*\.claude-plugin/plugin.json"):
+            release.make_plan(day=DAY)
 
     def test_an_interrupted_publish_carries_on_from_the_release_commit(self):
         self.repo.write("docs/guide.md", "Changed.\n")

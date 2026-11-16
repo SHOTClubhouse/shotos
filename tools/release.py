@@ -10,9 +10,10 @@ gate card, works out the version, shows the changelog section and rehearses
 the ZIP build in a temporary folder.
 
 With --publish it updates the version files and changelog, commits the release,
-checks the versions, builds the ZIPs, pushes main and the tag, creates the
-GitHub release with the ZIPs through the gh CLI and reads the release back
-with tools/verify_release.py.
+checks the release commit as fully as the candidate (versions, private terms,
+the control check and the full gate), builds the ZIPs, pushes main and the
+tag, creates the GitHub release with the ZIPs through the gh CLI and reads the
+release back with tools/verify_release.py.
 
 A change that breaks the four controls, the Claims block format or the
 claim-check exit codes is a major release. The script cannot tell a harmless
@@ -379,6 +380,37 @@ def release_commit():
     return version if git("log", "-1", "--format=%s") == SUBJECT.format(version) else None
 
 
+PACK_MANIFEST = r"packs/[^/]+/\.claude-plugin/plugin\.json"
+LEVELS = ("patch", "minor", "major")
+
+
+def release_extras(candidate: str, release: str) -> list:
+    """Paths the release commit changes beyond the version numbers and the changelog."""
+    def without_version(path, ref):
+        text = show(ref, path)
+        if path == CITATION:
+            return re.sub(r"^version:.*$", "", text, flags=re.M) if text else None
+        try:
+            return {k: v for k, v in json.loads(text).items() if k != "version"}
+        except (ValueError, AttributeError):
+            return None  # unreadable, so it cannot be shown to differ only in its version
+    extra = []
+    for path in changed_paths(candidate, release):
+        if path == CHANGELOG:
+            continue
+        if path in (CORE, CITATION) or re.fullmatch(PACK_MANIFEST, path):
+            before = without_version(path, candidate)
+            if before is not None and before == without_version(path, release):
+                continue
+        extra.append(path)
+    return extra
+
+
+def level_between(previous: str, version: str) -> str:
+    old, new = parse(previous), parse(version)
+    return "major" if new[0] != old[0] else "minor" if new[1] != old[1] else "patch"
+
+
 # Changelog.
 
 def generated_section(previous: str, candidate: str) -> str:
@@ -453,14 +485,20 @@ def make_plan(level=None, major_owner=None, notes_file=None, day=None, controls_
         # Carry on after a failed step. Each publishing step can safely run again.
         previous = previous_tag("HEAD^")
         candidate = git("rev-parse", "HEAD^")
-        extra = [path for path in changed_paths(candidate, "HEAD") if path not in (CORE, CITATION, CHANGELOG)
-                 and not re.fullmatch(r"packs/[^/]+/\.claude-plugin/plugin\.json", path)]
+        extra = release_extras(candidate, "HEAD")
         if extra:
             raise Refused("the release commit changes more than the version files and changelog: "
                           + ", ".join(extra[:5]))
         section = re.search(r"^## " + re.escape(version) + r".*?(?=^## |\Z)", show("HEAD", CHANGELOG), re.M | re.S)
         plan = Plan(previous, candidate, "resume", version, section=section[0].strip() + "\n" if section else "",
                     resumed=True)
+        # Carrying on never skips the control check: the commit about to be published is checked again.
+        breaks = control_breaks(previous, "HEAD")
+        approve(plan, breaks, major_owner, controls_owner)
+        made, needed = level_between(core_version(previous), version), "major" if major_owner else "minor"
+        if breaks and LEVELS.index(made) < LEVELS.index(needed):
+            raise Refused(f"the release commit makes a {made} release, v{version}, but the approval given needs a "
+                          f"{needed}. Remove the release commit with `git reset --hard HEAD^` and run again.")
         plan.notes.append(f"HEAD already prepares v{version}; carrying on from there.")
         return plan
     previous = previous_tag()
@@ -526,15 +564,32 @@ def build_zips(out: Path, commit: str) -> int:
     return len(list(out.glob("*.zip")))
 
 
-def check_release_commit(plan: Plan) -> None:
+def check_release_commit(plan: Plan, release: str = "HEAD") -> None:
+    """The checks the release commit itself must pass, besides the gate: versions, private terms, that it
+    changes only the version files and changelog, and the control check, which is never skipped."""
     run(sys.executable, "tools/check_release_versions.py", plan.previous)
     denylist = leak_scan.denylist_path()
     if denylist is None:
         raise Refused("the private denylist (SHOTOS_DENYLIST) is missing, so the release commit cannot be checked")
     result = leak_scan.scan(REPO, leak_scan.load_denylist(denylist),
-                            leak_scan.load_allowlist(REPO / leak_scan.ALLOWLIST), [["HEAD^..HEAD"]])
+                            leak_scan.load_allowlist(REPO / leak_scan.ALLOWLIST), [[f"{release}^..{release}"]])
     if result["hits"]:
         raise Refused("the release commit has private terms: " + "; ".join(h.describe() for h in result["hits"]))
+    extra = release_extras(plan.candidate, release)
+    if extra:
+        raise Refused("the release commit changes more than the version files and changelog: " + ", ".join(extra[:5]))
+    breaks = control_breaks(plan.previous, release)
+    if breaks and (not plan.approved_by or breaks != plan.breaks):
+        raise needs_owner(breaks)
+
+
+def gate_release_commit(plan: Plan, release: str) -> None:
+    """Run the full gate on the commit that will be published, unless it already has a GO release card."""
+    if card_problem(release):
+        run(sys.executable, "tools/local_gate.py", "--release", "--base", plan.previous, check=False)
+    problem = card_problem(release)
+    if problem:
+        raise Refused(f"the release commit {release[:12]} did not pass the gate: {problem} It has not been pushed.")
 
 
 def publish(plan: Plan, review: str, day: date) -> list:
@@ -545,9 +600,12 @@ def publish(plan: Plan, review: str, day: date) -> list:
     if not plan.resumed:
         write_release(plan, review, day)
         done.append(f"Committed {SUBJECT.format(plan.version)}.")
-    check_release_commit(plan)
-    done.append("Checked the release versions and scanned the release commit for private terms.")
     release = git("rev-parse", "HEAD")
+    check_release_commit(plan, release)
+    done.append("Checked the release versions, scanned the release commit for private terms, checked it changes "
+                "only the version files and changelog, and checked the controls again.")
+    gate_release_commit(plan, release)
+    done.append(f"The full gate card for the release commit {release[:12]} is GO.")
     assets = REPO / "dist" / f"v{plan.version}"
     count = build_zips(assets, release)
     done.append(f"Built {count} skill ZIPs in dist/v{plan.version}.")
