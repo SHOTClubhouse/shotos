@@ -17,7 +17,7 @@ The table says what can run, not how well it will perform for you. Try one ficti
 
 | Area | What you get |
 |---|---|
-| Delivering change | The six stages with exit checks, and 28 core skills from problem to rollout |
+| Delivering change | The six stages with exit checks, and 29 core skills from problem to rollout |
 | Keeping agents honest | Four rules, twelve controls, claim-check and the Stop hook |
 | Engineering practice | Specification by example, Definition of Done, engineering excellence, continuous delivery, DORA, role agents |
 | Winning work | LEAP and NUDGE, proposals, factories, outreach, replies |

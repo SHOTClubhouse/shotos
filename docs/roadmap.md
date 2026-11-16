@@ -5,7 +5,7 @@ Each item ships when it has evidence behind it, not before.
 ## Available in the six-stage edition
 
 - The six stages, four rules, twelve agent controls and six guardrails.
-- 28 core skills covering every stage, and 12 packs with 60 more.
+- 29 core skills covering every stage, and 12 packs with 60 more.
 - Ways of working, role agents, review lenses and a cast file.
 - Installer support for packs and role agents, and a Claude Code plugin per pack.
 - An [enterprise risk review](guides/enterprise-risk-review.md) that connects pilot evidence to the four NIST AI RMF 1.0 functions.

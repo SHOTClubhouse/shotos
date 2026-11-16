@@ -4,7 +4,7 @@
 
 **Free AI workflows, from the first brief to a result someone can own.**
 
-Use the AI assistant you already have to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start with one of 88 free, open-source skills. Start from your context, make a small, testable bet about what will help, and check what comes back.
+Use the AI assistant you already have to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start with one of 89 free, open-source skills. Start from your context, make a small, testable bet about what will help, and check what comes back.
 
 [See how it works](docs/framework.md#try-one-job-across-the-six-stages) · [Open two worked examples](docs/framework.md#open-the-worked-outputs) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
 
@@ -12,7 +12,7 @@ Use the AI assistant you already have to turn customer notes into a test plan, w
 
 **Try one job in your usual chat.** Copy the [one-message founder exercise](docs/guides/startup-founder.md#try-a-fictional-discovery-exercise), then compare the reply with the checks below it. To see what two connected skills produce, follow the [fictional proposal and handoff](packs/win-the-work/skills/contextual-proposal/worked-deal.md).
 
-**Six-stage edition · 88 skills, 12 optional packs in this repository**
+**Six-stage edition · 89 skills, 12 optional packs in this repository**
 
 The [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest) lists the skill ZIPs and source archive available for that version.
 
@@ -139,7 +139,7 @@ For Claude Code, use `--runtime claude` and add `--with-hook` if you want the op
 | Give another team the work and its evidence | [Evidence handoff](skills/evidence-handoff/README.md) |
 | Prove a team can run the workflow and prepare the next wave | [Enablement plan](skills/enablement-plan/README.md) and [rollout plan](skills/rollout-plan/README.md) |
 
-Browse all 88 [skill guides and downloads](docs/skill-catalogue.md), or choose a [task to try](docs/what-you-can-do.md). The [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md) show how the pieces fit. Follow a [worked proposal into customer success](packs/win-the-work/skills/contextual-proposal/worked-deal.md).
+Browse all 89 [skill guides and downloads](docs/skill-catalogue.md), or choose a [task to try](docs/what-you-can-do.md). The [documentation](docs/README.md), [templates](templates/) and [examples](examples/README.md) show how the pieces fit. Follow a [worked proposal into customer success](packs/win-the-work/skills/contextual-proposal/worked-deal.md).
 
 ## What you can use today
 

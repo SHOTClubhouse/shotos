@@ -297,7 +297,7 @@ class InstallTests(unittest.TestCase):
         self.assertIn("Matched task IDs only", report.stdout)
         for folder in (".claude/skills", ".agents/skills"):
             installed = self.root / folder
-            self.assertEqual(len(list(installed.glob("*/SKILL.md"))), 88)
+            self.assertEqual(len(list(installed.glob("*/SKILL.md"))), 89)
             for skill in installed.iterdir():
                 self.assertTrue((skill / "example-input.md").is_file(), skill.name)
                 self.assertTrue((skill / "example-output.md").is_file(), skill.name)

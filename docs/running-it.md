@@ -52,7 +52,7 @@ If you already used the installer, run `python install.py --status --target <pro
 
 For a second job, add its skill ZIP or preview the additional pack with `--dry-run` and your existing runtime and scope. The installer adds missing packs. To update an installer-managed setup, use the desired source revision and [preview a refresh](guides/codex-claude-code.md#refresh-an-installed-setup). The release ZIPs match their tag. The default branch can include newer skills and guides. [Installer safeguards](../SECURITY.md)
 
-Use the [full-pack guide](full-pack.md) when you want all 88 skills and the role and review resources. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
+Use the [full-pack guide](full-pack.md) when you want all 89 skills and the role and review resources. Project installs carry the portable role and lens cards. Use `--with-agents` to register native Claude Code subagents when applicable.
 
 ## Set up your runtime
 

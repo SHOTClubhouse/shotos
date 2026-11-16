@@ -36,6 +36,7 @@ The guides reflect the current source. The downloads reflect the published relea
 | [Plan the rollout to the next team](../skills/rollout-plan/README.md) | [rollout-plan.zip](https://github.com/SHOTClubhouse/shotos/releases/latest/download/rollout-plan.zip) |
 | [Route the work](../skills/route-the-work/README.md) | [route-the-work.zip](https://github.com/SHOTClubhouse/shotos/releases/latest/download/route-the-work.zip) |
 | [Write the runbook from what happened](../skills/runbook/README.md) | [runbook.zip](https://github.com/SHOTClubhouse/shotos/releases/latest/download/runbook.zip) |
+| [Show the point with the smallest proof](../skills/show-me/README.md) | [show-me.zip](https://github.com/SHOTClubhouse/shotos/releases/latest/download/show-me.zip) |
 | [Gate a skill before promoting it](../skills/skill-quality-gate/README.md) | [skill-quality-gate.zip](https://github.com/SHOTClubhouse/shotos/releases/latest/download/skill-quality-gate.zip) |
 | [Map the stakeholders](../skills/stakeholder-map/README.md) | [stakeholder-map.zip](https://github.com/SHOTClubhouse/shotos/releases/latest/download/stakeholder-map.zip) |
 

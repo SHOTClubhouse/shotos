@@ -22,6 +22,7 @@ Looking for a specific skill or ZIP? Open the [complete skill catalogue](skill-c
 | Make a product demo video | [product-demo-video](../packs/content/skills/product-demo-video/README.md) | "Record a two-minute demo of booking a repair in our app, on test data, with subtitles." |
 | Write a paper, report or blog post | [written-content](../packs/content/skills/written-content/README.md) | "Write a 900-word blog post on why repairs take longer in winter, with every fact sourced." |
 | Translate a letter, transcript or captions | [translate](../packs/writing/skills/translate/README.md) | "Translate this camp letter into Polish and Portuguese. Check every date and price." |
+| Show a change instead of explaining it | [show-me](../skills/show-me/README.md) | "Show the committee what the new fee bands change for families. Use the smallest form that proves it." |
 | Write an explainer | [explainer](../packs/content/skills/explainer/README.md) | "Write an explainer for new landlords on how our deposit protection works." |
 | Draft a press release | [press-release](../packs/content/skills/press-release/README.md) | "Draft a release about our pilot with the council. Be careful what we call it." |
 | Make many tailored documents at once | [proposal-factory](../packs/win-the-work/skills/proposal-factory/README.md), [batch-document-factory](../packs/automations/skills/batch-document-factory/README.md) | "Make a tailored one-page offer for each of the 40 schools in this sheet. Pilot three first." |
