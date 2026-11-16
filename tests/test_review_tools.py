@@ -226,14 +226,19 @@ class TestPacket(ReviewCase):
         self.assertIn("<path>", json.loads(cases[2].splitlines()[-1])["reason"])
 
     def test_a_path_with_spaces_is_redacted_whole(self):
-        spaced = "D:/client records/alice/report.md"
-        self.assertEqual(review_packet.redact(spaced), "<path>")
+        spaced = os.path.abspath(os.path.join(Path.home().anchor, "client records", "alice", "report.md"))
+        self.assertTrue(os.path.isabs(spaced))
+        expected = "source must be a relative path inside the scope: <path>"
         err = self.build(dict(self.spec, sources=[spaced]), "--revision", "r1")[2]
         reason = json.loads(err.splitlines()[-1])["reason"]
-        self.assertEqual(reason, "source must be a relative path inside the scope: <path>")
+        self.assertEqual(reason, expected)
         with self.assertRaises(review_packet.Refused) as raised:
             review_packet.read_source(self.scope, spaced)
-        self.assertEqual(str(raised.exception), "source must be a relative path inside the scope: <path>")
+        self.assertEqual(str(raised.exception), expected)
+
+    def test_redact_handles_drive_letter_and_posix_paths_with_spaces(self):
+        self.assertEqual(review_packet.redact("D:/client records/alice/report.md"), "<path>")
+        self.assertEqual(review_packet.redact("/srv/client records/alice/report.md"), "<path>")
 
     def test_redact_leaves_relative_paths_alone(self):
         self.assertEqual(review_packet.redact("source not found: notes/rota.md"), "source not found: notes/rota.md")
