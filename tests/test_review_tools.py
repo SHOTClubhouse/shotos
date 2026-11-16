@@ -73,6 +73,41 @@ class TestPacket(ReviewCase):
         out.write_text(json.dumps(packet), encoding="utf-8")
         self.assertEqual(self.packet_cli("validate", out, "--scope", self.scope)[0], 2)
 
+    def test_an_incomplete_packet_is_refused(self):
+        out = self.packet()
+        good = json.loads(out.read_text(encoding="utf-8"))
+        broken = {
+            "no request or acceptance": dict(good, request=None, acceptance=None,
+                                             sources=[{"revision": "r1"}]),
+            "no request": dict(good, request=None),
+            "empty acceptance": dict(good, acceptance=[]),
+            "a source with only its revision": dict(good, sources=[{"revision": "r1"}]),
+            "a source with no text": dict(good, sources=[{"path": "rota.md", "revision": "r1"}]),
+            "a source outside the scope": dict(good, sources=[dict(good["sources"][0], path="../rota.md")]),
+            "a malformed evidence item": dict(good, evidence=[{"source": "rule card"}]),
+            "a malformed limitation": dict(good, limitations=[None]),
+        }
+        for name, packet in broken.items():
+            with self.subTest(name):
+                out.write_text(json.dumps(packet), encoding="utf-8")
+                code, _, err = self.packet_cli("validate", out, "--scope", self.scope)
+                self.assertEqual(code, 2, name)
+                self.assertEqual(json.loads(err)["status"], "refused")
+
+    def test_a_packet_from_another_project_with_the_same_folder_name_is_refused(self):
+        out = self.packet()
+        other = self.base / "elsewhere" / "spring-fair"
+        other.mkdir(parents=True)
+        code, _, err = self.packet_cli("validate", out, "--scope", other)
+        self.assertEqual(code, 2)
+        self.assertIn("rota.md", err)
+        (other / "rota.md").write_text("Sam: 1 shift\n", encoding="utf-8")
+        code, _, err = self.packet_cli("validate", out, "--scope", other)
+        self.assertEqual(code, 2)
+        self.assertIn("does not match", err)
+        (self.scope / "rota.md").write_text("Sam: 3 shifts\n", encoding="utf-8")
+        self.assertEqual(self.packet_cli("validate", out, "--scope", self.scope)[0], 2)
+
     def test_contrary_secrets_and_paths_outside_the_scope_are_refused(self):
         (self.scope / ".env").write_text("X=1", encoding="utf-8")
         (self.scope / "notes.md").write_text("api_key = abcdefgh12345678", encoding="utf-8")

@@ -18,9 +18,14 @@ A spec is a JSON object:
 
 `build` refuses a source outside the scope folder, a source reached through a
 link, a source whose name or text looks like a secret, a missing revision and a
-packet over 128 KiB. `validate` checks a packet again before use, refuses it if
-the scope folder name or any source revision does not match, and prints its
-SHA-256 for the review record.
+packet over 128 KiB. `validate` checks a packet again before use and prints its
+SHA-256 for the review record. It refuses a packet with a missing or malformed
+request, acceptance list, source, evidence item or limitation, a packet whose
+scope folder name or any source revision does not match, and a packet whose
+source text differs from the file in the scope folder. It reads every source
+again, so a packet built from another project with the same folder name, or
+from a file that has changed since, is refused. The revision itself is a label
+the builder was given; validate cannot check it against version control.
 
 The secret check is a safety net based on file names and a simple text
 pattern. It is not proof that nothing sensitive remains: the owner still
@@ -125,20 +130,30 @@ def encode(packet: dict) -> bytes:
 
 
 def validate(packet, scope: Path) -> str:
-    """The packet's SHA-256, or Refused with the reason it cannot be used with this scope."""
+    """The packet's SHA-256, or Refused with the reason it cannot be used with this scope.
+
+    Every source is read again from the scope and must match the packet's text, so a packet cannot pass
+    with a folder it was not built from, even one with the same name. The rest must be what build writes."""
     if not isinstance(packet, dict) or set(packet) != set(FIELDS):
         raise Refused("packet has missing or unexpected fields")
     if packet["schema"] != 1:
         raise Refused("unsupported packet schema")
     if packet["scope"] != scope.name:
         raise Refused(f"packet was built for {packet['scope']}, not {scope.name}")
-    text(packet["revision"], 128, "revision")
-    for source in items(packet["sources"], "sources", True):
-        if not isinstance(source, dict) or source.get("revision") != packet["revision"]:
-            raise Refused(f"source {source.get('path') if isinstance(source, dict) else source} was read at a "
-                          "different revision")
-        if SECRET_TEXT.search(str(source.get("text", ""))):
-            raise Refused(f"source {source.get('path')} looks like it contains a secret")
+    sources = items(packet["sources"], "sources", True)
+    for source in sources:
+        if not isinstance(source, dict) or set(source) != {"path", "revision", "text"}:
+            raise Refused("each source needs exactly a path, a revision and a text")
+        if source["revision"] != packet["revision"]:
+            raise Refused(f"source {source['path']} was read at a different revision")
+    spec = {name: packet[name] for name in ("request", "acceptance", "evidence", "limitations")}
+    rebuilt = build(dict(spec, sources=[source["path"] for source in sources]), scope, packet["revision"])
+    for source, fresh in zip(sources, rebuilt["sources"]):
+        if source["text"] != fresh["text"]:
+            raise Refused(f"source {source['path']} does not match the file in {scope.name}: the packet was built "
+                          "from another folder, or the file has changed since")
+    if rebuilt != packet:
+        raise Refused("packet fields are not as build writes them")
     return hashlib.sha256(encode(packet)).hexdigest()
 
 
