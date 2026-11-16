@@ -2,6 +2,7 @@ import contextlib
 import io
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -100,15 +101,55 @@ class TestPacket(ReviewCase):
         out = self.packet()
         other = self.base / "elsewhere" / "spring-fair"
         other.mkdir(parents=True)
-        code, _, err = self.packet_cli("validate", out, "--scope", other)
-        self.assertEqual(code, 2)
-        self.assertIn("rota.md", err)
         (other / "rota.md").write_text("Sam: 1 shift\n", encoding="utf-8")
         code, _, err = self.packet_cli("validate", out, "--scope", other)
         self.assertEqual(code, 2)
-        self.assertIn("does not match", err)
+        self.assertIn("built for spring-fair at", err)
+
+    def test_a_source_that_has_changed_since_the_packet_was_built_is_refused(self):
+        out = self.packet()
         (self.scope / "rota.md").write_text("Sam: 3 shifts\n", encoding="utf-8")
-        self.assertEqual(self.packet_cli("validate", out, "--scope", self.scope)[0], 2)
+        code, _, err = self.packet_cli("validate", out, "--scope", self.scope)
+        self.assertEqual(code, 2)
+        self.assertIn("does not match", err)
+
+    def test_a_packet_from_another_project_with_the_same_name_and_identical_text_is_refused(self):
+        out = self.packet()
+        other = self.base / "elsewhere" / "spring-fair"
+        other.mkdir(parents=True)
+        (other / "rota.md").write_bytes((self.scope / "rota.md").read_bytes())
+        code, _, err = self.packet_cli("validate", out, "--scope", other)
+        self.assertEqual(code, 2)
+        self.assertIn(str(self.scope.resolve()), json.loads(err)["reason"])
+        scope = json.loads(out.read_text(encoding="utf-8"))["scope"]
+        self.assertEqual(scope, {"name": "spring-fair", "path": str(self.scope.resolve()), "root_commit": None})
+
+    def test_a_packet_records_the_root_commit_and_refuses_another_repository_at_the_same_path(self):
+        def git(*args):
+            return subprocess.run(["git", "-C", str(self.scope), "-c", "user.name=Test", "-c", "user.email=t@example.org",
+                                   "-c", "commit.gpgsign=false", *args], capture_output=True, text=True,
+                                  check=True).stdout.strip()
+
+        def new_repository(message):
+            git("init", "-q")
+            git("add", "rota.md")
+            git("commit", "-q", "-m", message)
+            return git("rev-parse", "HEAD")
+
+        try:
+            first = new_repository("first")
+        except (OSError, subprocess.CalledProcessError):
+            self.skipTest("git is not available")
+        out = self.packet()
+        self.assertEqual(json.loads(out.read_text(encoding="utf-8"))["scope"]["root_commit"], first)
+        self.assertEqual(self.packet_cli("validate", out, "--scope", self.scope)[0], 0)
+        for path in (self.scope / ".git").rglob("*"):
+            os.chmod(path, 0o700)
+        shutil.rmtree(self.scope / ".git")
+        self.assertNotEqual(new_repository("second"), first)
+        code, _, err = self.packet_cli("validate", out, "--scope", self.scope)
+        self.assertEqual(code, 2)
+        self.assertIn("root commit", err)
 
     def test_contrary_secrets_and_paths_outside_the_scope_are_refused(self):
         (self.scope / ".env").write_text("X=1", encoding="utf-8")

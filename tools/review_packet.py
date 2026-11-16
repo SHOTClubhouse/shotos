@@ -21,10 +21,15 @@ link, a source whose name or text looks like a secret, a missing revision and a
 packet over 128 KiB. `validate` checks a packet again before use and prints its
 SHA-256 for the review record. It refuses a packet with a missing or malformed
 request, acceptance list, source, evidence item or limitation, a packet whose
-scope folder name or any source revision does not match, and a packet whose
-source text differs from the file in the scope folder. It reads every source
-again, so a packet built from another project with the same folder name, or
-from a file that has changed since, is refused. The revision itself is a label
+scope or any source revision does not match, and a packet whose source text
+differs from the file in the scope folder.
+
+The packet identifies its scope by the folder's name, its resolved absolute
+path and, when the folder is in a git repository, that repository's root
+commit. A packet built from another project, even one with the same folder
+name and identical source text, is refused, and so is one built from a file
+that has changed since. The absolute path includes the name of your user
+folder and leaves the machine with the packet. The revision itself is a label
 the builder was given; validate cannot check it against version control.
 
 The secret check is a safety net based on file names and a simple text
@@ -42,6 +47,7 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -73,6 +79,25 @@ def items(value, what: str, required: bool) -> list:
     if not isinstance(value, list) or (required and not value):
         raise Refused(f"{what} must be a{' non-empty' if required else ''} list")
     return value
+
+
+def root_commit(scope: Path):
+    """The root commit of the git repository holding the scope, or None when it is not in one.
+
+    With more than one root, the lowest hash is used, so the answer does not depend on history order."""
+    env = {name: value for name, value in os.environ.items() if not name.startswith("GIT_")}
+    try:
+        result = subprocess.run(["git", "-C", str(scope), "-c", "core.fsmonitor=false", "rev-list", "--max-parents=0",
+                                 "HEAD"], capture_output=True, text=True, env=env, timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    roots = sorted(result.stdout.split()) if result.returncode == 0 else []
+    return roots[0] if roots else None
+
+
+def identity(scope: Path) -> dict:
+    """What the packet records to tell this scope from any other: its name, resolved path and root commit."""
+    return {"name": scope.name, "path": str(scope), "root_commit": root_commit(scope)}
 
 
 def read_source(scope: Path, rel: str) -> str:
@@ -110,8 +135,8 @@ def build(spec: dict, scope: Path, revision: str) -> dict:
         evidence.append({"source": text(item.get("source"), 4096, "evidence source"),
                          "text": text(item.get("text"), 16000, "evidence text")})
     return {
-        "schema": 1,
-        "scope": scope.name,
+        "schema": 2,
+        "scope": identity(scope),
         "revision": revision,
         "request": text(spec.get("request"), 8192, "request"),
         "acceptance": [text(a, 8192, "acceptance item") for a in items(spec.get("acceptance"), "acceptance", True)],
@@ -132,14 +157,21 @@ def encode(packet: dict) -> bytes:
 def validate(packet, scope: Path) -> str:
     """The packet's SHA-256, or Refused with the reason it cannot be used with this scope.
 
-    Every source is read again from the scope and must match the packet's text, so a packet cannot pass
-    with a folder it was not built from, even one with the same name. The rest must be what build writes."""
+    The scope must have the packet's name, resolved path and root commit, so a packet cannot pass with a
+    folder it was not built from, even one with the same name and identical text. Every source is read again
+    and must match the packet's text. The rest must be what build writes."""
     if not isinstance(packet, dict) or set(packet) != set(FIELDS):
         raise Refused("packet has missing or unexpected fields")
-    if packet["schema"] != 1:
-        raise Refused("unsupported packet schema")
-    if packet["scope"] != scope.name:
-        raise Refused(f"packet was built for {packet['scope']}, not {scope.name}")
+    if packet["schema"] != 2:
+        raise Refused("unsupported packet schema: build the packet again")
+    recorded, actual = packet["scope"], identity(scope)
+    if not isinstance(recorded, dict) or set(recorded) != set(actual):
+        raise Refused("the packet's scope needs exactly a name, a path and a root commit")
+    if recorded["name"] != actual["name"] or os.path.normcase(str(recorded["path"])) != os.path.normcase(actual["path"]):
+        raise Refused(f"packet was built for {recorded['name']} at {recorded['path']}, not {actual['path']}")
+    if recorded["root_commit"] != actual["root_commit"]:
+        raise Refused(f"packet was built in a repository with root commit {recorded['root_commit']}, "
+                      f"not {actual['root_commit']}")
     sources = items(packet["sources"], "sources", True)
     for source in sources:
         if not isinstance(source, dict) or set(source) != {"path", "revision", "text"}:
@@ -148,6 +180,7 @@ def validate(packet, scope: Path) -> str:
             raise Refused(f"source {source['path']} was read at a different revision")
     spec = {name: packet[name] for name in ("request", "acceptance", "evidence", "limitations")}
     rebuilt = build(dict(spec, sources=[source["path"] for source in sources]), scope, packet["revision"])
+    rebuilt["scope"] = recorded
     for source, fresh in zip(sources, rebuilt["sources"]):
         if source["text"] != fresh["text"]:
             raise Refused(f"source {source['path']} does not match the file in {scope.name}: the packet was built "
