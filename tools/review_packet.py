@@ -24,13 +24,16 @@ request, acceptance list, source, evidence item or limitation, a packet whose
 scope or any source revision does not match, and a packet whose source text
 differs from the file in the scope folder.
 
-The packet identifies its scope by the folder's name, its resolved absolute
-path and, when the folder is in a git repository, that repository's root
-commit. A packet built from another project, even one with the same folder
-name and identical source text, is refused, and so is one built from a file
-that has changed since. The absolute path includes the name of your user
-folder and leaves the machine with the packet. The revision itself is a label
-the builder was given; validate cannot check it against version control.
+The packet identifies its scope by the folder's name and an identity: the
+SHA-256 of the compact JSON array ["shotos-review-scope/1", <path>, <root>],
+where <path> is the resolved absolute path, case-normalised on Windows, and
+<root> is the root commit of the git repository holding the folder, or null
+outside one. A packet built from another project, even one with the same
+folder name and identical source text, is refused, and so is one built from
+a file that has changed since. The packet carries no readable path, but the
+hash is not anonymous: someone who guesses the path and root commit can
+confirm the guess. The revision itself is a label the builder was given;
+validate cannot check it against version control.
 
 The secret check is a safety net based on file names and a simple text
 pattern. It is not proof that nothing sensitive remains: the owner still
@@ -57,6 +60,8 @@ SECRET_TEXT = re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----|(api[_-]?key|secre
                          re.I)
 FIELDS = ("schema", "scope", "revision", "request", "acceptance", "sources", "evidence", "limitations")
 REPARSE_POINT = 0x400  # a Windows junction or symbolic link
+SCHEMA = 3
+IDENTITY_FORMAT = "shotos-review-scope/1"
 
 
 class Refused(Exception):
@@ -96,8 +101,13 @@ def root_commit(scope: Path):
 
 
 def identity(scope: Path) -> dict:
-    """What the packet records to tell this scope from any other: its name, resolved path and root commit."""
-    return {"name": scope.name, "path": str(scope), "root_commit": root_commit(scope)}
+    """What the packet records to tell this scope from any other: its name and a SHA-256 of where it is.
+
+    The hash covers a compact JSON array of a format label, the normalised resolved path and the root commit
+    (null outside git), so no two different paths and commits hash the same text. The path itself is not kept."""
+    key = [IDENTITY_FORMAT, os.path.normcase(str(scope.resolve())), root_commit(scope)]
+    data = json.dumps(key, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    return {"name": scope.name, "identity": hashlib.sha256(data).hexdigest()}
 
 
 def read_source(scope: Path, rel: str) -> str:
@@ -135,7 +145,7 @@ def build(spec: dict, scope: Path, revision: str) -> dict:
         evidence.append({"source": text(item.get("source"), 4096, "evidence source"),
                          "text": text(item.get("text"), 16000, "evidence text")})
     return {
-        "schema": 2,
+        "schema": SCHEMA,
         "scope": identity(scope),
         "revision": revision,
         "request": text(spec.get("request"), 8192, "request"),
@@ -157,21 +167,21 @@ def encode(packet: dict) -> bytes:
 def validate(packet, scope: Path) -> str:
     """The packet's SHA-256, or Refused with the reason it cannot be used with this scope.
 
-    The scope must have the packet's name, resolved path and root commit, so a packet cannot pass with a
-    folder it was not built from, even one with the same name and identical text. Every source is read again
-    and must match the packet's text. The rest must be what build writes."""
+    The scope must have the packet's name and identity, the hash of its resolved path and root commit, so a
+    packet cannot pass with a folder it was not built from, even one with the same name and identical text.
+    Every source is read again and must match the packet's text. The rest must be what build writes."""
     if not isinstance(packet, dict) or set(packet) != set(FIELDS):
         raise Refused("packet has missing or unexpected fields")
-    if packet["schema"] != 2:
+    if packet["schema"] != SCHEMA:
         raise Refused("unsupported packet schema: build the packet again")
     recorded, actual = packet["scope"], identity(scope)
     if not isinstance(recorded, dict) or set(recorded) != set(actual):
-        raise Refused("the packet's scope needs exactly a name, a path and a root commit")
-    if recorded["name"] != actual["name"] or os.path.normcase(str(recorded["path"])) != os.path.normcase(actual["path"]):
-        raise Refused(f"packet was built for {recorded['name']} at {recorded['path']}, not {actual['path']}")
-    if recorded["root_commit"] != actual["root_commit"]:
-        raise Refused(f"packet was built in a repository with root commit {recorded['root_commit']}, "
-                      f"not {actual['root_commit']}")
+        raise Refused("the packet's scope needs exactly a name and an identity")
+    if recorded["name"] != actual["name"]:
+        raise Refused(f"packet was built for {recorded['name']}, not {actual['name']}")
+    if recorded["identity"] != actual["identity"]:
+        raise Refused(f"packet was built for another {actual['name']}: the folder's path or its repository's "
+                      "root commit is not the same")
     sources = items(packet["sources"], "sources", True)
     for source in sources:
         if not isinstance(source, dict) or set(source) != {"path", "revision", "text"}:

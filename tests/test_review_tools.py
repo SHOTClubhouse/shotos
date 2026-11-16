@@ -1,4 +1,5 @@
 import contextlib
+import hashlib
 import io
 import json
 import os
@@ -18,6 +19,12 @@ import review_packet  # noqa: E402
 import run_contained  # noqa: E402
 
 RUNNER = ROOT / "tools" / "run_contained.py"
+
+
+def scope_identity(scope: Path, root):
+    """The scope identity as packet-tools.md defines it, worked out independently of review_packet."""
+    key = ["shotos-review-scope/1", os.path.normcase(str(scope.resolve())), root]
+    return hashlib.sha256(json.dumps(key, ensure_ascii=False, separators=(",", ":")).encode("utf-8")).hexdigest()
 
 
 class ReviewCase(unittest.TestCase):
@@ -104,7 +111,7 @@ class TestPacket(ReviewCase):
         (other / "rota.md").write_text("Sam: 1 shift\n", encoding="utf-8")
         code, _, err = self.packet_cli("validate", out, "--scope", other)
         self.assertEqual(code, 2)
-        self.assertIn("built for spring-fair at", err)
+        self.assertIn("built for another spring-fair", err)
 
     def test_a_source_that_has_changed_since_the_packet_was_built_is_refused(self):
         out = self.packet()
@@ -120,9 +127,30 @@ class TestPacket(ReviewCase):
         (other / "rota.md").write_bytes((self.scope / "rota.md").read_bytes())
         code, _, err = self.packet_cli("validate", out, "--scope", other)
         self.assertEqual(code, 2)
-        self.assertIn(str(self.scope.resolve()), json.loads(err)["reason"])
-        scope = json.loads(out.read_text(encoding="utf-8"))["scope"]
-        self.assertEqual(scope, {"name": "spring-fair", "path": str(self.scope.resolve()), "root_commit": None})
+        self.assertIn("built for another spring-fair", json.loads(err)["reason"])
+
+    def test_a_packet_identifies_its_scope_by_a_hash_and_carries_no_readable_path(self):
+        out = self.packet()
+        text = out.read_text(encoding="utf-8")
+        for path in (self.scope.resolve(), self.base.resolve()):
+            self.assertNotIn(str(path), text)
+            self.assertNotIn(json.dumps(str(path))[1:-1], text)
+        packet = json.loads(text)
+        self.assertEqual(packet["schema"], 3)
+        self.assertEqual(packet["scope"], {"name": "spring-fair", "identity": scope_identity(self.scope, None)})
+        spellings = [self.base / "work" / ".." / "spring-fair"]
+        if os.name == "nt":
+            spellings.append(Path(str(self.scope).upper()))
+        for spelling in spellings:
+            with self.subTest(spelling=str(spelling)):
+                self.assertEqual(self.packet_cli("validate", out, "--scope", spelling)[0], 0)
+        other = self.base / "elsewhere" / "spring-fair"
+        other.mkdir(parents=True)
+        (other / "rota.md").write_bytes((self.scope / "rota.md").read_bytes())
+        code, _, err = self.packet_cli("validate", out, "--scope", other)
+        self.assertEqual(code, 2)
+        for path in (self.scope.resolve(), other.resolve(), self.base.resolve()):
+            self.assertNotIn(str(path), json.loads(err)["reason"])
 
     def test_a_packet_records_the_root_commit_and_refuses_another_repository_at_the_same_path(self):
         def git(*args):
@@ -141,7 +169,8 @@ class TestPacket(ReviewCase):
         except (OSError, subprocess.CalledProcessError):
             self.skipTest("git is not available")
         out = self.packet()
-        self.assertEqual(json.loads(out.read_text(encoding="utf-8"))["scope"]["root_commit"], first)
+        self.assertEqual(json.loads(out.read_text(encoding="utf-8"))["scope"]["identity"],
+                         scope_identity(self.scope, first))
         self.assertEqual(self.packet_cli("validate", out, "--scope", self.scope)[0], 0)
         for path in (self.scope / ".git").rglob("*"):
             os.chmod(path, 0o700)
