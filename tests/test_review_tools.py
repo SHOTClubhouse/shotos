@@ -207,6 +207,34 @@ class TestPacket(ReviewCase):
         self.assertEqual(code, 2)
         self.assertIn("--revision", err)
 
+    def test_refusals_hide_absolute_paths(self):
+        home = str(Path.home())
+        inside = Path(home) / "Documents" / "private" / "spec.json"
+        outside = Path(Path.home().anchor) / "no-such-dir" / "spec.json"
+        elsewhere = "/opt/secret-dir/x.md" if os.name != "nt" else "D:/other/x.md"
+        cases = [self.packet_cli("build", inside, "--scope", self.scope, "--revision", "r1")[2],
+                 self.packet_cli("build", outside, "--scope", self.scope, "--revision", "r1")[2],
+                 self.build(dict(self.spec, sources=[elsewhere]), "--revision", "r1")[2]]
+        for err in cases:
+            reason = json.loads(err.splitlines()[-1])["reason"]
+            self.assertNotIn(home, reason)
+            self.assertNotIn(str(self.base), reason)
+            self.assertNotIn("secret-dir", reason)
+            self.assertNotIn("other", reason)
+        self.assertIn("~", json.loads(cases[0].splitlines()[-1])["reason"])
+        self.assertIn("<path>", json.loads(cases[1].splitlines()[-1])["reason"])
+        self.assertIn("<path>", json.loads(cases[2].splitlines()[-1])["reason"])
+
+    def test_redact_leaves_relative_paths_alone(self):
+        self.assertEqual(review_packet.redact("source not found: notes/rota.md"), "source not found: notes/rota.md")
+
+    def test_the_documentation_does_not_claim_the_packet_has_no_path_at_all(self):
+        root = Path(review_packet.__file__).resolve().parent.parent
+        for doc in (root / "skills/cross-agent-review/packet-tools.md", Path(review_packet.__file__)):
+            body = doc.read_text(encoding="utf-8")
+            self.assertNotIn("The packet carries no readable path", body)
+            self.assertIn("scope metadata carries no readable path", body)
+
     def test_an_oversized_packet_is_refused(self):
         spec = dict(self.spec, evidence=[{"source": f"note {i}", "text": "x" * 15000} for i in range(10)])
         code, _, err = self.build(spec, "--revision", "r1")

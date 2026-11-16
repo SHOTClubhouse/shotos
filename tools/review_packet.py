@@ -30,9 +30,11 @@ where <path> is the resolved absolute path, case-normalised on Windows, and
 <root> is the root commit of the git repository holding the folder, or null
 outside one. A packet built from another project, even one with the same
 folder name and identical source text, is refused, and so is one built from
-a file that has changed since. The packet carries no readable path, but the
-hash is not anonymous: someone who guesses the path and root commit can
-confirm the guess. The revision itself is a label the builder was given;
+a file that has changed since. The scope metadata carries no readable path,
+but the hash is not anonymous: someone who guesses the path and root commit
+can confirm the guess. Evidence and source text are carried exactly as given,
+so authors must not paste private paths into them. Error and refusal messages
+show a path under the home folder as ~ and any other absolute path as <path>. The revision itself is a label the builder was given;
 validate cannot check it against version control.
 
 The secret check is a safety net based on file names and a simple text
@@ -66,6 +68,22 @@ IDENTITY_FORMAT = "shotos-review-scope/1"
 
 class Refused(Exception):
     pass
+
+
+ABSOLUTE = r"(?:[A-Za-z]:[\\/]|\\\\|/)"
+QUOTED_PATH = re.compile(r"(['\"])(" + ABSOLUTE + r".*?)\1")
+BARE_PATH = re.compile(r"(?<![\w.~])" + ABSOLUTE + r"[^\s'\"]*")
+
+
+def redact(message: str) -> str:
+    """The message with a path under the home folder shown as ~ and any other absolute path as <path>."""
+    homes = set()
+    for home in {str(Path.home()), str(Path.home().resolve())}:
+        homes.update((home, home.replace("\\", "\\\\"), home.replace("\\", "/")))
+    for home in sorted(homes, key=len, reverse=True):
+        message = re.sub(re.escape(home) + r"(?=[\\/'\"\s]|$)", "~", message, flags=re.I if os.name == "nt" else 0)
+    message = QUOTED_PATH.sub(lambda m: m.group(1) + "<path>" + m.group(1), message)
+    return BARE_PATH.sub("<path>", message)
 
 
 def is_link(path: Path) -> bool:
@@ -228,7 +246,7 @@ def main(argv=None) -> int:
               file=sys.stderr)
         return 0
     except (Refused, OSError, ValueError) as error:
-        print(json.dumps({"status": "refused", "reason": str(error)}), file=sys.stderr)
+        print(json.dumps({"status": "refused", "reason": redact(str(error))}), file=sys.stderr)
         return 2
 
 
