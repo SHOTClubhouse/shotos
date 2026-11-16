@@ -47,6 +47,58 @@ class InstallHooksTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             install_hooks.uninstall(self.repo)
 
+    def test_reinstalling_keeps_a_check_someone_added(self):
+        install_hooks.install(self.repo, python="/fictional/old/python")
+        with self.hook.open("a", encoding="utf-8", newline="\n") as hook:
+            hook.write("echo fictional extra check\n")
+        install_hooks.install(self.repo, python="/fictional/new/python")
+        text = self.hook.read_text(encoding="utf-8")
+        self.assertIn("echo fictional extra check", text)
+        self.assertIn("/fictional/new/python", text)
+        self.assertNotIn("/fictional/old/python", text)
+        self.assertEqual(text.count(install_hooks.BEGIN), 1)
+        self.assertIn("Removed the SHOTos block", install_hooks.uninstall(self.repo))
+        text = self.hook.read_text(encoding="utf-8")
+        self.assertEqual(text, "#!/bin/sh\necho fictional extra check\n")
+
+    def test_a_hook_from_the_earlier_installer_is_updated_only_when_unchanged(self):
+        self.hook.parent.mkdir(parents=True, exist_ok=True)
+        legacy = ("#!/bin/sh\n" + install_hooks.MARKER + "\n# Runs the SHOTos gate in fast mode before each push. "
+                  "Git passes the refs being pushed on standard input.\ncd \"$(git rev-parse --show-toplevel)\" || "
+                  "exit 1\nPYTHON=\"/fictional/python\"\n[ -x \"$PYTHON\" ] || PYTHON=\"$(command -v python3 || "
+                  "command -v python)\"\nexec \"$PYTHON\" tools/local_gate.py --pre-push\n")
+        self.hook.write_text(legacy, encoding="utf-8", newline="\n")
+        install_hooks.install(self.repo)
+        self.assertIn(install_hooks.BEGIN, self.hook.read_text(encoding="utf-8"))
+        self.hook.write_text(legacy + "echo fictional extra check\n", encoding="utf-8", newline="\n")
+        with self.assertRaises(SystemExit):
+            install_hooks.install(self.repo)
+        with self.assertRaises(SystemExit):
+            install_hooks.uninstall(self.repo)
+        self.assertIn("fictional extra check", self.hook.read_text(encoding="utf-8"))
+        install_hooks.install(self.repo, force=True)
+        self.assertIn("fictional extra check",
+                      self.hook.with_name("pre-push.before-shotos").read_text(encoding="utf-8"))
+
+    @unittest.skipUnless(shutil.which("sh") or sys.platform == "win32", "needs a shell for Git hooks")
+    def test_a_check_after_the_block_runs_and_reads_the_pushed_refs(self):
+        origin = Path(self.tmp.name) / "origin.git"
+        git(Path(self.tmp.name), "init", "-q", "--template=", "--bare", str(origin))
+        git(self.repo, "remote", "add", "origin", str(origin))
+        stub = self.repo / "tools" / "local_gate.py"
+        stub.parent.mkdir()
+        stub.write_text("import sys\nsys.stdin.read()\nsys.exit(0)\n", encoding="utf-8")  # a fictional GO
+        git(self.repo, "add", "-A")
+        git(self.repo, "-c", "commit.gpgsign=false", "commit", "-qm", "Fictional commit")
+        install_hooks.install(self.repo)
+        self.assertEqual(git(self.repo, "push", "-q", "origin", "main", check=False).returncode, 0)
+        with self.hook.open("a", encoding="utf-8", newline="\n") as hook:
+            hook.write("cat > extra.txt\nexit 1\n")
+        git(self.repo, "-c", "commit.gpgsign=false", "commit", "-q", "--allow-empty", "-m", "Another fictional commit")
+        pushed = git(self.repo, "push", "origin", "main", check=False)
+        self.assertNotEqual(pushed.returncode, 0)
+        self.assertIn("refs/heads/main", (self.repo / "extra.txt").read_text(encoding="utf-8"))
+
     @unittest.skipUnless(shutil.which("sh") or sys.platform == "win32", "needs a shell for Git hooks")
     def test_a_no_go_from_the_gate_stops_the_push(self):
         origin = Path(self.tmp.name) / "origin.git"
