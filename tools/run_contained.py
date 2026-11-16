@@ -19,7 +19,9 @@ empty temporary folder, with only these environment variables: PATH, HOME,
 USERPROFILE, SYSTEMROOT, TEMP, TMP and LANG, plus any name given with
 --allow-env NAME (repeatable). It cannot inherit a token from your shell by
 accident, and it does not start inside your project folder. Output is capped at
-1 MB. At the time limit the command and anything it started are stopped.
+1 MB while it is read: the first 1 MB is kept and the rest is read and dropped,
+so a noisy command cannot fill memory. At the time limit the command and
+anything it started are stopped.
 
 This is process hygiene, not a sandbox. It does not block network access, and
 it does not stop a command that reads files by absolute path or from the home
@@ -29,7 +31,8 @@ record which controls were actually applied.
 
 The receipt records the command name (not its path or arguments), the number of
 arguments, the packet's SHA-256, the exit code, whether it timed out, the time
-taken, the output size, the environment names passed, "network_allowed": true
+taken, the output size kept, whether output was cut at the cap
+("output_truncated"), the environment names passed, "network_allowed": true
 and "sandboxed": false. It never stores the packet or the output text. Standard
 library only, Python 3.9 or later.
 
@@ -48,6 +51,7 @@ import signal
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 from pathlib import Path
 
@@ -71,21 +75,44 @@ def stop(process: subprocess.Popen) -> None:
 
 
 def run(command: list, packet: bytes, env: dict, timeout: int) -> tuple:
-    """(exit code, timed out, output) for the command run in an empty temporary folder."""
+    """(exit code, timed out, output, truncated) for the command run in an empty temporary folder.
+
+    Output is read in chunks and only the first MAX_OUTPUT bytes are kept, so a noisy command cannot fill
+    memory. The rest is read and dropped, so the command is never blocked on a full pipe."""
+    cap, kept, seen = MAX_OUTPUT, bytearray(), [0]
     with tempfile.TemporaryDirectory(prefix="review-") as work:
         options = {"creationflags": NEW_PROCESS_GROUP} if WINDOWS else {"start_new_session": True}
         process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                    cwd=work, env=env, **options)
+
+        def read():
+            try:
+                for chunk in iter(lambda: os.read(process.stdout.fileno(), 65536), b""):
+                    seen[0] += len(chunk)
+                    kept.extend(chunk[:max(0, cap - len(kept))])
+            except OSError:
+                pass
+
+        def write():
+            try:
+                process.stdin.write(packet)
+                process.stdin.close()
+            except OSError:
+                pass
+
+        reader, writer = threading.Thread(target=read, daemon=True), threading.Thread(target=write, daemon=True)
+        reader.start()
+        writer.start()
         try:
-            output, _ = process.communicate(packet, timeout=timeout)
-            return process.returncode, False, output
+            process.wait(timeout=timeout)
+            code, timed_out = process.returncode, False
         except subprocess.TimeoutExpired:
             stop(process)
-            try:
-                output, _ = process.communicate(timeout=10)
-            except subprocess.TimeoutExpired:
-                output = b""
-            return 124, True, output
+            code, timed_out = 124, True
+        reader.join(10)
+        if not reader.is_alive():
+            process.stdout.close()
+        return code, timed_out, bytes(kept), seen[0] > cap
 
 
 def main(argv=None) -> int:
@@ -127,11 +154,10 @@ def main(argv=None) -> int:
         return 0
     started = time.monotonic()
     try:
-        code, timed_out, output = run(command, packet, env, args.timeout)
+        code, timed_out, output, truncated = run(command, packet, env, args.timeout)
     except OSError as error:
         print(f"refused: could not start the command ({type(error).__name__})", file=sys.stderr)
         return 125
-    output = output[:MAX_OUTPUT]
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_bytes(output)
@@ -141,6 +167,7 @@ def main(argv=None) -> int:
     receipt = {"command": Path(command[0]).name, "argument_count": len(command) - 1,
                "packet_sha256": hashlib.sha256(packet).hexdigest(), "exit_code": code, "timed_out": timed_out,
                "seconds": round(time.monotonic() - started, 2), "output_bytes": len(output),
+               "output_truncated": truncated,
                "environment_names": sorted(env), "network_allowed": True, "sandboxed": False}
     args.receipt.parent.mkdir(parents=True, exist_ok=True)
     args.receipt.write_text(json.dumps(receipt, indent=1), encoding="utf-8")

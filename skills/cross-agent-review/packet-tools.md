@@ -41,7 +41,7 @@ The runner cannot block the network, so any reviewer it launches can send the pa
 python .shotos/tools/run_contained.py --allow-network --packet .work/<task>/packet.json --timeout 300 --receipt .work/<task>/receipt.json -- <reviewer command>
 ```
 
-The command receives the packet on standard input. It runs in an empty temporary folder with only the environment names you allow (`--allow-env NAME`), and it and anything it started are stopped at the time limit. The receipt records the command name, the packet hash, the exit code, the time and the output size, never the text, and always says `"network_allowed": true` and `"sandboxed": false`.
+The command receives the packet on standard input. It runs in an empty temporary folder with only the environment names you allow (`--allow-env NAME`), and it and anything it started are stopped at the time limit. Output is capped at 1 MB as it is read; anything past that is dropped. The receipt records the command name, the packet hash, the exit code, the time, the output size and whether the output was cut at the cap, never the text, and always says `"network_allowed": true` and `"sandboxed": false`.
 
 This is process hygiene, not a sandbox. It does not block the network, or reads by absolute path or from the home folder. Use the reviewer tool's own read-only or no-tools mode too, and write down in the review record which controls were actually applied.
 

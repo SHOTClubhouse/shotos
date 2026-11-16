@@ -8,11 +8,13 @@ import tempfile
 import time
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 import review_packet  # noqa: E402
+import run_contained  # noqa: E402
 
 RUNNER = ROOT / "tools" / "run_contained.py"
 
@@ -202,6 +204,21 @@ class TestRunner(ReviewCase):
         self.assertEqual(result.returncode, 124)
         self.assertLess(time.monotonic() - started, 40)
         self.assertTrue(json.loads(receipt.read_text(encoding="utf-8"))["timed_out"])
+
+    def test_output_is_capped_while_it_is_read_and_the_cut_is_recorded(self):
+        noisy = [sys.executable, "-c", "import sys\nfor _ in range(200): sys.stdout.write('x' * 10000)"]
+        with patch.object(run_contained, "MAX_OUTPUT", 1000):
+            code, timed_out, output, truncated = run_contained.run(noisy, b"{}", dict(os.environ), 60)
+        self.assertEqual((code, timed_out, len(output), truncated), (0, False, 1000, True))
+        receipt = self.base / "receipt.json"
+        result = self.run_tool("--packet", self.packet(), "--receipt", receipt, "--", *noisy[:2],
+                               "import sys\nfor _ in range(150): sys.stdout.write('x' * 10000)")
+        self.assertEqual(len(result.stdout), run_contained.MAX_OUTPUT)
+        data = json.loads(receipt.read_text(encoding="utf-8"))
+        self.assertEqual((data["output_bytes"], data["output_truncated"]), (run_contained.MAX_OUTPUT, True))
+        quiet = self.run_tool("--packet", self.packet(), "--receipt", receipt, "--", sys.executable, "-c", "pass")
+        self.assertEqual(quiet.returncode, 0)
+        self.assertFalse(json.loads(receipt.read_text(encoding="utf-8"))["output_truncated"])
 
     def test_a_missing_packet_or_command_is_refused(self):
         receipt = self.base / "receipt.json"
