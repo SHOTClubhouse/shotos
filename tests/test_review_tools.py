@@ -265,6 +265,42 @@ class TestRunner(ReviewCase):
         time.sleep(max(0.0, started + 9 - time.monotonic()))
         self.assertFalse(marker.exists(), "the child outlived the time limit")
 
+    @unittest.skipUnless(run_contained.WINDOWS, "job objects are Windows only")
+    def test_a_command_that_cannot_be_put_in_a_job_object_is_stopped_before_it_runs(self):
+        real = run_contained.KERNEL32
+
+        class Kernel:  # the real kernel32, with one call made to fail
+            def __init__(self, failing):
+                self.failing = failing
+
+            def __getattr__(self, name):
+                return (lambda *args: 0) if name == self.failing else getattr(real, name)
+
+        packet, popen, started = self.packet(), subprocess.Popen, []
+
+        def record(*args, **kwargs):
+            started.append(popen(*args, **kwargs))
+            return started[-1]
+
+        for failing in ("CreateJobObjectW", "AssignProcessToJobObject"):
+            with self.subTest(failing):
+                marker, receipt, output = (self.base / f"{failing}.{name}" for name in ("ran", "receipt", "out"))
+                err = io.StringIO()
+                with patch.object(run_contained, "KERNEL32", Kernel(failing)), \
+                        patch.object(run_contained.subprocess, "Popen", record), contextlib.redirect_stderr(err):
+                    code = run_contained.main(["--allow-network", "--packet", str(packet), "--timeout", "1",
+                                               "--receipt", str(receipt), "--output", str(output), "--",
+                                               sys.executable, "-c", f"open({str(marker)!r}, 'w').write('ran')"])
+                self.assertEqual(code, 125)
+                self.assertIn("job object", err.getvalue())
+                self.assertIn("stopped before it ran", err.getvalue())
+                self.assertTrue(started and all(process.poll() is not None for process in started))
+                time.sleep(1)
+                self.assertFalse(marker.exists(), "an uncontained command was resumed")
+                self.assertFalse(receipt.exists())
+                self.assertFalse(output.exists())
+                started.clear()
+
     def test_output_is_capped_while_it_is_read_and_the_cut_is_recorded(self):
         noisy = [sys.executable, "-c", "import sys\nfor _ in range(200): sys.stdout.write('x' * 10000)"]
         with patch.object(run_contained, "MAX_OUTPUT", 1000):

@@ -25,7 +25,9 @@ well as the command: if the command exits while something it started still
 holds its output open, the run is not over until that output ends. At the
 time limit the command and anything it started are stopped, through a job
 object on Windows and a process group elsewhere, even if the command itself
-has already exited.
+has already exited. On Windows the command starts suspended and runs only
+once it is inside its job object: if the job cannot be made or the command
+cannot join it, the command is stopped before it runs and the run is refused.
 
 This is process hygiene, not a sandbox. It does not block network access, and
 it does not stop a command that reads files by absolute path or from the home
@@ -78,21 +80,47 @@ if WINDOWS:
     NTDLL.NtResumeProcess.argtypes = (wintypes.HANDLE,)
 
 
+class Uncontained(Exception):
+    """The command could not be put in a job object, so it was stopped before it ran."""
+
+
 def contain(process: subprocess.Popen):
     """Put the command, started suspended, in a new Windows job object, then let it run.
 
     Everything it starts joins the job, so the whole tree can be stopped even after the command itself has
-    exited. Returns the job handle, or None if no job could be made (stop then falls back to taskkill)."""
-    job = None
+    exited. Returns the job handle. If no job can be made, the command cannot join it or it cannot be resumed,
+    the command is stopped while still suspended and Uncontained is raised: it never runs outside a job."""
+    job, failure = None, None
     try:
         job = KERNEL32.CreateJobObjectW(None, None)
-        if job and not KERNEL32.AssignProcessToJobObject(job, int(process._handle)):
-            KERNEL32.CloseHandle(job)
-            job = None
-    finally:
-        if NTDLL.NtResumeProcess(int(process._handle)) != 0:
-            process.kill()
+        if not job:
+            failure = f"could not create a job object (Windows error {ctypes.get_last_error()})"
+        elif not KERNEL32.AssignProcessToJobObject(job, int(process._handle)):
+            failure = f"could not put the command in a job object (Windows error {ctypes.get_last_error()})"
+        elif NTDLL.NtResumeProcess(int(process._handle)) != 0:
+            failure = "could not resume the command inside its job object"
+    except BaseException:
+        discard(process, job)
+        raise
+    if failure:
+        discard(process, job)
+        raise Uncontained(failure)
     return job
+
+
+def discard(process: subprocess.Popen, job=None) -> None:
+    """Stop a command that was never let run, close its pipes and release its job object, if it has one."""
+    try:
+        if job:
+            KERNEL32.TerminateJobObject(job, 125)
+        if process.poll() is None:
+            process.kill()
+        process.wait()
+    finally:
+        process.stdin.close()
+        process.stdout.close()
+        if job:
+            KERNEL32.CloseHandle(job)
 
 
 def stop(process: subprocess.Popen, job=None) -> None:
@@ -203,6 +231,10 @@ def main(argv=None) -> int:
     started = time.monotonic()
     try:
         code, timed_out, output, truncated = run(command, packet, env, args.timeout)
+    except Uncontained as error:
+        print(f"refused: {error}. The command was stopped before it ran, because its time limit could not be "
+              "enforced on anything it started", file=sys.stderr)
+        return 125
     except OSError as error:
         print(f"refused: could not start the command ({type(error).__name__})", file=sys.stderr)
         return 125
