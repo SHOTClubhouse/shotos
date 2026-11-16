@@ -4,6 +4,15 @@
 Control 7 (independent review) and the cross-agent-review skill:
 
     python tools/run_contained.py --packet .work/<task>/packet.json --timeout 300 --receipt .work/<task>/receipt.json -- <reviewer command> [args...]
+    python tools/run_contained.py --allow-network --packet ... --receipt ... -- <reviewer command> [args...]
+
+By default this is a dry run: it checks the packet, prints what it would launch
+and launches nothing. Nothing is written, not even the receipt. The runner
+cannot block the network, so any reviewer it launches can send the packet
+somewhere, using credentials it finds under the home folder. It therefore
+launches a reviewer only with --allow-network, which the owner passes once
+they have agreed that the packet may leave this machine. The receipt records
+"network_allowed": true.
 
 The packet is piped to the command's standard input. The command runs in a new,
 empty temporary folder, with only these environment variables: PATH, HOME,
@@ -20,12 +29,12 @@ record which controls were actually applied.
 
 The receipt records the command name (not its path or arguments), the number of
 arguments, the packet's SHA-256, the exit code, whether it timed out, the time
-taken, the output size, the environment names passed and "sandboxed": false. It
-never stores the packet or the output text. Standard library only, Python 3.9
-or later.
+taken, the output size, the environment names passed, "network_allowed": true
+and "sandboxed": false. It never stores the packet or the output text. Standard
+library only, Python 3.9 or later.
 
-Exit codes: the command's own code; 124 when the time limit stopped it; 125 when
-it could not be started.
+Exit codes: 0 for a dry run; the command's own code; 124 when the time limit
+stopped it; 125 when it was refused or could not be started.
 """
 
 from __future__ import annotations
@@ -34,6 +43,7 @@ import argparse
 import hashlib
 import json
 import os
+import shlex
 import signal
 import subprocess
 import sys
@@ -86,6 +96,9 @@ def main(argv=None) -> int:
     parser.add_argument("--allow-env", action="append", default=[], metavar="NAME",
                         help="also pass this environment variable (repeatable)")
     parser.add_argument("--output", type=Path, help="write the reviewer's output here (default: standard output)")
+    parser.add_argument("--allow-network", action="store_true",
+                        help="launch the reviewer, which can reach the network and send the packet anywhere "
+                             "(default: a dry run that launches nothing)")
     parser.add_argument("command", nargs=argparse.REMAINDER, help="-- then the reviewer command")
     args = parser.parse_args(argv)
     command = args.command[1:] if args.command[:1] == ["--"] else args.command
@@ -102,6 +115,16 @@ def main(argv=None) -> int:
         print("refused: the packet is missing or is not valid JSON", file=sys.stderr)
         return 125
     env = {name: os.environ[name] for name in dict.fromkeys([*BASE_ENV, *args.allow_env]) if name in os.environ}
+    if not args.allow_network:
+        print(f"Dry run: nothing was launched.\n"
+              f"Would run: {subprocess.list2cmdline(command) if WINDOWS else shlex.join(command)}\n"
+              f"In: a new, empty temporary folder\n"
+              f"Packet: {len(packet)} bytes, SHA-256 {hashlib.sha256(packet).hexdigest()}, on standard input\n"
+              f"Environment names: {', '.join(sorted(env)) or 'none'}\n"
+              f"Time limit: {args.timeout} seconds\n"
+              "The reviewer could reach the network and send the packet anywhere, using any credentials it can "
+              "read under the home folder. Run again with --allow-network to launch it.")
+        return 0
     started = time.monotonic()
     try:
         code, timed_out, output = run(command, packet, env, args.timeout)
@@ -118,7 +141,7 @@ def main(argv=None) -> int:
     receipt = {"command": Path(command[0]).name, "argument_count": len(command) - 1,
                "packet_sha256": hashlib.sha256(packet).hexdigest(), "exit_code": code, "timed_out": timed_out,
                "seconds": round(time.monotonic() - started, 2), "output_bytes": len(output),
-               "environment_names": sorted(env), "sandboxed": False}
+               "environment_names": sorted(env), "network_allowed": True, "sandboxed": False}
     args.receipt.parent.mkdir(parents=True, exist_ok=True)
     args.receipt.write_text(json.dumps(receipt, indent=1), encoding="utf-8")
     return code

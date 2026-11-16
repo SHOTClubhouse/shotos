@@ -33,7 +33,15 @@ The secret check is a safety net based on names and a simple pattern. It does no
 python .shotos/tools/run_contained.py --packet .work/<task>/packet.json --timeout 300 --receipt .work/<task>/receipt.json -- <reviewer command>
 ```
 
-The command receives the packet on standard input. It runs in an empty temporary folder with only the environment names you allow (`--allow-env NAME`), and it and anything it started are stopped at the time limit. The receipt records the command name, the packet hash, the exit code, the time and the output size, never the text, and always says `"sandboxed": false`.
+This is a dry run. It checks the packet and prints the command it would launch, the packet's size and hash, the environment names and the time limit. It launches nothing and writes nothing, not even the receipt.
+
+The runner cannot block the network, so any reviewer it launches can send the packet anywhere, using credentials it finds under the home folder. Launch the reviewer only once the owner has agreed that the packet may leave the machine, by adding `--allow-network`:
+
+```
+python .shotos/tools/run_contained.py --allow-network --packet .work/<task>/packet.json --timeout 300 --receipt .work/<task>/receipt.json -- <reviewer command>
+```
+
+The command receives the packet on standard input. It runs in an empty temporary folder with only the environment names you allow (`--allow-env NAME`), and it and anything it started are stopped at the time limit. The receipt records the command name, the packet hash, the exit code, the time and the output size, never the text, and always says `"network_allowed": true` and `"sandboxed": false`.
 
 This is process hygiene, not a sandbox. It does not block the network, or reads by absolute path or from the home folder. Use the reviewer tool's own read-only or no-tools mode too, and write down in the review record which controls were actually applied.
 

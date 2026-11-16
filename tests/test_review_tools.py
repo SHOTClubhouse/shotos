@@ -108,9 +108,27 @@ class TestPacket(ReviewCase):
 
 
 class TestRunner(ReviewCase):
-    def run_tool(self, *args, env=None):
-        return subprocess.run([sys.executable, str(RUNNER), *map(str, args)], capture_output=True, text=True,
+    def run_tool(self, *args, env=None, launch=True):
+        flag = ["--allow-network"] if launch else []
+        return subprocess.run([sys.executable, str(RUNNER), *flag, *map(str, args)], capture_output=True, text=True,
                               env=env, timeout=120)
+
+    def test_without_the_network_flag_nothing_is_launched(self):
+        receipt = self.base / "work" / "receipt.json"
+        marker = self.base / "launched.txt"
+        script = f"open({str(marker)!r}, 'w').write('launched')"
+        result = self.run_tool("--packet", self.packet(), "--receipt", receipt, "--", sys.executable, "-c", script,
+                               launch=False)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("Dry run", result.stdout)
+        self.assertIn("--allow-network", result.stdout)
+        self.assertIn(Path(sys.executable).name, result.stdout)
+        self.assertFalse(marker.exists())
+        self.assertFalse(receipt.exists())
+        launched = self.run_tool("--packet", self.packet(), "--receipt", receipt, "--", sys.executable, "-c", script)
+        self.assertEqual(launched.returncode, 0, launched.stderr)
+        self.assertTrue(marker.exists())
+        self.assertTrue(json.loads(receipt.read_text(encoding="utf-8"))["network_allowed"])
 
     def test_the_packet_reaches_the_command_and_the_receipt_holds_no_content(self):
         receipt = self.base / "work" / "receipt.json"
@@ -155,6 +173,8 @@ class TestRunner(ReviewCase):
         self.assertEqual(self.run_tool("--packet", self.base / "none.json", "--receipt", receipt, "--",
                                        sys.executable, "-c", "pass").returncode, 125)
         self.assertEqual(self.run_tool("--packet", self.packet(), "--receipt", receipt).returncode, 125)
+        self.assertEqual(self.run_tool("--packet", self.base / "none.json", "--receipt", receipt, "--",
+                                       sys.executable, "-c", "pass", launch=False).returncode, 125)
         self.assertFalse(receipt.exists())
 
 
