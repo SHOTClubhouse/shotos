@@ -1,5 +1,42 @@
 # Changelog
 
+## 1.16.0 (16 November 2026)
+
+- Put the new SHOTos mark on every card image (#134).
+- Add a leak scan for private terms.
+- Add the local gate and a pre-push hook.
+- Add a local release script.
+- Publish the Northbank demo from the gh-pages branch.
+- Replace GitHub Actions with the local gate.
+- Withhold denied terms in leak scan paths.
+- Check every path in the history leak scan.
+- Replace only the marked SHOTos block in the pre-push hook.
+- Stop for the owner on any change to what enforces the controls.
+- Gate the release commit itself before anything is pushed.
+- Stop when the release tag already points elsewhere.
+- Add the show-me core skill.
+- Add a production preflight for runs delegated to workers.
+- Add a read-only drift check to config-as-code.
+- Add a review packet builder and a contained runner for cross-agent-review.
+- Make the review runner a dry run unless --allow-network is given.
+- Withhold denied terms from the leak scan's error messages.
+- Refuse to reinstall over a SHOTos hook block that was changed by hand.
+- Validate every packet field and read each source again from the scope.
+- Cap the reviewer's output while it is read and record the cut.
+- Carry on a release only with the approval its commit records.
+- Stop the drift check when a folder cannot be listed.
+- State the fee claim in the show-me example by age-band counts.
+- Add the Evidence line to the preflight, drift check and review skill READMEs.
+- Identify a review packet's scope by its path and root commit.
+- Hold the reviewer time limit until its output ends.
+- Refuse to run a reviewer that cannot be put in a job object.
+- Identify a review packet's scope by a hash, not its absolute path.
+- Narrow the packet's no-path claim to scope metadata and redact paths in refusals.
+- Redact whole path values before they reach review packet messages.
+- Make the path-redaction tests correct on every platform.
+- Resolve external tools before launching them so releases run on Windows.
+- Refuse unsafe resolved paths and parentheses before launching cmd shims.
+
 ## 1.15.0 (10 November 2026)
 
 Fixes from a full review of v1.14.0. Skills now match the rules they cite, and the claim check catches more unsupported reports.
