@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.17.0 (17 November 2026)
+
+- Install launch.py beside run_contained.py so project installs can import it.
+
 ## 1.16.0 (16 November 2026)
 
 - Put the new SHOTos mark on every card image (#134).
