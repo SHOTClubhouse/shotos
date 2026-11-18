@@ -428,49 +428,152 @@ def git(repo: Path, *args) -> str:
 SOURCES = ("docs/guides", START_HERE, "docs/images", f"{NORTHBANK}/site", "tools/build_site.py", ".claude-plugin/plugin.json")
 
 
+# The six stages, in the words of docs/framework.md and the README stage table.
+STAGES = [
+    ("Scope", "stage-01-scope.png", "A product owner spreads support notes across a desk to write a problem brief.",
+     "Understand the situation before changing it. Most wasted effort starts with a solution chosen before anyone "
+     "wrote down the problem.", "A problem brief and baseline"),
+    ("Hypothesise", "stage-02-hypothesise.png", "A founder turns repeat calls into a one-week test.",
+     "Turn the problem into bets you can test, and agree how you will know before you build anything.",
+     "A hypothesis, experiment plan and acceptance checks"),
+    ("Operate", "stage-03-operate.png", "A marketer turns approved copy and assets into a page preview.",
+     "Deliver the smallest real piece into real use, working alongside the people who will own it.",
+     "The actual result, checks and exceptions"),
+    ("Track", "stage-04-track.png", "A student compares venue quotes and capacity to make a recommendation.",
+     "Measure what changed against the baseline, then decide.",
+     "Evidence and a decision: proceed to Own, pivot, stop or hold"),
+    ("Own", "stage-05-own.png", "A commercial lead hands an accepted proposal to the delivery team.",
+     "Make the team that will run the result self-sufficient before anyone copies it elsewhere.",
+     "Evidence the team ran it independently and a named lead accepted it"),
+    ("Sustain and Scale", "stage-06-sustain-scale.png",
+     "A social creator turns an approved content week into a calendar to reuse.",
+     "Take what worked to the next team, and keep improving.",
+     "A supported rollout, local baselines and a review cadence"),
+]
+# The role cards, in the words of docs/guides/start-by-role.md, each linking to its section there.
+ROLES = [
+    ("Founder", "role-founder.png", "founder", "Turn customer notes into a clear problem and one small test."),
+    ("Commercial lead", "role-commercial.png", "commercial-lead",
+     "Qualify an opportunity, draft the offer and carry the accepted deal into delivery."),
+    ("Product manager", "role-product.png", "product-manager",
+     "Turn a feature request into examples the team can build and check."),
+    ("Marketing manager", "role-marketing.png", "marketing-manager",
+     "Give a B2B or direct-to-consumer campaign one action people can try."),
+    ("Graduate", "role-graduate.png", "graduate",
+     "Turn an assignment into a clear brief and a result your lead can review."),
+    ("Social content creator", "role-creator.png", "social-content-creator",
+     "Build a week of posts around real events, assets and audience needs."),
+    ("The method", "role-method.png", "what-shotos-stands-for",
+     "Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale on one page."),
+]
+LANDING_IMAGES = ["shotos-mark.svg", "six-stages.svg", "stage-07-worked-outputs.png",
+                  *(image for _, image, *_ in STAGES), *(image for _, image, *_ in ROLES)]
+
+
+def picture(src: str, alt: str, lazy: bool = True) -> str:
+    size = ' width="1270" height="760"' if src.endswith(".png") else ""
+    load = ' loading="lazy"' if lazy else ""
+    return f'<img src="{src}" alt="{html.escape(alt)}"{size}{load}>'
+
+
 def landing(site: Site) -> str:
     groups = []
     for heading, group in GUIDES:
         cards = "".join(f'<li><a href="guides/{name}.html">{html.escape(site.pages[f"guides/{name}.html"].title)}</a>'
                         f"<span>{html.escape(text)}</span></li>" for name, text in group)
         groups.append(f'<div><h3>{heading}</h3><ul class="cards">{cards}</ul></div>')
-    clone = f"git clone {GITHUB}.git"
-    preview = "python ../shotos/install.py --runtime claude --scope project --dry-run"
-    install = "python ../shotos/install.py --runtime claude --scope project"
+    stages = "".join(
+        f'<li class="stage"><figure>{picture(f"images/{image}", f"{name}: {alt}")}</figure>'
+        f'<h3><span class="step">{n:02d}</span> {name}</h3><p>{html.escape(line)}</p>'
+        f'<p class="hands"><strong>You hand forward:</strong> {html.escape(hands)}</p></li>'
+        for n, (name, image, alt, line, hands) in enumerate(STAGES, 1))
+    roles = "".join(
+        f'<li class="role"><a href="guides/start-by-role.html#{anchor}">'
+        f'{picture(f"images/{image}", f"{name} route. {text}")}'
+        f'<span class="role-name">{name}</span><span class="role-text">{html.escape(text)}</span></a></li>'
+        for name, image, anchor, text in ROLES)
+    agreement = f"{site.blob}/templates/AGENTS.md"
+    first_zip = f"{GITHUB}/releases/latest/download/capture-the-problem.zip"
+    terminal = "\n".join([
+        "# In the folder that holds your project, not inside it:",
+        f"git clone {GITHUB}.git",
+        "cd my-project",
+        "python ../shotos/install.py --runtime claude --scope project --dry-run",
+        "python ../shotos/install.py --runtime claude --scope project",
+    ])
     start = ('<a class="button ghost" href="start-here.html">Start here</a>'
              if "start-here.html" in site.rendered_sources().values()
-             else '<a class="button ghost" href="guides/start-by-role.html">Start with your role</a>')
-    return f"""<section class="hero"><div class="wrap">
-<p class="eyebrow">Open source · MIT and CC BY 4.0</p>
+             else '<a class="button ghost" href="#roles">Start with your role</a>')
+    return f"""<section class="hero"><div class="wrap split">
+<div>
+<p class="eyebrow">Free and open source · MIT and CC BY 4.0</p>
 <h1>Free AI workflows, from the first brief to a result someone can own.</h1>
-<p class="lede">SHOTos is a set of skills, templates and rules for the AI assistant you already use. Use it to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start from your context, agree what good looks like, then check what comes back.</p>
-<p class="actions"><a class="button" href="{site.release}" rel="noopener">Download SHOTos {site.version}</a>{start}</p>
+<p class="lede">SHOTos turns the AI assistant you already use into a small, careful team. It starts from your context, agrees what done looks like before it starts, checks the real result where it lives and tells you plainly what it could not check.</p>
+<p class="actions"><a class="button" href="#set-up">Set up in five minutes</a>{start}</p>
+<p class="small">Latest release: <a href="{site.release}" rel="noopener">SHOTos {site.version}</a> · <a href="{GITHUB}" rel="noopener">Source on GitHub</a></p>
+</div>
+<figure class="hero-art">{picture("images/stage-07-worked-outputs.png", "Two worked outputs made with SHOTos: a fictional campaign page, and the North Quay proposal with its delivery handoff record.", lazy=False)}</figure>
 </div></section>
 
-<section class="wrap" aria-labelledby="install"><h2 id="install">Install</h2>
-<p>The installer needs Python 3.9 or later. Clone SHOTos next to the project where you want to use it, then run the installer from your project folder. Preview first with <code>--dry-run</code>.</p>
-<pre><code>{html.escape(clone)}</code></pre>
-<pre><code>{html.escape(preview)}
-{html.escape(install)}</code></pre>
-<p>Use <code>--runtime agents</code> for Codex and other agents, and add <code>--pack &lt;name&gt;</code> for each pack you want. The installer always includes the core skills. No terminal? <a href="guides/chat-assistants.html">Use the skills in ChatGPT or Claude</a> by downloading the ZIPs from the <a href="{GITHUB}/releases/latest" rel="noopener">latest release</a>.</p>
+<section class="wrap" aria-labelledby="why"><h2 id="why">Why it exists</h2>
+<p class="intro">Most AI help fails in the same few ways. None of them is fixed by a cleverer prompt. They are fixed by a process: say who the work is for and what would show it worked, test the idea small, check the real result and hand it to someone who can own it. Good teams already work this way. SHOTos writes that process down so an agent can follow it and a person can check it did.</p>
+<div class="pairs">
+<div class="pair"><p class="problem">the assistant guesses at facts it was never given.</p><p class="answer">it starts from your context: the task, its sources and the person who will review it.</p></div>
+<div class="pair"><p class="problem">it does the task it imagined, not the one you meant.</p><p class="answer">it agrees what done looks like, including one check that should fail, before any work starts.</p></div>
+<div class="pair"><p class="problem">it says "done" from memory of what it intended.</p><p class="answer">it reads back the real result where it lives: the file, the page or the record.</p></div>
+<div class="pair"><p class="problem">it writes an invented number as confidently as a real one.</p><p class="answer">it claims only what it can show and marks everything else as not checked.</p></div>
+</div>
 </section>
 
-<section class="wrap" aria-labelledby="rules"><h2 id="rules">The four rules inside every stage</h2>
+<section class="wrap" aria-labelledby="how"><h2 id="how">How it works</h2>
+<p class="intro">Two things hold SHOTos together: four rules inside every task, and six stages for work that matters. A small job uses one stage and one skill. A change that someone will rely on moves through all six, and each stage ends with a decision a person makes.</p>
+<h3 id="rules">The four rules inside every task</h3>
 <ol class="rules">
-<li><strong>Stop at the boundaries.</strong> Get authority for actions that send, spend, publish, deploy or affect others.</li>
-<li><strong>Agree acceptance first.</strong> Name the owner, expected result and checks.</li>
-<li><strong>Read back the real result.</strong> Open the output, run the check or inspect the relevant system.</li>
-<li><strong>Claim only what you can show.</strong> Link the evidence and label what still needs verification.</li>
+<li><strong>Stop at the boundaries.</strong> Nothing is sent, spent, published or deleted without your yes.</li>
+<li><strong>Agree acceptance first.</strong> Name the owner, the expected result and the checks.</li>
+<li><strong>Read back the real result.</strong> Open the output, run the check or look at the system it changed.</li>
+<li><strong>Claim only what you can show.</strong> Link the evidence and label what still needs checking.</li>
 </ol>
-<figure><img src="images/six-stages.svg" alt="The six stages: Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale." loading="lazy"></figure>
+<p>The rules live in one short file, the <a href="{agreement}" rel="noopener">working agreement</a>. A project install loads it in every session. In a chat app, paste it into the project instructions or attach it to the chat.</p>
+<figure class="overview">{picture("images/six-stages.svg", "The six stages from Scope to Sustain and Scale. After Track, work proceeds to Own, returns to Hypothesise to try a new idea, waits for facts or stops. Scaling starts the next team at Scope.")}</figure>
 </section>
 
-<section class="wrap" aria-labelledby="guides"><h2 id="guides">Guides</h2>
+<section class="wrap" aria-labelledby="stages"><h2 id="stages">The six stages, one job at a time</h2>
+<p class="intro">Each stage has skills that do its job and a clear thing to hand to the next. Every example below is fictional, so you can try it without real records.</p>
+<ol class="stage-grid">{stages}</ol>
+<p><a href="{site.blob}/docs/framework.md" rel="noopener">Read the six stages in detail</a> · <a href="examples/index.html">Open the Northbank worked example</a></p>
+</section>
+
+<section class="wrap" aria-labelledby="roles"><h2 id="roles">Start with your role</h2>
+<p class="intro">Pick the card closest to the work in front of you. Each one opens a short route: the first skill to try, the result to expect and how to check it helped. Leading a team or a business? Start with the <a href="guides/start-by-role.html#business-leader">business leader route</a> or the <a href="guides/small-business.html">small business guide</a>.</p>
+<ul class="role-grid">{roles}</ul>
+</section>
+
+<section class="wrap" aria-labelledby="set-up"><h2 id="set-up">Set up in five minutes</h2>
+<p class="intro">The same skills work in three ways. Pick the one that matches how you work today. Whichever you choose, check the first result before you rely on it.</p>
+<div class="routes">
+<div class="route"><h3>A. One skill in your chat app</h3><p>Best for trying SHOTos on one real task.</p>
+<ol>
+<li>Download a skill ZIP from the <a href="{GITHUB}/releases/latest" rel="noopener">latest release</a>. <a href="{first_zip}" rel="noopener">Capture the Problem</a> is a good first one.</li>
+<li>Upload it as a skill without unzipping it. In Claude, open <strong>Customize → Skills</strong>. In ChatGPT, use <strong>Skills → Create → Upload from your computer</strong> where your workspace allows it.</li>
+<li>A single skill ZIP does not carry the <a href="{agreement}" rel="noopener">working agreement</a>. Attach it to a fresh chat, ask the assistant to read it first, then ask for the skill by name.</li>
+</ol>
+<p><a href="guides/chat-assistants.html">Step-by-step guide</a></p></div>
+<div class="route"><h3>B. A chat project</h3><p>Best for a team that works in Claude or ChatGPT every day.</p>
+<ol>
+<li>Create a project and paste the <a href="{agreement}" rel="noopener">working agreement</a> into its instructions.</li>
+<li>Add the skill files you use most to the project's files.</li>
+<li>Ask for a skill by name in any chat inside the project.</li>
+</ol>
+<p><a href="guides/chat-assistants.html#chatgpt-projects-or-a-claude-chat-using-files">Step-by-step guide</a></p></div>
+<div class="route wide"><h3>C. A terminal</h3><p>Best if you already use Claude Code, Codex or another coding agent. The installer needs Python 3.9 or later. Open a terminal in the folder that holds your project, clone SHOTos beside it, move into your project and run the installer. Replace <code>my-project</code> with your project's folder name, and preview first with <code>--dry-run</code>.</p>
+<pre><code>{html.escape(terminal)}</code></pre>
+<p>Use <code>--runtime agents</code> for Codex and other agents, and add <code>--pack &lt;name&gt;</code> for each pack you want. The installer always includes the core skills and the working agreement. Then open a fresh session in the project and ask for a skill by name. <a href="guides/codex-claude-code.html">Step-by-step guide</a></p></div>
+</div>
+</section>
+
+<section class="wrap" aria-labelledby="guides"><h2 id="guides">All guides</h2>
 <div class="groups">{"".join(groups)}</div>
-</section>
-
-<section class="wrap" aria-labelledby="example"><h2 id="example">Worked example</h2>
-<p><a href="examples/index.html">Northbank Community Football</a> is a fictional three-page club site and open-day campaign, taken from brief to a checked release with SHOTos. All club details are invented.</p>
 </section>
 
 <section class="wrap" aria-labelledby="licence"><h2 id="licence">Licence</h2>
@@ -539,7 +642,7 @@ def build(repo: Path = REPO, out: Path = OUT) -> Site:
         site.add(path, site.page(path, title, body, description, section))
     site.add("404.html", not_found())
 
-    for name in ("shotos-mark.svg", "six-stages.svg"):
+    for name in LANDING_IMAGES:
         site.copies[f"images/{name}"] = f"docs/images/{name}"
     prefix = f"{NORTHBANK}/site/"
     for path in sorted(site.tracked):
@@ -836,6 +939,42 @@ summary { cursor: pointer; font-weight: 700; }
 .source { margin-top: 2.5rem; font-size: .95rem; }
 footer { border-top: 1px solid var(--line); margin-top: 3rem; padding: 1.5rem 0 2rem; color: var(--muted); font-size: .9rem; }
 footer p { margin: .4rem 0; }
+.small { font-size: .9rem; color: var(--muted); }
+.intro { max-width: 48rem; font-size: 1.05rem; }
+section.wrap > h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-top: 2.2em; }
+.split { display: grid; gap: 1.5rem; align-items: center; }
+.hero-art { margin: 0; }
+.hero-art img, .stage img, .role img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+.pairs { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin: 1.5rem 0; }
+.pair { border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; }
+.pair p { margin: 0; }
+.problem { color: var(--muted); font-size: .95rem; }
+.problem::before { content: "Without a process, "; font-weight: 700; color: var(--ink); }
+.answer { margin-top: .6rem !important; font-weight: 700; }
+.answer::before { content: "With SHOTos, "; color: var(--purple); }
+.overview { max-width: 60rem; }
+.stage-grid, .role-grid { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); }
+.role-grid { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.1rem; }
+.stage figure { margin: 0 0 .75rem; }
+.stage h3 { margin: .25rem 0 .4rem; }
+.stage p { margin: .3rem 0; }
+.step { font: 700 .85rem var(--head); color: var(--purple); letter-spacing: .06em; margin-right: .25rem; }
+.hands { font-size: .95rem; color: var(--muted); }
+.role a { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: .6rem .6rem 1rem; height: 100%; }
+.role a:hover { border-color: var(--purple); }
+.role img { border: 0; }
+.role-name { display: block; font: 700 1.1rem var(--head); color: var(--purple); margin: .75rem .4rem .25rem; }
+.role-text { display: block; margin: 0 .4rem; color: var(--muted); font-size: .95rem; }
+.routes { display: grid; gap: 1.25rem; grid-template-columns: 1fr; margin: 1.5rem 0; }
+.route { border: 1px solid var(--line); border-radius: 12px; padding: .25rem 1.1rem 1rem; min-width: 0; }
+.route h3 { margin-top: .9rem; }
+.route ol { padding-left: 1.2rem; }
+.route li { margin: .35rem 0; }
+.route.wide { grid-column: 1 / -1; }
+@media (min-width: 900px) {
+  .split { grid-template-columns: 1fr 1.05fr; gap: 2.5rem; }
+  .routes { grid-template-columns: 1fr 1fr; }
+}
 """
 
 

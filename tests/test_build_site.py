@@ -83,6 +83,11 @@ class BuildTests(unittest.TestCase):
         landing = (self.out / "index.html").read_text(encoding="utf-8")
         self.assertIn(f"{site.GITHUB}/releases/tag/v{built.version}", landing)
         self.assertIn("install.py --runtime claude", landing)
+        self.assertIn("cd my-project", landing)
+        self.assertIn("does not carry the", landing)
+        for image in ("stage-01-scope.png", "role-founder.png", "stage-07-worked-outputs.png"):
+            self.assertIn(f"images/{image}", landing)
+        self.assertNotIn("alt=\"\"", landing.split("<main")[1])
         self.assertNotIn('href="/', landing)
 
     def test_two_builds_are_identical(self):
