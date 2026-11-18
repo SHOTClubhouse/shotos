@@ -217,6 +217,14 @@ class BuildTests(unittest.TestCase):
             self.assertTrue(hits, data)
             self.assertFalse([hit for hit in hits if "Denied" in hit])
 
+    def test_a_denylist_entry_with_extra_spaces_still_matches_rendered_text(self):
+        denylist = Path(self.tmp.name) / "deny.txt"
+        denylist.write_text("Synthetic  Denied\n", encoding="utf-8")
+        for data in (b"<p>Synthetic <b> Denied</b></p>", b"<p>Synthetic\nDenied</p>", b"<p>Synthetic  Denied</p>"):
+            built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
+            built.files["a.html"] = data
+            self.assertTrue(site.scan(built, denylist), data)
+
     def test_will_not_replace_a_folder_that_is_not_a_site_build(self):
         self.out.mkdir()
         (self.out / "keep.txt").write_text("mine", encoding="utf-8")

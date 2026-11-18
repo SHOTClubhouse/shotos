@@ -734,6 +734,8 @@ def remove_previous_build(out: Path):
 def scan(site: Site, denylist: Path) -> list:
     """Each built file and file name checked against the denylist, reported without the term."""
     entries = leak_scan.load_denylist(denylist)
+    # The same entries with runs of whitespace collapsed, to compare with text a browser collapses too.
+    collapsed = [leak_scan.Entry(entry.line, entry.kind, re.sub(r"\s+", " ", entry.text)) for entry in entries]
     hits = []
     for path, data in sorted(site.files.items()):
         shown = leak_scan.redact_path(path, entries)
@@ -744,11 +746,13 @@ def scan(site: Site, denylist: Path) -> list:
             continue
         found = set(leak_scan.text_hits(text, entries))
         if kind(path) in (".html", ".svg"):
-            # Also what a browser shows: "&amp;" and numeric entities decoded, tags removed.
-            shown_text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]*>", "", text)))
+            # Also what a browser shows: entities decoded, tags removed, and whitespace collapsed on both sides.
+            visible = html.unescape(re.sub(r"<[^>]*>", "", text))
             found |= {(line, entry) for line, entry in leak_scan.text_hits(html.unescape(text), entries)}
             seen = {entry for _, entry in found}
-            found |= {(0, entry) for _, entry in leak_scan.text_hits(shown_text, entries) if entry not in seen}
+            extra = leak_scan.text_hits(visible, entries) + \
+                leak_scan.text_hits(re.sub(r"\s+", " ", visible), collapsed)
+            found |= {(0, entry) for _, entry in extra if entry not in seen}
         hits += [f"{shown}:{line or 'text'}: denylist line {entry}" for line, entry in sorted(found)]
     return hits
 
