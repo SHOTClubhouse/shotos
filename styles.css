@@ -52,3 +52,39 @@ summary { cursor: pointer; font-weight: 700; }
 .source { margin-top: 2.5rem; font-size: .95rem; }
 footer { border-top: 1px solid var(--line); margin-top: 3rem; padding: 1.5rem 0 2rem; color: var(--muted); font-size: .9rem; }
 footer p { margin: .4rem 0; }
+.small { font-size: .9rem; color: var(--muted); }
+.intro { max-width: 48rem; font-size: 1.05rem; }
+section.wrap > h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-top: 2.2em; }
+.split { display: grid; gap: 1.5rem; align-items: center; }
+.hero-art { margin: 0; }
+.hero-art img, .stage img, .role img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+.pairs { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin: 1.5rem 0; }
+.pair { border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; }
+.pair p { margin: 0; }
+.problem { color: var(--muted); font-size: .95rem; }
+.problem::before { content: "Without a process, "; font-weight: 700; color: var(--ink); }
+.answer { margin-top: .6rem !important; font-weight: 700; }
+.answer::before { content: "With SHOTos, "; color: var(--purple); }
+.overview { max-width: 60rem; }
+.stage-grid, .role-grid { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); }
+.role-grid { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.1rem; }
+.stage figure { margin: 0 0 .75rem; }
+.stage h3 { margin: .25rem 0 .4rem; }
+.stage p { margin: .3rem 0; }
+.step { font: 700 .85rem var(--head); color: var(--purple); letter-spacing: .06em; margin-right: .25rem; }
+.hands { font-size: .95rem; color: var(--muted); }
+.role a { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--line); border-radius: 14px; padding: .6rem .6rem 1rem; height: 100%; }
+.role a:hover { border-color: var(--purple); }
+.role img { border: 0; }
+.role-name { display: block; font: 700 1.1rem var(--head); color: var(--purple); margin: .75rem .4rem .25rem; }
+.role-text { display: block; margin: 0 .4rem; color: var(--muted); font-size: .95rem; }
+.routes { display: grid; gap: 1.25rem; grid-template-columns: 1fr; margin: 1.5rem 0; }
+.route { border: 1px solid var(--line); border-radius: 12px; padding: .25rem 1.1rem 1rem; min-width: 0; }
+.route h3 { margin-top: .9rem; }
+.route ol { padding-left: 1.2rem; }
+.route li { margin: .35rem 0; }
+.route.wide { grid-column: 1 / -1; }
+@media (min-width: 900px) {
+  .split { grid-template-columns: 1fr 1.05fr; gap: 2.5rem; }
+  .routes { grid-template-columns: 1fr 1fr; }
+}

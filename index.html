@@ -15,49 +15,92 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="bar"><div class="wrap">
 <a class="brand" href="./index.html"><img src="images/shotos-mark.svg" alt="" width="32" height="32">SHOTos</a>
-<nav aria-label="Site"><a href="guides/index.html">Guides</a><a href="examples/index.html">Example</a><a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">GitHub</a></nav>
+<nav aria-label="Site"><a href="start-here.html">Start here</a><a href="guides/index.html">Guides</a><a href="examples/index.html">Example</a><a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">GitHub</a></nav>
 </div></header>
 <main id="main">
-<section class="hero"><div class="wrap">
-<p class="eyebrow">Open source · MIT and CC BY 4.0</p>
+<section class="hero"><div class="wrap split">
+<div>
+<p class="eyebrow">Free and open source · MIT and CC BY 4.0</p>
 <h1>Free AI workflows, from the first brief to a result someone can own.</h1>
-<p class="lede">SHOTos is a set of skills, templates and rules for the AI assistant you already use. Use it to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start from your context, agree what good looks like, then check what comes back.</p>
-<p class="actions"><a class="button" href="https://github.com/SHOTClubhouse/shotos/releases/tag/v1.17.0" rel="noopener">Download SHOTos 1.17.0</a><a class="button ghost" href="guides/start-by-role.html">Start with your role</a></p>
+<p class="lede">SHOTos turns the AI assistant you already use into a small, careful team. It starts from your context, agrees what done looks like before it starts, checks the real result where it lives and tells you plainly what it could not check.</p>
+<p class="actions"><a class="button" href="#set-up">Set up in five minutes</a><a class="button ghost" href="start-here.html">Start here</a></p>
+<p class="small">Latest release: <a href="https://github.com/SHOTClubhouse/shotos/releases/tag/v1.17.0" rel="noopener">SHOTos 1.17.0</a> · <a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">Source on GitHub</a></p>
+</div>
+<figure class="hero-art"><img src="images/stage-07-worked-outputs.png" alt="Two worked outputs made with SHOTos: a fictional campaign page, and the North Quay proposal with its delivery handoff record." width="1270" height="760"></figure>
 </div></section>
 
-<section class="wrap" aria-labelledby="install"><h2 id="install">Install</h2>
-<p>The installer needs Python 3.9 or later. Clone SHOTos next to the project where you want to use it, then run the installer from your project folder. Preview first with <code>--dry-run</code>.</p>
-<pre><code>git clone https://github.com/SHOTClubhouse/shotos.git</code></pre>
-<pre><code>python ../shotos/install.py --runtime claude --scope project --dry-run
-python ../shotos/install.py --runtime claude --scope project</code></pre>
-<p>Use <code>--runtime agents</code> for Codex and other agents, and add <code>--pack &lt;name&gt;</code> for each pack you want. The installer always includes the core skills. No terminal? <a href="guides/chat-assistants.html">Use the skills in ChatGPT or Claude</a> by downloading the ZIPs from the <a href="https://github.com/SHOTClubhouse/shotos/releases/latest" rel="noopener">latest release</a>.</p>
+<section class="wrap" aria-labelledby="why"><h2 id="why">Why it exists</h2>
+<p class="intro">Most AI help fails in the same few ways. None of them is fixed by a cleverer prompt. They are fixed by a process: say who the work is for and what would show it worked, test the idea small, check the real result and hand it to someone who can own it. Good teams already work this way. SHOTos writes that process down so an agent can follow it and a person can check it did.</p>
+<div class="pairs">
+<div class="pair"><p class="problem">the assistant guesses at facts it was never given.</p><p class="answer">it starts from your context: the task, its sources and the person who will review it.</p></div>
+<div class="pair"><p class="problem">it does the task it imagined, not the one you meant.</p><p class="answer">it agrees what done looks like, including one check that should fail, before any work starts.</p></div>
+<div class="pair"><p class="problem">it says "done" from memory of what it intended.</p><p class="answer">it reads back the real result where it lives: the file, the page or the record.</p></div>
+<div class="pair"><p class="problem">it writes an invented number as confidently as a real one.</p><p class="answer">it claims only what it can show and marks everything else as not checked.</p></div>
+</div>
 </section>
 
-<section class="wrap" aria-labelledby="rules"><h2 id="rules">The four rules inside every stage</h2>
+<section class="wrap" aria-labelledby="how"><h2 id="how">How it works</h2>
+<p class="intro">Two things hold SHOTos together: four rules inside every task, and six stages for work that matters. A small job uses one stage and one skill. A change that someone will rely on moves through all six, and each stage ends with a decision a person makes.</p>
+<h3 id="rules">The four rules inside every task</h3>
 <ol class="rules">
-<li><strong>Stop at the boundaries.</strong> Get authority for actions that send, spend, publish, deploy or affect others.</li>
-<li><strong>Agree acceptance first.</strong> Name the owner, expected result and checks.</li>
-<li><strong>Read back the real result.</strong> Open the output, run the check or inspect the relevant system.</li>
-<li><strong>Claim only what you can show.</strong> Link the evidence and label what still needs verification.</li>
+<li><strong>Stop at the boundaries.</strong> Nothing is sent, spent, published or deleted without your yes.</li>
+<li><strong>Agree acceptance first.</strong> Name the owner, the expected result and the checks.</li>
+<li><strong>Read back the real result.</strong> Open the output, run the check or look at the system it changed.</li>
+<li><strong>Claim only what you can show.</strong> Link the evidence and label what still needs checking.</li>
 </ol>
-<figure><img src="images/six-stages.svg" alt="The six stages: Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale." loading="lazy"></figure>
+<p>The rules live in one short file, the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/templates/AGENTS.md" rel="noopener">working agreement</a>. A project install loads it in every session. In a chat app, paste it into the project instructions or attach it to the chat.</p>
+<figure class="overview"><img src="images/six-stages.svg" alt="The six stages from Scope to Sustain and Scale. After Track, work proceeds to Own, returns to Hypothesise to try a new idea, waits for facts or stops. Scaling starts the next team at Scope." loading="lazy"></figure>
 </section>
 
-<section class="wrap" aria-labelledby="guides"><h2 id="guides">Guides</h2>
+<section class="wrap" aria-labelledby="stages"><h2 id="stages">The six stages, one job at a time</h2>
+<p class="intro">Each stage has skills that do its job and a clear thing to hand to the next. Every example below is fictional, so you can try it without real records.</p>
+<ol class="stage-grid"><li class="stage"><figure><img src="images/stage-01-scope.png" alt="Scope: A product owner spreads support notes across a desk to write a problem brief." width="1270" height="760" loading="lazy"></figure><h3><span class="step">01</span> Scope</h3><p>Understand the situation before changing it. Most wasted effort starts with a solution chosen before anyone wrote down the problem.</p><p class="hands"><strong>You hand forward:</strong> A problem brief and baseline</p></li><li class="stage"><figure><img src="images/stage-02-hypothesise.png" alt="Hypothesise: A founder turns repeat calls into a one-week test." width="1270" height="760" loading="lazy"></figure><h3><span class="step">02</span> Hypothesise</h3><p>Turn the problem into bets you can test, and agree how you will know before you build anything.</p><p class="hands"><strong>You hand forward:</strong> A hypothesis, experiment plan and acceptance checks</p></li><li class="stage"><figure><img src="images/stage-03-operate.png" alt="Operate: A marketer turns approved copy and assets into a page preview." width="1270" height="760" loading="lazy"></figure><h3><span class="step">03</span> Operate</h3><p>Deliver the smallest real piece into real use, working alongside the people who will own it.</p><p class="hands"><strong>You hand forward:</strong> The actual result, checks and exceptions</p></li><li class="stage"><figure><img src="images/stage-04-track.png" alt="Track: A student compares venue quotes and capacity to make a recommendation." width="1270" height="760" loading="lazy"></figure><h3><span class="step">04</span> Track</h3><p>Measure what changed against the baseline, then decide.</p><p class="hands"><strong>You hand forward:</strong> Evidence and a decision: proceed to Own, pivot, stop or hold</p></li><li class="stage"><figure><img src="images/stage-05-own.png" alt="Own: A commercial lead hands an accepted proposal to the delivery team." width="1270" height="760" loading="lazy"></figure><h3><span class="step">05</span> Own</h3><p>Make the team that will run the result self-sufficient before anyone copies it elsewhere.</p><p class="hands"><strong>You hand forward:</strong> Evidence the team ran it independently and a named lead accepted it</p></li><li class="stage"><figure><img src="images/stage-06-sustain-scale.png" alt="Sustain and Scale: A social creator turns an approved content week into a calendar to reuse." width="1270" height="760" loading="lazy"></figure><h3><span class="step">06</span> Sustain and Scale</h3><p>Take what worked to the next team, and keep improving.</p><p class="hands"><strong>You hand forward:</strong> A supported rollout, local baselines and a review cadence</p></li></ol>
+<p><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/docs/framework.md" rel="noopener">Read the six stages in detail</a> · <a href="examples/index.html">Open the Northbank worked example</a></p>
+</section>
+
+<section class="wrap" aria-labelledby="roles"><h2 id="roles">Start with your role</h2>
+<p class="intro">Pick the card closest to the work in front of you. Each one opens a short route: the first skill to try, the result to expect and how to check it helped. Leading a team or a business? Start with the <a href="guides/start-by-role.html#business-leader">business leader route</a> or the <a href="guides/small-business.html">small business guide</a>.</p>
+<ul class="role-grid"><li class="role"><a href="guides/start-by-role.html#founder"><img src="images/role-founder.png" alt="Founder route. Turn customer notes into a clear problem and one small test." width="1270" height="760" loading="lazy"><span class="role-name">Founder</span><span class="role-text">Turn customer notes into a clear problem and one small test.</span></a></li><li class="role"><a href="guides/start-by-role.html#commercial-lead"><img src="images/role-commercial.png" alt="Commercial lead route. Qualify an opportunity, draft the offer and carry the accepted deal into delivery." width="1270" height="760" loading="lazy"><span class="role-name">Commercial lead</span><span class="role-text">Qualify an opportunity, draft the offer and carry the accepted deal into delivery.</span></a></li><li class="role"><a href="guides/start-by-role.html#product-manager"><img src="images/role-product.png" alt="Product manager route. Turn a feature request into examples the team can build and check." width="1270" height="760" loading="lazy"><span class="role-name">Product manager</span><span class="role-text">Turn a feature request into examples the team can build and check.</span></a></li><li class="role"><a href="guides/start-by-role.html#marketing-manager"><img src="images/role-marketing.png" alt="Marketing manager route. Give a B2B or direct-to-consumer campaign one action people can try." width="1270" height="760" loading="lazy"><span class="role-name">Marketing manager</span><span class="role-text">Give a B2B or direct-to-consumer campaign one action people can try.</span></a></li><li class="role"><a href="guides/start-by-role.html#graduate"><img src="images/role-graduate.png" alt="Graduate route. Turn an assignment into a clear brief and a result your lead can review." width="1270" height="760" loading="lazy"><span class="role-name">Graduate</span><span class="role-text">Turn an assignment into a clear brief and a result your lead can review.</span></a></li><li class="role"><a href="guides/start-by-role.html#social-content-creator"><img src="images/role-creator.png" alt="Social content creator route. Build a week of posts around real events, assets and audience needs." width="1270" height="760" loading="lazy"><span class="role-name">Social content creator</span><span class="role-text">Build a week of posts around real events, assets and audience needs.</span></a></li><li class="role"><a href="guides/start-by-role.html#what-shotos-stands-for"><img src="images/role-method.png" alt="The method route. Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale on one page." width="1270" height="760" loading="lazy"><span class="role-name">The method</span><span class="role-text">Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale on one page.</span></a></li></ul>
+</section>
+
+<section class="wrap" aria-labelledby="set-up"><h2 id="set-up">Set up in five minutes</h2>
+<p class="intro">The same skills work in three ways. Pick the one that matches how you work today. Whichever you choose, check the first result before you rely on it.</p>
+<div class="routes">
+<div class="route"><h3>A. One skill in your chat app</h3><p>Best for trying SHOTos on one real task.</p>
+<ol>
+<li>Download a skill ZIP from the <a href="https://github.com/SHOTClubhouse/shotos/releases/latest" rel="noopener">latest release</a>. <a href="https://github.com/SHOTClubhouse/shotos/releases/latest/download/capture-the-problem.zip" rel="noopener">Capture the Problem</a> is a good first one.</li>
+<li>Upload it as a skill without unzipping it. In Claude, open <strong>Customize → Skills</strong>. In ChatGPT, use <strong>Skills → Create → Upload from your computer</strong> where your workspace allows it.</li>
+<li>A single skill ZIP does not carry the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/templates/AGENTS.md" rel="noopener">working agreement</a>. Attach it to a fresh chat, ask the assistant to read it first, then ask for the skill by name.</li>
+</ol>
+<p><a href="guides/chat-assistants.html">Step-by-step guide</a></p></div>
+<div class="route"><h3>B. A chat project</h3><p>Best for a team that works in Claude or ChatGPT every day.</p>
+<ol>
+<li>Create a project and paste the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/templates/AGENTS.md" rel="noopener">working agreement</a> into its instructions.</li>
+<li>Add the skill files you use most to the project's files.</li>
+<li>Ask for a skill by name in any chat inside the project.</li>
+</ol>
+<p><a href="guides/chat-assistants.html#chatgpt-projects-or-a-claude-chat-using-files">Step-by-step guide</a></p></div>
+<div class="route wide"><h3>C. A terminal</h3><p>Best if you already use Claude Code, Codex or another coding agent. The installer needs Python 3.9 or later. Open a terminal in the folder that holds your project, clone SHOTos beside it, move into your project and run the installer. Replace <code>my-project</code> with your project's folder name, and preview first with <code>--dry-run</code>.</p>
+<pre><code># In the folder that holds your project, not inside it:
+git clone https://github.com/SHOTClubhouse/shotos.git
+cd my-project
+python ../shotos/install.py --runtime claude --scope project --dry-run
+python ../shotos/install.py --runtime claude --scope project</code></pre>
+<p>Use <code>--runtime agents</code> for Codex and other agents, and add <code>--pack &lt;name&gt;</code> for each pack you want. The installer always includes the core skills and the working agreement. Then open a fresh session in the project and ask for a skill by name. <a href="guides/codex-claude-code.html">Step-by-step guide</a></p></div>
+</div>
+</section>
+
+<section class="wrap" aria-labelledby="guides"><h2 id="guides">All guides</h2>
 <div class="groups"><div><h3>Start by role</h3><ul class="cards"><li><a href="guides/start-by-role.html">Start with the work you do</a><span>Pick the job in front of you and the first skill to try.</span></li><li><a href="guides/small-business.html">Start here: a small business owner</a><span>Take some admin off a small team without anything going to a customer unchecked.</span></li><li><a href="guides/startup-founder.html">Start here: a startup founder</a><span>Turn one open question into a problem brief and a small test.</span></li><li><a href="guides/enterprise-operations.html">Start here: a COO or operations leader in a large organisation</a><span>Review one decision or recurring task with its owner, using fictional records first.</span></li><li><a href="guides/enterprise-risk-review.html">Review one AI-assisted workflow</a><span>Show a risk owner what a workflow can do, what may go wrong and who can stop it.</span></li></ul></div><div><h3>Set up</h3><ul class="cards"><li><a href="guides/chat-assistants.html">Use SHOTos in ChatGPT or Claude without a terminal</a><span>Use the skills in ChatGPT or Claude without a terminal.</span></li><li><a href="guides/codex-claude-code.html">Use SHOTos in Codex or Claude Code</a><span>Install the skills into a Codex or Claude Code project on Windows or Mac.</span></li></ul></div><div><h3>Practise</h3><ul class="cards"><li><a href="guides/invoice-query-exercise.html">Practise an enterprise invoice-query pilot</a><span>A 20-minute fictional handoff between an operator, a reviewer and a sponsor.</span></li><li><a href="guides/partner-pilot.html">Run a partner pilot</a><span>Run a pilot between two organisations with one record of decisions and owners.</span></li></ul></div></div>
 </section>
 
-<section class="wrap" aria-labelledby="example"><h2 id="example">Worked example</h2>
-<p><a href="examples/index.html">Northbank Community Football</a> is a fictional three-page club site and open-day campaign, taken from brief to a checked release with SHOTos. All club details are invented.</p>
-</section>
-
 <section class="wrap" aria-labelledby="licence"><h2 id="licence">Licence</h2>
-<p>Code, including <code>tools/</code>, <code>hooks/</code> and <code>install.py</code>, is under the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/LICENSE" rel="noopener">MIT licence</a>. Documentation, skills, templates and examples are under <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/LICENSE-docs.md" rel="noopener">CC BY 4.0</a>: share and adapt them for any purpose, with the credit set out in that file. The SHOT name and logo are not covered by either licence.</p>
+<p>Code, including <code>tools/</code>, <code>hooks/</code> and <code>install.py</code>, is under the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/LICENSE" rel="noopener">MIT licence</a>. Documentation, skills, templates and examples are under <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/LICENSE-docs.md" rel="noopener">CC BY 4.0</a>: share and adapt them for any purpose, with the credit set out in that file. The SHOT name and logo are not covered by either licence.</p>
 </section>
 
 </main>
 <footer><div class="wrap">
-<p>SHOTos 1.17.0 · <a href="https://github.com/SHOTClubhouse/shotos/releases/tag/v1.17.0" rel="noopener">Release notes</a> · <a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">Source on GitHub</a> · Built from <a href="https://github.com/SHOTClubhouse/shotos/commit/380eca18e22554b7c193a4a94f9767b78d0481dd" rel="noopener"><code>380eca1</code></a></p>
+<p>SHOTos 1.17.0 · <a href="https://github.com/SHOTClubhouse/shotos/releases/tag/v1.17.0" rel="noopener">Release notes</a> · <a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">Source on GitHub</a> · Built from <a href="https://github.com/SHOTClubhouse/shotos/commit/675afe0ab55d6b865090788b22efb3be7ffb11a4" rel="noopener"><code>675afe0</code></a></p>
 <p>Code is MIT licensed. Documentation, skills, templates and examples are CC BY 4.0. The SHOT name and logo belong to SHOT Clubhouse Limited and are not covered by either licence.</p>
 </div></footer>
 </body>

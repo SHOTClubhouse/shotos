@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start here · SHOTos</title>
+<meta name="description" content="SHOTos: Start here">
+<link rel="icon" href="images/shotos-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar"><div class="wrap">
+<a class="brand" href="./index.html"><img src="images/shotos-mark.svg" alt="" width="32" height="32">SHOTos</a>
+<nav aria-label="Site"><a href="start-here.html" aria-current="page">Start here</a><a href="guides/index.html">Guides</a><a href="examples/index.html">Example</a><a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">GitHub</a></nav>
+</div></header>
+<main id="main">
+<article class="wrap prose">
+<h1 id="start-here">Start here</h1>
+<p>SHOTos turns the AI assistant you already use into a small, careful team: one that starts from your context, agrees what done looks like before it starts, checks its own work where it lives and tells you plainly what it could not check. It is free and open source. Reading this page takes about ten minutes. Setting up takes about five.</p>
+<p><a href="#write-one-brief">Fill in the brief</a> · <a href="#set-up-in-five-minutes">Set up in five minutes</a> · <a href="#the-twelve-steps">Follow the twelve steps</a> · <a href="#questions-people-ask">Questions people ask</a></p>
+<h2 id="why-it-exists">Why it exists</h2>
+<p>Most AI help fails in the same few ways. The assistant guesses at facts it was never given. It does the task it imagined rather than the one you meant. It says "done" from memory of what it intended, not from looking at the result. And it writes an invented number with the same confidence as a real one.</p>
+<p>None of that is fixed by a cleverer prompt. It is fixed by a process: say who the work is for and what would show it worked, test the idea small, check the real result, and hand it to someone who can own it. Good teams already work this way. SHOTos writes that process down so an agent can follow it and a person can check it did.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Three things hold SHOTos together.</p>
+<p><strong>Four rules inside every task.</strong> Stop at the boundaries, so nothing is sent, spent, published or deleted without your yes. Agree acceptance first. Read back the real result. Claim only what you can show. The rules live in one short file, the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/templates/AGENTS.md" rel="noopener">working agreement</a>. A project install loads it in every session. In a chat app, add it to the project instructions or attach it to the chat.</p>
+<p><strong>Six stages for work that matters.</strong> Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. Small jobs use one stage. A change that someone will rely on moves through all six, and each stage ends with a decision a person makes. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/docs/framework.md" rel="noopener">The six stages in detail</a></p>
+<p><strong>One brief, read first.</strong> You describe your organisation, your people, your limits and the numbers you rely on once. Wherever the working agreement is loaded, every skill reads the brief before it asks you anything. See the next section.</p>
+<h2 id="write-one-brief">Write one brief</h2>
+<p>Copy the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/templates/brief.md" rel="noopener">brief template</a>, fill it in and save it as <code>BRIEF.md</code> in your project folder, or add it to your chat project. Rough answers are fine and blank lines are fine. The agent asks only for what changes its result, and writes "not known" or "not measured" where a gap remains.</p>
+<p>Two parts of the brief do most of the work:</p>
+<ul>
+<li><strong>The limits.</strong> Write down what the agent must never do without asking, and what data it must never copy. The working agreement already stops it sending, publishing, spending and deleting without a yes. Your limits add the rules that are particular to you.</li>
+<li><strong>Numbers we rely on.</strong> Give each number a source and the date you read it. A number without a source stays marked <code>[unverified]</code> in anything the agent writes, so a guess never turns into a headline.</li>
+</ul>
+<p>The brief is context, not permission. It can add limits but never removes one. When a fact in the brief disagrees with the task in front of you, the agent uses the task and tells you which line is out of date. When a limit disagrees, it applies the stricter one and asks you.</p>
+<p>Keep private material out of it. Personal details, health information, passwords and customer records belong in their own systems. You can say where they live; the agent opens them only for a task that has approval for that data.</p>
+<h2 id="set-up-in-five-minutes">Set up in five minutes</h2>
+<p>The same skills work in three ways. Pick the one that matches how you work today.</p>
+<p><strong>A. One skill in your chat app.</strong> Best for trying SHOTos on one real task.</p>
+<ol>
+<li>Download a skill ZIP from the <a href="https://github.com/SHOTClubhouse/shotos/releases/latest" rel="noopener">latest release</a>. <a href="https://github.com/SHOTClubhouse/shotos/releases/latest/download/capture-the-problem.zip" rel="noopener">Capture the Problem</a> is a good first one.</li>
+<li>Upload it as a skill. In Claude, open <strong>Customize → Skills</strong> and upload the ZIP without unzipping it. In ChatGPT, use <strong>Skills → Create → Upload from your computer</strong> where your workspace allows it. <a href="guides/chat-assistants.html">Step-by-step guide</a></li>
+<li>Start a fresh chat and attach your <code>BRIEF.md</code> and the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/templates/AGENTS.md" rel="noopener">working agreement</a>. A single skill does not carry either, so ask the agent to read both first, then ask for the skill by name.</li>
+</ol>
+<p><strong>B. A chat project.</strong> Best for a team that works in Claude or ChatGPT every day.</p>
+<ol>
+<li>Create a project and paste the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/templates/AGENTS.md" rel="noopener">working agreement</a> into its instructions.</li>
+<li>Add your <code>BRIEF.md</code> and the skill files you use most to the project's files.</li>
+<li>Ask for a skill by name in any chat inside the project. <a href="guides/chat-assistants.html#chatgpt-projects-or-a-claude-chat-using-files">Step-by-step guide</a></li>
+</ol>
+<p><strong>C. A terminal.</strong> Best if you already use Claude Code, Codex or another coding agent.</p>
+<ol>
+<li><p>From the folder that holds your project, clone SHOTos beside it, move into your project and run the installer. Preview first with <code>--dry-run</code>. Replace <code>my-project</code> with your project's folder name.</p>
+<pre><code class="language-sh">git clone https://github.com/SHOTClubhouse/shotos.git
+cd my-project
+python ../shotos/install.py --runtime claude --scope project --dry-run
+python ../shotos/install.py --runtime claude --scope project</code></pre>
+<p>Use <code>--runtime agents</code> for Codex and other agents, and add <code>--pack &lt;name&gt;</code> for each pack you want.</p></li>
+<li><p>Copy the brief template into place and fill it in: <code>cp .shotos/templates/brief.md BRIEF.md</code></p></li>
+<li><p>Open a fresh session in the project and ask for a skill by name. <a href="guides/codex-claude-code.html">Step-by-step guide</a></p></li>
+</ol>
+<p>Whichever route you choose, check the first result before relying on it. The skill's README says what a good result looks like.</p>
+<h2 id="the-twelve-steps">The twelve steps</h2>
+<p>These twelve core skills take one piece of work from a rough idea to something a team owns. They are grouped by the stage where this route uses them; a skill's own README lists every stage it serves. Each skill says when to hand off to a related one. You do not have to run all twelve: start at the step that matches where your work is today.</p>
+<p>The example below each step follows Northbank Community Football, an invented club that wants more families at its Saturday sessions. Northbank and its numbers are illustrative, not real.</p>
+<h3 id="start-then-scope-agree-what-the-problem-is">Start, then Scope: agree what the problem is</h3>
+<p><strong>1. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/route-the-work/README.md" rel="noopener">Route the Work</a>.</strong> Usable in any stage, and run first here. Writes one line saying what the work is, who it is for, how risky it is and who checks it. <em>Northbank:</em> "Asset: open-day plan. Reader: the committee. Risk: medium, because the registration list holds children's details, so the agent works from counts only. Proof: the chair approves the plan."</p>
+<p><strong>2. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/capture-the-problem/README.md" rel="noopener">Capture the Problem</a>.</strong> Turns rough notes into a problem statement that separates what people saw from what they want built. <em>Northbank:</em> "Parents say they did not know sessions existed. Nobody has counted how many new families came this season: not measured."</p>
+<p><strong>3. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/baseline/README.md" rel="noopener">Baseline</a>.</strong> Records how things are today, with a source and date for every number. <em>Northbank:</em> "New families this season: 6, a count the membership secretary gave from the registration list on 3 October. Website visits to the sessions page: not measured."</p>
+<h3 id="hypothesise-make-a-small-testable-bet">Hypothesise: make a small, testable bet</h3>
+<p><strong>4. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/hypothesis-card/README.md" rel="noopener">Hypothesis Card</a>.</strong> Writes the bet down: we believe this change will cause this result, and we will know because this number moves. <em>Northbank:</em> "We believe an open day promoted through the local primary school will bring at least 10 new families, measured by registrations in the four weeks after."</p>
+<p><strong>5. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/agree-acceptance/README.md" rel="noopener">Agree Acceptance</a>.</strong> Agrees the owner, the checks and at least one case that should fail, before any work starts. <em>Northbank:</em> "The flyer must show the correct date, time and price. A flyer with a child's photo and no consent fails."</p>
+<p><strong>6. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/experiment-plan/README.md" rel="noopener">Experiment Plan</a>.</strong> Plans the smallest test that would prove the bet right or wrong, with a stop rule. <em>Northbank:</em> "One open day, one school, one flyer. Stop if fewer than 3 families register."</p>
+<h3 id="operate-do-the-work-small-first">Operate: do the work, small first</h3>
+<p><strong>7. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/pilot-before-scale/README.md" rel="noopener">Pilot Before Scale</a>.</strong> Tries a few varied items before any bulk or live change. <em>Northbank:</em> "Draft the flyer for one class and test the booking link on a phone. The head teacher approves the flyer before it goes to any parent, and the whole school waits for that first result."</p>
+<p><strong>8. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/label-the-proof/README.md" rel="noopener">Label the Proof</a>.</strong> Marks every figure as literal, inferred or illustrative, so nobody mistakes an example for a result. <em>Northbank:</em> "'30 children attended, 18 of them under 9' is literal, a count by age group that the session lead reported. 'The school flyer reached the younger age groups best' is inferred from that split."</p>
+<h3 id="track-compare-the-result-with-the-baseline">Track: compare the result with the baseline</h3>
+<p>Report with Evidence also serves Operate, whenever a step needs an honest report.</p>
+<p><strong>9. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/report-with-evidence/README.md" rel="noopener">Report with Evidence</a>.</strong> Reports what happened with a Claims block that separates what was checked from what was not. <em>Northbank:</em> "11 new families registered in the four weeks after the open day, a count from the membership secretary. Whether the flyer caused it: not tested."</p>
+<p><strong>10. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/evidence-pack/README.md" rel="noopener">Evidence Pack</a>.</strong> Puts the baseline, the result and the gaps side by side so the owner can decide: keep going, change course or stop. <em>Northbank:</em> "11 new families against a target of 10, so the target was met. Retention after the first month is not yet known."</p>
+<h3 id="own-hand-it-to-the-people-who-will-run-it">Own: hand it to the people who will run it</h3>
+<p><strong>11. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/evidence-handoff/README.md" rel="noopener">Evidence Handoff</a>.</strong> Hands the work to its new owner with what was agreed, what was proved and what is still open. <em>Northbank:</em> "The membership secretary takes over the open day for next season, with the checklist, the flyer source and the two open questions."</p>
+<h3 id="sustain-and-scale-keep-it-working-then-grow-it">Sustain and Scale: keep it working, then grow it</h3>
+<p><strong>12. <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/skills/learning-loop/README.md" rel="noopener">Learning Loop</a>.</strong> Looks at what happened, tests one improvement and changes the method only when the test supports it. <em>Northbank:</em> "Next season, test a second school. Keep the first school's process unchanged so the two results can be compared."</p>
+<p>Every core skill sits in one of these stages. The <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/docs/skill-catalogue.md" rel="noopener">skill catalogue</a> lists all of them, and <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/docs/what-you-can-do.md" rel="noopener">what you can do</a> sorts them by the job you have in front of you.</p>
+<h2 id="packs-for-particular-work">Packs for particular work</h2>
+<p>Packs add skills for one kind of work. Install the ones you need; the local installer always includes the core skills.</p>
+<div class="table"><table>
+<thead><tr><th>Pack</th><th>What it is for</th></tr></thead>
+<tbody>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/win-the-work/README.md" rel="noopener">win-the-work</a></td><td>Find, qualify, propose and agree new work, then hand it over</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/exec-ops/README.md" rel="noopener">exec-ops</a></td><td>Run a busy operating week: briefs, inbox, meetings, decisions</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/founder-admin/README.md" rel="noopener">founder-admin</a></td><td>Funding, awards, investor updates, due diligence and an advisory board</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/content/README.md" rel="noopener">content</a></td><td>Write, present, explain, announce and build small websites</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/social/README.md" rel="noopener">social</a></td><td>Plan, draft and check social media for a brand, club or creator</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/media/README.md" rel="noopener">media</a></td><td>Images, short videos and spoken audio, checked and cleared for use</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/customer-success/README.md" rel="noopener">customer-success</a></td><td>Hand an account to delivery and recover a stalled onboarding</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/trust/README.md" rel="noopener">trust</a></td><td>Check claims, public exposure and sensitive data before anything goes out</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/records/README.md" rel="noopener">records</a></td><td>Keep files findable and safe, with a quarantine for doubtful ones</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/writing/README.md" rel="noopener">writing</a></td><td>Make a draft read like a person wrote it, without changing a fact</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/automations/README.md" rel="noopener">automations</a></td><td>Two Google Apps Script automations with pilot guides</td></tr>
+<tr><td><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/setup/README.md" rel="noopener">setup</a></td><td>Run SHOTos itself: connections, shared instructions and effort</td></tr>
+</tbody>
+</table></div>
+<h2 id="questions-people-ask">Questions people ask</h2>
+<p><strong>Does it cost anything?</strong> SHOTos is free. You use the AI assistant you already have, on whatever plan you already pay for. Some routes, such as skills in a chat app or a coding agent, depend on what your plan and workspace allow.</p>
+<p><strong>Which assistants does it work with?</strong> Claude, ChatGPT, Claude Code, Codex, Gemini CLI and other agents that read an instructions file. The <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/docs/running-it.md" rel="noopener">runtime guide</a> covers each one.</p>
+<p><strong>Do I need all of it?</strong> No. Start with one skill on one real task. Add the working agreement when you want the four rules in every session, and the brief when you are tired of explaining yourself.</p>
+<p><strong>Is my data safe?</strong> The skills and templates are text files and send nothing anywhere by themselves. The optional automations pack runs in your own Google account, and its README says what it connects to. Your data goes wherever your assistant sends it, so check your plan's data settings, keep private records out of the brief and the prompts, and use the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/packs/trust/README.md" rel="noopener">trust pack</a> before anything is shared.</p>
+<p><strong>What if the agent gets something wrong?</strong> It will, sometimes. That is why every skill reads back the real result and marks what it could not check. Check those marks first. Only a person can accept the work.</p>
+<p><strong>Is this legal, financial or professional advice?</strong> No. Treat anything in those areas as a draft for a qualified person to check.</p>
+<p><strong>Can I share it or change it?</strong> Yes. The documentation, skills and templates are under <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/LICENSE-docs.md" rel="noopener">CC BY 4.0</a> and the code is under the <a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/LICENSE" rel="noopener">MIT licence</a>. Give credit and say what you changed.</p>
+<h2 id="do-this-tonight">Do this tonight</h2>
+<p>Fill in the brief, then give one real, messy note to Capture the Problem: a complaint, a request or an idea someone keeps raising. It takes about ten minutes. You will have a problem statement that says what is known, what is not, and the cheapest way to find out.</p>
+<p><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/templates/brief.md" rel="noopener">Download the brief template</a> · <a href="https://github.com/SHOTClubhouse/shotos/releases/latest/download/capture-the-problem.zip" rel="noopener">Download Capture the Problem</a></p>
+<p class="source"><a href="https://github.com/SHOTClubhouse/shotos/blob/675afe0ab55d6b865090788b22efb3be7ffb11a4/docs/start-here.md" rel="noopener">View this page on GitHub</a></p>
+</article>
+</main>
+<footer><div class="wrap">
+<p>SHOTos 1.17.0 · <a href="https://github.com/SHOTClubhouse/shotos/releases/tag/v1.17.0" rel="noopener">Release notes</a> · <a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">Source on GitHub</a> · Built from <a href="https://github.com/SHOTClubhouse/shotos/commit/675afe0ab55d6b865090788b22efb3be7ffb11a4" rel="noopener"><code>675afe0</code></a></p>
+<p>Code is MIT licensed. Documentation, skills, templates and examples are CC BY 4.0. The SHOT name and logo belong to SHOT Clubhouse Limited and are not covered by either licence.</p>
+</div></footer>
+</body>
+</html>
