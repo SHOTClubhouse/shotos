@@ -319,7 +319,9 @@ class Site:
 
     @property
     def blob(self) -> str:
-        return f"{GITHUB}/blob/v{self.version}"
+        # Pinned to the commit the site is built from. publish_site.py publishes only when that commit
+        # is origin/main, so every link opens on GitHub, including files added since the last release.
+        return f"{GITHUB}/blob/{self.commit}"
 
     @property
     def release(self) -> str:
@@ -367,7 +369,7 @@ class Site:
             dest = "examples/northbank/" + resolved[len(f"{NORTHBANK}/site/"):]
         else:
             kind = "blob" if self.is_tracked(resolved) else "tree"
-            return f"{GITHUB}/{kind}/v{self.version}/{resolved}" + (f"#{fragment}" if fragment else "")
+            return f"{GITHUB}/{kind}/{self.commit}/{resolved}" + (f"#{fragment}" if fragment else "")
         return relative(dest, path) + (f"#{fragment}" if fragment else "")
 
     def page(self, path: str, title: str, body: str, description: str, section: str = "") -> str:
@@ -999,12 +1001,6 @@ def main(argv=None) -> int:
         return 1
     print(f"Built {len(site.files)} files into {site.out} from {site.commit[:12]} (SHOTos {site.version}).")
     status = 0
-    tagged = subprocess.run(launchable(["git", "-C", str(REPO), "rev-parse", "-q", "--verify",
-                                        f"refs/tags/v{site.version}^{{commit}}"]),
-                            capture_output=True, text=True).stdout.strip()
-    if tagged != site.commit:
-        print(f"HEAD is not the v{site.version} release commit. Links into the repository point at the "
-              f"v{site.version} tag, so files added since then will not open until the next release.")
     if not site.clean:
         print("The site sources have uncommitted changes: preview only, not fit to publish.")
         status = 2

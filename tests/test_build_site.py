@@ -84,6 +84,7 @@ class BuildTests(unittest.TestCase):
         self.assertIn(f"{site.GITHUB}/releases/tag/v{built.version}", landing)
         self.assertIn("install.py --runtime claude", landing)
         self.assertIn("cd my-project", landing)
+        self.assertIn(f"{site.GITHUB}/blob/{built.commit}/LICENSE", landing)  # links pin to the build commit
         self.assertIn("does not carry the", landing)
         for image in ("stage-01-scope.png", "role-founder.png", "stage-07-worked-outputs.png"):
             self.assertIn(f"images/{image}", landing)
