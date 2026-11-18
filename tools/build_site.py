@@ -514,7 +514,7 @@ def build(repo: Path = REPO, out: Path = OUT) -> Site:
 
     for source, path in site.rendered_sources().items():
         page = Page(source, path, site.fix_link)
-        body = markdown((repo / source).read_text(encoding="utf-8"), page)
+        body = markdown(read_tracked(site, source).decode("utf-8"), page)
         site.pages[path] = page
         section = "start" if source == START_HERE else "guides"
         edit = f'<p class="source"><a href="{site.blob}/{source}" rel="noopener">View this page on GitHub</a></p>'
@@ -557,19 +557,22 @@ def build(repo: Path = REPO, out: Path = OUT) -> Site:
     return site
 
 
+def read_tracked(site: Site, source: str) -> bytes:
+    """A source file's bytes. Only tracked, regular files: never an ignored file, a symlink or a path outside."""
+    if site.tracked.get(source) not in ("100644", "100755"):
+        raise BuildError(f"{source} is not a tracked regular file, so it cannot be used in the site")
+    file = (site.repo / source).resolve()
+    if site.repo.resolve() not in file.parents or not file.is_file():
+        raise BuildError(f"{source} does not resolve to a file inside the repository")
+    return file.read_bytes()
+
+
 def copy_files(site: Site):
-    """Copy each planned file. Only tracked, regular files: never an ignored file, a symlink or a path outside."""
-    root = site.repo.resolve()
+    """Copy each planned file: tracked regular pages, stylesheets and images only."""
     for dest, source in site.copies.items():
-        if site.tracked.get(source) not in ("100644", "100755"):
-            raise BuildError(f"{source} is not a tracked regular file, so it cannot be copied into the site")
-        if posixpath.splitext(source)[1].lower() not in COPY_TYPES or \
-                posixpath.splitext(dest)[1].lower() not in COPY_TYPES:
+        if kind(source) not in COPY_TYPES or kind(dest) not in COPY_TYPES:
             raise BuildError(f"{source} is not a page, stylesheet or image, so it cannot be copied into the site")
-        file =(site.repo / source).resolve()
-        if root not in file.parents or not file.is_file():
-            raise BuildError(f"{source} does not resolve to a file inside the repository")
-        site.files[dest] = file.read_bytes()
+        site.files[dest] = read_tracked(site, source)
 
 
 def tracked_files(repo: Path) -> dict:
@@ -581,6 +584,7 @@ def tracked_files(repo: Path) -> dict:
     return tracked
 
 
+ACTIVE_TAGS = {"script", "iframe", "frame", "frameset", "object", "embed", "applet", "base", "foreignobject"}
 URL_ATTRIBUTES = {"href", "src", "action", "formaction", "poster", "data", "cite", "background", "xlink:href"}
 CSS_URL = re.compile(r"""url\(\s*['"]?([^'")]+)['"]?\s*\)|@import\s+['"]([^'"]+)['"]""", re.I)
 
@@ -594,13 +598,21 @@ class References(HTMLParser):
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.refs, self.ids, self.in_style = [], set(), False
+        self.refs, self.ids, self.in_style, self.active = [], set(), False, []
 
     def handle_starttag(self, tag, attrs):
         self.in_style = tag == "style"
+        if tag in ACTIVE_TAGS:
+            self.active.append(f"<{tag}>")
         for name, value in attrs:
+            if name.startswith("on") or name == "srcdoc":
+                self.active.append(f"{name} on <{tag}>")
+            if tag == "meta" and name == "http-equiv" and (value or "").lower() == "refresh":
+                self.active.append("<meta http-equiv=refresh>")
             if value is None:
                 continue
+            if name == "style" and "\\" in value:
+                self.active.append(f"a CSS escape in a style attribute on <{tag}>")
             if name == "id" and value:
                 self.ids.add(value)
             elif name in URL_ATTRIBUTES:
@@ -618,22 +630,37 @@ class References(HTMLParser):
 
     def handle_data(self, data):
         if self.in_style:
+            if "\\" in data:
+                self.active.append("a CSS escape in a <style> block")
             self.refs += css_refs(data)
 
 
+def kind(path: str) -> str:
+    return posixpath.splitext(path)[1].lower()
+
+
 def check_links(site: Site):
-    """Every link, image and stylesheet in every built HTML and CSS file, copied pages included."""
+    """Every URL in every built HTML, SVG and CSS file, copied pages included, and no active content.
+
+    The site is static: scripts, frames, event handlers, srcdoc, meta refresh and CSS escapes are
+    refused outright rather than interpreted, so nothing the checks cannot read reaches the host.
+    """
     pages, broken = {}, []
     for path, data in site.files.items():
-        if path.endswith(".html"):
+        if kind(path) in (".html", ".svg"):
             parser = References()
             parser.feed(data.decode("utf-8", errors="replace"))
+            parser.close()
             pages[path] = parser
+            broken += [f"{path}: {item} is active content, which the site does not allow" for item in parser.active]
     for path, data in sorted(site.files.items()):
-        if path.endswith(".html"):
+        if path in pages:
             refs = pages[path].refs
-        elif path.endswith(".css"):
-            refs = css_refs(data.decode("utf-8", errors="replace"))
+        elif kind(path) == ".css":
+            text = data.decode("utf-8", errors="replace")
+            if "\\" in text:
+                broken.append(f"{path}: CSS escapes are not allowed, because the link check cannot read them")
+            refs = css_refs(text)
         else:
             continue
         for ref in refs:
@@ -707,8 +734,16 @@ def scan(site: Site, denylist: Path) -> list:
         hits += [f"{shown} (file name): denylist line {entry.line}" for entry in entries if entry.found(path)]
         text = (data.decode("utf-8", errors="replace")
                 if posixpath.splitext(path)[1].lower() in TEXT_TYPES else leak_scan.decode(data))
-        if text is not None:
-            hits += [f"{shown}:{line}: denylist line {entry}" for line, entry in leak_scan.text_hits(text, entries)]
+        if text is None:
+            continue
+        found = set(leak_scan.text_hits(text, entries))
+        if kind(path) in (".html", ".svg"):
+            # Also what a browser shows: "&amp;" and numeric entities decoded, tags removed.
+            shown_text = html.unescape(re.sub(r"<[^>]*>", "", text))
+            found |= {(line, entry) for line, entry in leak_scan.text_hits(html.unescape(text), entries)}
+            seen = {entry for _, entry in found}
+            found |= {(0, entry) for _, entry in leak_scan.text_hits(shown_text, entries) if entry not in seen}
+        hits += [f"{shown}:{line or 'text'}: denylist line {entry}" for line, entry in sorted(found)]
     return hits
 
 

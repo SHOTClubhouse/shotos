@@ -174,6 +174,40 @@ class BuildTests(unittest.TestCase):
             site.build(ROOT, self.out)
         self.assertEqual((self.out / "index.html").read_text(encoding="utf-8"), "edited")
 
+    def test_a_symlinked_source_is_refused(self):
+        built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True, tracked={"docs/guides/x.md": "120000"})
+        with self.assertRaisesRegex(site.BuildError, "not a tracked regular file"):
+            site.read_tracked(built, "docs/guides/x.md")
+
+    def test_active_content_and_unreadable_urls_are_refused(self):
+        cases = {
+            "a.html": b'<iframe srcdoc="&lt;script&gt;x&lt;/script&gt;"></iframe>',
+            "b.html": b"<script>alert(1)</script>",
+            "c.html": b'<p onclick="x()">hi</p>',
+            "d.html": b'<meta http-equiv="refresh" content="0; url=/root.html">',
+            "e.html": b"<style>p{background:u\x5c72l(/x.svg)}</style>",
+            "f.svg": b'<svg xmlns="http://www.w3.org/2000/svg"><a href="javascript:alert(1)"><text>x</text></a></svg>',
+            "g.SVG": b'<svg xmlns="http://www.w3.org/2000/svg"><image href="file:///C:/private.png"/></svg>',
+            "h.css": b"p{background:u\x5c72l(/x.svg)}",
+            "i.html": b'<p style="background:u\x5c72l(/x.svg)">x</p>',
+        }
+        for name, data in cases.items():
+            built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
+            built.files[name] = data
+            with self.assertRaises(site.BuildError, msg=name):
+                site.check_links(built)
+
+    def test_the_denylist_scan_reads_text_as_a_browser_shows_it(self):
+        denylist = Path(self.tmp.name) / "deny.txt"
+        denylist.write_text("Synthetic & Denied\n", encoding="utf-8")
+        for data in (b"<p>Synthetic &amp; Denied</p>", b"<p>Synthetic &#38; Denied</p>",
+                     b"<p>Synthetic <b>&amp;</b> Denied</p>"):
+            built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
+            built.files["a.html"] = data
+            hits = site.scan(built, denylist)
+            self.assertTrue(hits, data)
+            self.assertFalse([hit for hit in hits if "Denied" in hit])
+
     def test_will_not_replace_a_folder_that_is_not_a_site_build(self):
         self.out.mkdir()
         (self.out / "keep.txt").write_text("mine", encoding="utf-8")
