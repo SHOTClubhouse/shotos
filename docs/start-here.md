@@ -97,7 +97,7 @@ The example below each step follows Northbank Community Football, an invented cl
 *Northbank:* "Draft the flyer for one class and test the booking link on a phone. The head teacher approves the flyer before it goes to any parent, and the whole school waits for that first result."
 
 **8. [Label the Proof](../skills/label-the-proof/README.md).** Marks every figure as literal, inferred or illustrative, so nobody mistakes an example for a result.
-*Northbank:* "'30 children attended' is literal, a headcount the session lead reported. 'Most were in the under-9s' is inferred from the age groups on the session plan."
+*Northbank:* "'30 children attended, 18 of them under 9' is literal, a count by age group that the session lead reported. 'The school flyer reached the younger age groups best' is inferred from that split."
 
 ### Track: compare the result with the baseline
 
