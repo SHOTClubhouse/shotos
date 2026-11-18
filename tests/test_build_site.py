@@ -221,7 +221,9 @@ class BuildTests(unittest.TestCase):
         denylist = Path(self.tmp.name) / "deny.txt"
         denylist.write_text("Synthetic  Denied\n", encoding="utf-8")
         for data in (b"<p>Synthetic <b> Denied</b></p>", b"<p>Synthetic\nDenied</p>", b"<p>Synthetic  Denied</p>",
-                     b'<p>Synthetic <b title=">"> Denied</b></p>', b"<p>Synthetic <!-- > --> Denied</p>"):
+                     b'<p>Synthetic <b title=">"> Denied</b></p>', b"<p>Synthetic <!-- > --> Denied</p>",
+                     b"<p>Synthetic<br>Denied</p>", b"<p>Synthetic</p><p>Denied</p>",
+                     b"<li>Synthetic</li><li>Denied</li>"):
             built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
             built.files["a.html"] = data
             self.assertTrue(site.scan(built, denylist), data)

@@ -584,6 +584,11 @@ def tracked_files(repo: Path) -> dict:
     return tracked
 
 
+# Tags whose edges separate text on screen, so "a<br>b" and "<p>a</p><p>b</p>" read as two words.
+BREAK_TAGS = {"address", "article", "aside", "blockquote", "br", "caption", "dd", "details", "div", "dl", "dt",
+              "figcaption", "figure", "footer", "h1", "h2", "h3", "h4", "h5", "h6", "header", "hr", "li", "main",
+              "nav", "ol", "p", "pre", "section", "summary", "table", "td", "th", "tr", "ul", "img", "text",
+              "tspan", "title", "desc"}
 ACTIVE_TAGS = {"script", "iframe", "frame", "frameset", "object", "embed", "applet", "base", "foreignobject"}
 URL_ATTRIBUTES = {"href", "src", "action", "formaction", "poster", "data", "cite", "background", "xlink:href"}
 CSS_URL = re.compile(r"""url\(\s*['"]?([^'")]+)['"]?\s*\)|@import\s+['"]([^'"]+)['"]""", re.I)
@@ -608,6 +613,8 @@ class References(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         self.in_style = tag == "style"
+        if tag in BREAK_TAGS:
+            self.text.append("\n")  # a browser separates the text on either side
         if tag in ACTIVE_TAGS:
             self.active.append(f"<{tag}>")
         for name, value in attrs:
@@ -633,6 +640,8 @@ class References(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "style":
             self.in_style = False
+        if tag in BREAK_TAGS:
+            self.text.append("\n")
 
     def handle_data(self, data):
         if not self.in_style:
