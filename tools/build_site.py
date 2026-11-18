@@ -32,7 +32,6 @@ import http.server
 import json
 import posixpath
 import re
-import shutil
 import subprocess
 import sys
 from dataclasses import dataclass, field
@@ -86,6 +85,9 @@ RAW_HTML = re.compile(r"^\s*(<details>|<details open>|</details>|<summary>(?P<su
 SAFE_SCHEMES = {"http", "https", "mailto"}
 SCHEME = re.compile(r"^([a-z][a-z0-9+.-]*):", re.I)
 BUILD_MARKER = ".shotos-site-build"
+# The only kinds of file the site copies from the repository, and the ones always scanned as text.
+COPY_TYPES = {".html", ".css", ".svg", ".png", ".jpg", ".jpeg", ".webp", ".gif"}
+TEXT_TYPES = {".html", ".css", ".svg", ".json", ".txt", ".xml"}
 MARKER_TEXT = "Built by tools/build_site.py. This folder is replaced on every build.\n"
 CODE_SPAN = re.compile(r"(`+)(.+?)\1")
 IMAGE = re.compile(r"!\[([^\]]*)\]\(([^()\s]+)(?:\s+\"([^\"]*)\")?\)")
@@ -497,6 +499,8 @@ def example_page(site: Site) -> str:
 
 def build(repo: Path = REPO, out: Path = OUT) -> Site:
     version = json.loads((repo / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
+    if not isinstance(version, str) or not re.fullmatch(r"(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)", version):
+        raise BuildError(f"plugin.json has {version!r}, which is not a release version such as 1.17.0")
     commit = git(repo, "rev-parse", "HEAD")
     clean = not git(repo, "status", "--porcelain", "--", *SOURCES)
     site = Site(repo, out, version, commit, clean, tracked=tracked_files(repo))
@@ -559,7 +563,10 @@ def copy_files(site: Site):
     for dest, source in site.copies.items():
         if site.tracked.get(source) not in ("100644", "100755"):
             raise BuildError(f"{source} is not a tracked regular file, so it cannot be copied into the site")
-        file = (site.repo / source).resolve()
+        if posixpath.splitext(source)[1].lower() not in COPY_TYPES or \
+                posixpath.splitext(dest)[1].lower() not in COPY_TYPES:
+            raise BuildError(f"{source} is not a page, stylesheet or image, so it cannot be copied into the site")
+        file =(site.repo / source).resolve()
         if root not in file.parents or not file.is_file():
             raise BuildError(f"{source} does not resolve to a file inside the repository")
         site.files[dest] = file.read_bytes()
@@ -574,19 +581,44 @@ def tracked_files(repo: Path) -> dict:
     return tracked
 
 
+URL_ATTRIBUTES = {"href", "src", "action", "formaction", "poster", "data", "cite", "background", "xlink:href"}
+CSS_URL = re.compile(r"""url\(\s*['"]?([^'")]+)['"]?\s*\)|@import\s+['"]([^'"]+)['"]""", re.I)
+
+
+def css_refs(text: str) -> list:
+    return [m[1] or m[2] for m in CSS_URL.finditer(text)]
+
+
 class References(HTMLParser):
-    """The href and src values and the ids in one HTML page."""
+    """Every URL in one HTML page (URL attributes, srcset and inline CSS) and its ids."""
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.refs, self.ids = [], set()
+        self.refs, self.ids, self.in_style = [], set(), False
 
     def handle_starttag(self, tag, attrs):
+        self.in_style = tag == "style"
         for name, value in attrs:
+            if value is None:
+                continue
             if name == "id" and value:
                 self.ids.add(value)
-            elif name in ("href", "src") and value is not None:
+            elif name in URL_ATTRIBUTES:
                 self.refs.append(value)
+            elif name in ("srcset", "imagesrcset"):
+                self.refs += [part.split()[0] for part in value.split(",") if part.strip()]
+            elif name == "style":
+                self.refs += css_refs(value)
+
+    handle_startendtag = handle_starttag
+
+    def handle_endtag(self, tag):
+        if tag == "style":
+            self.in_style = False
+
+    def handle_data(self, data):
+        if self.in_style:
+            self.refs += css_refs(data)
 
 
 def check_links(site: Site):
@@ -601,7 +633,7 @@ def check_links(site: Site):
         if path.endswith(".html"):
             refs = pages[path].refs
         elif path.endswith(".css"):
-            refs = re.findall(r"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)", data.decode("utf-8", errors="replace"))
+            refs = css_refs(data.decode("utf-8", errors="replace"))
         else:
             continue
         for ref in refs:
@@ -632,17 +664,38 @@ def write(site: Site):
         raise BuildError(f"{site.out} is a symbolic link, so it cannot be the output folder")
     if out == repo or out in repo.parents:
         raise BuildError(f"{out} holds the repository, so it cannot be the output folder")
-    if out.exists() and any(out.iterdir()):
-        marker = out / BUILD_MARKER
-        if not marker.is_file() or marker.read_text(encoding="utf-8", errors="replace") != MARKER_TEXT:
-            raise BuildError(f"{out} is not an earlier site build, so it will not be replaced")
     if out.exists():
-        shutil.rmtree(out)
+        remove_previous_build(out)
     for path, data in site.files.items():
         target = out / path
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-    (out / BUILD_MARKER).write_text(MARKER_TEXT, encoding="utf-8", newline="\n")
+    listing = "".join(f"{hashlib.sha256(data).hexdigest()} {path}\n" for path, data in sorted(site.files.items()))
+    (out / BUILD_MARKER).write_text(MARKER_TEXT + listing, encoding="utf-8", newline="\n")
+
+
+def remove_previous_build(out: Path):
+    """Delete an earlier build only when every file in the folder is one it wrote, unchanged."""
+    present = {p.relative_to(out).as_posix(): p for p in out.rglob("*") if p.is_file() or p.is_symlink()}
+    if not present:
+        return
+    marker = out / BUILD_MARKER
+    text = marker.read_text(encoding="utf-8", errors="replace") if marker.is_file() else ""
+    if not text.startswith(MARKER_TEXT):
+        raise BuildError(f"{out} is not an earlier site build, so it will not be replaced")
+    listed = {}
+    for line in text[len(MARKER_TEXT):].splitlines():
+        digest, _, path = line.partition(" ")
+        listed[path] = digest
+    for path, file in present.items():
+        if path == BUILD_MARKER:
+            continue
+        if file.is_symlink() or path not in listed or hashlib.sha256(file.read_bytes()).hexdigest() != listed[path]:
+            raise BuildError(f"{out} holds {path}, which the last build did not write, so nothing was replaced")
+    for file in present.values():
+        file.unlink()
+    for folder in sorted((p for p in out.rglob("*") if p.is_dir()), key=lambda p: len(p.parts), reverse=True):
+        folder.rmdir()
 
 
 def scan(site: Site, denylist: Path) -> list:
@@ -652,7 +705,8 @@ def scan(site: Site, denylist: Path) -> list:
     for path, data in sorted(site.files.items()):
         shown = leak_scan.redact_path(path, entries)
         hits += [f"{shown} (file name): denylist line {entry.line}" for entry in entries if entry.found(path)]
-        text = leak_scan.decode(data)
+        text = (data.decode("utf-8", errors="replace")
+                if posixpath.splitext(path)[1].lower() in TEXT_TYPES else leak_scan.decode(data))
         if text is not None:
             hits += [f"{shown}:{line}: denylist line {entry}" for line, entry in leak_scan.text_hits(text, entries)]
     return hits

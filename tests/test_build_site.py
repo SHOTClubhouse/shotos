@@ -125,6 +125,55 @@ class BuildTests(unittest.TestCase):
         with self.assertRaisesRegex(site.BuildError, "not a tracked regular file"):
             site.copy_files(built)
 
+    def test_only_pages_stylesheets_and_images_are_copied(self):
+        built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True,
+                          tracked={"examples/northbank-club/site/internal.py": "100644"})
+        built.copies["examples/northbank/internal.py"] = "examples/northbank-club/site/internal.py"
+        with self.assertRaisesRegex(site.BuildError, "not a page, stylesheet or image"):
+            site.copy_files(built)
+
+    def test_srcset_forms_and_inline_css_are_link_checked(self):
+        built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
+        built.files["a.html"] = (b'<img srcset="/root.svg 1x, missing.svg 2x"><form action="gone.html"></form>'
+                                 b'<div style="background:url(file:///C:/private/x.txt)"></div>'
+                                 b'<style>@import "nope.css";</style>')
+        with self.assertRaises(site.BuildError) as caught:
+            site.check_links(built)
+        message = str(caught.exception)
+        for expected in ("/root.svg", "missing.svg", "gone.html", "file:", "nope.css"):
+            self.assertIn(expected, message)
+
+    def test_a_nul_byte_does_not_hide_a_page_from_the_denylist_scan(self):
+        built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
+        built.files["a.html"] = b"<!--\x00--><p>Secretterm</p>"
+        denylist = Path(self.tmp.name) / "deny.txt"
+        denylist.write_text("Secretterm\n", encoding="utf-8")
+        self.assertEqual(len(site.scan(built, denylist)), 1)
+
+    def test_a_version_that_is_not_a_release_number_stops_the_build(self):
+        from unittest.mock import patch
+        real = Path.read_text
+
+        def fake(path, *args, **kwargs):
+            if path.name == "plugin.json":
+                return '{"version": "1.0<script>alert(1)</script>"}'
+            return real(path, *args, **kwargs)
+
+        with patch.object(Path, "read_text", fake):
+            with self.assertRaisesRegex(site.BuildError, "not a release version"):
+                site.build(ROOT, self.out)
+
+    def test_an_earlier_build_with_an_extra_or_changed_file_is_not_replaced(self):
+        site.build(ROOT, self.out)
+        (self.out / "notes.txt").write_text("mine", encoding="utf-8")
+        with self.assertRaisesRegex(site.BuildError, "notes.txt"):
+            site.build(ROOT, self.out)
+        (self.out / "notes.txt").unlink()
+        (self.out / "index.html").write_text("edited", encoding="utf-8")
+        with self.assertRaisesRegex(site.BuildError, "index.html"):
+            site.build(ROOT, self.out)
+        self.assertEqual((self.out / "index.html").read_text(encoding="utf-8"), "edited")
+
     def test_will_not_replace_a_folder_that_is_not_a_site_build(self):
         self.out.mkdir()
         (self.out / "keep.txt").write_text("mine", encoding="utf-8")
