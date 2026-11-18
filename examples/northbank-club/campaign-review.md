@@ -1,6 +1,6 @@
 # Plan, check and hand over an open-day campaign
 
-Use this fictional exercise to carry one campaign from approved copy to a review that another operator can run. The [public Northbank preview](https://shotclubhouse.github.io/shotos/open-day.html) is the reference design. The review records below are invented and do not change that public page.
+Use this fictional exercise to carry one campaign from approved copy to a review that another operator can run. The [public Northbank preview](https://shotclubhouse.github.io/shotos/examples/northbank/open-day.html) is the reference design. The review records below are invented and do not change that public page.
 
 Use [Campaign Website](../../packs/content/skills/campaign-website/README.md), [campaign graphics](../../packs/media/skills/image-create/campaign-graphics.md) and [Verify a Live Release](../../packs/setup/skills/verify-live-release/README.md). Keep one [work record](../../templates/work-record.md) for the copy, artwork, destination, checked revision and decisions.
 

@@ -61,7 +61,7 @@ A role sets the responsibility. An audience persona tells you who the work is fo
 
 For one quick result, pick a [first job](docs/running-it.md#choose-your-first-job). To see how a team carries the evidence forward, try the [enterprise workflow exercise](docs/guides/enterprise-operations.md#try-one-workflow).
 
-Explore the [Northbank fictional club website](https://shotclubhouse.github.io/shotos/) and its [worked example](examples/northbank-club/README.md), from visitor brief to public release.
+Explore the [Northbank fictional club website](https://shotclubhouse.github.io/shotos/examples/northbank/) and its [worked example](examples/northbank-club/README.md), from visitor brief to public release.
 
 **Start without a terminal.** Try the fictional retail decision in [Codex or Claude Code](docs/guides/codex-claude-code.md#copy-one-skill-without-a-terminal) or [ChatGPT or Claude](docs/guides/chat-assistants.md). Draft a recommendation from the initial evidence, then introduce the decision and handoff records to see whether the assistant updates each status correctly.
 

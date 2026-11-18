@@ -2,7 +2,7 @@
 
 A fictional three-page website and open-day campaign showing how SHOTos goes from brief to a verified public release. All club details are invented. The pitch illustration is original SVG and the pages use local assets.
 
-[Open the live example](https://shotclubhouse.github.io/shotos/) · [Open the campaign](https://shotclubhouse.github.io/shotos/open-day.html)
+[Open the live example](https://shotclubhouse.github.io/shotos/examples/northbank/) · [Open the campaign](https://shotclubhouse.github.io/shotos/examples/northbank/open-day.html)
 
 1. Read the [site brief example](../../packs/content/examples/build-small-website/input.md).
 2. Open [Home](site/index.html), [Sessions](site/sessions.html) and [Open day](site/open-day.html). The main campaign action opens an on-page itinerary.
