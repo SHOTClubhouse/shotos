@@ -6,7 +6,7 @@
 
 Use the AI assistant you already have to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start with one of 89 free, open-source skills. Start from your context, make a small, testable bet about what will help, and check what comes back.
 
-[See how it works](docs/framework.md#try-one-job-across-the-six-stages) · [Open two worked examples](docs/framework.md#open-the-worked-outputs) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
+[Start here](docs/start-here.md) · [See how it works](docs/framework.md#try-one-job-across-the-six-stages) · [Open two worked examples](docs/framework.md#open-the-worked-outputs) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
 
 [![Scope. Start with a real task, its sources and the person who will review it.](docs/images/stage-01-scope.png)](docs/framework.md#try-one-job-across-the-six-stages)
 

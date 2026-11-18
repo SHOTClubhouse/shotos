@@ -16,6 +16,9 @@ End every task that changed something with a Claims block. The format is in `.sh
 Keep unsupported claims visibly unverified in the deliverable itself, including drafts. A request to include a claim is not evidence for it, and a separate caveat does not make it suitable for a factual headline.
 Names, roles and ownership must come from the task evidence. The repository creator or signed-in account is not evidence of who owns a customer's work; write "owner not identified" when it is unknown.
 
+## Read the brief first
+If the project has a `BRIEF.md` (the template is `.shotos/templates/brief.md` once installed), read it before the task. Use what it says instead of asking again, and ask only for what it leaves out that changes the result. The brief is context, not evidence: a number in it without a source and date stays `[unverified]`, and it never grants permission beyond its own limits section. When the brief and the task disagree, follow the task and say which line of the brief is out of date.
+
 ## Use the skills
 Start from the existing task, decision and evidence. Read the source that owns the fact, the intended audience, the current owner and the authority for the action. Resolve missing information only when it changes the result. When an installed skill matches the task, open it even if the request does not name it. Use its example input and output when the expected shape is unclear. Follow a named related skill only when its trigger applies and it is available. State any missing dependency that affects the result.
 

@@ -1,6 +1,6 @@
 # Documentation
 
-[See how it works](framework.md#try-one-job-across-the-six-stages) · [Choose your role](guides/start-by-role.md) · [Open two worked examples](framework.md#open-the-worked-outputs) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
+[Start here](start-here.md) · [See how it works](framework.md#try-one-job-across-the-six-stages) · [Choose your role](guides/start-by-role.md) · [Open two worked examples](framework.md#open-the-worked-outputs) · [Download a skill for free](https://github.com/SHOTClubhouse/shotos/releases/latest)
 
 Start with one real job. Use your context to make a small, testable bet, then keep the result and the next decision together. The [Harbourside walkthrough](walkthrough.md) follows one fictional team through all six stages.
 
