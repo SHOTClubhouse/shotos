@@ -604,7 +604,7 @@ class References(HTMLParser):
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.refs, self.ids, self.in_style, self.active = [], set(), False, []
+        self.refs, self.ids, self.in_style, self.active, self.text = [], set(), False, [], []
 
     def handle_starttag(self, tag, attrs):
         self.in_style = tag == "style"
@@ -635,6 +635,8 @@ class References(HTMLParser):
             self.in_style = False
 
     def handle_data(self, data):
+        if not self.in_style:
+            self.text.append(data)  # entities already decoded: convert_charrefs is on
         if self.in_style:
             if "\\" in data:
                 self.active.append("a CSS escape in a <style> block")
@@ -747,7 +749,10 @@ def scan(site: Site, denylist: Path) -> list:
         found = set(leak_scan.text_hits(text, entries))
         if kind(path) in (".html", ".svg"):
             # Also what a browser shows: entities decoded, tags removed, and whitespace collapsed on both sides.
-            visible = html.unescape(re.sub(r"<[^>]*>", "", text))
+            parser = References()
+            parser.feed(text)
+            parser.close()
+            visible = "".join(parser.text)
             found |= {(line, entry) for line, entry in leak_scan.text_hits(html.unescape(text), entries)}
             seen = {entry for _, entry in found}
             extra = leak_scan.text_hits(visible, entries) + \
