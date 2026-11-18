@@ -36,6 +36,7 @@ import shutil
 import subprocess
 import sys
 from dataclasses import dataclass, field
+from html.parser import HTMLParser
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -79,7 +80,13 @@ HEADING = re.compile(r"^ {0,3}(#{1,6})\s+(.*?)\s*#*\s*$")
 ITEM = re.compile(r"^(\s*)([-*+]|\d{1,9}[.)])\s+(.*)$")
 RULE = re.compile(r"^ {0,3}([-*_])(\s*\1){2,}\s*$")
 TABLE_SEP = re.compile(r"^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$")
-RAW_HTML = re.compile(r"^\s*</?(details|summary)\b[^>]*>")
+# The only raw HTML passed through: bare <details> and </details> lines, and a one-line <summary>
+# whose text is rendered like any other text. Anything else, attributes included, is escaped.
+RAW_HTML = re.compile(r"^\s*(<details>|<details open>|</details>|<summary>(?P<summary>[^<>]*)</summary>)\s*$")
+SAFE_SCHEMES = {"http", "https", "mailto"}
+SCHEME = re.compile(r"^([a-z][a-z0-9+.-]*):", re.I)
+BUILD_MARKER = ".shotos-site-build"
+MARKER_TEXT = "Built by tools/build_site.py. This folder is replaced on every build.\n"
 CODE_SPAN = re.compile(r"(`+)(.+?)\1")
 IMAGE = re.compile(r"!\[([^\]]*)\]\(([^()\s]+)(?:\s+\"([^\"]*)\")?\)")
 LINK = re.compile(r"\[([^\[\]]*)\]\(([^()\s]+)\)")
@@ -192,8 +199,10 @@ def blocks(lines: list, page: Page, tight: bool = False) -> list:
             out.append(f'<h{level} id="{page.anchor(text)}">{inline(text, page)}</h{level}>')
             i += 1
             continue
-        if RAW_HTML.match(line):
-            out.append(line.strip())  # only <details> and <summary>, written in the repository's own guides
+        raw = RAW_HTML.match(line)
+        if raw:
+            summary = raw["summary"]
+            out.append(raw[1] if summary is None else f"<summary>{inline(summary, page)}</summary>")
             i += 1
             continue
         if RULE.match(line):
@@ -302,7 +311,7 @@ class Site:
     commit: str
     clean: bool
     pages: dict = field(default_factory=dict)  # site path -> Page
-    links: list = field(default_factory=list)  # (from page, to site path, fragment, as written)
+    tracked: dict = field(default_factory=dict)  # repository path -> Git file mode, from git ls-files
     copies: dict = field(default_factory=dict)  # site path -> repository path
     files: dict = field(default_factory=dict)  # site path -> bytes
 
@@ -320,35 +329,43 @@ class Site:
     def rendered_sources(self) -> dict:
         """Every Markdown file the site renders: the guides, and the Start here page when it exists."""
         sources = self.guide_sources()
-        if (self.repo / START_HERE).is_file():
+        if START_HERE in self.tracked:
             sources[START_HERE] = "start-here.html"
         return sources
 
+    def is_tracked(self, path: str) -> bool:
+        return path in self.tracked
+
+    def is_tracked_dir(self, path: str) -> bool:
+        return any(name.startswith(path.rstrip("/") + "/") for name in self.tracked)
+
     def fix_link(self, url: str, source: str, path: str) -> str:
-        if re.match(r"^[a-z][a-z0-9+.-]*:", url, re.I):
+        scheme = SCHEME.match(url)
+        if scheme:
+            if scheme[1].lower() not in SAFE_SCHEMES:
+                raise BuildError(f"{source}: the link {url} uses {scheme[1]}:, which the site does not allow")
             return url
+        if url.startswith(("/", "\\")):
+            raise BuildError(f"{source}: the link {url} starts with a slash, which breaks under a sub-path")
         if url.startswith("#"):
-            self.links.append((path, path, url[1:], url))
             return url
         target, _, fragment = url.partition("#")
         resolved = posixpath.normpath(posixpath.join(posixpath.dirname(source), target))
-        if resolved.startswith("..") or not (self.repo / resolved).exists():
-            raise BuildError(f"{source}: the link {url} points to nothing in the repository")
+        if resolved.startswith("..") or not (self.is_tracked(resolved) or self.is_tracked_dir(resolved)):
+            raise BuildError(f"{source}: the link {url} points to nothing tracked in the repository")
         guides = self.rendered_sources()
         if resolved in guides:
             dest = guides[resolved]
-        elif resolved.startswith("docs/images/"):
+        elif resolved.startswith("docs/images/") and self.is_tracked(resolved):
             dest = "images/" + resolved[len("docs/images/"):]
             self.copies[dest] = resolved
         elif resolved in (NORTHBANK, f"{NORTHBANK}/README.md"):
             dest = "examples/index.html"
-        elif resolved.startswith(f"{NORTHBANK}/site/"):
+        elif resolved.startswith(f"{NORTHBANK}/site/") and self.is_tracked(resolved):
             dest = "examples/northbank/" + resolved[len(f"{NORTHBANK}/site/"):]
         else:
-            kind = "tree" if (self.repo / resolved).is_dir() else "blob"
+            kind = "blob" if self.is_tracked(resolved) else "tree"
             return f"{GITHUB}/{kind}/v{self.version}/{resolved}" + (f"#{fragment}" if fragment else "")
-        if dest.endswith(".html"):
-            self.links.append((path, dest, fragment, url))
         return relative(dest, path) + (f"#{fragment}" if fragment else "")
 
     def page(self, path: str, title: str, body: str, description: str, section: str = "") -> str:
@@ -482,10 +499,10 @@ def build(repo: Path = REPO, out: Path = OUT) -> Site:
     version = json.loads((repo / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))["version"]
     commit = git(repo, "rev-parse", "HEAD")
     clean = not git(repo, "status", "--porcelain", "--", *SOURCES)
-    site = Site(repo, out, version, commit, clean)
+    site = Site(repo, out, version, commit, clean, tracked=tracked_files(repo))
 
     listed = set(site.guide_sources())
-    present = {f"{GUIDES_DIR}/{p.name}" for p in (repo / GUIDES_DIR).glob("*.md")}
+    present = {path for path in site.tracked if posixpath.dirname(path) == GUIDES_DIR and path.endswith(".md")}
     if present != listed:
         missing, extra = sorted(present - listed), sorted(listed - present)
         raise BuildError(f"GUIDES in tools/build_site.py does not match docs/guides "
@@ -516,19 +533,15 @@ def build(repo: Path = REPO, out: Path = OUT) -> Site:
              "A fictional club website and open-day campaign built with SHOTos.", "examples")):
         site.pages[path] = Page("", path, site.fix_link)
         site.add(path, site.page(path, title, body, description, section))
-        for href in re.findall(r'href="([^"#:]+\.html)(?:#([^"]*))?"', body):
-            site.links.append((path, posixpath.normpath(posixpath.join(posixpath.dirname(path), href[0])),
-                               href[1], href[0]))
     site.add("404.html", not_found())
 
     for name in ("shotos-mark.svg", "six-stages.svg"):
         site.copies[f"images/{name}"] = f"docs/images/{name}"
-    for file in sorted((repo / NORTHBANK / "site").rglob("*")):
-        if file.is_file():
-            site.copies["examples/northbank/" + file.relative_to(repo / NORTHBANK / "site").as_posix()] = \
-                file.relative_to(repo).as_posix()
-    for dest, source in site.copies.items():
-        site.files[dest] = (repo / source).read_bytes()
+    prefix = f"{NORTHBANK}/site/"
+    for path in sorted(site.tracked):
+        if path.startswith(prefix):
+            site.copies["examples/northbank/" + path[len(prefix):]] = path
+    copy_files(site)
     site.files["styles.css"] = STYLES.encode("utf-8")
     check_links(site)
 
@@ -540,30 +553,96 @@ def build(repo: Path = REPO, out: Path = OUT) -> Site:
     return site
 
 
+def copy_files(site: Site):
+    """Copy each planned file. Only tracked, regular files: never an ignored file, a symlink or a path outside."""
+    root = site.repo.resolve()
+    for dest, source in site.copies.items():
+        if site.tracked.get(source) not in ("100644", "100755"):
+            raise BuildError(f"{source} is not a tracked regular file, so it cannot be copied into the site")
+        file = (site.repo / source).resolve()
+        if root not in file.parents or not file.is_file():
+            raise BuildError(f"{source} does not resolve to a file inside the repository")
+        site.files[dest] = file.read_bytes()
+
+
+def tracked_files(repo: Path) -> dict:
+    """Repository path -> Git file mode for every tracked file (120000 is a symlink)."""
+    tracked = {}
+    for row in filter(None, git(repo, "ls-files", "-s", "-z").split("\0")):
+        meta, path = row.split("\t", 1)
+        tracked[path] = meta.split()[0]
+    return tracked
+
+
+class References(HTMLParser):
+    """The href and src values and the ids in one HTML page."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.refs, self.ids = [], set()
+
+    def handle_starttag(self, tag, attrs):
+        for name, value in attrs:
+            if name == "id" and value:
+                self.ids.add(value)
+            elif name in ("href", "src") and value is not None:
+                self.refs.append(value)
+
+
 def check_links(site: Site):
-    broken = []
-    for here, dest, fragment, written in site.links:
-        page = site.pages.get(dest)
-        if dest not in site.files and dest not in site.copies:
-            broken.append(f"{here}: {written} leads to {dest}, which is not in the site")
-        elif fragment and page is not None and page.source and fragment not in page.ids:
-            broken.append(f"{here}: {written} names #{fragment}, which {dest} does not have")
+    """Every link, image and stylesheet in every built HTML and CSS file, copied pages included."""
+    pages, broken = {}, []
+    for path, data in site.files.items():
+        if path.endswith(".html"):
+            parser = References()
+            parser.feed(data.decode("utf-8", errors="replace"))
+            pages[path] = parser
+    for path, data in sorted(site.files.items()):
+        if path.endswith(".html"):
+            refs = pages[path].refs
+        elif path.endswith(".css"):
+            refs = re.findall(r"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)", data.decode("utf-8", errors="replace"))
+        else:
+            continue
+        for ref in refs:
+            scheme = SCHEME.match(ref)
+            if scheme:
+                if scheme[1].lower() not in SAFE_SCHEMES:
+                    broken.append(f"{path}: {ref} uses {scheme[1]}:, which the site does not allow")
+                continue
+            if ref.startswith(("/", "\\")):
+                broken.append(f"{path}: {ref} starts with a slash, which breaks under a sub-path")
+                continue
+            target, _, fragment = ref.partition("#")
+            target = target.partition("?")[0]
+            dest = posixpath.normpath(posixpath.join(posixpath.dirname(path), target)) if target else path
+            if dest == "." or target.endswith("/"):
+                dest = posixpath.join("" if dest == "." else dest, "index.html")
+            if dest.startswith("..") or dest not in site.files:
+                broken.append(f"{path}: {ref} leads to {dest}, which is not in the site")
+            elif fragment and dest in pages and fragment not in pages[dest].ids:
+                broken.append(f"{path}: {ref} names #{fragment}, which {dest} does not have")
     if broken:
         raise BuildError("broken links:\n  " + "\n  ".join(broken))
 
 
 def write(site: Site):
     out, repo = site.out.resolve(), site.repo.resolve()
+    if site.out.is_symlink():
+        raise BuildError(f"{site.out} is a symbolic link, so it cannot be the output folder")
     if out == repo or out in repo.parents:
         raise BuildError(f"{out} holds the repository, so it cannot be the output folder")
-    if out.exists() and any(out.iterdir()) and not (out / "release.json").is_file():
-        raise BuildError(f"{out} is not an earlier site build, so it will not be replaced")
+    if out.exists() and any(out.iterdir()):
+        marker = out / BUILD_MARKER
+        if not marker.is_file() or marker.read_text(encoding="utf-8", errors="replace") != MARKER_TEXT:
+            raise BuildError(f"{out} is not an earlier site build, so it will not be replaced")
     if out.exists():
         shutil.rmtree(out)
     for path, data in site.files.items():
         target = out / path
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
+    (out / BUILD_MARKER).write_text(MARKER_TEXT, encoding="utf-8", newline="\n")
 
 
 def scan(site: Site, denylist: Path) -> list:

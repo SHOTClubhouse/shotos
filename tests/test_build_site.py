@@ -44,6 +44,14 @@ class MarkdownTests(unittest.TestCase):
         self.assertIn("<blockquote>\n<p>quoted</p>\n</blockquote>", out)
         self.assertIn("<details>\n<summary>Compare</summary>\n<ol>", out)
 
+    def test_raw_html_with_attributes_or_scripts_is_escaped(self):
+        out, _ = render('<details open ontoggle="alert(1)"><script>alert(2)</script>\n\n'
+                        "<summary><img src=x onerror=alert(3)></summary>")
+        self.assertNotIn("<script", out)
+        self.assertNotIn("<img", out)
+        self.assertNotIn("<details open ontoggle", out)
+        self.assertIn("&lt;details open ontoggle", out)
+
     def test_html_in_text_is_escaped_and_links_go_through_the_fixer(self):
         links = []
         out, _ = render("Use <b> and [the guide](../x.md#top) or [![logo](../images/a.svg)](https://e.org)", links)
@@ -70,7 +78,8 @@ class BuildTests(unittest.TestCase):
         self.assertFalse([f for f in files if f.endswith(".md") or f.endswith(".py")])
         marker = json.loads((self.out / "release.json").read_text(encoding="utf-8"))
         self.assertEqual(marker["commit"], built.commit)
-        self.assertEqual(set(marker["files"]), files - {"release.json"})
+        self.assertEqual(set(marker["files"]), files - {"release.json", site.BUILD_MARKER})
+        self.assertNotIn(site.BUILD_MARKER, built.files)  # the local build marker is never published
         landing = (self.out / "index.html").read_text(encoding="utf-8")
         self.assertIn(f"{site.GITHUB}/releases/tag/v{built.version}", landing)
         self.assertIn("install.py --runtime claude", landing)
@@ -85,20 +94,46 @@ class BuildTests(unittest.TestCase):
         with self.assertRaisesRegex(site.BuildError, "points to nothing"):
             built.fix_link("../no-such-file.md", "docs/guides/x.md", "guides/x.html")
 
-    def test_a_missing_anchor_is_reported(self):
+    def test_every_built_page_is_link_checked_including_copied_ones(self):
         built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
-        built.pages["guides/a.html"] = site.Page("docs/guides/a.md", "guides/a.html", None, {"real"})
-        built.files["guides/a.html"] = b""
-        built.links.append(("index.html", "guides/a.html", "gone", "guides/a.html#gone"))
-        with self.assertRaisesRegex(site.BuildError, "#gone"):
+        built.files["guides/a.html"] = b'<h2 id="real">A</h2><a href="#real">ok</a>'
+        built.files["index.html"] = b'<a href="guides/a.html#gone">x</a><a href="./">home</a>'
+        built.files["examples/northbank/index.html"] = (b'<a href="missing.html">m</a><img src="/root.svg">'
+                                                         b'<a href="javascript:alert(1)">j</a>')
+        with self.assertRaises(site.BuildError) as caught:
             site.check_links(built)
+        message = str(caught.exception)
+        for expected in ("#gone", "missing.html", "/root.svg starts with a slash", "javascript:"):
+            self.assertIn(expected, message)
+        self.assertNotIn("./ leads", message)
+
+    def test_unsafe_and_root_links_in_markdown_stop_the_build(self):
+        built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True, tracked=site.tracked_files(ROOT))
+        for url in ("javascript:alert(1)", "file:///C:/private/notes.txt", "/docs/x.md", "//evil.example/x"):
+            with self.assertRaises(site.BuildError, msg=url):
+                built.fix_link(url, "docs/guides/x.md", "guides/x.html")
+        self.assertEqual(built.fix_link("mailto:a@example.org", "docs/guides/x.md", "guides/x.html"),
+                         "mailto:a@example.org")
+
+    def test_only_tracked_regular_files_are_copied(self):
+        built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True,
+                          tracked={"docs/images/shotos-mark.svg": "120000"})
+        built.copies["images/shotos-mark.svg"] = "docs/images/shotos-mark.svg"
+        with self.assertRaisesRegex(site.BuildError, "not a tracked regular file"):
+            site.copy_files(built)
+        built.tracked = {}
+        with self.assertRaisesRegex(site.BuildError, "not a tracked regular file"):
+            site.copy_files(built)
 
     def test_will_not_replace_a_folder_that_is_not_a_site_build(self):
         self.out.mkdir()
         (self.out / "keep.txt").write_text("mine", encoding="utf-8")
+        (self.out / "release.json").write_text("{}", encoding="utf-8")
         with self.assertRaisesRegex(site.BuildError, "not an earlier site build"):
             site.build(ROOT, self.out)
         self.assertTrue((self.out / "keep.txt").exists())
+        site.build(ROOT, self.out / "inner")
+        site.build(ROOT, self.out / "inner")  # an earlier build carries the marker and is replaced
 
     def test_the_denylist_scan_reports_terms_without_printing_them(self):
         built = site.build(ROOT, self.out)
