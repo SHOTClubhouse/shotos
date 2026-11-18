@@ -12,6 +12,7 @@ SHOTos does not run GitHub Actions. Checks, releases and the demo site all run f
 - **Before pushing**, the pre-push hook runs the fast gate. Install it once with `python tools/install_hooks.py`.
 - **To release**, follow [Releasing](RELEASING.md). A maintainer may cut a patch or minor release with `python tools/release.py --publish` when the gate card is GO and an independent review is clean. A major release needs the owner.
 - **To publish the Northbank demo site**, run `python tools/publish_northbank.py` to build it into `.work/northbank/site` and look at it, then `python tools/publish_northbank.py --publish` from `main` to push it to the `gh-pages` branch.
+- **To build the website**, run `python tools/build_site.py` with `SHOTOS_DENYLIST` set. It writes only the built files (landing page, role guides and the Northbank example) to `.work/site`, checks every link between pages and scans the output for private terms. Add `--serve` to look at it on `http://localhost:8765`. It exits 0 only when the sources are committed and the scan ran clean. The script publishes nothing; where the site is hosted is the owner's decision.
 
 ## Keep private terms out
 
