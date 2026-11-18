@@ -589,8 +589,14 @@ URL_ATTRIBUTES = {"href", "src", "action", "formaction", "poster", "data", "cite
 CSS_URL = re.compile(r"""url\(\s*['"]?([^'")]+)['"]?\s*\)|@import\s+['"]([^'"]+)['"]""", re.I)
 
 
+IMAGE_SET = re.compile(r"(?:-webkit-)?image-set\(((?:[^()]|\([^()]*\))*)\)", re.I)
+
+
 def css_refs(text: str) -> list:
-    return [m[1] or m[2] for m in CSS_URL.finditer(text)]
+    refs = [m[1] or m[2] for m in CSS_URL.finditer(text)]
+    for match in IMAGE_SET.finditer(text):  # image-set("a.png" 1x, "b.png" 2x) takes bare strings too
+        refs += re.findall(r"""['"]([^'"]+)['"]""", CSS_URL.sub(" ", match[1]))
+    return refs
 
 
 class References(HTMLParser):
@@ -619,8 +625,8 @@ class References(HTMLParser):
                 self.refs.append(value)
             elif name in ("srcset", "imagesrcset"):
                 self.refs += [part.split()[0] for part in value.split(",") if part.strip()]
-            elif name == "style":
-                self.refs += css_refs(value)
+            elif name == "style" or "url(" in value.lower() or "image-set(" in value.lower():
+                self.refs += css_refs(value)  # style, and SVG paint such as fill="url(#gradient)"
 
     handle_startendtag = handle_starttag
 
@@ -739,7 +745,7 @@ def scan(site: Site, denylist: Path) -> list:
         found = set(leak_scan.text_hits(text, entries))
         if kind(path) in (".html", ".svg"):
             # Also what a browser shows: "&amp;" and numeric entities decoded, tags removed.
-            shown_text = html.unescape(re.sub(r"<[^>]*>", "", text))
+            shown_text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]*>", "", text)))
             found |= {(line, entry) for line, entry in leak_scan.text_hits(html.unescape(text), entries)}
             seen = {entry for _, entry in found}
             found |= {(0, entry) for _, entry in leak_scan.text_hits(shown_text, entries) if entry not in seen}

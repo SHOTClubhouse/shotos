@@ -190,6 +190,9 @@ class BuildTests(unittest.TestCase):
             "g.SVG": b'<svg xmlns="http://www.w3.org/2000/svg"><image href="file:///C:/private.png"/></svg>',
             "h.css": b"p{background:u\x5c72l(/x.svg)}",
             "i.html": b'<p style="background:u\x5c72l(/x.svg)">x</p>',
+            "j.css": b'p{background-image:image-set("/root.png" 1x, "missing.png" 2x)}',
+            "k.svg": b'<svg xmlns="http://www.w3.org/2000/svg"><rect fill="url(missing.svg#paint)"/></svg>',
+            "l.svg": b'<svg xmlns="http://www.w3.org/2000/svg"><rect fill="url(file:///C:/p.svg#a)"/></svg>',
         }
         for name, data in cases.items():
             built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
@@ -197,11 +200,17 @@ class BuildTests(unittest.TestCase):
             with self.assertRaises(site.BuildError, msg=name):
                 site.check_links(built)
 
+    def test_css_image_set_and_svg_paint_references_are_read(self):
+        self.assertEqual(site.css_refs('a{b:image-set(url("x.png") 1x, "y.png" 2x)}'), ["x.png", "y.png"])
+        built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
+        built.files["a.svg"] = b'<svg><marker id="arrow"/><path marker-end="url(#arrow)"/></svg>'
+        site.check_links(built)  # a reference to the file's own id is fine
+
     def test_the_denylist_scan_reads_text_as_a_browser_shows_it(self):
         denylist = Path(self.tmp.name) / "deny.txt"
         denylist.write_text("Synthetic & Denied\n", encoding="utf-8")
         for data in (b"<p>Synthetic &amp; Denied</p>", b"<p>Synthetic &#38; Denied</p>",
-                     b"<p>Synthetic <b>&amp;</b> Denied</p>"):
+                     b"<p>Synthetic <b>&amp;</b> Denied</p>", b"<p>Synthetic &amp;\n   Denied</p>"):
             built = site.Site(ROOT, self.out, "1.0.0", "0" * 40, True)
             built.files["a.html"] = data
             hits = site.scan(built, denylist)
