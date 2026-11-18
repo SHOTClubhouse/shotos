@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use SHOTos in Codex or Claude Code · SHOTos</title>
+<meta name="description" content="SHOTos: Use SHOTos in Codex or Claude Code">
+<link rel="icon" href="../images/shotos-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar"><div class="wrap">
+<a class="brand" href="../index.html"><img src="../images/shotos-mark.svg" alt="" width="32" height="32">SHOTos</a>
+<nav aria-label="Site"><a href="../guides/index.html" aria-current="page">Guides</a><a href="../examples/index.html">Example</a><a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">GitHub</a></nav>
+</div></header>
+<main id="main">
+<article class="wrap prose">
+<h1 id="use-shotos-in-codex-or-claude-code">Use SHOTos in Codex or Claude Code</h1>
+<p><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/framework.md#try-one-job-across-the-six-stages" rel="noopener">See what the six stages give you</a>, then choose one job to try.</p>
+<p>Start with one skill in the folder that owns your work. On Windows or Mac, you can copy it with the file manager. Use the installer when you want a pack, shared tools or the full setup. The steps below use Decision Brief. For another job, choose a ZIP from the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/running-it.md#choose-your-first-job" rel="noopener">first-job guide</a>, substitute its folder and skill name, and <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/running-it.md#run-the-sample-from-your-zip" rel="noopener">run its sample</a>.</p>
+<p>For a proposal and handoff, add both Contextual Proposal and Success Handoff to the same project. Follow the two short requests in the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/win-the-work/skills/contextual-proposal/worked-deal.md" rel="noopener">fictional worked deal</a> and keep both outputs with the same account record.</p>
+<h2 id="what-needs-what">What needs what</h2>
+<ul>
+<li><strong>Copying one skill folder:</strong> a file manager and a project folder. No installer, Python or connector.</li>
+<li><strong>A pack, shared tools, role agents or the Stop hook:</strong> the installer, with Python 3.9 or later.</li>
+<li><strong>Mail, slides, speech, images, video or a browser:</strong> a connector or local program you set up yourself. See <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/connect-your-tools.md" rel="noopener">connect your tools</a>.</li>
+</ul>
+<h2 id="copy-one-skill-without-a-terminal">Copy one skill without a terminal</h2>
+<ol>
+<li><a href="https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip" rel="noopener">Download <code>decision-brief.zip</code></a>. On Windows, right-click and choose <strong>Extract All</strong>. On Mac, double-click the ZIP in Finder.</li>
+<li>Open the project folder in File Explorer or Finder. Create the folders shown below if they are absent. On Mac, use <strong>Command–Shift–.</strong> to show dot folders. In Finder, <strong>Go to Folder</strong> can open a dot folder once it exists. If Finder refuses to create a dot folder, use the file explorer in your editor to create it, or use the <a href="../guides/chat-assistants.html">chat setup</a>.</li>
+<li>Copy the whole extracted <code>decision-brief</code> folder into the right <code>skills</code> folder below. On Windows, you can also choose that <code>skills</code> folder as the <strong>Extract All</strong> destination. Check that <code>SKILL.md</code> sits directly inside <code>decision-brief</code>, with its examples and resources alongside it.</li>
+</ol>
+<div class="table"><table>
+<thead><tr><th>Tool</th><th>Final path inside the project</th></tr></thead>
+<tbody>
+<tr><td>Codex</td><td><code>.agents/skills/decision-brief/SKILL.md</code></td></tr>
+<tr><td>Claude Code</td><td><code>.claude/skills/decision-brief/SKILL.md</code></td></tr>
+</tbody>
+</table></div>
+<ol start="4">
+<li>Open the project root in your tool and start a fresh session.
+<ul>
+<li><strong>Codex desktop.</strong> For a new project, open the project picker above the composer and choose <strong>New project</strong>. Name it, use <strong>Add folder</strong> under <strong>Source folders</strong> to select the project root, then choose <strong>Create project</strong>. Review any folder trust prompt before continuing. In the new chat, type <code>$decision</code> and select <strong>Decision Brief</strong> from the project skill picker.</li>
+<li><strong>Claude Code in VS Code.</strong> With the <a href="https://code.claude.com/docs/en/vs-code" rel="noopener">Claude Code extension</a> installed, use <strong>File → Open Folder</strong> to open the project root. Open the Claude Code panel and type <code>/decision-brief</code> in its prompt box. Select the project skill there.</li>
+</ul></li>
+<li>Ask the selected skill to read <code>review-cycle.md</code>, then use the <a href="../guides/chat-assistants.html#run-the-retail-scenario">two retail prompts</a> in order. Check that it cites the installed scenario files and evidence IDs. Compare your result with the <a href="../guides/chat-assistants.html#check-your-first-result">retail check</a>.</li>
+</ol>
+<p>Use the same installed skill for the <a href="../guides/chat-assistants.html#try-a-bank-or-startup-decision">bank and startup exercises</a>. If your ZIP predates a scenario's split input files, open the two linked evidence files from GitHub.</p>
+<h3 id="if-the-assistant-cannot-open-the-sample">If the assistant cannot open the sample</h3>
+<p>Check that the session is open at the project root and that the whole skill folder sits at the path above. Ask it to name the missing file. If the project cannot read that file under its current permissions, <a href="../guides/chat-assistants.html#chatgpt-projects-or-a-claude-chat-using-files">use a chat with files</a>. Extract the ZIP and attach the selected skill's instructions, template and sample input. Ask for the result in the reply and keep the worked answer for your review.</p>
+<p>For a shared agreement, add the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/templates/AGENTS.md" rel="noopener">working agreement</a> at the project root or merge its guidance into the existing file with the project owner's review. In Claude Code, reference it from the project's <code>CLAUDE.md</code> using <code>@AGENTS.md</code>. Manual copying gives you the selected skill and its files. Add other skills from the same release as needed. Keep one copy of each skill per project.</p>
+<p>To update a manually copied skill, extract the new release to a separate folder. Back up your old skill folder outside the project and any watched skills folders. Copy the complete new folder into the same installation location, then check it in a fresh session with the same fictional exercise. Review any custom templates or instructions before bringing them across. Keep project records and the working agreement in the project.</p>
+<p><a href="https://developers.openai.com/codex/skills" rel="noopener">Official Codex skill locations</a> · <a href="https://code.claude.com/docs/en/skills" rel="noopener">Claude Code skills</a></p>
+<h2 id="install-executive-ops-from-claude-code">Install Executive Ops from Claude Code</h2>
+<p>You can add the whole Executive Ops pack from the Claude Code panel in VS Code.</p>
+<ol>
+<li>Type <code>/plugins</code> to open <strong>Manage plugins</strong>. In <strong>Marketplaces</strong>, add <code>SHOTClubhouse/shotos</code>.</li>
+<li>In <strong>Plugins</strong>, find <strong>shotos-exec-ops</strong> and choose <strong>Install locally</strong> for a first try in this repository.</li>
+<li>Start a fresh session and select <code>/shotos-exec-ops:decision-brief</code>. Run the <a href="../guides/chat-assistants.html#run-the-retail-scenario">two retail prompts</a>, using the scenario files that come with the skill.</li>
+</ol>
+<p>In a terminal-based Claude Code session, use <code>/plugin marketplace add SHOTClubhouse/shotos</code> followed by <code>/plugin install shotos-exec-ops@shotos</code>.</p>
+<p>Executive Ops adds seven skills and no hooks. The separate Core plugin adds the role agents and the Stop hook. Use the installer if you want Core's project files with the hook as a separate choice. Keep each skill on one setup route in a project. For an exact GitHub release, use its ZIP or source archive.</p>
+<p><a href="https://code.claude.com/docs/en/vs-code#manage-plugins" rel="noopener">VS Code plugin controls</a> · <a href="https://code.claude.com/docs/en/discover-plugins" rel="noopener">Claude Code plugin setup</a></p>
+<h2 id="install-a-pack-or-the-full-setup">Install a pack or the full setup</h2>
+<p>Download and extract the source archive from the <a href="https://github.com/SHOTClubhouse/shotos/releases/latest" rel="noopener">release</a>, or clone the repository. This route needs Git for cloning and Python 3.9 or later to run the installer. From your project folder, replace <code>PATH_TO_SHOTOS</code> with the location of the extracted source.</p>
+<pre><code class="language-sh">python "PATH_TO_SHOTOS/install.py" --runtime agents --scope project --pack exec-ops --dry-run
+python "PATH_TO_SHOTOS/install.py" --runtime agents --scope project --pack exec-ops</code></pre>
+<p>Use <code>python3</code> if that is how Python runs on your Mac. For Claude Code change the runtime to <code>claude</code>. Add <code>--with-hook</code> if you have reviewed and want the optional Claude Code Stop hook. Add <code>--with-agents</code> if you want its role subagents. For an existing installer-managed Codex project, use the refresh steps below to keep its recorded runtime and skill folder.</p>
+<p>Review the dry run before installing. It lists planned changes and writes nothing, so it is a safe way to see what the installer would do. After installing, <code>python "PATH_TO_SHOTOS/install.py" --status --scope project</code> reports what is in place.</p>
+<p>To see which connectors and local programs your agent can reach, ask it to run the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/setup/skills/connect-tools/README.md" rel="noopener">connect-tools</a> skill. It makes read-only calls and records the result in <code>.work/capabilities.md</code>. If it lists an existing skill in the other Codex folder, review that copy and choose one path before trying again. Confirm skill loading in a fresh session before relying on it. The installer adds the portable tools and records. The manual route is useful when you only need a few skills. <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/full-pack.md" rel="noopener">Full pack and role setup</a></p>
+<h2 id="refresh-an-installed-setup">Refresh an installed setup</h2>
+<p>Open the project that already has an installer-managed setup. Use the installer from the source revision you want and preview the file changes.</p>
+<pre><code class="language-sh">python "PATH_TO_SHOTOS/install.py" --refresh --scope project --dry-run
+python "PATH_TO_SHOTOS/install.py" --refresh --scope project
+python "PATH_TO_SHOTOS/install.py" --status --scope project</code></pre>
+<p>Refresh uses the runtime and packs already recorded. It updates matching managed files and adds new files from those packs. Review anything it reports as kept, including local edits, files removed locally, and files absent from the new source. Existing settings and your working records stay in place. Start a new session and run the same first-job check before relying on the refreshed setup.</p>
+<p class="source"><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/guides/codex-claude-code.md" rel="noopener">View this page on GitHub</a></p>
+</article>
+</main>
+<footer><div class="wrap">
+<p>SHOTos 1.17.0 · <a href="https://github.com/SHOTClubhouse/shotos/releases/tag/v1.17.0" rel="noopener">Release notes</a> · <a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">Source on GitHub</a> · Built from <a href="https://github.com/SHOTClubhouse/shotos/commit/380eca18e22554b7c193a4a94f9767b78d0481dd" rel="noopener"><code>380eca1</code></a></p>
+<p>Code is MIT licensed. Documentation, skills, templates and examples are CC BY 4.0. The SHOT name and logo belong to SHOT Clubhouse Limited and are not covered by either licence.</p>
+</div></footer>
+</body>
+</html>

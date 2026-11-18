@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Use SHOTos in ChatGPT or Claude without a terminal · SHOTos</title>
+<meta name="description" content="SHOTos: Use SHOTos in ChatGPT or Claude without a terminal">
+<link rel="icon" href="../images/shotos-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar"><div class="wrap">
+<a class="brand" href="../index.html"><img src="../images/shotos-mark.svg" alt="" width="32" height="32">SHOTos</a>
+<nav aria-label="Site"><a href="../guides/index.html" aria-current="page">Guides</a><a href="../examples/index.html">Example</a><a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">GitHub</a></nav>
+</div></header>
+<main id="main">
+<article class="wrap prose">
+<h1 id="use-shotos-in-chatgpt-or-claude-without-a-terminal">Use SHOTos in ChatGPT or Claude without a terminal</h1>
+<p><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/framework.md#try-one-job-across-the-six-stages" rel="noopener">See what the six stages give you</a>, then choose one job to try.</p>
+<p>Start with one skill and a fictional example. In this route the files give the assistant a method, templates and examples. Mail, calendars, Drive and similar connectors are separate settings in your workspace, and this guide does not turn them on. You can download, unpack and add the files with a browser and file manager on Windows or Mac.</p>
+<p>The walkthrough below uses Decision Brief. To try a different job, pick its ZIP from the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/running-it.md#choose-your-first-job" rel="noopener">first-job guide</a> and substitute its skill name in the setup steps. For a file-based chat, use its <code>SKILL.md</code>, relevant template and example input. Then use the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/running-it.md#run-the-sample-from-your-zip" rel="noopener">sample prompt and review checks</a>.</p>
+<p>To try a proposal and handoff, use Contextual Proposal and Success Handoff in one project or chat. Give the assistant the account sources it can use, then follow the two short requests in the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/win-the-work/skills/contextual-proposal/worked-deal.md" rel="noopener">fictional worked deal</a>.</p>
+<h2 id="claude-with-skills-enabled">Claude with Skills enabled</h2>
+<ol>
+<li><a href="https://github.com/SHOTClubhouse/shotos/releases/latest/download/decision-brief.zip" rel="noopener">Download <code>decision-brief.zip</code></a>. Keep the ZIP intact for this route.</li>
+<li>Open <strong>Customize → Skills</strong>, choose <strong>+ → Create skill → Upload a skill</strong>, then select the ZIP and enable the skill. If the menu is unavailable, check the workspace settings for skills and file creation, or use the file route below.</li>
+<li>Start a fresh chat and ask Claude to use Decision Brief and its bundled <code>template.md</code> and <code>review-cycle.md</code>. Follow the two prompts below and check which scenario files and evidence IDs it cites. <a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude" rel="noopener">Official Claude instructions</a></li>
+</ol>
+<h2 id="chatgpt-with-skills-enabled">ChatGPT with Skills enabled</h2>
+<ol>
+<li>In the sidebar, open <strong>Plugins</strong> and select <strong>Skills</strong>. Choose <strong>Create</strong>, then <strong>Upload from your computer</strong>.</li>
+<li>Choose the Decision Brief skill download and check that the upload is available after review. Skill upload depends on your workspace. If the option is absent or the file is rejected, use the file route below.</li>
+<li>In a fresh chat, type <code>@</code> and select the skill if it appears. Ask it to open its own <code>template.md</code> and the first scenario file before continuing.</li>
+</ol>
+<p><a href="https://help.openai.com/en/articles/20001066-skills-in-chatgpt" rel="noopener">ChatGPT skills and workspace permissions</a> · <a href="https://learn.chatgpt.com/docs/build-skills#how-chatgpt-and-codex-use-skills" rel="noopener">Invoking skills in ChatGPT</a></p>
+<h2 id="chatgpt-projects-or-a-claude-chat-using-files">ChatGPT Projects, or a Claude chat using files</h2>
+<ol>
+<li>Download the same ZIP. Use <strong>Extract All</strong> in Windows File Explorer or double-click it in Mac Finder.</li>
+<li>Add <code>SKILL.md</code>, <code>template.md</code> and <code>review-cycle.md</code> to a ChatGPT Project or attach them directly to a fresh chat. In ChatGPT desktop, use <strong>+ → Add photos &amp; files</strong>. Check the attachments before sending. If some are missing, open the picker again and add those files separately.</li>
+<li>Follow the two prompts below. For a reusable project, you can also add the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/templates/AGENTS.md" rel="noopener">working agreement</a> to the project instructions. The same file approach works in a Claude Project or chat. If your app cannot upload Markdown, paste the relevant text or attach it as a text file.</li>
+</ol>
+<h2 id="run-the-retail-scenario">Run the retail scenario</h2>
+<p>For the first message, attach or paste the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/exec-ops/skills/decision-brief/scenarios/retail-trial-initial.md" rel="noopener">initial evidence</a> as the only scenario input. If you installed the skill, ask it to open <code>scenarios/retail-trial-initial.md</code> and limit its reads to that file and the skill instructions and templates.</p>
+<blockquote>
+<p>Use Decision Brief. Draft a one-page decision brief from retail-trial-initial.md (R1–R3). Cite the records and keep decision and handoff status tied to the evidence available now. Wait for the follow-up.</p>
+</blockquote>
+<p>Once you have the brief, attach or paste the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/exec-ops/skills/decision-brief/scenarios/retail-trial-follow-up.md" rel="noopener">follow-up records</a>, or ask it to open the installed <code>scenarios/retail-trial-follow-up.md</code>.</p>
+<blockquote>
+<p>Read retail-trial-follow-up.md (R4–R6). Update the decision, handoff and independent-cycle statuses. Cite the record that supports each update.</p>
+</blockquote>
+<p>Keep the worked answer for your own review. If your ZIP contains only the original combined scenario, use the two linked input files above.</p>
+<p>A ChatGPT Project uses the files as context. Some eligible ChatGPT workspace agents also offer <strong>Add skill</strong> in the agent builder. Use that native option where your workspace allows it, and verify that the agent can open the scenario before relying on it. <a href="https://learn.chatgpt.com/docs/projects" rel="noopener">ChatGPT Projects</a> · <a href="https://developers.openai.com/cookbook/articles/chatgpt-agents-sales-meeting-prep#3-enabling-skills-and-memories-for-consistent-customized-outputs" rel="noopener">Workspace agent skill setup</a></p>
+<h2 id="try-a-newer-release">Try a newer release</h2>
+<p>Download the skill again from the <a href="https://github.com/SHOTClubhouse/shotos/releases" rel="noopener">release you want</a>. Open a fresh chat with the new files, or test the new native skill separately from the old one where your workspace allows it. Run the same fictional exercise first. When updating a shared project, review which files and instructions belong to the old skill and keep one active revision. Keep your own decisions, notes and working agreement with the project.</p>
+<h2 id="check-access-before-you-rely-on-it">Check access before you rely on it</h2>
+<p>This changes nothing. In a fresh chat, ask:</p>
+<blockquote>
+<p>List the files you can open in this chat or project. Quote the first heading of SKILL.md. Do not create, send or edit anything.</p>
+</blockquote>
+<p>If it names the files and quotes the heading, the skill is visible here. If not, add the files again. Do the same in each new chat or project, because one chat does not prove another. To see which connectors you have, read your workspace settings rather than asking the assistant to try them. For a full list of what is and is not reachable, use the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/setup/skills/connect-tools/README.md" rel="noopener">connect-tools</a> skill from a local agent.</p>
+<h2 id="check-your-first-result">Check your first result</h2>
+<p>Look for a named decider, dated evidence, an explicit decision and a handoff state that matches its receipt. If the assistant cannot see a supporting file, give it that file and repeat the check. A file upload provides instructions and examples. Tools, connectors and approval settings depend on the workspace.</p>
+<p>For the retail example, R1–R3 support a conditional recommendation to extend the trial to one evening site, subject to a local baseline and existing staffing. R4 records the conditional approval, R5 records the receiving lead's acceptance, and R6 records a later decision to stop at that site after overtime rose. The independent cycle passes because the receiving operator ran the review without help from the original operator and the director accepted the review record. Wider rollout remains unauthorised.</p>
+<h2 id="try-a-bank-or-startup-decision">Try a bank or startup decision</h2>
+<p>Use the same setup in a fresh chat. Open the initial evidence first. After you have the brief, add the follow-up records. Open the worked answer yourself to check the result.</p>
+<h3 id="bank-operations">Bank operations</h3>
+<ol>
+<li>Attach or open the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/exec-ops/skills/decision-brief/scenarios/bank-remediation-initial.md" rel="noopener">initial evidence</a>. Ask for the closure options and what evidence the service owner would need.</li>
+<li>Add the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/exec-ops/skills/decision-brief/scenarios/bank-remediation-follow-up.md" rel="noopener">follow-up records</a>. Ask whether the closure request changes the decision, handoff or independent-cycle status.</li>
+<li>Compare with the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/exec-ops/skills/decision-brief/scenarios/bank-remediation.md" rel="noopener">worked bank review</a>.</li>
+</ol>
+<h3 id="startup-proposal">Startup proposal</h3>
+<ol>
+<li>Attach or open the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/exec-ops/skills/decision-brief/scenarios/startup-proposal-initial.md" rel="noopener">initial evidence</a>. Ask for the founder's decision brief, one buyer-facing sentence and the corresponding private working-sheet entry.</li>
+<li>Add the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/exec-ops/skills/decision-brief/scenarios/startup-proposal-follow-up.md" rel="noopener">follow-up records</a>. Ask what the founder authorised, what the operator accepted and whether the next review was independent.</li>
+<li>Compare with the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/exec-ops/skills/decision-brief/scenarios/startup-proposal.md" rel="noopener">worked startup review</a>.</li>
+</ol>
+<p class="source"><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/guides/chat-assistants.md" rel="noopener">View this page on GitHub</a></p>
+</article>
+</main>
+<footer><div class="wrap">
+<p>SHOTos 1.17.0 · <a href="https://github.com/SHOTClubhouse/shotos/releases/tag/v1.17.0" rel="noopener">Release notes</a> · <a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">Source on GitHub</a> · Built from <a href="https://github.com/SHOTClubhouse/shotos/commit/380eca18e22554b7c193a4a94f9767b78d0481dd" rel="noopener"><code>380eca1</code></a></p>
+<p>Code is MIT licensed. Documentation, skills, templates and examples are CC BY 4.0. The SHOT name and logo belong to SHOT Clubhouse Limited and are not covered by either licence.</p>
+</div></footer>
+</body>
+</html>

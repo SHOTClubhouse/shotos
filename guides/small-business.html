@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start here: a small business owner · SHOTos</title>
+<meta name="description" content="SHOTos: Start here: a small business owner">
+<link rel="icon" href="../images/shotos-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@600;700&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar"><div class="wrap">
+<a class="brand" href="../index.html"><img src="../images/shotos-mark.svg" alt="" width="32" height="32">SHOTos</a>
+<nav aria-label="Site"><a href="../guides/index.html" aria-current="page">Guides</a><a href="../examples/index.html">Example</a><a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">GitHub</a></nav>
+</div></header>
+<main id="main">
+<article class="wrap prose">
+<h1 id="start-here-a-small-business-owner">Start here: a small business owner</h1>
+<p>You run a bakery, a salon, a garage, a shop or a café. You have a handful of staff and no IT department. You have used a chat assistant for the odd email or menu, and you would like it to take some of the admin off you without it saying something wrong to a customer or spending money you did not agree.</p>
+<p>You do not need to know anything about software to use SHOTos. Most of it works as plain templates on paper, and the agent skills work in any assistant that can read a folder of instructions.</p>
+<h2 id="getting-set-up-about-15-minutes">Getting set up (about 15 minutes)</h2>
+<p>Pick the route that suits you. You do not need both.</p>
+<p><strong>Route 1: the Claude app, no terminal.</strong></p>
+<ol>
+<li>Install the Claude desktop app, or use claude.ai in your browser, and sign in.</li>
+<li>Download individual skill ZIPs from <a href="https://github.com/SHOTClubhouse/shotos/releases/latest" rel="noopener">GitHub Releases</a>. Start with <code>agree-acceptance</code>, <code>capture-the-problem</code>, <code>report-with-evidence</code> and the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/social/README.md" rel="noopener">social</a> and <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/writing/README.md" rel="noopener">writing</a> skills.</li>
+<li>Upload each ZIP as a skill using the <a href="../guides/chat-assistants.html#claude-with-skills-enabled">Claude steps</a>. If skills are not available in your workspace, attach the files to a chat instead.</li>
+<li>Create a Project for your business. Paste the four rules from the <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/templates/AGENTS.md" rel="noopener">working agreement</a> into the Project's instructions, and add your price list and recipe cards as Project files.</li>
+<li>Connect Google Drive or Gmail from the app's connector settings only if you want the assistant to read them. Read-only is enough to start.</li>
+</ol>
+<p><strong>Route 2: Claude Code, if someone can help you install it once.</strong></p>
+<ol>
+<li>Install Claude Code (the VS Code extension or the desktop app).</li>
+<li>Make a folder for your business admin and open it. Download and extract the source archive from the <a href="https://github.com/SHOTClubhouse/shotos/releases/latest" rel="noopener">latest release</a> next to it. That extracted folder is your local checkout.</li>
+<li>Ask the assistant: "Use the SHOTos installer in my local checkout. Preview a project install with the social, writing, records, trust and setup packs, and show me what it will change first."</li>
+<li>Ask it to run <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/setup/skills/connect-tools/README.md" rel="noopener">connect-tools</a>, which lists what works today and what to connect next.</li>
+</ol>
+<p>Either way, your first request can be as simple as: "Before you start, agree with me what good looks like for our Christmas order form."</p>
+<h2 id="the-three-habits-that-matter-most">The three habits that matter most</h2>
+<ol>
+<li><strong>Say what good looks like before you ask.</strong> "Write the Christmas order form" becomes: "Write the Christmas order form. It must list our six Christmas lines with this year's prices, the last order date of 18 December, and the collection times. It must not promise delivery, because we do not deliver." That is an <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/templates/acceptance.md" rel="noopener">acceptance card</a> in two sentences.</li>
+<li><strong>Nothing goes out without you.</strong> The assistant drafts; you send. It is told never to order stock, post on your page, email a customer or delete anything until you say yes. This is <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/controls.md" rel="noopener">rule 1</a>. For a hard stop, do not give it tools that can do those things on their own.</li>
+<li><strong>Ask it what it checked.</strong> At the end, the assistant lists what it did and what it could not check. If it says "prices match the price list", you can look.</li>
+</ol>
+<h2 id="a-first-month">A first month</h2>
+<p><img src="../images/small-business-first-month.svg" alt="First month: count allergy enquiries, check a draft answer page, draft the week’s posts, and count enquiries again." loading="lazy"></p>
+<div class="table"><table>
+<thead><tr><th>Week</th><th>What to try</th><th>Skill or template</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Write down one thing that eats your time, for example answering the same allergy questions by phone and message. Count how many you get in a week.</td><td><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/templates/problem.md" rel="noopener">problem template</a>, <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/skills/baseline/README.md" rel="noopener">baseline</a></td></tr>
+<tr><td>2</td><td>Have the assistant draft an allergy and ingredients page from your recipe cards. Check every allergen yourself before it goes anywhere.</td><td><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/skills/agree-acceptance/README.md" rel="noopener">agree-acceptance</a>, <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/trust/skills/claims-audit/README.md" rel="noopener">claims-audit</a></td></tr>
+<tr><td>3</td><td>Plan a week of social posts from what is actually happening in the shop, drafted for you to post.</td><td><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/social/skills/content-calendar/README.md" rel="noopener">content-calendar</a>, <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/social/skills/caption-options/README.md" rel="noopener">caption-options</a></td></tr>
+<tr><td>4</td><td>Count the allergy questions again. Did the page help? Keep it, change it or drop it.</td><td><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/skills/evidence-pack/README.md" rel="noopener">evidence-pack</a></td></tr>
+</tbody>
+</table></div>
+<h2 id="useful-packs-for-a-small-business">Useful packs for a small business</h2>
+<ul>
+<li><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/social/README.md" rel="noopener">Social</a>: a weekly plan, captions and reviewing comments, with you posting.</li>
+<li><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/writing/README.md" rel="noopener">Writing</a>: turn rough notes into clear customer messages.</li>
+<li><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/records/README.md" rel="noopener">Records</a>: sort out the folder of invoices, photos and recipes without losing anything.</li>
+<li><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/founder-admin/README.md" rel="noopener">Founder admin</a>: find grants and local business awards you can enter for free.</li>
+<li><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/trust/README.md" rel="noopener">Trust</a>: check claims before they go on your website, and handle customer and children's data carefully.</li>
+</ul>
+<h2 id="be-careful-with">Be careful with</h2>
+<ul>
+<li><strong>Allergens, prices and opening times.</strong> Always check these yourself. An assistant can copy a wrong number confidently.</li>
+<li><strong>Photos of customers, especially children.</strong> Get written permission first. The <a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/packs/trust/skills/sensitive-data-check/README.md" rel="noopener">sensitive-data-check</a> skill walks through it.</li>
+<li><strong>Anything that costs money.</strong> Supplier orders, ads and subscriptions are always your decision.</li>
+</ul>
+<p class="source"><a href="https://github.com/SHOTClubhouse/shotos/blob/v1.17.0/docs/guides/small-business.md" rel="noopener">View this page on GitHub</a></p>
+</article>
+</main>
+<footer><div class="wrap">
+<p>SHOTos 1.17.0 · <a href="https://github.com/SHOTClubhouse/shotos/releases/tag/v1.17.0" rel="noopener">Release notes</a> · <a href="https://github.com/SHOTClubhouse/shotos" rel="noopener">Source on GitHub</a> · Built from <a href="https://github.com/SHOTClubhouse/shotos/commit/380eca18e22554b7c193a4a94f9767b78d0481dd" rel="noopener"><code>380eca1</code></a></p>
+<p>Code is MIT licensed. Documentation, skills, templates and examples are CC BY 4.0. The SHOT name and logo belong to SHOT Clubhouse Limited and are not covered by either licence.</p>
+</div></footer>
+</body>
+</html>
