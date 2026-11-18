@@ -47,6 +47,7 @@ OUT = REPO / ".work" / "site"
 GITHUB = "https://github.com/SHOTClubhouse/shotos"
 NORTHBANK = "examples/northbank-club"
 GUIDES_DIR = "docs/guides"
+START_HERE = "docs/start-here.md"  # the one-page front door, rendered as start-here.html when it exists
 # Every guide in docs/guides, in the order the site lists them, with its card text.
 GUIDES = [
     ("Start by role", [
@@ -316,6 +317,13 @@ class Site:
     def guide_sources(self) -> dict:
         return {f"{GUIDES_DIR}/{name}.md": f"guides/{name}.html" for _, group in GUIDES for name, _ in group}
 
+    def rendered_sources(self) -> dict:
+        """Every Markdown file the site renders: the guides, and the Start here page when it exists."""
+        sources = self.guide_sources()
+        if (self.repo / START_HERE).is_file():
+            sources[START_HERE] = "start-here.html"
+        return sources
+
     def fix_link(self, url: str, source: str, path: str) -> str:
         if re.match(r"^[a-z][a-z0-9+.-]*:", url, re.I):
             return url
@@ -326,7 +334,7 @@ class Site:
         resolved = posixpath.normpath(posixpath.join(posixpath.dirname(source), target))
         if resolved.startswith("..") or not (self.repo / resolved).exists():
             raise BuildError(f"{source}: the link {url} points to nothing in the repository")
-        guides = self.guide_sources()
+        guides = self.rendered_sources()
         if resolved in guides:
             dest = guides[resolved]
         elif resolved.startswith("docs/images/"):
@@ -346,6 +354,8 @@ class Site:
     def page(self, path: str, title: str, body: str, description: str, section: str = "") -> str:
         up = relative("", path)
         nav = [("Guides", "guides/index.html", "guides"), ("Example", "examples/index.html", "examples")]
+        if "start-here.html" in self.rendered_sources().values():
+            nav.insert(0, ("Start here", "start-here.html", "start"))
         current = ' aria-current="page"'
         links = "".join(f'<a href="{relative(href, path)}"{current if key == section else ""}>{label}</a>'
                         for label, href, key in nav)
@@ -396,7 +406,7 @@ def git(repo: Path, *args) -> str:
     return done.stdout.strip()
 
 
-SOURCES = ("docs/guides", "docs/images", f"{NORTHBANK}/site", "tools/build_site.py", ".claude-plugin/plugin.json")
+SOURCES = ("docs/guides", START_HERE, "docs/images", f"{NORTHBANK}/site", "tools/build_site.py", ".claude-plugin/plugin.json")
 
 
 def landing(site: Site) -> str:
@@ -406,13 +416,16 @@ def landing(site: Site) -> str:
                         f"<span>{html.escape(text)}</span></li>" for name, text in group)
         groups.append(f'<div><h3>{heading}</h3><ul class="cards">{cards}</ul></div>')
     clone = f"git clone {GITHUB}.git"
-    preview = "python ../shotos/install.py --runtime agents --scope project --pack setup --dry-run"
-    install = "python ../shotos/install.py --runtime agents --scope project --pack setup"
+    preview = "python ../shotos/install.py --runtime claude --scope project --dry-run"
+    install = "python ../shotos/install.py --runtime claude --scope project"
+    start = ('<a class="button ghost" href="start-here.html">Start here</a>'
+             if "start-here.html" in site.rendered_sources().values()
+             else '<a class="button ghost" href="guides/start-by-role.html">Start with your role</a>')
     return f"""<section class="hero"><div class="wrap">
 <p class="eyebrow">Open source · MIT and CC BY 4.0</p>
 <h1>Free AI workflows, from the first brief to a result someone can own.</h1>
 <p class="lede">SHOTos is a set of skills, templates and rules for the AI assistant you already use. Use it to turn customer notes into a test plan, write a proposal, build a campaign preview or hand work to the next person. Start from your context, agree what good looks like, then check what comes back.</p>
-<p class="actions"><a class="button" href="{site.release}" rel="noopener">Download SHOTos {site.version}</a><a class="button ghost" href="guides/start-by-role.html">Start with your role</a></p>
+<p class="actions"><a class="button" href="{site.release}" rel="noopener">Download SHOTos {site.version}</a>{start}</p>
 </div></section>
 
 <section class="wrap" aria-labelledby="install"><h2 id="install">Install</h2>
@@ -420,7 +433,7 @@ def landing(site: Site) -> str:
 <pre><code>{html.escape(clone)}</code></pre>
 <pre><code>{html.escape(preview)}
 {html.escape(install)}</code></pre>
-<p>For Claude Code, use <code>--runtime claude</code>. Codex and other agents use <code>--runtime agents</code>. Add more packs with another <code>--pack</code>. No terminal? <a href="guides/chat-assistants.html">Use the skills in ChatGPT or Claude</a> by downloading the ZIPs from the <a href="{GITHUB}/releases/latest" rel="noopener">latest release</a>.</p>
+<p>Use <code>--runtime agents</code> for Codex and other agents, and add <code>--pack &lt;name&gt;</code> for each pack you want. The installer always includes the core skills. No terminal? <a href="guides/chat-assistants.html">Use the skills in ChatGPT or Claude</a> by downloading the ZIPs from the <a href="{GITHUB}/releases/latest" rel="noopener">latest release</a>.</p>
 </section>
 
 <section class="wrap" aria-labelledby="rules"><h2 id="rules">The four rules inside every stage</h2>
@@ -478,13 +491,14 @@ def build(repo: Path = REPO, out: Path = OUT) -> Site:
         raise BuildError(f"GUIDES in tools/build_site.py does not match docs/guides "
                          f"(unlisted: {', '.join(missing) or 'none'}; not found: {', '.join(extra) or 'none'})")
 
-    for source, path in site.guide_sources().items():
+    for source, path in site.rendered_sources().items():
         page = Page(source, path, site.fix_link)
         body = markdown((repo / source).read_text(encoding="utf-8"), page)
         site.pages[path] = page
-        edit = f'<p class="source"><a href="{site.blob}/{source}" rel="noopener">View this guide on GitHub</a></p>'
+        section = "start" if source == START_HERE else "guides"
+        edit = f'<p class="source"><a href="{site.blob}/{source}" rel="noopener">View this page on GitHub</a></p>'
         site.add(path, site.page(path, f"{page.title} · SHOTos", f'<article class="wrap prose">\n{body}\n{edit}\n'
-                                 "</article>", f"SHOTos guide: {page.title}", "guides"))
+                                 "</article>", f"SHOTos: {page.title}", section))
 
     index = Page("", "guides/index.html", site.fix_link)
     groups = "".join(f"<h2>{heading}</h2><ul class=\"cards\">" + "".join(
@@ -654,6 +668,12 @@ def main(argv=None) -> int:
         return 1
     print(f"Built {len(site.files)} files into {site.out} from {site.commit[:12]} (SHOTos {site.version}).")
     status = 0
+    tagged = subprocess.run(launchable(["git", "-C", str(REPO), "rev-parse", "-q", "--verify",
+                                        f"refs/tags/v{site.version}^{{commit}}"]),
+                            capture_output=True, text=True).stdout.strip()
+    if tagged != site.commit:
+        print(f"HEAD is not the v{site.version} release commit. Links into the repository point at the "
+              f"v{site.version} tag, so files added since then will not open until the next release.")
     if not site.clean:
         print("The site sources have uncommitted changes: preview only, not fit to publish.")
         status = 2

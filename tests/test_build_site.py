@@ -73,7 +73,7 @@ class BuildTests(unittest.TestCase):
         self.assertEqual(set(marker["files"]), files - {"release.json"})
         landing = (self.out / "index.html").read_text(encoding="utf-8")
         self.assertIn(f"{site.GITHUB}/releases/tag/v{built.version}", landing)
-        self.assertIn("install.py --runtime agents", landing)
+        self.assertIn("install.py --runtime claude", landing)
         self.assertNotIn('href="/', landing)
 
     def test_two_builds_are_identical(self):
