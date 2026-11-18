@@ -14,11 +14,11 @@ None of that is fixed by a cleverer prompt. It is fixed by a process: say who th
 
 Three things hold SHOTos together.
 
-**Four rules inside every task.** Stop at the boundaries, so nothing is sent, spent, published or deleted without your yes. Agree acceptance first. Read back the real result. Claim only what you can show. The rules live in one short file, the [working agreement](../templates/AGENTS.md), which your agent reads at the start of every session.
+**Four rules inside every task.** Stop at the boundaries, so nothing is sent, spent, published or deleted without your yes. Agree acceptance first. Read back the real result. Claim only what you can show. The rules live in one short file, the [working agreement](../templates/AGENTS.md). A project install loads it in every session. In a chat app, add it to the project instructions or attach it to the chat.
 
 **Six stages for work that matters.** Scope, Hypothesise, Operate, Track, Own, and Sustain and Scale. Small jobs use one stage. A change that someone will rely on moves through all six, and each stage ends with a decision a person makes. [The six stages in detail](framework.md)
 
-**One brief, read by every skill.** You describe your organisation, your people, your limits and the numbers you rely on once. Every skill reads the brief before it asks you anything. See the next section.
+**One brief, read first.** You describe your organisation, your people, your limits and the numbers you rely on once. Wherever the working agreement is loaded, every skill reads the brief before it asks you anything. See the next section.
 
 ## Write one brief
 
@@ -29,9 +29,9 @@ Two parts of the brief do most of the work:
 - **The limits.** Write down what the agent must never do without asking, and what data it must never copy. The working agreement already stops it sending, publishing, spending and deleting without a yes. Your limits add the rules that are particular to you.
 - **Numbers we rely on.** Give each number a source and the date you read it. A number without a source stays marked `[unverified]` in anything the agent writes, so a guess never turns into a headline.
 
-The brief is context, not permission. It cannot widen what the agent is allowed to do, and when it disagrees with the task in front of you, the agent follows the task and tells you which line of the brief is out of date.
+The brief is context, not permission. It can add limits but never removes one. When a fact in the brief disagrees with the task in front of you, the agent uses the task and tells you which line is out of date. When a limit disagrees, it applies the stricter one and asks you.
 
-Keep private material out of it. Personal details, health information, passwords and customer records belong in their own systems. Link to them if a skill needs them.
+Keep private material out of it. Personal details, health information, passwords and customer records belong in their own systems. You can say where they live; the agent opens them only for a task that has approval for that data.
 
 ## Set up in five minutes
 
@@ -40,7 +40,7 @@ The same skills work in three ways. Pick the one that matches how you work today
 **A. One skill in your chat app.** Best for trying SHOTos on one real task.
 1. Download a skill ZIP from the [latest release](https://github.com/SHOTClubhouse/shotos/releases/latest). [Capture the Problem](https://github.com/SHOTClubhouse/shotos/releases/latest/download/capture-the-problem.zip) is a good first one.
 2. Upload it as a skill. In Claude, open **Customize → Skills** and upload the ZIP without unzipping it. In ChatGPT, use **Skills → Create → Upload from your computer** where your workspace allows it. [Step-by-step guide](guides/chat-assistants.md)
-3. Start a fresh chat, attach your `BRIEF.md` and ask for the skill by name.
+3. Start a fresh chat and attach your `BRIEF.md` and the [working agreement](../templates/AGENTS.md). A single skill does not carry either, so ask the agent to read both first, then ask for the skill by name.
 
 **B. A chat project.** Best for a team that works in Claude or ChatGPT every day.
 1. Create a project and paste the [working agreement](../templates/AGENTS.md) into its instructions.
@@ -48,10 +48,11 @@ The same skills work in three ways. Pick the one that matches how you work today
 3. Ask for a skill by name in any chat inside the project. [Step-by-step guide](guides/chat-assistants.md#chatgpt-projects-or-a-claude-chat-using-files)
 
 **C. A terminal.** Best if you already use Claude Code, Codex or another coding agent.
-1. Clone SHOTos next to your project, then run the installer from your project folder. Preview first with `--dry-run`.
+1. From the folder that holds your project, clone SHOTos beside it, move into your project and run the installer. Preview first with `--dry-run`. Replace `my-project` with your project's folder name.
 
    ```sh
    git clone https://github.com/SHOTClubhouse/shotos.git
+   cd my-project
    python ../shotos/install.py --runtime claude --scope project --dry-run
    python ../shotos/install.py --runtime claude --scope project
    ```
@@ -64,20 +65,20 @@ Whichever route you choose, check the first result before relying on it. The ski
 
 ## The twelve steps
 
-These twelve core skills take one piece of work from a rough idea to something a team owns. Each skill says when to hand off to a related one. You do not have to run all twelve: start at the step that matches where your work is today.
+These twelve core skills take one piece of work from a rough idea to something a team owns. They are grouped by the stage where this route uses them; a skill's own README lists every stage it serves. Each skill says when to hand off to a related one. You do not have to run all twelve: start at the step that matches where your work is today.
 
 The example below each step follows Northbank Community Football, an invented club that wants more families at its Saturday sessions. Northbank and its numbers are illustrative, not real.
 
-### Scope: agree what the problem is
+### Start, then Scope: agree what the problem is
 
-**1. [Route the Work](../skills/route-the-work/README.md).** Writes one line saying what the work is, who it is for, how risky it is and who checks it.
+**1. [Route the Work](../skills/route-the-work/README.md).** Usable in any stage, and run first here. Writes one line saying what the work is, who it is for, how risky it is and who checks it.
 *Northbank:* "Asset: open-day plan. Reader: the committee. Risk: medium, because the registration list holds children's details, so the agent works from counts only. Proof: the chair approves the plan."
 
 **2. [Capture the Problem](../skills/capture-the-problem/README.md).** Turns rough notes into a problem statement that separates what people saw from what they want built.
 *Northbank:* "Parents say they did not know sessions existed. Nobody has counted how many new families came this season: not measured."
 
 **3. [Baseline](../skills/baseline/README.md).** Records how things are today, with a source and date for every number.
-*Northbank:* "New families this season: 6, from the registration list, read on 3 October. Website visits to the sessions page: not measured."
+*Northbank:* "New families this season: 6, a count the membership secretary gave from the registration list on 3 October. Website visits to the sessions page: not measured."
 
 ### Hypothesise: make a small, testable bet
 
@@ -93,18 +94,20 @@ The example below each step follows Northbank Community Football, an invented cl
 ### Operate: do the work, small first
 
 **7. [Pilot Before Scale](../skills/pilot-before-scale/README.md).** Tries a few varied items before any bulk or live change.
-*Northbank:* "Send the flyer to one class first and check the booking link works on a phone before it goes to the whole school."
+*Northbank:* "Draft the flyer for one class and test the booking link on a phone. The head teacher approves the flyer before it goes to any parent, and the whole school waits for that first result."
 
 **8. [Label the Proof](../skills/label-the-proof/README.md).** Marks every figure as literal, inferred or illustrative, so nobody mistakes an example for a result.
-*Northbank:* "'30 children attended' is literal, from the sign-in sheet. 'Most came from Year 3' is inferred from the class codes."
+*Northbank:* "'30 children attended' is literal, a headcount the session lead reported. 'Most were in the under-9s' is inferred from the age groups on the session plan."
 
 ### Track: compare the result with the baseline
 
+Report with Evidence also serves Operate, whenever a step needs an honest report.
+
 **9. [Report with Evidence](../skills/report-with-evidence/README.md).** Reports what happened with a Claims block that separates what was checked from what was not.
-*Northbank:* "Registrations rose from 6 to 14, checked against the registration list. Whether the flyer caused it: not tested."
+*Northbank:* "11 new families registered in the four weeks after the open day, a count from the membership secretary. Whether the flyer caused it: not tested."
 
 **10. [Evidence Pack](../skills/evidence-pack/README.md).** Puts the baseline, the result and the gaps side by side so the owner can decide: keep going, change course or stop.
-*Northbank:* "The target of 10 new families was met. Retention after the first month is not yet known."
+*Northbank:* "11 new families against a target of 10, so the target was met. Retention after the first month is not yet known."
 
 ### Own: hand it to the people who will run it
 
